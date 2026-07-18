@@ -1,6 +1,6 @@
 ---
 name: ai-v-radar-daily
-description: Generate, rebuild, inspect, or validate the local “硅谷 AI 原声日报” / AI V-Radar from X/Twitter with Bird and Hermes. Use when Codex is asked to 抓取 Twitter/X AI 动态、生成最近 24 小时 AI 日报、更新 AI V-Radar 页面、调整 AI 人物权重或前三条排序、补翻译或头像、检查每日自动任务，or work on `four-knows/ai-v-radar` and `scripts/fetch_ai_v_radar.py`.
+description: Generate, rebuild, inspect, validate, and publish the local “硅谷 AI 原声日报” / AI V-Radar from X/Twitter with Bird and Codex. Use when Codex is asked to 抓取 Twitter/X AI 动态、生成最近 17 小时 AI 日报、更新或发布 AI V-Radar 页面、推送日报到 GitHub Pages、调整 AI 人物权重或前三条排序、补翻译或头像、检查每日自动任务，or work on `four-knows/ai-v-radar` and `scripts/fetch_ai_v_radar.py`.
 ---
 
 # AI V-Radar Daily
@@ -12,17 +12,25 @@ Operate from the root of the `four-knows` repository that contains this skill. T
 Run from the project root:
 
 ```bash
-python3 scripts/fetch_ai_v_radar.py --fetch-mode search --search-batch-size 8 --search-max-pages 5 --workers 2 --retries 2 --avatar-workers 3 --translation-batch-size 8 --translation-workers 2 --translation-retries 2
+python3 scripts/fetch_ai_v_radar.py --hours 17 --fetch-mode search --search-batch-size 8 --search-max-pages 5 --workers 2 --retries 2 --avatar-workers 3 --translation-batch-size 8 --translation-workers 2 --translation-retries 2
 ```
 
-Use the embedded watchlist in `ai_key_people_watchlist_visual.html` (currently 54 accounts). Use Bird only for read operations and Hermes for Simplified Chinese translation.
+Use the embedded watchlist in `ai_key_people_watchlist_visual.html` (currently 54 accounts). Use Bird only for read operations and the local non-interactive Codex CLI for Simplified Chinese translation.
 
-Reserve `--reuse-data ai-v-radar/YYYYMMDD/data/posts.json` for repairing translation, avatar, layout, or ranking on an already fetched dataset. Never describe reuse as a new 24-hour fetch.
+Reserve `--reuse-data ai-v-radar/YYYYMMDD/data/posts.json` for repairing translation, avatar, layout, or ranking on an already fetched dataset. Never describe reuse as a new 17-hour fetch.
+
+## Use local Codex for translation
+
+- Translate primary posts, quoted posts, X Article titles, and X Article previews with the locally authenticated non-interactive `codex exec` CLI.
+- Run translation in an ephemeral, read-only Codex session with approvals disabled. Keep the translation task isolated from unrelated project instructions.
+- Preserve handles, URLs, hashtags, product names, model names, code, numbers, and technical claims.
+- Cache translations by exact source text plus prompt version. A prompt-version change invalidates older cached translations so stale translation behavior does not silently persist.
+- Require `translation.failed=0` and `translation.coverage=1.0`. Report failures instead of silently falling back to untranslated content.
 
 ## Enforce the time window
 
 - Capture `fetchStartedAt` once, immediately when the fresh command starts.
-- Set `windowStart = fetchStartedAt - 24 hours` exactly.
+- Set `windowStart = fetchStartedAt - 17 hours` exactly.
 - Include a post only when `windowStart <= createdAtIso <= fetchStartedAt`.
 - Do not use the command finish time, a calendar day, “since yesterday”, or a rolling boundary that moves during the fetch.
 - Do not extend the window to fill the page or the first three positions.
@@ -82,7 +90,7 @@ After the report passes content validation, run:
 python3 scripts/render_ai_v_poster.py --input ai-v-radar/YYYYMMDD/data/posts.json --selected-count 13
 ```
 
-This writes `poster.html` and `data/poster.json` in the dated report directory. Use the first three display records: eligible top stories first, then normal author order if fewer than three qualify. Generate concise Chinese technical titles and subtitles with Hermes; preserve model/product names, numbers, and claims, and fall back to deterministic source-derived copy if Hermes fails.
+This writes `poster.html` and `data/poster.json` in the dated report directory. Use the first three display records: eligible top stories first, then normal author order if fewer than three qualify. Generate concise Chinese technical titles and subtitles with the local non-interactive Codex CLI; preserve model/product names, numbers, and claims, and fall back to deterministic source-derived copy if Codex fails.
 
 Render `poster.html` through local HTTP with the Browser skill. Set the viewport to 1744×960, take a full-page capture, and save the final RGB PNG as `ai-v-radar/YYYYMMDD/screenshots.png`. Do not rely on a viewport-only capture because browser chrome may reduce its width. If the Browser backend returns JPEG bytes, save a temporary `.jpg`, convert it to PNG with `sips -s format png`, then move the temporary source out of the report directory.
 
@@ -90,10 +98,11 @@ Match the established poster system:
 
 - exact 1744×960 canvas;
 - black-and-white editorial header `硅谷 AI 原声 | M/D`;
-- subtitle for global expert highlights from the latest 24 hours;
+- subtitle for global expert highlights from the latest 17 hours;
 - exact visible stats `54 人监控` and `13 条精选`;
 - three large bordered cards with real author avatar, rank, author/role, category pill, large Chinese headline, and gray technical subtitle;
 - no invented facts, decorative stock art, filters, navigation, or extra explanatory blocks.
+- when a selected post quotes another post, use the quoted post's complete Chinese translation as the smaller two-line subtitle; only use the generated summary when there is no quoted post.
 
 ## Protect the X session
 
@@ -113,7 +122,7 @@ python3 .agents/skills/ai-v-radar-daily/scripts/validate_radar.py --project .
 
 Require all of the following:
 
-- exact 24-hour `windowStart`/`fetchStartedAt` interval;
+- exact 17-hour `windowStart`/`fetchStartedAt` interval;
 - 54 requested accounts and zero failed accounts for a production run;
 - unique IDs and every post inside the fixed window;
 - UTC source timestamp, `+08:00` Beijing timestamp, and visible `北京` card time;
@@ -126,4 +135,18 @@ Require all of the following:
 
 Serve the repository through local HTTP for visual QA; do not validate only a `file://` page. Use the Browser skill when available, reload after rebuilding, verify the first three authors/content/times, and leave the final report tab as the deliverable.
 
+## Publish the validated report to GitHub
+
+Publishing is part of a successful production run. Do it only after the report and poster pass every validation requirement above.
+
+- Publish only to the GitHub repository `git@github.com:wangwenxiang/four-knows.git` and branch `gh-pages`.
+- Use the user's existing local GitHub SSH authentication for account `wangwenxiang`. Do not request, read, print, or store private keys or tokens.
+- This is a GitHub repository, so no Jira task number is required. Use a concise conventional commit such as `chore: publish AI radar YYYYMMDD HHMM Beijing`.
+- Confirm the current branch is `gh-pages`, then fetch the remote `gh-pages` branch over SSH before committing. If the remote is ahead or the histories have diverged, stop and report the condition; do not overwrite, force-push, or guess a merge.
+- Stage only the current dated directory under `ai-v-radar/YYYYMMDD/`, `ai-v-radar/translation-cache.json`, and `ai-v-radar/avatar-cache.json`. Include production script or skill files only when the current user request intentionally changed them. Never use `git add .`, and never include unrelated untracked files or temporary worktrees.
+- Run `git diff --cached --check` and inspect the staged file list before committing. If no generated file changed, skip the commit and push and report that the remote is already current.
+- Push explicitly over SSH with `git push git@github.com:wangwenxiang/four-knows.git HEAD:gh-pages`. Never force-push.
+- After pushing, verify that `refs/heads/gh-pages` on the SSH remote equals local `HEAD`. If a push returns an unclear status, check the remote SHA before retrying so the same publication is not duplicated.
+
 Report the absolute `index.html` and `screenshots.png` paths, exact Beijing window, selected count, active-author count, first-three authors/categories, recruitment and nontechnical drop counts, translation/avatar coverage, and failed-account count.
+Also report the commit SHA and verified GitHub push status. If publication is blocked, keep the validated local artifacts and explain the exact Git state without force-pushing.

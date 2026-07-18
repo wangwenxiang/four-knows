@@ -23,7 +23,13 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--input", type=Path, help="Dated data/posts.json; defaults to latest")
     parser.add_argument("--selected-count", type=int, default=13, help="Poster精选 count")
-    parser.add_argument("--no-hermes", action="store_true", help="Use deterministic fallback copy")
+    parser.add_argument(
+        "--no-codex",
+        "--no-hermes",
+        dest="no_codex",
+        action="store_true",
+        help="Use deterministic fallback copy",
+    )
     return parser.parse_args()
 
 
@@ -95,12 +101,12 @@ def parse_flat_json(output: str) -> dict[str, str]:
             continue
         if isinstance(value, dict):
             return {str(key): str(text).strip() for key, text in value.items() if str(text).strip()}
-    raise ValueError("Hermes did not return a JSON object")
+    raise ValueError("Codex did not return a JSON object")
 
 
-def editorial_copy(posts: list[dict[str, Any]], use_hermes: bool) -> list[dict[str, str]]:
+def editorial_copy(posts: list[dict[str, Any]], use_codex: bool) -> list[dict[str, str]]:
     fallback = [fallback_copy(post) for post in posts]
-    if not use_hermes or not posts:
+    if not use_codex or not posts:
         return fallback
     source = {f"p{index + 1}": source_text(post) for index, post in enumerate(posts)}
     prompt = (
@@ -112,7 +118,21 @@ def editorial_copy(posts: list[dict[str, Any]], use_hermes: bool) -> list[dict[s
     )
     try:
         completed = subprocess.run(
-            ["hermes", "--ignore-rules", "-z", prompt],
+            [
+                "codex",
+                "-a",
+                "never",
+                "--sandbox",
+                "read-only",
+                "-C",
+                "/private/tmp",
+                "exec",
+                "--ephemeral",
+                "--ignore-user-config",
+                "--skip-git-repo-check",
+                "-",
+            ],
+            input=prompt,
             capture_output=True,
             text=True,
             timeout=240,
@@ -159,7 +179,7 @@ def main() -> int:
     posts = [post for post in payload.get("posts", []) if isinstance(post, dict)][:3]
     if not posts:
         raise RuntimeError(f"No posts found in {posts_path}")
-    copies = editorial_copy(posts, use_hermes=not args.no_hermes)
+    copies = editorial_copy(posts, use_codex=not args.no_codex)
     generated = datetime.fromisoformat(str(payload["fetchStartedAt"]).replace("Z", "+00:00")).astimezone(SHANGHAI)
     monitored = len(payload.get("experts") or [])
     output_dir = posts_path.parents[1]
@@ -195,7 +215,7 @@ def main() -> int:
   .avatar img{{width:100%;height:100%;object-fit:cover;transform:scale(1.08)}} .portrait b{{position:absolute;right:0;bottom:-3px;display:grid;place-items:center;width:31px;height:31px;border:3px solid #151519;border-radius:50%;background:#fff;font-size:16px}}
   .story-body{{min-width:0}} .byline{{display:flex;align-items:center;gap:9px;min-width:0;margin-bottom:5px}} .byline strong{{font-size:26px;line-height:1;white-space:nowrap}} .byline em{{padding:6px 12px;border-radius:999px;background:#151519;color:#fff;font-size:15px;font-style:normal;font-weight:850;white-space:nowrap}} .byline span{{overflow:hidden;color:#666b74;font-size:16px;font-weight:750;text-overflow:ellipsis;white-space:nowrap}}
   h2{{margin:0;max-height:100px;overflow:hidden;font-size:46px;line-height:1.05;font-weight:950;letter-spacing:-1.6px}} .story p{{display:-webkit-box;max-height:64px;margin:8px 0 0;overflow:hidden;color:#5d626b;font-size:25px;line-height:1.28;font-weight:750;white-space:normal;-webkit-box-orient:vertical;-webkit-line-clamp:2}}
-</style></head><body><div class="poster"><header><div><h1>硅谷 AI 原声 <span>| {generated.month}/{generated.day}</span></h1><div class="subtitle">全球核心专家动态精选 · 最近 24 小时</div></div><div class="stats"><div class="stat"><strong>{monitored}</strong><small>人监控</small></div><div class="stat"><strong>{args.selected_count}</strong><small>条精选</small></div></div></header><main>{stories_html}</main></div></body></html>"""
+</style></head><body><div class="poster"><header><div><h1>硅谷 AI 原声 <span>| {generated.month}/{generated.day}</span></h1><div class="subtitle">全球核心专家动态精选 · 最近 17 小时</div></div><div class="stats"><div class="stat"><strong>{monitored}</strong><small>人监控</small></div><div class="stat"><strong>{args.selected_count}</strong><small>条精选</small></div></div></header><main>{stories_html}</main></div></body></html>"""
     poster_path = output_dir / "poster.html"
     poster_path.write_text(page, encoding="utf-8")
     print(json.dumps({"posterHtml": str(poster_path), "posterData": str(output_dir / "data/poster.json"), **poster_data}, ensure_ascii=False, indent=2))

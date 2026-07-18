@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fetch a read-only 24-hour X radar with Bird and render a static report."""
+"""Fetch a read-only 17-hour X radar with Bird and render a static report."""
 
 from __future__ import annotations
 
@@ -179,7 +179,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--watchlist", type=Path, default=DEFAULT_WATCHLIST)
     parser.add_argument("--output-root", type=Path, default=DEFAULT_OUTPUT_ROOT)
-    parser.add_argument("--hours", type=float, default=24.0)
+    parser.add_argument("--hours", type=float, default=17.0)
     parser.add_argument("--count-per-user", type=int, default=20)
     parser.add_argument("--workers", type=int, default=3)
     parser.add_argument("--retries", type=int, default=2)
@@ -189,7 +189,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--limit", type=int, default=0, help="Only fetch the first N experts")
     parser.add_argument("--max-posts", type=int, default=120)
     parser.add_argument("--cookie-source", default="chrome")
-    parser.add_argument("--no-translate", dest="translate", action="store_false", help="Skip Hermes translation")
+    parser.add_argument("--no-translate", dest="translate", action="store_false", help="Skip Codex translation")
     parser.set_defaults(translate=True)
     parser.add_argument("--translation-batch-size", type=int, default=18)
     parser.add_argument("--translation-workers", type=int, default=2)
@@ -771,6 +771,21 @@ def normalize_posts(
 
 ANSI_ESCAPE = re.compile(r"\x1b\[[0-?]*[ -/]*[@-~]")
 CJK = re.compile(r"[\u3400-\u9fff]")
+TRANSLATION_PROMPT_VERSION = "codex-v1"
+CODEX_EXEC_COMMAND = [
+    "codex",
+    "-a",
+    "never",
+    "--sandbox",
+    "read-only",
+    "-C",
+    "/private/tmp",
+    "exec",
+    "--ephemeral",
+    "--ignore-user-config",
+    "--skip-git-repo-check",
+    "-",
+]
 
 
 def needs_translation(text: str) -> bool:
@@ -847,7 +862,7 @@ def parse_translation_json(output: str) -> dict[str, str]:
             continue
         if isinstance(value, dict):
             return {str(key): str(text).strip() for key, text in value.items() if str(text).strip()}
-    raise ValueError("Hermes did not return a JSON object")
+    raise ValueError("Codex did not return a JSON object")
 
 
 def translate_batch(batch: dict[str, str], retries: int) -> tuple[dict[str, str], str]:
@@ -863,7 +878,8 @@ def translate_batch(batch: dict[str, str], retries: int) -> tuple[dict[str, str]
         )
         try:
             completed = subprocess.run(
-                ["hermes", "--ignore-rules", "-z", prompt],
+                CODEX_EXEC_COMMAND,
+                input=prompt,
                 capture_output=True,
                 text=True,
                 timeout=360,
@@ -884,9 +900,9 @@ def translate_batch(batch: dict[str, str], retries: int) -> tuple[dict[str, str]
                         remaining = {key: text for key, text in remaining.items() if key not in valid}
                         if not remaining:
                             return collected, ""
-                        last_error = f"Hermes omitted {len(remaining)} translation keys"
+                        last_error = f"Codex omitted {len(remaining)} translation keys"
                     else:
-                        last_error = "Hermes returned no matching translation keys"
+                        last_error = "Codex returned no matching translation keys"
             else:
                 last_error = redact(completed.stderr or completed.stdout or f"exit {completed.returncode}")
         if attempt < retries:
@@ -920,7 +936,13 @@ def translate_posts(
 
     for key, target in targets.items():
         entry = cached_translations.get(key)
-        translation = entry.get("zh") if isinstance(entry, dict) and entry.get("source") == target["text"] else ""
+        translation = (
+            entry.get("zh")
+            if isinstance(entry, dict)
+            and entry.get("source") == target["text"]
+            and entry.get("promptVersion") == TRANSLATION_PROMPT_VERSION
+            else ""
+        )
         if translation:
             cache_hits += 1
             for container, field in target["destinations"]:
@@ -935,7 +957,7 @@ def translate_posts(
     translated_count = 0
     errors: list[str] = []
     if batches:
-        print(f"Translating {len(pending)} unique texts with Hermes in {len(batches)} batches...", flush=True)
+        print(f"Translating {len(pending)} unique texts with Codex in {len(batches)} batches...", flush=True)
         with concurrent.futures.ThreadPoolExecutor(max_workers=max(1, workers)) as pool:
             future_map = {pool.submit(translate_batch, batch, retries): batch for batch in batches}
             completed_count = 0
@@ -948,18 +970,24 @@ def translate_posts(
                     errors.append(error)
                 for key, translation in translated.items():
                     target = targets[key]
-                    cached_translations[key] = {"source": target["text"], "zh": translation}
+                    cached_translations[key] = {
+                        "source": target["text"],
+                        "zh": translation,
+                        "promptVersion": TRANSLATION_PROMPT_VERSION,
+                    }
                     for container, field in target["destinations"]:
                         container[field] = translation
                     translated_count += 1
 
-    cache["version"] = 1
+    cache["version"] = 2
     cache["updatedAt"] = datetime.now(timezone.utc).isoformat()
     cache_path.parent.mkdir(parents=True, exist_ok=True)
     cache_path.write_text(json.dumps(cache, ensure_ascii=False, indent=2), encoding="utf-8")
     completed = cache_hits + translated_count
     return {
         "enabled": True,
+        "backend": "codex exec",
+        "promptVersion": TRANSLATION_PROMPT_VERSION,
         "eligibleTexts": len(targets),
         "cacheHits": cache_hits,
         "translatedNow": translated_count,
@@ -1120,7 +1148,7 @@ def render_report(
     failed_accounts = sum(len(result.get("experts", [])) for result in failures)
     cards = "".join(render_post(post) for post in posts)
     if not cards:
-        cards = '<div class="empty">最近 24 小时没有抓取到符合条件的公开动态。</div>'
+        cards = '<div class="empty">最近 17 小时没有抓取到符合条件的公开动态。</div>'
     failure_note = ""
     if failures:
         failure_note = f'<div class="notice">有 {failed_accounts} 个账号本轮抓取失败，详情见 data/run-report.json；其他账号的日报已正常生成。</div>'
@@ -1160,7 +1188,7 @@ def render_report(
     </header>
     {failure_note}
     <main class="grid">{cards}</main>
-    <footer>Generated {generated:%Y-%m-%d %H:%M:%S} Asia/Shanghai · Read-only X ingestion via Bird · Translation via Hermes</footer>
+    <footer>Generated {generated:%Y-%m-%d %H:%M:%S} Asia/Shanghai · Read-only X ingestion via Bird · Translation via Codex</footer>
   </div>
 </body>
 </html>"""
@@ -1269,8 +1297,8 @@ def rebuild_from_data(args: argparse.Namespace, experts: list[Expert]) -> int:
 
 def main() -> int:
     args = parse_args()
-    if not math.isclose(args.hours, 24.0):
-        raise RuntimeError("AI V-Radar requires an exact 24-hour window")
+    if not math.isclose(args.hours, 17.0):
+        raise RuntimeError("AI V-Radar requires an exact 17-hour window")
     now = datetime.fromisoformat(args.now.replace("Z", "+00:00")) if args.now else datetime.now(timezone.utc)
     if now.tzinfo is None:
         now = now.replace(tzinfo=SHANGHAI)

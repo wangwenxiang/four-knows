@@ -46,8 +46,8 @@ def main() -> int:
 
     fetch_started = parse_iso(report.get("fetchStartedAt") or report.get("generatedAt"))
     window_start = parse_iso(report.get("windowStart"))
-    if abs((fetch_started - window_start).total_seconds() - timedelta(hours=24).total_seconds()) > 0.001:
-        errors.append("window is not exactly 24 hours from fetchStartedAt")
+    if abs((fetch_started - window_start).total_seconds() - timedelta(hours=17).total_seconds()) > 0.001:
+        errors.append("window is not exactly 17 hours from fetchStartedAt")
 
     ids = [str(post.get("id") or "") for post in posts]
     if not all(ids) or len(ids) != len(set(ids)):
