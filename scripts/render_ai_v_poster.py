@@ -73,6 +73,16 @@ def fallback_copy(post: dict[str, Any]) -> dict[str, str]:
     return {"title": title, "summary": clip(summary_source, 54)}
 
 
+def poster_subtitle(post: dict[str, Any], fallback: str) -> str:
+    """Prefer the quoted post's Chinese translation as the poster subtitle."""
+    quote = post.get("quotedTweet") or {}
+    if isinstance(quote, dict):
+        quoted = str(quote.get("translationZh") or quote.get("text") or "").strip()
+        if quoted:
+            return clip(f"引用｜{quoted}", 110)
+    return clip(fallback, 72)
+
+
 def parse_flat_json(output: str) -> dict[str, str]:
     cleaned = ANSI_ESCAPE.sub("", output).strip()
     decoder = json.JSONDecoder()
@@ -113,9 +123,10 @@ def editorial_copy(posts: list[dict[str, Any]], use_hermes: bool) -> list[dict[s
         generated = {}
     result: list[dict[str, str]] = []
     for index, item in enumerate(fallback, start=1):
+        generated_summary = generated.get(f"p{index}_summary") or item["summary"]
         result.append({
             "title": clip(generated.get(f"p{index}_title") or item["title"], 42),
-            "summary": clip(generated.get(f"p{index}_summary") or item["summary"], 58),
+            "summary": poster_subtitle(posts[index - 1], generated_summary),
         })
     return result
 
@@ -138,7 +149,7 @@ def render_story(post: dict[str, Any], copy: dict[str, str], rank: int) -> str:
           <p>{safe(copy['summary'])}</p>
         </div>
       </article>
-    """
+    """.strip()
 
 
 def main() -> int:
@@ -183,7 +194,7 @@ def main() -> int:
   .portrait{{position:relative;display:grid;place-items:center}} .avatar{{display:grid;place-items:center;width:76px;height:76px;overflow:hidden;border:4px solid #151519;border-radius:50%;background:#111827;color:#fff;font-size:28px;font-weight:900}}
   .avatar img{{width:100%;height:100%;object-fit:cover;transform:scale(1.08)}} .portrait b{{position:absolute;right:0;bottom:-3px;display:grid;place-items:center;width:31px;height:31px;border:3px solid #151519;border-radius:50%;background:#fff;font-size:16px}}
   .story-body{{min-width:0}} .byline{{display:flex;align-items:center;gap:9px;min-width:0;margin-bottom:5px}} .byline strong{{font-size:26px;line-height:1;white-space:nowrap}} .byline em{{padding:6px 12px;border-radius:999px;background:#151519;color:#fff;font-size:15px;font-style:normal;font-weight:850;white-space:nowrap}} .byline span{{overflow:hidden;color:#666b74;font-size:16px;font-weight:750;text-overflow:ellipsis;white-space:nowrap}}
-  h2{{margin:0;max-height:112px;overflow:hidden;font-size:51px;line-height:1.04;font-weight:950;letter-spacing:-2px}} .story p{{margin:7px 0 0;overflow:hidden;color:#5d626b;font-size:31px;line-height:1.1;font-weight:800;white-space:nowrap;text-overflow:ellipsis}}
+  h2{{margin:0;max-height:100px;overflow:hidden;font-size:46px;line-height:1.05;font-weight:950;letter-spacing:-1.6px}} .story p{{display:-webkit-box;max-height:64px;margin:8px 0 0;overflow:hidden;color:#5d626b;font-size:25px;line-height:1.28;font-weight:750;white-space:normal;-webkit-box-orient:vertical;-webkit-line-clamp:2}}
 </style></head><body><div class="poster"><header><div><h1>硅谷 AI 原声 <span>| {generated.month}/{generated.day}</span></h1><div class="subtitle">全球核心专家动态精选 · 最近 24 小时</div></div><div class="stats"><div class="stat"><strong>{monitored}</strong><small>人监控</small></div><div class="stat"><strong>{args.selected_count}</strong><small>条精选</small></div></div></header><main>{stories_html}</main></div></body></html>"""
     poster_path = output_dir / "poster.html"
     poster_path.write_text(page, encoding="utf-8")
