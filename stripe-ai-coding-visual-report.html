@@ -1,0 +1,1469 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stripe AI 编码：技术架构调研</title>
+  <style>
+    :root {
+      --ink: #101828;
+      --muted: #5f6b7a;
+      --line: #dfe4ea;
+      --soft: #f5f7fa;
+      --purple: #635bff;
+      --purple-dark: #3f37d7;
+      --purple-soft: #eeecff;
+      --blue: #0b74de;
+      --blue-soft: #eaf4ff;
+      --green: #087a55;
+      --green-soft: #e9f8f2;
+      --orange: #b45309;
+      --orange-soft: #fff4e5;
+      --red: #b42318;
+      --red-soft: #fff0ee;
+      --white: #fff;
+      --shadow: 0 10px 30px rgba(16, 24, 40, .07);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 88% 1%, rgba(99, 91, 255, .10), transparent 24rem),
+        linear-gradient(#fbfcfe, #f5f7fa 58%, #fff);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.55;
+    }
+
+    a { color: var(--purple-dark); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code, .mono {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: .93em;
+    }
+
+    .page { width: min(1220px, calc(100% - 40px)); margin: 0 auto; }
+
+    .hero {
+      padding: 54px 0 30px;
+      display: grid;
+      grid-template-columns: 1.45fr .55fr;
+      gap: 32px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      color: var(--purple-dark);
+      background: var(--purple-soft);
+      border: 1px solid #d8d4ff;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 16px 0 12px;
+      font-size: clamp(38px, 6vw, 70px);
+      line-height: .98;
+      letter-spacing: -.055em;
+    }
+
+    h1 span { color: var(--purple); }
+
+    .lead {
+      max-width: 850px;
+      margin: 0;
+      color: #344054;
+      font-size: 18px;
+    }
+
+    .hero-note {
+      padding: 18px;
+      background: rgba(255,255,255,.78);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-note strong { display: block; margin-bottom: 5px; }
+    .hero-note p { margin: 0; color: var(--muted); font-size: 13px; }
+
+    section { margin: 24px 0 42px; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 16px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 28px;
+      letter-spacing: -.025em;
+    }
+
+    .section-head p {
+      max-width: 650px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: right;
+    }
+
+    .panel {
+      background: rgba(255, 255, 255, .92);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .intro {
+      padding: 26px;
+      border-left: 5px solid var(--purple);
+    }
+
+    .intro p { margin: 0; font-size: 17px; }
+    .intro p + p { margin-top: 12px; }
+    .intro strong { color: var(--purple-dark); }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .stat {
+      min-height: 142px;
+      padding: 18px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+    }
+
+    .stat .kicker {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .stat .value {
+      margin: 7px 0 5px;
+      font-size: 27px;
+      font-weight: 820;
+      line-height: 1.05;
+      letter-spacing: -.035em;
+    }
+
+    .stat .desc { color: var(--muted); font-size: 12.5px; }
+    .stat.purple { background: linear-gradient(145deg, #fff, var(--purple-soft)); }
+    .stat.green { background: linear-gradient(145deg, #fff, var(--green-soft)); }
+    .stat.orange { background: linear-gradient(145deg, #fff, var(--orange-soft)); }
+
+    .person {
+      display: grid;
+      grid-template-columns: 68px 1fr;
+      gap: 14px;
+      align-items: center;
+      margin-top: 14px;
+      padding: 17px;
+      background: #111827;
+      color: #fff;
+      border-radius: 18px;
+    }
+
+    .person-mark {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      color: #111827;
+      background: linear-gradient(135deg, #fff, #c9c4ff);
+      font-size: 20px;
+      font-weight: 850;
+    }
+
+    .person strong { font-size: 17px; }
+    .person p { margin: 3px 0 0; color: #cbd5e1; font-size: 13px; }
+
+    .case-matrix {
+      overflow-x: auto;
+      background: rgba(255,255,255,.78);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .case-matrix table {
+      width: 100%;
+      min-width: 1220px;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    .case-matrix th,
+    .case-matrix td {
+      padding: 12px 12px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .case-matrix th {
+      color: #475467;
+      background: #f8fafc;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .case-matrix td {
+      color: #344054;
+      font-size: 12.5px;
+      line-height: 1.55;
+    }
+
+    .case-matrix tr:last-child td { border-bottom: 0; }
+    .case-matrix tr:hover td { background: #fbfcff; }
+    .case-matrix strong { color: var(--ink); }
+    .case-matrix a { font-weight: 700; }
+
+    .source-link {
+      display: grid;
+      gap: 3px;
+    }
+
+    .source-link a {
+      color: var(--purple-dark);
+      line-height: 1.25;
+    }
+
+    .source-url {
+      color: #475467;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: 10.5px;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .case-title {
+      display: grid;
+      gap: 3px;
+    }
+
+    .case-title b {
+      color: var(--ink);
+      font-size: 14px;
+      line-height: 1.25;
+    }
+
+    .case-title span {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 750;
+    }
+
+    .case-no {
+      display: inline-block;
+      width: fit-content;
+      margin-bottom: 2px;
+      padding: 2px 6px;
+      color: var(--purple-dark);
+      background: var(--purple-soft);
+      border-radius: 6px;
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .case-points {
+      margin: 0;
+      padding-left: 16px;
+    }
+
+    .case-points li + li { margin-top: 4px; }
+
+    .case-metric-text {
+      color: var(--ink);
+      font-size: 16px;
+      font-weight: 850;
+      letter-spacing: -.02em;
+    }
+
+    .case-note {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 11.5px;
+    }
+
+    .diagram {
+      overflow: hidden;
+      padding: 18px;
+    }
+
+    .diagram svg { display: block; width: 100%; height: auto; }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px 16px;
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .legend span { display: inline-flex; align-items: center; gap: 6px; }
+    .dot { width: 9px; height: 9px; border-radius: 99px; }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 9px;
+      padding: 20px;
+    }
+
+    .step {
+      position: relative;
+      min-height: 142px;
+      padding: 15px 13px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fff;
+    }
+
+    .step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      z-index: 2;
+      top: 54px;
+      right: -15px;
+      width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+      color: var(--purple);
+      background: #fff;
+      border-radius: 999px;
+      font-weight: 900;
+    }
+
+    .step.agent { border-top: 4px solid var(--purple); }
+    .step.fixed { border-top: 4px solid var(--blue); }
+    .step.human { border-top: 4px solid var(--green); }
+
+    .step small {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    .step strong { display: block; margin: 7px 0; font-size: 14px; }
+    .step p { margin: 0; color: var(--muted); font-size: 11.5px; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .card { padding: 22px; }
+    .card h3 { margin: 0 0 8px; font-size: 18px; }
+    .card > p { margin: 0; color: var(--muted); font-size: 13px; }
+
+    .tree {
+      margin-top: 15px;
+      padding: 16px;
+      overflow-x: auto;
+      color: #dbeafe;
+      background: #111827;
+      border-radius: 14px;
+      font-size: 12px;
+      line-height: 1.75;
+      white-space: pre;
+    }
+
+    .layers { display: grid; gap: 8px; margin-top: 15px; }
+    .layer {
+      display: grid;
+      grid-template-columns: 105px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 12px;
+      border-radius: 12px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+    }
+    .layer strong { font-size: 13px; }
+    .layer span { color: var(--muted); font-size: 12px; }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 7px;
+      color: var(--purple-dark);
+      background: var(--purple-soft);
+      border-radius: 8px;
+      font-size: 10px !important;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+
+    .gate-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .gate {
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .gate h3 { margin: 0 0 8px; font-size: 16px; }
+    .gate ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 12.5px; }
+    .gate li + li { margin-top: 5px; }
+
+    .tech-table {
+      overflow-x: auto;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.72);
+    }
+
+    .tech-table table {
+      width: 100%;
+      min-width: 960px;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    .tech-table th,
+    .tech-table td {
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .tech-table th {
+      color: #475467;
+      background: #f8fafc;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .tech-table td { color: #344054; font-size: 12.5px; line-height: 1.58; }
+    .tech-table tr:last-child td { border-bottom: 0; }
+    .tech-table strong { color: var(--ink); }
+    .tech-table code { color: #4338ca; }
+
+    .evidence-note {
+      margin-top: 12px;
+      padding: 13px 15px;
+      color: #344054;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      font-size: 12.5px;
+    }
+
+    .warning {
+      padding: 17px 20px;
+      color: #7a2e0e;
+      background: var(--orange-soft);
+      border: 1px solid #fed7aa;
+      border-radius: 16px;
+      font-size: 13px;
+    }
+
+    .sources {
+      padding: 19px 22px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .sources h2 { margin: 0 0 9px; color: var(--ink); font-size: 17px; }
+    .sources ol { margin: 0; padding-left: 20px; columns: 2; column-gap: 40px; }
+    .sources li { break-inside: avoid; margin-bottom: 6px; }
+
+    footer {
+      padding: 6px 0 35px;
+      color: #8b95a5;
+      font-size: 11px;
+      text-align: center;
+    }
+
+    @media (max-width: 980px) {
+      .hero, .two-col { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .flow { grid-template-columns: repeat(2, 1fr); }
+      .step::after { display: none !important; }
+      .gate-grid { grid-template-columns: 1fr; }
+      .section-head { align-items: start; flex-direction: column; gap: 4px; }
+      .section-head p { text-align: left; }
+    }
+
+    @media (max-width: 600px) {
+      .page { width: min(100% - 22px, 1220px); }
+      .hero { padding-top: 30px; }
+      .stats, .flow { grid-template-columns: 1fr; }
+      .sources ol { columns: 1; }
+      .layer { grid-template-columns: 1fr; gap: 3px; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .page { width: 100%; }
+      .panel, .stat { box-shadow: none; break-inside: avoid; }
+      a { color: inherit; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div>
+        <div class="eyebrow">Engineering Research · 2026-07</div>
+        <h1>Stripe <span>AI 编码</span><br>技术架构</h1>
+        <p class="lead">不是“买一个代码模型”，而是把 Agent 接入标准开发环境、确定性工作流、企业知识、工具权限和快速 CI。</p>
+      </div>
+      <aside class="hero-note">
+        <strong>证据边界</strong>
+        <p>基于 Stripe Minions 两篇官方工程文章、Stripe 工程博客、官方 GitHub Context 仓库，以及 Anthropic、ZenML 等公开材料。Minions 未开源，内部源码细节不做臆测；二手报道按来源标注。</p>
+      </aside>
+    </header>
+
+    <section>
+      <div class="section-head">
+        <h2>01 · Stripe 简述</h2>
+        <p>从技术规模看，它是一家在极高可靠性约束下运行超大型金融软件系统的公司。</p>
+      </div>
+
+      <article class="panel intro">
+        <p>
+          Stripe 于 <strong>2010 年</strong>由
+          <strong>Patrick 与 John Collison 兄弟</strong>创立。Patrick 是典型的少年技术极客：
+          <strong>8 岁在利默里克大学上第一门计算机课程、10 岁开始学习编程</strong>；
+          16 岁凭从零实现的 Lisp 方言 <strong>Croma</strong>（C 写的解释器 + 自研 VM + 用 Croma 自举的编译器，
+          continuation 支持超越 Scheme），获得 2005 年爱尔兰第 41 届
+          <strong>Young Scientist of the Year 总冠军</strong>。
+          核心产品是一组面向开发者的支付、账单、税务、风控和资金基础设施 API。
+          2025 年平台总交易量为 <strong>1.9 万亿美元</strong>，折合日均约
+          <strong>52 亿美元</strong>。
+        </p>
+        <p><strong>Greg Brockman</strong>：Stripe 首任 CTO（2013 年起，公司从 5 人成长到 205 人）；2015 年 12 月与 Sam Altman、Ilya Sutskever 等共同创立 OpenAI，现任总裁。</p>
+        <p>
+          <strong>Minions</strong> 是 Stripe 内部的无人值守、端到端编码 Agent 平台
+          （任务编排、隔离 Devbox、上下文注入、工具调用、质量门禁、CI 修复与 PR 生成）：
+          接收任务后，在隔离 Devbox 中自主理解代码、完成修改、执行门禁与 CI，并生成 PR；
+          目前每周合并超过 <strong>1,300 个</strong>完全由 Minions 编写、经人工 Review 的 PR。
+        </p>
+      </article>
+
+      <div class="stats">
+        <div class="stat purple">
+          <div class="kicker">规模</div>
+          <div class="value">&gt; 8,000 人</div>
+          <div class="desc">官方 jobs 页原文 “More than 8,000 Stripes”；程序员人数未单独公开。</div>
+        </div>
+        <div class="stat green">
+          <div class="kicker">支付吞吐</div>
+          <div class="value">≈ $5.2B / 日</div>
+          <div class="desc">2025 年总量 $1.9T（≈全球 GDP 的 1.6%）除以 365；Cyber Monday 单日 &gt;$10B、峰值 15.2 万笔/分钟。</div>
+        </div>
+        <div class="stat">
+          <div class="kicker">代码资产</div>
+          <div class="value">数亿行</div>
+          <div class="desc">少数几个大型仓库；Ruby monorepo 约 5,000 万行。服务数量未公开。</div>
+        </div>
+        <div class="stat orange">
+          <div class="kicker">AI 编码结果</div>
+          <div class="value">&gt; 1,300 PR / 周</div>
+          <div class="desc">Minions 全量编写、人工 Review、最终合并；Stripe 使用 PR，不称 MR。</div>
+        </div>
+        <div class="stat">
+          <div class="kicker">质量资产</div>
+          <div class="value">&gt; 300 万测试</div>
+          <div class="desc">Ruby 仓约 10 万测试文件、120 万 test units；全跑约需 4 个月。</div>
+        </div>
+        <div class="stat">
+          <div class="kicker">CI</div>
+          <div class="value">≈ 5 万构建 / 周</div>
+          <div class="desc">选择性测试平均只跑约 5%、中位数 0.5%，算力不到全跑的 10%，反馈压缩到分钟级。</div>
+        </div>
+        <div class="stat">
+          <div class="kicker">后端主栈</div>
+          <div class="value">Ruby + Sorbet</div>
+          <div class="desc">不是 Rails；大量 Stripe 自研框架，通用模型预训练知识不足。</div>
+        </div>
+        <div class="stat">
+          <div class="kicker">仓库 / 服务</div>
+          <div class="value">未公开</div>
+          <div class="desc">官方仅称 few large repositories；不能把代码仓数等同于服务数。</div>
+        </div>
+      </div>
+
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>02 · Minions 核心案例</h2>
+        <p>这些案例把 Minions 从“AI 写代码”落到生产吞吐、迁移能力、日常触发体验和 M2M 支付验证上。</p>
+      </div>
+
+      <div class="case-matrix">
+        <table>
+          <colgroup>
+            <col style="width: 15%">
+            <col style="width: 27%">
+            <col style="width: 19%">
+            <col style="width: 16%">
+            <col style="width: 23%">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>场景</th>
+              <th>核心事实</th>
+              <th>规模 / 结果</th>
+              <th>平台能力信号</th>
+              <th>溯源</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="case-no">案例 1</span>
+                <div class="case-title">
+                  <b>每周 1,300+ 生产级 PR</b>
+                  <span>生产常态化</span>
+                </div>
+              </td>
+              <td>
+                <ul class="case-points">
+                  <li>支付核心、API、后台、文档、小 Bug 修复由 Minions 生成。</li>
+                  <li>实现阶段无人工编码；人工负责 Review 与合并决策。</li>
+                  <li>PR 进入 Stripe 常规代码评审和 CI 流程。</li>
+                </ul>
+              </td>
+              <td>
+                <span class="case-metric-text">&gt; 1,300 PR / 周</span>
+                <span class="case-note">支撑年交易额 1 万亿美元+ 代码库；Minions 全量编写、人工审核合并。</span>
+              </td>
+              <td>证明 Agent 已从实验室 Demo 进入高频生产软件交付；瓶颈从写代码转移到任务质量、CI 与 Review。</td>
+              <td>
+                <div class="source-link">
+                  <a href="https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents-part-2">Stripe 官方工程博客 Part 2</a>
+                  <span class="source-url">https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents-part-2</span>
+                </div>
+                <span class="case-note">二次报道：InfoQ · 2026-03-20</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="case-no">案例 2</span>
+                <div class="case-title">
+                  <b>5,000 万行 Ruby 单体库迁移</b>
+                  <span>里程碑测试</span>
+                </div>
+              </td>
+              <td>
+                <ul class="case-points">
+                  <li>在 5,000 万行 Ruby 生产代码库中执行一次特定迁移(非迁移全部代码;迁移具体内容官方未披露)。</li>
+                  <li>发布稿仅描述 Fable 5 无人工干预自主完成;与 Minions 的具体分工未在公开稿中确证。</li>
+                  <li>Stripe 引语:“Fable 5 compresses months of engineering into days.”</li>
+                </ul>
+              </td>
+              <td>
+                <span class="case-metric-text">2+ 个月(整队) → 1 天</span>
+                <span class="case-note">人力预估 “a whole team over two months”；模型一天完成、无人工干预。</span>
+              </td>
+              <td>1M token 上下文 + 128K 输出的长时程模型，叠加分钟级选择性 CI 验证回路，是“一天完成”的技术前提；单靠模型或单靠平台都不成立。</td>
+              <td>
+                <div class="source-link">
+                  <a href="https://www.anthropic.com/news/claude-fable-5-mythos-5">Anthropic / Claude Fable 5 官方发布</a>
+                  <span class="source-url">https://www.anthropic.com/news/claude-fable-5-mythos-5</span>
+                </div>
+                <span class="case-note">2026-06-09；Stripe 5,000 万行 Ruby 迁移案例见官方发布稿 Software engineering 小节。</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="case-no">案例 3</span>
+                <div class="case-title">
+                  <b>Slack 一键触发端到端修 Bug</b>
+                  <span>日常体验</span>
+                </div>
+              </td>
+              <td>
+                <ul class="case-points">
+                  <li>Part 1 口径：在 Slack @ Minions 应用即派单，Agent 可读取整个线程及其中链接作为上下文（ZenML 转述为 emoji 表情触发）。</li>
+                  <li>其他入口：CLI、Web UI、内部文档平台、feature flag 平台；flaky test 检测系统自动建单并附一键启动修复 minion 的按钮。</li>
+                  <li>运行提供 “follow along” 链接：实时观察工具调用、文件编辑、测试失败与 Agent 内部待办。</li>
+                </ul>
+              </td>
+              <td>
+                <span class="case-metric-text">Slack → Devbox → CI → PR</span>
+                <span class="case-note">提示可为非正式口语，无需精心设计 Prompt；使用者已扩展到 PM 与设计师。</span>
+              </td>
+              <td>把 Agent 接到企业协作流，而不是要求用户进入单独 IDE 或复杂 Prompt 工具。</td>
+              <td>
+                <div class="source-link">
+                  <a href="https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents">Stripe 官方工程博客 Part 1</a>
+                  <span class="source-url">https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents</span>
+                </div>
+                <span class="case-note">补充：2026 Q1 公开演讲</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="case-no">案例 4</span>
+                <div class="case-title">
+                  <b>AI 智能体自主支付生日派对</b>
+                  <span>M2M POC</span>
+                </div>
+              </td>
+              <td>
+                <ul class="case-points">
+                  <li>Claude 代理依据个人网站策划生日派对：调研兴趣、找场地、寄邀请函、碳抵消。</li>
+                  <li>经 Machine Payment Protocol（与 Tempo Labs 共同设计）购买 4 项服务：Browserbase 网页抓取、Parallel AI 场地搜索、Postal Form 实体邮件、Stripe Climate 碳抵消。</li>
+                  <li>支付临时化、免预建账户、无存储凭证；性质是技术验证，不是生产业务。</li>
+                </ul>
+              </td>
+              <td>
+                <span class="case-metric-text">≈ $5.47 全任务成本</span>
+                <span class="case-note">含 LLM token 与第三方服务费，代理生成逐项收据；代理还会在自有能力与付费服务间权衡（本地生成 PDF、付费邮寄）。</span>
+              </td>
+              <td>Minions 的边界从“写代码”扩展到“用工具和资金完成任务”。</td>
+              <td>
+                <div class="source-link">
+                  <a href="https://www.zenml.io/llmops-database/ai-powered-developer-productivity-with-minions-and-machine-to-machine-payments">ZenML 深度案例库</a>
+                  <span class="source-url">https://www.zenml.io/llmops-database/ai-powered-developer-productivity-with-minions-and-machine-to-machine-payments</span>
+                </div>
+                <span class="case-note">补充：Stripe 内部演示</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="case-no">案例 5</span>
+                <div class="case-title">
+                  <b>大规模库升级 / API 迁移</b>
+                  <span>内部常态</span>
+                </div>
+              </td>
+              <td>
+                <ul class="case-points">
+                  <li>跨服务依赖统一升级、废弃 API 批量替换、测试用例补全。</li>
+                  <li>多 Minions 并行拆分任务，自动解决冲突并聚合结果。</li>
+                  <li>适合重复、跨仓、跨服务的工程治理。</li>
+                </ul>
+              </td>
+              <td>
+                <span class="case-metric-text">数周 → 几天</span>
+                <span class="case-note">从单点 Bug Fix 扩展到可并行的平台化迁移流水线。</span>
+              </td>
+              <td>体现 Blueprint、Devbox、CI、冲突处理和结果聚合协同，而不只是调用一个代码模型。</td>
+              <td>
+                <div class="source-link">
+                  <a href="https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents-part-2">Stripe 官方工程博客 Part 2</a>
+                  <span class="source-url">https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents-part-2</span>
+                </div>
+                <span class="case-note">二次报道：Ona 企业 AI 报告 · 2026-06</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>03 · Minions 总体架构</h2>
+        <p>模型只处理需要判断的节点；环境、门禁、Git、CI 和发布交给确定性系统。</p>
+      </div>
+
+      <article class="panel diagram">
+        <div class="legend">
+          <span><i class="dot" style="background:#635bff"></i>Agent 判断</span>
+          <span><i class="dot" style="background:#0b74de"></i>确定性平台</span>
+          <span><i class="dot" style="background:#087a55"></i>知识 / 工具</span>
+          <span><i class="dot" style="background:#b45309"></i>质量与审批</span>
+        </div>
+        <svg viewBox="0 0 1120 660" role="img" aria-label="Stripe Minions 技术架构图">
+          <defs>
+            <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L9,3 z" fill="#8993a4"/>
+            </marker>
+            <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+              <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#101828" flood-opacity=".09"/>
+            </filter>
+          </defs>
+
+          <rect x="20" y="24" width="1080" height="596" rx="24" fill="#f8fafc" stroke="#dfe4ea"/>
+          <text x="46" y="55" font-size="12" font-weight="700" fill="#667085">CONTROL PLANE · 任务契约、状态机、权限、轨迹与成本审计</text>
+
+          <g filter="url(#shadow)">
+            <rect x="48" y="82" width="212" height="118" rx="16" fill="#fff" stroke="#dfe4ea"/>
+            <text x="154" y="112" text-anchor="middle" font-size="14" font-weight="800" fill="#101828">Task Contract</text>
+            <text x="154" y="137" text-anchor="middle" font-size="12" fill="#667085">Slack @App · CLI · Web · 工单/文档</text>
+            <text x="154" y="159" text-anchor="middle" font-size="12" fill="#667085">目标、验收标准、相关链接</text>
+            <text x="154" y="181" text-anchor="middle" font-size="11" font-weight="700" fill="#667085">输入先结构化，再交给 Agent</text>
+          </g>
+
+          <g filter="url(#shadow)">
+            <rect x="302" y="82" width="235" height="118" rx="16" fill="#eaf4ff" stroke="#87bff3"/>
+            <text x="420" y="112" text-anchor="middle" font-size="14" font-weight="800" fill="#0b5fad">Blueprint DAG</text>
+            <text x="420" y="137" text-anchor="middle" font-size="12" fill="#45667f">代码化状态机 / Run record</text>
+            <text x="420" y="159" text-anchor="middle" font-size="12" fill="#45667f">Deterministic Node + Agent Node</text>
+            <text x="420" y="181" text-anchor="middle" font-size="11" font-weight="700" fill="#0b5fad">控制重试预算、门禁与可观测轨迹</text>
+          </g>
+
+          <g filter="url(#shadow)">
+            <rect x="580" y="82" width="235" height="118" rx="16" fill="#eeecff" stroke="#a39dff"/>
+            <text x="698" y="112" text-anchor="middle" font-size="14" font-weight="800" fill="#4338ca">Agent Harness</text>
+            <text x="698" y="137" text-anchor="middle" font-size="12" fill="#5b56a5">Block Goose fork（2024 末）</text>
+            <text x="698" y="159" text-anchor="middle" font-size="12" fill="#5b56a5">上下文快照 + 工具 Manifest</text>
+            <text x="698" y="181" text-anchor="middle" font-size="11" font-weight="700" fill="#4338ca">模型只在授权节点内自主循环</text>
+          </g>
+
+          <g filter="url(#shadow)">
+            <rect x="858" y="82" width="212" height="118" rx="16" fill="#fff4e5" stroke="#f2b56c"/>
+            <text x="964" y="112" text-anchor="middle" font-size="14" font-weight="800" fill="#9a4508">PR Package</text>
+            <text x="964" y="137" text-anchor="middle" font-size="12" fill="#81552f">分支、提交、PR 描述</text>
+            <text x="964" y="159" text-anchor="middle" font-size="12" fill="#81552f">测试证据、剩余风险、Owner</text>
+            <text x="964" y="181" text-anchor="middle" font-size="11" font-weight="700" fill="#9a4508">人类最终审批和合并</text>
+          </g>
+
+          <line x1="260" y1="141" x2="295" y2="141" stroke="#8993a4" stroke-width="2" marker-end="url(#arrow)"/>
+          <line x1="537" y1="141" x2="573" y2="141" stroke="#8993a4" stroke-width="2" marker-end="url(#arrow)"/>
+          <line x1="815" y1="141" x2="851" y2="141" stroke="#8993a4" stroke-width="2" marker-end="url(#arrow)"/>
+
+          <text x="46" y="249" font-size="12" font-weight="700" fill="#667085">EXECUTION PLANE · 隔离环境与 Agent 操作闭环</text>
+
+          <g filter="url(#shadow)">
+            <rect x="48" y="276" width="292" height="168" rx="18" fill="#fff" stroke="#87bff3"/>
+            <text x="72" y="307" font-size="15" font-weight="800" fill="#0b5fad">Ephemeral EC2 Devbox</text>
+            <text x="72" y="333" font-size="12" fill="#475467">• EC2 热池 10 秒就绪；每任务一台</text>
+            <text x="72" y="356" font-size="12" fill="#475467">• 代码、Bazel / Sorbet / codegen 缓存</text>
+            <text x="72" y="379" font-size="12" fill="#475467">• QA 环境；无生产数据 / 生产服务</text>
+            <text x="72" y="402" font-size="12" fill="#475467">• 无任意外网；“cattle, not pets” 用完回收</text>
+            <text x="72" y="428" font-size="11" font-weight="700" fill="#0b5fad">隔离边界是安全基线，不靠运行时弹窗</text>
+          </g>
+
+          <g filter="url(#shadow)">
+            <rect x="380" y="276" width="318" height="168" rx="18" fill="#fff" stroke="#a39dff"/>
+            <text x="404" y="307" font-size="15" font-weight="800" fill="#4338ca">Agent Loop</text>
+            <text x="404" y="333" font-size="12" fill="#475467">1. Observe：任务、代码、规则、诊断</text>
+            <text x="404" y="356" font-size="12" fill="#475467">2. Plan / Edit：搜索、修改、生成测试</text>
+            <text x="404" y="379" font-size="12" fill="#475467">3. Act：调用 MCP / shell / code search</text>
+            <text x="404" y="402" font-size="12" fill="#475467">4. Diagnose：读取真实输出后继续迭代</text>
+            <text x="404" y="428" font-size="11" font-weight="700" fill="#4338ca">模型产出实现；系统决定下一步和停止条件</text>
+          </g>
+
+          <g filter="url(#shadow)">
+            <rect x="738" y="276" width="332" height="74" rx="18" fill="#e9f8f2" stroke="#70c8aa"/>
+            <text x="762" y="306" font-size="15" font-weight="800" fill="#087a55">Context Registry</text>
+            <text x="762" y="331" font-size="12" fill="#426b5e">LOAD_ALL 索引 · .mdc glob · 版本化加载快照</text>
+          </g>
+
+          <g filter="url(#shadow)">
+            <rect x="738" y="370" width="332" height="74" rx="18" fill="#e9f8f2" stroke="#70c8aa"/>
+            <text x="762" y="400" font-size="15" font-weight="800" fill="#087a55">Toolshed / MCP Gateway</text>
+            <text x="762" y="425" font-size="12" fill="#426b5e">近 500 MCP 工具 · Sourcegraph · docs · CI</text>
+          </g>
+
+          <line x1="420" y1="200" x2="210" y2="268" stroke="#8993a4" stroke-width="2" marker-end="url(#arrow)"/>
+          <line x1="698" y1="200" x2="540" y2="268" stroke="#8993a4" stroke-width="2" marker-end="url(#arrow)"/>
+          <line x1="698" y1="338" x2="731" y2="322" stroke="#8993a4" stroke-width="2" marker-end="url(#arrow)"/>
+          <line x1="698" y1="396" x2="731" y2="407" stroke="#8993a4" stroke-width="2" marker-end="url(#arrow)"/>
+
+          <text x="46" y="493" font-size="12" font-weight="700" fill="#667085">VERIFICATION PLANE · 质量门禁、CI 修复循环与人工审批</text>
+
+          <g filter="url(#shadow)">
+            <rect x="48" y="518" width="238" height="62" rx="14" fill="#fff" stroke="#f2b56c"/>
+            <text x="167" y="545" text-anchor="middle" font-size="13" font-weight="800" fill="#9a4508">Local Gates</text>
+            <text x="167" y="567" text-anchor="middle" font-size="11" fill="#81552f">format · lint · Sorbet · changed tests · secret scan</text>
+          </g>
+
+          <g filter="url(#shadow)">
+            <rect x="316" y="518" width="238" height="62" rx="14" fill="#fff" stroke="#f2b56c"/>
+            <text x="435" y="545" text-anchor="middle" font-size="13" font-weight="800" fill="#9a4508">Selective CI</text>
+            <text x="435" y="567" text-anchor="middle" font-size="11" fill="#81552f">按实际文件访问记录选择测试；输出失败诊断</text>
+          </g>
+
+          <g filter="url(#shadow)">
+            <rect x="584" y="518" width="238" height="62" rx="14" fill="#fff" stroke="#f2b56c"/>
+            <text x="703" y="545" text-anchor="middle" font-size="13" font-weight="800" fill="#9a4508">Repair Budget</text>
+            <text x="703" y="567" text-anchor="middle" font-size="11" fill="#81552f">autofix 优先；CI 硬上限 2 轮后交人工</text>
+          </g>
+
+          <g filter="url(#shadow)">
+            <rect x="852" y="518" width="218" height="62" rx="14" fill="#fff" stroke="#f2b56c"/>
+            <text x="961" y="545" text-anchor="middle" font-size="13" font-weight="800" fill="#9a4508">Human Gate</text>
+            <text x="961" y="567" text-anchor="middle" font-size="11" fill="#81552f">Code Owner review · merge decision</text>
+          </g>
+
+          <rect x="48" y="600" width="1022" height="28" rx="8" fill="#fff0ee" stroke="#f2a49e"/>
+          <text x="559" y="619" text-anchor="middle" font-size="11" font-weight="700" fill="#9f2d24">
+            强制底线：上下文可追踪 · 工具最小授权 · 无生产数据 · 使用真实命令输出 · PR 由人类最终审批
+          </text>
+        </svg>
+        <div class="tech-table" style="margin-top:14px">
+          <table>
+            <colgroup>
+              <col style="width: 18%">
+              <col style="width: 45%">
+              <col style="width: 37%">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>架构点</th>
+                <th>工程含义</th>
+                <th>公开资料映射</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Blueprint（编排原语）</strong></td>
+                <td>“workflows defined in code”：一个状态机交错编排两类节点——确定性代码节点（Run configured linters、Push changes，完全不调 LLM）与 Agent 节点（Implement task、Fix CI failures）。支持逐节点上下文工程：限制该节点可用工具集、改写系统提示、简化对话历史。团队可自建 Blueprint，例如确定性 codemod 搞不定的 “tricky LLM-assisted migrations”。</td>
+                <td>Part 2 原文：“a state machine that intermixes deterministic code nodes and free-flowing agent nodes”；能预判的决策用确定性代码，“saves tokens (and CI costs) at scale”，“putting LLMs into contained boxes” 带来可复合的可靠性。</td>
+              </tr>
+              <tr>
+                <td><strong>Devbox（执行环境）</strong></td>
+                <td>AWS EC2 实例，含全量源码与运行中服务；热池预置 10 秒内就绪——预克隆巨型 git 仓库、预热 Bazel 与类型检查缓存、常驻代码生成服务，就绪即在各主仓最近 master 上可跑 REPL / 测试 / 类型检查。每任务一台、用完即弃。跑在 QA 环境：无真实用户数据、无生产服务、无任意外网——因此可给 Agent 全权限、零确认弹窗，错误被限制在单 Devbox 爆炸半径内。</td>
+                <td>Part 2：就绪目标 “within 10 seconds”；无人值守环境三属性 “parallelizable, predictable, isolated”；不用本地容器 + git worktree 的原因是二者 “are hard to combine”。</td>
+              </tr>
+              <tr>
+                <td><strong>Agent Harness</strong></td>
+                <td>2024 年末内部 fork Block 开源代理 Goose，适配内部 LLM 基础设施；只针对无人值守场景开发（人监督场景直接给工程师用 Cursor / Claude Code）。系统提示极简——本质是 “implement this task completely, no mistakes”，复杂性全部放在工具与 Blueprint 编排层，而非 Prompt。</td>
+                <td>Part 1 / Part 2 确认 Goose fork 与时间点；ZenML 记录极简系统提示与 “directional breadcrumbs”（人先起头写 diff，Agent 接着做）技巧。所用具体模型两篇官方文章均未披露。</td>
+              </tr>
+              <tr>
+                <td><strong>Toolshed（MCP 网关）</strong></td>
+                <td>中心化内部 MCP Server，近 500 个工具（Part 1 时为 400+）：代码搜索（Sourcegraph）、内部文档、工单、构建状态、测试数据、SaaS API。一次注册、全 fleet（数百个 Agent 系统）即刻可用。关键取舍：默认只给 minion 一个刻意小的精选子集（“smaller box” 表现更好），可按主题成组添加；内部安全控制框架拦截破坏性调用。</td>
+                <td>Part 2 原文：“a centralized internal MCP server”、“nearly 500 MCP tools”、“an intentionally small subset of tools by default”。</td>
+              </tr>
+              <tr>
+                <td><strong>Context Registry（规则文件）</strong></td>
+                <td>规则即代码、三工具一份：标准化 Cursor 规则格式，harness 同时兼容遗留自研格式，并把 Cursor 规则同步为 Claude Code 可读——minion、Cursor、Claude Code 读同一套指导，避免重复维护。全局无条件规则“极为节制”，规则几乎全部按子目录 / 文件模式作用域化，文件系统遍历时自动附加。</td>
+                <td>Part 2 规则策略原文：“scoped to specific subdirectories or file patterns, automatically attached”；GitHub <code>stripe-salesforce-ai-context</code> 展示同构公开样本：<code>LOAD_ALL.md</code>、<code>rules/*.mdc</code>、244 个 <code>v02_*</code> 动作、2,175 模型 / 8,461 字段。</td>
+              </tr>
+              <tr>
+                <td><strong>Verification Plane（验证面）</strong></td>
+                <td>模型不能“口头通过”：push 时后台守护进程预计算 lint 启发式、修复不到 1 秒；300 万+ 测试做选择性执行（平均 5%、中位数 0.5%）；CI 失败先自动应用 autofix，无 autofix 的失败回灌 Agent 节点给一次本地修复机会；CI 硬上限 2 轮，之后必须交人工——理由是 CI “cost tokens, compute, and time”，无限循环边际收益递减。</td>
+                <td>Part 1 “at most two rounds of CI”；Part 2 lint “well under a second on a push”；Selective Test Execution 与 Sorbet 文章提供快反馈与类型门禁的实现（见第 07 节）。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>04 · 强制工作流</h2>
+        <p>Blueprint 的本质是：LLM 负责开放问题，程序负责可预知步骤。</p>
+      </div>
+
+      <div class="panel flow">
+        <div class="step fixed">
+          <small>Deterministic</small>
+          <strong>预取上下文</strong>
+          <p>解析工单、文档、构建链接，提前调用 MCP 注入。</p>
+        </div>
+        <div class="step fixed">
+          <small>Deterministic</small>
+          <strong>分配 Devbox</strong>
+          <p>干净分支、临时凭证、网络策略、资源预算。</p>
+        </div>
+        <div class="step agent">
+          <small>Agent</small>
+          <strong>实现任务</strong>
+          <p>搜索、理解、编辑、运行局部测试；工具集受限。</p>
+        </div>
+        <div class="step fixed">
+          <small>Deterministic</small>
+          <strong>本地门禁</strong>
+          <p>format、lint、Sorbet、受影响测试、Secret 扫描。</p>
+        </div>
+        <div class="step agent">
+          <small>Agent</small>
+          <strong>修复诊断</strong>
+          <p>只把实际失败输出交给模型，不接受口头“已通过”。</p>
+        </div>
+        <div class="step fixed">
+          <small>Deterministic</small>
+          <strong>CI ≤ 2 轮</strong>
+          <p>先应用 autofix；第二轮后停止自动循环。</p>
+        </div>
+        <div class="step human">
+          <small>Approval</small>
+          <strong>PR + 人审</strong>
+          <p>检查修改、验证记录、剩余风险，再决定合并。</p>
+        </div>
+      </div>
+
+      <div class="tech-table" style="margin-top:14px">
+        <table>
+          <colgroup>
+            <col style="width: 15%">
+            <col style="width: 25%">
+            <col style="width: 34%">
+            <col style="width: 26%">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>节点</th>
+              <th>输入</th>
+              <th>系统动作</th>
+              <th>产物 / 停止条件</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Context Prefetch<br>（预运行水合）</strong></td>
+              <td>Slack 线程及其中全部链接、工单、设计文档、构建链接。</td>
+              <td>在 minion 启动前，确定性地对 “likely-looking links” 执行对应 MCP 工具（Part 1 原文：hydrate context “before a minion run even starts”）：预取工单详情、内部文档、构建状态、Sourcegraph 代码情报。大型参考资料不全塞进模型，需要时按文件或符号补取。</td>
+              <td>可审计的 context snapshot；后续 Review 能看到 Agent 当时“知道了什么”。</td>
+            </tr>
+            <tr>
+              <td><strong>Sandbox Provision<br>（热池签出）</strong></td>
+              <td>目标仓库、基线分支、任务权限、资源预算。</td>
+              <td>从热池签出 EC2 Devbox（10 秒内就绪）：巨型仓库已克隆到最近 master、Bazel 与类型检查缓存已预热、代码生成服务常驻；创建任务分支。QA 环境隔离即安全基线——无生产数据、无生产服务、无任意外网，因此可给全权限、零确认弹窗。</td>
+              <td>每任务一台隔离环境，可同时并行拉起多台；环境失败直接终止，不让 Agent 自行扩大权限。</td>
+            </tr>
+            <tr>
+              <td><strong>Agent Work<br>（授权节点内自主循环）</strong></td>
+              <td>任务合同、上下文快照、本节点工具 manifest（刻意小的精选子集）、仓库规则。</td>
+              <td>Goose fork 在 Blueprint 授权的 Agent 节点内循环：搜索代码、编辑文件、跑局部测试。逐节点上下文工程：限制工具集、改写系统提示、简化对话历史。系统提示极简（“implement this task completely, no mistakes”）；运行全程有 “follow along” 链接可实时观察每步工具调用。</td>
+              <td>代码 diff、测试补充、运行轨迹；测试失败时 Agent 读取真实报错迭代（“reading error messages and adjusting code”），超预算则回到确定性节点。</td>
+            </tr>
+            <tr>
+              <td><strong>Quality Gate<br>（本地门禁，shift left）</strong></td>
+              <td>代码 diff、变更文件、命令配置。</td>
+              <td>“Shifting feedback left”：会挂 CI 的检查必须在 push 前暴露。一个 linter 子集作为确定性 Blueprint 节点本地循环，直到能一次通过 CI 才 push；pre-push hook 自动修常见 lint 问题——后台守护进程预计算 lint 规则启发式并缓存，push 时修复耗时不到 1 秒；Sorbet 提供毫秒级类型反馈。</td>
+              <td>通过则 push 进 CI；失败把最小诊断片段交给 Agent 修复，不接受“我认为通过”。</td>
+            </tr>
+            <tr>
+              <td><strong>CI Repair Loop<br>（硬上限 2 轮）</strong></td>
+              <td>CI 失败任务、日志、自动修复建议。</td>
+              <td>从 300 万+ 测试中选择性执行（平均约 5%、中位数 0.5%）；失败测试若有确定性 autofix 则自动应用；无 autofix 的失败送回 Agent 节点，给 “one more chance to fix the failing test locally”；第二轮 CI 后停止自动循环——CI “cost tokens, compute, and time”，无限循环边际收益递减。</td>
+              <td>可评审分支，或带失败证据的停止状态，由人类决定是否继续。</td>
+            </tr>
+            <tr>
+              <td><strong>PR + 发起人闭环<br>（人审硬门槛）</strong></td>
+              <td>通过（或止步于）两轮 CI 的分支。</td>
+              <td>按 Stripe PR 模板生成 PR。发起工程师检查：满意则请求正式代码评审；不满意可给出进一步指令让 minion 推送更新；也可通过 SSH / VS Code 直接接管 Devbox 手工收尾。Agent 永不自主合并（“the agent doesn't merge code autonomously”）。</td>
+              <td>合并决策永远在人；不完美的运行 “often still an excellent starting point”。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>05 · Context-as-Code</h2>
+        <p>官方 GitHub 仓库不是 Minions 源码，但很好地展示了 Stripe 如何把领域知识、生成规则和可运行样例做成 Agent 可消费的代码资产。</p>
+      </div>
+
+      <div class="two-col">
+        <article class="panel card">
+          <h3>stripe-salesforce-ai-context</h3>
+          <p>核心价值不是“文档很多”，而是把 AI 容易幻觉的 API 面、元数据约束和部署规则写成可加载、可作用域化、可复用的工程文件。</p>
+          <div class="tree">context/
+├── LOAD_ALL.md                 # 加载索引
+├── Platform-Architecture.md    # 架构与决策
+├── API-Extension.md            # API 使用模式
+├── Stripe-Billing-Flows.md     # 领域流程
+├── invocable-actions...md      # 244 个 v02_* 动作
+├── models-reference.md         # 2,175 模型 / 8,461 字段
+└── rules/
+    ├── flow-builder.mdc        # globs: **/*.flow-meta.xml
+    └── lwc-stripe-payment.mdc  # globs: **/*.{js,html,cls}
+
+examples/force-app/             # Flow / Apex / LWC 可部署样例
+setup/                          # Scratch Org
+prompts/                        # 加载入口</div>
+        </article>
+
+        <article class="panel card">
+          <h3>上下文分层</h3>
+          <p>LOAD_ALL.md 是单一加载入口：核心上下文约 35K Token 先加载；两个大型引用文件约 195K Token 明示 “Do not load them upfront”，且必须成对按需加载（“Always load both together” —— action 名与模型字段总是配套使用）。</p>
+          <div class="layers">
+            <div class="layer">
+              <strong>核心架构</strong>
+              <span>Universal Connector、API Extension、Billing Flow 的关系与选型</span>
+              <span class="tag">~35K Token</span>
+            </div>
+            <div class="layer">
+              <strong>作用域规则</strong>
+              <span><code>.mdc</code> 使用 glob 生效，<code>alwaysApply: false</code>，避免规则全局污染</span>
+              <span class="tag">Scoped</span>
+            </div>
+            <div class="layer">
+              <strong>大型字典</strong>
+              <span>actions-reference ~33K（244 个 <code>v02_*</code> 动作）+ models-reference ~160K（2,175 模型 / 8,461 字段），成对加载</span>
+              <span class="tag">On demand</span>
+            </div>
+            <div class="layer">
+              <strong>Golden Examples</strong>
+              <span>Flow XML、Apex helper、LWC Payment Element 组成可部署样例</span>
+              <span class="tag">Executable</span>
+            </div>
+            <div class="layer">
+              <strong>动态工具</strong>
+              <span>Salesforce CLI / MCP / Stripe MCP 查询真实 Org 和 API 状态</span>
+              <span class="tag">Runtime</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="gate-grid" style="margin-top:14px">
+        <article class="gate">
+          <h3>规则必须具体</h3>
+          <ul>
+            <li>Flow 除 <code>start</code> 外每个元素必须有入边</li>
+            <li>Trace <code>connector</code> / <code>faultConnector</code> / <code>scheduledPaths</code></li>
+            <li>骨架固定 <code>apiVersion 64.0</code>、<code>AUTO_LAYOUT_CANVAS</code>、<code>locationX/Y=0</code></li>
+            <li>每个 callout 五项强制参数：<code>accountRecordId</code>、<code>idempotencyKey</code>（模式 <code>{!$Flow.InterviewGuid}-{Operation}-{RecordId}</code>）、<code>ignoreBillingSyncEventProcessing</code>、<code>performDmlSaveAfterCalls</code>、<code>faultConnector</code></li>
+            <li>生成状态保持 <code>Draft</code>，部署后人工激活；生成后回溯每个 connector 目标验证连通性</li>
+          </ul>
+        </article>
+        <article class="gate">
+          <h3>领域约束进入代码</h3>
+          <ul>
+            <li>Callout 使用 <code>AsyncAfterCommit</code></li>
+            <li>每次 Stripe API 调用先解析 <code>Stripe_Account__c</code></li>
+            <li>LWC 用 <code>data-stripe-element</code> 属性挂载（Shadow DOM 会把 ID 重写为 <code>payment-element-86</code>）</li>
+            <li>3DS 用服务端确认（LWS 禁止 <code>confirmPayment()</code> 注入模态框）+ 纯 JS 重定向；支付状态只由 webhook 回写</li>
+            <li>webhook 异步延迟用 Queueable 重试：最多 3 次、每次延迟 1 分钟，先同步查一次快路径</li>
+          </ul>
+        </article>
+        <article class="gate">
+          <h3>知识必须能验证</h3>
+          <ul>
+            <li>静态规则可由 lint / 编译检查</li>
+            <li>Golden Example 可部署到 Scratch Org / Sandbox</li>
+            <li>CSP Trusted Sites 必须 Setup UI 手工配全 6 个指令——<code>frame-src</code> 缺失时 Payment Element 渲染为空容器且 UI 无报错</li>
+            <li>SOQL 使用 <code>WITH USER_MODE</code>，DML 需显式 CRUD/FLS</li>
+            <li>规则和 API 版本随代码评审一起演进</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="tech-table" style="margin-top:14px">
+        <table>
+          <colgroup>
+            <col style="width: 22%">
+            <col style="width: 34%">
+            <col style="width: 44%">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>GitHub 文件 / 代码规则</th>
+              <th>可提炼的平台能力</th>
+              <th>对 Minions / 企业 Agent 平台的启示</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>LOAD_ALL.md</code> + README</td>
+              <td>索引 + 分层预算：核心 ~35K 常驻，引用 ~195K 按需成对加载；README 的推荐启动语只有一句——“Read <code>context/LOAD_ALL.md</code> and load the core context files it lists. When ready, tell me what you loaded.”（加载 + 自检确认模式）。</td>
+              <td>平台应记录每次任务的 context snapshot：加载了哪些文件、哪些版本、哪些规则命中，方便 Review 和回放。</td>
+            </tr>
+            <tr>
+              <td><code>flow-builder.mdc</code></td>
+              <td>frontmatter 三字段（<code>description</code> / <code>globs</code> / <code>alwaysApply: false</code>）把规则作用域绑定到 <code>**/*.flow-meta.xml</code>；规则主体是可机检的结构不变量：除 start 外每元素必须有入边、五项强制 callout 参数、<code>AsyncAfterCommit</code>、生成后逐 connector 验证——每条都配 WRONG/RIGHT 对照与报错原文（如 “apexClass is invalid”）。</td>
+              <td>Agent 写低代码 XML 时，最关键的不是自然语言说明，而是可机检的结构不变量和部署前门禁。</td>
+            </tr>
+            <tr>
+              <td><code>API-Extension.md</code></td>
+              <td>三分支决策树：<code>v02_*</code> 强类型动作覆盖 “95%+ of use cases”；未覆盖端点 / beta / 指定 API 版本走 <code>AgnosticInvocable</code>（原始 endpoint + URL-encoded form body，非 JSON）；跨 Flow 复用或深嵌套构造封装 Helper Invocable。文末给 AI 的六步指引：先搜 actions-reference → 再搜 models-reference → 优先强类型 → 永远设 accountRecordId。</td>
+              <td>工具选择应是决策树：强类型动作优先，通用 API 调用兜底，重复模式沉淀为内部平台能力。</td>
+            </tr>
+            <tr>
+              <td><code>lwc-stripe-payment.mdc</code></td>
+              <td>规则覆盖 CSP 6 指令（<code>frame-src</code> 为关键坑）、Stripe.js 必须 CDN 加载（PCI 要求）、<code>renderedCallback</code> 是唯一安全挂载点（配 guard flag）、服务端确认三步流程、webhook 状态机（metadata 带回 SF 记录 ID、解析 <code>Request_Body__c</code> 原始 JSON）、Queueable 3×1min 重试，以及 14 条 Common Mistakes 清单。</td>
+              <td>前端 Agent 需要同时理解浏览器安全、支付合规、Salesforce 生命周期和后端一致性，不能只生成 UI 代码。</td>
+            </tr>
+            <tr>
+              <td>README + <code>Platform-Architecture.md</code> 的 agent 元指令</td>
+              <td>直接写给 Agent 的操作规程：<code>docs.stripe.com</code> 任意子页加 <code>.md</code> 后缀可得干净 markdown；“Do not guess API parameters”；“Never assume an action doesn't exist — always search the reference files first”；无 org 访问时用占位字段名并写入激活前清单；CLI 统一用 <code>sf</code>（弃 <code>sfdx</code>）。</td>
+              <td>上下文资产里应包含“Agent 行为规范”层：怎么查文档、什么禁止臆测、拿不到运行时信息时的降级动作——这与代码规则同等重要。</td>
+            </tr>
+            <tr>
+              <td><code>prompts/</code> + <code>examples/</code> 验证闭环</td>
+              <td><code>load-stripe-context.txt</code> 是无文件访问工具（ChatGPT 等）的降级方案：列 8 个待读文件 + 固定确认文案 + 6 条 KEY RULES。examples 全部标注 “Status: Validated”，五步流水线：Context loaded → Prompted → Generated → Validated（部署到 scratch org 端到端验证）→ Published；README Troubleshooting 表把每个常见故障映射回对应规则。</td>
+              <td>Golden Example 必须真的部署验证过才能入库；故障与规则双向索引，让规则库随失败案例持续演进——这就是可运维的知识库，而非静态文档。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>06 · 面向 2,000+ 仓库的复制方式</h2>
+        <p>中央建设平台，业务部门维护领域 Context；不能按部门复制二十套 Agent 基建。</p>
+      </div>
+
+      <article class="panel diagram">
+        <svg viewBox="0 0 1120 430" role="img" aria-label="大型企业 AI 编码平台架构">
+          <defs>
+            <marker id="arrow2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L9,3 z" fill="#8993a4"/>
+            </marker>
+          </defs>
+
+          <rect x="35" y="30" width="1050" height="78" rx="18" fill="#111827"/>
+          <text x="560" y="61" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">统一 AI Coding Control Plane</text>
+          <text x="560" y="87" text-anchor="middle" font-size="12" fill="#cbd5e1">Task / Run / Blueprint / Model Gateway / Policy / Audit / Cost / Evaluation</text>
+
+          <rect x="55" y="150" width="235" height="100" rx="16" fill="#eaf4ff" stroke="#87bff3"/>
+          <text x="173" y="182" text-anchor="middle" font-size="14" font-weight="800" fill="#0b5fad">Runner / Devbox</text>
+          <text x="173" y="208" text-anchor="middle" font-size="12" fill="#45667f">镜像 · 预热 · 隔离 · 回收</text>
+          <text x="173" y="229" text-anchor="middle" font-size="12" fill="#45667f">每 Task 独立执行环境</text>
+
+          <rect x="315" y="150" width="235" height="100" rx="16" fill="#e9f8f2" stroke="#70c8aa"/>
+          <text x="433" y="182" text-anchor="middle" font-size="14" font-weight="800" fill="#087a55">MCP Gateway</text>
+          <text x="433" y="208" text-anchor="middle" font-size="12" fill="#426b5e">工具注册 · 权限 · 审计</text>
+          <text x="433" y="229" text-anchor="middle" font-size="12" fill="#426b5e">工单 · 文档 · 代码 · CI</text>
+
+          <rect x="575" y="150" width="235" height="100" rx="16" fill="#eeecff" stroke="#a39dff"/>
+          <text x="693" y="182" text-anchor="middle" font-size="14" font-weight="800" fill="#4338ca">Context Registry</text>
+          <text x="693" y="208" text-anchor="middle" font-size="12" fill="#5b56a5">全局 / 部门 / 仓库 / 目录</text>
+          <text x="693" y="229" text-anchor="middle" font-size="12" fill="#5b56a5">规则版本与实际加载快照</text>
+
+          <rect x="835" y="150" width="235" height="100" rx="16" fill="#fff4e5" stroke="#f2b56c"/>
+          <text x="953" y="182" text-anchor="middle" font-size="14" font-weight="800" fill="#9a4508">Quality Gate</text>
+          <text x="953" y="208" text-anchor="middle" font-size="12" fill="#81552f">lint · type · test · security</text>
+          <text x="953" y="229" text-anchor="middle" font-size="12" fill="#81552f">Code Owner · 风险审批</text>
+
+          <line x1="173" y1="108" x2="173" y2="142" stroke="#8993a4" stroke-width="2" marker-end="url(#arrow2)"/>
+          <line x1="433" y1="108" x2="433" y2="142" stroke="#8993a4" stroke-width="2" marker-end="url(#arrow2)"/>
+          <line x1="693" y1="108" x2="693" y2="142" stroke="#8993a4" stroke-width="2" marker-end="url(#arrow2)"/>
+          <line x1="953" y1="108" x2="953" y2="142" stroke="#8993a4" stroke-width="2" marker-end="url(#arrow2)"/>
+
+          <rect x="55" y="300" width="315" height="86" rx="16" fill="#fff" stroke="#dfe4ea"/>
+          <text x="213" y="331" text-anchor="middle" font-size="14" font-weight="800" fill="#101828">业务部门 A</text>
+          <text x="213" y="357" text-anchor="middle" font-size="12" fill="#667085">架构规则 · 领域工具 · Golden Tasks · Code Owners</text>
+
+          <rect x="403" y="300" width="315" height="86" rx="16" fill="#fff" stroke="#dfe4ea"/>
+          <text x="560" y="331" text-anchor="middle" font-size="14" font-weight="800" fill="#101828">业务部门 B</text>
+          <text x="560" y="357" text-anchor="middle" font-size="12" fill="#667085">架构规则 · 领域工具 · Golden Tasks · Code Owners</text>
+
+          <rect x="750" y="300" width="320" height="86" rx="16" fill="#fff" stroke="#dfe4ea"/>
+          <text x="910" y="331" text-anchor="middle" font-size="14" font-weight="800" fill="#101828">业务部门 N</text>
+          <text x="910" y="357" text-anchor="middle" font-size="12" fill="#667085">架构规则 · 领域工具 · Golden Tasks · Code Owners</text>
+
+          <line x1="213" y1="292" x2="433" y2="251" stroke="#8993a4" stroke-width="1.7" marker-end="url(#arrow2)"/>
+          <line x1="560" y1="292" x2="693" y2="251" stroke="#8993a4" stroke-width="1.7" marker-end="url(#arrow2)"/>
+          <line x1="910" y1="292" x2="953" y2="251" stroke="#8993a4" stroke-width="1.7" marker-end="url(#arrow2)"/>
+        </svg>
+      </article>
+
+      <div class="warning" style="margin-top:14px">
+        <strong>仓库准入条件：</strong>
+        必须有稳定的 bootstrap、format、lint、typecheck、test-changed、security-scan 命令，以及架构说明、Code Owners 和可计算验收标准。
+        没有这些基础的仓库，应先治理，再开放无人值守写代码。
+      </div>
+
+      <div class="tech-table" style="margin-top:14px">
+        <table>
+          <colgroup>
+            <col style="width: 18%">
+            <col style="width: 29%">
+            <col style="width: 29%">
+            <col style="width: 24%">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>治理层</th>
+              <th>平台团队负责</th>
+              <th>业务仓库负责</th>
+              <th>上线判据</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>运行时</strong></td>
+              <td>Runner 镜像、Devbox 预热池、任务级凭证、网络策略、资源预算、run trace。</td>
+              <td>声明 bootstrap / test / build 命令，维护本仓缓存策略和代码生成入口。</td>
+              <td>新任务可在干净环境内一键恢复，失败可通过日志定位到命令或权限。</td>
+            </tr>
+            <tr>
+              <td><strong>上下文</strong></td>
+              <td>Context Registry、版本索引、加载快照、全局安全规则、跨仓通用规则。</td>
+              <td>维护架构说明、目录级 <code>.mdc</code>、API 字典、Golden Examples、领域术语表。</td>
+              <td>Agent 能在不问人的情况下找到正确 API、正确入口和正确测试。</td>
+            </tr>
+            <tr>
+              <td><strong>工具</strong></td>
+              <td>MCP Gateway、工具注册、权限边界、审计日志、敏感操作审批策略。</td>
+              <td>提供领域只读查询、沙箱写操作、Mock / fixture / 测试数据生成工具。</td>
+              <td>工具返回结构化结果；敏感工具有最小权限和可追踪调用记录。</td>
+            </tr>
+            <tr>
+              <td><strong>评估</strong></td>
+              <td>Golden Task 评测平台、回归集、成本/成功率/人工干预率报表。</td>
+              <td>提交真实历史任务、失败样本、代码评审规则和业务验收脚本。</td>
+              <td>在代表性任务集上通过率、误改率、CI 成本和 Review 负担达标。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <article class="panel card" style="margin-top:14px">
+        <h3>从 0 到 1 的建设顺序（由溯源事实推导的最小可行路径）</h3>
+        <p>Stripe 的每一层都先于 Minions、为人类工程师而建（“what's good for humans is good for agents”）。复刻时按同样顺序，每层有明确验收，再叠下一层。</p>
+        <div class="layers">
+          <div class="layer">
+            <strong>0 · 仓库治理</strong>
+            <span>bootstrap / format / lint / typecheck / test-changed / security-scan 全部命令化且快而确定——这是 Agent 反馈回路的原料，没有它后面全部失效</span>
+            <span class="tag">验收：干净机器一键跑通</span>
+          </div>
+          <div class="layer">
+            <strong>1 · 隔离执行环境</strong>
+            <span>每任务一台、热池预置（Stripe 基准：10 秒就绪，预克隆仓库 + 预热构建/类型缓存）；隔离到无生产数据、无任意外网——用隔离边界换取 Agent 全权限、零确认弹窗</span>
+            <span class="tag">验收：并行 N 台互不影响</span>
+          </div>
+          <div class="layer">
+            <strong>2 · Harness + 工具网关</strong>
+            <span>fork 或选用开源 harness（Stripe 于 2024 末 fork Block Goose；今天可选 Goose / Claude Agent SDK），接统一 MCP 网关（Toolshed 模式：一次注册全 fleet 可用），默认工具集刻意小</span>
+            <span class="tag">验收：一个任务端到端跑完</span>
+          </div>
+          <div class="layer">
+            <strong>3 · Context-as-Code</strong>
+            <span>规则文件与人类 IDE 工具共用同一份（Cursor 格式 + 自动同步）、按 glob 作用域化；LOAD_ALL 式索引 + 分层 token 预算 + 大字典按需成对加载</span>
+            <span class="tag">验收：Agent 不问人能找对 API</span>
+          </div>
+          <div class="layer">
+            <strong>4 · Blueprint 编排</strong>
+            <span>状态机把 Agent 节点关进确定性节点之间：lint 本地循环到能一次过 CI 才 push；CI 失败先 autofix、无 autofix 给 Agent 一次机会、硬上限 2 轮</span>
+            <span class="tag">验收：无人值守跑完并出 PR</span>
+          </div>
+          <div class="layer">
+            <strong>5 · 入口、观测与度量</strong>
+            <span>Slack @App / CLI / Web 多入口 + 自动派单（flaky test 一键修复模式）；follow-along 实时轨迹;度量 PR/周、合并率、人工干预率、每 PR token 与 CI 成本</span>
+            <span class="tag">验收：非工程角色也能派单</span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>07 · 支撑子系统实现细节</h2>
+        <p>Minions 验证面的两块地基：分钟级选择性 CI 与毫秒级类型反馈。复刻 Minions 之前，先复刻反馈回路。</p>
+      </div>
+
+      <div class="two-col">
+        <article class="panel card">
+          <h3>Selective Test Execution：动态观测，不做静态分析</h3>
+          <p>Ruby 的元编程、动态分派与非 Ruby 输入（YAML / fixture / 模板）使静态依赖分析不可靠。核心思路：“instead of guessing what a test might touch, we record what it did touch” —— 不猜测试会碰什么，记录它实际碰了什么。两种失败模式被显式命名：Underselection（漏选，危险）与 Overselection（多选，拖慢）。</p>
+          <div class="tree">采集   file_access_interceptor（自研 C++ 共享库，LD_PRELOAD 注入）
+       ├─ 为每个运行中的测试设置层级 scope（// 分隔，根为 r）
+       ├─ 拦截 open() 及变体，把被打开文件映射到当前 scope
+       ├─ 热路径极简：仅向每进程文件追加一条记录
+       └─ LD_PRELOAD 自动传播到子进程
+
+聚合   worker → build scheduler（sidecar 进程）→ 倒排
+       └─ 选择索引：roaring bitmap（文件 → 受影响测试），约 30 亿数据点
+
+选择   file inventory（hashdeep 并行哈希，覆盖 Git 外生成产物）
+       → 与 STE base 基线做哈希 diff → 变更文件 → 位图并集 → 护栏
+       └─ 基线定位：MRI 单调修订号（祖先关系 ⇒ MRI 单调递增），
+          一次 DB 查询（MongoDB）取最新完整数据集，确定且可复现
+
+护栏   此前失败的测试永远重跑；glob 发现型测试标记 mandatory 永远执行；
+       根 scope 文件变更 ⇒ 触发全量；linter（RuboCop 等）同样按变更选择</div>
+          <p style="margin-top:12px">效果：平均一次构建只跑测试套件的 <strong>5%</strong>、中位数 <strong>0.5%</strong>，算力不到“全跑”策略的 <strong>10%</strong>；每周约 5 万次构建支撑 “a few minutes, not four months”。</p>
+        </article>
+
+        <article class="panel card">
+          <h3>Sorbet：让 5,000 万行 Ruby 拥有可机检的类型门禁</h3>
+          <p>C++ 实现的 Ruby 渐进类型检查器（可编译为 WebAssembly）。覆盖超过 1,500 万行、15 万个文件；80% 的编辑在毫秒级返回类型错误。速度来自设计：只做方法内局部类型推断——检查是“方法内代码 + 不可变索引”的纯函数，天然并行（embarrassingly parallel）。</p>
+          <div class="tree"># 文件级 sigil 渐进收紧
+# typed: true    未签名方法参数按 T.untyped（best-effort）
+# typed: strict  停止假设 T.untyped，所有方法必须有 sig
+
+sig {params(invoice: Invoice, paid: T::Boolean).void}
+def update_invoice(invoice, paid); end
+
+update_invoice('in_1KZ7…', true)
+# error: Expected `Invoice` but found `String`
+#        for argument `invoice`</div>
+          <div class="layers">
+            <div class="layer">
+              <strong>起源</strong>
+              <span>2016-11 先有仅运行时的 declare_method 注解；2017-11 从零自研 Sorbet；2018-05 成为 CI 必过项；2019-06 开源</span>
+              <span class="tag">Timeline</span>
+            </div>
+            <div class="layer">
+              <strong>推广机制</strong>
+              <span>CI 在每个 PR 上发布 “Stripe code quality score” 评论（加权和，包含低于 strict 的非测试文件数）</span>
+              <span class="tag">Culture-as-CI</span>
+            </div>
+            <div class="layer">
+              <strong>现状</strong>
+              <span>85% 非测试文件为 <code>typed: strict</code>；超过 95% 的全部文件为 <code>typed: true</code>；NameError 类生产事故被静态类型错误整体取代</span>
+              <span class="tag">Adoption</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="evidence-note">
+        对 Agent 平台的意义：这两个子系统先于 Minions 存在、为人类工程师而建，却构成了 Agent 验证面的全部地基——Agent 每次修改都能在分钟级拿到高置信反馈，“最多两轮 CI”的预算才成立。这正是 “what's good for humans is good for agents” 的具体形态：想复刻 1,300 PR/周，先把 bootstrap / lint / typecheck / test-changed 做成快而确定的命令。
+      </div>
+    </section>
+
+    <section class="panel sources">
+      <h2>资料与溯源</h2>
+      <ol>
+        <li><a href="https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents">Minions Part 1</a></li>
+        <li><a href="https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents-part-2">Minions Part 2</a></li>
+        <li><a href="https://www.anthropic.com/news/claude-fable-5-mythos-5">Anthropic Claude Fable 5 and Claude Mythos 5</a></li>
+        <li><a href="https://www.zenml.io/llmops-database/ai-powered-developer-productivity-with-minions-and-machine-to-machine-payments">ZenML: Minions and Machine-to-Machine Payments</a></li>
+        <li><a href="https://github.com/stripe/stripe-salesforce-ai-context">Stripe Salesforce AI Context</a></li>
+        <li><a href="https://github.com/stripe/stripe-salesforce-ai-context/blob/main/context/LOAD_ALL.md">Stripe Salesforce AI Context / LOAD_ALL.md</a></li>
+        <li><a href="https://github.com/stripe/stripe-salesforce-ai-context/blob/main/context/rules/flow-builder.mdc">Stripe Salesforce AI Context / flow-builder.mdc</a></li>
+        <li><a href="https://github.com/stripe/stripe-salesforce-ai-context/blob/main/context/rules/lwc-stripe-payment.mdc">Stripe Salesforce AI Context / lwc-stripe-payment.mdc</a></li>
+        <li><a href="https://github.com/stripe/stripe-salesforce-ai-context/blob/main/context/API-Extension.md">Stripe Salesforce AI Context / API-Extension.md</a></li>
+        <li><a href="https://github.com/stripe/stripe-salesforce-ai-context/blob/main/context/Stripe-Salesforce-Platform-Architecture.md">Stripe Salesforce AI Context / Platform Architecture</a></li>
+        <li><a href="https://stripe.dev/blog/selective-test-execution-at-stripe-fast-ci-for-a-50m-line-ruby-monorepo">Selective Test Execution</a></li>
+        <li><a href="https://stripe.dev/blog/sorbet-stripes-type-checker-for-ruby">Sorbet at Stripe</a></li>
+        <li><a href="https://stripe.com/annual-updates/2025">Stripe 2025 Annual Letter</a></li>
+        <li><a href="https://stripe.com/jobs">Stripe Jobs / Employee Scale</a></li>
+        <li><a href="https://stripe.com/newsroom/news/bfcm2025">Stripe BFCM 2025</a></li>
+        <li><a href="https://openai.com/index/introducing-openai/">OpenAI founding announcement</a></li>
+        <li><a href="https://www.irishscientist.ie/2005/contents_contentxml-05p115a_xml-contentxsl-is05pages_xsl.html">Croma: a new dialect of Lisp</a></li>
+        <li><a href="https://www.independent.ie/regionals/herald/million-dollar-boy-who-changed-the-face-of-the-web/27897580.html">Patrick Collison early coding profile</a></li>
+      </ol>
+    </section>
+
+    <footer>技术调研 · 数据截至 2026-07-04 · “日均交易金额”为年交易总量除以 365 的计算值，不是 Stripe 单独披露指标。</footer>
+  </main>
+</body>
+</html>

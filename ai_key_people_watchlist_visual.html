@@ -1,0 +1,870 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 关键人物情报雷达</title>
+  <style>
+    :root {
+      --bg: #f6f7f3;
+      --panel: #ffffff;
+      --ink: #18201f;
+      --muted: #66706c;
+      --line: #dfe4dd;
+      --teal: #0f8b8d;
+      --green: #5b8c4a;
+      --gold: #c8841a;
+      --rose: #bf5066;
+      --blue: #3978a8;
+      --violet: #745ea8;
+      --shadow: 0 16px 40px rgba(26, 35, 33, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(135deg, rgba(15, 139, 141, 0.09), transparent 34%),
+        linear-gradient(315deg, rgba(191, 80, 102, 0.08), transparent 30%),
+        var(--bg);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .app {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+    }
+
+    aside {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: auto;
+      padding: 18px 16px;
+      border-right: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.76);
+      backdrop-filter: blur(16px);
+    }
+
+    main {
+      min-width: 0;
+      padding: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      background: conic-gradient(from 210deg, var(--teal), var(--gold), var(--rose), var(--blue), var(--teal));
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.55), 0 10px 24px rgba(15, 139, 141, 0.18);
+    }
+
+    h1, h2, h3, p {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 22px;
+      line-height: 1.2;
+      font-weight: 760;
+    }
+
+    .subtitle {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .control {
+      margin-bottom: 12px;
+    }
+
+    .control label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    input[type="search"],
+    select {
+      width: 100%;
+      min-height: 40px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0 12px;
+      background: #fff;
+      color: var(--ink);
+      font-size: 14px;
+      outline: none;
+    }
+
+    input[type="search"]:focus,
+    select:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(15, 139, 141, 0.12);
+    }
+
+    .toggle-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .module-nav {
+      display: grid;
+      gap: 8px;
+    }
+
+    .nav-item {
+      width: 100%;
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 9px 10px;
+      background: rgba(255,255,255,0.74);
+      color: var(--ink);
+      cursor: pointer;
+      font: inherit;
+      text-align: left;
+      transition: border-color .16s ease, background .16s ease, transform .16s ease;
+    }
+
+    .nav-item:hover,
+    .nav-item.active {
+      border-color: rgba(15, 139, 141, 0.62);
+      background: rgba(15, 139, 141, 0.08);
+      transform: translateX(2px);
+    }
+
+    .nav-label {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .nav-count {
+      min-width: 32px;
+      height: 24px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: #eef4f1;
+      color: #30514c;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .check {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.72);
+      font-size: 13px;
+    }
+
+    .check input {
+      accent-color: var(--teal);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 18px;
+      align-items: stretch;
+      margin-bottom: 12px;
+    }
+
+    .overview,
+    .panel,
+    .person {
+      border: 1px solid rgba(223, 228, 221, 0.9);
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: var(--shadow);
+    }
+
+    .overview,
+    .panel {
+      border-radius: 8px;
+      padding: 22px;
+    }
+
+    .overview {
+      display: grid;
+      align-content: space-between;
+      min-height: 122px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .overview::after {
+      content: "";
+      position: absolute;
+      right: -90px;
+      bottom: -110px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: conic-gradient(from 150deg, rgba(15,139,141,0.22), rgba(200,132,26,0.22), rgba(191,80,102,0.2), rgba(57,120,168,0.2), rgba(15,139,141,0.22));
+      mask-image: radial-gradient(circle, transparent 34%, black 35%, black 56%, transparent 57%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .headline {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+    }
+
+    .headline h2 {
+      font-size: 24px;
+      line-height: 1.18;
+      margin-bottom: 6px;
+    }
+
+    .headline p {
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 13px;
+    }
+
+    .stats {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 14px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(246, 247, 243, 0.88);
+    }
+
+    .summary-main {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      min-width: 190px;
+    }
+
+    .summary-main strong {
+      font-size: 26px;
+      line-height: 1;
+    }
+
+    .summary-main span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .summary-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .summary-pill {
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .panel h3 {
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+
+    .confidence {
+      display: grid;
+      grid-template-columns: 132px minmax(0, 1fr);
+      gap: 18px;
+      align-items: center;
+    }
+
+    .donut {
+      width: 132px;
+      height: 132px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: conic-gradient(var(--teal) 0 var(--high-angle), var(--gold) var(--high-angle) 360deg);
+    }
+
+    .donut-inner {
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      font-weight: 800;
+      font-size: 24px;
+    }
+
+    .legend {
+      display: grid;
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    .legend-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+    }
+
+    .legend-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .module {
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: #fff;
+      padding: 13px;
+      min-height: 96px;
+      cursor: pointer;
+      transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease;
+    }
+
+    .module:hover,
+    .module.active {
+      transform: translateY(-2px);
+      border-color: rgba(15, 139, 141, 0.52);
+      box-shadow: 0 12px 26px rgba(15, 139, 141, 0.12);
+    }
+
+    .module strong {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 7px;
+    }
+
+    .module span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .bars {
+      display: grid;
+      gap: 12px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 112px minmax(0, 1fr) 34px;
+      gap: 10px;
+      align-items: center;
+      font-size: 13px;
+    }
+
+    .bar-label {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: var(--muted);
+    }
+
+    .bar-track {
+      height: 10px;
+      border-radius: 999px;
+      background: #eef1eb;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 18px 0 12px;
+    }
+
+    .section-head h2 {
+      font-size: 20px;
+    }
+
+    .result-count {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .people {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .person {
+      border-radius: 8px;
+      padding: 12px;
+      min-height: 172px;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      gap: 8px;
+    }
+
+    .person-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .avatar {
+      width: 32px;
+      height: 32px;
+      flex: 0 0 auto;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 800;
+      background: var(--accent, var(--teal));
+    }
+
+    .person h3 {
+      font-size: 15px;
+      line-height: 1.25;
+      margin-bottom: 5px;
+    }
+
+    .role {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      max-width: 100%;
+      padding: 4px 7px;
+      border-radius: 999px;
+      background: #eef4f1;
+      color: #30514c;
+      font-size: 11px;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    .why {
+      color: #34413e;
+      font-size: 12px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .link {
+      padding: 6px 8px;
+      min-height: 28px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: #315f63;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .link[href=""] {
+      display: none;
+    }
+
+    .empty {
+      grid-column: 1 / -1;
+      min-height: 180px;
+      display: grid;
+      place-items: center;
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      color: var(--muted);
+      background: rgba(255,255,255,0.68);
+    }
+
+    @media (max-width: 1180px) {
+      .hero,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .people {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 860px) {
+      .app {
+        grid-template-columns: 1fr;
+      }
+
+      aside {
+        position: static;
+        height: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .sidebar-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .category-control {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 760px) {
+      main,
+      aside {
+        padding: 18px;
+      }
+
+      .sidebar-grid,
+      .people {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .headline h2 {
+        font-size: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside>
+      <div class="brand">
+        <div class="mark" aria-hidden="true"></div>
+        <div>
+          <h1>AI 关键人物</h1>
+          <p class="subtitle">情报源可视化</p>
+        </div>
+      </div>
+
+      <div class="sidebar-grid">
+        <div class="control category-control">
+          <label>分类导航</label>
+          <nav class="module-nav" id="moduleNav" aria-label="分类导航"></nav>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <section class="hero">
+        <div class="overview">
+          <div class="headline">
+            <h2>CTO AI 情报雷达</h2>
+            <p>按人物、领域和抓取入口组织的轻量级监控清单，覆盖 AI Coding、Claude/Anthropic、前沿实验室、开源模型、基础设施、技术天才、中国区和产品创业方向。</p>
+          </div>
+          <div class="stats" id="stats"></div>
+        </div>
+      </section>
+
+      <div class="section-head">
+        <h2>人物卡片</h2>
+        <div class="result-count" id="resultCount"></div>
+      </div>
+      <section class="people" id="people"></section>
+    </main>
+  </div>
+
+  <script>
+    const people = [
+      {priority:"P0",domain:"Claude / Anthropic",name:"Boris Cherny",role:"Anthropic / Claude Code",why:"Claude Code 核心人物之一，代表 AI 编程工作流、工程角色变化、Agentic 软件开发方向",sources:"X、GitHub、访谈、Anthropic 相关内容",x:"https://x.com/bcherny",github:"https://github.com/bcherny",video:"搜索：Claude Code Boris Cherny",reddit:"https://www.reddit.com/search/?q=%22Boris%20Cherny%22%20Claude%20Code",confidence:"高"},
+      {priority:"P0",domain:"AI 编程 / 通用 AI",name:"Andrej Karpathy",role:"Eureka Labs；前 OpenAI/Tesla",why:"高信号 AI 教育者和产品思想者，长期影响 Software 2.0、AI Coding、Vibe Coding 等叙事",sources:"X、YouTube、GitHub、博客",x:"https://x.com/karpathy",github:"https://github.com/karpathy",video:"https://www.youtube.com/@AndrejKarpathy",reddit:"https://www.reddit.com/search/?q=%22Andrej%20Karpathy%22",confidence:"高"},
+      {priority:"P0",domain:"AI 编程工具",name:"Michael Truell",role:"Anysphere / Cursor 联合创始人兼 CEO",why:"Cursor 是领先 AI IDE，适合跟踪 AI 原生开发工具和研发组织变化",sources:"X、公司博客、访谈",x:"https://x.com/michael_truell",github:"",video:"搜索：Michael Truell Cursor interview",reddit:"https://www.reddit.com/search/?q=%22Michael%20Truell%22%20Cursor",confidence:"中"},
+      {priority:"P0",domain:"AI 编程 Agent",name:"Scott Wu",role:"Cognition / Devin 联合创始人兼 CEO",why:"Devin 代表代码 Agent 方向，对 CTO 判断软件研发自动化很关键",sources:"X、公司博客、访谈",x:"https://x.com/scottwu46",github:"",video:"搜索：Scott Wu Cognition Devin",reddit:"https://www.reddit.com/search/?q=%22Scott%20Wu%22%20Devin%20AI",confidence:"高"},
+      {priority:"P0",domain:"AI 编程 / 开发者平台",name:"Amjad Masad",role:"Replit / CEO",why:"AI 应用生成、编码 Agent、开发者平台战略的重要信号源",sources:"X、博客、Replit YouTube、访谈",x:"https://x.com/amasad",github:"https://github.com/amasad",video:"https://www.youtube.com/@Replit",reddit:"https://www.reddit.com/search/?q=%22Amjad%20Masad%22",confidence:"高"},
+      {priority:"P0",domain:"Agent 框架",name:"Harrison Chase",role:"LangChain / CEO",why:"LangChain 是 Agent/RAG 生态核心项目，适合跟踪企业级 Agent 工程化",sources:"X、LangChain 博客、GitHub、YouTube",x:"https://x.com/hwchase17",github:"https://github.com/hwchase17",video:"https://www.youtube.com/@LangChain",reddit:"https://www.reddit.com/search/?q=%22Harrison%20Chase%22%20LangChain",confidence:"高"},
+      {priority:"P0",domain:"RAG / Agent 基础设施",name:"Jerry Liu",role:"LlamaIndex / CEO",why:"RAG、知识 Agent、企业数据 Agent 的重要实践信号源",sources:"X、博客、GitHub、YouTube",x:"https://x.com/jerryjliu0",github:"https://github.com/jerryjliu",video:"https://www.youtube.com/@LlamaIndex",reddit:"https://www.reddit.com/search/?q=%22Jerry%20Liu%22%20LlamaIndex",confidence:"高"},
+      {priority:"P0",domain:"AI 工程实践",name:"Simon Willison",role:"Datasette；独立 AI 工程评论者",why:"LLM 工程、评测、Prompt Injection、本地模型等实践内容质量很高",sources:"博客、X/Mastodon、GitHub",x:"https://x.com/simonw",github:"https://github.com/simonw",video:"搜索：Simon Willison AI talks",reddit:"https://www.reddit.com/search/?q=%22Simon%20Willison%22%20AI",confidence:"高"},
+      {priority:"P0",domain:"基座模型 / OpenAI",name:"Sam Altman",role:"OpenAI / CEO",why:"战略、平台、模型路线图、政策和商业化信号源",sources:"X、OpenAI 博客、访谈",x:"https://x.com/sama",github:"",video:"搜索：Sam Altman interview AI",reddit:"https://www.reddit.com/r/OpenAI/search/?q=Sam%20Altman&restrict_sr=1",confidence:"高"},
+      {priority:"P0",domain:"基座模型 / OpenAI",name:"Greg Brockman",role:"OpenAI / 联合创始人",why:"技术演示、产品发布、平台方向的重要信号源",sources:"X、OpenAI 博客、演示",x:"https://x.com/gdb",github:"https://github.com/gdb",video:"搜索：Greg Brockman OpenAI demo",reddit:"https://www.reddit.com/r/OpenAI/search/?q=Greg%20Brockman&restrict_sr=1",confidence:"高"},
+      {priority:"P0",domain:"基座模型 / OpenAI",name:"Jakub Pachocki",role:"OpenAI / Chief Scientist",why:"OpenAI 研究方向、模型能力演进的关键人物",sources:"OpenAI 博客/作者页、演讲、访谈",x:"",github:"",video:"搜索：Jakub Pachocki OpenAI",reddit:"https://www.reddit.com/search/?q=%22Jakub%20Pachocki%22",confidence:"高"},
+      {priority:"P0",domain:"推理模型 / OpenAI",name:"Noam Brown",role:"OpenAI / 推理研究",why:"推理模型、自博弈、o 系列能力方向的重要信号源",sources:"X、OpenAI 博客、论文",x:"https://x.com/polynoamial",github:"",video:"搜索：Noam Brown reasoning models",reddit:"https://www.reddit.com/search/?q=%22Noam%20Brown%22%20OpenAI",confidence:"高"},
+      {priority:"P0",domain:"基座模型 / Anthropic",name:"Dario Amodei",role:"Anthropic / CEO",why:"Claude 路线、AI 安全、Scaling、政策判断",sources:"Anthropic 博客、访谈",x:"",github:"",video:"搜索：Dario Amodei interview",reddit:"https://www.reddit.com/r/Anthropic/search/?q=Dario%20Amodei&restrict_sr=1",confidence:"高"},
+      {priority:"P0",domain:"基座模型 / Anthropic",name:"Jared Kaplan",role:"Anthropic / 联合创始人，Scaling Laws 研究线",why:"Scaling Laws、Claude 研究策略、模型能力演进",sources:"Anthropic 博客、论文、演讲",x:"",github:"",video:"搜索：Jared Kaplan Anthropic",reddit:"https://www.reddit.com/search/?q=%22Jared%20Kaplan%22%20Anthropic",confidence:"高"},
+      {priority:"P0",domain:"AI 安全 / Anthropic",name:"Jack Clark",role:"Anthropic / 政策与传播；Import AI 作者",why:"AI 政策、安全、前沿实验室叙事的重要信号源",sources:"Newsletter、Anthropic 文章、X",x:"https://x.com/jackclarkSF",github:"",video:"搜索：Jack Clark Import AI",reddit:"https://www.reddit.com/search/?q=%22Jack%20Clark%22%20Anthropic",confidence:"高"},
+      {priority:"P0",domain:"可解释性 / Anthropic",name:"Chris Olah",role:"Anthropic / Interpretability",why:"机制可解释性、模型内部机制研究的重要人物",sources:"博客、Anthropic 文章、论文",x:"https://x.com/ch402",github:"",video:"搜索：Chris Olah interpretability",reddit:"https://www.reddit.com/search/?q=%22Chris%20Olah%22",confidence:"高"},
+      {priority:"P0",domain:"AI 产品 / Anthropic",name:"Mike Krieger",role:"Anthropic / 产品负责人",why:"Claude 产品方向、消费者和企业产品化信号",sources:"X、访谈、Anthropic 文章",x:"https://x.com/mikeyk",github:"",video:"搜索：Mike Krieger Anthropic",reddit:"https://www.reddit.com/search/?q=%22Mike%20Krieger%22%20Anthropic",confidence:"中"},
+      {priority:"P0",domain:"Claude / Anthropic KOL",name:"Alex Albert",role:"Anthropic / Claude 开发者关系与产品传播",why:"Claude、MCP、开发者生态和模型使用方式的一线信号源",sources:"X、Anthropic/Claude 文章、开发者活动、访谈",x:"https://x.com/alexalbert__",github:"",video:"搜索：Alex Albert Claude Anthropic",reddit:"https://www.reddit.com/search/?q=%22Alex%20Albert%22%20Claude%20Anthropic",confidence:"高"},
+      {priority:"P0",domain:"Claude / Anthropic KOL",name:"Amanda Askell",role:"Anthropic / Claude 行为、Alignment 与 AI 哲学研究",why:"Claude 价值观、模型人格、Constitutional AI 和安全产品化的重要声音",sources:"X、Anthropic 文章、论文、访谈",x:"https://x.com/AmandaAskell",github:"",video:"搜索：Amanda Askell Claude",reddit:"https://www.reddit.com/search/?q=%22Amanda%20Askell%22%20Claude",confidence:"高"},
+      {priority:"P0",domain:"Claude / Anthropic 技术",name:"Tom Brown",role:"Anthropic / 联合创始人；GPT-3 论文核心作者",why:"大模型训练、GPT-3 经验、Anthropic 技术路线的重要人物",sources:"Anthropic 文章、论文、访谈",x:"",github:"",video:"搜索：Tom Brown Anthropic GPT-3",reddit:"https://www.reddit.com/search/?q=%22Tom%20Brown%22%20Anthropic%20GPT-3",confidence:"高"},
+      {priority:"P0",domain:"Claude / Anthropic 技术",name:"Trenton Bricken",role:"Anthropic / 机制可解释性研究",why:"Sparse autoencoder、特征可解释性、Claude 内部表征研究",sources:"Anthropic 文章、论文、X",x:"https://x.com/TrentonBricken",github:"",video:"搜索：Trenton Bricken Anthropic",reddit:"https://www.reddit.com/search/?q=%22Trenton%20Bricken%22%20Anthropic",confidence:"高"},
+      {priority:"P0",domain:"Claude / Anthropic 技术",name:"Nicholas Carlini",role:"Anthropic / AI 安全与模型攻击研究",why:"LLM 安全、数据泄露、攻击评测、模型鲁棒性的重要人物",sources:"个人主页、论文、GitHub、X、Anthropic 文章",x:"https://x.com/carlini",github:"https://github.com/carlini",video:"搜索：Nicholas Carlini Anthropic",reddit:"https://www.reddit.com/search/?q=%22Nicholas%20Carlini%22%20Anthropic",confidence:"高"},
+      {priority:"P0",domain:"Claude / Anthropic 技术",name:"Durk Kingma",role:"Anthropic / 研究员；VAE、Adam 优化器作者",why:"生成模型和优化器奠基人物，适合跟踪 Anthropic 基础研究信号",sources:"论文、Anthropic 文章、X",x:"https://x.com/dpkingma",github:"",video:"搜索：Durk Kingma Anthropic",reddit:"https://www.reddit.com/search/?q=%22Durk%20Kingma%22%20Anthropic",confidence:"中"},
+      {priority:"P0",domain:"Google DeepMind",name:"Demis Hassabis",role:"Google DeepMind / CEO",why:"前沿模型战略、AlphaFold、Agent、科学 AI 信号源",sources:"X、DeepMind 博客、演讲",x:"https://x.com/demishassabis",github:"",video:"https://www.youtube.com/@googledeepmind",reddit:"https://www.reddit.com/search/?q=%22Demis%20Hassabis%22",confidence:"高"},
+      {priority:"P0",domain:"Google AI / 基础设施",name:"Jeff Dean",role:"Google DeepMind / Google Research",why:"AI 系统、TPU、Scaling 基础设施的重要人物",sources:"X、Google Research 博客、论文",x:"https://x.com/JeffDean",github:"",video:"搜索：Jeff Dean AI talk",reddit:"https://www.reddit.com/search/?q=%22Jeff%20Dean%22%20AI",confidence:"高"},
+      {priority:"P0",domain:"开源模型 / Hugging Face",name:"Thomas Wolf",role:"Hugging Face / 联合创始人兼 CSO",why:"Transformers 生态和开源模型讨论的重要人物",sources:"X、HF 博客、GitHub、论文",x:"https://x.com/Thom_Wolf",github:"https://github.com/thomwolf",video:"https://www.youtube.com/@HuggingFace",reddit:"https://www.reddit.com/search/?q=%22Thomas%20Wolf%22%20Hugging%20Face",confidence:"高"},
+      {priority:"P0",domain:"开源模型 / Mistral",name:"Guillaume Lample",role:"Mistral AI / 联合创始人，研究科学家",why:"LLM 研究和开放权重模型方向",sources:"X、论文、Mistral 博客",x:"https://x.com/GuillaumeLample",github:"https://github.com/glample",video:"搜索：Guillaume Lample Mistral",reddit:"https://www.reddit.com/search/?q=%22Guillaume%20Lample%22",confidence:"高"},
+      {priority:"P0",domain:"AI 算力 / 基础设施",name:"黄仁勋 Jensen Huang",role:"NVIDIA / 创始人、President & CEO",why:"AI 算力、GPU/Blackwell、数据中心、Agentic PC、机器人和产业周期判断的核心信号源",sources:"NVIDIA 新闻中心、GTC/Computex Keynote、访谈、YouTube",x:"",github:"",video:"https://www.youtube.com/@NVIDIA",reddit:"https://www.reddit.com/search/?q=Jensen%20Huang%20NVIDIA%20AI",confidence:"高"},
+      {priority:"P0",domain:"AI 基础设施 / 训练优化",name:"Tri Dao",role:"Together AI；FlashAttention 作者",why:"训练/推理效率、Attention Kernel、底层性能优化",sources:"X、GitHub、论文",x:"https://x.com/tri_dao",github:"https://github.com/Dao-AILab",video:"搜索：Tri Dao FlashAttention",reddit:"https://www.reddit.com/search/?q=%22Tri%20Dao%22%20FlashAttention",confidence:"高"},
+      {priority:"P0",domain:"AI 基础设施 / 数据与 ML 平台",name:"Matei Zaharia",role:"Databricks 联合创始人；Berkeley",why:"ML 数据平台、Spark、MLflow、Lakehouse + AI",sources:"X、Berkeley/Databricks 文章、论文",x:"https://x.com/matei_zaharia",github:"https://github.com/mateiz",video:"搜索：Matei Zaharia AI",reddit:"https://www.reddit.com/search/?q=%22Matei%20Zaharia%22%20AI",confidence:"高"},
+      {priority:"P0",domain:"本地模型 / 推理",name:"Georgi Gerganov",role:"ggml / llama.cpp",why:"本地推理、量化和轻量部署生态核心人物",sources:"GitHub、Release、Issue 讨论",x:"",github:"https://github.com/ggerganov",video:"搜索：Georgi Gerganov llama.cpp",reddit:"https://www.reddit.com/r/LocalLLaMA/search/?q=Georgi%20Gerganov&restrict_sr=1",confidence:"高"},
+      {priority:"P0",domain:"AI 工程 / LLM 应用",name:"Chip Huyen",role:"独立作者",why:"LLM 系统、评测、生产级 AI 工程实践",sources:"博客、X、GitHub",x:"https://x.com/chipro",github:"https://github.com/chiphuyen",video:"搜索：Chip Huyen AI engineering",reddit:"https://www.reddit.com/search/?q=%22Chip%20Huyen%22%20AI",confidence:"高"},
+      {priority:"P0",domain:"多模态 / Agent",name:"Jim Fan",role:"NVIDIA / 研究员",why:"具身 Agent、基础 Agent、机器人和仿真方向",sources:"X、GitHub、演讲",x:"https://x.com/DrJimFan",github:"https://github.com/jimmyyhwu",video:"搜索：Jim Fan NVIDIA AI agent",reddit:"https://www.reddit.com/search/?q=%22Jim%20Fan%22%20AI",confidence:"高"},
+      {priority:"P0",domain:"AI 搜索 / 产品",name:"Aravind Srinivas",role:"Perplexity / CEO",why:"AI 搜索、答案引擎、消费者 AI 产品战略",sources:"X、访谈、Perplexity 博客",x:"https://x.com/AravSrinivas",github:"",video:"搜索：Aravind Srinivas Perplexity interview",reddit:"https://www.reddit.com/r/perplexity_ai/search/?q=Aravind&restrict_sr=1",confidence:"高"},
+      {priority:"P0",domain:"AI 安全 / 研究",name:"Ilya Sutskever",role:"Safe Superintelligence / 联合创始人",why:"前沿安全、超级智能、前 OpenAI 研究方向",sources:"X、论文、访谈",x:"https://x.com/ilyasut",github:"",video:"搜索：Ilya Sutskever interview",reddit:"https://www.reddit.com/search/?q=%22Ilya%20Sutskever%22",confidence:"高"},
+      {priority:"P0",domain:"AI 安全 / Alignment",name:"Jan Leike",role:"Anthropic；前 OpenAI",why:"Alignment、可扩展监督、安全流程",sources:"X、论文、访谈",x:"https://x.com/janleike",github:"",video:"搜索：Jan Leike alignment",reddit:"https://www.reddit.com/search/?q=%22Jan%20Leike%22",confidence:"高"},
+      {priority:"P0",domain:"技术天才 / Transformer",name:"Ashish Vaswani",role:"Essential AI / 联合创始人；Transformer 论文第一作者",why:"Transformer 架构核心作者之一，长期影响大模型和 AI Agent 基础设施",sources:"论文、访谈、公司文章",x:"",github:"",video:"搜索：Ashish Vaswani Transformer Essential AI",reddit:"https://www.reddit.com/search/?q=%22Ashish%20Vaswani%22%20Transformer",confidence:"高"},
+      {priority:"P0",domain:"技术天才 / Transformer",name:"Noam Shazeer",role:"Character.AI / 联合创始人；Google 研究线",why:"Transformer、MoE、稀疏模型和大规模语言模型的重要奠基人物",sources:"论文、访谈、公司文章",x:"https://x.com/NoamShazeer",github:"",video:"搜索：Noam Shazeer Transformer MoE",reddit:"https://www.reddit.com/search/?q=%22Noam%20Shazeer%22%20AI",confidence:"高"},
+      {priority:"P0",domain:"技术天才 / 生成模型",name:"Alec Radford",role:"OpenAI / GPT、CLIP、生成模型研究线",why:"GPT、CLIP、无监督表示学习等方向的关键人物",sources:"OpenAI 论文、访谈、GitHub 搜索",x:"",github:"",video:"搜索：Alec Radford OpenAI GPT CLIP",reddit:"https://www.reddit.com/search/?q=%22Alec%20Radford%22%20OpenAI",confidence:"高"},
+      {priority:"P0",domain:"技术天才 / 扩散模型",name:"Jonathan Ho",role:"Google DeepMind / 扩散模型研究",why:"DDPM 关键作者之一，图像/视频生成基础技术的重要人物",sources:"论文、Google/DeepMind 文章、访谈",x:"",github:"",video:"搜索：Jonathan Ho diffusion models",reddit:"https://www.reddit.com/search/?q=%22Jonathan%20Ho%22%20diffusion%20models",confidence:"高"},
+      {priority:"P0",domain:"技术天才 / 大模型后训练",name:"Hyung Won Chung",role:"OpenAI / 研究员；Flan、指令微调研究线",why:"指令微调、模型泛化、后训练和评测方向的重要人物",sources:"X、论文、OpenAI/Google 文章",x:"https://x.com/hwchung27",github:"",video:"搜索：Hyung Won Chung instruction tuning",reddit:"https://www.reddit.com/search/?q=%22Hyung%20Won%20Chung%22%20AI",confidence:"高"},
+      {priority:"P0",domain:"中国 / 基座模型",name:"张鹏 Zhang Peng",role:"智谱 AI / CEO",why:"智谱战略、GLM 模型、企业级落地",sources:"智谱新闻中心、访谈、微信公众号、中文媒体",x:"",github:"https://github.com/THUDM",video:"搜索：张鹏 智谱 AI",reddit:"https://www.reddit.com/search/?q=Zhipu%20AI%20Zhang%20Peng",confidence:"高"},
+      {priority:"P0",domain:"中国 / 基座模型",name:"唐杰 Tang Jie",role:"清华大学 / 智谱相关创始与首席科学家线索",why:"GLM 研究源头、学术到产业的大模型路径",sources:"清华主页、智谱文章、论文、访谈",x:"",github:"https://github.com/THUDM",video:"搜索：唐杰 智谱 GLM",reddit:"https://www.reddit.com/search/?q=Zhipu%20AI%20Tang%20Jie",confidence:"高"},
+      {priority:"P0",domain:"中国 / AI 产品",name:"杨植麟 Yang Zhilin",role:"月之暗面 Moonshot AI / 联合创始人兼 CEO",why:"Kimi、长上下文模型、中国消费者/企业 LLM 产品",sources:"Moonshot/Kimi 博客、访谈、微信公众号",x:"",github:"",video:"搜索：杨植麟 月之暗面 Kimi",reddit:"https://www.reddit.com/search/?q=Moonshot%20AI%20Yang%20Zhilin",confidence:"高"},
+      {priority:"P0",domain:"中国 / 基座模型",name:"梁文锋 Liang Wenfeng",role:"DeepSeek / 创始人",why:"DeepSeek 开源模型、推理、低成本训练、量化和训练策略",sources:"DeepSeek 论文、GitHub/HF、公司文章、访谈",x:"",github:"https://github.com/deepseek-ai",video:"搜索：梁文锋 DeepSeek",reddit:"https://www.reddit.com/r/LocalLLaMA/search/?q=DeepSeek%20Liang%20Wenfeng&restrict_sr=1",confidence:"高"},
+      {priority:"P0",domain:"中国 / 基座模型",name:"闫俊杰 Yan Junjie",role:"MiniMax / 创始人兼 CEO",why:"MiniMax/Hailuo，中国多模态和产品 AI 信号源",sources:"MiniMax 博客、Hailuo 文章、访谈",x:"",github:"",video:"搜索：闫俊杰 MiniMax",reddit:"https://www.reddit.com/search/?q=MiniMax%20Yan%20Junjie",confidence:"高"},
+      {priority:"P0",domain:"中国 / ML 系统",name:"贾扬清 Yangqing Jia",role:"Lepton AI / 创始人；Caffe 作者",why:"AI 基础设施、推理云、模型服务",sources:"X、GitHub、Lepton 文章",x:"https://x.com/jiayq",github:"https://github.com/Yangqing",video:"搜索：Yangqing Jia Lepton AI",reddit:"https://www.reddit.com/search/?q=%22Yangqing%20Jia%22%20AI",confidence:"高"},
+      {priority:"P1",domain:"AI 研究 / 安全",name:"Mira Murati",role:"Thinking Machines Lab / 创始人兼 CEO",why:"新前沿实验室，研究和产品战略值得持续跟踪",sources:"X、公司文章、访谈",x:"https://x.com/miramurati",github:"",video:"搜索：Mira Murati Thinking Machines",reddit:"https://www.reddit.com/search/?q=%22Mira%20Murati%22%20Thinking%20Machines",confidence:"高"},
+      {priority:"P1",domain:"AI 研究",name:"John Schulman",role:"前 OpenAI；RLHF 关键人物",why:"RLHF、后训练、推理和 Alignment",sources:"X、论文、访谈",x:"https://x.com/johnschulman2",github:"",video:"搜索：John Schulman RLHF",reddit:"https://www.reddit.com/search/?q=%22John%20Schulman%22%20AI",confidence:"高"},
+      {priority:"P0",domain:"AI 奠基人物 / 深度学习",name:"Geoffrey Hinton",role:"多伦多大学；2018 图灵奖得主；2024 诺贝尔物理学奖得主",why:"深度学习教父之一，反向传播、神经网络复兴、AI 风险和前沿模型社会影响的核心声音",sources:"访谈、演讲、论文、新闻访谈",x:"",github:"",video:"搜索：Geoffrey Hinton interview AI",reddit:"https://www.reddit.com/search/?q=%22Geoffrey%20Hinton%22",confidence:"高"},
+      {priority:"P0",domain:"AI 奠基人物 / 深度学习与安全",name:"Yoshua Bengio",role:"Mila / 教授；2018 图灵奖得主",why:"深度学习三巨头之一，表示学习、生成模型、AI 安全和治理方向的重要声音",sources:"X、Mila 文章、访谈",x:"https://x.com/yoshua_bengio",github:"",video:"搜索：Yoshua Bengio AI safety",reddit:"https://www.reddit.com/search/?q=%22Yoshua%20Bengio%22",confidence:"高"},
+      {priority:"P1",domain:"AI 研究 / 评测",name:"Francois Chollet",role:"ARC Prize；Keras 作者",why:"AGI 评测、抽象能力、推理基准",sources:"X、GitHub、博客",x:"https://x.com/fchollet",github:"https://github.com/fchollet",video:"搜索：Francois Chollet ARC Prize",reddit:"https://www.reddit.com/search/?q=%22Francois%20Chollet%22%20AI",confidence:"高"},
+      {priority:"P1",domain:"AI 研究 / 教育",name:"Lilian Weng",role:"OpenAI / 研究员，技术博客作者",why:"Agent、RL、LLM 等方向的高质量技术解释",sources:"博客、X、OpenAI 文章",x:"https://x.com/lilianweng",github:"https://github.com/lilianweng",video:"搜索：Lilian Weng LLM agents",reddit:"https://www.reddit.com/search/?q=%22Lilian%20Weng%22",confidence:"高"},
+      {priority:"P1",domain:"AI 基础设施 / 量化",name:"Tim Dettmers",role:"AI2 / 研究员",why:"量化、QLoRA、高效微调",sources:"X、GitHub、论文",x:"https://x.com/Tim_Dettmers",github:"https://github.com/TimDettmers",video:"搜索：Tim Dettmers QLoRA",reddit:"https://www.reddit.com/r/LocalLLaMA/search/?q=Tim%20Dettmers&restrict_sr=1",confidence:"高"},
+      {priority:"P1",domain:"AI 基础设施 / 分布式系统",name:"Ion Stoica",role:"Berkeley；Anyscale 联合创始人",why:"Ray、分布式 AI 系统、数据基础设施",sources:"X、Berkeley/Anyscale 文章",x:"https://x.com/istoica05",github:"",video:"搜索：Ion Stoica Ray AI",reddit:"https://www.reddit.com/search/?q=%22Ion%20Stoica%22%20Ray%20AI",confidence:"高"},
+      {priority:"P1",domain:"Agent / 评测",name:"Shreya Shankar",role:"UC Berkeley / AI 工程研究员",why:"评测、LLM Pipeline、AI 工程学科化",sources:"X、GitHub、论文",x:"https://x.com/sh_reya",github:"https://github.com/shreyashankar",video:"搜索：Shreya Shankar AI evals",reddit:"https://www.reddit.com/search/?q=%22Shreya%20Shankar%22%20AI",confidence:"中"},
+      {priority:"P1",domain:"Agent / 评测",name:"Hamel Husain",role:"独立 AI 工程实践者",why:"实用评测、生产级 LLM 系统",sources:"博客、X、GitHub",x:"https://x.com/HamelHusain",github:"https://github.com/hamelsmu",video:"搜索：Hamel Husain evals",reddit:"https://www.reddit.com/search/?q=%22Hamel%20Husain%22%20LLM",confidence:"高"},
+      {priority:"P1",domain:"Agent / 工作流",name:"swyx",role:"Latent Space / AI Engineer",why:"AI 工程社区、Agent、开发工具信号源",sources:"X、Podcast、GitHub",x:"https://x.com/swyx",github:"https://github.com/sw-yx",video:"https://www.latent.space/",reddit:"https://www.reddit.com/search/?q=swyx%20AI",confidence:"高"},
+      {priority:"P1",domain:"Agent 创业公司",name:"Yohei Nakajima",role:"Untapped Capital / BabyAGI",why:"自主 Agent 早期原型和讨论源",sources:"X、GitHub",x:"https://x.com/yoheinakajima",github:"https://github.com/yoheinakajima",video:"搜索：Yohei Nakajima BabyAGI",reddit:"https://www.reddit.com/search/?q=%22Yohei%20Nakajima%22%20BabyAGI",confidence:"高"},
+      {priority:"P1",domain:"Agent 框架",name:"Joao Moura",role:"CrewAI / 创始人兼 CEO",why:"多 Agent 框架和企业 Agent 编排",sources:"X、GitHub、CrewAI 文章",x:"https://x.com/joaomdmoura",github:"https://github.com/joaomdmoura",video:"搜索：Joao Moura CrewAI",reddit:"https://www.reddit.com/search/?q=%22Joao%20Moura%22%20CrewAI",confidence:"中"},
+      {priority:"P1",domain:"多模态 / 机器人",name:"Pieter Abbeel",role:"UC Berkeley；Covariant",why:"机器人、强化学习、机器人基础模型",sources:"X、Podcast、演讲",x:"https://x.com/pabbeel",github:"",video:"搜索：Pieter Abbeel AI robotics",reddit:"https://www.reddit.com/search/?q=%22Pieter%20Abbeel%22%20AI",confidence:"高"},
+      {priority:"P1",domain:"机器人 / AI",name:"Sergey Levine",role:"UC Berkeley",why:"机器人基础模型和强化学习",sources:"X、论文、演讲",x:"https://x.com/svlevine",github:"",video:"搜索：Sergey Levine robotics AI",reddit:"https://www.reddit.com/search/?q=%22Sergey%20Levine%22%20AI",confidence:"高"},
+      {priority:"P1",domain:"机器人 / AI",name:"Chelsea Finn",role:"Stanford",why:"机器人学习、元学习、具身 AI",sources:"X、论文、演讲",x:"https://x.com/chelseabfinn",github:"",video:"搜索：Chelsea Finn robot learning",reddit:"https://www.reddit.com/search/?q=%22Chelsea%20Finn%22%20AI",confidence:"高"},
+      {priority:"P1",domain:"生成式视频",name:"Cristobal Valenzuela",role:"Runway / 联合创始人兼 CEO",why:"AI 视频产品和创意工具",sources:"X、Runway 博客、访谈",x:"https://x.com/c_valenzuelab",github:"",video:"搜索：Cristobal Valenzuela Runway",reddit:"https://www.reddit.com/search/?q=%22Cristobal%20Valenzuela%22%20Runway",confidence:"高"},
+      {priority:"P1",domain:"生成式视频",name:"Demi Guo",role:"Pika / 联合创始人兼 CEO",why:"AI 视频创业公司和产品信号",sources:"X、Pika 文章、访谈",x:"https://x.com/demi_guo",github:"",video:"搜索：Demi Guo Pika",reddit:"https://www.reddit.com/search/?q=%22Demi%20Guo%22%20Pika",confidence:"中"},
+      {priority:"P1",domain:"生成式媒体",name:"David Holz",role:"Midjourney / 创始人",why:"图像生成产品战略和社区治理",sources:"Midjourney 公告、访谈",x:"",github:"",video:"搜索：David Holz Midjourney",reddit:"https://www.reddit.com/r/midjourney/search/?q=David%20Holz&restrict_sr=1",confidence:"高"},
+      {priority:"P1",domain:"AI 搜索 / 产品",name:"Richard Socher",role:"You.com / CEO",why:"AI 搜索、企业 Agent、NLP 创业者视角",sources:"X、You.com 博客、访谈",x:"https://x.com/RichardSocher",github:"",video:"搜索：Richard Socher You.com AI",reddit:"https://www.reddit.com/search/?q=%22Richard%20Socher%22%20AI",confidence:"高"},
+      {priority:"P1",domain:"AI 产品 / 消费级 AI",name:"Mustafa Suleyman",role:"Microsoft AI / CEO",why:"消费级 AI、Copilot、AI 助手方向",sources:"X、访谈、Microsoft 文章",x:"https://x.com/mustafasuleyman",github:"",video:"搜索：Mustafa Suleyman Microsoft AI",reddit:"https://www.reddit.com/search/?q=%22Mustafa%20Suleyman%22%20AI",confidence:"高"},
+      {priority:"P1",domain:"AI 数据 / 基础设施",name:"Alexandr Wang",role:"Scale AI / 创始人兼 CEO",why:"数据、评测、政府 AI、AI 基础设施",sources:"X、Scale 博客、访谈",x:"https://x.com/alexandr_wang",github:"",video:"搜索：Alexandr Wang Scale AI",reddit:"https://www.reddit.com/search/?q=%22Alexandr%20Wang%22%20Scale%20AI",confidence:"高"},
+      {priority:"P1",domain:"AI 硬件 / 开放计算",name:"George Hotz",role:"tinygrad / 创始人",why:"底层 AI 基础设施、编译器、开放硬件/软件",sources:"X、GitHub、直播",x:"https://x.com/realGeorgeHotz",github:"https://github.com/geohot",video:"https://www.youtube.com/@georgehotzarchive",reddit:"https://www.reddit.com/search/?q=%22George%20Hotz%22%20tinygrad",confidence:"高"}
+    ];
+
+    const colors = ["#0f8b8d", "#c8841a", "#bf5066", "#3978a8", "#5b8c4a", "#745ea8", "#9a6a2d", "#248a62"];
+    const state = {
+      module: "全部"
+    };
+
+    const moduleRules = [
+      ["AI 奠基人物", p => /AI 奠基人物/.test(p.domain) || /Geoffrey Hinton|Yoshua Bengio/.test(p.name)],
+      ["AI Coding", p => /AI 编程|Agent 框架|RAG/.test(p.domain)],
+      ["Claude / Anthropic", p => /Anthropic|Claude/.test(p.domain + p.role)],
+      ["中国区", p => /中国/.test(p.domain)],
+      ["前沿实验室", p => /OpenAI|DeepMind|Meta AI|基座模型/.test(p.domain + p.role)],
+      ["技术天才", p => /技术天才/.test(p.domain)],
+      ["开源 / Infra", p => /开源|基础设施|本地模型|硬件|量化|分布式/.test(p.domain)],
+      ["产品创业", p => /产品|搜索|视频|媒体|数据/.test(p.domain)],
+      ["安全 / 评测", p => /安全|Alignment|评测|可解释性/.test(p.domain)],
+      ["多模态 / 机器人", p => /多模态|机器人|具身/.test(p.domain)]
+    ];
+
+    function moduleOf(person) {
+      const hit = moduleRules.find(([, test]) => test(person));
+      return hit ? hit[0] : "其他";
+    }
+
+    function hasSource(person, source) {
+      if (source === "x") return Boolean(person.x);
+      if (source === "github") return Boolean(person.github);
+      if (source === "video") return Boolean(person.video);
+      if (source === "reddit") return Boolean(person.reddit);
+      return true;
+    }
+
+    function filteredPeople() {
+      return people.filter(person => {
+        const matchModule = state.module === "全部" || moduleOf(person) === state.module;
+        return matchModule;
+      });
+    }
+
+    function countBy(items, getter) {
+      return items.reduce((acc, item) => {
+        const key = getter(item);
+        acc[key] = (acc[key] || 0) + 1;
+        return acc;
+      }, {});
+    }
+
+    function renderStats(items) {
+      const p0 = items.filter(p => p.priority === "P0").length;
+      const high = items.filter(p => p.confidence === "高").length;
+      const china = items.filter(p => p.domain.includes("中国")).length;
+      const claude = items.filter(p => (p.domain + p.role).includes("Claude") || (p.domain + p.role).includes("Anthropic")).length;
+      const title = state.module === "全部" ? "全部人物" : state.module;
+      document.querySelector("#stats").innerHTML = `
+        <div class="summary-main">
+          <strong>${items.length}</strong>
+          <span>${title}</span>
+        </div>
+        <div class="summary-meta">
+          <span class="summary-pill">P0 ${p0}</span>
+          <span class="summary-pill">高可信 ${high}</span>
+          <span class="summary-pill">Claude ${claude}</span>
+          <span class="summary-pill">中国区 ${china}</span>
+        </div>
+      `;
+    }
+
+    function renderModules(items) {
+      const counts = countBy(items, moduleOf);
+      const modules = ["全部", ...moduleRules.map(([name]) => name), "其他"];
+      document.querySelector("#moduleNav").innerHTML = modules
+        .filter(name => name === "全部" || counts[name])
+        .map((name, index) => {
+          const count = name === "全部" ? items.length : counts[name];
+          const active = state.module === name ? "active" : "";
+          return `<button class="nav-item ${active}" data-module="${name}">
+            <span class="nav-label">${name}</span>
+            <span class="nav-count">${count || 0}</span>
+          </button>`;
+        }).join("");
+      document.querySelectorAll("[data-module]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          state.module = btn.dataset.module;
+          render();
+        });
+      });
+    }
+
+    function domainTags(person) {
+      return [person.priority, person.confidence === "高" ? "高可信" : "待核验", moduleOf(person), person.domain]
+        .map(text => `<span class="tag">${text}</span>`)
+        .join("");
+    }
+
+    function linkFor(label, value) {
+      if (!value) return "";
+      if (value.startsWith("http")) return `<a class="link" href="${value}" target="_blank" rel="noreferrer">${label}</a>`;
+      const query = encodeURIComponent(value.replace(/^搜索：/, ""));
+      return `<a class="link" href="https://www.google.com/search?q=${query}" target="_blank" rel="noreferrer">${label}</a>`;
+    }
+
+    function initials(name) {
+      const ascii = name.match(/[A-Za-z]/g);
+      if (ascii && ascii.length >= 2) return `${ascii[0]}${ascii[1]}`.toUpperCase();
+      return name.slice(0, 2);
+    }
+
+    function renderPeople(items) {
+      document.querySelector("#resultCount").textContent = `${items.length} / ${people.length}`;
+      if (!items.length) {
+        document.querySelector("#people").innerHTML = `<div class="empty">没有匹配结果</div>`;
+        return;
+      }
+      document.querySelector("#people").innerHTML = items.map((person, index) => `
+        <article class="person" style="--accent:${colors[index % colors.length]}">
+          <div class="person-top">
+            <div>
+              <h3>${person.name}</h3>
+              <p class="role">${person.role}</p>
+            </div>
+            <div class="avatar">${initials(person.name)}</div>
+          </div>
+          <div class="tags">${domainTags(person)}</div>
+          <p class="why">${person.why}</p>
+          <div class="links">
+            ${linkFor("X", person.x)}
+            ${linkFor("GitHub", person.github)}
+            ${linkFor("视频/音频", person.video)}
+            ${linkFor("Reddit", person.reddit)}
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function render() {
+      const items = filteredPeople();
+      renderStats(items);
+      renderModules(people);
+      renderPeople(items);
+    }
+
+    render();
+  </script>
+</body>
+</html>
