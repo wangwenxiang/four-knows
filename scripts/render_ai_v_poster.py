@@ -89,6 +89,12 @@ def poster_subtitle(post: dict[str, Any], fallback: str) -> str:
     return clip(fallback, 72)
 
 
+def author_key(post: dict[str, Any]) -> str:
+    expert = post.get("expert") or {}
+    author = post.get("author") or {}
+    return str(expert.get("handle") or author.get("username") or post.get("id") or "unknown").casefold()
+
+
 def parse_flat_json(output: str) -> dict[str, str]:
     cleaned = ANSI_ESCAPE.sub("", output).strip()
     decoder = json.JSONDecoder()
@@ -172,13 +178,23 @@ def render_story(post: dict[str, Any], copy: dict[str, str], rank: int) -> str:
     """.strip()
 
 
+def select_poster_posts(all_posts: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    posts = all_posts[:3]
+    if len(posts) != 3 or any(not post.get("isTopStory") or not post.get("topStoryEligible") for post in posts):
+        raise RuntimeError("Poster requires exactly three eligible AI technical top stories")
+    eligible_authors = {author_key(post) for post in all_posts if post.get("topStoryEligible")}
+    required_author_count = min(3, len(eligible_authors))
+    if len({author_key(post) for post in posts}) < required_author_count:
+        raise RuntimeError("Poster top stories do not maximize author diversity")
+    return posts
+
+
 def main() -> int:
     args = parse_args()
     posts_path = (args.input or latest_posts_path()).resolve()
     payload = json.loads(posts_path.read_text(encoding="utf-8"))
-    posts = [post for post in payload.get("posts", []) if isinstance(post, dict)][:3]
-    if not posts:
-        raise RuntimeError(f"No posts found in {posts_path}")
+    all_posts = [post for post in payload.get("posts", []) if isinstance(post, dict)]
+    posts = select_poster_posts(all_posts)
     copies = editorial_copy(posts, use_codex=not args.no_codex)
     generated = datetime.fromisoformat(str(payload["fetchStartedAt"]).replace("Z", "+00:00")).astimezone(SHANGHAI)
     monitored = len(payload.get("experts") or [])
@@ -215,7 +231,7 @@ def main() -> int:
   .avatar img{{width:100%;height:100%;object-fit:cover;transform:scale(1.08)}} .portrait b{{position:absolute;right:0;bottom:-3px;display:grid;place-items:center;width:31px;height:31px;border:3px solid #151519;border-radius:50%;background:#fff;font-size:16px}}
   .story-body{{min-width:0}} .byline{{display:flex;align-items:center;gap:9px;min-width:0;margin-bottom:5px}} .byline strong{{font-size:26px;line-height:1;white-space:nowrap}} .byline em{{padding:6px 12px;border-radius:999px;background:#151519;color:#fff;font-size:15px;font-style:normal;font-weight:850;white-space:nowrap}} .byline span{{overflow:hidden;color:#666b74;font-size:16px;font-weight:750;text-overflow:ellipsis;white-space:nowrap}}
   h2{{margin:0;max-height:100px;overflow:hidden;font-size:46px;line-height:1.05;font-weight:950;letter-spacing:-1.6px}} .story p{{display:-webkit-box;max-height:64px;margin:8px 0 0;overflow:hidden;color:#5d626b;font-size:25px;line-height:1.28;font-weight:750;white-space:normal;-webkit-box-orient:vertical;-webkit-line-clamp:2}}
-</style></head><body><div class="poster"><header><div><h1>硅谷 AI 原声 <span>| {generated.month}/{generated.day}</span></h1><div class="subtitle">全球核心专家动态精选 · 最近 17 小时</div></div><div class="stats"><div class="stat"><strong>{monitored}</strong><small>人监控</small></div><div class="stat"><strong>{args.selected_count}</strong><small>条精选</small></div></div></header><main>{stories_html}</main></div></body></html>"""
+</style></head><body><div class="poster"><header><div><h1>硅谷 AI 原声 <span>| {generated.month}/{generated.day}</span></h1><div class="subtitle">全球核心专家动态精选 · 最近 23 小时</div></div><div class="stats"><div class="stat"><strong>{monitored}</strong><small>人监控</small></div><div class="stat"><strong>{args.selected_count}</strong><small>条精选</small></div></div></header><main>{stories_html}</main></div></body></html>"""
     poster_path = output_dir / "poster.html"
     poster_path.write_text(page, encoding="utf-8")
     print(json.dumps({"posterHtml": str(poster_path), "posterData": str(output_dir / "data/poster.json"), **poster_data}, ensure_ascii=False, indent=2))

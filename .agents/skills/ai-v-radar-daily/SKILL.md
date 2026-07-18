@@ -1,6 +1,6 @@
 ---
 name: ai-v-radar-daily
-description: Generate, rebuild, inspect, validate, and publish the local “硅谷 AI 原声日报” / AI V-Radar from X/Twitter with Bird and Codex. Use when Codex is asked to 抓取 Twitter/X AI 动态、生成最近 17 小时 AI 日报、更新或发布 AI V-Radar 页面、推送日报到 GitHub Pages、调整 AI 人物权重或前三条排序、补翻译或头像、检查每日自动任务，or work on `four-knows/ai-v-radar` and `scripts/fetch_ai_v_radar.py`.
+description: Generate, rebuild, inspect, validate, retain, and publish the local “硅谷 AI 原声” / AI V-Radar from X/Twitter with Bird and Codex. Use when Codex is asked to 抓取 Twitter/X AI 动态、生成最近 23 小时 AI 日报、更新或发布 AI V-Radar 页面、推送日报到 GitHub Pages、清理 7 天前历史日报、调整 AI 人物权重或前三条排序、补翻译或头像、检查每日自动任务，or work on `four-knows/ai-v-radar` and `scripts/fetch_ai_v_radar.py`.
 ---
 
 # AI V-Radar Daily
@@ -12,12 +12,14 @@ Operate from the root of the `four-knows` repository that contains this skill. T
 Run from the project root:
 
 ```bash
-python3 scripts/fetch_ai_v_radar.py --hours 17 --fetch-mode search --search-batch-size 8 --search-max-pages 5 --workers 2 --retries 2 --avatar-workers 3 --translation-batch-size 8 --translation-workers 2 --translation-retries 2
+python3 scripts/fetch_ai_v_radar.py --hours 23 --fetch-mode search --search-batch-size 8 --search-max-pages 5 --workers 2 --retries 2 --avatar-workers 3 --translation-batch-size 8 --translation-workers 2 --translation-retries 2
 ```
 
 Use the embedded watchlist in `ai_key_people_watchlist_visual.html` (currently 54 accounts). Use Bird only for read operations and the local non-interactive Codex CLI for Simplified Chinese translation.
 
-Reserve `--reuse-data ai-v-radar/YYYYMMDD/data/posts.json` for repairing translation, avatar, layout, or ranking on an already fetched dataset. Never describe reuse as a new 17-hour fetch.
+Bird reads the saved X session directly from the local Chrome profile with `--cookie-source chrome`; it does not drive a live Chrome tab. Chrome may be closed during a run. Treat a logged-out X session, expired or cleared cookies, a different Chrome profile, or denied macOS cookie decryption as authentication failures and report them without exposing credentials.
+
+Reserve `--reuse-data ai-v-radar/YYYYMMDD/data/posts.json` for repairing translation, avatar, layout, or ranking on an already fetched dataset. Never describe reuse as a new 23-hour fetch.
 
 ## Use local Codex for translation
 
@@ -30,12 +32,12 @@ Reserve `--reuse-data ai-v-radar/YYYYMMDD/data/posts.json` for repairing transla
 ## Enforce the time window
 
 - Capture `fetchStartedAt` once, immediately when the fresh command starts.
-- Set `windowStart = fetchStartedAt - 17 hours` exactly.
+- Set `windowStart = fetchStartedAt - 23 hours` exactly.
 - Include a post only when `windowStart <= createdAtIso <= fetchStartedAt`.
 - Do not use the command finish time, a calendar day, “since yesterday”, or a rolling boundary that moves during the fetch.
 - Do not extend the window to fill the page or the first three positions.
 - Store UTC source time in `createdAtIso`, store `createdAtBeijing` with `+08:00`, and display every card time in `Asia/Shanghai` with `北京` visible.
-- Show the full report window in Beijing time below the title.
+- Keep the exact Beijing window in `data/posts.json` and `data/run-report.json`, but do not repeat the full range in the visual header. Display the Beijing report date inline with the title.
 
 ## Select content
 
@@ -57,14 +59,16 @@ Rank the first three independently from the remainder. Each must be a high-confi
 
 Use technical evidence, author importance, engagement, quoted technical detail, and article substance. Favor current OpenAI authors first and current Anthropic/Claude authors second. Do not label commentary, policy chatter, marketing, vague hype, or recruitment as a top story merely because an important author posted it.
 
-Mark the selected cards with `isTopStory=true`, `topStoryEligible=true`, `topStoryCategory`, and `topStoryScore`. Select up to three genuinely eligible top stories. If fewer than three qualify, keep the eligible stories first and continue immediately with the normal author ordering; do not fail, weaken the rule, or enlarge the window.
+Mark the selected cards with `isTopStory=true`, `topStoryEligible=true`, `topStoryCategory`, and `topStoryScore`. A publishable poster requires exactly three genuinely eligible top stories that describe substantive AI technical progress, frontier research, or concrete technical application; never fill a poster position with commentary, marketing, policy chatter, or another non-eligible record. If fewer than three qualify, keep the generated local report artifacts but stop poster publication and report the shortage rather than weakening the rule or enlarging the window.
+
+Maximize author diversity across the three top stories. Select the strongest eligible story from each distinct author before considering a second story from anyone. When at least three eligible authors exist, all three poster cards must come from different authors. When only one or two eligible authors exist, use the maximum available diversity and allow repetition only to fill the remaining positions; never publish three cards from one author when another eligible author is available.
 
 After the first three, order by P0/P1 importance, current organization boost, and curated watchlist order. Apply `+10` signal weight to current OpenAI authors and `+9` to current Anthropic/Claude authors. Remove “前 OpenAI”, `former OpenAI`, and `ex-OpenAI` before detecting current OpenAI affiliation; a current Anthropic employee who previously worked at OpenAI remains Anthropic.
 
 ## Render the page
 
-- Use the exact main title `硅谷 AI 原声日报`; keep the header compact.
-- Show only the useful header metrics: monitored experts, active experts, and selected originals.
+- Use the exact main title `硅谷 AI 原声` and place the report date inline in the same heading; do not render a separate date eyebrow or full-window subtitle.
+- Show only the useful header metrics: monitored experts, active experts, and selected originals. Keep this row smaller than the title and minimize header padding so the content stream starts quickly.
 - Render a dense, responsive two-column stream on desktop and one column on narrow screens.
 - Show the complete English original first in the larger font. Show the complete Chinese translation after it in the smaller font. Never replace either with a summary.
 - Preserve the same bilingual order in quoted posts and X Articles.
@@ -90,7 +94,7 @@ After the report passes content validation, run:
 python3 scripts/render_ai_v_poster.py --input ai-v-radar/YYYYMMDD/data/posts.json --selected-count 13
 ```
 
-This writes `poster.html` and `data/poster.json` in the dated report directory. Use the first three display records: eligible top stories first, then normal author order if fewer than three qualify. Generate concise Chinese technical titles and subtitles with the local non-interactive Codex CLI; preserve model/product names, numbers, and claims, and fall back to deterministic source-derived copy if Codex fails.
+This writes `poster.html` and `data/poster.json` in the dated report directory. Use exactly the first three display records after technical-importance ranking and author-diversity selection; all three must be eligible top stories. Generate concise Chinese technical titles and subtitles with the local non-interactive Codex CLI; preserve model/product names, numbers, and claims, and fall back to deterministic source-derived copy if Codex fails.
 
 Render `poster.html` through local HTTP with the Browser skill. Set the viewport to 1744×960, take a full-page capture, and save the final RGB PNG as `ai-v-radar/YYYYMMDD/screenshots.png`. Do not rely on a viewport-only capture because browser chrome may reduce its width. If the Browser backend returns JPEG bytes, save a temporary `.jpg`, convert it to PNG with `sips -s format png`, then move the temporary source out of the report directory.
 
@@ -98,11 +102,23 @@ Match the established poster system:
 
 - exact 1744×960 canvas;
 - black-and-white editorial header `硅谷 AI 原声 | M/D`;
-- subtitle for global expert highlights from the latest 17 hours;
+- subtitle for global expert highlights from the latest 23 hours;
 - exact visible stats `54 人监控` and `13 条精选`;
 - three large bordered cards with real author avatar, rank, author/role, category pill, large Chinese headline, and gray technical subtitle;
 - no invented facts, decorative stock art, filters, navigation, or extra explanatory blocks.
 - when a selected post quotes another post, use the quoted post's complete Chinese translation as the smaller two-line subtitle; only use the generated summary when there is no quoted post.
+
+## Prune expired reports
+
+Keep the repository bounded by retaining only the current Beijing report date and the previous six Beijing calendar dates. After a fresh report and poster are complete, but before final validation and publication, run:
+
+```bash
+python3 .agents/skills/ai-v-radar-daily/scripts/prune_old_reports.py --project . --keep-days 7 --reference-date YYYYMMDD
+```
+
+The reference date must be the fresh report's Beijing `YYYYMMDD`. The command deletes dated directories on or before `reference date - 7 days`, so exactly seven calendar dates remain when reports exist for every day. It may remove only direct, nonsymlink directories matching `ai-v-radar/YYYYMMDD`; preserve caches, undated files, invalid date names, and every path outside `ai-v-radar`.
+
+Use the command's JSON `removed` list as the exact deletion set for Git staging and the final run summary. Do not run retention cleanup during a `--reuse-data`-only repair of an older report; cleanup belongs to a fresh production workflow so a historical layout or translation repair cannot unexpectedly remove reports.
 
 ## Protect the X session
 
@@ -122,16 +138,18 @@ python3 .agents/skills/ai-v-radar-daily/scripts/validate_radar.py --project .
 
 Require all of the following:
 
-- exact 17-hour `windowStart`/`fetchStartedAt` interval;
+- exact 23-hour `windowStart`/`fetchStartedAt` interval;
 - 54 requested accounts and zero failed accounts for a production run;
 - unique IDs and every post inside the fixed window;
 - UTC source timestamp, `+08:00` Beijing timestamp, and visible `北京` card time;
 - zero technical-filter or recruitment violations in selected posts;
-- up to three eligible leading records and HTML cards marked as top stories, followed by normal author order when fewer qualify;
+- exactly three eligible leading records and HTML cards marked as top stories for a publishable poster;
+- maximum author diversity in the first three: three different authors whenever at least three eligible authors exist, otherwise no avoidable repetition;
 - `translation.failed=0` and `translation.coverage=1.0`;
 - primary and quoted avatar coverage both `1.0`, with `postsWithAvatar=postsSelected`;
 - density-reducing UI shortcuts and removed controls remain absent.
-- `screenshots.png` is a real 1744×960 PNG and `data/poster.json` contains `monitored=54`, `selected=13`, and up to three displayed stories.
+- `screenshots.png` is a real 1744×960 PNG and `data/poster.json` contains `monitored=54`, `selected=13`, and exactly three displayed eligible stories.
+- no dated report directory exists on or before the current report date minus seven days; only the latest seven Beijing calendar dates may remain.
 
 Serve the repository through local HTTP for visual QA; do not validate only a `file://` page. Use the Browser skill when available, reload after rebuilding, verify the first three authors/content/times, and leave the final report tab as the deliverable.
 
@@ -143,10 +161,10 @@ Publishing is part of a successful production run. Do it only after the report a
 - Use the user's existing local GitHub SSH authentication for account `wangwenxiang`. Do not request, read, print, or store private keys or tokens.
 - This is a GitHub repository, so no Jira task number is required. Use a concise conventional commit such as `chore: publish AI radar YYYYMMDD HHMM Beijing`.
 - Confirm the current branch is `gh-pages`, then fetch the remote `gh-pages` branch over SSH before committing. If the remote is ahead or the histories have diverged, stop and report the condition; do not overwrite, force-push, or guess a merge.
-- Stage only the current dated directory under `ai-v-radar/YYYYMMDD/`, `ai-v-radar/translation-cache.json`, and `ai-v-radar/avatar-cache.json`. Include production script or skill files only when the current user request intentionally changed them. Never use `git add .`, and never include unrelated untracked files or temporary worktrees.
+- Stage only the current dated directory under `ai-v-radar/YYYYMMDD/`, `ai-v-radar/translation-cache.json`, `ai-v-radar/avatar-cache.json`, and the exact expired dated directories reported in the pruning command's `removed` list. Stage each removed tracked directory explicitly with `git add -u -- ai-v-radar/YYYYMMDD`; never broaden this to all of `ai-v-radar`. Include production script or skill files only when the current user request intentionally changed them. Never use `git add .`, and never include unrelated untracked files or temporary worktrees.
 - Run `git diff --cached --check` and inspect the staged file list before committing. If no generated file changed, skip the commit and push and report that the remote is already current.
 - Push explicitly over SSH with `git push git@github.com:wangwenxiang/four-knows.git HEAD:gh-pages`. Never force-push.
 - After pushing, verify that `refs/heads/gh-pages` on the SSH remote equals local `HEAD`. If a push returns an unclear status, check the remote SHA before retrying so the same publication is not duplicated.
 
-Report the absolute `index.html` and `screenshots.png` paths, exact Beijing window, selected count, active-author count, first-three authors/categories, recruitment and nontechnical drop counts, translation/avatar coverage, and failed-account count.
+Report the absolute `index.html` and `screenshots.png` paths, exact Beijing window, selected count, active-author count, first-three authors/categories, recruitment and nontechnical drop counts, translation/avatar coverage, failed-account count, and the exact expired report directories removed by retention cleanup.
 Also report the commit SHA and verified GitHub push status. If publication is blocked, keep the validated local artifacts and explain the exact Git state without force-pushing.

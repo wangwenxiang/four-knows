@@ -23,6 +23,15 @@ def parse_iso(value: object) -> datetime:
     return datetime.fromisoformat(str(value).replace("Z", "+00:00"))
 
 
+def parse_report_dir_date(name: str):
+    if not re.fullmatch(r"\d{8}", name):
+        return None
+    try:
+        return datetime.strptime(name, "%Y%m%d").date()
+    except ValueError:
+        return None
+
+
 def main() -> int:
     args = parse_args()
     project = args.project.resolve()
@@ -34,7 +43,11 @@ def main() -> int:
     )
 
     output_root = project / "ai-v-radar"
-    report_dirs = sorted(path for path in output_root.iterdir() if path.is_dir() and re.fullmatch(r"\d{8}", path.name))
+    report_dirs = sorted(
+        path
+        for path in output_root.iterdir()
+        if path.is_dir() and parse_report_dir_date(path.name) is not None
+    )
     if not report_dirs:
         raise SystemExit("No dated AI V-Radar output directory found")
     output_dir = output_root / args.date if args.date else report_dirs[-1]
@@ -44,10 +57,23 @@ def main() -> int:
     posts = posts_payload.get("posts") or []
     errors: list[str] = []
 
+    report_calendar_date = datetime.strptime(output_dir.name, "%Y%m%d").date()
+    retention_cutoff = report_calendar_date - timedelta(days=7)
+    expired_report_dirs = [
+        path.name
+        for path in report_dirs
+        if parse_report_dir_date(path.name) <= retention_cutoff
+    ]
+    if expired_report_dirs:
+        errors.append(
+            "expired report directories remain after seven-day retention cleanup: "
+            + ", ".join(expired_report_dirs)
+        )
+
     fetch_started = parse_iso(report.get("fetchStartedAt") or report.get("generatedAt"))
     window_start = parse_iso(report.get("windowStart"))
-    if abs((fetch_started - window_start).total_seconds() - timedelta(hours=17).total_seconds()) > 0.001:
-        errors.append("window is not exactly 17 hours from fetchStartedAt")
+    if abs((fetch_started - window_start).total_seconds() - timedelta(hours=23).total_seconds()) > 0.001:
+        errors.append("window is not exactly 23 hours from fetchStartedAt")
 
     ids = [str(post.get("id") or "") for post in posts]
     if not all(ids) or len(ids) != len(set(ids)):
@@ -69,8 +95,11 @@ def main() -> int:
         if is_redundant_nontechnical_wrapper(post, selected_ids):
             errors.append(f"post {post.get('id')} is a redundant nontechnical quote wrapper")
 
-    eligible_count = sum(bool(post.get("topStoryEligible")) for post in posts)
-    required_top = min(3, len(posts), eligible_count)
+    eligible_posts = [post for post in posts if post.get("topStoryEligible")]
+    eligible_count = len(eligible_posts)
+    required_top = 3
+    if len(posts) < 3 or eligible_count < 3:
+        errors.append("production poster requires three eligible AI technical top stories")
     allowed_categories = {"AI 技术进步", "AI 技术前沿", "AI 技术应用"}
     for index, post in enumerate(posts[:required_top]):
         if not post.get("isTopStory") or not post.get("topStoryEligible"):
@@ -79,6 +108,16 @@ def main() -> int:
             errors.append(f"display position {index + 1} has an invalid top-story category")
     if len(report.get("topStories") or []) != required_top:
         errors.append("run-report topStories does not match the required leading-card count")
+    eligible_authors = {
+        str((post.get("expert") or {}).get("handle") or (post.get("author") or {}).get("username") or post.get("id") or "").casefold()
+        for post in eligible_posts
+    }
+    leading_authors = {
+        str((post.get("expert") or {}).get("handle") or (post.get("author") or {}).get("username") or post.get("id") or "").casefold()
+        for post in posts[:required_top]
+    }
+    if len(leading_authors) < min(required_top, len(eligible_authors)):
+        errors.append("the first three stories do not maximize author diversity")
 
     translation = report.get("translation") or {}
     avatars = report.get("avatars") or {}
@@ -91,8 +130,12 @@ def main() -> int:
     if report.get("accountsRequested") != 54 or report.get("accountsFailed") != 0:
         errors.append("production fetch must request 54 accounts with zero failures")
 
-    if "<h1>硅谷 AI 原声日报</h1>" not in html:
-        errors.append("page title contract is missing")
+    report_date = f"{output_dir.name[:4]}-{output_dir.name[4:6]}-{output_dir.name[6:8]}"
+    expected_heading = f'<h1>硅谷 AI 原声 <span class="report-date">· {report_date}</span></h1>'
+    if expected_heading not in html:
+        errors.append("page title and report date are not combined in one heading")
+    if 'class="eyebrow"' in html or 'class="window"' in html:
+        errors.append("the compact header contains a redundant date or window line")
     if html.count('class="signal-card"') != len(posts):
         errors.append("HTML card count does not match posts.json")
     first_card_tags = re.findall(r'<article class="signal-card"[^>]*>', html)[:required_top]
@@ -117,7 +160,7 @@ def main() -> int:
         poster_data = json.loads(poster_data_path.read_text(encoding="utf-8"))
         if poster_data.get("monitored") != 54 or poster_data.get("selected") != 13:
             errors.append("poster stats must be 54 monitored / 13 selected")
-        expected_stories = min(3, len(posts))
+        expected_stories = 3
         if len(poster_data.get("stories") or []) != expected_stories:
             errors.append("poster story count does not match the first display records")
 
@@ -129,6 +172,7 @@ def main() -> int:
         "posts": len(posts),
         "topStories": report.get("topStories") or [],
         "poster": str(poster_path),
+        "expiredReportDirs": expired_report_dirs,
         "errors": errors,
     }
     print(json.dumps(summary, ensure_ascii=False, indent=2))

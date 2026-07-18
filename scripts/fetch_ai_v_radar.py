@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fetch a read-only 17-hour X radar with Bird and render a static report."""
+"""Fetch a read-only 23-hour X radar with Bird and render a static report."""
 
 from __future__ import annotations
 
@@ -179,7 +179,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--watchlist", type=Path, default=DEFAULT_WATCHLIST)
     parser.add_argument("--output-root", type=Path, default=DEFAULT_OUTPUT_ROOT)
-    parser.add_argument("--hours", type=float, default=17.0)
+    parser.add_argument("--hours", type=float, default=23.0)
     parser.add_argument("--count-per-user", type=int, default=20)
     parser.add_argument("--workers", type=int, default=3)
     parser.add_argument("--retries", type=int, default=2)
@@ -1099,10 +1099,20 @@ def render_post(post: dict[str, Any]) -> str:
     """
 
 
-def order_posts_for_report(experts: list[Expert], posts: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    for post in posts:
-        post["isTopStory"] = False
-    top_candidates = sorted(
+def top_story_author_key(post: dict[str, Any]) -> str:
+    expert = post.get("expert") or {}
+    author = post.get("author") or {}
+    return str(
+        expert.get("handle")
+        or author.get("username")
+        or post.get("id")
+        or "unknown"
+    ).casefold()
+
+
+def select_diverse_top_stories(posts: list[dict[str, Any]], limit: int = 3) -> list[dict[str, Any]]:
+    """Select the strongest eligible stories while maximizing author diversity."""
+    candidates = sorted(
         (post for post in posts if post.get("topStoryEligible")),
         key=lambda post: (
             int(post.get("topStoryScore") or 0),
@@ -1111,7 +1121,36 @@ def order_posts_for_report(experts: list[Expert], posts: list[dict[str, Any]]) -
         ),
         reverse=True,
     )
-    top_stories = top_candidates[: min(3, len(posts))]
+    target = min(max(0, limit), len(candidates))
+    selected: list[dict[str, Any]] = []
+    selected_ids: set[str] = set()
+    seen_authors: set[str] = set()
+
+    for post in candidates:
+        author_key = top_story_author_key(post)
+        if author_key in seen_authors:
+            continue
+        selected.append(post)
+        selected_ids.add(str(post.get("id") or ""))
+        seen_authors.add(author_key)
+        if len(selected) == target:
+            return selected
+
+    for post in candidates:
+        post_id = str(post.get("id") or "")
+        if post_id in selected_ids:
+            continue
+        selected.append(post)
+        selected_ids.add(post_id)
+        if len(selected) == target:
+            break
+    return selected
+
+
+def order_posts_for_report(experts: list[Expert], posts: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    for post in posts:
+        post["isTopStory"] = False
+    top_stories = select_diverse_top_stories(posts, limit=3)
     top_ids = {str(post.get("id") or "") for post in top_stories}
     for post in top_stories:
         post["isTopStory"] = True
@@ -1148,42 +1187,41 @@ def render_report(
     failed_accounts = sum(len(result.get("experts", [])) for result in failures)
     cards = "".join(render_post(post) for post in posts)
     if not cards:
-        cards = '<div class="empty">最近 17 小时没有抓取到符合条件的公开动态。</div>'
+        cards = '<div class="empty">最近 23 小时没有抓取到符合条件的公开动态。</div>'
     failure_note = ""
     if failures:
         failure_note = f'<div class="notice">有 {failed_accounts} 个账号本轮抓取失败，详情见 data/run-report.json；其他账号的日报已正常生成。</div>'
     generated = now.astimezone(SHANGHAI)
-    window = f"{cutoff.astimezone(SHANGHAI):%Y-%m-%d %H:%M} — {generated:%Y-%m-%d %H:%M} 北京时间"
     rendered = f"""<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light">
-  <title>硅谷 AI 原声日报 · {generated:%Y-%m-%d}</title>
+  <title>硅谷 AI 原声 · {generated:%Y-%m-%d}</title>
   <style>
     :root{{--bg:#f4f6f8;--surface:#fff;--text:#16181c;--muted:#65717e;--line:#dfe4e9;--accent:#0066cc;--green:#117a62;--shadow:0 16px 42px rgba(18,28,38,.08);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}}
     *{{box-sizing:border-box}} body{{margin:0;background:radial-gradient(circle at 15% 0,#e8f2ff 0,transparent 27%),var(--bg);color:var(--text)}} a{{color:inherit;text-decoration:none}} button{{font:inherit}}
-    .shell{{width:min(1500px,calc(100% - 28px));margin:0 auto;padding:22px 0 44px}}
-    .hero{{display:grid;grid-template-columns:minmax(250px,1fr) auto;align-items:end;gap:18px;padding:20px 22px;border:1px solid rgba(255,255,255,.75);border-radius:18px;background:rgba(255,255,255,.88);box-shadow:var(--shadow);backdrop-filter:blur(18px)}}
-    .eyebrow{{margin:0 0 6px;color:var(--green);font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}} h1{{margin:0;font-size:clamp(30px,4vw,50px);line-height:1;letter-spacing:-.05em}} .window{{margin-top:9px;color:#697582;font-size:10.5px;font-weight:700}}
-    .metrics{{display:grid;grid-template-columns:repeat(3,minmax(70px,1fr));gap:7px;align-content:start}} .metric{{padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:#fff}} .metric strong{{display:block;font-size:23px;line-height:1}} .metric span{{display:block;margin-top:5px;color:var(--muted);font-size:9px;font-weight:850;white-space:nowrap}}
+    .shell{{width:min(1500px,calc(100% - 28px));margin:0 auto;padding:14px 0 40px}}
+    .hero{{display:grid;grid-template-columns:minmax(250px,1fr) auto;align-items:center;gap:12px;padding:15px 18px;border:1px solid rgba(255,255,255,.75);border-radius:16px;background:rgba(255,255,255,.88);box-shadow:var(--shadow);backdrop-filter:blur(18px)}}
+    h1{{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin:0;font-size:clamp(28px,3.4vw,44px);line-height:1;letter-spacing:-.05em}} .report-date{{color:var(--green);font-size:clamp(10px,1vw,13px);font-weight:900;letter-spacing:.08em;white-space:nowrap}}
+    .metrics{{display:grid;grid-template-columns:repeat(3,minmax(62px,1fr));gap:6px;align-content:start}} .metric{{padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fff}} .metric strong{{display:block;font-size:19px;line-height:1}} .metric span{{display:block;margin-top:3px;color:var(--muted);font-size:8px;font-weight:820;white-space:nowrap}}
     .notice{{margin-top:12px;padding:11px 14px;border:1px solid #e1b866;border-radius:12px;background:#fff8e8;color:#7a5612;font-size:12px}}
     .grid{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px;align-items:start}} .signal-card{{min-width:0;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 9px 26px rgba(18,28,38,.045)}}
     .card-top{{display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:10px}} .avatar{{display:grid;width:46px;height:46px;overflow:hidden;place-items:center;border:1px solid #d9e0e7;border-radius:999px;background:linear-gradient(135deg,#111827,#46627d);color:#fff;font-size:12px;font-weight:900}} .avatar img{{width:100%;height:100%;object-fit:cover;display:block}} .identity{{display:grid;gap:3px;min-width:0}} .identity strong,.identity span{{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}} .identity strong{{font-size:14px}} .identity span{{color:var(--muted);font-size:11px}}
-    .score{{display:grid;justify-items:center;min-width:48px;padding:7px;border-radius:10px;background:#eaf7f3;color:var(--green);font-size:19px;font-weight:900;line-height:1}} .score small{{margin-top:4px;font-size:8px;letter-spacing:.08em;text-transform:uppercase}}
+    .score{{display:grid;justify-items:center;min-width:40px;padding:5px 6px;border:1px solid #e3ebe8;border-radius:8px;background:#f4f8f6;color:#527267;font-size:15px;font-weight:820;line-height:1}} .score small{{margin-top:2px;color:#71877f;font-size:7px;letter-spacing:.06em;text-transform:uppercase}}
     .meta{{display:flex;align-items:center;gap:6px;margin:11px 0 9px;color:var(--muted);font-size:10.5px;font-weight:750}} .meta span:not(.priority){{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}} .meta time{{margin-left:auto;white-space:nowrap}} .priority{{padding:3px 6px;border-radius:999px;background:#111827;color:#fff;font-size:9px}}
     .post-text{{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.58}} .post-text.original{{font-size:16px;font-weight:570;color:#20252b}} .post-text.translation{{margin-top:8px;color:#66727f;font-size:13px;font-weight:470;line-height:1.62}} .article .original+.translation{{margin-top:2px;color:#65717e;font-size:11px;font-weight:650}} .quote,.article{{display:grid;gap:6px;margin-top:10px;padding:11px;border:1px solid var(--line);border-radius:12px;background:#f7f9fb}} .quote__author{{display:flex;align-items:center;gap:7px;font-size:11px}} .quote__author>div:last-child{{display:grid;gap:1px}} .quote__author span{{color:var(--muted)}} .quote-avatar{{display:grid;width:28px;height:28px;overflow:hidden;place-items:center;border:1px solid var(--line);border-radius:999px;background:#dfe6ed;color:#52606d;font-size:10px;font-weight:900}} .quote-avatar img{{width:100%;height:100%;object-fit:cover}} .quote p,.article p{{margin:0;color:#4f5a66;font-size:12px;line-height:1.48;white-space:pre-wrap}} .article strong{{font-size:13px}} .article strong.original{{font-size:13.5px}} .quote-text.original{{font-size:12.5px;color:#36414d}} .quote-text.translation{{font-size:11.5px;color:#6a7682}} .quote-link{{justify-self:start;color:var(--accent);font-size:10px;font-weight:850}}
     .media-grid{{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:10px;overflow:hidden;border-radius:12px}} .media-grid--1{{grid-template-columns:1fr}} .media-item{{position:relative;min-height:150px;background:#e8edf2}} .media-item img{{width:100%;height:100%;max-height:330px;object-fit:cover;display:block}} .media-item span{{position:absolute;right:7px;bottom:7px;padding:4px 6px;border-radius:6px;background:rgba(0,0,0,.68);color:#fff;font-size:8px;font-weight:900}}
     .card-bottom{{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid #edf0f3}} .engagement{{display:flex;gap:10px;color:var(--muted);font-size:10.5px;font-weight:750}} .card-bottom>a{{color:var(--accent);font-size:11px;font-weight:850}} .empty{{grid-column:1/-1;padding:70px;text-align:center;border:1px dashed #cdd5dd;border-radius:16px;background:#fff;color:var(--muted)}}
     footer{{padding:26px 4px 0;color:var(--muted);font-size:11px;text-align:center}}
-    @media(max-width:900px){{.hero{{grid-template-columns:1fr}}.grid{{grid-template-columns:1fr}}}} @media(max-width:560px){{.shell{{width:min(100% - 16px,1500px);padding-top:8px}}.hero{{padding:17px;border-radius:16px}}.metrics{{grid-template-columns:repeat(3,minmax(0,1fr))}}.signal-card{{padding:13px}}.post-text.original{{font-size:15px}}.post-text.translation{{font-size:12.5px}}}}
+    @media(max-width:900px){{.hero{{grid-template-columns:1fr}}.grid{{grid-template-columns:1fr}}}} @media(max-width:560px){{.shell{{width:min(100% - 16px,1500px);padding-top:7px}}.hero{{gap:10px;padding:13px 14px;border-radius:15px}}h1{{font-size:28px}}.metrics{{grid-template-columns:repeat(3,minmax(0,1fr))}}.metric{{padding:7px 9px}}.metric strong{{font-size:18px}}.signal-card{{padding:13px}}.post-text.original{{font-size:15px}}.post-text.translation{{font-size:12.5px}}}}
   </style>
 </head>
 <body>
   <div class="shell">
     <header class="hero">
-      <div><p class="eyebrow">{generated:%Y-%m-%d}</p><h1>硅谷 AI 原声日报</h1><div class="window">{safe(window)}</div></div>
+      <h1>硅谷 AI 原声 <span class="report-date">· {generated:%Y-%m-%d}</span></h1>
       <div class="metrics"><div class="metric"><strong>{len(experts)}</strong><span>监控专家</span></div><div class="metric"><strong>{len(active_handles)}</strong><span>活跃专家</span></div><div class="metric"><strong>{len(posts)}</strong><span>精选原文</span></div></div>
     </header>
     {failure_note}
@@ -1297,8 +1335,8 @@ def rebuild_from_data(args: argparse.Namespace, experts: list[Expert]) -> int:
 
 def main() -> int:
     args = parse_args()
-    if not math.isclose(args.hours, 17.0):
-        raise RuntimeError("AI V-Radar requires an exact 17-hour window")
+    if not math.isclose(args.hours, 23.0):
+        raise RuntimeError("AI V-Radar requires an exact 23-hour window")
     now = datetime.fromisoformat(args.now.replace("Z", "+00:00")) if args.now else datetime.now(timezone.utc)
     if now.tzinfo is None:
         now = now.replace(tzinfo=SHANGHAI)
