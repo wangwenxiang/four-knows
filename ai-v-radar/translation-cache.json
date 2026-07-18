@@ -100,7 +100,8 @@
     },
     "3866aaec02f7701b0ed5d59bb77419c8ff5c07f41d2d67a214a37f6d467a9a64": {
       "source": "Are we still talking loops or did we shift to graphs yet?",
-      "zh": "我们还在聊 loops 还是已经切换到 graphs 了？"
+      "zh": "我们还在聊循环，还是已经转到图了？",
+      "promptVersion": "codex-v1"
     },
     "cb8360301ca3e084dde68aaf4b340bbb3a2a5a9ed86cfb3cce1c900d517a6cdf": {
       "source": "Inspired from some of the hoodies I personally own. Thanks @murtazakhomusi for humoring me on this https://t.co/TAcNbQi2d1",
@@ -272,7 +273,77 @@
       "source": "Beginning July 20, Claude Fable 5 will be included in all Max and Team Premium plans, at 50% of limits.\n\nPro and Team Standard users will continue to have access to Fable via usage credits, and will receive a one-time $100 credit.\n\nDemand for Fable has been challenging to predict, which is why we rolled it out to subscription plans in stages, extending access several times as we secured additional capacity.",
       "zh": "从 7 月 20 日起，Claude Fable 5 将纳入所有 Max 和 Team Premium 方案，额度为标准上限的 50%。\n\nPro 和 Team Standard 用户将继续可通过使用积分访问 Fable，并将获得一次性 $100 积分。\n\nFable 的需求一直难以预测，因此我们分阶段将其推出到订阅方案中，并在获得更多容量后多次延长访问权限。",
       "promptVersion": "codex-v1"
+    },
+    "e59a596670d557acd288222e0fa2b7b1edbd802910dec96debf81e4dcb984a70": {
+      "source": "\"Clone repo X from GitHub to /tmp for reference\" is one of my most used prompting patterns\n\nThis isn't the first time Claude Code on the web has regressed like this - it's really important functionality, please fix it and make sure it stays fixed!",
+      "zh": "“从 GitHub 克隆 repo X 到 /tmp 作为参考”是我最常用的提示模式之一\n\n这不是 Claude Code 网页版第一次出现这种退化了——这是非常重要的功能，请修复它，并确保它不再出问题！",
+      "promptVersion": "codex-v1"
+    },
+    "f6c7a20d9df5b162619a3226a6725ecaf78bac1d91a64f125b9e756047cafaf6": {
+      "source": "Amazing.",
+      "zh": "太棒了。",
+      "promptVersion": "codex-v1"
+    },
+    "37b6b9c3847d91963f4fec3877a1167bcf88a1ac50d8165f7ee21392884708ee": {
+      "source": "@simonw The inference cost for 49 auto-generated engagement replies is basically zero now. We're paying the tax in pure mental exhaustion reading them.",
+      "zh": "@simonw 现在 49 条自动生成互动回复的推理成本基本为零。我们真正付出的代价，是读它们带来的纯粹精神疲惫。",
+      "promptVersion": "codex-v1"
+    },
+    "2f37cfb54fd40e5f3c77a0731cbc57273a89012bafc0dbd546db4836c950d2b3": {
+      "source": "Evidently this was not an easy lift!",
+      "zh": "显然，这并不容易做到！",
+      "promptVersion": "codex-v1"
+    },
+    "03b64dd884471b9d4a723cc529876afe56fc9369d11acc1eb8dfbc59749d036a": {
+      "source": "This was due to a heroic effort by many people at Anthropic working sometimes literally around the clock\n\nIt was not at all clear that we'd be able to do this in time, and so proud of everyone who made it happen.\n\nEnjoy Fable.",
+      "zh": "这要归功于 Anthropic 许多人英勇般的努力，他们有时几乎真的是夜以继日地工作。\n\n我们当时完全不确定能否及时完成，所以我为所有让它成真的人感到无比自豪。\n\n享受 Fable 吧。",
+      "promptVersion": "codex-v1"
+    },
+    "633f8027f87b68bd4d843489b485fb8becc2ae5cb0d3f718d9aed10615b7e3e1": {
+      "source": "There is an interesting disconnect between the ability of models to successfully execute precise instructions (improving incredibly fast) and their ability to make sound decisions when faced with something not covered by the instructions (stagnating for a while).",
+      "zh": "这里有一个有趣的脱节：模型成功执行精确指令的能力提升得极快，但在面对指令未覆盖的情况时做出合理决策的能力却停滞了一段时间。",
+      "promptVersion": "codex-v1"
+    },
+    "750bc0d8b5a3e8c081dd67bb28d4e57b9b1f2eaefc1cec9cdd2bbb1a5fa0ddf1": {
+      "source": "Bookmarked 100 times 🤣🤣",
+      "zh": "收藏 100 次 🤣🤣",
+      "promptVersion": "codex-v1"
+    },
+    "50ce0134d128cd2c257a3663ed000eb793d50ae6613b25098d963e3cc189ac31": {
+      "source": "I'm glad people still understand the importance of building high-quality retrieval systems in 2026, especially as the outer models/harnesses are getting better every day.\n\nMaking agentic retrieval work in production  doesn't necessarily require groundbreaking new techniques around retrieval or planning. This article shows that you do need to spend engineering time tuning chunking, synchronization, reranking, tool API design, permissioning, and more. Some interesting tidbits:\n* Concatenating onto existing Slack threads as one contiguous chunk with heuristics for determining additional relevant context\n* Real-time updates for Slack\n* Separate chunking/updates for codebases\n* The discovery that hybrid search works well (not like this was a super new realization, but always good to validate and understand the specific parameters they tweaked) \n* Having natural guardrails on which data sources are relevant for which projects\n\nBuilding simple retrieval is easy, building production retrieval is hard. We had to deal with a lot of these challenges when productionizing our own Index feature within LlamaParse.",
+      "zh": "很高兴看到 2026 年人们仍然理解构建高质量检索系统的重要性，尤其是在外层模型和 harness 每天都在变得更好的情况下。\n\n让 agentic retrieval 在生产环境中真正可用，并不一定需要在检索或规划上采用突破性新技术。这篇文章表明，你确实需要投入工程时间来调优分块、同步、重排序、工具 API 设计、权限控制等。几个有意思的细节：\n* 将现有 Slack 线程拼接成一个连续块，并用启发式方法判断额外相关上下文\n* Slack 的实时更新\n* 针对代码库采用独立的分块和更新机制\n* 发现混合搜索效果不错（这并不是什么特别新的认知，但验证并理解他们具体调过的参数总是有价值的）\n* 对哪些数据源与哪些项目相关设置自然的护栏\n\n构建简单检索很容易，构建生产级检索很难。我们在将自己的 LlamaParse Index 功能产品化时，也不得不处理很多这类挑战。",
+      "promptVersion": "codex-v1"
+    },
+    "d67f033bf78db01a4b87d6a87232da6d0ee721e2741528a1c5da76a3be0d8b2c": {
+      "source": "How we built our knowledge base",
+      "zh": "我们如何构建知识库",
+      "promptVersion": "codex-v1"
+    },
+    "b651e36c851856119366d1d44cf3097b135cbded431937e2706d6f7b7c05dc03": {
+      "source": "Authors: @hi_im_isaac_, @learnwdaniel, @gaozenghao\nnote: the interactive version of full technical blog available: https://www.cerebras.ai/blog/how-we-built-our-knowledge-base\nEmployees ask our internal knowledge base more than 15,000",
+      "zh": "作者：@hi_im_isaac_、@learnwdaniel、@gaozenghao\n注：完整技术博客的互动版本见：https://www.cerebras.ai/blog/how-we-built-our-knowledge-base\n员工向我们的内部知识库提问超过 15,000 次",
+      "promptVersion": "codex-v1"
+    },
+    "3d37d8aa13cba97926a34ecdc8c57a0a51665f410ca113e49ca05c9a9f8c5f0d": {
+      "source": "1. build a workflow graph on top of the agent harness\n2. dynamically create that graph through an outer agent loop\n....repeat\n\nlife is a loop (and a graph)",
+      "zh": "1. 在 agent harness 之上构建工作流图\n2. 通过外层 agent 循环动态创建该图\n……重复\n\n生活就是一个循环（也是一张图）",
+      "promptVersion": "codex-v1"
+    },
+    "dbeec68440f56b92436f300fdadd7ba02f8d99b8f55116e8bc6ff5f17f6ec0da": {
+      "source": "We've invested a lot of engineering resources in the past 2 years making our own indexing pipelines reliable, accurate, and agent-native with a variety of retrieval endpoints designed to plug in to various harnesses.\n\nCheck it out: https://t.co/DHMd6BFO0l https://t.co/713nqsSwPF",
+      "zh": "过去 2 年，我们投入了大量工程资源，让自己的索引流水线变得可靠、准确，并且原生适配 agent，同时设计了多种检索端点，可接入不同的 harness。\n\n来看看：https://t.co/DHMd6BFO0l https://t.co/713nqsSwPF",
+      "promptVersion": "codex-v1"
+    },
+    "bbfa139f1b6f977c5ee1ca972f5772470cce44e3767662e0765a8da345a90cf6": {
+      "source": "49 replies to this and hard to be confident that ANY of them were posted by an actual human",
+      "zh": "这下面有 49 条回复，但很难相信其中任何一条真的是人类发的",
+      "promptVersion": "codex-v1"
+    },
+    "5a8dc691f9a9d75c50e889e91ead36c4eb2c20128b7f4d3b25c985d6f56dc4a6": {
+      "source": "OK, I think I get it\n\n\"ChatGPT Work\" is really \"OpenAI Claw\"",
+      "zh": "好吧，我想我懂了\n\n“ChatGPT Work”其实就是“OpenAI Claw”",
+      "promptVersion": "codex-v1"
     }
   },
-  "updatedAt": "2026-07-18T16:10:41.050078+00:00"
+  "updatedAt": "2026-07-18T18:04:26.658415+00:00"
 }

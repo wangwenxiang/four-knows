@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>硅谷 AI 原声 · 2026-07-19</title>
+  <style>
+    :root{--bg:#f4f6f8;--surface:#fff;--text:#16181c;--muted:#65717e;--line:#dfe4e9;--accent:#0066cc;--green:#117a62;--shadow:0 16px 42px rgba(18,28,38,.08);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 15% 0,#e8f2ff 0,transparent 27%),var(--bg);color:var(--text)} a{color:inherit;text-decoration:none} button{font:inherit}
+    .shell{width:min(1500px,calc(100% - 28px));margin:0 auto;padding:14px 0 40px}
+    .hero{display:grid;grid-template-columns:minmax(250px,1fr) auto;align-items:center;gap:12px;padding:15px 18px;border:1px solid rgba(255,255,255,.75);border-radius:16px;background:rgba(255,255,255,.88);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    h1{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin:0;font-size:clamp(28px,3.4vw,44px);line-height:1;letter-spacing:-.05em} .report-date{color:var(--green);font-size:clamp(10px,1vw,13px);font-weight:900;letter-spacing:.08em;white-space:nowrap}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(62px,1fr));gap:6px;align-content:start} .metric{padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fff} .metric strong{display:block;font-size:19px;line-height:1} .metric span{display:block;margin-top:3px;color:var(--muted);font-size:8px;font-weight:820;white-space:nowrap}
+    .notice{margin-top:12px;padding:11px 14px;border:1px solid #e1b866;border-radius:12px;background:#fff8e8;color:#7a5612;font-size:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px;align-items:start} .signal-card{min-width:0;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 9px 26px rgba(18,28,38,.045)}
+    .card-top{display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:10px} .avatar{display:grid;width:46px;height:46px;overflow:hidden;place-items:center;border:1px solid #d9e0e7;border-radius:999px;background:linear-gradient(135deg,#111827,#46627d);color:#fff;font-size:12px;font-weight:900} .avatar img{width:100%;height:100%;object-fit:cover;display:block} .identity{display:grid;gap:3px;min-width:0} .identity strong,.identity span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .identity strong{font-size:14px} .identity span{color:var(--muted);font-size:11px}
+    .score{display:grid;justify-items:center;min-width:40px;padding:5px 6px;border:1px solid #e3ebe8;border-radius:8px;background:#f4f8f6;color:#527267;font-size:15px;font-weight:820;line-height:1} .score small{margin-top:2px;color:#71877f;font-size:7px;letter-spacing:.06em;text-transform:uppercase}
+    .meta{display:flex;align-items:center;gap:6px;margin:11px 0 9px;color:var(--muted);font-size:10.5px;font-weight:750} .meta span:not(.priority){overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .meta time{margin-left:auto;white-space:nowrap} .priority{padding:3px 6px;border-radius:999px;background:#111827;color:#fff;font-size:9px}
+    .post-text{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.58} .post-text.original{font-size:16px;font-weight:570;color:#20252b} .post-text.translation{margin-top:8px;color:#66727f;font-size:13px;font-weight:470;line-height:1.62} .article .original+.translation{margin-top:2px;color:#65717e;font-size:11px;font-weight:650} .quote,.article{display:grid;gap:6px;margin-top:10px;padding:11px;border:1px solid var(--line);border-radius:12px;background:#f7f9fb} .quote__author{display:flex;align-items:center;gap:7px;font-size:11px} .quote__author>div:last-child{display:grid;gap:1px} .quote__author span{color:var(--muted)} .quote-avatar{display:grid;width:28px;height:28px;overflow:hidden;place-items:center;border:1px solid var(--line);border-radius:999px;background:#dfe6ed;color:#52606d;font-size:10px;font-weight:900} .quote-avatar img{width:100%;height:100%;object-fit:cover} .quote p,.article p{margin:0;color:#4f5a66;font-size:12px;line-height:1.48;white-space:pre-wrap} .article strong{font-size:13px} .article strong.original{font-size:13.5px} .quote-text.original{font-size:12.5px;color:#36414d} .quote-text.translation{font-size:11.5px;color:#6a7682} .quote-link{justify-self:start;color:var(--accent);font-size:10px;font-weight:850}
+    .media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:10px;overflow:hidden;border-radius:12px} .media-grid--1{grid-template-columns:1fr} .media-item{position:relative;min-height:150px;background:#e8edf2} .media-item img{width:100%;height:100%;max-height:330px;object-fit:cover;display:block} .media-item span{position:absolute;right:7px;bottom:7px;padding:4px 6px;border-radius:6px;background:rgba(0,0,0,.68);color:#fff;font-size:8px;font-weight:900}
+    .card-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid #edf0f3} .engagement{display:flex;gap:10px;color:var(--muted);font-size:10.5px;font-weight:750} .card-bottom>a{color:var(--accent);font-size:11px;font-weight:850} .empty{grid-column:1/-1;padding:70px;text-align:center;border:1px dashed #cdd5dd;border-radius:16px;background:#fff;color:var(--muted)}
+    footer{padding:26px 4px 0;color:var(--muted);font-size:11px;text-align:center}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}} @media(max-width:560px){.shell{width:min(100% - 16px,1500px);padding-top:7px}.hero{gap:10px;padding:13px 14px;border-radius:15px}h1{font-size:28px}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.metric{padding:7px 9px}.metric strong{font-size:18px}.signal-card{padding:13px}.post-text.original{font-size:15px}.post-text.translation{font-size:12.5px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <h1>硅谷 AI 原声 <span class="report-date">· 2026-07-19</span></h1>
+      <div class="metrics"><div class="metric"><strong>54</strong><span>监控专家</span></div><div class="metric"><strong>7</strong><span>活跃专家</span></div><div class="metric"><strong>20</strong><span>精选原文</span></div></div>
+    </header>
+
+    <main class="grid">
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="jerryjliu0" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">71<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>RAG / Agent 基础设施</span><time>07-19 01:48 北京</time></div>
+        <p class="post-text original" lang="auto">I&#x27;m glad people still understand the importance of building high-quality retrieval systems in 2026, especially as the outer models/harnesses are getting better every day.
+
+Making agentic retrieval work in production  doesn&#x27;t necessarily require groundbreaking new techniques around retrieval or planning. This article shows that you do need to spend engineering time tuning chunking, synchronization, reranking, tool API design, permissioning, and more. Some interesting tidbits:
+* Concatenating onto existing Slack threads as one contiguous chunk with heuristics for determining additional relevant context
+* Real-time updates for Slack
+* Separate chunking/updates for codebases
+* The discovery that hybrid search works well (not like this was a super new realization, but always good to validate and understand the specific parameters they tweaked)
+* Having natural guardrails on which data sources are relevant for which projects
+
+Building simple retrieval is easy, building production retrieval is hard. We had to deal with a lot of these challenges when productionizing our own Index feature within LlamaParse.</p><p class="post-text translation" lang="zh-CN">很高兴看到 2026 年人们仍然理解构建高质量检索系统的重要性，尤其是在外层模型和 harness 每天都在变得更好的情况下。
+
+让 agentic retrieval 在生产环境中真正可用，并不一定需要在检索或规划上采用突破性新技术。这篇文章表明，你确实需要投入工程时间来调优分块、同步、重排序、工具 API 设计、权限控制等。几个有意思的细节：
+* 将现有 Slack 线程拼接成一个连续块，并用启发式方法判断额外相关上下文
+* Slack 的实时更新
+* 针对代码库采用独立的分块和更新机制
+* 发现混合搜索效果不错（这并不是什么特别新的认知，但验证并理解他们具体调过的参数总是有价值的）
+* 对哪些数据源与哪些项目相关设置自然的护栏
+
+构建简单检索很容易，构建生产级检索很难。我们在将自己的 LlamaParse Index 功能产品化时，也不得不处理很多这类挑战。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1894806880804913152/zLdh072p_normal.jpg" alt="Cerebras avatar" loading="lazy"></div><div><strong>Cerebras</strong><span>@cerebras</span></div></div><p class="quote-text original" lang="auto">How we built our knowledge base</p><p class="quote-text translation" lang="zh-CN">我们如何构建知识库</p><div class="article"><strong class="original" lang="auto">How we built our knowledge base</strong><strong class="translation" lang="zh-CN">我们如何构建知识库</strong><p class="article-text original" lang="auto">Authors: @hi_im_isaac_, @learnwdaniel, @gaozenghao
+note: the interactive version of full technical blog available: https://www.cerebras.ai/blog/how-we-built-our-knowledge-base
+Employees ask our internal knowledge base more than 15,000</p><p class="article-text translation" lang="zh-CN">作者：@hi_im_isaac_、@learnwdaniel、@gaozenghao
+注：完整技术博客的互动版本见：https://www.cerebras.ai/blog/how-we-built-our-knowledge-base
+员工向我们的内部知识库提问超过 15,000 次</p></div><a class="quote-link" href="https://x.com/cerebras/status/2077822555159945507" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 6</span><span>↻ 0</span><span>↩ 3</span></div><a href="https://x.com/jerryjliu0/status/2078537490932384136" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="simonw" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
+          <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
+          <div class="score">88<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>07-18 14:03 北京</time></div>
+        <p class="post-text original" lang="auto">Huge relief, the Fablepocalypse has been permanently cancelled. If you were losing sleep over trying to use your Fable subscriber allowance before it was removed from your plan you can finally relax!</p><p class="post-text translation" lang="zh-CN">松了一大口气，Fablepocalypse 已被永久取消。如果你之前担心 Fable 从计划中移除前用不完订阅额度而睡不好觉，现在终于可以放松了！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1950950107937185792/QOfEjFoJ_normal.jpg" alt="Claude avatar" loading="lazy"></div><div><strong>Claude</strong><span>@claudeai</span></div></div><p class="quote-text original" lang="auto">Beginning July 20, Claude Fable 5 will be included in all Max and Team Premium plans, at 50% of limits.
+
+Pro and Team Standard users will continue to have access to Fable via usage credits, and will receive a one-time $100 credit.
+
+Demand for Fable has been challenging to predict, which is why we rolled it out to subscription plans in stages, extending access several times as we secured additional capacity.</p><p class="quote-text translation" lang="zh-CN">从 7 月 20 日起，Claude Fable 5 将纳入所有 Max 和 Team Premium 方案，额度为标准上限的 50%。
+
+Pro 和 Team Standard 用户将继续可通过使用积分访问 Fable，并将获得一次性 $100 积分。
+
+Fable 的需求一直难以预测，因此我们分阶段将其推出到订阅方案中，并在获得更多容量后多次延长访问权限。</p><a class="quote-link" href="https://x.com/claudeai/status/2078302415804379218" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 785</span><span>↻ 19</span><span>↩ 71</span></div><a href="https://x.com/simonw/status/2078360078714065370" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="infra" data-priority="P1" data-expert="istoica05" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1889424820821172228/OKFe0cdL_normal.jpg" alt="Ion Stoica avatar" loading="lazy"></div>
+          <div class="identity"><strong>Ion Stoica</strong><span>@istoica05 · Berkeley；Anyscale 联合创始人</span></div>
+          <div class="score">59<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 基础设施 / 分布式系统</span><time>07-18 09:58 北京</time></div>
+        <p class="post-text original" lang="auto">Please consider taking this survey about real-world agents to contribute to open science and to help shape the future of agent research. Thank you!</p><p class="post-text translation" lang="zh-CN">请考虑填写这份关于真实世界代理的调查，为开放科学做出贡献，并帮助塑造代理研究的未来。谢谢！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1873217404987133952/lk4l_593_normal.jpg" alt="Melissa Pan avatar" loading="lazy"></div><div><strong>Melissa Pan</strong><span>@melissapan</span></div></div><p class="quote-text original" lang="auto">Building agents? We&#x27;d love to hear from you 🤖
+
+Take our survey to better understand how your agent&#x27;s design compares with others in the community🧭 and help shape the future of agent research 🚀
+
+By participating, you&#x27;ll contribute to open science and help uncover common design choices, emerging shifts, and underexplored research opportunities 🌱As we did with MAP v1, we&#x27;ll share the findings openly with the entire community🤝
+
+🧵 Link in the thread!</p><p class="quote-text translation" lang="zh-CN">在构建代理吗？我们很想听听你的想法 🤖
+
+填写我们的调查，帮助我们更好地了解你的代理设计与社区中其他设计的差异 🧭，并助力塑造代理研究的未来 🚀
+
+参与其中，你将为开放科学做出贡献，并帮助揭示常见设计选择、新兴变化以及尚未充分探索的研究机会 🌱 就像 MAP v1 一样，我们会向整个社区公开分享研究结果 🤝
+
+🧵 链接见帖子串！</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HNeUAbDbsAApns0.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HNeUAbDbsAApns0.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/melissapan/status/2078292491560943838" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 7</span><span>↻ 3</span><span>↩ 0</span></div><a href="https://x.com/istoica05/status/2078298349065867513" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="amasad" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div>
+          <div class="identity"><strong>Amjad Masad</strong><span>@amasad · Replit / CEO</span></div>
+          <div class="score">81<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 / 开发者平台</span><time>07-18 13:18 北京</time></div>
+        <p class="post-text original" lang="auto">&gt; China proposes: rather than a market product, AI is a &quot;public good&quot; which will ultimately be provided by the state as a kind of &quot;digital public infrastructure.&quot;
+
+They already have an AI industry that is super competitive operating with very low margins then that seems more like China’s “socialist” playbook than state takeover.</p><p class="post-text translation" lang="zh-CN">&gt; 中国提出：AI 不是市场产品，而是一种“公共产品”，最终将由国家作为某种“数字公共基础设施”来提供。
+
+他们已经拥有一个竞争极其激烈、利润率很低的 AI 产业，所以这看起来更像是中国的“社会主义”打法，而不是国家接管。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 227</span><span>↻ 8</span><span>↩ 5</span></div><a href="https://x.com/amasad/status/2078348563239882825" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">71<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>RAG / Agent 基础设施</span><time>07-19 00:59 北京</time></div>
+        <p class="post-text original" lang="auto">1. build a workflow graph on top of the agent harness
+2. dynamically create that graph through an outer agent loop
+....repeat
+
+life is a loop (and a graph)</p><p class="post-text translation" lang="zh-CN">1. 在 agent harness 之上构建工作流图
+2. 通过外层 agent 循环动态创建该图
+……重复
+
+生活就是一个循环（也是一张图）</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1131851609774985216/OcsssQ9J_normal.png" alt="Peter Steinberger 🦞 avatar" loading="lazy"></div><div><strong>Peter Steinberger 🦞</strong><span>@steipete</span></div></div><p class="quote-text original" lang="auto">Are we still talking loops or did we shift to graphs yet?</p><p class="quote-text translation" lang="zh-CN">我们还在聊循环，还是已经转到图了？</p><a class="quote-link" href="https://x.com/steipete/status/2078277297791189132" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 12</span><span>↻ 0</span><span>↩ 8</span></div><a href="https://x.com/jerryjliu0/status/2078524983748563370" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">71<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>RAG / Agent 基础设施</span><time>07-18 10:58 北京</time></div>
+        <p class="post-text original" lang="auto">you know what, i&#x27;ll take it
+
+(as a max user 🙏)</p><p class="post-text translation" lang="zh-CN">你知道吗，我接受了
+
+（作为 Max 用户 🙏）</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1950950107937185792/QOfEjFoJ_normal.jpg" alt="Claude avatar" loading="lazy"></div><div><strong>Claude</strong><span>@claudeai</span></div></div><p class="quote-text original" lang="auto">Beginning July 20, Claude Fable 5 will be included in all Max and Team Premium plans, at 50% of limits.
+
+Pro and Team Standard users will continue to have access to Fable via usage credits, and will receive a one-time $100 credit.
+
+Demand for Fable has been challenging to predict, which is why we rolled it out to subscription plans in stages, extending access several times as we secured additional capacity.</p><p class="quote-text translation" lang="zh-CN">从 7 月 20 日起，Claude Fable 5 将纳入所有 Max 和 Team Premium 方案，额度为标准上限的 50%。
+
+Pro 和 Team Standard 用户将继续可通过使用积分访问 Fable，并将获得一次性 $100 积分。
+
+Fable 的需求一直难以预测，因此我们分阶段将其推出到订阅方案中，并在获得更多容量后多次延长访问权限。</p><a class="quote-link" href="https://x.com/claudeai/status/2078302415804379218" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 16</span><span>↻ 0</span><span>↩ 3</span></div><a href="https://x.com/jerryjliu0/status/2078313486581715063" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">61<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>RAG / Agent 基础设施</span><time>07-19 01:48 北京</time></div>
+        <p class="post-text original" lang="auto">We&#x27;ve invested a lot of engineering resources in the past 2 years making our own indexing pipelines reliable, accurate, and agent-native with a variety of retrieval endpoints designed to plug in to various harnesses.
+
+Check it out: https://t.co/DHMd6BFO0l https://t.co/713nqsSwPF</p><p class="post-text translation" lang="zh-CN">过去 2 年，我们投入了大量工程资源，让自己的索引流水线变得可靠、准确，并且原生适配 agent，同时设计了多种检索端点，可接入不同的 harness。
+
+来看看：https://t.co/DHMd6BFO0l https://t.co/713nqsSwPF</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HNhyopsbQAAbgDv.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HNhyopsbQAAbgDv.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 1</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/jerryjliu0/status/2078537495642571003" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="simonw" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
+          <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
+          <div class="score">81<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>07-18 12:59 北京</time></div>
+        <p class="post-text original" lang="auto">I am begging @AnthropicAI please add an automated test suite somewhere that ensures Claude Code on the web never blocks me from cloning or interacting with other public repos from within my existing sessions https://t.co/nzlxOCn12K</p><p class="post-text translation" lang="zh-CN">我恳求 @AnthropicAI，请在某处添加一套自动化测试，确保网页端 Claude Code 永远不会阻止我在现有会话中克隆或与其他公共仓库交互 https://t.co/nzlxOCn12K</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HNfC2anbUAAV0z2.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HNfC2anbUAAV0z2.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 172</span><span>↻ 3</span><span>↩ 51</span></div><a href="https://x.com/simonw/status/2078343997119172705" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="simonw" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
+          <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
+          <div class="score">80<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>07-19 00:14 北京</time></div>
+        <p class="post-text original" lang="auto">49 replies to this and hard to be confident that ANY of them were posted by an actual human</p><p class="post-text translation" lang="zh-CN">这下面有 49 条回复，但很难相信其中任何一条真的是人类发的</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div><div><strong>Simon Willison</strong><span>@simonw</span></div></div><p class="quote-text original" lang="auto">I am begging @AnthropicAI please add an automated test suite somewhere that ensures Claude Code on the web never blocks me from cloning or interacting with other public repos from within my existing sessions https://t.co/nzlxOCn12K</p><p class="quote-text translation" lang="zh-CN">我恳求 @AnthropicAI，请在某处添加一套自动化测试，确保网页端 Claude Code 永远不会阻止我在现有会话中克隆或与其他公共仓库交互 https://t.co/nzlxOCn12K</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HNfC2anbUAAV0z2.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HNfC2anbUAAV0z2.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/simonw/status/2078343997119172705" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 93</span><span>↻ 2</span><span>↩ 33</span></div><a href="https://x.com/simonw/status/2078513714270191942" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="simonw" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
+          <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
+          <div class="score">77<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>07-19 00:47 北京</time></div>
+        <p class="post-text original" lang="auto">OK, I think I get it
+
+&quot;ChatGPT Work&quot; is really &quot;OpenAI Claw&quot;</p><p class="post-text translation" lang="zh-CN">好吧，我想我懂了
+
+“ChatGPT Work”其实就是“OpenAI Claw”</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 151</span><span>↻ 2</span><span>↩ 25</span></div><a href="https://x.com/simonw/status/2078522146779967595" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="simonw" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
+          <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
+          <div class="score">76<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>07-18 13:01 北京</time></div>
+        <p class="post-text original" lang="auto">&quot;Clone repo X from GitHub to /tmp for reference&quot; is one of my most used prompting patterns
+
+This isn&#x27;t the first time Claude Code on the web has regressed like this - it&#x27;s really important functionality, please fix it and make sure it stays fixed!</p><p class="post-text translation" lang="zh-CN">“从 GitHub 克隆 repo X 到 /tmp 作为参考”是我最常用的提示模式之一
+
+这不是 Claude Code 网页版第一次出现这种退化了——这是非常重要的功能，请修复它，并确保它不再出问题！</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 58</span><span>↻ 0</span><span>↩ 17</span></div><a href="https://x.com/simonw/status/2078344441950286160" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="simonw" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
+          <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
+          <div class="score">73<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>07-19 00:44 北京</time></div>
+        <p class="post-text original" lang="auto">Amazing.</p><p class="post-text translation" lang="zh-CN">太棒了。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2022872661836378112/1Zqn8LMe_normal.jpg" alt="BullBear.News avatar" loading="lazy"></div><div><strong>BullBear.News</strong><span>@bullbear_info</span></div></div><p class="quote-text original" lang="auto">@simonw The inference cost for 49 auto-generated engagement replies is basically zero now. We&#x27;re paying the tax in pure mental exhaustion reading them.</p><p class="quote-text translation" lang="zh-CN">@simonw 现在 49 条自动生成互动回复的推理成本基本为零。我们真正付出的代价，是读它们带来的纯粹精神疲惫。</p><a class="quote-link" href="https://x.com/bullbear_info/status/2078517517665124765" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 24</span><span>↻ 0</span><span>↩ 7</span></div><a href="https://x.com/simonw/status/2078521250444689612" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="simonw" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
+          <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
+          <div class="score">70<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>07-19 00:53 北京</time></div>
+        <p class="post-text original" lang="auto">Evidently this was not an easy lift!</p><p class="post-text translation" lang="zh-CN">显然，这并不容易做到！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1976939058741039104/r3GgzqRh_normal.jpg" alt="Thariq avatar" loading="lazy"></div><div><strong>Thariq</strong><span>@trq212</span></div></div><p class="quote-text original" lang="auto">This was due to a heroic effort by many people at Anthropic working sometimes literally around the clock
+
+It was not at all clear that we&#x27;d be able to do this in time, and so proud of everyone who made it happen.
+
+Enjoy Fable.</p><p class="quote-text translation" lang="zh-CN">这要归功于 Anthropic 许多人英勇般的努力，他们有时几乎真的是夜以继日地工作。
+
+我们当时完全不确定能否及时完成，所以我为所有让它成真的人感到无比自豪。
+
+享受 Fable 吧。</p><a class="quote-link" href="https://x.com/trq212/status/2078514180051906864" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 10</span><span>↻ 0</span><span>↩ 5</span></div><a href="https://x.com/simonw/status/2078523686437740891" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P1" data-expert="fchollet" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2006806326140350470/Kd5oZv-f_normal.jpg" alt="Francois Chollet avatar" loading="lazy"></div>
+          <div class="identity"><strong>Francois Chollet</strong><span>@fchollet · ARC Prize；Keras 作者</span></div>
+          <div class="score">69<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 研究 / 评测</span><time>07-19 01:05 北京</time></div>
+        <p class="post-text original" lang="auto">There is an interesting disconnect between the ability of models to successfully execute precise instructions (improving incredibly fast) and their ability to make sound decisions when faced with something not covered by the instructions (stagnating for a while).</p><p class="post-text translation" lang="zh-CN">这里有一个有趣的脱节：模型成功执行精确指令的能力提升得极快，但在面对指令未覆盖的情况时做出合理决策的能力却停滞了一段时间。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 95</span><span>↻ 6</span><span>↩ 20</span></div><a href="https://x.com/fchollet/status/2078526645108138382" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">74<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>07-18 13:09 北京</time></div>
+        <p class="post-text original" lang="auto">Loop Engineering Is Dead.  Enter Graph Engineering</p><p class="post-text translation" lang="zh-CN">循环工程已死。图工程登场</p>
+        <div class="article"><strong class="original" lang="auto">Loop Engineering Is Dead.  Enter Graph Engineering</strong><strong class="translation" lang="zh-CN">循环工程已死。图工程登场</strong><p class="article-text original source-only" lang="auto">.</p></div>
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 228</span><span>↻ 34</span><span>↩ 30</span></div><a href="https://x.com/HamelHusain/status/2078346425621237935" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">73<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>07-18 13:16 北京</time></div>
+        <p class="post-text original" lang="auto">If I saw this on the TL I would personally be afraid to click on it.  But I promise its not what you think it is.</p><p class="post-text translation" lang="zh-CN">如果我在时间线上看到这个，我个人会不敢点开。但我保证它不是你想的那样。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div><div><strong>Hamel Husain</strong><span>@HamelHusain</span></div></div><p class="quote-text original" lang="auto">Loop Engineering Is Dead.  Enter Graph Engineering</p><p class="quote-text translation" lang="zh-CN">循环工程已死。图工程登场</p><div class="article"><strong class="original" lang="auto">Loop Engineering Is Dead.  Enter Graph Engineering</strong><strong class="translation" lang="zh-CN">循环工程已死。图工程登场</strong><p class="article-text original source-only" lang="auto">.</p></div><a class="quote-link" href="https://x.com/HamelHusain/status/2078346425621237935" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 222</span><span>↻ 13</span><span>↩ 20</span></div><a href="https://x.com/HamelHusain/status/2078348097697263855" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">65<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>07-19 00:35 北京</time></div>
+        <p class="post-text original" lang="auto">Bookmarked 100 times 🤣🤣</p><p class="post-text translation" lang="zh-CN">收藏 100 次 🤣🤣</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div><div><strong>Hamel Husain</strong><span>@HamelHusain</span></div></div><p class="quote-text original" lang="auto">Loop Engineering Is Dead.  Enter Graph Engineering</p><p class="quote-text translation" lang="zh-CN">循环工程已死。图工程登场</p><div class="article"><strong class="original" lang="auto">Loop Engineering Is Dead.  Enter Graph Engineering</strong><strong class="translation" lang="zh-CN">循环工程已死。图工程登场</strong><p class="article-text original source-only" lang="auto">.</p></div><a class="quote-link" href="https://x.com/HamelHusain/status/2078346425621237935" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 40</span><span>↻ 0</span><span>↩ 8</span></div><a href="https://x.com/HamelHusain/status/2078519124532326421" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">63<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>07-18 13:10 北京</time></div>
+        <p class="post-text original" lang="auto">@chrisalbon You inspired this
+
+https://t.co/I5R2xfVLic</p><p class="post-text translation" lang="zh-CN">@chrisalbon 这是受你启发做的
+
+https://t.co/I5R2xfVLic</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div><div><strong>Hamel Husain</strong><span>@HamelHusain</span></div></div><p class="quote-text original" lang="auto">Loop Engineering Is Dead.  Enter Graph Engineering</p><p class="quote-text translation" lang="zh-CN">循环工程已死。图工程登场</p><div class="article"><strong class="original" lang="auto">Loop Engineering Is Dead.  Enter Graph Engineering</strong><strong class="translation" lang="zh-CN">循环工程已死。图工程登场</strong><p class="article-text original source-only" lang="auto">.</p></div><a class="quote-link" href="https://x.com/HamelHusain/status/2078346425621237935" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 26</span><span>↻ 3</span><span>↩ 2</span></div><a href="https://x.com/HamelHusain/status/2078346620056592595" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="swyx" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx avatar" loading="lazy"></div>
+          <div class="identity"><strong>swyx</strong><span>@swyx · Latent Space / AI Engineer</span></div>
+          <div class="score">63<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 工作流</span><time>07-18 09:34 北京</time></div>
+        <p class="post-text original" lang="auto">@deliprao so far nothing weird at all, just it is very good at just surfacing seo industry stuff that you or i obviously should spend zero braintime on but its really interesting to just say yes to reasonable experiments
+
+and then give it a week with real prod data https://t.co/GO9zk8qwL7</p><p class="post-text translation" lang="zh-CN">@deliprao 到目前为止一点怪事都没有，只是它很擅长把 SEO 行业里的东西浮现出来，那些显然是你我完全不该花脑力关注的东西。但直接同意一些合理实验真的很有意思
+
+然后给它一周时间，用真实生产数据跑跑看 https://t.co/GO9zk8qwL7</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HNeTxfPbQAA5sqk.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HNeTxfPbQAA5sqk.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 19</span><span>↻ 0</span><span>↩ 2</span></div><a href="https://x.com/swyx/status/2078292234060152935" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="swyx" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx avatar" loading="lazy"></div>
+          <div class="identity"><strong>swyx</strong><span>@swyx · Latent Space / AI Engineer</span></div>
+          <div class="score">62<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 工作流</span><time>07-18 09:41 北京</time></div>
+        <p class="post-text original" lang="auto">alpha only gone when we all stop asking these level of questions and start discussion about on-policy autoaeo (does claude optimizing your aeo disproportionately work on claude?) vs generalizable aeo
+
+https://t.co/GrymTTqz6O</p><p class="post-text translation" lang="zh-CN">只有当我们都不再问这种层次的问题，转而开始讨论 on-policy autoaeo（Claude 优化你的 AEO 时，是否在 Claude 上效果明显更好？）与可泛化 AEO 的区别时，alpha 才会消失
+
+https://t.co/GrymTTqz6O</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1904154791896608771/ztEcgvNc_normal.jpg" alt="Thomas Mustier avatar" loading="lazy"></div><div><strong>Thomas Mustier</strong><span>@thomasmustier</span></div></div><p class="quote-text original" lang="auto">@swyx what&#x27;s it hillclimbing? or do you mean iterate each week and then the experiment runs over that week</p><p class="quote-text translation" lang="zh-CN">@swyx 它在爬什么坡？还是你指每周迭代一次，然后实验跑一周？</p><a class="quote-link" href="https://x.com/thomasmustier/status/2078253254652108806" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 20</span><span>↻ 1</span><span>↩ 5</span></div><a href="https://x.com/swyx/status/2078293998398263587" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+    </main>
+    <footer>Generated 2026-07-19 02:03:55 Asia/Shanghai · Read-only X ingestion via Bird · Translation via Codex</footer>
+  </div>
+</body>
+</html>
