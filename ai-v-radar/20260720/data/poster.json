@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-20T02:03:14.303334+08:00",
+  "generatedAt": "2026-07-20T05:02:33.984933+08:00",
   "windowHours": 17.0,
   "monitored": 54,
   "selected": 13,
@@ -8,21 +8,21 @@
       "id": "2078893555330986008",
       "author": "Jerry Liu",
       "category": "AI 技术应用",
-      "title": "我觉得创建自定义通用 harness 没有太大价值。",
+      "title": "任务专用Agent Harness仍具生产价值",
       "summary": "引用｜现在创建自定义 harness 还有意义吗？我感觉 Codex/Claude Code/Open Code 等等都已经正确实现了困难部分，我们应该直接把 coding harness 当作通用 harness 来用"
     },
     {
       "id": "2078692298301587758",
       "author": "Simon Willison",
       "category": "AI 技术进步",
-      "title": "如果你安装了 Claude Code，你运行的软件使用的是新版（未发布）Bun，而…",
-      "summary": "这里有两个命令，你可以自己运行看看 https://t.co/7AG2iZTvB2"
+      "title": "Claude Code内置未发布Rust版Bun",
+      "summary": "安装后可用命令验证其运行新版Bun及Rust重写实现"
     },
     {
       "id": "2078887562681430221",
       "author": "Jerry Liu",
       "category": "AI 技术应用",
-      "title": "我们已经在 LlamaParse 中内置了以下文档检索端点",
+      "title": "LlamaParse加入混合搜索等文档检索端点",
       "summary": "引用｜很高兴看到 2026 年人们仍然理解构建高质量检索系统的重要性，尤其是在外层模型和 harness 每天都在变得更好的情况下。\n\n让 agentic retrieval 在生产环境中真正可用，并不一定需要在检索或规划上采用突破性新技术。这篇文章表明，你确实需要投入工程时间来调优分块、同步、重排序、工具 API 设计、权限控制等。几个有意思的细节：\n* 将现有 Slack 线程拼接成一个连续块，并用启发式方法判断额外相关上下文\n* Slack 的实时更新\n* 针对代码库采用独立的分块和更新机制\n* 发现混合搜索效果不错（这并不是什么特别新的认知，但验证并理解他们具体调过的参数总是有价值的）\n* 对哪些数据源与哪些项目相关设置自然的护栏\n\n构建简单检索很容易，构建生产级检索很难。我们在将自己的 LlamaParse Index 功能产品化时，也不得不处理很多这类挑战。"
     }
   ]
