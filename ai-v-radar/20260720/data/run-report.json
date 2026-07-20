@@ -1,40 +1,40 @@
 {
-  "generatedAt": "2026-07-19T21:02:33.984933+00:00",
-  "fetchStartedAt": "2026-07-19T21:02:33.984933+00:00",
-  "windowStart": "2026-07-19T04:02:33.984933+00:00",
+  "generatedAt": "2026-07-20T05:45:56.288838+00:00",
+  "fetchStartedAt": "2026-07-20T05:45:56.288838+00:00",
+  "windowStart": "2026-07-19T12:45:56.288838+00:00",
   "windowHours": 17.0,
   "accountsRequested": 54,
   "fetchMode": "search",
   "accountsSucceeded": 54,
   "accountsFailed": 0,
-  "postsSelected": 11,
+  "postsSelected": 14,
   "topStories": [
+    {
+      "id": "2078977720793661459",
+      "author": "gdb",
+      "category": "AI 技术进步",
+      "editorialScore": 73
+    },
     {
       "id": "2078893555330986008",
       "author": "jerryjliu0",
       "category": "AI 技术应用",
-      "editorialScore": 57
+      "editorialScore": 60
     },
     {
-      "id": "2078692298301587758",
-      "author": "simonw",
-      "category": "AI 技术进步",
-      "editorialScore": 43
-    },
-    {
-      "id": "2078887562681430221",
-      "author": "jerryjliu0",
+      "id": "2078983078069051857",
+      "author": "yoheinakajima",
       "category": "AI 技术应用",
-      "editorialScore": 52
+      "editorialScore": 39
     }
   ],
   "translation": {
     "enabled": true,
     "backend": "codex exec",
     "promptVersion": "codex-v1",
-    "eligibleTexts": 19,
-    "cacheHits": 17,
-    "translatedNow": 2,
+    "eligibleTexts": 24,
+    "cacheHits": 18,
+    "translatedNow": 6,
     "failed": 0,
     "coverage": 1.0,
     "errors": [],
@@ -42,23 +42,24 @@
   },
   "avatars": {
     "enabled": true,
-    "authors": 11,
-    "primaryAuthors": 7,
-    "quotedAuthors": 7,
-    "cacheHits": 11,
+    "authors": 14,
+    "primaryAuthors": 9,
+    "quotedAuthors": 9,
+    "cacheHits": 14,
     "fetchedNow": 0,
-    "postsWithAvatar": 11,
+    "postsWithAvatar": 14,
     "coverage": 1.0,
-    "quotedPostsWithAvatar": 8,
+    "quotedPostsWithAvatar": 10,
     "quotedCoverage": 1.0,
     "errors": [],
     "cache": "/Users/jay/Documents/ai-coder/four-knows/ai-v-radar/avatar-cache.json"
   },
   "dropped": {
-    "nonTechnical": 4,
     "lowSignalReply": 15,
-    "outsideWindow": 3
+    "nonTechnical": 9,
+    "outsideWindow": 9
   },
+  "searchFallbacks": [],
   "failures": [],
   "fetches": [
     {
@@ -73,9 +74,10 @@
         "simonw"
       ],
       "ok": true,
-      "fetched": 13,
+      "fetched": 14,
       "attempts": 1,
-      "elapsedSeconds": 1.31
+      "elapsedSeconds": 1.75,
+      "source": "search"
     },
     {
       "handles": [
@@ -87,9 +89,10 @@
         "realGeorgeHotz"
       ],
       "ok": true,
-      "fetched": 3,
+      "fetched": 5,
       "attempts": 1,
-      "elapsedSeconds": 1.43
+      "elapsedSeconds": 1.72,
+      "source": "search"
     },
     {
       "handles": [
@@ -103,9 +106,10 @@
         "istoica05"
       ],
       "ok": true,
-      "fetched": 2,
+      "fetched": 6,
       "attempts": 1,
-      "elapsedSeconds": 1.32
+      "elapsedSeconds": 1.59,
+      "source": "search"
     },
     {
       "handles": [
@@ -121,7 +125,8 @@
       "ok": true,
       "fetched": 0,
       "attempts": 1,
-      "elapsedSeconds": 0.63
+      "elapsedSeconds": 1.07,
+      "source": "search"
     },
     {
       "handles": [
@@ -135,9 +140,10 @@
         "AmandaAskell"
       ],
       "ok": true,
-      "fetched": 3,
+      "fetched": 7,
       "attempts": 1,
-      "elapsedSeconds": 1.15
+      "elapsedSeconds": 1.77,
+      "source": "search"
     },
     {
       "handles": [
@@ -151,9 +157,10 @@
         "chelseabfinn"
       ],
       "ok": true,
-      "fetched": 12,
+      "fetched": 15,
       "attempts": 1,
-      "elapsedSeconds": 1.27
+      "elapsedSeconds": 1.85,
+      "source": "search"
     },
     {
       "handles": [
@@ -169,7 +176,11 @@
       "ok": true,
       "fetched": 0,
       "attempts": 1,
-      "elapsedSeconds": 0.71
+      "elapsedSeconds": 0.96,
+      "source": "search"
     }
-  ]
+  ],
+  "rebuiltFromData": "ai-v-radar/20260720/data/posts.json",
+  "rebuildDroppedRecruitment": 0,
+  "rebuildDroppedNonTechnical": 0
 }

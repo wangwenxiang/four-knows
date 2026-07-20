@@ -15,33 +15,34 @@
   .story-body{min-width:0} .byline{display:flex;align-items:center;gap:9px;min-width:0;margin-bottom:5px} .byline strong{font-size:26px;line-height:1;white-space:nowrap} .byline em{padding:6px 12px;border-radius:999px;background:#151519;color:#fff;font-size:15px;font-style:normal;font-weight:850;white-space:nowrap} .byline span{overflow:hidden;color:#666b74;font-size:16px;font-weight:750;text-overflow:ellipsis;white-space:nowrap}
   h2{margin:0;max-height:100px;overflow:hidden;font-size:46px;line-height:1.05;font-weight:950;letter-spacing:-1.6px} .story p{display:-webkit-box;max-height:64px;margin:8px 0 0;overflow:hidden;color:#5d626b;font-size:25px;line-height:1.28;font-weight:750;white-space:normal;-webkit-box-orient:vertical;-webkit-line-clamp:2}
 </style></head><body><div class="poster"><header><div><h1>硅谷 AI 原声 <span>| 7/20</span></h1><div class="subtitle">全球核心专家动态精选 · 最近 17 小时</div></div><div class="stats"><div class="stat"><strong>54</strong><small>人监控</small></div><div class="stat"><strong>13</strong><small>条精选</small></div></div></header><main><article class="story">
-        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu"></div><b>1</b></div>
+        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_normal.jpg" alt="Greg Brockman"></div><b>1</b></div>
+        <div class="story-body">
+          <div class="byline"><strong>Greg Brockman</strong><em>AI 技术进步</em><span>@gdb · OpenAI / 联合创始人</span></div>
+          <h2>GPT 5.6 Sol 展现数学证明新能力</h2>
+          <p>引用｜到目前为止，GPT 5.6 Sol 是我眼中数学方面最有意思的新模型——我仔细看过的 https://t.co/69gOJM7Ci7 上那些新的证明主张都正确，而且还包含一些有趣的想法。
+
+1/7</p>
+        </div>
+      </article><article class="story">
+        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu"></div><b>2</b></div>
         <div class="story-body">
           <div class="byline"><strong>Jerry Liu</strong><em>AI 技术应用</em><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
-          <h2>任务专用Agent Harness仍具生产价值</h2>
+          <h2>任务专用 harness 在生产约束下更有价值</h2>
           <p>引用｜现在创建自定义 harness 还有意义吗？我感觉 Codex/Claude Code/Open Code 等等都已经正确实现了困难部分，我们应该直接把 coding harness 当作通用 harness 来用</p>
         </div>
       </article><article class="story">
-        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison"></div><b>2</b></div>
+        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima"></div><b>3</b></div>
         <div class="story-body">
-          <div class="byline"><strong>Simon Willison</strong><em>AI 技术进步</em><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
-          <h2>Claude Code内置未发布Rust版Bun</h2>
-          <p>安装后可用命令验证其运行新版Bun及Rust重写实现</p>
-        </div>
-      </article><article class="story">
-        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu"></div><b>3</b></div>
-        <div class="story-body">
-          <div class="byline"><strong>Jerry Liu</strong><em>AI 技术应用</em><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
-          <h2>LlamaParse加入混合搜索等文档检索端点</h2>
-          <p>引用｜很高兴看到 2026 年人们仍然理解构建高质量检索系统的重要性，尤其是在外层模型和 harness 每天都在变得更好的情况下。
+          <div class="byline"><strong>Yohei Nakajima</strong><em>AI 技术应用</em><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
+          <h2>BabyAGI 作者提出事件溯源图运行时</h2>
+          <p>引用｜babyagi 有约 200 次引用，但 0 篇论文……我刚在 arXiv 上发表了我的第一篇论文 😆
 
-让 agentic retrieval 在生产环境中真正可用，并不一定需要在检索或规划上采用突破性新技术。这篇文章表明，你确实需要投入工程时间来调优分块、同步、重排序、工具 API 设计、权限控制等。几个有意思的细节：
-* 将现有 Slack 线程拼接成一个连续块，并用启发式方法判断额外相关上下文
-* Slack 的实时更新
-* 针对代码库采用独立的分块和更新机制
-* 发现混合搜索效果不错（这并不是什么特别新的认知，但验证并理解他们具体调过的参数总是有价值的）
-* 对哪些数据源与哪些项目相关设置自然的护栏
+“The Log is the Agent: Event-Sourced Reactive Graphs for Auditable, Forkable Agentic Systems”
 
-构建简单检索很容易，构建生产级检索很难。我们在将自己的 LlamaParse Index 功能产品化时，也不得不处理很多这类挑战。</p>
+https://t.co/c7mbRggdCh
+
+这篇论文论证了一种通过持久、可重放状态来协调的 agent——没有对话循环、没有工作流、没有 A2A——并内置可审计性、分叉能力和因果谱系。
+
+看看吧，也告诉我你的想法！</p>
         </div>
       </article></main></div></body></html>
