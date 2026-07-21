@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=1744,initial-scale=1"><title>硅谷 AI 原声海报</title>
+<style>
+  *{box-sizing:border-box} html,body{margin:0;width:1744px;height:960px;overflow:hidden;background:#f8f8fa;color:#121216;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+  .poster{width:1744px;height:960px;padding:10px 20px 14px;border:1px solid #d8dae0;border-radius:22px;background:linear-gradient(145deg,#fff 0%,#f8f8fa 68%,#f2f5f8 100%)}
+  header{height:90px;display:flex;align-items:flex-start;justify-content:space-between;border-bottom:4px solid #141418}
+  h1{margin:0;font-size:58px;line-height:1;font-weight:950;letter-spacing:-2.8px} h1 span{font-weight:850}
+  .subtitle{margin-top:1px;color:#5d616a;font-size:20px;font-weight:800;letter-spacing:.1px}
+  .stats{display:flex;gap:8px} .stat{display:grid;place-items:center;min-width:96px;height:56px;padding:4px 12px;border:2px solid #151519;border-radius:15px;background:#fff;font-weight:900}
+  .stat:first-child{background:#151519;color:#fff} .stat strong{font-size:28px;line-height:.8} .stat small{font-size:12px;line-height:1}
+  main{height:842px;padding-top:10px;display:grid;grid-template-rows:repeat(3,1fr);gap:10px}
+  .story{display:grid;grid-template-columns:118px minmax(0,1fr);align-items:center;min-height:0;padding:18px 30px 18px 20px;border:2px solid #e0e2e7;border-radius:18px;background:rgba(255,255,255,.76)}
+  .portrait{position:relative;display:grid;place-items:center} .avatar{display:grid;place-items:center;width:92px;height:92px;overflow:hidden;border:4px solid #151519;border-radius:50%;background:#111827;color:#fff;font-size:32px;font-weight:900}
+  .avatar img{width:100%;height:100%;object-fit:cover;transform:scale(1.08)} .portrait b{position:absolute;right:0;bottom:-5px;display:grid;place-items:center;width:35px;height:35px;border:3px solid #151519;border-radius:50%;background:#fff;font-size:18px}
+  .story-body{min-width:0} .byline{display:flex;align-items:center;gap:10px;min-width:0;margin-bottom:8px} .byline strong{font-size:29px;line-height:1;white-space:nowrap} .byline em{padding:7px 13px;border-radius:999px;background:#151519;color:#fff;font-size:17px;font-style:normal;font-weight:850;white-space:nowrap} .byline span{overflow:hidden;color:#666b74;font-size:18px;font-weight:750;text-overflow:ellipsis;white-space:nowrap}
+  h2{margin:0;max-height:132px;overflow:visible;font-size:56px;line-height:1.06;font-weight:950;letter-spacing:-1.8px} .story p{display:-webkit-box;max-height:106px;margin:11px 0 0;overflow:hidden;color:#5d626b;font-size:30px;line-height:1.25;font-weight:750;white-space:normal;-webkit-box-orient:vertical;-webkit-line-clamp:3}
+  .story--sparse h2{font-size:64px;line-height:1.04} .story--sparse p{font-size:34px;line-height:1.22}
+  .story--dense h2{font-size:52px} .story--dense p{font-size:27px;line-height:1.23}
+</style></head><body><div class="poster"><header><div><h1>硅谷 AI 原声 <span>| 7/22</span></h1><div class="subtitle">全球核心专家动态精选 · 最近 17 小时</div></div><div class="stats"><div class="stat"><strong>54</strong><small>人监控</small></div><div class="stat"><strong>15</strong><small>条精选</small></div></div></header><main><article class="story story--dense">
+        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/935325968280907776/AcBo6zJc_normal.jpg" alt="Jeff Dean"></div><b>1</b></div>
+        <div class="story-body">
+          <div class="byline"><strong>Jeff Dean</strong><em>AI 技术进步</em><span>@JeffDean · Google DeepMind / Google Research</span></div>
+          <h2>Gemini 3.6 Flash 降低 token 消耗并提升智能体成本效率</h2>
+          <p>引用｜我们正在推出三款新模型，让 AI 智能体在规模化应用中更快、更聪明、更便宜：
+
+🔵 Gemini 3.6 Flash：相比 3.5 Flash，它使用更少 token，以完全相同的成本交付更高质量的工作。
+
+🔵 Gemini 3.5 Flash-Lite：一个快速且高性价比的选择，适合处理文档、智能体搜索等日常任务。
+
+🔵 Gemini 3.5 Flash Cyber：一款面向网络安全的模型，用于发现并修补关键软件漏洞。</p>
+        </div>
+      </article><article class="story story--dense">
+        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx"></div><b>2</b></div>
+        <div class="story-body">
+          <div class="byline"><strong>swyx</strong><em>AI 技术进步</em><span>@swyx · Latent Space / AI Engineer</span></div>
+          <h2>RLM 论文揭示 harness 可替 Transformer 完成任务泛化</h2>
+          <p>引用｜Transformers 难以泛化到没有被显式训练过的任务。因此，我们在 2026 年提出：泛化应当由 harness 通过组合来完成。
+
+在训练 RLM 时，我们观察到一个强大的性质：对于共享结构但表面不同的任务，根模型会自然学到相同的轨迹，也就是说，它会把这两类任务轨迹视为相同！换句话说，Transformer 不需要额外的泛化能力，就能把能力从一个任务迁移到另一个任务，是 harness 诱导了这种迁移。
+
+我们发现，设计良好的 harness 会在任务轨迹上形成一个商集，这意味着其单个 LLM 调用可以把结构上“相似”的任务视为几乎完全相同，甚至逐 token 近似一致！在训练期间，harness 可以有效替 Transformer 完成泛化，而不依赖模型自身的内在泛化能力。
+
+例如，RLM 可以把不同长度的问题视为相同：我们展示了 RLM 只用短任务训练，也能完全泛化到相似但未见过、长度为 8-32 倍的任务，因为它会为两者生成几乎相同的轨迹。
+
+更进一步，我们展示了不同领域的任务（例如数学解题 vs. 文章写作）只要共享一种分解策略，也会表现出同样的泛化效果。RLM 可以在“判断哪些文章出自同一作者”这个问题上训练，并提升在“寻找具有相似解法的数学题”任务上的表现。
+
+完整博客、实验和讨论见下面的帖子串。</p>
+        </div>
+      </article><article class="story story--sparse">
+        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/1569345624935485442/R67C4wCQ_normal.jpg" alt="Harrison Chase"></div><b>3</b></div>
+        <div class="story-body">
+          <div class="byline"><strong>Harrison Chase</strong><em>AI 技术应用</em><span>@hwchase17 · LangChain / CEO</span></div>
+          <h2>LangChain 强调生产 traces 是智能体持续学习核心</h2>
+          <p>引用｜12-factor 公司</p>
+        </div>
+      </article></main></div></body></html>
