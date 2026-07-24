@@ -1,0 +1,854 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>硅谷 AI 原声 · 2026-07-25</title>
+  <style>
+    :root{--bg:#f4f6f8;--surface:#fff;--text:#16181c;--muted:#65717e;--line:#dfe4e9;--accent:#0066cc;--green:#117a62;--shadow:0 16px 42px rgba(18,28,38,.08);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 15% 0,#e8f2ff 0,transparent 27%),var(--bg);color:var(--text)} a{color:inherit;text-decoration:none} button{font:inherit}
+    .shell{width:min(1500px,calc(100% - 28px));margin:0 auto;padding:14px 0 40px}
+    .hero{display:grid;grid-template-columns:minmax(250px,1fr) auto;align-items:center;gap:12px;padding:15px 18px;border:1px solid rgba(255,255,255,.75);border-radius:16px;background:rgba(255,255,255,.88);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    h1{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin:0;font-size:clamp(28px,3.4vw,44px);line-height:1;letter-spacing:-.05em} .report-date{color:var(--green);font-size:clamp(10px,1vw,13px);font-weight:900;letter-spacing:.08em;white-space:nowrap}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(62px,1fr));gap:6px;align-content:start} .metric{padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fff} .metric strong{display:block;font-size:19px;line-height:1} .metric span{display:block;margin-top:3px;color:var(--muted);font-size:8px;font-weight:820;white-space:nowrap}
+    .notice{margin-top:12px;padding:11px 14px;border:1px solid #e1b866;border-radius:12px;background:#fff8e8;color:#7a5612;font-size:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px;align-items:start} .signal-card{min-width:0;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 9px 26px rgba(18,28,38,.045)}
+    .card-top{display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:10px} .avatar{display:grid;width:46px;height:46px;overflow:hidden;place-items:center;border:1px solid #d9e0e7;border-radius:999px;background:linear-gradient(135deg,#111827,#46627d);color:#fff;font-size:12px;font-weight:900} .avatar img{width:100%;height:100%;object-fit:cover;display:block} .identity{display:grid;gap:3px;min-width:0} .identity strong,.identity span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .identity strong{font-size:14px} .identity span{color:var(--muted);font-size:11px}
+    .score{display:grid;justify-items:center;min-width:40px;padding:5px 6px;border:1px solid #e3ebe8;border-radius:8px;background:#f4f8f6;color:#527267;font-size:15px;font-weight:820;line-height:1} .score small{margin-top:2px;color:#71877f;font-size:7px;letter-spacing:.06em;text-transform:uppercase}
+    .meta{display:flex;align-items:center;gap:6px;margin:11px 0 9px;color:var(--muted);font-size:10.5px;font-weight:750} .meta span:not(.priority){overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .meta time{margin-left:auto;white-space:nowrap} .priority{padding:3px 6px;border-radius:999px;background:#111827;color:#fff;font-size:9px}
+    .post-text{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.58} .post-text.original{font-size:16px;font-weight:570;color:#20252b} .post-text.translation{margin-top:8px;color:#66727f;font-size:13px;font-weight:470;line-height:1.62} .article .original+.translation{margin-top:2px;color:#65717e;font-size:11px;font-weight:650} .quote,.article{display:grid;gap:6px;margin-top:10px;padding:11px;border:1px solid var(--line);border-radius:12px;background:#f7f9fb} .quote__author{display:flex;align-items:center;gap:7px;font-size:11px} .quote__author>div:last-child{display:grid;gap:1px} .quote__author span{color:var(--muted)} .quote-avatar{display:grid;width:28px;height:28px;overflow:hidden;place-items:center;border:1px solid var(--line);border-radius:999px;background:#dfe6ed;color:#52606d;font-size:10px;font-weight:900} .quote-avatar img{width:100%;height:100%;object-fit:cover} .quote p,.article p{margin:0;color:#4f5a66;font-size:12px;line-height:1.48;white-space:pre-wrap} .article strong{font-size:13px} .article strong.original{font-size:13.5px} .quote-text.original{font-size:12.5px;color:#36414d} .quote-text.translation{font-size:11.5px;color:#6a7682} .quote-link{justify-self:start;color:var(--accent);font-size:10px;font-weight:850}
+    .media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:10px;overflow:hidden;border-radius:12px} .media-grid--1{grid-template-columns:1fr} .media-item{position:relative;min-height:150px;background:#e8edf2} .media-item img{width:100%;height:100%;max-height:330px;object-fit:cover;display:block} .media-item span{position:absolute;right:7px;bottom:7px;padding:4px 6px;border-radius:6px;background:rgba(0,0,0,.68);color:#fff;font-size:8px;font-weight:900}
+    .card-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid #edf0f3} .engagement{display:flex;gap:10px;color:var(--muted);font-size:10.5px;font-weight:750} .card-bottom>a{color:var(--accent);font-size:11px;font-weight:850} .empty{grid-column:1/-1;padding:70px;text-align:center;border:1px dashed #cdd5dd;border-radius:16px;background:#fff;color:var(--muted)}
+    footer{padding:26px 4px 0;color:var(--muted);font-size:11px;text-align:center}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}} @media(max-width:560px){.shell{width:min(100% - 16px,1500px);padding-top:7px}.hero{gap:10px;padding:13px 14px;border-radius:15px}h1{font-size:28px}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.metric{padding:7px 9px}.metric strong{font-size:18px}.signal-card{padding:13px}.post-text.original{font-size:15px}.post-text.translation{font-size:12.5px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <h1>硅谷 AI 原声 <span class="report-date">· 2026-07-25</span></h1>
+      <div class="metrics"><div class="metric"><strong>61</strong><span>监控专家</span></div><div class="metric"><strong>20</strong><span>活跃专家</span></div><div class="metric"><strong>37</strong><span>精选原文</span></div></div>
+    </header>
+
+    <main class="grid">
+      <article class="signal-card" data-theme="models" data-priority="P0" data-expert="sama" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2046764873200394240/r7BxVezs_normal.jpg" alt="Sam Altman avatar" loading="lazy"></div>
+          <div class="identity"><strong>Sam Altman</strong><span>@sama · OpenAI / CEO</span></div>
+          <div class="score">98<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>基座模型 / OpenAI</span><time>07-24 23:55 北京</time></div>
+        <p class="post-text original" lang="auto">i want the US to win in AI both in open source and proprietary models, and i am glad to see this</p><p class="post-text translation" lang="zh-CN">我希望美国在开源和专有模型两方面都赢得 AI 竞争，也很高兴看到这一点</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2080613261674962944/OMXX4RJ3_normal.jpg" alt="Jensen Huang avatar" loading="lazy"></div><div><strong>Jensen Huang</strong><span>@JensenHuang</span></div></div><p class="quote-text original" lang="auto">For my first post, I’m sharing a letter @NVIDIA signed on why open models matter.
+
+AI will transform every industry, power every company, and be built by every country.
+
+Open models strengthen safety and cybersecurity, accelerate innovation and diffusion, and enable sovereignty.
+
+The world needs both frontier closed models and frontier open models.
+
+https://t.co/AUKzoQ5Ikb</p><p class="quote-text translation" lang="zh-CN">我的第一篇帖子，分享一封 @NVIDIA 签署的、关于开放模型为何重要的信。
+
+AI 将变革每个行业，赋能每家公司，并由每个国家共同建设。
+
+开放模型能强化安全和网络安全，加速创新与普及，并实现主权自主。
+
+世界既需要前沿闭源模型，也需要前沿开放模型。
+
+https://t.co/AUKzoQ5Ikb</p><div class="media-grid media-grid--3"><a class="media-item" href="https://pbs.twimg.com/media/HN_qDVsa4AAI6XJ.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN_qDVsa4AAI6XJ.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HN_qDV1a8AARQwg.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN_qDV1a8AARQwg.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HN_qDV1awAAPTlH.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN_qDV1awAAPTlH.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/JensenHuang/status/2080643682408321103" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 9,087</span><span>↻ 557</span><span>↩ 1,444</span></div><a href="https://x.com/sama/status/2080683363174945065" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="bcherny" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1902044548936953856/J2jeik0t_normal.jpg" alt="Boris Cherny avatar" loading="lazy"></div>
+          <div class="identity"><strong>Boris Cherny</strong><span>@bcherny · Anthropic / Claude Code</span></div>
+          <div class="score">99<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Claude / Anthropic</span><time>07-25 01:53 北京</time></div>
+        <p class="post-text original" lang="auto">Opus 5 is a great model for coding, data analysis, design, biology, knowledge work.
+
+More than any of these eval scores, what is most exciting to me is something else: Opus 5 is our least prompt injectable model yet. It is a bit buried in the system card, but across PI evals and red teaming, Opus 5 is very hard to prompt inject successfully.
+
+And when layering defenses -- strong model alignment, combined with prompt injection probes, combined with Auto Mode in Claude Code -- the success rate for prompt injection attacks drops to ~0. This is new and exciting! More about this soon.
+
+https://t.co/Tc7z2FqJhQ</p><p class="post-text translation" lang="zh-CN">Opus 5 是一款非常适合编程、数据分析、设计、生物学和知识工作的优秀模型。
+
+比这些评测分数更让我兴奋的是另一件事：Opus 5 是我们迄今最难被提示注入的模型。系统卡里对此提得不多，但在各类 PI 评测和红队测试中，Opus 5 很难被成功提示注入。
+
+而当多层防御叠加时——强模型对齐、提示注入探测，以及 Claude Code 中的 Auto Mode 结合起来——提示注入攻击的成功率会降至约 0。这很新，也很令人兴奋！很快会分享更多。
+
+https://t.co/Tc7z2FqJhQ</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOAsH3zbYAAAdy9.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOAsH3zbYAAAdy9.jpg" alt="X post media"><span>IMAGE</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1950950107937185792/QOfEjFoJ_normal.jpg" alt="Claude avatar" loading="lazy"></div><div><strong>Claude</strong><span>@claudeai</span></div></div><p class="quote-text original" lang="auto">On several coding and knowledge work evaluations, Opus 5 is the new state-of-the-art: https://t.co/Cl3fDxM0gP</p><p class="quote-text translation" lang="zh-CN">在多项编程和知识工作评测中，Opus 5 达到了新的最先进水平：https://t.co/Cl3fDxM0gP</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOAffmCWsAA1D_X.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOAffmCWsAA1D_X.png" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/claudeai/status/2080699497064083942" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 3,884</span><span>↻ 275</span><span>↩ 227</span></div><a href="https://x.com/bcherny/status/2080713091688583312" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P0" data-expert="gdb" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_normal.jpg" alt="Greg Brockman avatar" loading="lazy"></div>
+          <div class="identity"><strong>Greg Brockman</strong><span>@gdb · OpenAI / 联合创始人</span></div>
+          <div class="score">98<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>基座模型 / OpenAI</span><time>07-25 03:25 北京</time></div>
+        <p class="post-text original" lang="auto">people are still just scratching the surface of how chatgpt work can be used. we want AI to empower people to live better lives, and believe agentic capabilities will be a core part of how it&#x27;ll happen.</p><p class="post-text translation" lang="zh-CN">人们仍然只是刚刚开始探索 chatgpt work 的用法。我们希望 AI 能赋能人们过上更好的生活，并相信智能体能力会是实现这一点的核心部分。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2013776094382694400/nNX1AW2l_normal.jpg" alt="pash avatar" loading="lazy"></div><div><strong>pash</strong><span>@pashmerepat</span></div></div><p class="quote-text original" lang="auto">A billion users can now create and publish websites from their phones with ChatGPT Work.
+
+But most people don’t really grasp the full extent of the capabilities here. From your phone, you also have access to:
+
+- Cloud computer (15 GB RAM)
+- Persistent workspace &amp; files
+- Terminal and code execution
+- Remote browser
+- Connected plugins (Slack, Gmail, GitHub, etc.)
+- All your personal finances, transactions, bank statements
+- Scheduled tasks
+- Git clone &amp; PR creation
+- Build &amp; deploy websites
+- Create docs, sheets, and slides
+- Inbox/calendar summarization
+- Website monitoring &amp; alerts
+
+All at your fingertips, using a simple chat interface, no laptop required.
+
+All you have to do is switch to the Work tab on your ChatGPT app.</p><p class="quote-text translation" lang="zh-CN">现在，十亿用户都可以通过手机用 ChatGPT Work 创建并发布网站。
+
+但大多数人还没有真正理解这里能力的完整范围。通过手机，你还可以使用：
+
+- 云端计算机（15 GB RAM）
+- 持久化工作区和文件
+- 终端和代码执行
+- 远程浏览器
+- 已连接的插件（Slack、Gmail、GitHub 等）
+- 你的所有个人财务、交易和银行账单
+- 定时任务
+- Git clone 和 PR 创建
+- 构建和部署网站
+- 创建文档、表格和幻灯片
+- 收件箱/日历摘要
+- 网站监控和告警
+
+所有这些都触手可及，只需一个简单的聊天界面，不需要笔记本电脑。
+
+你要做的只是切换到 ChatGPT 应用里的 Work 标签页。</p><a class="quote-link" href="https://x.com/pashmerepat/status/2080354753473835461" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 652</span><span>↻ 37</span><span>↩ 83</span></div><a href="https://x.com/gdb/status/2080736094157488201" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P0" data-expert="sama" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2046764873200394240/r7BxVezs_normal.jpg" alt="Sam Altman avatar" loading="lazy"></div>
+          <div class="identity"><strong>Sam Altman</strong><span>@sama · OpenAI / CEO</span></div>
+          <div class="score">98<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>基座模型 / OpenAI</span><time>07-24 23:54 北京</time></div>
+        <p class="post-text original" lang="auto">let us know what you think of pro-ultra-superhard</p><p class="post-text translation" lang="zh-CN">告诉我们你对 pro-ultra-superhard 的看法</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1601382188712398850/3AAOlqrX_normal.jpg" alt="Ethan Mollick avatar" loading="lazy"></div><div><strong>Ethan Mollick</strong><span>@emollick</span></div></div><p class="quote-text original" lang="auto">Agreed: GPT-5.6 Pro (which is only available via the chatbot) is the smartest model out there. GPT-5.6 Ultra (the best model in Codex) is not near as powerful on hard tasks.
+
+For really hard problems: GPT-5.6 Sol Pro&amp;gt;Fable 5 Ultracode &amp;gt; GPT-5.6 Sol Ultra. (Yes, this is confusing)</p><p class="quote-text translation" lang="zh-CN">同意：GPT-5.6 Pro（只能通过聊天机器人使用）是目前最聪明的模型。GPT-5.6 Ultra（Codex 中最好的模型）在高难度任务上没有那么强。
+
+对于真正困难的问题：GPT-5.6 Sol Pro&amp;gt;Fable 5 Ultracode &amp;gt; GPT-5.6 Sol Ultra。（是的，这很令人困惑）</p><a class="quote-link" href="https://x.com/emollick/status/2080515937803886872" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 2,620</span><span>↻ 74</span><span>↩ 387</span></div><a href="https://x.com/sama/status/2080683119959757243" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P0" data-expert="gdb" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_normal.jpg" alt="Greg Brockman avatar" loading="lazy"></div>
+          <div class="identity"><strong>Greg Brockman</strong><span>@gdb · OpenAI / 联合创始人</span></div>
+          <div class="score">98<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>基座模型 / OpenAI</span><time>07-24 11:25 北京</time></div>
+        <p class="post-text original" lang="auto">Excited to welcome Jacob Tsimerman to the team!</p><p class="post-text translation" lang="zh-CN">很高兴欢迎 Jacob Tsimerman 加入团队！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1951346473733328896/D-T8bvNF_normal.jpg" alt="Kai Williams @ ICM (world biggest math conference) avatar" loading="lazy"></div><div><strong>Kai Williams @ ICM (world biggest math conference)</strong><span>@chi_t_williams</span></div></div><p class="quote-text original" lang="auto">Jacob Tsimerman, who won a fields medal, perhaps math&#x27;s most prestigious prize, just announced at a press conference that he is &quot;pivoting toward AI safety&quot; and will be going to OpenAI soon</p><p class="quote-text translation" lang="zh-CN">曾获 Fields Medal（或许是数学界最高荣誉）的 Jacob Tsimerman 刚在新闻发布会上宣布，他将“转向 AI safety”，并很快加入 OpenAI。</p><a class="quote-link" href="https://x.com/chi_t_williams/status/2080339331139424727" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 730</span><span>↻ 35</span><span>↩ 53</span></div><a href="https://x.com/gdb/status/2080494474287780286" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="bcherny" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1902044548936953856/J2jeik0t_normal.jpg" alt="Boris Cherny avatar" loading="lazy"></div>
+          <div class="identity"><strong>Boris Cherny</strong><span>@bcherny · Anthropic / Claude Code</span></div>
+          <div class="score">88<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Claude / Anthropic</span><time>07-25 03:05 北京</time></div>
+        <p class="post-text original" lang="auto">@arcprize @AnthropicAI this feels wild, progress is fast!</p><p class="post-text translation" lang="zh-CN">@arcprize @AnthropicAI 这感觉太不可思议了，进展真快！</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 295</span><span>↻ 4</span><span>↩ 8</span></div><a href="https://x.com/bcherny/status/2080731081868001406" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="bcherny" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1902044548936953856/J2jeik0t_normal.jpg" alt="Boris Cherny avatar" loading="lazy"></div>
+          <div class="identity"><strong>Boris Cherny</strong><span>@bcherny · Anthropic / Claude Code</span></div>
+          <div class="score">81<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Claude / Anthropic</span><time>07-25 03:06 北京</time></div>
+        <p class="post-text original" lang="auto">@nathanv246 echo &quot;Avoid code comments unless your are explicitly asked to add comments&quot; &amp;gt;&amp;gt; CLAUDE.md</p><p class="post-text translation" lang="zh-CN">@nathanv246 echo &quot;Avoid code comments unless your are explicitly asked to add comments&quot; &amp;gt;&amp;gt; CLAUDE.md</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 50</span><span>↻ 3</span><span>↩ 3</span></div><a href="https://x.com/bcherny/status/2080731329990377755" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P0" data-expert="mikeyk" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1600639584294969344/VOYWWHNN_normal.jpg" alt="Mike Krieger avatar" loading="lazy"></div>
+          <div class="identity"><strong>Mike Krieger</strong><span>@mikeyk · Anthropic / 产品负责人</span></div>
+          <div class="score">91<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 产品 / Anthropic</span><time>07-25 01:13 北京</time></div>
+        <p class="post-text original" lang="auto">Opus 5 quickly became my daily driver both at work and on the weekends. It can work for hours on complex tasks, and I&#x27;ve found it consistently gets to the bottom of tricky tasks. I also had some fun building some games with it 🧵</p><p class="post-text translation" lang="zh-CN">Opus 5 很快成了我工作日和周末的日常主力。它能连续数小时处理复杂任务，而且我发现它总能把棘手任务查个水落石出。我还用它做了一些游戏，玩得很开心 🧵</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1950950107937185792/QOfEjFoJ_normal.jpg" alt="Claude avatar" loading="lazy"></div><div><strong>Claude</strong><span>@claudeai</span></div></div><p class="quote-text original" lang="auto">Introducing Claude Opus 5.
+
+It&#x27;s a thoughtful and proactive model that comes close to the frontier intelligence of Fable 5 at half the price. https://t.co/GQWhcq2CQL</p><p class="quote-text translation" lang="zh-CN">Claude Opus 5 正式发布。
+
+这是一个思考周全且主动积极的模型，智能水平接近 Fable 5 的前沿能力，价格却只有一半。https://t.co/GQWhcq2CQL</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOAifjuWcAESshR.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOAifjuWcAESshR.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/claudeai/status/2080699495453528290" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 203</span><span>↻ 3</span><span>↩ 17</span></div><a href="https://x.com/mikeyk/status/2080702940445397167" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="alexalbert__" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1856486626072915968/JEQpB9CW_normal.jpg" alt="Alex Albert avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alex Albert</strong><span>@alexalbert__ · Anthropic / Claude 开发者关系与产品传播</span></div>
+          <div class="score">99<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Claude / Anthropic KOL</span><time>07-25 03:08 北京</time></div>
+        <p class="post-text original" lang="auto">Just over 6 months later, Opus 5 now produces near-superhuman level spreadsheets and slide decks that match what a consultant would make. Things are changing fast. https://t.co/HKpFPP4hrM</p><p class="post-text translation" lang="zh-CN">仅仅 6 个多月后，Opus 5 现在已经能生成近乎超人水平的电子表格和幻灯片，质量堪比咨询顾问的作品。变化太快了。https://t.co/HKpFPP4hrM</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2080719295458500608/img/BNyXLVuL_YZOIfHh.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2080719295458500608/img/BNyXLVuL_YZOIfHh.jpg" alt="X post media"><span>VIDEO</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1856486626072915968/JEQpB9CW_normal.jpg" alt="Alex Albert avatar" loading="lazy"></div><div><strong>Alex Albert</strong><span>@alexalbert__</span></div></div><p class="quote-text original" lang="auto">I&#x27;m hearing from many folks across finance industry that Claude for Excel is blowing their minds.
+
+The agentic coding takeoff but for other fields is coming in 2026.</p><p class="quote-text translation" lang="zh-CN">我从金融行业很多人那里听说，Claude for Excel 让他们大为震撼。
+
+类似智能体编程爆发的浪潮，将在 2026 年出现在其他领域。</p><a class="quote-link" href="https://x.com/alexalbert__/status/2005670179045523595" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 1,269</span><span>↻ 71</span><span>↩ 35</span></div><a href="https://x.com/alexalbert__/status/2080731979528679617" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="alexalbert__" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1856486626072915968/JEQpB9CW_normal.jpg" alt="Alex Albert avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alex Albert</strong><span>@alexalbert__ · Anthropic / Claude 开发者关系与产品传播</span></div>
+          <div class="score">98<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Claude / Anthropic KOL</span><time>07-25 01:14 北京</time></div>
+        <p class="post-text original" lang="auto">Some of my favorite graphs from Opus 5 launch. We put a ton of work into making this model token efficient across domains while still raising the intelligence bar.
+
+It feels very smooth to use and I prefer it over Fable 5 for  many coding tasks. https://t.co/bScX0FgtLq</p><p class="post-text translation" lang="zh-CN">这些是我最喜欢的 Opus 5 发布图表。我们投入了大量工作，让这个模型在各个领域都更高效地使用 token，同时继续提升智能水平。
+
+用起来非常顺滑，在许多编程任务上我更喜欢它，而不是 Fable 5。https://t.co/bScX0FgtLq</p>
+
+        <div class="media-grid media-grid--4"><a class="media-item" href="https://pbs.twimg.com/media/HOAjffsbIAAi3zC.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOAjffsbIAAi3zC.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HOAjhC5boAAMHcb.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOAjhC5boAAMHcb.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HOAji3VawAA2-z1.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOAji3VawAA2-z1.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HOAjkLFbcAAYR2J.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOAjkLFbcAAYR2J.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 539</span><span>↻ 22</span><span>↩ 36</span></div><a href="https://x.com/alexalbert__/status/2080703118086693121" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P0" data-expert="alexalbert__" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1856486626072915968/JEQpB9CW_normal.jpg" alt="Alex Albert avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alex Albert</strong><span>@alexalbert__ · Anthropic / Claude 开发者关系与产品传播</span></div>
+          <div class="score">91<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Claude / Anthropic KOL</span><time>07-25 01:09 北京</time></div>
+        <p class="post-text original" lang="auto">Welcome to the world, Opus 5.</p><p class="post-text translation" lang="zh-CN">欢迎来到这个世界，Opus 5。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1950950107937185792/QOfEjFoJ_normal.jpg" alt="Claude avatar" loading="lazy"></div><div><strong>Claude</strong><span>@claudeai</span></div></div><p class="quote-text original" lang="auto">Introducing Claude Opus 5.
+
+It&#x27;s a thoughtful and proactive model that comes close to the frontier intelligence of Fable 5 at half the price. https://t.co/GQWhcq2CQL</p><p class="quote-text translation" lang="zh-CN">Claude Opus 5 正式发布。
+
+这是一个思考周全且主动积极的模型，智能水平接近 Fable 5 的前沿能力，价格却只有一半。https://t.co/GQWhcq2CQL</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOAifjuWcAESshR.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOAifjuWcAESshR.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/claudeai/status/2080699495453528290" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 223</span><span>↻ 2</span><span>↩ 12</span></div><a href="https://x.com/alexalbert__/status/2080702002120757562" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="amasad" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div>
+          <div class="identity"><strong>Amjad Masad</strong><span>@amasad · Replit / CEO</span></div>
+          <div class="score">89<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 / 开发者平台</span><time>07-24 23:32 北京</time></div>
+        <p class="post-text original" lang="auto">LLMs benefit greatly from an open ecosystem and it’s the best way to ensure America stays competitive.
+
+Replit has been committed to supporting an open ecosystem since we first released our open coding model in 2023 (one of the first on the market).
+
+Our letter to congress:</p><p class="post-text translation" lang="zh-CN">LLMs 从开放生态中受益巨大，这也是确保美国保持竞争力的最佳方式。
+
+自 2023 年首次发布我们的开放代码模型以来，Replit 一直致力于支持开放生态；那也是市场上最早的一批开放代码模型之一。
+
+我们致国会的信：</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2080613261674962944/OMXX4RJ3_normal.jpg" alt="Jensen Huang avatar" loading="lazy"></div><div><strong>Jensen Huang</strong><span>@JensenHuang</span></div></div><p class="quote-text original" lang="auto">For my first post, I’m sharing a letter @NVIDIA signed on why open models matter.
+
+AI will transform every industry, power every company, and be built by every country.
+
+Open models strengthen safety and cybersecurity, accelerate innovation and diffusion, and enable sovereignty.
+
+The world needs both frontier closed models and frontier open models.
+
+https://t.co/AUKzoQ5Ikb</p><p class="quote-text translation" lang="zh-CN">我的第一篇帖子，分享一封 @NVIDIA 签署的、关于开放模型为何重要的信。
+
+AI 将变革每个行业，赋能每家公司，并由每个国家共同建设。
+
+开放模型能强化安全和网络安全，加速创新与普及，并实现主权自主。
+
+世界既需要前沿闭源模型，也需要前沿开放模型。
+
+https://t.co/AUKzoQ5Ikb</p><div class="media-grid media-grid--3"><a class="media-item" href="https://pbs.twimg.com/media/HN_qDVsa4AAI6XJ.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN_qDVsa4AAI6XJ.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HN_qDV1a8AARQwg.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN_qDV1a8AARQwg.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HN_qDV1awAAPTlH.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN_qDV1awAAPTlH.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/JensenHuang/status/2080643682408321103" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 442</span><span>↻ 34</span><span>↩ 20</span></div><a href="https://x.com/amasad/status/2080677422291423440" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="amasad" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div>
+          <div class="identity"><strong>Amjad Masad</strong><span>@amasad · Replit / CEO</span></div>
+          <div class="score">88<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 / 开发者平台</span><time>07-24 23:18 北京</time></div>
+        <p class="post-text original" lang="auto">The commies are out in full force supporting open weights</p><p class="post-text translation" lang="zh-CN">那些“共党”正全力支持开放权重</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1907351559689650176/xPWyoi5m_normal.jpg" alt="Daniel Jeffries avatar" loading="lazy"></div><div><strong>Daniel Jeffries</strong><span>@Dan_Jeffries1</span></div></div><p class="quote-text original" lang="auto">NVIDIA, Palantir, Replit, Microsoft, Crowdstrike, Dell and others send a strong message to congress to keep open access to open weights models.
+
+&quot;Our AI leadership will be judged not by one frontier AI model, but whether the United States builds a strong, open ecosystem that diffuses into every sector.&quot;
+
+&quot;Open weights also strengthen competition and competition is what keeps the gains of AI broadly shared rather than concentrated in a few hands.&quot;
+
+&quot;Openness may be one of the most important paths to AI safety and security.&quot;</p><p class="quote-text translation" lang="zh-CN">NVIDIA、Palantir、Replit、Microsoft、Crowdstrike、Dell 等公司向国会发出强烈信号：保持对开放权重模型的开放访问。
+
+“衡量我们的 AI 领导力，不应只看某一个前沿 AI 模型，而要看美国能否构建一个强大、开放，并能扩散到各行各业的生态系统。”
+
+“开放权重也会强化竞争，而竞争正是确保 AI 收益被广泛共享、而非集中在少数人手中的关键。”
+
+“开放性或许是实现 AI 安全与保障的最重要路径之一。”</p><div class="media-grid media-grid--3"><a class="media-item" href="https://pbs.twimg.com/media/HN_m1wBXgAA57dL.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN_m1wBXgAA57dL.png" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HN_m4m_WAAARtD0.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN_m4m_WAAARtD0.png" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HN_m6EHXUAAkwaM.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN_m6EHXUAAkwaM.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/Dan_Jeffries1/status/2080637367468073321" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 1,456</span><span>↻ 75</span><span>↩ 94</span></div><a href="https://x.com/amasad/status/2080674101426037060" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="amasad" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div>
+          <div class="identity"><strong>Amjad Masad</strong><span>@amasad · Replit / CEO</span></div>
+          <div class="score">87<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 / 开发者平台</span><time>07-24 12:36 北京</time></div>
+        <p class="post-text original" lang="auto">My chess autoresearch agent got a PhD in modern LLM finetuning. https://t.co/xw9mvVRhgY</p><p class="post-text translation" lang="zh-CN">我的国际象棋自动研究 agent 拿到了现代 LLM finetuning 博士学位。https://t.co/xw9mvVRhgY</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HN93HVMbEAA96Ry.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN93HVMbEAA96Ry.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 626</span><span>↻ 29</span><span>↩ 34</span></div><a href="https://x.com/amasad/status/2080512523389005894" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="amasad" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div>
+          <div class="identity"><strong>Amjad Masad</strong><span>@amasad · Replit / CEO</span></div>
+          <div class="score">86<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 / 开发者平台</span><time>07-24 12:40 北京</time></div>
+        <p class="post-text original" lang="auto">Autoscale deployments, which is typically the most expensive of scaled apps is down 80%! https://t.co/5Thud2waXD</p><p class="post-text translation" lang="zh-CN">Autoscale 部署通常是规模化应用中最昂贵的部分，现在降价 80%！https://t.co/5Thud2waXD</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HN934JCagAAJTV1.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN934JCagAAJTV1.jpg" alt="X post media"><span>IMAGE</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div><div><strong>Amjad Masad</strong><span>@amasad</span></div></div><p class="quote-text original" lang="auto">We’ve achieved enough scale to command superior prices from cloud providers. So today we’re passing much of the savings to our customers and making Replit hosting one of the most affordable cloud hosting providers in the world.</p><p class="quote-text translation" lang="zh-CN">我们已经达到足够规模，能够从云服务商那里获得更优价格。所以今天，我们把大部分节省下来的成本让利给客户，让 Replit hosting 成为全球最实惠的云托管服务之一。</p><a class="quote-link" href="https://x.com/amasad/status/2080339129506873501" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 200</span><span>↻ 11</span><span>↩ 23</span></div><a href="https://x.com/amasad/status/2080513361301925957" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P0" data-expert="thom_wolf" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2068682157451571200/_ZNKM_5E_normal.jpg" alt="Thomas Wolf avatar" loading="lazy"></div>
+          <div class="identity"><strong>Thomas Wolf</strong><span>@Thom_Wolf · Hugging Face / 联合创始人兼 CSO</span></div>
+          <div class="score">80<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>开源模型 / Hugging Face</span><time>07-24 23:32 北京</time></div>
+        <p class="post-text original" lang="auto">This is very important</p><p class="post-text translation" lang="zh-CN">这非常重要</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2080613261674962944/OMXX4RJ3_normal.jpg" alt="Jensen Huang avatar" loading="lazy"></div><div><strong>Jensen Huang</strong><span>@JensenHuang</span></div></div><p class="quote-text original" lang="auto">For my first post, I’m sharing a letter @NVIDIA signed on why open models matter.
+
+AI will transform every industry, power every company, and be built by every country.
+
+Open models strengthen safety and cybersecurity, accelerate innovation and diffusion, and enable sovereignty.
+
+The world needs both frontier closed models and frontier open models.
+
+https://t.co/AUKzoQ5Ikb</p><p class="quote-text translation" lang="zh-CN">我的第一篇帖子，分享一封 @NVIDIA 签署的、关于开放模型为何重要的信。
+
+AI 将变革每个行业，赋能每家公司，并由每个国家共同建设。
+
+开放模型能强化安全和网络安全，加速创新与普及，并实现主权自主。
+
+世界既需要前沿闭源模型，也需要前沿开放模型。
+
+https://t.co/AUKzoQ5Ikb</p><div class="media-grid media-grid--3"><a class="media-item" href="https://pbs.twimg.com/media/HN_qDVsa4AAI6XJ.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN_qDVsa4AAI6XJ.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HN_qDV1a8AARQwg.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN_qDV1a8AARQwg.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HN_qDV1awAAPTlH.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN_qDV1awAAPTlH.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/JensenHuang/status/2080643682408321103" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 119</span><span>↻ 5</span><span>↩ 14</span></div><a href="https://x.com/Thom_Wolf/status/2080677395812520089" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="drjimfan" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1554922493101559808/SYSZhbcd_normal.jpg" alt="Jim Fan avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jim Fan</strong><span>@DrJimFan · NVIDIA / 研究员</span></div>
+          <div class="score">81<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>多模态 / Agent</span><time>07-24 22:24 北京</time></div>
+        <p class="post-text original" lang="auto">GOAT</p><p class="post-text translation" lang="zh-CN">GOAT</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2080613261674962944/OMXX4RJ3_normal.jpg" alt="Jensen Huang avatar" loading="lazy"></div><div><strong>Jensen Huang</strong><span>@JensenHuang</span></div></div><p class="quote-text original" lang="auto">For my first post, I’m sharing a letter @NVIDIA signed on why open models matter.
+
+AI will transform every industry, power every company, and be built by every country.
+
+Open models strengthen safety and cybersecurity, accelerate innovation and diffusion, and enable sovereignty.
+
+The world needs both frontier closed models and frontier open models.
+
+https://t.co/AUKzoQ5Ikb</p><p class="quote-text translation" lang="zh-CN">我的第一篇帖子，分享一封 @NVIDIA 签署的、关于开放模型为何重要的信。
+
+AI 将变革每个行业，赋能每家公司，并由每个国家共同建设。
+
+开放模型能强化安全和网络安全，加速创新与普及，并实现主权自主。
+
+世界既需要前沿闭源模型，也需要前沿开放模型。
+
+https://t.co/AUKzoQ5Ikb</p><div class="media-grid media-grid--3"><a class="media-item" href="https://pbs.twimg.com/media/HN_qDVsa4AAI6XJ.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN_qDVsa4AAI6XJ.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HN_qDV1a8AARQwg.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN_qDV1a8AARQwg.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HN_qDV1awAAPTlH.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN_qDV1awAAPTlH.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/JensenHuang/status/2080643682408321103" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 179</span><span>↻ 4</span><span>↩ 9</span></div><a href="https://x.com/DrJimFan/status/2080660454184226908" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="products" data-priority="P0" data-expert="aravsrinivas" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2028729526822588416/WhtMUI-P_normal.jpg" alt="Aravind Srinivas avatar" loading="lazy"></div>
+          <div class="identity"><strong>Aravind Srinivas</strong><span>@AravSrinivas · Perplexity / CEO</span></div>
+          <div class="score">90<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 搜索 / 产品</span><time>07-24 22:41 北京</time></div>
+        <p class="post-text original" lang="auto">“Open weights strengthen competition and competition is what keeps the benefits of AI broadly shared rather than concentrated in the hands of few”. We believe this strongly at @perplexity_ai and are co-signing this letter, with @nvidia! Thanks to @a16z for putting this together!</p><p class="post-text translation" lang="zh-CN">“开放权重会强化竞争，而竞争正是确保 AI 收益被广泛共享、而非集中在少数人手中的关键。”我们在 @perplexity_ai 对此深信不疑，并与 @nvidia 一起联署这封信！感谢 @a16z 促成此事！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2080613261674962944/OMXX4RJ3_normal.jpg" alt="Jensen Huang avatar" loading="lazy"></div><div><strong>Jensen Huang</strong><span>@JensenHuang</span></div></div><p class="quote-text original" lang="auto">For my first post, I’m sharing a letter @NVIDIA signed on why open models matter.
+
+AI will transform every industry, power every company, and be built by every country.
+
+Open models strengthen safety and cybersecurity, accelerate innovation and diffusion, and enable sovereignty.
+
+The world needs both frontier closed models and frontier open models.
+
+https://t.co/AUKzoQ5Ikb</p><p class="quote-text translation" lang="zh-CN">我的第一篇帖子，分享一封 @NVIDIA 签署的、关于开放模型为何重要的信。
+
+AI 将变革每个行业，赋能每家公司，并由每个国家共同建设。
+
+开放模型能强化安全和网络安全，加速创新与普及，并实现主权自主。
+
+世界既需要前沿闭源模型，也需要前沿开放模型。
+
+https://t.co/AUKzoQ5Ikb</p><div class="media-grid media-grid--3"><a class="media-item" href="https://pbs.twimg.com/media/HN_qDVsa4AAI6XJ.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN_qDVsa4AAI6XJ.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HN_qDV1a8AARQwg.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN_qDV1a8AARQwg.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HN_qDV1awAAPTlH.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN_qDV1awAAPTlH.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/JensenHuang/status/2080643682408321103" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 562</span><span>↻ 58</span><span>↩ 33</span></div><a href="https://x.com/AravSrinivas/status/2080664685792371173" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="products" data-priority="P0" data-expert="aravsrinivas" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2028729526822588416/WhtMUI-P_normal.jpg" alt="Aravind Srinivas avatar" loading="lazy"></div>
+          <div class="identity"><strong>Aravind Srinivas</strong><span>@AravSrinivas · Perplexity / CEO</span></div>
+          <div class="score">84<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 搜索 / 产品</span><time>07-25 00:47 北京</time></div>
+        <p class="post-text original" lang="auto">today is the most positive i have felt about the future of american ai. the coming together of so many companies in a united manner to fight against regulatory capture is incredible to watch. 🇺🇸</p><p class="post-text translation" lang="zh-CN">今天是我对美国 AI 未来最乐观的一天。如此多公司团结一致，反对监管俘获，令人震撼。🇺🇸</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 1,148</span><span>↻ 65</span><span>↩ 32</span></div><a href="https://x.com/AravSrinivas/status/2080696397020725364" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P0" data-expert="ken_goldberg" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1432180197818703873/PGutjinG_normal.jpg" alt="Ken Goldberg avatar" loading="lazy"></div>
+          <div class="identity"><strong>Ken Goldberg</strong><span>@Ken_Goldberg · 权威机器人研究者</span></div>
+          <div class="score">74<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>机器人与自动化</span><time>07-25 03:54 北京</time></div>
+        <p class="post-text original" lang="auto">How about this:
+
+agentic robotics
+/ə-ˈjen-tik rō-ˈbä-tiks/ noun
+1. Robot systems that use ai agents in the loop for perception and control.
+2. Automation systems that are rapidly developed using offline ai agents.
+
+Our Graph-as-Policy (GaP) project focuses on 2.</p><p class="post-text translation" lang="zh-CN">这个说法如何：
+
+agentic robotics
+/ə-ˈjen-tik rō-ˈbä-tiks/ 名词
+1. 在感知和控制环节中使用 ai agents 的机器人系统。
+2. 使用离线 ai agents 快速开发的自动化系统。
+
+我们的 Graph-as-Policy (GaP) 项目专注于第 2 点。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2070437397310111744/iAeEyOJz_normal.jpg" alt="Irvin (in Japan 🇯🇵) avatar" loading="lazy"></div><div><strong>Irvin (in Japan 🇯🇵)</strong><span>@irvinxyz</span></div></div><p class="quote-text original" lang="auto">Ken - can we get you to sign off on this definition or edit it?
+agentic robotics
+/ə-ˈjen-tik rō-ˈbä-tiks/ noun
+1. Robotics that integrates autonomous AI agents to reason, plan, and act toward goals with minimal human intervention.
+2. A marketing term used to describe nearly any robot released after large language models became popular.
+3. “We added an LLM and a task planner - it’s agentic robotics now.”</p><p class="quote-text translation" lang="zh-CN">Ken，可以请你确认这个定义，或直接修改一下吗？
+agentic robotics
+/ə-ˈjen-tik rō-ˈbä-tiks/ 名词
+1. 融合自主 AI agent 的机器人技术，能够以最少的人类干预进行推理、规划并朝目标行动。
+2. 一个营销术语，用来描述大语言模型流行后发布的几乎任何机器人。
+3. “我们加了一个 LLM 和一个任务规划器，现在它就是 agentic robotics 了。”</p><a class="quote-link" href="https://x.com/irvinxyz/status/2080301461758525687" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 17</span><span>↻ 3</span><span>↩ 1</span></div><a href="https://x.com/Ken_Goldberg/status/2080743516783989242" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="governance" data-priority="P0" data-expert="ken_goldberg" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1432180197818703873/PGutjinG_normal.jpg" alt="Ken Goldberg avatar" loading="lazy"></div>
+          <div class="identity"><strong>Ken Goldberg</strong><span>@Ken_Goldberg · 权威机器人研究者</span></div>
+          <div class="score">63<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>机器人与自动化</span><time>07-25 03:46 北京</time></div>
+        <p class="post-text original" lang="auto">So much innovation has resulted from the Open Access philosophy.  @UCBerkeley</p><p class="post-text translation" lang="zh-CN">Open Access 理念带来了如此多的创新。@UCBerkeley</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2080613261674962944/OMXX4RJ3_normal.jpg" alt="Jensen Huang avatar" loading="lazy"></div><div><strong>Jensen Huang</strong><span>@JensenHuang</span></div></div><p class="quote-text original" lang="auto">For my first post, I’m sharing a letter @NVIDIA signed on why open models matter.
+
+AI will transform every industry, power every company, and be built by every country.
+
+Open models strengthen safety and cybersecurity, accelerate innovation and diffusion, and enable sovereignty.
+
+The world needs both frontier closed models and frontier open models.
+
+https://t.co/AUKzoQ5Ikb</p><p class="quote-text translation" lang="zh-CN">我的第一篇帖子，分享一封 @NVIDIA 签署的、关于开放模型为何重要的信。
+
+AI 将变革每个行业，赋能每家公司，并由每个国家共同建设。
+
+开放模型能强化安全和网络安全，加速创新与普及，并实现主权自主。
+
+世界既需要前沿闭源模型，也需要前沿开放模型。
+
+https://t.co/AUKzoQ5Ikb</p><div class="media-grid media-grid--3"><a class="media-item" href="https://pbs.twimg.com/media/HN_qDVsa4AAI6XJ.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN_qDVsa4AAI6XJ.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HN_qDV1a8AARQwg.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN_qDV1a8AARQwg.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HN_qDV1awAAPTlH.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN_qDV1awAAPTlH.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/JensenHuang/status/2080643682408321103" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 3</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/Ken_Goldberg/status/2080741459700130296" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="openaidevs" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2022002720971096064/l3Kyt4qt_normal.jpg" alt="OpenAI Developers avatar" loading="lazy"></div>
+          <div class="identity"><strong>OpenAI Developers</strong><span>@OpenAIDevs · Agent 平台与开发者产品</span></div>
+          <div class="score">90<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Agent 技术突破</span><time>07-25 01:32 北京</time></div>
+        <p class="post-text original" lang="auto">Your ChatGPT Work agent can now use websites that require you to sign in.
+
+Take over the cloud browser to log in, then let your agent continue the task. Your login persists across sessions, so you only have to sign in once. https://t.co/Jh8uPqNscX</p><p class="post-text translation" lang="zh-CN">你的 ChatGPT Work agent 现在可以使用需要登录的网站了。
+
+接管云浏览器完成登录，然后让你的 agent 继续执行任务。你的登录状态会跨会话保留，所以只需登录一次。https://t.co/Jh8uPqNscX</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2080707658756378624/img/KQ6HoIIfZcjRb1VZ.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2080707658756378624/img/KQ6HoIIfZcjRb1VZ.jpg" alt="X post media"><span>VIDEO</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 2,232</span><span>↻ 154</span><span>↩ 92</span></div><a href="https://x.com/OpenAIDevs/status/2080707685448847418" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">71<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>07-25 04:21 北京</time></div>
+        <p class="post-text original" lang="auto">An interesting thing I&#x27;m observing from the blog/system card is that on a good chunk of the reported benchmarks (~20-30% from a skim), Opus 5 max thinking leads to a degradation in performance compared to xhigh.
+
+Usually you would assume that as you increase thinking and test-time compute, performance goes up. Some of these results contradict that assumption. I wonder if this is a natural emergent property of smaller models or a posttraining issue.</p><p class="post-text translation" lang="zh-CN">我从博客/系统卡中观察到一个有趣现象：在相当一部分报告的基准测试中（粗略看约 20-30%），Opus 5 的 max thinking 相比 xhigh 反而会导致性能下降。
+
+通常你会认为，随着 thinking 和测试时计算量增加，性能也会上升。其中一些结果与这个假设相矛盾。我在想，这是否是较小模型的自然涌现特性，还是后训练问题。</p>
+
+        <div class="media-grid media-grid--4"><a class="media-item" href="https://pbs.twimg.com/media/HOBPXLVbYAAMlzL.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOBPXLVbYAAMlzL.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HOBPXLUbsAASKcW.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOBPXLUbsAASKcW.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HOBPXLUacAAWCQE.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOBPXLUacAAWCQE.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HOBPXLVaYAAm4gS.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOBPXLVaYAAm4gS.jpg" alt="X post media"><span>IMAGE</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1950950107937185792/QOfEjFoJ_normal.jpg" alt="Claude avatar" loading="lazy"></div><div><strong>Claude</strong><span>@claudeai</span></div></div><p class="quote-text original" lang="auto">Introducing Claude Opus 5.
+
+It&#x27;s a thoughtful and proactive model that comes close to the frontier intelligence of Fable 5 at half the price. https://t.co/GQWhcq2CQL</p><p class="quote-text translation" lang="zh-CN">Claude Opus 5 正式发布。
+
+这是一个思考周全且主动积极的模型，智能水平接近 Fable 5 的前沿能力，价格却只有一半。https://t.co/GQWhcq2CQL</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOAifjuWcAESshR.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOAifjuWcAESshR.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/claudeai/status/2080699495453528290" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 31</span><span>↻ 2</span><span>↩ 10</span></div><a href="https://x.com/jerryjliu0/status/2080750306112176140" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">62<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>07-25 01:44 北京</time></div>
+        <p class="post-text original" lang="auto">Am I supposed to interpret that it&#x27;s better than Fable 5 from the benchmarks?
+
+Or it&#x27;s ~close but cheaper?</p><p class="post-text translation" lang="zh-CN">我应该理解为，从基准测试看它比 Fable 5 更好吗？
+
+还是说它大致接近但更便宜？</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1950950107937185792/QOfEjFoJ_normal.jpg" alt="Claude avatar" loading="lazy"></div><div><strong>Claude</strong><span>@claudeai</span></div></div><p class="quote-text original" lang="auto">Introducing Claude Opus 5.
+
+It&#x27;s a thoughtful and proactive model that comes close to the frontier intelligence of Fable 5 at half the price. https://t.co/GQWhcq2CQL</p><p class="quote-text translation" lang="zh-CN">Claude Opus 5 正式发布。
+
+这是一个思考周全且主动积极的模型，智能水平接近 Fable 5 的前沿能力，价格却只有一半。https://t.co/GQWhcq2CQL</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOAifjuWcAESshR.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOAifjuWcAESshR.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/claudeai/status/2080699495453528290" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 19</span><span>↻ 0</span><span>↩ 4</span></div><a href="https://x.com/jerryjliu0/status/2080710624359936106" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">59<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>07-25 06:52 北京</time></div>
+        <p class="post-text original" lang="auto">We benchmarked Opus 5 comprehensively on document understanding through ParseBench.
+
+It is roughly on par with Opus 4.8 - it does a few points worse on dense tables, but does slightly better on parsing charts and visual grounding.
+
+For reference, Gemini 3.6 Flash has better results on tables, is slightly worse on charts, and is half the price. LlamaParse agentic is better on all fronts (including tables) at 1/6th of the price.
+
+tl;dr use Opus 5 as much as you want for coding and knowledge work. But at 8c per page and average OCR performance, don&#x27;t use it to parse documents at scale
+
+Our full ParseBench leaderboard which we periodically update is here: https://t.co/PWczfhp0OX</p><p class="post-text translation" lang="zh-CN">我们通过 ParseBench 对 Opus 5 的文档理解能力做了全面基准测试。
+
+它大致与 Opus 4.8 持平：在密集表格上低了几分，但在图表解析和视觉定位上略好。
+
+作为参考，Gemini 3.6 Flash 在表格上的结果更好，在图表上略差，价格是它的一半。LlamaParse agentic 在所有方面都更好（包括表格），价格只有六分之一。
+
+tl;dr：编码和知识工作可以尽管使用 Opus 5。但每页 8c 且 OCR 表现一般，不要用它进行大规模文档解析。
+
+我们会定期更新的完整 ParseBench 排行榜在这里：https://t.co/PWczfhp0OX</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOBwoFObMAAoacq.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOBwoFObMAAoacq.png" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 5</span><span>↻ 1</span><span>↩ 1</span></div><a href="https://x.com/jerryjliu0/status/2080788185194602686" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="governance" data-priority="P1" data-expert="miramurati" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2057853902918455296/D_nfq15L_normal.jpg" alt="Mira Murati avatar" loading="lazy"></div>
+          <div class="identity"><strong>Mira Murati</strong><span>@miramurati · Thinking Machines Lab / 创始人兼 CEO</span></div>
+          <div class="score">78<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 研究 / 安全</span><time>07-25 02:03 北京</time></div>
+        <p class="post-text original" lang="auto">The knowledge that makes AI useful is diffused. It lives with scientists, engineers, clinicians, firms. For AI to benefit from distributed knowledge, it must itself be distributed. Agree with Jensen that this is a future worth building.</p><p class="post-text translation" lang="zh-CN">让 AI 变得有用的知识是分散的。它存在于科学家、工程师、临床医生和企业之中。要让 AI 受益于分布式知识，它本身也必须是分布式的。同意 Jensen 的看法，这是一个值得建设的未来。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2080613261674962944/OMXX4RJ3_normal.jpg" alt="Jensen Huang avatar" loading="lazy"></div><div><strong>Jensen Huang</strong><span>@JensenHuang</span></div></div><p class="quote-text original" lang="auto">For my first post, I’m sharing a letter @NVIDIA signed on why open models matter.
+
+AI will transform every industry, power every company, and be built by every country.
+
+Open models strengthen safety and cybersecurity, accelerate innovation and diffusion, and enable sovereignty.
+
+The world needs both frontier closed models and frontier open models.
+
+https://t.co/AUKzoQ5Ikb</p><p class="quote-text translation" lang="zh-CN">我的第一篇帖子，分享一封 @NVIDIA 签署的、关于开放模型为何重要的信。
+
+AI 将变革每个行业，赋能每家公司，并由每个国家共同建设。
+
+开放模型能强化安全和网络安全，加速创新与普及，并实现主权自主。
+
+世界既需要前沿闭源模型，也需要前沿开放模型。
+
+https://t.co/AUKzoQ5Ikb</p><div class="media-grid media-grid--3"><a class="media-item" href="https://pbs.twimg.com/media/HN_qDVsa4AAI6XJ.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN_qDVsa4AAI6XJ.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HN_qDV1a8AARQwg.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN_qDV1a8AARQwg.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HN_qDV1awAAPTlH.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN_qDV1awAAPTlH.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/JensenHuang/status/2080643682408321103" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 4,049</span><span>↻ 518</span><span>↩ 198</span></div><a href="https://x.com/miramurati/status/2080715390179766646" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P1" data-expert="fchollet" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2006806326140350470/Kd5oZv-f_normal.jpg" alt="Francois Chollet avatar" loading="lazy"></div>
+          <div class="identity"><strong>Francois Chollet</strong><span>@fchollet · ARC Prize；Keras 作者</span></div>
+          <div class="score">78<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 研究 / 评测</span><time>07-25 01:32 北京</time></div>
+        <p class="post-text original" lang="auto">Opus 5 sets a new state-of-the-art on ARC-AGI-3, at 30%.
+
+ARC-AGI-3 measures solving problems with no prior exposure -- the setting where scaling has historically bought the least. Impressive jump!</p><p class="post-text translation" lang="zh-CN">Opus 5 在 ARC-AGI-3 上以 30% 的成绩创下新的最先进水平。
+
+ARC-AGI-3 衡量的是在没有任何先验接触情况下解决问题的能力，这正是历史上扩展规模收益最小的场景。令人印象深刻的跃升！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1950950107937185792/QOfEjFoJ_normal.jpg" alt="Claude avatar" loading="lazy"></div><div><strong>Claude</strong><span>@claudeai</span></div></div><p class="quote-text original" lang="auto">On ARC-AGI-3, an evaluation where AI models must solve novel problems, Opus 5’s score is three times as high as the next best model. https://t.co/wEFfxjrLlt</p><p class="quote-text translation" lang="zh-CN">在 ARC-AGI-3 这项要求 AI 模型解决全新问题的评测中，Opus 5 的得分是次优模型的三倍。https://t.co/wEFfxjrLlt</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOAfFQSXEAALIkI.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOAfFQSXEAALIkI.png" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/claudeai/status/2080699504576045299" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 1,513</span><span>↻ 102</span><span>↩ 73</span></div><a href="https://x.com/fchollet/status/2080707785910534147" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">72<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>07-25 01:18 北京</time></div>
+        <p class="post-text original" lang="auto">Underrated way to start evals with just a coding agent
+
+1. Cluster your traces
+2. Build your own annotation app
+3. Have AI monitor your annotations in real time to adapt your sampling +  propose new annotations to accept /reject
+
+@sh_reya shows how here: https://t.co/hXNV3Geu7P https://t.co/mhAtoWu3Fc</p><p class="post-text translation" lang="zh-CN">只用一个 coding agent 启动 evals 的一个被低估方法
+
+1. 对你的 traces 做聚类
+2. 构建自己的标注应用
+3. 让 AI 实时监控你的标注，以调整采样，并提出新的标注建议供你接受/拒绝
+
+@sh_reya 在这里演示了方法：https://t.co/hXNV3Geu7P https://t.co/mhAtoWu3Fc</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOAkqAfbsAAZDFr.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOAkqAfbsAAZDFr.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 117</span><span>↻ 11</span><span>↩ 5</span></div><a href="https://x.com/HamelHusain/status/2080704245029044489" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">59<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>07-24 13:13 北京</time></div>
+        <p class="post-text original" lang="auto">If you are writing a post &quot;This one prompt will change your life&quot;
+
+But aren&#x27;t rickrolling people, you have missed the point.</p><p class="post-text translation" lang="zh-CN">如果你在写一篇《这一个提示词会改变你的人生》的帖子，
+
+却没有拿它来 rickroll 大家，那你就没抓住重点。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 24</span><span>↻ 0</span><span>↩ 7</span></div><a href="https://x.com/HamelHusain/status/2080521693156766125" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">49<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>07-25 06:57 北京</time></div>
+        <p class="post-text original" lang="auto">35% of my business revenue in the last 60 days is from Claude / ChatGPT recommending me 🤯</p><p class="post-text translation" lang="zh-CN">过去 60 天里，我 35% 的业务收入来自 Claude / ChatGPT 对我的推荐 🤯</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 3</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/HamelHusain/status/2080789499517542607" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="swyx" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx avatar" loading="lazy"></div>
+          <div class="identity"><strong>swyx</strong><span>@swyx · Latent Space / AI Engineer</span></div>
+          <div class="score">72<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 工作流</span><time>07-24 11:50 北京</time></div>
+        <p class="post-text original" lang="auto">btw ive been dogfooding an agentic github clone over the past month or so and its gotten quite quite enjoyable to use. even complete with built in CI/CD thanks to workers for platforms!
+
+there&#x27;s 3 more ideas i have to implement (not shown here) before this goes live. but if you&#x27;re looking to hack on this with me it&#x27;s a really good time to join swyx inc and influence the roadmap</p><p class="post-text translation" lang="zh-CN">顺便说一句，过去一个月左右我一直在试用一个 agentic github clone，现在用起来已经相当相当顺手了。得益于 workers for platforms，它甚至内置了完整的 CI/CD！
+
+在正式上线前，我还有 3 个想法要实现（这里没展示）。但如果你想和我一起 hack 这个项目，现在正是加入 swyx inc 并影响路线图的好时机。</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HN9rjtubsAAm5fD.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN9rjtubsAAm5fD.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 98</span><span>↻ 1</span><span>↩ 38</span></div><a href="https://x.com/swyx/status/2080500752183960017" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="swyx" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx avatar" loading="lazy"></div>
+          <div class="identity"><strong>swyx</strong><span>@swyx · Latent Space / AI Engineer</span></div>
+          <div class="score">65<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 工作流</span><time>07-25 04:22 北京</time></div>
+        <p class="post-text original" lang="auto">ok fine 4 new features - SmolForge is now getting customizable skins and spritesheet animations https://t.co/6uSOT102QS</p><p class="post-text translation" lang="zh-CN">好吧，4 个新功能 - SmolForge 现在支持自定义皮肤和 spritesheet 动画了 https://t.co/6uSOT102QS</p>
+
+        <div class="media-grid media-grid--4"><a class="media-item" href="https://pbs.twimg.com/media/HOBPG8NaoAEfcm8.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOBPG8NaoAEfcm8.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HOBPJhla0AARF6H.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOBPJhla0AARF6H.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HOBPWrhaUAAjxjz.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOBPWrhaUAAjxjz.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HOBPbKRaYAANfqR.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOBPbKRaYAANfqR.jpg" alt="X post media"><span>IMAGE</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx avatar" loading="lazy"></div><div><strong>swyx</strong><span>@swyx</span></div></div><p class="quote-text original" lang="auto">btw ive been dogfooding an agentic github clone over the past month or so and its gotten quite quite enjoyable to use. even complete with built in CI/CD thanks to workers for platforms!
+
+there&#x27;s 3 more ideas i have to implement (not shown here) before this goes live. but if you&#x27;re looking to hack on this with me it&#x27;s a really good time to join swyx inc and influence the roadmap</p><p class="quote-text translation" lang="zh-CN">顺便说一句，过去一个月左右我一直在试用一个 agentic github clone，现在用起来已经相当相当顺手了。得益于 workers for platforms，它甚至内置了完整的 CI/CD！
+
+在正式上线前，我还有 3 个想法要实现（这里没展示）。但如果你想和我一起 hack 这个项目，现在正是加入 swyx inc 并影响路线图的好时机。</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HN9rjtubsAAm5fD.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN9rjtubsAAm5fD.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/swyx/status/2080500752183960017" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 15</span><span>↻ 1</span><span>↩ 6</span></div><a href="https://x.com/swyx/status/2080750437133901925" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="yoheinakajima" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
+          <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
+          <div class="score">55<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>07-25 06:22 北京</time></div>
+        <p class="post-text original" lang="auto">@shengkun_ye made this in claude using monid using elevenlabs!
+
+(the audio was generated from the chat in the screenshot, and then i continued to generate the video in the same chat) https://t.co/U0fkzDlOKU</p><p class="post-text translation" lang="zh-CN">@shengkun_ye 用 claude、monid 和 elevenlabs 做出了这个！
+
+（音频是根据截图里的聊天生成的，然后我在同一个聊天里继续生成了视频）https://t.co/U0fkzDlOKU</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2080780472762949632/img/17S9P5Y-tTfMNPJV.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2080780472762949632/img/17S9P5Y-tTfMNPJV.jpg" alt="X post media"><span>VIDEO</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 3</span><span>↻ 1</span><span>↩ 1</span></div><a href="https://x.com/yoheinakajima/status/2080780757191340381" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="joaomdmoura" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1993772444268810240/FPCMce3S_normal.jpg" alt="Joao Moura avatar" loading="lazy"></div>
+          <div class="identity"><strong>Joao Moura</strong><span>@joaomdmoura · CrewAI / 创始人兼 CEO</span></div>
+          <div class="score">55<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 框架</span><time>07-24 12:50 北京</time></div>
+        <p class="post-text original" lang="auto">Speaking at YC Saturday and CrewAI hackathon on Sunday 😎👉👉</p><p class="post-text translation" lang="zh-CN">周六在 YC 演讲，周日在 CrewAI 黑客松演讲 😎👉👉</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 15</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/joaomdmoura/status/2080516021140820048" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="c_valenzuelab" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2070496516893229056/bm-CWE5N_normal.jpg" alt="Cristobal Valenzuela avatar" loading="lazy"></div>
+          <div class="identity"><strong>Cristobal Valenzuela</strong><span>@c_valenzuelab · Runway / 联合创始人兼 CEO</span></div>
+          <div class="score">66<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>生成式视频</span><time>07-24 23:00 北京</time></div>
+        <p class="post-text original" lang="auto">Runway Agent can now create complex node based workflows with a single language prompt. The complexity of multi layered workflows becomes as easy as a simple description of what you want.</p><p class="post-text translation" lang="zh-CN">Runway Agent 现在可以通过一句语言提示创建复杂的节点式工作流。多层工作流的复杂性，变得像简单描述你想要的内容一样容易。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1999115192232292353/zOq5-uwB_normal.jpg" alt="Runway avatar" loading="lazy"></div><div><strong>Runway</strong><span>@runwayml</span></div></div><p class="quote-text original" lang="auto">Introducing Workflows in Runway Agent. Now you can build, run or edit your node-based workflows through natural language. Workflows unlock high quality outputs at scale.
+
+Try it now by calling the / Workflow skill at the link below. https://t.co/n8mbYtNQaV</p><p class="quote-text translation" lang="zh-CN">推出 Runway Agent 中的 Workflows。现在你可以通过自然语言构建、运行或编辑基于节点的工作流。Workflows 可大规模解锁高质量输出。
+
+现在点击下方链接调用 / Workflow skill 试用。https://t.co/n8mbYtNQaV</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2080648612023824384/img/E_scYfhSEB6-38Z1.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2080648612023824384/img/E_scYfhSEB6-38Z1.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/runwayml/status/2080649234672439389" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 48</span><span>↻ 1</span><span>↩ 6</span></div><a href="https://x.com/c_valenzuelab/status/2080669467558678817" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="products" data-priority="P1" data-expert="c_valenzuelab" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2070496516893229056/bm-CWE5N_normal.jpg" alt="Cristobal Valenzuela avatar" loading="lazy"></div>
+          <div class="identity"><strong>Cristobal Valenzuela</strong><span>@c_valenzuelab · Runway / 联合创始人兼 CEO</span></div>
+          <div class="score">64<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>生成式视频</span><time>07-24 09:02 北京</time></div>
+        <p class="post-text original" lang="auto">Most of what you will see online will be created by a model. Better get used to it</p><p class="post-text translation" lang="zh-CN">你在网上看到的大部分内容都将由模型生成。最好习惯这一点。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1998772421290078208/aSQs_5zm_normal.jpg" alt="taoki avatar" loading="lazy"></div><div><strong>taoki</strong><span>@justalexoki</span></div></div><p class="quote-text original" lang="auto">&quot;havent seen any ai images in a while&quot; https://t.co/NFAFKV6qs4</p><p class="quote-text translation" lang="zh-CN">&quot;好久没看到 AI 图片了&quot; https://t.co/NFAFKV6qs4</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HN7ZAwnX0AApLJq.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN7ZAwnX0AApLJq.png" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/justalexoki/status/2080339936494899343" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 38</span><span>↻ 0</span><span>↩ 6</span></div><a href="https://x.com/c_valenzuelab/status/2080458543946219810" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="products" data-priority="P1" data-expert="richardsocher" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1232361282759610368/YYxndVmI_normal.jpg" alt="Richard Socher avatar" loading="lazy"></div>
+          <div class="identity"><strong>Richard Socher</strong><span>@RichardSocher · You.com / CEO</span></div>
+          <div class="score">45<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 搜索 / 产品</span><time>07-24 10:35 北京</time></div>
+        <p class="post-text original" lang="auto">@mkratsios47 @POTUS This is exactly what my upcoming book is about. It&#x27;s finally coming out this September. It is a constructively optimistic take on AI and scientific progress. https://t.co/KfCr0hDTRS</p><p class="post-text translation" lang="zh-CN">@mkratsios47 @POTUS 这正是我即将出版的新书所讨论的内容。它终于将在今年 9 月面世。这是一本以建设性乐观视角看待 AI 与科学进步的书。https://t.co/KfCr0hDTRS</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HN9bN2rakAAvEHl.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HN9bN2rakAAvEHl.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 0</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/RichardSocher/status/2080482002760045035" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+    </main>
+    <footer>Generated 2026-07-25 07:02:34 Asia/Shanghai · Read-only X ingestion via Bird · Translation via Codex</footer>
+  </div>
+</body>
+</html>
