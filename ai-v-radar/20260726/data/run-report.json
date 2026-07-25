@@ -1,0 +1,340 @@
+{
+  "generatedAt": "2026-07-25T23:01:12.197716+00:00",
+  "fetchStartedAt": "2026-07-25T23:01:12.197716+00:00",
+  "windowStart": "2026-07-25T00:01:12.197716+00:00",
+  "windowHours": 23.0,
+  "accountsRequested": 61,
+  "fetchMode": "search",
+  "accountsSucceeded": 61,
+  "accountsFailed": 0,
+  "postsSelected": 24,
+  "topStories": [
+    {
+      "id": "2080939030062178512",
+      "author": "gdb",
+      "category": "AI 技术应用",
+      "editorialScore": 71
+    },
+    {
+      "id": "2081039623422177765",
+      "author": "demishassabis",
+      "category": "AI 技术应用",
+      "editorialScore": 66
+    },
+    {
+      "id": "2081086837263937543",
+      "author": "amasad",
+      "category": "AI 技术前沿",
+      "editorialScore": 58
+    }
+  ],
+  "translation": {
+    "enabled": true,
+    "backend": "codex exec",
+    "promptVersion": "codex-v1",
+    "preflight": {
+      "ok": true,
+      "attempts": 1,
+      "error": ""
+    },
+    "eligibleTexts": 44,
+    "cacheHits": 4,
+    "translatedNow": 40,
+    "failed": 0,
+    "coverage": 1.0,
+    "degraded": false,
+    "fallbacks": 0,
+    "errors": [],
+    "cache": "/Users/jay/Documents/ai-coder/four-knows/ai-v-radar/translation-cache.json"
+  },
+  "avatars": {
+    "enabled": true,
+    "authors": 32,
+    "primaryAuthors": 14,
+    "quotedAuthors": 20,
+    "cacheHits": 22,
+    "inlineCached": 0,
+    "profileRequestsNeeded": 10,
+    "attemptedNow": 10,
+    "fetchedNow": 10,
+    "rateLimited": false,
+    "deferredDueToRateLimit": 0,
+    "postsWithAvatar": 24,
+    "coverage": 1.0,
+    "quotedPostsWithAvatar": 20,
+    "quotedCoverage": 1.0,
+    "errors": [],
+    "cache": "/Users/jay/Documents/ai-coder/four-knows/ai-v-radar/avatar-cache.json"
+  },
+  "dropped": {
+    "lowSignalReply": 47,
+    "nonTechnical": 15
+  },
+  "editorial": {
+    "enabled": false
+  },
+  "searchFallbacks": [],
+  "xHotspotSearch": {
+    "schemaVersion": 2,
+    "enabled": true,
+    "directionsRequested": 5,
+    "directionsSucceeded": 5,
+    "directionsFailed": 0,
+    "fetched": 0,
+    "selectedPosts": 0,
+    "selectedPostsByDirection": {
+      "foundation_models": 0,
+      "agents": 0,
+      "robotics": 0,
+      "life_sciences": 0,
+      "machine_consciousness": 0
+    },
+    "directionMismatches": {
+      "foundation_models": 0,
+      "agents": 0,
+      "robotics": 0,
+      "life_sciences": 0,
+      "machine_consciousness": 0
+    },
+    "directions": [
+      {
+        "direction": "foundation_models",
+        "label": "基础模型突破",
+        "postMatchAny": [
+          "foundation model",
+          "language model",
+          "large language model",
+          "llm",
+          "reasoning",
+          "multimodal",
+          "open-weight",
+          "benchmark"
+        ],
+        "ok": true,
+        "fetched": 0,
+        "selectedPosts": 0,
+        "selectedPostIds": [],
+        "directionMismatches": 0,
+        "attempts": 1,
+        "elapsedSeconds": 0.83,
+        "error": null
+      },
+      {
+        "direction": "agents",
+        "label": "Agent 技术突破",
+        "postMatchAny": [
+          "agent",
+          "agentic",
+          "computer use",
+          "tool use",
+          "coding agent",
+          "autonomous agent"
+        ],
+        "ok": true,
+        "fetched": 0,
+        "selectedPosts": 0,
+        "selectedPostIds": [],
+        "directionMismatches": 0,
+        "attempts": 1,
+        "elapsedSeconds": 0.85,
+        "error": null
+      },
+      {
+        "direction": "robotics",
+        "label": "机器人领域突破",
+        "postMatchAny": [
+          "robot",
+          "robotics",
+          "humanoid",
+          "manipulation",
+          "embodied",
+          "vla"
+        ],
+        "ok": true,
+        "fetched": 0,
+        "selectedPosts": 0,
+        "selectedPostIds": [],
+        "directionMismatches": 0,
+        "attempts": 1,
+        "elapsedSeconds": 0.84,
+        "error": null
+      },
+      {
+        "direction": "life_sciences",
+        "label": "AI 在生命科学突破（疾病、大脑）",
+        "postMatchAny": [
+          "drug",
+          "disease",
+          "protein",
+          "genom",
+          "brain",
+          "neuroscience",
+          "cell biology"
+        ],
+        "ok": true,
+        "fetched": 0,
+        "selectedPosts": 0,
+        "selectedPostIds": [],
+        "directionMismatches": 0,
+        "attempts": 1,
+        "elapsedSeconds": 0.89,
+        "error": null
+      },
+      {
+        "direction": "machine_consciousness",
+        "label": "AI 意识研究",
+        "postMatchAny": [
+          "consciousness",
+          "sentience",
+          "self-model",
+          "model welfare",
+          "global workspace"
+        ],
+        "ok": true,
+        "fetched": 0,
+        "selectedPosts": 0,
+        "selectedPostIds": [],
+        "directionMismatches": 0,
+        "attempts": 1,
+        "elapsedSeconds": 1.01,
+        "error": null
+      }
+    ]
+  },
+  "failures": [],
+  "fetches": [
+    {
+      "handles": [
+        "bcherny",
+        "karpathy",
+        "michael_truell",
+        "scottwu46",
+        "amasad",
+        "hwchase17",
+        "jerryjliu0",
+        "simonw"
+      ],
+      "ok": true,
+      "fetched": 40,
+      "attempts": 1,
+      "elapsedSeconds": 2.38,
+      "source": "search"
+    },
+    {
+      "handles": [
+        "c_valenzuelab",
+        "demi_guo",
+        "RichardSocher",
+        "mustafasuleyman",
+        "alexandr_wang",
+        "realGeorgeHotz",
+        "drfeifei",
+        "anilkseth"
+      ],
+      "ok": true,
+      "fetched": 1,
+      "attempts": 1,
+      "elapsedSeconds": 1.59,
+      "source": "search"
+    },
+    {
+      "handles": [
+        "jiayq",
+        "miramurati",
+        "johnschulman2",
+        "yoshua_bengio",
+        "fchollet",
+        "lilianweng",
+        "Tim_Dettmers",
+        "istoica05"
+      ],
+      "ok": true,
+      "fetched": 3,
+      "attempts": 1,
+      "elapsedSeconds": 1.83,
+      "source": "search"
+    },
+    {
+      "handles": [
+        "Ken_Goldberg",
+        "RussTedrake",
+        "patrickbutlin",
+        "cyrilzakka",
+        "marinkazitnik"
+      ],
+      "ok": true,
+      "fetched": 0,
+      "attempts": 1,
+      "elapsedSeconds": 0.83,
+      "source": "search"
+    },
+    {
+      "handles": [
+        "matei_zaharia",
+        "chipro",
+        "DrJimFan",
+        "AravSrinivas",
+        "ilyasut",
+        "janleike",
+        "NoamShazeer",
+        "hwchung27"
+      ],
+      "ok": true,
+      "fetched": 1,
+      "attempts": 1,
+      "elapsedSeconds": 1.66,
+      "source": "search"
+    },
+    {
+      "handles": [
+        "sama",
+        "gdb",
+        "polynoamial",
+        "jackclarkSF",
+        "ch402",
+        "mikeyk",
+        "alexalbert__",
+        "AmandaAskell"
+      ],
+      "ok": true,
+      "fetched": 10,
+      "attempts": 1,
+      "elapsedSeconds": 1.65,
+      "source": "search"
+    },
+    {
+      "handles": [
+        "sh_reya",
+        "HamelHusain",
+        "swyx",
+        "yoheinakajima",
+        "joaomdmoura",
+        "pabbeel",
+        "svlevine",
+        "chelseabfinn"
+      ],
+      "ok": true,
+      "fetched": 27,
+      "attempts": 1,
+      "elapsedSeconds": 2.29,
+      "source": "search"
+    },
+    {
+      "handles": [
+        "TrentonBricken",
+        "carlini",
+        "dpkingma",
+        "demishassabis",
+        "JeffDean",
+        "Thom_Wolf",
+        "GuillaumeLample",
+        "tri_dao"
+      ],
+      "ok": true,
+      "fetched": 4,
+      "attempts": 1,
+      "elapsedSeconds": 1.49,
+      "source": "search"
+    }
+  ]
+}
