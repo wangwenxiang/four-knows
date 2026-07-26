@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>硅谷 AI 原声 · 2026-07-27</title>
+  <style>
+    :root{--bg:#f4f6f8;--surface:#fff;--text:#16181c;--muted:#65717e;--line:#dfe4e9;--accent:#0066cc;--green:#117a62;--shadow:0 16px 42px rgba(18,28,38,.08);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 15% 0,#e8f2ff 0,transparent 27%),var(--bg);color:var(--text)} a{color:inherit;text-decoration:none} button{font:inherit}
+    .shell{width:min(1500px,calc(100% - 28px));margin:0 auto;padding:14px 0 40px}
+    .hero{display:grid;grid-template-columns:minmax(250px,1fr) auto;align-items:center;gap:12px;padding:15px 18px;border:1px solid rgba(255,255,255,.75);border-radius:16px;background:rgba(255,255,255,.88);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    h1{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin:0;font-size:clamp(28px,3.4vw,44px);line-height:1;letter-spacing:-.05em} .report-date{color:var(--green);font-size:clamp(10px,1vw,13px);font-weight:900;letter-spacing:.08em;white-space:nowrap}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(62px,1fr));gap:6px;align-content:start} .metric{padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fff} .metric strong{display:block;font-size:19px;line-height:1} .metric span{display:block;margin-top:3px;color:var(--muted);font-size:8px;font-weight:820;white-space:nowrap}
+    .notice{margin-top:12px;padding:11px 14px;border:1px solid #e1b866;border-radius:12px;background:#fff8e8;color:#7a5612;font-size:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px;align-items:start} .signal-card{min-width:0;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 9px 26px rgba(18,28,38,.045)}
+    .card-top{display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:10px} .avatar{display:grid;width:46px;height:46px;overflow:hidden;place-items:center;border:1px solid #d9e0e7;border-radius:999px;background:linear-gradient(135deg,#111827,#46627d);color:#fff;font-size:12px;font-weight:900} .avatar img{width:100%;height:100%;object-fit:cover;display:block} .identity{display:grid;gap:3px;min-width:0} .identity strong,.identity span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .identity strong{font-size:14px} .identity span{color:var(--muted);font-size:11px}
+    .score{display:grid;justify-items:center;min-width:40px;padding:5px 6px;border:1px solid #e3ebe8;border-radius:8px;background:#f4f8f6;color:#527267;font-size:15px;font-weight:820;line-height:1} .score small{margin-top:2px;color:#71877f;font-size:7px;letter-spacing:.06em;text-transform:uppercase}
+    .meta{display:flex;align-items:center;gap:6px;margin:11px 0 9px;color:var(--muted);font-size:10.5px;font-weight:750} .meta span:not(.priority){overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .meta time{margin-left:auto;white-space:nowrap} .priority{padding:3px 6px;border-radius:999px;background:#111827;color:#fff;font-size:9px}
+    .post-text{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.58} .post-text.original{font-size:16px;font-weight:570;color:#20252b} .post-text.translation{margin-top:8px;color:#66727f;font-size:13px;font-weight:470;line-height:1.62} .article .original+.translation{margin-top:2px;color:#65717e;font-size:11px;font-weight:650} .quote,.article{display:grid;gap:6px;margin-top:10px;padding:11px;border:1px solid var(--line);border-radius:12px;background:#f7f9fb} .quote__author{display:flex;align-items:center;gap:7px;font-size:11px} .quote__author>div:last-child{display:grid;gap:1px} .quote__author span{color:var(--muted)} .quote-avatar{display:grid;width:28px;height:28px;overflow:hidden;place-items:center;border:1px solid var(--line);border-radius:999px;background:#dfe6ed;color:#52606d;font-size:10px;font-weight:900} .quote-avatar img{width:100%;height:100%;object-fit:cover} .quote p,.article p{margin:0;color:#4f5a66;font-size:12px;line-height:1.48;white-space:pre-wrap} .article strong{font-size:13px} .article strong.original{font-size:13.5px} .quote-text.original{font-size:12.5px;color:#36414d} .quote-text.translation{font-size:11.5px;color:#6a7682} .quote-link{justify-self:start;color:var(--accent);font-size:10px;font-weight:850}
+    .media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:10px;overflow:hidden;border-radius:12px} .media-grid--1{grid-template-columns:1fr} .media-item{position:relative;min-height:150px;background:#e8edf2} .media-item img{width:100%;height:100%;max-height:330px;object-fit:cover;display:block} .media-item span{position:absolute;right:7px;bottom:7px;padding:4px 6px;border-radius:6px;background:rgba(0,0,0,.68);color:#fff;font-size:8px;font-weight:900}
+    .card-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid #edf0f3} .engagement{display:flex;gap:10px;color:var(--muted);font-size:10.5px;font-weight:750} .card-bottom>a{color:var(--accent);font-size:11px;font-weight:850} .empty{grid-column:1/-1;padding:70px;text-align:center;border:1px dashed #cdd5dd;border-radius:16px;background:#fff;color:var(--muted)}
+    footer{padding:26px 4px 0;color:var(--muted);font-size:11px;text-align:center}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}} @media(max-width:560px){.shell{width:min(100% - 16px,1500px);padding-top:7px}.hero{gap:10px;padding:13px 14px;border-radius:15px}h1{font-size:28px}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.metric{padding:7px 9px}.metric strong{font-size:18px}.signal-card{padding:13px}.post-text.original{font-size:15px}.post-text.translation{font-size:12.5px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <h1>硅谷 AI 原声 <span class="report-date">· 2026-07-27</span></h1>
+      <div class="metrics"><div class="metric"><strong>61</strong><span>监控专家</span></div><div class="metric"><strong>9</strong><span>活跃专家</span></div><div class="metric"><strong>17</strong><span>精选原文</span></div></div>
+    </header>
+
+    <main class="grid">
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="yoheinakajima" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
+          <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
+          <div class="score">75<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>07-27 02:09 北京</time></div>
+        <p class="post-text original" lang="auto">society has solved “collaborating at scale over long horizons with auditability” a few times and it’s often around an immutable log:
+
+•  software / open source: git commit history
+•  financial systems / accounting: transaction journals / double-entry ledgers
+•  medicine / pharma: EHR audit trails + clinical-trial audit logs
+•  aviation — flight data recorders (FDR/CVR) + sequential maintenance event logs
+•  nuclear / critical infrastructure — plant operational event logs / SCADA historians
+•  scientific research (code &amp; data subsets) — versioned repositories + electronic lab-notebook audit trails</p><p class="post-text translation" lang="zh-CN">社会已经多次解决过“在长期维度上进行大规模协作并具备可审计性”的问题，而这些方案往往围绕不可变日志展开：
+
+•  软件 / 开源：git 提交历史
+•  金融系统 / 会计：交易日志 / 复式记账账本
+•  医疗 / 制药：EHR 审计轨迹 + 临床试验审计日志
+•  航空：飞行数据记录器（FDR/CVR）+ 顺序维护事件日志
+•  核能 / 关键基础设施：电厂运行事件日志 / SCADA 历史数据库
+•  科学研究（代码与数据子集）：版本化仓库 + 电子实验记录本审计轨迹</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei avatar" loading="lazy"></div><div><strong>Yohei</strong><span>@yoheinakajima</span></div></div><p class="quote-text original" lang="auto">if you are trying to solve long-running agent problems, you will eventually start using immutable event logs</p><p class="quote-text translation" lang="zh-CN">如果你在尝试解决长时间运行的 agent 问题，最终一定会开始使用不可变事件日志</p><a class="quote-link" href="https://x.com/yoheinakajima/status/2081411733235863605" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 169</span><span>↻ 18</span><span>↩ 19</span></div><a href="https://x.com/yoheinakajima/status/2081441852709093670" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="jerryjliu0" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">69<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>07-26 12:38 北京</time></div>
+        <p class="post-text original" lang="auto">This part is spot on:
+&gt; &quot;Overall, we found that we were over-constraining Claude Code...while these constraints were once needed to avoid worst case scenarios, we have since found we can delete many of them and let the model use surrounding context and judgement instead.&quot;
+
+I have a tendency to write extensive prompts that cover every edge case. In the past few months I have come to increasingly come to find that this can lead to counterproductive behavior where the model addresses my specific requests, but doesn&#x27;t independently provide a new perspective on the problem (explore the &quot;unknown unknowns&quot;)
+
+The model still needs access to your complete context in order to be able to make complete decisions - it just doesn&#x27;t necessarily need constraints on how to best use that context. Over time I predict we will increasingly defer to the models to help solve these unknown unknowns.
+
+FWIW I&#x27;ve found Opus 5 to be a fantastic model and continue to consume it heavily through Claude Code</p><p class="post-text translation" lang="zh-CN">这部分说得很准：
+&gt; “总体而言，我们发现自己对 Claude Code 限制过多……虽然这些限制曾经是为了避免最坏情况所必需的，但后来我们发现，可以删除其中很多限制，让模型转而使用周围上下文和自身判断。”
+
+我倾向于写很长的 prompt，覆盖每一个边界情况。过去几个月里，我越来越发现这可能导致适得其反的行为：模型会处理我的具体要求，但不会独立提供看待问题的新视角（探索“未知的未知”）。
+
+模型仍然需要访问你的完整上下文，才能做出完整决策；只是它不一定需要你限制它该如何最好地使用这些上下文。我预测，随着时间推移，我们会越来越多地依赖模型来帮助解决这些未知的未知。
+
+顺便说一句，我发现 Opus 5 是一个非常出色的模型，并且仍在通过 Claude Code 大量使用它</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1976939058741039104/r3GgzqRh_normal.jpg" alt="Thariq avatar" loading="lazy"></div><div><strong>Thariq</strong><span>@trq212</span></div></div><p class="quote-text original" lang="auto">The new rules of context engineering for Claude 5 models</p><p class="quote-text translation" lang="zh-CN">Claude 5 模型的上下文工程新规则</p><div class="article"><strong class="original" lang="auto">The new rules of context engineering for Claude 5 models</strong><strong class="translation" lang="zh-CN">Claude 5 模型的上下文工程新规则</strong><p class="article-text original" lang="auto">I’ve written previously about how to best prompt the newest generation of Claude 5 models and work with them iteratively to discover what you want to build.
+But when you send a message to Claude, the</p><p class="article-text translation" lang="zh-CN">我之前写过，如何最好地提示最新一代 Claude 5 模型，并与它们迭代协作，逐步发现你想构建什么。
+但当你向 Claude 发送一条消息时，</p></div><a class="quote-link" href="https://x.com/trq212/status/2080710971228918066" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 49</span><span>↻ 3</span><span>↩ 10</span></div><a href="https://x.com/jerryjliu0/status/2081237580839039068" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="hamelhusain" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">60<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>07-26 09:22 北京</time></div>
+        <p class="post-text original" lang="auto">If you want to break any AI workflow/product  put it in front of a 5 year old.   They will try to use the AI in totally reasonable but unexpected ways</p><p class="post-text translation" lang="zh-CN">如果你想击穿任何 AI 工作流 / 产品，就把它交给一个 5 岁孩子。他们会用完全合理但出人意料的方式来使用 AI</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 32</span><span>↻ 0</span><span>↩ 8</span></div><a href="https://x.com/HamelHusain/status/2081188366486519864" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P0" data-expert="sama" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2046764873200394240/r7BxVezs_normal.jpg" alt="Sam Altman avatar" loading="lazy"></div>
+          <div class="identity"><strong>Sam Altman</strong><span>@sama · OpenAI / CEO</span></div>
+          <div class="score">98<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>基座模型 / OpenAI</span><time>07-27 06:52 北京</time></div>
+        <p class="post-text original" lang="auto">agreed feels big, i want a new kind of computer</p><p class="post-text translation" lang="zh-CN">同意，感觉这很重大，我想要一种新型计算机</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1745232634278461440/7gQcr_R__normal.jpg" alt="Alex Finn avatar" loading="lazy"></div><div><strong>Alex Finn</strong><span>@AlexFinn</span></div></div><p class="quote-text original" lang="auto">I don’t think you understand what ChatGPT Voice unlocks
+
+I went on a 4 hour hike yesterday. Through the northern California redwoods.
+
+Got more work done in those 4 hours talking to Voice through my AirPods then I do in 8 hours at my desk
+
+Work can be done ANYWHERE now
+
+45 minute drive back using self driving? Now 45 minutes I can talk to Voice and work on side projects
+
+20 minutes in the cafe? I can sit and talk to Voice and when I get home I have drafts on my computer for my newsletter for the next month
+
+Being able to just use your voice to talk to a super intelligence that controls your computer is unlike anything we’ve ever experienced before
+
+I don’t even care that the voice sounds human like, or you can interrupt it, or any of the wild advancements they made to the tech
+
+It’s the fact that it can control my computer, meaning all I need to get incredible work done is talk through my AirPods anywhere in the world that is the major game changer for me
+
+I don’t think people truly understand the implications of this yet
+
+Why even have a desk or monitor anymore. Work can be done ANYWHERE now
+
+The key is your set up:
+
+1. Choose one device (preferably an always on desktop) as your main “headquarters” device all your work gets done on
+
+2. Get the ChatGPT app on all your other devices (iPhone, iPad, laptops, Mac Minis)
+
+3. Set up ‘connections’ in your settings so that all your ‘node’ devices can control your ‘headquarters’ device
+
+4. Go legit anywhere in the world. Turn on Voice. Ask it to brief you on your projects, give you a recommended next step, then spin up new threads to do work
+
+I really don’t think work looks the same moving forward.</p><p class="quote-text translation" lang="zh-CN">我觉得你还没理解 ChatGPT Voice 解锁了什么
+
+昨天我徒步了 4 个小时，穿过北加州的红杉林。
+
+那 4 个小时里，我通过 AirPods 和 Voice 对话完成的工作，比我坐在办公桌前 8 小时还多。
+
+现在，工作可以在任何地方完成。
+
+返程 45 分钟车程，用自动驾驶？这 45 分钟我可以和 Voice 对话，推进副业项目。
+
+在咖啡馆待 20 分钟？我可以坐着和 Voice 说话，等回到家时，电脑上已经有了未来一个月 newsletter 的草稿。
+
+能够只用语音与一个控制你电脑的超级智能对话，这是我们从未体验过的东西。
+
+我甚至不在乎它的声音有多像真人、你能不能打断它，或者他们在技术上做了哪些疯狂的进步。
+
+对我来说，真正的巨大改变在于它能控制我的电脑，这意味着无论我在世界任何地方，只要通过 AirPods 说话，就能完成非常出色的工作。
+
+我真的觉得人们还没有真正理解这件事的影响。
+
+为什么还需要办公桌或显示器？现在工作可以在任何地方完成。
+
+关键在于你的设置：
+
+1. 选择一台设备（最好是一台始终开机的桌面电脑）作为你的主“总部”设备，所有工作都在上面完成
+
+2. 在所有其他设备上安装 ChatGPT app（iPhone、iPad、笔记本、Mac Minis）
+
+3. 在设置中配置“connections”，让所有“节点”设备都能控制你的“总部”设备
+
+4. 真的去世界上的任何地方。打开 Voice。让它向你汇报项目情况，给出推荐的下一步，然后开启新线程来工作
+
+我真的认为，未来工作的样子不会再一样了。</p><a class="quote-link" href="https://x.com/AlexFinn/status/2081408374315602338" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 1,429</span><span>↻ 71</span><span>↩ 205</span></div><a href="https://x.com/sama/status/2081513071135346814" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P0" data-expert="gdb" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_normal.jpg" alt="Greg Brockman avatar" loading="lazy"></div>
+          <div class="identity"><strong>Greg Brockman</strong><span>@gdb · OpenAI / 联合创始人</span></div>
+          <div class="score">98<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>基座模型 / OpenAI</span><time>07-27 03:14 北京</time></div>
+        <p class="post-text original" lang="auto">ChatGPT is increasingly becoming your personal AGI</p><p class="post-text translation" lang="zh-CN">ChatGPT 正越来越像你的个人 AGI</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2075819673263001600/pj1vyX6I_normal.jpg" alt="Tibo avatar" loading="lazy"></div><div><strong>Tibo</strong><span>@thsottiaux</span></div></div><p class="quote-text original" lang="auto">Let ChatGPT *work* for you. How many time have you wanted to negotiate your internet bill, get rid of all those spam emails you’re subscribed to, or find the perfect deal for something you wanted to do or buy. It’s quite literally just one prompt away, all from the comfort of your phone. It does at least 20 things for me every single day and I’m still surprised.</p><p class="quote-text translation" lang="zh-CN">让 ChatGPT 为你*干活*。有多少次你想协商网费、退订那些垃圾邮件，或为想做的事、想买的东西找到最划算的选择。这真的只差一个提示词，而且全都能在手机上轻松完成。它每天至少为我做 20 件事，我仍然会感到惊讶。</p><a class="quote-link" href="https://x.com/thsottiaux/status/2081444811647963244" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 1,112</span><span>↻ 35</span><span>↩ 104</span></div><a href="https://x.com/gdb/status/2081458174662726009" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P0" data-expert="gdb" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_normal.jpg" alt="Greg Brockman avatar" loading="lazy"></div>
+          <div class="identity"><strong>Greg Brockman</strong><span>@gdb · OpenAI / 联合创始人</span></div>
+          <div class="score">98<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>基座模型 / OpenAI</span><time>07-26 15:46 北京</time></div>
+        <p class="post-text original" lang="auto">GPT-Live for a different reading experience:</p><p class="post-text translation" lang="zh-CN">GPT-Live 带来不同的阅读体验：</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2067282767067455488/Z_lxnMnw_normal.jpg" alt="José Ocampo avatar" loading="lazy"></div><div><strong>José Ocampo</strong><span>@kurorosage</span></div></div><p class="quote-text original" lang="auto">Reading a book while having GPT-Live open to talk to, ask questions, write down notes and bookmarks really feels like reading in 4D</p><p class="quote-text translation" lang="zh-CN">一边读书，一边打开 GPT-Live 与它对话、提问、记笔记和书签，真的像是在 4D 阅读。</p><a class="quote-link" href="https://x.com/kurorosage/status/2081031402854699173" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 1,144</span><span>↻ 47</span><span>↩ 87</span></div><a href="https://x.com/gdb/status/2081285058485534856" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P0" data-expert="polynoamial" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1872883170292457472/8ywVGO5M_normal.jpg" alt="Noam Brown avatar" loading="lazy"></div>
+          <div class="identity"><strong>Noam Brown</strong><span>@polynoamial · OpenAI / 推理研究</span></div>
+          <div class="score">92<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>推理模型 / OpenAI</span><time>07-26 20:47 北京</time></div>
+        <p class="post-text original" lang="auto">@lu_sichu There would be no greater advertising for OpenAI than for someone to solve a millennium prize problem and receive $1 million simply by typing “continue” into codex</p><p class="post-text translation" lang="zh-CN">@lu_sichu 如果有人只是在 codex 里输入“continue”，就解决了一个千禧年大奖难题并拿到 100 万美元，那对 OpenAI 来说再没有比这更好的广告了。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 510</span><span>↻ 15</span><span>↩ 5</span></div><a href="https://x.com/polynoamial/status/2081360705807057207" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P0" data-expert="thom_wolf" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2068682157451571200/_ZNKM_5E_normal.jpg" alt="Thomas Wolf avatar" loading="lazy"></div>
+          <div class="identity"><strong>Thomas Wolf</strong><span>@Thom_Wolf · Hugging Face / 联合创始人兼 CSO</span></div>
+          <div class="score">78<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>开源模型 / Hugging Face</span><time>07-26 09:38 北京</time></div>
+        <p class="post-text original" lang="auto">ngl i miss a lot Karpathy’s voice on X</p><p class="post-text translation" lang="zh-CN">说实话，我很怀念 Karpathy 在 X 上的声音。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2054315142272159744/V-n-NXEo_normal.jpg" alt="am.will avatar" loading="lazy"></div><div><strong>am.will</strong><span>@LLMJunky</span></div></div><p class="quote-text original" lang="auto">Did Karpathy remove Anthropic from bio? Or was it not there. https://t.co/LWfivAlKqm</p><p class="quote-text translation" lang="zh-CN">Karpathy 把 Anthropic 从简介里删掉了吗？还是本来就没有？https://t.co/LWfivAlKqm</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOGa4oTW0AAf1Nh.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOGa4oTW0AAf1Nh.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/LLMJunky/status/2081114803834376218" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 85</span><span>↻ 1</span><span>↩ 11</span></div><a href="https://x.com/Thom_Wolf/status/2081192412156768385" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="anilkseth" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1479788727346118657/MkLkGnOk_normal.jpg" alt="Anil Seth avatar" loading="lazy"></div>
+          <div class="identity"><strong>Anil Seth</strong><span>@anilkseth · 权威意识研究者</span></div>
+          <div class="score">61<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>意识科学与神经科学</span><time>07-27 07:14 北京</time></div>
+        <p class="post-text original" lang="auto">It would have been even more of a treat if we&#x27;d been able to see Maggie (Boden)&#x27;s reply.  The cutaways to her patient smiling skepticism are priceless: https://t.co/cZ8Wci2kPr</p><p class="post-text translation" lang="zh-CN">如果能看到 Maggie (Boden) 的回复，那就更精彩了。镜头切到她耐心微笑、略带怀疑的表情，简直无价：https://t.co/cZ8Wci2kPr</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1504905485165776896/2uVaIu3a_normal.jpg" alt="Steven Strogatz avatar" loading="lazy"></div><div><strong>Steven Strogatz</strong><span>@stevenstrogatz</span></div></div><p class="quote-text original" lang="auto">Wonderful! I&#x27;ve heard of Searle&#x27;s &quot;Chinese Room&quot; thought experiment in philosophy (which aims to show that AI doesn&#x27;t &quot;understand&quot; anything) -- but it&#x27;s a treat to see Searle explain it.  https://t.co/fuZDYhabU6</p><p class="quote-text translation" lang="zh-CN">太棒了！我听说过 Searle 在哲学中的“中文房间”思想实验（旨在说明 AI 并不“理解”任何东西），但能看到 Searle 亲自解释它，真是享受。https://t.co/fuZDYhabU6</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2080379475112390656/img/klZA-kidmo-oRPVL.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2080379475112390656/img/klZA-kidmo-oRPVL.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/stevenstrogatz/status/2081376189856330014" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 2</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/anilkseth/status/2081518597227098140" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">71<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>07-26 08:38 北京</time></div>
+        <p class="post-text original" lang="auto">It&#x27;s crazy how aura between AI companies changes within weeks/days, if not hours.
+
+Aura seems to be a leading indicator of revenue. A lot of that aura is measured on X.</p><p class="post-text translation" lang="zh-CN">AI 公司之间的气场在几周、几天甚至几小时内就会变化，这太疯狂了。
+
+气场似乎是收入的领先指标。其中很大一部分气场是在 X 上衡量的。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 372</span><span>↻ 8</span><span>↩ 21</span></div><a href="https://x.com/jerryjliu0/status/2081177295700787209" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="sh_reya" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1342529111839944705/hzr44mb5_normal.jpg" alt="Shreya Shankar avatar" loading="lazy"></div>
+          <div class="identity"><strong>Shreya Shankar</strong><span>@sh_reya · UC Berkeley / AI 工程研究员</span></div>
+          <div class="score">67<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>07-27 02:18 北京</time></div>
+        <p class="post-text original" lang="auto">In evals you have two totally different components: (1) discovery of what the failure modes are, (2) focused measurement of how prevalent these failure modes are—so you can prioritize what to fix. LLMs can help in (1) by finding some failure modes— but not all, since many failure modes are subjective/ about human interpretation of outputs. LLMs can help in (2) by looking at a trace and determining if the failure mode exists, rather than having a human look at every trace. But a big mistake people make is to have LLMs fully automate (1) and (2). LLM judge is a complement to human experts, not a replacement.</p><p class="post-text translation" lang="zh-CN">在评测中有两个完全不同的环节：（1）发现失败模式是什么；（2）有针对性地衡量这些失败模式有多普遍，这样才能确定修复优先级。LLM 可以通过找出一些失败模式来帮助（1），但无法找出全部，因为很多失败模式是主观的，关乎人类如何解读输出。LLM 也可以通过查看 trace 并判断某个失败模式是否存在来帮助（2），而不是让人类逐条查看所有 trace。但很多人犯的一个大错，是让 LLM 完全自动化（1）和（2）。LLM judge 是人类专家的补充，而不是替代品。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2055012058874220544/E0-_nWy5_normal.jpg" alt="Isaac Flath avatar" loading="lazy"></div><div><strong>Isaac Flath</strong><span>@isaac_flath</span></div></div><p class="quote-text original" lang="auto">IMO people should think of LLM judge as instrumentation rather than as evals
+
+The eval is human labels.  LLM judge is instrumenting those human labels.
+
+It&#x27;s why skipping human labels to do LLM judge first makes no sense</p><p class="quote-text translation" lang="zh-CN">在我看来，人们应该把 LLM judge 视为一种检测手段，而不是评测本身
+
+评测是人类标签。LLM judge 是对这些人类标签做检测。
+
+这就是为什么跳过人类标签、先做 LLM judge 毫无道理</p><a class="quote-link" href="https://x.com/isaac_flath/status/2081367788090794048" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 33</span><span>↻ 4</span><span>↩ 2</span></div><a href="https://x.com/sh_reya/status/2081444175061598455" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="sh_reya" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1342529111839944705/hzr44mb5_normal.jpg" alt="Shreya Shankar avatar" loading="lazy"></div>
+          <div class="identity"><strong>Shreya Shankar</strong><span>@sh_reya · UC Berkeley / AI 工程研究员</span></div>
+          <div class="score">67<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>07-26 22:51 北京</time></div>
+        <p class="post-text original" lang="auto">hot take: sometimes I wonder if the uncanny valley is actually what we need, so we can more easily distinguish human-AI interaction from human-human interaction.
+
+for example, writing. when I read something that feels mostly AI produced, I evaluate it differently.
+
+instead of asking, “do I trust this person’s taste and understanding of the topic? so much that if I spend time reading this, will I learn something interesting?”
+
+I switch to asking, “am I interested in this topic? and does the AI probably know more than I do here, without being so sloppy that I can still understand it?”
+
+in short, the uncanny valley is a good cue to tell us how to evaluate or make sense of the information; the uncanny value cues the appropriate epistemic frame</p><p class="post-text translation" lang="zh-CN">一个可能有争议的观点：有时我会想，恐怖谷也许正是我们需要的东西，因为它能让我们更容易区分人与 AI 的互动和人与人的互动。
+
+比如写作。当我读到一段明显主要由 AI 生成的内容时，我会用不同的方式来评价它。
+
+我不会问：“我是否信任这个人的品味和对主题的理解？信任到如果我花时间读下去，会不会学到有趣的东西？”
+
+我会转而问：“我对这个主题感兴趣吗？AI 在这里是否可能比我懂得更多，而且又没有粗糙到让我无法理解？”
+
+简而言之，恐怖谷是一个很好的提示，告诉我们该如何评估或理解信息；这种恐怖谷感会提示我们采用合适的认知框架</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div><div><strong>Hamel Husain</strong><span>@HamelHusain</span></div></div><p class="quote-text original" lang="auto">Voice models love replying with &quot;Exactly!&quot;  even when it isn&#x27;t called for</p><p class="quote-text translation" lang="zh-CN">语音模型很爱回复“Exactly!”，哪怕根本不合适</p><a class="quote-link" href="https://x.com/HamelHusain/status/2081182449812586993" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 31</span><span>↻ 3</span><span>↩ 6</span></div><a href="https://x.com/sh_reya/status/2081392089729053122" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">66<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>07-26 11:03 北京</time></div>
+        <p class="post-text original" lang="auto">Claude spend:
+
+$100, save 10%
+$250,  save 20%
+$1000,  naaa you&#x27;re too rich, no discount  (yes there is no discount if you choose $1,000).
+
+this does not make any sense https://t.co/VRua9xdEUG</p><p class="post-text translation" lang="zh-CN">Claude 消费：
+
+$100，省 10%
+$250，省 20%
+$1000，呃你太有钱了，不打折（没错，如果你选择 $1,000，就没有折扣）。
+
+这完全说不通 https://t.co/VRua9xdEUG</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOH0SbebQAAKSQJ.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOH0SbebQAAKSQJ.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 55</span><span>↻ 1</span><span>↩ 16</span></div><a href="https://x.com/HamelHusain/status/2081213765539028992" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">59<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>07-26 08:58 北京</time></div>
+        <p class="post-text original" lang="auto">Voice models love replying with &quot;Exactly!&quot;  even when it isn&#x27;t called for</p><p class="post-text translation" lang="zh-CN">语音模型很爱回复“Exactly!”，哪怕根本不合适</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 21</span><span>↻ 0</span><span>↩ 9</span></div><a href="https://x.com/HamelHusain/status/2081182449812586993" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="yoheinakajima" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
+          <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
+          <div class="score">71<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>07-27 00:10 北京</time></div>
+        <p class="post-text original" lang="auto">if you are trying to solve long-running agent problems, you will eventually start using immutable event logs</p><p class="post-text translation" lang="zh-CN">如果你在尝试解决长时间运行的 agent 问题，最终一定会开始使用不可变事件日志</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 315</span><span>↻ 16</span><span>↩ 55</span></div><a href="https://x.com/yoheinakajima/status/2081411733235863605" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="yoheinakajima" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
+          <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
+          <div class="score">62<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>07-27 07:15 北京</time></div>
+        <p class="post-text original" lang="auto">again, the log is the agent</p><p class="post-text translation" lang="zh-CN">再说一遍，日志就是代理</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1958973498916794368/cizmHjf0_normal.jpg" alt="Aarno avatar" loading="lazy"></div><div><strong>Aarno</strong><span>@TheGlobalMinima</span></div></div><p class="quote-text original" lang="auto">The event driven future of AI</p><p class="quote-text translation" lang="zh-CN">AI 的事件驱动未来</p><div class="article"><strong class="original" lang="auto">The event driven future of AI</strong><strong class="translation" lang="zh-CN">AI 的事件驱动未来</strong><p class="article-text original" lang="auto">tldr; the agent is a consumer, not an endpoint
+resources tagged at end;
+
+The chatbot system no longer holds
+Almost every AI feature that shipped between 2023 and 2025 was built in the same shape. A</p><p class="article-text translation" lang="zh-CN">太长不看：代理是消费者，而不是端点
+资源标注在末尾；
+
+聊天机器人系统已不再适用
+2023 到 2025 年间发布的几乎所有 AI 功能，都是按同一种形态构建的。一个</p></div><a class="quote-link" href="https://x.com/TheGlobalMinima/status/2081351146661130399" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 15</span><span>↻ 1</span><span>↩ 6</span></div><a href="https://x.com/yoheinakajima/status/2081518870314328132" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="yoheinakajima" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
+          <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
+          <div class="score">60<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>07-27 02:12 北京</time></div>
+        <p class="post-text original" lang="auto">historical precedent:</p><p class="post-text translation" lang="zh-CN">历史先例：</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei avatar" loading="lazy"></div><div><strong>Yohei</strong><span>@yoheinakajima</span></div></div><p class="quote-text original" lang="auto">society has solved “collaborating at scale over long horizons with auditability” a few times and it’s often around an immutable log:
+
+•  software / open source: git commit history
+•  financial systems / accounting: transaction journals / double-entry ledgers
+•  medicine / pharma: EHR audit trails + clinical-trial audit logs
+•  aviation — flight data recorders (FDR/CVR) + sequential maintenance event logs
+•  nuclear / critical infrastructure — plant operational event logs / SCADA historians
+•  scientific research (code &amp; data subsets) — versioned repositories + electronic lab-notebook audit trails</p><p class="quote-text translation" lang="zh-CN">社会已经多次解决过“在长期维度上进行大规模协作并具备可审计性”的问题，而这些方案往往围绕不可变日志展开：
+
+•  软件 / 开源：git 提交历史
+•  金融系统 / 会计：交易日志 / 复式记账账本
+•  医疗 / 制药：EHR 审计轨迹 + 临床试验审计日志
+•  航空：飞行数据记录器（FDR/CVR）+ 顺序维护事件日志
+•  核能 / 关键基础设施：电厂运行事件日志 / SCADA 历史数据库
+•  科学研究（代码与数据子集）：版本化仓库 + 电子实验记录本审计轨迹</p><a class="quote-link" href="https://x.com/yoheinakajima/status/2081441852709093670" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 17</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/yoheinakajima/status/2081442520110928177" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+    </main>
+    <footer>Generated 2026-07-27 07:32:46 Asia/Shanghai · Read-only X ingestion via Bird · Translation via Codex</footer>
+  </div>
+</body>
+</html>
