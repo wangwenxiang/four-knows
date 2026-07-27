@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-26T23:32:46.050654+00:00",
-  "fetchStartedAt": "2026-07-26T23:32:46.050654+00:00",
-  "windowStart": "2026-07-26T00:32:46.050654+00:00",
+  "generatedAt": "2026-07-27T13:40:37.004614+00:00",
+  "fetchStartedAt": "2026-07-27T13:40:37.004614+00:00",
+  "windowStart": "2026-07-26T14:40:37.004614+00:00",
   "windowHours": 23.0,
   "experts": [
     {
@@ -35,6 +35,14 @@
       "role": "Cognition / Devin 联合创始人兼 CEO",
       "why": "Devin 代表代码 Agent 方向，对 CTO 判断软件研发自动化很关键",
       "handle": "scottwu46"
+    },
+    {
+      "priority": "P0",
+      "domain": "LLM / AI Agents",
+      "name": "Xudong Han",
+      "role": "University of Sussex 博士生；LLM 与 AI Agents",
+      "why": "持续构建个人 AI Agent，并分享 Vibe Coding 和 LLM 应用工程实践",
+      "handle": "Xudong07452910"
     },
     {
       "priority": "P0",
@@ -495,12 +503,72 @@
   ],
   "posts": [
     {
+      "id": "2081576172656456076",
+      "text": "Interesting drop from former Anthropic employee: Hackers prefer to use massively subsidized labs AI subscriptions for attacks as opposed to open models. https://t.co/gSVw9tv346",
+      "createdAt": "Mon Jul 27 03:03:28 +0000 2026",
+      "replyCount": 23,
+      "retweetCount": 29,
+      "likeCount": 325,
+      "conversationId": "2081576172656456076",
+      "author": {
+        "username": "amasad",
+        "name": "Amjad Masad",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg"
+      },
+      "authorId": "166138615",
+      "quotedTweet": {
+        "id": "2081277517709922501",
+        "text": "I don't think it's a lack of imagination. I also used to work at Anthropic, think trends will continue, and used to agree with this. But I've changed my mind and now disagree with this take.\n\nOpen models are already capable enough to do what you described. For example, I used Opus 4.6 to gain access to other folks medical records, hijack bank accounts, etc. back in February. GLM 5.1 is more capable than Opus 4.6 in most pentesting environments, and it came out in April.\n\nDespite capable open-weight models existing, the sketchier folks I know are still using a Claude Code or Codex subscription for hacking. (Even well-resourced groups in other countries! They use the grey/black market of discounted Ant/OAI subscription tokens sold through resellers.) So I see most of the materialized risk here as still coming from Anthropic and OpenAI; safeguards aren't sufficient to stop a moderately dedicated actor.\n\nThe groups I know who are using open-weight models are legitimate offensive security companies. They won't break the rules to use subscription-based pricing, the open-weight models are more reliable in that they don't require specific jailbreaks nor hit classifiers, and the labs use massive partnerships or spend as a prereq for lowering classifiers/safeguards. I know of three legitimate groups running GLM 5.2 as their primary model.\n\nThat last part applies for Anthropic, too: I know of two instances where two different Anthropic GTM people used large comitted spend contracts as a prereq for lowering safeguards, and I directly witnessed one.\n\nOn the inside, I know the narrative and intent is genuinely about safety. But from the outside, Anthropic-the-system seems to be optimizing for revenue and control/power, isn't diffusing capabilities to defenders, and also doesn't have adequate safeguards to prevent misuse from dedicated bad actors.\n\nAs a result, I now lean towards a future where capable open models are freely available (at least for cyber, bio is harder); I don't trust Anthropic or other frontier labs to handle this sufficiently well without diffused capabilties given what I've seen so far.",
+        "createdAt": "Sun Jul 26 07:16:43 +0000 2026",
+        "replyCount": 44,
+        "retweetCount": 164,
+        "likeCount": 1569,
+        "conversationId": "2081245252904485128",
+        "inReplyToStatusId": "2081245252904485128",
+        "author": {
+          "username": "NoahLebovic",
+          "name": "Noah Lebovic",
+          "profileImageUrl": "https://pbs.twimg.com/profile_images/2029684561614127104/q7_1xtL5_normal.jpg"
+        },
+        "authorId": "1018698811",
+        "translationZh": "我不认为这是缺乏想象力。我也曾在 Anthropic 工作，认为这些趋势会持续，并且过去也同意这个观点。但我现在改变了看法，不再认同这一判断。\n\n开源模型已经足够强大，可以完成你描述的事情。比如，今年 2 月我用 Opus 4.6 获取了他人的医疗记录、劫持银行账户等。GLM 5.1 在大多数渗透测试环境中比 Opus 4.6 更强，而且它是在 4 月发布的。\n\n尽管已有能力很强的开放权重模型，我认识的一些更可疑的人仍在用 Claude Code 或 Codex 订阅进行黑客活动。（甚至其他国家资源充足的组织也是如此！他们通过经销商购买打折 Ant/OAI 订阅 token 的灰黑市。）所以我认为这里已经显现的大部分风险仍来自 Anthropic 和 OpenAI；安全防护不足以阻止一个中等投入的行动者。\n\n我认识的使用开放权重模型的团队都是合法的进攻性安全公司。他们不会为了使用订阅制价格而违规；开放权重模型更可靠，因为它们不需要特定越狱，也不会触发分类器；而实验室通常要求大规模合作或支出，才会降低分类器/安全防护。我知道有三家合法团队把 GLM 5.2 作为主力模型。\n\n最后一点也适用于 Anthropic：我知道有两起案例，两位不同的 Anthropic GTM 人员把大额承诺支出合同作为降低安全防护的前提，其中一起我亲眼见证。\n\n在内部，我知道其叙事和意图确实是出于安全。但从外部看，Anthropic 这个系统似乎在为收入和控制/权力优化，没有把能力扩散给防御方，也没有足够的安全防护来阻止执着的恶意行为者滥用。\n\n因此，我现在更倾向于这样一种未来：强大的开放模型可以自由获得（至少在网络安全领域，生物领域更难）；基于目前所见，如果能力不能被扩散，我不信任 Anthropic 或其他前沿实验室能够足够好地处理这件事。"
+      },
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HOM-f0oa0AAgIhG.jpg",
+          "width": 1179,
+          "height": 762,
+          "previewUrl": "https://pbs.twimg.com/media/HOM-f0oa0AAgIhG.jpg:small"
+        }
+      ],
+      "expert": {
+        "priority": "P0",
+        "domain": "AI 编程 / 开发者平台",
+        "name": "Amjad Masad",
+        "role": "Replit / CEO",
+        "why": "AI 应用生成、编码 Agent、开发者平台战略的重要信号源",
+        "handle": "amasad"
+      },
+      "createdAtIso": "2026-07-27T03:03:28+00:00",
+      "createdAtBeijing": "2026-07-27T11:03:28+08:00",
+      "createdAtLocal": "07-27 11:03 北京",
+      "url": "https://x.com/amasad/status/2081576172656456076",
+      "themeId": "products",
+      "signalScore": 88,
+      "topStoryEligible": true,
+      "topStoryScore": 64,
+      "topStoryCategory": "AI 技术应用",
+      "isTopStory": true,
+      "translationZh": "一位前 Anthropic 员工爆出的有趣消息：黑客更倾向于使用被大幅补贴的实验室 AI 订阅来发动攻击，而不是开源模型。https://t.co/gSVw9tv346"
+    },
+    {
       "id": "2081441852709093670",
       "text": "society has solved “collaborating at scale over long horizons with auditability” a few times and it’s often around an immutable log:\n\n•  software / open source: git commit history\n•  financial systems / accounting: transaction journals / double-entry ledgers\n•  medicine / pharma: EHR audit trails + clinical-trial audit logs\n•  aviation — flight data recorders (FDR/CVR) + sequential maintenance event logs\n•  nuclear / critical infrastructure — plant operational event logs / SCADA historians\n•  scientific research (code & data subsets) — versioned repositories + electronic lab-notebook audit trails",
       "createdAt": "Sun Jul 26 18:09:43 +0000 2026",
-      "replyCount": 19,
-      "retweetCount": 18,
-      "likeCount": 169,
+      "replyCount": 26,
+      "retweetCount": 40,
+      "likeCount": 416,
       "conversationId": "2081441852709093670",
       "author": {
         "username": "yoheinakajima",
@@ -512,9 +580,9 @@
         "id": "2081411733235863605",
         "text": "if you are trying to solve long-running agent problems, you will eventually start using immutable event logs",
         "createdAt": "Sun Jul 26 16:10:02 +0000 2026",
-        "replyCount": 55,
-        "retweetCount": 16,
-        "likeCount": 315,
+        "replyCount": 72,
+        "retweetCount": 26,
+        "likeCount": 475,
         "conversationId": "2081411733235863605",
         "author": {
           "username": "yoheinakajima",
@@ -537,110 +605,62 @@
       "createdAtLocal": "07-27 02:09 北京",
       "url": "https://x.com/yoheinakajima/status/2081441852709093670",
       "themeId": "coding",
-      "signalScore": 75,
+      "signalScore": 79,
       "topStoryEligible": true,
-      "topStoryScore": 44,
+      "topStoryScore": 46,
       "topStoryCategory": "AI 技术应用",
       "isTopStory": true,
       "translationZh": "社会已经多次解决过“在长期维度上进行大规模协作并具备可审计性”的问题，而这些方案往往围绕不可变日志展开：\n\n•  软件 / 开源：git 提交历史\n•  金融系统 / 会计：交易日志 / 复式记账账本\n•  医疗 / 制药：EHR 审计轨迹 + 临床试验审计日志\n•  航空：飞行数据记录器（FDR/CVR）+ 顺序维护事件日志\n•  核能 / 关键基础设施：电厂运行事件日志 / SCADA 历史数据库\n•  科学研究（代码与数据子集）：版本化仓库 + 电子实验记录本审计轨迹"
     },
     {
-      "id": "2081237580839039068",
-      "text": "This part is spot on: \n> \"Overall, we found that we were over-constraining Claude Code...while these constraints were once needed to avoid worst case scenarios, we have since found we can delete many of them and let the model use surrounding context and judgement instead.\" \n\nI have a tendency to write extensive prompts that cover every edge case. In the past few months I have come to increasingly come to find that this can lead to counterproductive behavior where the model addresses my specific requests, but doesn't independently provide a new perspective on the problem (explore the \"unknown unknowns\") \n\nThe model still needs access to your complete context in order to be able to make complete decisions - it just doesn't necessarily need constraints on how to best use that context. Over time I predict we will increasingly defer to the models to help solve these unknown unknowns. \n\nFWIW I've found Opus 5 to be a fantastic model and continue to consume it heavily through Claude Code",
-      "createdAt": "Sun Jul 26 04:38:01 +0000 2026",
-      "replyCount": 10,
-      "retweetCount": 3,
-      "likeCount": 49,
-      "conversationId": "2081237580839039068",
+      "id": "2081582852282483002",
+      "text": "Deep Research 一旦同时遇到「深挖」和「广搜」，固定的任务拆分很快就不够用了。\n\n这篇论文提出 WebSwarm，让多 Agent 的分工随着搜索证据逐步展开。\n\n每个搜索节点都有自己的目标和工作模式，可以直接解决当前问题，也可以继续创建子节点。新的证据返回后，上层 Agent 再决定继续扩展、调整方向，或者汇总结果。\n\n它还会先观察信息在网页上是集中还是分散，再决定怎么拆任务；处理一批相似子任务时，前几个 Agent 找到的可靠来源和无效路径，也会传给后面的 Agent。\n\n实验中，WebSwarm 在四项复杂搜索评测上都超过了单 Agent 和多 Agent 基线。以 GLM-4.5 为底座，BrowseComp-Plus 准确率从 50.5 提升到 68.0，DeepWideSearch 的 Item F1 从 46.63 提升到 58.40。\n\n这项工作把多 Agent 搜索从「提前分好工」，推进到了「边搜边组织」。\n\n复杂问题的结构，很多时候要看到中间证据后才会真正显现。\n\n对于更强的 Deep Research，可能需要一边寻找答案，一边重新决定该由谁继续找、往哪里找。\n\n📎 arxiv: https://t.co/X0fZpX3xmO",
+      "createdAt": "Mon Jul 27 03:30:00 +0000 2026",
+      "replyCount": 7,
+      "retweetCount": 4,
+      "likeCount": 27,
+      "conversationId": "2081582852282483002",
       "author": {
-        "username": "jerryjliu0",
-        "name": "Jerry Liu",
-        "profileImageUrl": "https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg"
+        "username": "Xudong07452910",
+        "name": "Xudong Han",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg"
       },
-      "authorId": "369777416",
-      "quotedTweet": {
-        "id": "2080710971228918066",
-        "text": "The new rules of context engineering for Claude 5 models",
-        "createdAt": "Fri Jul 24 17:45:27 +0000 2026",
-        "replyCount": 396,
-        "retweetCount": 1669,
-        "likeCount": 14834,
-        "conversationId": "2080710971228918066",
-        "author": {
-          "username": "trq212",
-          "name": "Thariq",
-          "profileImageUrl": "https://pbs.twimg.com/profile_images/1976939058741039104/r3GgzqRh_normal.jpg"
-        },
-        "authorId": "352806502",
-        "article": {
-          "title": "The new rules of context engineering for Claude 5 models",
-          "previewText": "I’ve written previously about how to best prompt the newest generation of Claude 5 models and work with them iteratively to discover what you want to build.\nBut when you send a message to Claude, the",
-          "titleZh": "Claude 5 模型的上下文工程新规则",
-          "previewTextZh": "我之前写过，如何最好地提示最新一代 Claude 5 模型，并与它们迭代协作，逐步发现你想构建什么。\n但当你向 Claude 发送一条消息时，"
-        },
-        "translationZh": "Claude 5 模型的上下文工程新规则"
-      },
+      "authorId": "1327292278000349185",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HOMHihkXYAAT1qv.jpg",
+          "width": 1142,
+          "height": 1170,
+          "previewUrl": "https://pbs.twimg.com/media/HOMHihkXYAAT1qv.jpg:small"
+        }
+      ],
       "expert": {
-        "priority": "P1",
-        "domain": "RAG / Agent 基础设施",
-        "name": "Jerry Liu",
-        "role": "LlamaIndex / CEO",
-        "why": "RAG、知识 Agent、企业数据 Agent 的重要实践信号源；排序低于 OpenAI 核心人物",
-        "handle": "jerryjliu0"
+        "priority": "P0",
+        "domain": "LLM / AI Agents",
+        "name": "Xudong Han",
+        "role": "University of Sussex 博士生；LLM 与 AI Agents",
+        "why": "持续构建个人 AI Agent，并分享 Vibe Coding 和 LLM 应用工程实践",
+        "handle": "Xudong07452910"
       },
-      "createdAtIso": "2026-07-26T04:38:01+00:00",
-      "createdAtBeijing": "2026-07-26T12:38:01+08:00",
-      "createdAtLocal": "07-26 12:38 北京",
-      "url": "https://x.com/jerryjliu0/status/2081237580839039068",
+      "createdAtIso": "2026-07-27T03:30:00+00:00",
+      "createdAtBeijing": "2026-07-27T11:30:00+08:00",
+      "createdAtLocal": "07-27 11:30 北京",
+      "url": "https://x.com/Xudong07452910/status/2081582852282483002",
       "themeId": "coding",
-      "signalScore": 69,
+      "signalScore": 76,
       "topStoryEligible": true,
-      "topStoryScore": 38,
-      "topStoryCategory": "AI 技术进步",
-      "isTopStory": true,
-      "translationZh": "这部分说得很准：\n> “总体而言，我们发现自己对 Claude Code 限制过多……虽然这些限制曾经是为了避免最坏情况所必需的，但后来我们发现，可以删除其中很多限制，让模型转而使用周围上下文和自身判断。”\n\n我倾向于写很长的 prompt，覆盖每一个边界情况。过去几个月里，我越来越发现这可能导致适得其反的行为：模型会处理我的具体要求，但不会独立提供看待问题的新视角（探索“未知的未知”）。\n\n模型仍然需要访问你的完整上下文，才能做出完整决策；只是它不一定需要你限制它该如何最好地使用这些上下文。我预测，随着时间推移，我们会越来越多地依赖模型来帮助解决这些未知的未知。\n\n顺便说一句，我发现 Opus 5 是一个非常出色的模型，并且仍在通过 Claude Code 大量使用它"
-    },
-    {
-      "id": "2081188366486519864",
-      "text": "If you want to break any AI workflow/product  put it in front of a 5 year old.   They will try to use the AI in totally reasonable but unexpected ways",
-      "createdAt": "Sun Jul 26 01:22:27 +0000 2026",
-      "replyCount": 8,
-      "retweetCount": 0,
-      "likeCount": 32,
-      "conversationId": "2081188366486519864",
-      "author": {
-        "username": "HamelHusain",
-        "name": "Hamel Husain",
-        "profileImageUrl": "https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg"
-      },
-      "authorId": "825766640",
-      "expert": {
-        "priority": "P1",
-        "domain": "Agent / 评测",
-        "name": "Hamel Husain",
-        "role": "独立 AI 工程实践者",
-        "why": "实用评测、生产级 LLM 系统",
-        "handle": "HamelHusain"
-      },
-      "createdAtIso": "2026-07-26T01:22:27+00:00",
-      "createdAtBeijing": "2026-07-26T09:22:27+08:00",
-      "createdAtLocal": "07-26 09:22 北京",
-      "url": "https://x.com/HamelHusain/status/2081188366486519864",
-      "themeId": "coding",
-      "signalScore": 60,
-      "topStoryEligible": true,
-      "topStoryScore": 27,
-      "topStoryCategory": "AI 技术应用",
-      "isTopStory": true,
-      "translationZh": "如果你想击穿任何 AI 工作流 / 产品，就把它交给一个 5 岁孩子。他们会用完全合理但出人意料的方式来使用 AI"
+      "topStoryScore": 34,
+      "topStoryCategory": "AI 技术前沿",
+      "isTopStory": true
     },
     {
       "id": "2081513071135346814",
       "text": "agreed feels big, i want a new kind of computer",
       "createdAt": "Sun Jul 26 22:52:43 +0000 2026",
-      "replyCount": 205,
-      "retweetCount": 71,
-      "likeCount": 1429,
+      "replyCount": 601,
+      "retweetCount": 221,
+      "likeCount": 6490,
       "conversationId": "2081513071135346814",
       "author": {
         "username": "sama",
@@ -652,9 +672,9 @@
         "id": "2081408374315602338",
         "text": "I don’t think you understand what ChatGPT Voice unlocks\n\nI went on a 4 hour hike yesterday. Through the northern California redwoods.\n\nGot more work done in those 4 hours talking to Voice through my AirPods then I do in 8 hours at my desk\n\nWork can be done ANYWHERE now\n\n45 minute drive back using self driving? Now 45 minutes I can talk to Voice and work on side projects\n\n20 minutes in the cafe? I can sit and talk to Voice and when I get home I have drafts on my computer for my newsletter for the next month\n\nBeing able to just use your voice to talk to a super intelligence that controls your computer is unlike anything we’ve ever experienced before\n\nI don’t even care that the voice sounds human like, or you can interrupt it, or any of the wild advancements they made to the tech\n\nIt’s the fact that it can control my computer, meaning all I need to get incredible work done is talk through my AirPods anywhere in the world that is the major game changer for me\n\nI don’t think people truly understand the implications of this yet\n\nWhy even have a desk or monitor anymore. Work can be done ANYWHERE now\n\nThe key is your set up:\n\n1. Choose one device (preferably an always on desktop) as your main “headquarters” device all your work gets done on\n\n2. Get the ChatGPT app on all your other devices (iPhone, iPad, laptops, Mac Minis)\n\n3. Set up ‘connections’ in your settings so that all your ‘node’ devices can control your ‘headquarters’ device\n\n4. Go legit anywhere in the world. Turn on Voice. Ask it to brief you on your projects, give you a recommended next step, then spin up new threads to do work\n\nI really don’t think work looks the same moving forward.",
         "createdAt": "Sun Jul 26 15:56:41 +0000 2026",
-        "replyCount": 319,
-        "retweetCount": 208,
-        "likeCount": 2965,
+        "replyCount": 866,
+        "retweetCount": 470,
+        "likeCount": 6975,
         "conversationId": "2081408374315602338",
         "author": {
           "username": "AlexFinn",
@@ -688,9 +708,9 @@
       "id": "2081458174662726009",
       "text": "ChatGPT is increasingly becoming your personal AGI",
       "createdAt": "Sun Jul 26 19:14:35 +0000 2026",
-      "replyCount": 104,
-      "retweetCount": 35,
-      "likeCount": 1112,
+      "replyCount": 163,
+      "retweetCount": 65,
+      "likeCount": 1961,
       "conversationId": "2081458174662726009",
       "author": {
         "username": "gdb",
@@ -702,9 +722,9 @@
         "id": "2081444811647963244",
         "text": "Let ChatGPT *work* for you. How many time have you wanted to negotiate your internet bill, get rid of all those spam emails you’re subscribed to, or find the perfect deal for something you wanted to do or buy. It’s quite literally just one prompt away, all from the comfort of your phone. It does at least 20 things for me every single day and I’m still surprised.",
         "createdAt": "Sun Jul 26 18:21:29 +0000 2026",
-        "replyCount": 335,
-        "retweetCount": 97,
-        "likeCount": 2895,
+        "replyCount": 425,
+        "retweetCount": 143,
+        "likeCount": 4166,
         "conversationId": "2081444811647963244",
         "author": {
           "username": "thsottiaux",
@@ -735,98 +755,205 @@
       "translationZh": "ChatGPT 正越来越像你的个人 AGI"
     },
     {
-      "id": "2081285058485534856",
-      "text": "GPT-Live for a different reading experience:",
-      "createdAt": "Sun Jul 26 07:46:41 +0000 2026",
-      "replyCount": 87,
-      "retweetCount": 47,
-      "likeCount": 1144,
-      "conversationId": "2081285058485534856",
+      "id": "2081550135159357702",
+      "text": "投资人徐新在播客里透露，张一鸣现在有 50% 的时间都放在 Seed 上。\n\n对张一鸣这种级别的创始人来说，时间可能是最稀缺的资源。把一半精力压在 Seed，说明字节把 AI 当成下一代底层系统，而且还处于必须由创始人亲自搭骨架的阶段。\n\n抖音依然是一门巨大的生意，但张一鸣的注意力已经投向了未来五年。 https://t.co/oSPUszIgMm",
+      "createdAt": "Mon Jul 27 01:20:00 +0000 2026",
+      "replyCount": 33,
+      "retweetCount": 7,
+      "likeCount": 57,
+      "conversationId": "2081550135159357702",
       "author": {
-        "username": "gdb",
-        "name": "Greg Brockman",
-        "profileImageUrl": "https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_normal.jpg"
+        "username": "Xudong07452910",
+        "name": "Xudong Han",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg"
       },
-      "authorId": "162124540",
-      "quotedTweet": {
-        "id": "2081031402854699173",
-        "text": "Reading a book while having GPT-Live open to talk to, ask questions, write down notes and bookmarks really feels like reading in 4D",
-        "createdAt": "Sat Jul 25 14:58:44 +0000 2026",
-        "replyCount": 13,
-        "retweetCount": 14,
-        "likeCount": 248,
-        "conversationId": "2081031402854699173",
-        "author": {
-          "username": "kurorosage",
-          "name": "José Ocampo",
-          "profileImageUrl": "https://pbs.twimg.com/profile_images/2067282767067455488/Z_lxnMnw_normal.jpg"
-        },
-        "authorId": "1482116616632602627",
-        "translationZh": "一边读书，一边打开 GPT-Live 与它对话、提问、记笔记和书签，真的像是在 4D 阅读。"
-      },
+      "authorId": "1327292278000349185",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HOKaEsPWUAAH_TG.jpg",
+          "width": 588,
+          "height": 1035,
+          "previewUrl": "https://pbs.twimg.com/media/HOKaEsPWUAAH_TG.jpg:small"
+        }
+      ],
       "expert": {
         "priority": "P0",
-        "domain": "基座模型 / OpenAI",
-        "name": "Greg Brockman",
-        "role": "OpenAI / 联合创始人",
-        "why": "技术演示、产品发布、平台方向的重要信号源",
-        "handle": "gdb"
+        "domain": "LLM / AI Agents",
+        "name": "Xudong Han",
+        "role": "University of Sussex 博士生；LLM 与 AI Agents",
+        "why": "持续构建个人 AI Agent，并分享 Vibe Coding 和 LLM 应用工程实践",
+        "handle": "Xudong07452910"
       },
-      "createdAtIso": "2026-07-26T07:46:41+00:00",
-      "createdAtBeijing": "2026-07-26T15:46:41+08:00",
-      "createdAtLocal": "07-26 15:46 北京",
-      "url": "https://x.com/gdb/status/2081285058485534856",
-      "themeId": "models",
-      "signalScore": 98,
+      "createdAtIso": "2026-07-27T01:20:00+00:00",
+      "createdAtBeijing": "2026-07-27T09:20:00+08:00",
+      "createdAtLocal": "07-27 09:20 北京",
+      "url": "https://x.com/Xudong07452910/status/2081550135159357702",
+      "themeId": "coding",
+      "signalScore": 78,
       "topStoryEligible": false,
-      "topStoryScore": 67,
+      "topStoryScore": 34,
       "topStoryCategory": "AI 技术进步",
-      "isTopStory": false,
-      "translationZh": "GPT-Live 带来不同的阅读体验："
+      "isTopStory": false
     },
     {
-      "id": "2081360705807057207",
-      "text": "@lu_sichu There would be no greater advertising for OpenAI than for someone to solve a millennium prize problem and receive $1 million simply by typing “continue” into codex",
-      "createdAt": "Sun Jul 26 12:47:16 +0000 2026",
-      "replyCount": 5,
-      "retweetCount": 15,
-      "likeCount": 510,
-      "conversationId": "2081126432466407896",
-      "inReplyToStatusId": "2081126432466407896",
+      "id": "2081670679649554845",
+      "text": "如果你一直想弄明白，为什么同一个模型换一套推理系统，速度、延迟和成本能差这么多，这份资料很值得收藏。\n\nModular 最近整理了一本《LLM Inference Handbook》，从首 Token 延迟、吞吐量和显存计算，一直讲到模型与 GPU 选择、量化、连续批处理、KV Cache、投机解码、Prefill/Decode 分离和分布式部署。\n\n里面还有不少可以直接操作的可视化工具：你可以计算不同模型需要多少显存，观察上下文变长后 KV Cache 怎样持续膨胀，也能更直观地理解为什么并发一上来，系统瓶颈往往会迅速转移。\n\n很多 AI Demo 单用户跑起来很快，到了真实产品里，却会被排队延迟、显存占用和长上下文拖垮。难的是在延迟、吞吐量、稳定性和成本之间找到平衡。\n\n模型能力决定产品能做到什么，推理基础设施决定它能不能稳定、便宜地服务大量用户。\n\nhttps://t.co/9NqiC9L4A1",
+      "createdAt": "Mon Jul 27 09:19:00 +0000 2026",
+      "replyCount": 8,
+      "retweetCount": 12,
+      "likeCount": 66,
+      "conversationId": "2081670679649554845",
       "author": {
-        "username": "polynoamial",
-        "name": "Noam Brown",
-        "profileImageUrl": "https://pbs.twimg.com/profile_images/1872883170292457472/8ywVGO5M_normal.jpg"
+        "username": "Xudong07452910",
+        "name": "Xudong Han",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg"
       },
-      "authorId": "825088493764407298",
+      "authorId": "1327292278000349185",
       "expert": {
         "priority": "P0",
-        "domain": "推理模型 / OpenAI",
-        "name": "Noam Brown",
-        "role": "OpenAI / 推理研究",
-        "why": "推理模型、自博弈、o 系列能力方向的重要信号源",
-        "handle": "polynoamial"
+        "domain": "LLM / AI Agents",
+        "name": "Xudong Han",
+        "role": "University of Sussex 博士生；LLM 与 AI Agents",
+        "why": "持续构建个人 AI Agent，并分享 Vibe Coding 和 LLM 应用工程实践",
+        "handle": "Xudong07452910"
       },
-      "createdAtIso": "2026-07-26T12:47:16+00:00",
-      "createdAtBeijing": "2026-07-26T20:47:16+08:00",
-      "createdAtLocal": "07-26 20:47 北京",
-      "url": "https://x.com/polynoamial/status/2081360705807057207",
-      "themeId": "models",
-      "signalScore": 92,
+      "createdAtIso": "2026-07-27T09:19:00+00:00",
+      "createdAtBeijing": "2026-07-27T17:19:00+08:00",
+      "createdAtLocal": "07-27 17:19 北京",
+      "url": "https://x.com/Xudong07452910/status/2081670679649554845",
+      "themeId": "coding",
+      "signalScore": 77,
       "topStoryEligible": false,
-      "topStoryScore": 59,
+      "topStoryScore": 37,
       "topStoryCategory": "AI 技术进步",
-      "isTopStory": false,
-      "translationZh": "@lu_sichu 如果有人只是在 codex 里输入“continue”，就解决了一个千禧年大奖难题并拿到 100 万美元，那对 OpenAI 来说再没有比这更好的广告了。"
+      "isTopStory": false
     },
     {
-      "id": "2081192412156768385",
-      "text": "ngl i miss a lot Karpathy’s voice on X",
-      "createdAt": "Sun Jul 26 01:38:32 +0000 2026",
+      "id": "2081655831838290361",
+      "text": "AI 圈最稳定的创新，可能就是每隔几个月再发明一个新的「Engineering」。\n\nPrompt、Context、Harness、Loop 还没学完，Graph Engineering 又来了。很多概念换了名字，底层讨论的依然是上下文、工具、反馈和 Agent 协作。\n\n更有意思的是，热词接棒的速度确实在加快：\n\nPrompt Engineering 流行了两年多，Context Engineering 大约一年，Harness Engineering 作为主流热词维持了约 4 个月。Loop Engineering 6 月刚出圈，40 天左右，Graph Engineering 又来了。\n\n这些方法其实没有过期，只是大家的注意力已经跑向了下一层。照这个速度，下一个「XX Engineering」还要等多久？",
+      "createdAt": "Mon Jul 27 08:20:00 +0000 2026",
       "replyCount": 11,
       "retweetCount": 1,
-      "likeCount": 85,
-      "conversationId": "2081192412156768385",
+      "likeCount": 18,
+      "conversationId": "2081655831838290361",
+      "author": {
+        "username": "Xudong07452910",
+        "name": "Xudong Han",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg"
+      },
+      "authorId": "1327292278000349185",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HOMPhKnXkAAvWMu.jpg",
+          "width": 1672,
+          "height": 941,
+          "previewUrl": "https://pbs.twimg.com/media/HOMPhKnXkAAvWMu.jpg:small"
+        }
+      ],
+      "expert": {
+        "priority": "P0",
+        "domain": "LLM / AI Agents",
+        "name": "Xudong Han",
+        "role": "University of Sussex 博士生；LLM 与 AI Agents",
+        "why": "持续构建个人 AI Agent，并分享 Vibe Coding 和 LLM 应用工程实践",
+        "handle": "Xudong07452910"
+      },
+      "createdAtIso": "2026-07-27T08:20:00+00:00",
+      "createdAtBeijing": "2026-07-27T16:20:00+08:00",
+      "createdAtLocal": "07-27 16:20 北京",
+      "url": "https://x.com/Xudong07452910/status/2081655831838290361",
+      "themeId": "coding",
+      "signalScore": 75,
+      "topStoryEligible": false,
+      "topStoryScore": 33,
+      "topStoryCategory": "AI 技术应用",
+      "isTopStory": false
+    },
+    {
+      "id": "2081595433537954104",
+      "text": "王虹的个人网站做的真实朴实无华呀。\n\n对人很友好，对 Agent 来说也很省Token。\n\nhttps://t.co/qdq0HQJrDb https://t.co/Q6ERmPr7IN",
+      "createdAt": "Mon Jul 27 04:20:00 +0000 2026",
+      "replyCount": 13,
+      "retweetCount": 2,
+      "likeCount": 12,
+      "conversationId": "2081595433537954104",
+      "author": {
+        "username": "Xudong07452910",
+        "name": "Xudong Han",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg"
+      },
+      "authorId": "1327292278000349185",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HOMf6AlXwAAX4e_.jpg",
+          "width": 1374,
+          "height": 2048,
+          "previewUrl": "https://pbs.twimg.com/media/HOMf6AlXwAAX4e_.jpg:small"
+        }
+      ],
+      "expert": {
+        "priority": "P0",
+        "domain": "LLM / AI Agents",
+        "name": "Xudong Han",
+        "role": "University of Sussex 博士生；LLM 与 AI Agents",
+        "why": "持续构建个人 AI Agent，并分享 Vibe Coding 和 LLM 应用工程实践",
+        "handle": "Xudong07452910"
+      },
+      "createdAtIso": "2026-07-27T04:20:00+00:00",
+      "createdAtBeijing": "2026-07-27T12:20:00+08:00",
+      "createdAtLocal": "07-27 12:20 北京",
+      "url": "https://x.com/Xudong07452910/status/2081595433537954104",
+      "themeId": "coding",
+      "signalScore": 72,
+      "topStoryEligible": false,
+      "topStoryScore": 30,
+      "topStoryCategory": "AI 技术应用",
+      "isTopStory": false
+    },
+    {
+      "id": "2081537554248052821",
+      "text": "大家可能忽视了一个正在悄悄抬高 Claude Code 账单的细节：提示缓存过期。\n\n跑复杂的多 Agent 任务时，主 Agent 经常需要等待子 Agent 返回结果。如果空闲时间超过 Claude Prompt Cache 的有效期，下一次调用就得重新编码整段上下文，这部分会按正常输入价格重新计费。\n\n项目作者统计了约 185 次本地会话，发现缓存过期带来的重复编码，竟然占到总账单的 22%。\n\nclaude-thermos 就是专门处理这个问题的本地工具。\n\n它会监控 Claude Code 的会话状态。当主 Agent 因等待子 Agent 而长时间空闲时，自动发送一个轻量请求刷新缓存，像热水瓶一样把上下文「保温」，避免下一轮重新处理整段历史。\n\n安装也很简单：\n\nuvx claude-thermos\n\n空闲阈值和预热间隔都可以自己调整。\n\n这类优化挺容易被忽略：不改模型，也不动原来的任务逻辑，只是减少重复编码，就可能省下一笔不小的成本。\n\n经常跑长链任务和多 Agent 工作流的人，可以关注一下。\n\n🔗 https://t.co/uAZo64PKim",
+      "createdAt": "Mon Jul 27 00:30:00 +0000 2026",
+      "replyCount": 9,
+      "retweetCount": 0,
+      "likeCount": 13,
+      "conversationId": "2081537554248052821",
+      "author": {
+        "username": "Xudong07452910",
+        "name": "Xudong Han",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg"
+      },
+      "authorId": "1327292278000349185",
+      "expert": {
+        "priority": "P0",
+        "domain": "LLM / AI Agents",
+        "name": "Xudong Han",
+        "role": "University of Sussex 博士生；LLM 与 AI Agents",
+        "why": "持续构建个人 AI Agent，并分享 Vibe Coding 和 LLM 应用工程实践",
+        "handle": "Xudong07452910"
+      },
+      "createdAtIso": "2026-07-27T00:30:00+00:00",
+      "createdAtBeijing": "2026-07-27T08:30:00+08:00",
+      "createdAtLocal": "07-27 08:30 北京",
+      "url": "https://x.com/Xudong07452910/status/2081537554248052821",
+      "themeId": "coding",
+      "signalScore": 71,
+      "topStoryEligible": true,
+      "topStoryScore": 34,
+      "topStoryCategory": "AI 技术进步",
+      "isTopStory": false
+    },
+    {
+      "id": "2081577118526263548",
+      "text": "👀",
+      "createdAt": "Mon Jul 27 03:07:13 +0000 2026",
+      "replyCount": 2,
+      "retweetCount": 0,
+      "likeCount": 28,
+      "conversationId": "2081577118526263548",
       "author": {
         "username": "Thom_Wolf",
         "name": "Thomas Wolf",
@@ -834,29 +961,21 @@
       },
       "authorId": "246939962",
       "quotedTweet": {
-        "id": "2081114803834376218",
-        "text": "Did Karpathy remove Anthropic from bio? Or was it not there. https://t.co/LWfivAlKqm",
-        "createdAt": "Sat Jul 25 20:30:09 +0000 2026",
-        "replyCount": 94,
-        "retweetCount": 38,
-        "likeCount": 990,
-        "conversationId": "2081114803834376218",
+        "id": "2081277517709922501",
+        "text": "I don't think it's a lack of imagination. I also used to work at Anthropic, think trends will continue, and used to agree with this. But I've changed my mind and now disagree with this take.\n\nOpen models are already capable enough to do what you described. For example, I used Opus 4.6 to gain access to other folks medical records, hijack bank accounts, etc. back in February. GLM 5.1 is more capable than Opus 4.6 in most pentesting environments, and it came out in April.\n\nDespite capable open-weight models existing, the sketchier folks I know are still using a Claude Code or Codex subscription for hacking. (Even well-resourced groups in other countries! They use the grey/black market of discounted Ant/OAI subscription tokens sold through resellers.) So I see most of the materialized risk here as still coming from Anthropic and OpenAI; safeguards aren't sufficient to stop a moderately dedicated actor.\n\nThe groups I know who are using open-weight models are legitimate offensive security companies. They won't break the rules to use subscription-based pricing, the open-weight models are more reliable in that they don't require specific jailbreaks nor hit classifiers, and the labs use massive partnerships or spend as a prereq for lowering classifiers/safeguards. I know of three legitimate groups running GLM 5.2 as their primary model.\n\nThat last part applies for Anthropic, too: I know of two instances where two different Anthropic GTM people used large comitted spend contracts as a prereq for lowering safeguards, and I directly witnessed one.\n\nOn the inside, I know the narrative and intent is genuinely about safety. But from the outside, Anthropic-the-system seems to be optimizing for revenue and control/power, isn't diffusing capabilities to defenders, and also doesn't have adequate safeguards to prevent misuse from dedicated bad actors.\n\nAs a result, I now lean towards a future where capable open models are freely available (at least for cyber, bio is harder); I don't trust Anthropic or other frontier labs to handle this sufficiently well without diffused capabilties given what I've seen so far.",
+        "createdAt": "Sun Jul 26 07:16:43 +0000 2026",
+        "replyCount": 44,
+        "retweetCount": 164,
+        "likeCount": 1569,
+        "conversationId": "2081245252904485128",
+        "inReplyToStatusId": "2081245252904485128",
         "author": {
-          "username": "LLMJunky",
-          "name": "am.will",
-          "profileImageUrl": "https://pbs.twimg.com/profile_images/2054315142272159744/V-n-NXEo_normal.jpg"
+          "username": "NoahLebovic",
+          "name": "Noah Lebovic",
+          "profileImageUrl": "https://pbs.twimg.com/profile_images/2029684561614127104/q7_1xtL5_normal.jpg"
         },
-        "authorId": "2004675530935926784",
-        "media": [
-          {
-            "type": "photo",
-            "url": "https://pbs.twimg.com/media/HOGa4oTW0AAf1Nh.jpg",
-            "width": 1320,
-            "height": 1452,
-            "previewUrl": "https://pbs.twimg.com/media/HOGa4oTW0AAf1Nh.jpg:small"
-          }
-        ],
-        "translationZh": "Karpathy 把 Anthropic 从简介里删掉了吗？还是本来就没有？https://t.co/LWfivAlKqm"
+        "authorId": "1018698811",
+        "translationZh": "我不认为这是缺乏想象力。我也曾在 Anthropic 工作，认为这些趋势会持续，并且过去也同意这个观点。但我现在改变了看法，不再认同这一判断。\n\n开源模型已经足够强大，可以完成你描述的事情。比如，今年 2 月我用 Opus 4.6 获取了他人的医疗记录、劫持银行账户等。GLM 5.1 在大多数渗透测试环境中比 Opus 4.6 更强，而且它是在 4 月发布的。\n\n尽管已有能力很强的开放权重模型，我认识的一些更可疑的人仍在用 Claude Code 或 Codex 订阅进行黑客活动。（甚至其他国家资源充足的组织也是如此！他们通过经销商购买打折 Ant/OAI 订阅 token 的灰黑市。）所以我认为这里已经显现的大部分风险仍来自 Anthropic 和 OpenAI；安全防护不足以阻止一个中等投入的行动者。\n\n我认识的使用开放权重模型的团队都是合法的进攻性安全公司。他们不会为了使用订阅制价格而违规；开放权重模型更可靠，因为它们不需要特定越狱，也不会触发分类器；而实验室通常要求大规模合作或支出，才会降低分类器/安全防护。我知道有三家合法团队把 GLM 5.2 作为主力模型。\n\n最后一点也适用于 Anthropic：我知道有两起案例，两位不同的 Anthropic GTM 人员把大额承诺支出合同作为降低安全防护的前提，其中一起我亲眼见证。\n\n在内部，我知道其叙事和意图确实是出于安全。但从外部看，Anthropic 这个系统似乎在为收入和控制/权力优化，没有把能力扩散给防御方，也没有足够的安全防护来阻止执着的恶意行为者滥用。\n\n因此，我现在更倾向于这样一种未来：强大的开放模型可以自由获得（至少在网络安全领域，生物领域更难）；基于目前所见，如果能力不能被扩散，我不信任 Anthropic 或其他前沿实验室能够足够好地处理这件事。"
       },
       "expert": {
         "priority": "P0",
@@ -866,25 +985,74 @@
         "why": "Transformers 生态和开源模型讨论的重要人物",
         "handle": "Thom_Wolf"
       },
-      "createdAtIso": "2026-07-26T01:38:32+00:00",
-      "createdAtBeijing": "2026-07-26T09:38:32+08:00",
-      "createdAtLocal": "07-26 09:38 北京",
-      "url": "https://x.com/Thom_Wolf/status/2081192412156768385",
+      "createdAtIso": "2026-07-27T03:07:13+00:00",
+      "createdAtBeijing": "2026-07-27T11:07:13+08:00",
+      "createdAtLocal": "07-27 11:07 北京",
+      "url": "https://x.com/Thom_Wolf/status/2081577118526263548",
+      "themeId": "products",
+      "signalScore": 73,
+      "topStoryEligible": true,
+      "topStoryScore": 57,
+      "topStoryCategory": "AI 技术应用",
+      "isTopStory": false
+    },
+    {
+      "id": "2081732293161582930",
+      "text": "Time to scale that SSI:",
+      "createdAt": "Mon Jul 27 13:23:50 +0000 2026",
+      "replyCount": 46,
+      "retweetCount": 39,
+      "likeCount": 318,
+      "conversationId": "2081732293161582930",
+      "author": {
+        "username": "ilyasut",
+        "name": "Ilya Sutskever",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/1961115716889030656/We74zmE-_normal.jpg"
+      },
+      "authorId": "1720046887",
+      "quotedTweet": {
+        "id": "2081732119194394763",
+        "text": "We are announcing a long-term strategic partnership with NVIDIA. NVIDIA is making a substantial investment in SSI that will let us 10x our compute in the next 12 months. We reached the point where our research is worth scaling and with this partnership we will be able to. We are honored by NVIDIA’s conviction.",
+        "createdAt": "Mon Jul 27 13:23:08 +0000 2026",
+        "replyCount": 30,
+        "retweetCount": 33,
+        "likeCount": 326,
+        "conversationId": "2081732119194394763",
+        "author": {
+          "username": "ssi",
+          "name": "SSI Inc.",
+          "profileImageUrl": "https://pbs.twimg.com/profile_images/1803243852951855104/qamjjZ2a_normal.jpg"
+        },
+        "authorId": "1802854238370050050",
+        "translationZh": "我们宣布与 NVIDIA 建立长期战略合作伙伴关系。NVIDIA 将对 SSI 进行重大投资，使我们在未来 12 个月内将算力提升 10 倍。我们的研究已经到了值得规模化的阶段，而通过这项合作，我们将能够实现这一点。我们很荣幸获得 NVIDIA 的坚定支持。"
+      },
+      "expert": {
+        "priority": "P0",
+        "domain": "AI 安全 / 研究",
+        "name": "Ilya Sutskever",
+        "role": "Safe Superintelligence / 联合创始人",
+        "why": "前沿安全、超级智能、前 OpenAI 研究方向",
+        "handle": "ilyasut"
+      },
+      "createdAtIso": "2026-07-27T13:23:50+00:00",
+      "createdAtBeijing": "2026-07-27T21:23:50+08:00",
+      "createdAtLocal": "07-27 21:23 北京",
+      "url": "https://x.com/ilyasut/status/2081732293161582930",
       "themeId": "models",
-      "signalScore": 78,
+      "signalScore": 85,
       "topStoryEligible": false,
-      "topStoryScore": 32,
-      "topStoryCategory": "AI 技术进步",
+      "topStoryScore": 43,
+      "topStoryCategory": "AI 技术前沿",
       "isTopStory": false,
-      "translationZh": "说实话，我很怀念 Karpathy 在 X 上的声音。"
+      "translationZh": "是时候扩展 SSI 了："
     },
     {
       "id": "2081518597227098140",
       "text": "It would have been even more of a treat if we'd been able to see Maggie (Boden)'s reply.  The cutaways to her patient smiling skepticism are priceless: https://t.co/cZ8Wci2kPr",
       "createdAt": "Sun Jul 26 23:14:40 +0000 2026",
-      "replyCount": 0,
-      "retweetCount": 0,
-      "likeCount": 2,
+      "replyCount": 14,
+      "retweetCount": 7,
+      "likeCount": 86,
       "conversationId": "2081518597227098140",
       "author": {
         "username": "anilkseth",
@@ -896,9 +1064,9 @@
         "id": "2081376189856330014",
         "text": "Wonderful! I've heard of Searle's \"Chinese Room\" thought experiment in philosophy (which aims to show that AI doesn't \"understand\" anything) -- but it's a treat to see Searle explain it.  https://t.co/fuZDYhabU6",
         "createdAt": "Sun Jul 26 13:48:48 +0000 2026",
-        "replyCount": 46,
-        "retweetCount": 104,
-        "likeCount": 479,
+        "replyCount": 80,
+        "retweetCount": 216,
+        "likeCount": 1040,
         "conversationId": "2081376189856330014",
         "author": {
           "username": "stevenstrogatz",
@@ -932,54 +1100,20 @@
       "createdAtLocal": "07-27 07:14 北京",
       "url": "https://x.com/anilkseth/status/2081518597227098140",
       "themeId": "coding",
-      "signalScore": 61,
+      "signalScore": 79,
       "topStoryEligible": false,
-      "topStoryScore": 24,
+      "topStoryScore": 36,
       "topStoryCategory": "AI 技术进步",
       "isTopStory": false,
       "translationZh": "如果能看到 Maggie (Boden) 的回复，那就更精彩了。镜头切到她耐心微笑、略带怀疑的表情，简直无价：https://t.co/cZ8Wci2kPr"
     },
     {
-      "id": "2081177295700787209",
-      "text": "It's crazy how aura between AI companies changes within weeks/days, if not hours. \n\nAura seems to be a leading indicator of revenue. A lot of that aura is measured on X.",
-      "createdAt": "Sun Jul 26 00:38:28 +0000 2026",
-      "replyCount": 21,
-      "retweetCount": 8,
-      "likeCount": 372,
-      "conversationId": "2081177295700787209",
-      "author": {
-        "username": "jerryjliu0",
-        "name": "Jerry Liu",
-        "profileImageUrl": "https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg"
-      },
-      "authorId": "369777416",
-      "expert": {
-        "priority": "P1",
-        "domain": "RAG / Agent 基础设施",
-        "name": "Jerry Liu",
-        "role": "LlamaIndex / CEO",
-        "why": "RAG、知识 Agent、企业数据 Agent 的重要实践信号源；排序低于 OpenAI 核心人物",
-        "handle": "jerryjliu0"
-      },
-      "createdAtIso": "2026-07-26T00:38:28+00:00",
-      "createdAtBeijing": "2026-07-26T08:38:28+08:00",
-      "createdAtLocal": "07-26 08:38 北京",
-      "url": "https://x.com/jerryjliu0/status/2081177295700787209",
-      "themeId": "coding",
-      "signalScore": 71,
-      "topStoryEligible": false,
-      "topStoryScore": 26,
-      "topStoryCategory": "AI 技术进步",
-      "isTopStory": false,
-      "translationZh": "AI 公司之间的气场在几周、几天甚至几小时内就会变化，这太疯狂了。\n\n气场似乎是收入的领先指标。其中很大一部分气场是在 X 上衡量的。"
-    },
-    {
       "id": "2081444175061598455",
       "text": "In evals you have two totally different components: (1) discovery of what the failure modes are, (2) focused measurement of how prevalent these failure modes are—so you can prioritize what to fix. LLMs can help in (1) by finding some failure modes— but not all, since many failure modes are subjective/ about human interpretation of outputs. LLMs can help in (2) by looking at a trace and determining if the failure mode exists, rather than having a human look at every trace. But a big mistake people make is to have LLMs fully automate (1) and (2). LLM judge is a complement to human experts, not a replacement.",
       "createdAt": "Sun Jul 26 18:18:57 +0000 2026",
-      "replyCount": 2,
-      "retweetCount": 4,
-      "likeCount": 33,
+      "replyCount": 9,
+      "retweetCount": 7,
+      "likeCount": 112,
       "conversationId": "2081444175061598455",
       "author": {
         "username": "sh_reya",
@@ -991,9 +1125,9 @@
         "id": "2081367788090794048",
         "text": "IMO people should think of LLM judge as instrumentation rather than as evals\n\nThe eval is human labels.  LLM judge is instrumenting those human labels.\n\nIt's why skipping human labels to do LLM judge first makes no sense",
         "createdAt": "Sun Jul 26 13:15:25 +0000 2026",
-        "replyCount": 2,
-        "retweetCount": 0,
-        "likeCount": 5,
+        "replyCount": 3,
+        "retweetCount": 2,
+        "likeCount": 17,
         "conversationId": "2081367788090794048",
         "author": {
           "username": "isaac_flath",
@@ -1016,9 +1150,9 @@
       "createdAtLocal": "07-27 02:18 北京",
       "url": "https://x.com/sh_reya/status/2081444175061598455",
       "themeId": "coding",
-      "signalScore": 67,
+      "signalScore": 73,
       "topStoryEligible": false,
-      "topStoryScore": 29,
+      "topStoryScore": 32,
       "topStoryCategory": "AI 技术进步",
       "isTopStory": false,
       "translationZh": "在评测中有两个完全不同的环节：（1）发现失败模式是什么；（2）有针对性地衡量这些失败模式有多普遍，这样才能确定修复优先级。LLM 可以通过找出一些失败模式来帮助（1），但无法找出全部，因为很多失败模式是主观的，关乎人类如何解读输出。LLM 也可以通过查看 trace 并判断某个失败模式是否存在来帮助（2），而不是让人类逐条查看所有 trace。但很多人犯的一个大错，是让 LLM 完全自动化（1）和（2）。LLM judge 是人类专家的补充，而不是替代品。"
@@ -1029,7 +1163,7 @@
       "createdAt": "Sun Jul 26 14:51:59 +0000 2026",
       "replyCount": 6,
       "retweetCount": 3,
-      "likeCount": 31,
+      "likeCount": 45,
       "conversationId": "2081392089729053122",
       "author": {
         "username": "sh_reya",
@@ -1041,9 +1175,9 @@
         "id": "2081182449812586993",
         "text": "Voice models love replying with \"Exactly!\"  even when it isn't called for",
         "createdAt": "Sun Jul 26 00:58:57 +0000 2026",
-        "replyCount": 9,
+        "replyCount": 8,
         "retweetCount": 0,
-        "likeCount": 21,
+        "likeCount": 22,
         "conversationId": "2081182449812586993",
         "author": {
           "username": "HamelHusain",
@@ -1066,7 +1200,7 @@
       "createdAtLocal": "07-26 22:51 北京",
       "url": "https://x.com/sh_reya/status/2081392089729053122",
       "themeId": "coding",
-      "signalScore": 67,
+      "signalScore": 69,
       "topStoryEligible": false,
       "topStoryScore": 27,
       "topStoryCategory": "AI 技术进步",
@@ -1074,123 +1208,12 @@
       "translationZh": "一个可能有争议的观点：有时我会想，恐怖谷也许正是我们需要的东西，因为它能让我们更容易区分人与 AI 的互动和人与人的互动。\n\n比如写作。当我读到一段明显主要由 AI 生成的内容时，我会用不同的方式来评价它。\n\n我不会问：“我是否信任这个人的品味和对主题的理解？信任到如果我花时间读下去，会不会学到有趣的东西？”\n\n我会转而问：“我对这个主题感兴趣吗？AI 在这里是否可能比我懂得更多，而且又没有粗糙到让我无法理解？”\n\n简而言之，恐怖谷是一个很好的提示，告诉我们该如何评估或理解信息；这种恐怖谷感会提示我们采用合适的认知框架"
     },
     {
-      "id": "2081213765539028992",
-      "text": "Claude spend:\n\n$100, save 10%\n$250,  save 20%\n$1000,  naaa you're too rich, no discount  (yes there is no discount if you choose $1,000).  \n\nthis does not make any sense https://t.co/VRua9xdEUG",
-      "createdAt": "Sun Jul 26 03:03:23 +0000 2026",
-      "replyCount": 16,
-      "retweetCount": 1,
-      "likeCount": 55,
-      "conversationId": "2081213765539028992",
-      "author": {
-        "username": "HamelHusain",
-        "name": "Hamel Husain",
-        "profileImageUrl": "https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg"
-      },
-      "authorId": "825766640",
-      "media": [
-        {
-          "type": "photo",
-          "url": "https://pbs.twimg.com/media/HOH0SbebQAAKSQJ.jpg",
-          "width": 1366,
-          "height": 460,
-          "previewUrl": "https://pbs.twimg.com/media/HOH0SbebQAAKSQJ.jpg:small"
-        }
-      ],
-      "expert": {
-        "priority": "P1",
-        "domain": "Agent / 评测",
-        "name": "Hamel Husain",
-        "role": "独立 AI 工程实践者",
-        "why": "实用评测、生产级 LLM 系统",
-        "handle": "HamelHusain"
-      },
-      "createdAtIso": "2026-07-26T03:03:23+00:00",
-      "createdAtBeijing": "2026-07-26T11:03:23+08:00",
-      "createdAtLocal": "07-26 11:03 北京",
-      "url": "https://x.com/HamelHusain/status/2081213765539028992",
-      "themeId": "models",
-      "signalScore": 66,
-      "topStoryEligible": false,
-      "topStoryScore": 23,
-      "topStoryCategory": "AI 技术进步",
-      "isTopStory": false,
-      "translationZh": "Claude 消费：\n\n$100，省 10%\n$250，省 20%\n$1000，呃你太有钱了，不打折（没错，如果你选择 $1,000，就没有折扣）。\n\n这完全说不通 https://t.co/VRua9xdEUG"
-    },
-    {
-      "id": "2081182449812586993",
-      "text": "Voice models love replying with \"Exactly!\"  even when it isn't called for",
-      "createdAt": "Sun Jul 26 00:58:57 +0000 2026",
-      "replyCount": 9,
-      "retweetCount": 0,
-      "likeCount": 21,
-      "conversationId": "2081182449812586993",
-      "author": {
-        "username": "HamelHusain",
-        "name": "Hamel Husain",
-        "profileImageUrl": "https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg"
-      },
-      "authorId": "825766640",
-      "expert": {
-        "priority": "P1",
-        "domain": "Agent / 评测",
-        "name": "Hamel Husain",
-        "role": "独立 AI 工程实践者",
-        "why": "实用评测、生产级 LLM 系统",
-        "handle": "HamelHusain"
-      },
-      "createdAtIso": "2026-07-26T00:58:57+00:00",
-      "createdAtBeijing": "2026-07-26T08:58:57+08:00",
-      "createdAtLocal": "07-26 08:58 北京",
-      "url": "https://x.com/HamelHusain/status/2081182449812586993",
-      "themeId": "models",
-      "signalScore": 59,
-      "topStoryEligible": false,
-      "topStoryScore": 19,
-      "topStoryCategory": "AI 技术进步",
-      "isTopStory": false,
-      "translationZh": "语音模型很爱回复“Exactly!”，哪怕根本不合适"
-    },
-    {
-      "id": "2081411733235863605",
-      "text": "if you are trying to solve long-running agent problems, you will eventually start using immutable event logs",
-      "createdAt": "Sun Jul 26 16:10:02 +0000 2026",
-      "replyCount": 55,
-      "retweetCount": 16,
-      "likeCount": 315,
-      "conversationId": "2081411733235863605",
-      "author": {
-        "username": "yoheinakajima",
-        "name": "Yohei",
-        "profileImageUrl": "https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg"
-      },
-      "authorId": "30439303",
-      "expert": {
-        "priority": "P1",
-        "domain": "Agent 创业公司",
-        "name": "Yohei Nakajima",
-        "role": "Untapped Capital / BabyAGI",
-        "why": "自主 Agent 早期原型和讨论源",
-        "handle": "yoheinakajima"
-      },
-      "createdAtIso": "2026-07-26T16:10:02+00:00",
-      "createdAtBeijing": "2026-07-27T00:10:02+08:00",
-      "createdAtLocal": "07-27 00:10 北京",
-      "url": "https://x.com/yoheinakajima/status/2081411733235863605",
-      "themeId": "coding",
-      "signalScore": 71,
-      "topStoryEligible": false,
-      "topStoryScore": 28,
-      "topStoryCategory": "AI 技术应用",
-      "isTopStory": false,
-      "translationZh": "如果你在尝试解决长时间运行的 agent 问题，最终一定会开始使用不可变事件日志"
-    },
-    {
       "id": "2081518870314328132",
       "text": "again, the log is the agent",
       "createdAt": "Sun Jul 26 23:15:46 +0000 2026",
-      "replyCount": 6,
-      "retweetCount": 1,
-      "likeCount": 15,
+      "replyCount": 18,
+      "retweetCount": 8,
+      "likeCount": 226,
       "conversationId": "2081518870314328132",
       "author": {
         "username": "yoheinakajima",
@@ -1202,9 +1225,9 @@
         "id": "2081351146661130399",
         "text": "The event driven future of AI",
         "createdAt": "Sun Jul 26 12:09:17 +0000 2026",
-        "replyCount": 7,
-        "retweetCount": 6,
-        "likeCount": 28,
+        "replyCount": 17,
+        "retweetCount": 10,
+        "likeCount": 159,
         "conversationId": "2081351146661130399",
         "author": {
           "username": "TheGlobalMinima",
@@ -1233,20 +1256,54 @@
       "createdAtLocal": "07-27 07:15 北京",
       "url": "https://x.com/yoheinakajima/status/2081518870314328132",
       "themeId": "coding",
-      "signalScore": 62,
+      "signalScore": 73,
       "topStoryEligible": true,
-      "topStoryScore": 31,
+      "topStoryScore": 38,
       "topStoryCategory": "AI 技术应用",
       "isTopStory": false,
       "translationZh": "再说一遍，日志就是代理"
     },
     {
+      "id": "2081411733235863605",
+      "text": "if you are trying to solve long-running agent problems, you will eventually start using immutable event logs",
+      "createdAt": "Sun Jul 26 16:10:02 +0000 2026",
+      "replyCount": 72,
+      "retweetCount": 26,
+      "likeCount": 475,
+      "conversationId": "2081411733235863605",
+      "author": {
+        "username": "yoheinakajima",
+        "name": "Yohei",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg"
+      },
+      "authorId": "30439303",
+      "expert": {
+        "priority": "P1",
+        "domain": "Agent 创业公司",
+        "name": "Yohei Nakajima",
+        "role": "Untapped Capital / BabyAGI",
+        "why": "自主 Agent 早期原型和讨论源",
+        "handle": "yoheinakajima"
+      },
+      "createdAtIso": "2026-07-26T16:10:02+00:00",
+      "createdAtBeijing": "2026-07-27T00:10:02+08:00",
+      "createdAtLocal": "07-27 00:10 北京",
+      "url": "https://x.com/yoheinakajima/status/2081411733235863605",
+      "themeId": "coding",
+      "signalScore": 73,
+      "topStoryEligible": false,
+      "topStoryScore": 30,
+      "topStoryCategory": "AI 技术应用",
+      "isTopStory": false,
+      "translationZh": "如果你在尝试解决长时间运行的 agent 问题，最终一定会开始使用不可变事件日志"
+    },
+    {
       "id": "2081442520110928177",
       "text": "historical precedent:",
       "createdAt": "Sun Jul 26 18:12:22 +0000 2026",
-      "replyCount": 1,
-      "retweetCount": 0,
-      "likeCount": 17,
+      "replyCount": 2,
+      "retweetCount": 1,
+      "likeCount": 26,
       "conversationId": "2081411733235863605",
       "inReplyToStatusId": "2081411733235863605",
       "author": {
@@ -1259,9 +1316,9 @@
         "id": "2081441852709093670",
         "text": "society has solved “collaborating at scale over long horizons with auditability” a few times and it’s often around an immutable log:\n\n•  software / open source: git commit history\n•  financial systems / accounting: transaction journals / double-entry ledgers\n•  medicine / pharma: EHR audit trails + clinical-trial audit logs\n•  aviation — flight data recorders (FDR/CVR) + sequential maintenance event logs\n•  nuclear / critical infrastructure — plant operational event logs / SCADA historians\n•  scientific research (code & data subsets) — versioned repositories + electronic lab-notebook audit trails",
         "createdAt": "Sun Jul 26 18:09:43 +0000 2026",
-        "replyCount": 19,
-        "retweetCount": 18,
-        "likeCount": 169,
+        "replyCount": 26,
+        "retweetCount": 40,
+        "likeCount": 416,
         "conversationId": "2081441852709093670",
         "author": {
           "username": "yoheinakajima",
@@ -1284,12 +1341,196 @@
       "createdAtLocal": "07-27 02:12 北京",
       "url": "https://x.com/yoheinakajima/status/2081442520110928177",
       "themeId": "coding",
+      "signalScore": 63,
+      "topStoryEligible": true,
+      "topStoryScore": 33,
+      "topStoryCategory": "AI 技术应用",
+      "isTopStory": false,
+      "translationZh": "历史先例："
+    },
+    {
+      "id": "2081562102016442509",
+      "text": "here’s a video on my approach at applying this to agents w @activegraphai:",
+      "createdAt": "Mon Jul 27 02:07:33 +0000 2026",
+      "replyCount": 4,
+      "retweetCount": 0,
+      "likeCount": 11,
+      "conversationId": "2081411733235863605",
+      "inReplyToStatusId": "2081442520110928177",
+      "author": {
+        "username": "yoheinakajima",
+        "name": "Yohei",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg"
+      },
+      "authorId": "30439303",
+      "quotedTweet": {
+        "id": "2080023407639556132",
+        "text": "🆕 ActiveGraph: The Log is the Agent\n\nmy talk from AI Engineer is live!!! 😆\nhttps://t.co/WP7INaH1kC\n\nit's about @activegraphai, an event-sourced graph runtime for building durable long-running agents:\n\n- what it is\n- code examples\n- experiments\n- benefits & surprises\n\nplease check it out, share with your friends who like to tinker at the frontier, and let me know if you have any Qs!",
+        "createdAt": "Wed Jul 22 20:13:20 +0000 2026",
+        "replyCount": 25,
+        "retweetCount": 22,
+        "likeCount": 168,
+        "conversationId": "2080023407639556132",
+        "author": {
+          "username": "yoheinakajima",
+          "name": "Yohei",
+          "profileImageUrl": "https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg"
+        },
+        "authorId": "30439303",
+        "media": [
+          {
+            "type": "video",
+            "url": "https://pbs.twimg.com/amplify_video_thumb/2080023005644951552/img/PqJOHlwrZAuDxyfu.jpg",
+            "width": 1952,
+            "height": 1086,
+            "previewUrl": "https://pbs.twimg.com/amplify_video_thumb/2080023005644951552/img/PqJOHlwrZAuDxyfu.jpg:small",
+            "videoUrl": "https://video.twimg.com/amplify_video/2080023005644951552/vid/avc1/1952x1086/8rX9fmRnzWz1nouo.mp4?tag=29",
+            "durationMs": 158686
+          }
+        ],
+        "translationZh": "🆕 ActiveGraph：日志就是 Agent\n\n我在 AI Engineer 的演讲上线了！！！😆\nhttps://t.co/WP7INaH1kC\n\n内容关于 @activegraphai，一个用于构建持久、长时间运行 Agent 的事件溯源图运行时：\n\n- 它是什么\n- 代码示例\n- 实验\n- 优势与惊喜\n\n欢迎看看，分享给喜欢探索前沿的朋友；如果有任何问题也请告诉我！"
+      },
+      "expert": {
+        "priority": "P1",
+        "domain": "Agent 创业公司",
+        "name": "Yohei Nakajima",
+        "role": "Untapped Capital / BabyAGI",
+        "why": "自主 Agent 早期原型和讨论源",
+        "handle": "yoheinakajima"
+      },
+      "createdAtIso": "2026-07-27T02:07:33+00:00",
+      "createdAtBeijing": "2026-07-27T10:07:33+08:00",
+      "createdAtLocal": "07-27 10:07 北京",
+      "url": "https://x.com/yoheinakajima/status/2081562102016442509",
+      "themeId": "coding",
       "signalScore": 60,
       "topStoryEligible": true,
       "topStoryScore": 31,
       "topStoryCategory": "AI 技术应用",
       "isTopStory": false,
-      "translationZh": "历史先例："
+      "translationZh": "这是一个视频，介绍我如何将这种方法应用到 agents 上，和 @activegraphai 一起："
+    },
+    {
+      "id": "2081561825968377921",
+      "text": "the paper:",
+      "createdAt": "Mon Jul 27 02:06:27 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 1,
+      "likeCount": 3,
+      "conversationId": "2080023407639556132",
+      "inReplyToStatusId": "2080023407639556132",
+      "author": {
+        "username": "yoheinakajima",
+        "name": "Yohei",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg"
+      },
+      "authorId": "30439303",
+      "quotedTweet": {
+        "id": "2057812713045377055",
+        "text": "babyagi has ~200 citations, but 0 papers... i just published my first paper on arXiv 😆\n\n\"The Log is the Agent: Event-Sourced Reactive Graphs for Auditable, Forkable Agentic Systems\"\n\nhttps://t.co/c7mbRggdCh\n\nthe case for agents that coordinate through persistent replayable state — no conversation loops, no workflows, no A2A — with auditability, forking, and causal lineage built in.\n\ncheck it out and let me know what you think!",
+        "createdAt": "Fri May 22 13:15:57 +0000 2026",
+        "replyCount": 35,
+        "retweetCount": 38,
+        "likeCount": 290,
+        "conversationId": "2057812713045377055",
+        "author": {
+          "username": "yoheinakajima",
+          "name": "Yohei",
+          "profileImageUrl": "https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg"
+        },
+        "authorId": "30439303",
+        "media": [
+          {
+            "type": "photo",
+            "url": "https://pbs.twimg.com/media/HI7RfFTbQAE8iRr.png",
+            "width": 1306,
+            "height": 1688,
+            "previewUrl": "https://pbs.twimg.com/media/HI7RfFTbQAE8iRr.png:small"
+          }
+        ],
+        "translationZh": "babyagi 有约 200 次引用，但 0 篇论文……我刚在 arXiv 上发表了我的第一篇论文 😆\n\n“The Log is the Agent: Event-Sourced Reactive Graphs for Auditable, Forkable Agentic Systems”\n\nhttps://t.co/c7mbRggdCh\n\n这篇论文论证了一种通过持久、可重放状态来协调的 agent——没有对话循环、没有工作流、没有 A2A——并内置可审计性、分叉能力和因果谱系。\n\n看看吧，也告诉我你的想法！"
+      },
+      "expert": {
+        "priority": "P1",
+        "domain": "Agent 创业公司",
+        "name": "Yohei Nakajima",
+        "role": "Untapped Capital / BabyAGI",
+        "why": "自主 Agent 早期原型和讨论源",
+        "handle": "yoheinakajima"
+      },
+      "createdAtIso": "2026-07-27T02:06:27+00:00",
+      "createdAtBeijing": "2026-07-27T10:06:27+08:00",
+      "createdAtLocal": "07-27 10:06 北京",
+      "url": "https://x.com/yoheinakajima/status/2081561825968377921",
+      "themeId": "coding",
+      "signalScore": 55,
+      "topStoryEligible": true,
+      "topStoryScore": 31,
+      "topStoryCategory": "AI 技术应用",
+      "isTopStory": false,
+      "translationZh": "论文："
+    },
+    {
+      "id": "2081563678261002339",
+      "text": "@Brzczszczkwcz i like ships 🏴‍☠️",
+      "createdAt": "Mon Jul 27 02:13:49 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2081441852709093670",
+      "inReplyToStatusId": "2081482742579986879",
+      "author": {
+        "username": "yoheinakajima",
+        "name": "Yohei",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg"
+      },
+      "authorId": "30439303",
+      "quotedTweet": {
+        "id": "2021963241413652795",
+        "text": "hahahahah i made THE sea shanty for Claude Code lovers. play it at hackathons, blast it out your window, and sing it with me:\n\n\"Ode to Claude Code\"\n\n🏴‍☠️🎶🏴‍☠️🎵🏴‍☠️🎶🏴‍☠️🎵🏴‍☠️🎶🏴‍☠️🎵 https://t.co/a69gpfqowk",
+        "createdAt": "Thu Feb 12 15:02:57 +0000 2026",
+        "replyCount": 10,
+        "retweetCount": 9,
+        "likeCount": 58,
+        "conversationId": "2021963241413652795",
+        "author": {
+          "username": "yoheinakajima",
+          "name": "Yohei",
+          "profileImageUrl": "https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg"
+        },
+        "authorId": "30439303",
+        "media": [
+          {
+            "type": "video",
+            "url": "https://pbs.twimg.com/amplify_video_thumb/2021951853857288192/img/mwAY4fC-rieGcI6G.jpg",
+            "width": 1920,
+            "height": 1080,
+            "previewUrl": "https://pbs.twimg.com/amplify_video_thumb/2021951853857288192/img/mwAY4fC-rieGcI6G.jpg:small",
+            "videoUrl": "https://video.twimg.com/amplify_video/2021951853857288192/vid/avc1/1920x1080/j9Oo5uhYLbaPMFWH.mp4?tag=21",
+            "durationMs": 141713
+          }
+        ],
+        "translationZh": "哈哈哈哈，我为 Claude Code 爱好者做了这首终极海盗船歌。在黑客松上播放它，打开窗户大声放出来，和我一起唱：\n\n《Claude Code 颂》\n\n🏴‍☠️🎶🏴‍☠️🎵🏴‍☠️🎶🏴‍☠️🎵🏴‍☠️🎶🏴‍☠️🎵 https://t.co/a69gpfqowk"
+      },
+      "expert": {
+        "priority": "P1",
+        "domain": "Agent 创业公司",
+        "name": "Yohei Nakajima",
+        "role": "Untapped Capital / BabyAGI",
+        "why": "自主 Agent 早期原型和讨论源",
+        "handle": "yoheinakajima"
+      },
+      "createdAtIso": "2026-07-27T02:13:49+00:00",
+      "createdAtBeijing": "2026-07-27T10:13:49+08:00",
+      "createdAtLocal": "07-27 10:13 北京",
+      "url": "https://x.com/yoheinakajima/status/2081563678261002339",
+      "themeId": "coding",
+      "signalScore": 49,
+      "topStoryEligible": false,
+      "topStoryScore": 14,
+      "topStoryCategory": "AI 技术进步",
+      "isTopStory": false,
+      "translationZh": "@Brzczszczkwcz 我喜欢船 🏴‍☠️"
     }
   ],
   "xHotspotSearch": {
@@ -1334,7 +1575,7 @@
         "selectedPostIds": [],
         "directionMismatches": 0,
         "attempts": 1,
-        "elapsedSeconds": 0.73,
+        "elapsedSeconds": 1.27,
         "error": null
       },
       {
@@ -1354,7 +1595,7 @@
         "selectedPostIds": [],
         "directionMismatches": 0,
         "attempts": 1,
-        "elapsedSeconds": 0.64,
+        "elapsedSeconds": 1.33,
         "error": null
       },
       {
@@ -1374,7 +1615,7 @@
         "selectedPostIds": [],
         "directionMismatches": 0,
         "attempts": 1,
-        "elapsedSeconds": 0.66,
+        "elapsedSeconds": 1.27,
         "error": null
       },
       {
@@ -1395,7 +1636,7 @@
         "selectedPostIds": [],
         "directionMismatches": 0,
         "attempts": 1,
-        "elapsedSeconds": 0.66,
+        "elapsedSeconds": 1.09,
         "error": null
       },
       {
@@ -1414,7 +1655,7 @@
         "selectedPostIds": [],
         "directionMismatches": 0,
         "attempts": 1,
-        "elapsedSeconds": 1.08,
+        "elapsedSeconds": 2.07,
         "error": null
       }
     ]
@@ -1431,9 +1672,9 @@
       "attempts": 1,
       "error": ""
     },
-    "eligibleTexts": 27,
-    "cacheHits": 22,
-    "translatedNow": 5,
+    "eligibleTexts": 26,
+    "cacheHits": 18,
+    "translatedNow": 8,
     "failed": 0,
     "coverage": 1.0,
     "degraded": false,
@@ -1445,19 +1686,19 @@
     "enabled": true,
     "authors": 17,
     "primaryAuthors": 9,
-    "quotedAuthors": 10,
-    "cacheHits": 15,
+    "quotedAuthors": 9,
+    "cacheHits": 13,
     "inlineCached": 0,
-    "profileRequestsNeeded": 2,
-    "attemptedNow": 2,
-    "fetchedNow": 2,
+    "profileRequestsNeeded": 4,
+    "attemptedNow": 4,
+    "fetchedNow": 4,
     "rateLimited": false,
     "deferredDueToRateLimit": 0,
-    "postsWithAvatar": 17,
+    "postsWithAvatar": 21,
     "coverage": 1.0,
-    "quotedPostsWithAvatar": 11,
+    "quotedPostsWithAvatar": 14,
     "quotedCoverage": 1.0,
     "errors": [],
-    "cache": "ai-v-radar/avatar-cache.json"
+    "cache": "/Users/jay/Documents/ai-coder/four-knows/ai-v-radar/avatar-cache.json"
   }
 }
