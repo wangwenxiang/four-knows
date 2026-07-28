@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>硅谷 AI 原声 · 2026-07-28</title>
+  <style>
+    :root{--bg:#f4f6f8;--surface:#fff;--text:#16181c;--muted:#65717e;--line:#dfe4e9;--accent:#0066cc;--green:#117a62;--shadow:0 16px 42px rgba(18,28,38,.08);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 15% 0,#e8f2ff 0,transparent 27%),var(--bg);color:var(--text)} a{color:inherit;text-decoration:none} button{font:inherit}
+    .shell{width:min(1500px,calc(100% - 28px));margin:0 auto;padding:14px 0 40px}
+    .hero{display:grid;grid-template-columns:minmax(250px,1fr) auto;align-items:center;gap:12px;padding:15px 18px;border:1px solid rgba(255,255,255,.75);border-radius:16px;background:rgba(255,255,255,.88);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    h1{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin:0;font-size:clamp(28px,3.4vw,44px);line-height:1;letter-spacing:-.05em} .report-date{color:var(--green);font-size:clamp(10px,1vw,13px);font-weight:900;letter-spacing:.08em;white-space:nowrap}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(62px,1fr));gap:6px;align-content:start} .metric{padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fff} .metric strong{display:block;font-size:19px;line-height:1} .metric span{display:block;margin-top:3px;color:var(--muted);font-size:8px;font-weight:820;white-space:nowrap}
+    .notice{margin-top:12px;padding:11px 14px;border:1px solid #e1b866;border-radius:12px;background:#fff8e8;color:#7a5612;font-size:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px;align-items:start} .signal-card{min-width:0;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 9px 26px rgba(18,28,38,.045)}
+    .card-top{display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:10px} .avatar{display:grid;width:46px;height:46px;overflow:hidden;place-items:center;border:1px solid #d9e0e7;border-radius:999px;background:linear-gradient(135deg,#111827,#46627d);color:#fff;font-size:12px;font-weight:900} .avatar img{width:100%;height:100%;object-fit:cover;display:block} .identity{display:grid;gap:3px;min-width:0} .identity strong,.identity span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .identity strong{font-size:14px} .identity span{color:var(--muted);font-size:11px}
+    .score{display:grid;justify-items:center;min-width:40px;padding:5px 6px;border:1px solid #e3ebe8;border-radius:8px;background:#f4f8f6;color:#527267;font-size:15px;font-weight:820;line-height:1} .score small{margin-top:2px;color:#71877f;font-size:7px;letter-spacing:.06em;text-transform:uppercase}
+    .meta{display:flex;align-items:center;gap:6px;margin:11px 0 9px;color:var(--muted);font-size:10.5px;font-weight:750} .meta span:not(.priority){overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .meta time{margin-left:auto;white-space:nowrap} .priority{padding:3px 6px;border-radius:999px;background:#111827;color:#fff;font-size:9px}
+    .post-text{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.58} .post-text.original{font-size:16px;font-weight:570;color:#20252b} .post-text.translation{margin-top:8px;color:#66727f;font-size:13px;font-weight:470;line-height:1.62} .article .original+.translation{margin-top:2px;color:#65717e;font-size:11px;font-weight:650} .quote,.article{display:grid;gap:6px;margin-top:10px;padding:11px;border:1px solid var(--line);border-radius:12px;background:#f7f9fb} .quote__author{display:flex;align-items:center;gap:7px;font-size:11px} .quote__author>div:last-child{display:grid;gap:1px} .quote__author span{color:var(--muted)} .quote-avatar{display:grid;width:28px;height:28px;overflow:hidden;place-items:center;border:1px solid var(--line);border-radius:999px;background:#dfe6ed;color:#52606d;font-size:10px;font-weight:900} .quote-avatar img{width:100%;height:100%;object-fit:cover} .quote p,.article p{margin:0;color:#4f5a66;font-size:12px;line-height:1.48;white-space:pre-wrap} .article strong{font-size:13px} .article strong.original{font-size:13.5px} .quote-text.original{font-size:12.5px;color:#36414d} .quote-text.translation{font-size:11.5px;color:#6a7682} .quote-link{justify-self:start;color:var(--accent);font-size:10px;font-weight:850}
+    .media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:10px;overflow:hidden;border-radius:12px} .media-grid--1{grid-template-columns:1fr} .media-item{position:relative;min-height:150px;background:#e8edf2} .media-item img{width:100%;height:100%;max-height:330px;object-fit:cover;display:block} .media-item span{position:absolute;right:7px;bottom:7px;padding:4px 6px;border-radius:6px;background:rgba(0,0,0,.68);color:#fff;font-size:8px;font-weight:900}
+    .card-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid #edf0f3} .engagement{display:flex;gap:10px;color:var(--muted);font-size:10.5px;font-weight:750} .card-bottom>a{color:var(--accent);font-size:11px;font-weight:850} .empty{grid-column:1/-1;padding:70px;text-align:center;border:1px dashed #cdd5dd;border-radius:16px;background:#fff;color:var(--muted)}
+    footer{padding:26px 4px 0;color:var(--muted);font-size:11px;text-align:center}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}} @media(max-width:560px){.shell{width:min(100% - 16px,1500px);padding-top:7px}.hero{gap:10px;padding:13px 14px;border-radius:15px}h1{font-size:28px}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.metric{padding:7px 9px}.metric strong{font-size:18px}.signal-card{padding:13px}.post-text.original{font-size:15px}.post-text.translation{font-size:12.5px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <h1>硅谷 AI 原声 <span class="report-date">· 2026-07-28</span></h1>
+      <div class="metrics"><div class="metric"><strong>62</strong><span>监控专家</span></div><div class="metric"><strong>13</strong><span>活跃专家</span></div><div class="metric"><strong>19</strong><span>精选原文</span></div></div>
+    </header>
+
+    <main class="grid">
+      <article class="signal-card" data-theme="models" data-priority="P0" data-expert="sama" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2046764873200394240/r7BxVezs_normal.jpg" alt="Sam Altman avatar" loading="lazy"></div>
+          <div class="identity"><strong>Sam Altman</strong><span>@sama · OpenAI / CEO</span></div>
+          <div class="score">98<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>基座模型 / OpenAI</span><time>07-28 04:02 北京</time></div>
+        <p class="post-text original" lang="auto">wrong</p><p class="post-text translation" lang="zh-CN">错了</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2007589161398583297/N6jnElE__normal.jpg" alt="Can Vardar avatar" loading="lazy"></div><div><strong>Can Vardar</strong><span>@icanvardar</span></div></div><p class="quote-text original" lang="auto">i just realized gpt-5.6 sol is literally all i need. openai could stop shipping new models tomorrow and i&#x27;d be completely fine</p><p class="quote-text translation" lang="zh-CN">我刚意识到，gpt-5.6 sol 真的就是我所需要的一切。就算 openai 明天停止发布新模型，我也完全没问题</p><a class="quote-link" href="https://x.com/icanvardar/status/2081707498919112925" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 6,267</span><span>↻ 139</span><span>↩ 618</span></div><a href="https://x.com/sama/status/2081832600591892712" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="products" data-priority="P0" data-expert="amasad" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div>
+          <div class="identity"><strong>Amjad Masad</strong><span>@amasad · Replit / CEO</span></div>
+          <div class="score">89<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 / 开发者平台</span><time>07-27 11:03 北京</time></div>
+        <p class="post-text original" lang="auto">Interesting drop from former Anthropic employee: Hackers prefer to use massively subsidized labs AI subscriptions for attacks as opposed to open models. https://t.co/gSVw9tv346</p><p class="post-text translation" lang="zh-CN">一位前 Anthropic 员工爆出的有趣消息：黑客更倾向于使用被大幅补贴的实验室 AI 订阅来发动攻击，而不是开源模型。https://t.co/gSVw9tv346</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOM-f0oa0AAgIhG.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOM-f0oa0AAgIhG.jpg" alt="X post media"><span>IMAGE</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2029684561614127104/q7_1xtL5_normal.jpg" alt="Noah Lebovic avatar" loading="lazy"></div><div><strong>Noah Lebovic</strong><span>@NoahLebovic</span></div></div><p class="quote-text original" lang="auto">I don&#x27;t think it&#x27;s a lack of imagination. I also used to work at Anthropic, think trends will continue, and used to agree with this. But I&#x27;ve changed my mind and now disagree with this take.
+
+Open models are already capable enough to do what you described. For example, I used Opus 4.6 to gain access to other folks medical records, hijack bank accounts, etc. back in February. GLM 5.1 is more capable than Opus 4.6 in most pentesting environments, and it came out in April.
+
+Despite capable open-weight models existing, the sketchier folks I know are still using a Claude Code or Codex subscription for hacking. (Even well-resourced groups in other countries! They use the grey/black market of discounted Ant/OAI subscription tokens sold through resellers.) So I see most of the materialized risk here as still coming from Anthropic and OpenAI; safeguards aren&#x27;t sufficient to stop a moderately dedicated actor.
+
+The groups I know who are using open-weight models are legitimate offensive security companies. They won&#x27;t break the rules to use subscription-based pricing, the open-weight models are more reliable in that they don&#x27;t require specific jailbreaks nor hit classifiers, and the labs use massive partnerships or spend as a prereq for lowering classifiers/safeguards. I know of three legitimate groups running GLM 5.2 as their primary model.
+
+That last part applies for Anthropic, too: I know of two instances where two different Anthropic GTM people used large comitted spend contracts as a prereq for lowering safeguards, and I directly witnessed one.
+
+On the inside, I know the narrative and intent is genuinely about safety. But from the outside, Anthropic-the-system seems to be optimizing for revenue and control/power, isn&#x27;t diffusing capabilities to defenders, and also doesn&#x27;t have adequate safeguards to prevent misuse from dedicated bad actors.
+
+As a result, I now lean towards a future where capable open models are freely available (at least for cyber, bio is harder); I don&#x27;t trust Anthropic or other frontier labs to handle this sufficiently well without diffused capabilties given what I&#x27;ve seen so far.</p><p class="quote-text translation" lang="zh-CN">我不认为这是缺乏想象力。我也曾在 Anthropic 工作，认为这些趋势会持续，并且过去也同意这个观点。但我现在改变了看法，不再认同这一判断。
+
+开源模型已经足够强大，可以完成你描述的事情。比如，今年 2 月我用 Opus 4.6 获取了他人的医疗记录、劫持银行账户等。GLM 5.1 在大多数渗透测试环境中比 Opus 4.6 更强，而且它是在 4 月发布的。
+
+尽管已有能力很强的开放权重模型，我认识的一些更可疑的人仍在用 Claude Code 或 Codex 订阅进行黑客活动。（甚至其他国家资源充足的组织也是如此！他们通过经销商购买打折 Ant/OAI 订阅 token 的灰黑市。）所以我认为这里已经显现的大部分风险仍来自 Anthropic 和 OpenAI；安全防护不足以阻止一个中等投入的行动者。
+
+我认识的使用开放权重模型的团队都是合法的进攻性安全公司。他们不会为了使用订阅制价格而违规；开放权重模型更可靠，因为它们不需要特定越狱，也不会触发分类器；而实验室通常要求大规模合作或支出，才会降低分类器/安全防护。我知道有三家合法团队把 GLM 5.2 作为主力模型。
+
+最后一点也适用于 Anthropic：我知道有两起案例，两位不同的 Anthropic GTM 人员把大额承诺支出合同作为降低安全防护的前提，其中一起我亲眼见证。
+
+在内部，我知道其叙事和意图确实是出于安全。但从外部看，Anthropic 这个系统似乎在为收入和控制/权力优化，没有把能力扩散给防御方，也没有足够的安全防护来阻止执着的恶意行为者滥用。
+
+因此，我现在更倾向于这样一种未来：强大的开放模型可以自由获得（至少在网络安全领域，生物领域更难）；基于目前所见，如果能力不能被扩散，我不信任 Anthropic 或其他前沿实验室能够足够好地处理这件事。</p><a class="quote-link" href="https://x.com/NoahLebovic/status/2081277517709922501" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 434</span><span>↻ 31</span><span>↩ 27</span></div><a href="https://x.com/amasad/status/2081576172656456076" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P1" data-expert="mustafasuleyman" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1927407622602276864/c_5uOZij_normal.jpg" alt="Mustafa Suleyman avatar" loading="lazy"></div>
+          <div class="identity"><strong>Mustafa Suleyman</strong><span>@mustafasuleyman · Microsoft AI / CEO</span></div>
+          <div class="score">80<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 产品 / 消费级 AI</span><time>07-28 00:40 北京</time></div>
+        <p class="post-text original" lang="auto">Big news! Our new MAI-Cyber-1-Flash model combined with MDASH, our multi agent security harness, delivers 96% on the CyberGym benchmark, 12pts above Mythos, at HALF the cost.
+
+Proud of the team. More details in THREAD: https://t.co/soH8AvvqHt</p><p class="post-text translation" lang="zh-CN">重大消息！我们的新 MAI-Cyber-1-Flash 模型结合多智能体安全框架 MDASH，在 CyberGym 基准上取得 96% 的成绩，比 Mythos 高 12 个百分点，成本只有一半。
+
+为团队感到自豪。更多细节见 THREAD：https://t.co/soH8AvvqHt</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOP5bL5WQAAFpMK.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOP5bL5WQAAFpMK.png" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 697</span><span>↻ 74</span><span>↩ 35</span></div><a href="https://x.com/mustafasuleyman/status/2081781833100820681" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">85<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>07-27 17:19 北京</time></div>
+        <p class="post-text original source-only" lang="auto">如果你一直想弄明白，为什么同一个模型换一套推理系统，速度、延迟和成本能差这么多，这份资料很值得收藏。
+
+Modular 最近整理了一本《LLM Inference Handbook》，从首 Token 延迟、吞吐量和显存计算，一直讲到模型与 GPU 选择、量化、连续批处理、KV Cache、投机解码、Prefill/Decode 分离和分布式部署。
+
+里面还有不少可以直接操作的可视化工具：你可以计算不同模型需要多少显存，观察上下文变长后 KV Cache 怎样持续膨胀，也能更直观地理解为什么并发一上来，系统瓶颈往往会迅速转移。
+
+很多 AI Demo 单用户跑起来很快，到了真实产品里，却会被排队延迟、显存占用和长上下文拖垮。难的是在延迟、吞吐量、稳定性和成本之间找到平衡。
+
+模型能力决定产品能做到什么，推理基础设施决定它能不能稳定、便宜地服务大量用户。
+
+https://t.co/9NqiC9L4A1</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 358</span><span>↻ 76</span><span>↩ 20</span></div><a href="https://x.com/Xudong07452910/status/2081670679649554845" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">80<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>07-27 11:30 北京</time></div>
+        <p class="post-text original source-only" lang="auto">Deep Research 一旦同时遇到「深挖」和「广搜」，固定的任务拆分很快就不够用了。
+
+这篇论文提出 WebSwarm，让多 Agent 的分工随着搜索证据逐步展开。
+
+每个搜索节点都有自己的目标和工作模式，可以直接解决当前问题，也可以继续创建子节点。新的证据返回后，上层 Agent 再决定继续扩展、调整方向，或者汇总结果。
+
+它还会先观察信息在网页上是集中还是分散，再决定怎么拆任务；处理一批相似子任务时，前几个 Agent 找到的可靠来源和无效路径，也会传给后面的 Agent。
+
+实验中，WebSwarm 在四项复杂搜索评测上都超过了单 Agent 和多 Agent 基线。以 GLM-4.5 为底座，BrowseComp-Plus 准确率从 50.5 提升到 68.0，DeepWideSearch 的 Item F1 从 46.63 提升到 58.40。
+
+这项工作把多 Agent 搜索从「提前分好工」，推进到了「边搜边组织」。
+
+复杂问题的结构，很多时候要看到中间证据后才会真正显现。
+
+对于更强的 Deep Research，可能需要一边寻找答案，一边重新决定该由谁继续找、往哪里找。
+
+📎 arxiv: https://t.co/X0fZpX3xmO</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOMHihkXYAAT1qv.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOMHihkXYAAT1qv.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 55</span><span>↻ 13</span><span>↩ 8</span></div><a href="https://x.com/Xudong07452910/status/2081582852282483002" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">78<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>07-27 12:20 北京</time></div>
+        <p class="post-text original source-only" lang="auto">王虹的个人网站做的真实朴实无华呀。
+
+对人很友好，对 Agent 来说也很省Token。
+
+https://t.co/qdq0HQJrDb https://t.co/Q6ERmPr7IN</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOMf6AlXwAAX4e_.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOMf6AlXwAAX4e_.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 60</span><span>↻ 5</span><span>↩ 31</span></div><a href="https://x.com/Xudong07452910/status/2081595433537954104" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="products" data-priority="P0" data-expert="aravsrinivas" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2028729526822588416/WhtMUI-P_normal.jpg" alt="Aravind Srinivas avatar" loading="lazy"></div>
+          <div class="identity"><strong>Aravind Srinivas</strong><span>@AravSrinivas · Perplexity / CEO</span></div>
+          <div class="score">84<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 搜索 / 产品</span><time>07-27 22:37 北京</time></div>
+        <p class="post-text original" lang="auto">Good observations</p><p class="post-text translation" lang="zh-CN">观察得很好</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1350371022067781634/0mw7Irfk_normal.jpg" alt="Grady Booch avatar" loading="lazy"></div><div><strong>Grady Booch</strong><span>@Grady_Booch</span></div></div><p class="quote-text original" lang="auto">In the fullness of time, LLMs will eventually become commodities and their price will be a race to the bottom. As the competitive advantage of one LLM over another shrinks - particularly as open source models expand - the value proposition will turn to the neuro/symbolic harnesses that use those models, structures that encompass agents, agent orchestration, tooling, and component plugins. Even those from frontier AI organizations will fall to open source frameworks. The last thing standing will be those who command the data centers on which these things run, and even then, that will become a commodity, with the number of players shrinking to just a few survivors. They too will find pressure: as computational power rises, more and more such systems will be run locally.</p><p class="quote-text translation" lang="zh-CN">假以时日，LLM 终将成为商品，价格也会一路探底。随着不同 LLM 之间的竞争优势缩小，尤其是在开源模型不断扩张的情况下，价值主张将转向使用这些模型的神经/符号框架，也就是涵盖智能体、智能体编排、工具和组件插件的结构。即便是前沿 AI 组织推出的这些东西，也会被开源框架追上。最后站稳脚跟的，将是掌控运行这些系统的数据中心的人；但即便如此，这也会变成商品化领域，玩家数量会缩减到少数幸存者。他们同样会面临压力：随着算力提升，越来越多这样的系统会在本地运行。</p><a class="quote-link" href="https://x.com/Grady_Booch/status/2081327611817423355" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 281</span><span>↻ 12</span><span>↩ 10</span></div><a href="https://x.com/AravSrinivas/status/2081750922745827653" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P0" data-expert="ilyasut" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1961115716889030656/We74zmE-_normal.jpg" alt="Ilya Sutskever avatar" loading="lazy"></div>
+          <div class="identity"><strong>Ilya Sutskever</strong><span>@ilyasut · Safe Superintelligence / 联合创始人</span></div>
+          <div class="score">88<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 安全 / 研究</span><time>07-27 21:23 北京</time></div>
+        <p class="post-text original" lang="auto">Time to scale that SSI:</p><p class="post-text translation" lang="zh-CN">是时候扩展 SSI 了：</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1803243852951855104/qamjjZ2a_normal.jpg" alt="SSI Inc. avatar" loading="lazy"></div><div><strong>SSI Inc.</strong><span>@ssi</span></div></div><p class="quote-text original" lang="auto">We are announcing a long-term strategic partnership with NVIDIA. NVIDIA is making a substantial investment in SSI that will let us 10x our compute in the next 12 months. We reached the point where our research is worth scaling and with this partnership we will be able to. We are honored by NVIDIA’s conviction.</p><p class="quote-text translation" lang="zh-CN">我们宣布与 NVIDIA 建立长期战略合作伙伴关系。NVIDIA 将对 SSI 进行重大投资，使我们在未来 12 个月内将算力提升 10 倍。我们的研究已经到了值得规模化的阶段，而通过这项合作，我们将能够实现这一点。我们很荣幸获得 NVIDIA 的坚定支持。</p><a class="quote-link" href="https://x.com/ssi/status/2081732119194394763" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 11,175</span><span>↻ 817</span><span>↩ 483</span></div><a href="https://x.com/ilyasut/status/2081732293161582930" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="ken_goldberg" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1432180197818703873/PGutjinG_normal.jpg" alt="Ken Goldberg avatar" loading="lazy"></div>
+          <div class="identity"><strong>Ken Goldberg</strong><span>@Ken_Goldberg · 权威机器人研究者</span></div>
+          <div class="score">63<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>机器人与自动化</span><time>07-28 00:49 北京</time></div>
+        <p class="post-text original" lang="auto">Robot grasping with inherent uncertainty:  Dex-Net in 60 seconds ;)   https://t.co/ULu4LlEyLp via @ieeeras @ieee_ras_icra</p><p class="post-text translation" lang="zh-CN">存在固有不确定性的机器人抓取：60 秒了解 Dex-Net ;) https://t.co/ULu4LlEyLp via @ieeeras @ieee_ras_icra</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 8</span><span>↻ 1</span><span>↩ 0</span></div><a href="https://x.com/Ken_Goldberg/status/2081784163561353240" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P1" data-expert="fchollet" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2006806326140350470/Kd5oZv-f_normal.jpg" alt="Francois Chollet avatar" loading="lazy"></div>
+          <div class="identity"><strong>Francois Chollet</strong><span>@fchollet · ARC Prize；Keras 作者</span></div>
+          <div class="score">73<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 研究 / 评测</span><time>07-28 04:16 北京</time></div>
+        <p class="post-text original" lang="auto">In science, you have to report the experiments that didn&#x27;t work, not just the ones that did. Same with AI. (I wish.)</p><p class="post-text translation" lang="zh-CN">在科学中，你必须报告那些没有成功的实验，而不只是成功的实验。AI 也一样。（但愿如此。）</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 546</span><span>↻ 38</span><span>↩ 51</span></div><a href="https://x.com/fchollet/status/2081836094044168339" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P1" data-expert="fchollet" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2006806326140350470/Kd5oZv-f_normal.jpg" alt="Francois Chollet avatar" loading="lazy"></div>
+          <div class="identity"><strong>Francois Chollet</strong><span>@fchollet · ARC Prize；Keras 作者</span></div>
+          <div class="score">66<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 研究 / 评测</span><time>07-27 23:58 北京</time></div>
+        <p class="post-text original" lang="auto">One of the least explored questions in AI is how to build rich open-ended environments for learning. Benchmarks evaluate intelligence, environments shape it.
+
+iLands is interesting because it doesn&#x27;t just measure agents by how much money they make, it forces them to survive in a living market. Whether that produces qualitatively different forms of adaptation is an open question -- but it’s exactly the kind of experiment the field needs more of.</p><p class="post-text translation" lang="zh-CN">AI 中最少被探索的问题之一，是如何构建丰富、开放式的学习环境。基准测试评估智能，而环境塑造智能。
+
+iLands 有意思之处在于，它不只是按智能体赚了多少钱来衡量它们，而是迫使它们在一个活跃市场中生存下来。这是否会产生性质上不同的适应形式仍是开放问题，但这正是该领域更需要的那类实验。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 50</span><span>↻ 7</span><span>↩ 12</span></div><a href="https://x.com/fchollet/status/2081771295734173931" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">64<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>07-28 06:40 北京</time></div>
+        <p class="post-text original" lang="auto">Coding harnesses are super sticky
+
+Trying to pass an open weights model into a closed harness is not smooth
+
+I tried using K3 with Codex Desktop.  Big mistake LOL</p><p class="post-text translation" lang="zh-CN">编程 harness 的粘性非常强
+
+想把一个开放权重模型接入封闭 harness 并不顺畅
+
+我试过把 K3 用在 Codex Desktop 里。大错特错 LOL</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 68</span><span>↻ 1</span><span>↩ 23</span></div><a href="https://x.com/HamelHusain/status/2081872449629831268" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="swyx" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx avatar" loading="lazy"></div>
+          <div class="identity"><strong>swyx</strong><span>@swyx · Latent Space / AI Engineer</span></div>
+          <div class="score">72<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 工作流</span><time>07-28 01:52 北京</time></div>
+        <p class="post-text original" lang="auto">first &quot;100k views in 4 days&quot; since @trq212&#x27;s keynote. especially hard to achieve s.t. no biglab boost, no hypey buzzword bingo.
+
+just a useful concept, presented well, that will stand the test of time.
+
+always glad to see these show up in our CFPs. usually this early traction is a good predictor that @coyle_frankp  will join our rare ranks of &gt;1M view speakers.
+
+We&#x27;ve got more professors coming - I&#x27;m excited for @JohnOusterhout&#x27;s keynote! increasingly like the idea of leaning on youtubers and professors as keynoters for industry conferences as 1) they obviously speak for a living so are good at it, 2) they dont have obvious bias for a single specific startup to sell you on (usually), 3) they can condense years of thinking/already public output into a concise talk for you to rabbithole on further if the keynote interests you (others are not nearly as public)</p><p class="post-text translation" lang="zh-CN">自 @trq212 的 keynote 以来，第一次“4 天 10 万浏览”。尤其难得的是没有大实验室加持，也没有炒作式流行词堆砌。
+
+只是一个有用的概念，讲得很好，而且会经得起时间考验。
+
+总是很高兴在我们的 CFP 里看到这类内容。通常这种早期热度是一个很好的信号，说明 @coyle_frankp 会加入我们少数浏览量超过 100 万的演讲者行列。
+
+我们还会邀请更多教授来，我很期待 @JohnOusterhout 的 keynote！我越来越喜欢让 YouTuber 和教授担任行业会议 keynote 嘉宾，因为 1）他们显然靠讲话为生，所以很擅长；2）他们通常没有明显偏向某一家特定初创公司的销售动机；3）他们能把多年思考和已公开输出浓缩成一场简洁演讲，如果 keynote 让你感兴趣，你还可以继续深入挖掘（其他人远没这么公开）</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1669807115815493633/4MFvljkc_normal.png" alt="AI Engineer avatar" loading="lazy"></div><div><strong>AI Engineer</strong><span>@aiDotEngineer</span></div></div><p class="quote-text original" lang="auto">✨ontologies✨
+
+thanks Prof @coyle_frankp, @emileifrem, Jesús Barrasa, @steveonjava et al for reintroducing these concepts to the AI Engineering world https://t.co/TCTRlnuGOL</p><p class="quote-text translation" lang="zh-CN">✨本体论✨
+
+感谢 Prof @coyle_frankp、@emileifrem、Jesús Barrasa、@steveonjava 等人把这些概念重新带回 AI Engineering 世界 https://t.co/TCTRlnuGOL</p><div class="media-grid media-grid--3"><a class="media-item" href="https://pbs.twimg.com/media/HOQHM1xbcAAx9rV.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOQHM1xbcAAx9rV.png" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HOQHfCObYAANssY.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOQHfCObYAANssY.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HOQHjMybgAACdYf.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOQHjMybgAACdYf.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/aiDotEngineer/status/2081797702170636513" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 98</span><span>↻ 2</span><span>↩ 13</span></div><a href="https://x.com/swyx/status/2081799957607305496" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="swyx" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx avatar" loading="lazy"></div>
+          <div class="identity"><strong>swyx</strong><span>@swyx · Latent Space / AI Engineer</span></div>
+          <div class="score">66<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 工作流</span><time>07-28 07:54 北京</time></div>
+        <p class="post-text original" lang="auto">as the progenitor of the agent lab thesis which got the evals/routing/interactivity/ROI focus right
+
+ i gotta say the biggest argument against myself is that Claude Code got accidentally &quot;open sourced&quot; this year and approximately ~nothing happened to either it or its competitors&#x27; roadmaps</p><p class="post-text translation" lang="zh-CN">作为“智能体实验室”论点的提出者，我当时准确抓住了评测、路由、交互性和 ROI 这些重点。
+
+但我必须说，反驳我自己的最大论据是：Claude Code 今年意外被“开源”了，而它或其竞争对手的路线图几乎没有受到任何影响。</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HORcmDpagAAVsLV.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HORcmDpagAAVsLV.png" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 21</span><span>↻ 1</span><span>↩ 11</span></div><a href="https://x.com/swyx/status/2081890955070980416" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="infra" data-priority="P1" data-expert="swyx" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx avatar" loading="lazy"></div>
+          <div class="identity"><strong>swyx</strong><span>@swyx · Latent Space / AI Engineer</span></div>
+          <div class="score">63<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 工作流</span><time>07-28 08:47 北京</time></div>
+        <p class="post-text original" lang="auto">incidentally, $ per input/output tokens died as a relevant cost measure sometime last year
+
+if you haven’t updated your x axes to $/task per @ArtificialAnlys then idk if you can be taken seriously anymore these days</p><p class="post-text translation" lang="zh-CN">顺便说一句，按输入/输出 token 计价作为相关成本指标，大概在去年某个时候就已经过时了。
+
+如果你还没按 @ArtificialAnlys 的说法把 x 轴更新为 $/task，那我不知道现在还能不能认真看待你的分析。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1532735511953035270/1AwnrbP7_normal.jpg" alt="Justin Schroeder avatar" loading="lazy"></div><div><strong>Justin Schroeder</strong><span>@jpschroeder</span></div></div><p class="quote-text original" lang="auto">This chart says so much....
+
+- Literally the exact same prompt.
+- All long horizon one-shots.
+- Totally reflects real-world experience. https://t.co/sbFyHEfYSb</p><p class="quote-text translation" lang="zh-CN">这张图说明了太多……
+
+- 完全相同的 prompt。
+- 全都是长周期一次性任务。
+- 完全反映真实世界体验。https://t.co/sbFyHEfYSb</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOPdyNeW0AA_WYq.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOPdyNeW0AA_WYq.png" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/jpschroeder/status/2081751862768717956" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 17</span><span>↻ 1</span><span>↩ 10</span></div><a href="https://x.com/swyx/status/2081904230768816487" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="yoheinakajima" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
+          <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
+          <div class="score">70<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>07-27 22:01 北京</time></div>
+        <p class="post-text original" lang="auto">What the Brain Knows About Long-Running Agents</p><p class="post-text translation" lang="zh-CN">大脑对长时间运行的 Agent 知道些什么</p>
+        <div class="article"><strong class="original" lang="auto">What the Brain Knows About Long-Running Agents</strong><strong class="translation" lang="zh-CN">大脑对长时间运行的 Agent 知道些什么</strong><p class="article-text original" lang="auto">A frozen model is a cortex. The hard part is the organ that decides what the cortex learns.
+
+For a couple of years we&#x27;ve been building the same thing: a harness. We wrap the model in scaffolding.</p><p class="article-text translation" lang="zh-CN">冻结的模型就是皮层。难点在于那个决定皮层学习什么的器官。
+
+过去几年，我们一直在构建同一种东西：一个 harness。我们用脚手架把模型包起来。</p></div>
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 123</span><span>↻ 7</span><span>↩ 14</span></div><a href="https://x.com/yoheinakajima/status/2081741659260477666" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="yoheinakajima" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
+          <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
+          <div class="score">68<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>07-27 22:15 北京</time></div>
+        <p class="post-text original" lang="auto">your hippocampus fast-captures events (logs) that are computed on to hold a current state, and through selective replays, pulls some of this slowly into the cortex (model), which then feeds new priors back into the computations</p><p class="post-text translation" lang="zh-CN">你的海马体会快速捕获事件（日志），这些事件经过计算后用于维持当前状态；并通过选择性回放，把其中一部分缓慢写入皮层（模型），再由皮层把新的先验反馈回这些计算中</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei avatar" loading="lazy"></div><div><strong>Yohei</strong><span>@yoheinakajima</span></div></div><p class="quote-text original" lang="auto">What the Brain Knows About Long-Running Agents</p><p class="quote-text translation" lang="zh-CN">大脑对长时间运行的 Agent 知道些什么</p><div class="article"><strong class="original" lang="auto">What the Brain Knows About Long-Running Agents</strong><strong class="translation" lang="zh-CN">大脑对长时间运行的 Agent 知道些什么</strong><p class="article-text original" lang="auto">A frozen model is a cortex. The hard part is the organ that decides what the cortex learns.
+
+For a couple of years we&#x27;ve been building the same thing: a harness. We wrap the model in scaffolding.</p><p class="article-text translation" lang="zh-CN">冻结的模型就是皮层。难点在于那个决定皮层学习什么的器官。
+
+过去几年，我们一直在构建同一种东西：一个 harness。我们用脚手架把模型包起来。</p></div><a class="quote-link" href="https://x.com/yoheinakajima/status/2081741659260477666" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 70</span><span>↻ 5</span><span>↩ 8</span></div><a href="https://x.com/yoheinakajima/status/2081745247265313148" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="joaomdmoura" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1993772444268810240/FPCMce3S_normal.jpg" alt="Joao Moura avatar" loading="lazy"></div>
+          <div class="identity"><strong>Joao Moura</strong><span>@joaomdmoura · CrewAI / 创始人兼 CEO</span></div>
+          <div class="score">52<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 框架</span><time>07-28 06:18 北京</time></div>
+        <p class="post-text original" lang="auto">Congratz to the winners!!</p><p class="post-text translation" lang="zh-CN">恭喜获奖者！！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2072894551824769024/e3EYv_cF_normal.jpg" alt="ALI AMJAD avatar" loading="lazy"></div><div><strong>ALI AMJAD</strong><span>@AliAmjad52114</span></div></div><p class="quote-text original" lang="auto">Day 83 — Won 2nd place at the CrewAI Hackathon 🥈
+
+We built Root — it turns one employee onboarding ticket into a complete, agent-driven service desk workflow.
+
+CrewAI agents validate the request, propose identity details, match the right role, review access, check licenses &amp; cost, apply security policies, create the service requests, and route them to the right teams.
+
+The product was cool.
+The team story was even better.
+At 12:51 AM I called Zubair Zafar and convinced him to join me instead of another hackathon.
+He showed up 30 minutes early.
+
+Around 10 AM Kaushik Sivakumar walked in.
+I just said: “You’re on my team.”
+Later Arya Mishra appeared out of nowhere.
+Same line: “You’re on my team.”
+
+Arya crushed UI/UX + presentation.
+Zubair shaped the product story.
+Kaushik handled the technical foundation.
+I was just the Chief Unblocker Officer.
+After 4.5 hours together I already knew this team was going to rock.
+And they did — 2nd place.
+
+Hackathons aren’t just about ideas.
+They’re about finding the right people, trusting them fast, and creating the conditions where everyone can do their best work.
+@EKundro Chelsea Soldan Bryan Wood Tan Chau Hoang Matt Aitchison Helen Wu @ossamaalami @joaomdmoura Hayden Lam Jack DeGroat Guled Duale Ethan Kaplan Jenna Kremchek @renatonitta
+@tttiana @jesse_miller Kirk Marty Elliott A. Beckstrom Simone Barreto
+@boyarskiBrandon &quot;Gus&quot; Compher Daniel Henrique Minella
+Sumeru &#x27;Sumo&#x27; Chatterjee Tom Brooks @lorenzejay Patrick Thompson Ryan Marcoux Alana Gomes Jason Trueblood Sabrina Nunes Cillian Bane
+
+@crewAIInc</p><p class="quote-text translation" lang="zh-CN">第 83 天 — 在 CrewAI Hackathon 中获得第二名 🥈
+
+我们构建了 Root，它能把一张员工入职工单转化为完整的、由 agent 驱动的服务台工作流。
+
+CrewAI agents 会验证请求、提出身份信息、匹配合适角色、审核访问权限、检查许可证和成本、应用安全策略、创建服务请求，并将其路由给合适的团队。
+
+产品很酷。
+团队故事更精彩。
+凌晨 12:51，我打电话给 Zubair Zafar，说服他加入我，而不是去参加另一个黑客松。
+他提前 30 分钟到了。
+
+上午 10 点左右，Kaushik Sivakumar 走了进来。
+我只说了一句：“你加入我的团队。”
+后来 Arya Mishra 不知从哪儿冒了出来。
+还是同一句：“你加入我的团队。”
+
+Arya 搞定了 UI/UX 和演示。
+Zubair 打磨了产品故事。
+Kaushik 负责技术基础。
+我只是首席排障官。
+一起工作 4.5 小时后，我就知道这个团队会很强。
+他们也确实做到了 — 第二名。
+
+黑客松不只是关于创意。
+它关乎找到合适的人，快速信任他们，并创造条件让每个人都能发挥出最佳水平。
+@EKundro Chelsea Soldan Bryan Wood Tan Chau Hoang Matt Aitchison Helen Wu @ossamaalami @joaomdmoura Hayden Lam Jack DeGroat Guled Duale Ethan Kaplan Jenna Kremchek @renatonitta
+@tttiana @jesse_miller Kirk Marty Elliott A. Beckstrom Simone Barreto
+@boyarskiBrandon &quot;Gus&quot; Compher Daniel Henrique Minella
+Sumeru &#x27;Sumo&#x27; Chatterjee Tom Brooks @lorenzejay Patrick Thompson Ryan Marcoux Alana Gomes Jason Trueblood Sabrina Nunes Cillian Bane
+
+@crewAIInc</p><div class="media-grid media-grid--3"><a class="media-item" href="https://pbs.twimg.com/media/HONwLgsaMAASsUE.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HONwLgsaMAASsUE.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HONwLgsbwAAJLKt.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HONwLgsbwAAJLKt.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HONwLgubUAAXAow.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HONwLgubUAAXAow.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/AliAmjad52114/status/2081631270681915838" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 1</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/joaomdmoura/status/2081866897667309635" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="products" data-priority="P1" data-expert="c_valenzuelab" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2070496516893229056/bm-CWE5N_normal.jpg" alt="Cristobal Valenzuela avatar" loading="lazy"></div>
+          <div class="identity"><strong>Cristobal Valenzuela</strong><span>@c_valenzuelab · Runway / 联合创始人兼 CEO</span></div>
+          <div class="score">68<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>生成式视频</span><time>07-28 07:40 北京</time></div>
+        <p class="post-text original" lang="auto">In the prehistoric days of 2018, we incorporated the company as Runway AI, but could not afford to buy the domain runway dot com. Since the field was still mostly called machine learning back then, we picked up https://t.co/WINBiXLCsz, which eventually became the company’s name in the beginning.
+
+A few years ago, we dropped the “ML” and became simply Runway. But there was still one missing piece. The domain runway dot com
+
+Well, today is the day. After 8 years.
+
+Runway is now https://t.co/qnzwgas1H3</p><p class="post-text translation" lang="zh-CN">早在 2018 年的“史前时代”，我们把公司注册为 Runway AI，但买不起 runway dot com 这个域名。由于当时这个领域大多还被称为机器学习，我们买下了 https://t.co/WINBiXLCsz，后来它一开始也成了公司的名字。
+
+几年前，我们去掉了“ML”，变成了简单的 Runway。但仍然缺少最后一块拼图：runway dot com 这个域名。
+
+今天就是这一天。历经 8 年。
+
+Runway 现在是 https://t.co/qnzwgas1H3</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 95</span><span>↻ 6</span><span>↩ 15</span></div><a href="https://x.com/c_valenzuelab/status/2081887582737125592" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+    </main>
+    <footer>Generated 2026-07-28 10:00:17 Asia/Shanghai · Read-only X ingestion via Bird · Translation via Codex</footer>
+  </div>
+</body>
+</html>
