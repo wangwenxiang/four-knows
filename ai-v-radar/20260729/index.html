@@ -1,0 +1,884 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>硅谷 AI 原声 · 2026-07-29</title>
+  <style>
+    :root{--bg:#f4f6f8;--surface:#fff;--text:#16181c;--muted:#65717e;--line:#dfe4e9;--accent:#0066cc;--green:#117a62;--shadow:0 16px 42px rgba(18,28,38,.08);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 15% 0,#e8f2ff 0,transparent 27%),var(--bg);color:var(--text)} a{color:inherit;text-decoration:none} button{font:inherit}
+    .shell{width:min(1500px,calc(100% - 28px));margin:0 auto;padding:14px 0 40px}
+    .hero{display:grid;grid-template-columns:minmax(250px,1fr) auto;align-items:center;gap:12px;padding:15px 18px;border:1px solid rgba(255,255,255,.75);border-radius:16px;background:rgba(255,255,255,.88);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    h1{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin:0;font-size:clamp(28px,3.4vw,44px);line-height:1;letter-spacing:-.05em} .report-date{color:var(--green);font-size:clamp(10px,1vw,13px);font-weight:900;letter-spacing:.08em;white-space:nowrap}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(62px,1fr));gap:6px;align-content:start} .metric{padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fff} .metric strong{display:block;font-size:19px;line-height:1} .metric span{display:block;margin-top:3px;color:var(--muted);font-size:8px;font-weight:820;white-space:nowrap}
+    .notice{margin-top:12px;padding:11px 14px;border:1px solid #e1b866;border-radius:12px;background:#fff8e8;color:#7a5612;font-size:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px;align-items:start} .signal-card{min-width:0;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 9px 26px rgba(18,28,38,.045)}
+    .card-top{display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:10px} .avatar{display:grid;width:46px;height:46px;overflow:hidden;place-items:center;border:1px solid #d9e0e7;border-radius:999px;background:linear-gradient(135deg,#111827,#46627d);color:#fff;font-size:12px;font-weight:900} .avatar img{width:100%;height:100%;object-fit:cover;display:block} .identity{display:grid;gap:3px;min-width:0} .identity strong,.identity span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .identity strong{font-size:14px} .identity span{color:var(--muted);font-size:11px}
+    .score{display:grid;justify-items:center;min-width:40px;padding:5px 6px;border:1px solid #e3ebe8;border-radius:8px;background:#f4f8f6;color:#527267;font-size:15px;font-weight:820;line-height:1} .score small{margin-top:2px;color:#71877f;font-size:7px;letter-spacing:.06em;text-transform:uppercase}
+    .meta{display:flex;align-items:center;gap:6px;margin:11px 0 9px;color:var(--muted);font-size:10.5px;font-weight:750} .meta span:not(.priority){overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .meta time{margin-left:auto;white-space:nowrap} .priority{padding:3px 6px;border-radius:999px;background:#111827;color:#fff;font-size:9px}
+    .post-text{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.58} .post-text.original{font-size:16px;font-weight:570;color:#20252b} .post-text.translation{margin-top:8px;color:#66727f;font-size:13px;font-weight:470;line-height:1.62} .article .original+.translation{margin-top:2px;color:#65717e;font-size:11px;font-weight:650} .quote,.article{display:grid;gap:6px;margin-top:10px;padding:11px;border:1px solid var(--line);border-radius:12px;background:#f7f9fb} .quote__author{display:flex;align-items:center;gap:7px;font-size:11px} .quote__author>div:last-child{display:grid;gap:1px} .quote__author span{color:var(--muted)} .quote-avatar{display:grid;width:28px;height:28px;overflow:hidden;place-items:center;border:1px solid var(--line);border-radius:999px;background:#dfe6ed;color:#52606d;font-size:10px;font-weight:900} .quote-avatar img{width:100%;height:100%;object-fit:cover} .quote p,.article p{margin:0;color:#4f5a66;font-size:12px;line-height:1.48;white-space:pre-wrap} .article strong{font-size:13px} .article strong.original{font-size:13.5px} .quote-text.original{font-size:12.5px;color:#36414d} .quote-text.translation{font-size:11.5px;color:#6a7682} .quote-link{justify-self:start;color:var(--accent);font-size:10px;font-weight:850}
+    .media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:10px;overflow:hidden;border-radius:12px} .media-grid--1{grid-template-columns:1fr} .media-item{position:relative;min-height:150px;background:#e8edf2} .media-item img{width:100%;height:100%;max-height:330px;object-fit:cover;display:block} .media-item span{position:absolute;right:7px;bottom:7px;padding:4px 6px;border-radius:6px;background:rgba(0,0,0,.68);color:#fff;font-size:8px;font-weight:900}
+    .card-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid #edf0f3} .engagement{display:flex;gap:10px;color:var(--muted);font-size:10.5px;font-weight:750} .card-bottom>a{color:var(--accent);font-size:11px;font-weight:850} .empty{grid-column:1/-1;padding:70px;text-align:center;border:1px dashed #cdd5dd;border-radius:16px;background:#fff;color:var(--muted)}
+    footer{padding:26px 4px 0;color:var(--muted);font-size:11px;text-align:center}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}} @media(max-width:560px){.shell{width:min(100% - 16px,1500px);padding-top:7px}.hero{gap:10px;padding:13px 14px;border-radius:15px}h1{font-size:28px}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.metric{padding:7px 9px}.metric strong{font-size:18px}.signal-card{padding:13px}.post-text.original{font-size:15px}.post-text.translation{font-size:12.5px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <h1>硅谷 AI 原声 <span class="report-date">· 2026-07-29</span></h1>
+      <div class="metrics"><div class="metric"><strong>62</strong><span>监控专家</span></div><div class="metric"><strong>15</strong><span>活跃专家</span></div><div class="metric"><strong>32</strong><span>精选原文</span></div></div>
+    </header>
+
+    <main class="grid">
+      <article class="signal-card" data-theme="models" data-priority="P0" data-expert="amasad" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div>
+          <div class="identity"><strong>Amjad Masad</strong><span>@amasad · Replit / CEO</span></div>
+          <div class="score">88<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 / 开发者平台</span><time>07-28 16:48 北京</time></div>
+        <p class="post-text original" lang="auto">I bet it’s more or less an LLM</p><p class="post-text translation" lang="zh-CN">我敢说它多半就是一个 LLM</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1921625539938222082/9bFPHCIL_normal.jpg" alt="imjustnewatai avatar" loading="lazy"></div><div><strong>imjustnewatai</strong><span>@imjustnewatai</span></div></div><p class="quote-text original" lang="auto">i think we finally have enough clues to reverse-engineer ilya sutskever’s secret SSI research.
+
+my highest-probability guess: SSI has found a brain-inspired way to make an AI continually learn.
+
+today’s frontier models learn mostly during training. afterward, their core knowledge is largely frozen. they consume enormous datasets and still fail strangely when a problem falls outside their training.
+
+SSI may have an early system that can:
+
+• learn a new skill from very few experiences
+• recognize when an approach is failing before reaching the final answer
+• update itself without erasing old skills
+• transfer one lesson into completely different problems
+• keep learning after deployment
+
+think of it like a gifted teenager instead of a finished encyclopedia. it may not begin knowing every profession, but it could rapidly learn any profession.
+
+the evidence lines up almost too cleanly:
+
+ilya called poor generalization the fundamental limitation of current AI. models “generalize dramatically worse than people.”
+he described SSI’s target as a “superintelligent 15-year-old” capable of learning any job.
+when asked how to create human-like learning, he said there is a machine-learning principle he has opinions about but cannot discuss publicly.
+WSJ now reports that SSI’s secret research focuses on “overlooked aspects of how the human brain functions.”
+Nvidia received rare access to the research, made a substantial investment, gave SSI 10x more compute, and agreed to let SSI help shape future computing platforms.
+
+my technical guess:
+
+experience → internal judgment → self-correction → durable learning → transfer → repeat
+
+the internal judgment may be the brain-inspired component.
+
+humans do not wait until the end of a 10,000-step task to know they are failing. emotions, intuition and judgment provide constant feedback. ilya has argued that AI needs an equivalent internal “value function.”
+
+this could also explain SSI’s central promise: capability and safety trained together.
+
+the same mechanism that teaches the AI what works may also teach it what it should care about.
+
+my confidence is roughly 70% on human-like generalization plus continual learning, and 40% that an internal value system is the central mechanism.
+
+the simplest description:
+
+an AI whose intelligence compounds from experience, with its values learning inside the same loop.</p><p class="quote-text translation" lang="zh-CN">我认为我们终于有足够线索，可以逆向推断 ilya sutskever 的秘密 SSI 研究。
+
+我认为最有可能的是：SSI 找到了一种受大脑启发的方法，让 AI 能持续学习。
+
+如今的前沿模型主要在训练阶段学习。之后，它们的核心知识基本被冻结。它们消耗海量数据集，但当问题超出训练范围时，仍会以奇怪的方式失败。
+
+SSI 可能已有一个早期系统，能够：
+
+• 从极少经验中学会新技能
+• 在得到最终答案前识别出某种方法正在失败
+• 在不抹掉旧技能的情况下更新自身
+• 将一个经验迁移到完全不同的问题中
+• 在部署后继续学习
+
+可以把它想象成一个天赋很高的青少年，而不是一本完成版百科全书。它一开始未必懂每个职业，但可以快速学会任何职业。
+
+证据几乎严丝合缝：
+
+ilya 称泛化能力差是当前 AI 的根本局限。模型“泛化能力远不如人类”。
+他把 SSI 的目标描述为一个能够学习任何工作的“15 岁超智能体”。
+当被问到如何创造类人学习能力时，他说有一个机器学习原则，他有自己的看法，但不能公开讨论。
+WSJ 现在报道称，SSI 的秘密研究聚焦于“人类大脑运行方式中被忽视的方面”。
+Nvidia 获得了罕见的研究访问权限，进行了大额投资，为 SSI 提供了 10 倍算力，并同意让 SSI 参与塑造未来计算平台。
+
+我的技术猜测是：
+
+经验 → 内部判断 → 自我纠正 → 持久学习 → 迁移 → 重复
+
+其中，内部判断可能就是受大脑启发的部分。
+
+人类不会等到一个 10,000 步任务结束才知道自己正在失败。情绪、直觉和判断会提供持续反馈。ilya 曾认为，AI 需要一种等价的内部“价值函数”。
+
+这也可以解释 SSI 的核心承诺：能力与安全一起训练。
+
+教会 AI 什么有效的同一机制，也可能教会它应该在乎什么。
+
+我对类人泛化加持续学习的信心大约是 70%，对内部价值系统是核心机制的信心是 40%。
+
+最简单的描述是：
+
+一种智能会从经验中复利增长、并在同一个循环中学习价值观的 AI。</p><div class="media-grid media-grid--2"><a class="media-item" href="https://pbs.twimg.com/media/HOPb4mZWMAEWbV1.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOPb4mZWMAEWbV1.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HOPb4miXYAALS5q.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOPb4miXYAALS5q.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/imjustnewatai/status/2081749227730809127" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 1,670</span><span>↻ 23</span><span>↩ 79</span></div><a href="https://x.com/amasad/status/2082025429901390266" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="products" data-priority="P0" data-expert="aravsrinivas" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2028729526822588416/WhtMUI-P_normal.jpg" alt="Aravind Srinivas avatar" loading="lazy"></div>
+          <div class="identity"><strong>Aravind Srinivas</strong><span>@AravSrinivas · Perplexity / CEO</span></div>
+          <div class="score">91<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 搜索 / 产品</span><time>07-29 00:40 北京</time></div>
+        <p class="post-text original" lang="auto">When Hugging Face got breached, the closed tools couldn&#x27;t distinguish attackers from defenders and blocked the forensic analysis. They ended up running open-weight GLM 5.2 on their own infra to contain it. Perplexity is joining the OSAA to support open tools for security.</p><p class="post-text translation" lang="zh-CN">Hugging Face 遭入侵时，闭源工具无法区分攻击者和防御者，还阻断了取证分析。他们最终在自己的基础设施上运行开源权重 GLM 5.2 来控制事态。Perplexity 正加入 OSAA，支持用于安全的开放工具。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1828904711124078593/SRvCZSfQ_normal.jpg" alt="NVIDIA avatar" loading="lazy"></div><div><strong>NVIDIA</strong><span>@nvidia</span></div></div><p class="quote-text original" lang="auto">The Open Secure AI Alliance is growing, with more organizations contributing expertise to help safeguard software and agents.
+
+https://t.co/tFQYKAqDc3 https://t.co/6zU2F5Jhdb</p><p class="quote-text translation" lang="zh-CN">Open Secure AI Alliance 正在壮大，越来越多组织贡献专业能力，帮助保护软件和智能体。
+
+https://t.co/tFQYKAqDc3 https://t.co/6zU2F5Jhdb</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOU6bt3bEAAevZ3.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOU6bt3bEAAevZ3.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/nvidia/status/2082135368040886299" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 677</span><span>↻ 55</span><span>↩ 20</span></div><a href="https://x.com/AravSrinivas/status/2082144189211681157" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="ken_goldberg" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1432180197818703873/PGutjinG_normal.jpg" alt="Ken Goldberg avatar" loading="lazy"></div>
+          <div class="identity"><strong>Ken Goldberg</strong><span>@Ken_Goldberg · 权威机器人研究者</span></div>
+          <div class="score">74<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>机器人与自动化</span><time>07-28 12:05 北京</time></div>
+        <p class="post-text original" lang="auto">Agreed: “…More standardized benchmarks are needed to rigorously evaluate LLMs at robot control….”</p><p class="post-text translation" lang="zh-CN">同意：“……需要更多标准化基准，来严格评估 LLM 在机器人控制中的表现……。”</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1897769518837252098/oPg4_oqr_normal.jpg" alt="Hanming Ye avatar" loading="lazy"></div><div><strong>Hanming Ye</strong><span>@DozenDucc</span></div></div><p class="quote-text original" lang="auto">Introducing Waddle Labs: Claude Code for robots.
+
+Connect our API to your robot and enter a prompt, then our agents write code to achieve the task in 20 minutes.
+
+@yiding_song @theWaddleLabs https://t.co/t3iBPJsZa7</p><p class="quote-text translation" lang="zh-CN">介绍 Waddle Labs：面向机器人的 Claude Code。
+
+把我们的 API 连接到你的机器人并输入提示词，然后我们的智能体会在 20 分钟内编写代码来完成任务。
+
+@yiding_song @theWaddleLabs https://t.co/t3iBPJsZa7</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2081802430048849920/img/Ks_byc6A8zuOjEBw.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2081802430048849920/img/Ks_byc6A8zuOjEBw.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/DozenDucc/status/2081802609128788393" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 27</span><span>↻ 2</span><span>↩ 6</span></div><a href="https://x.com/Ken_Goldberg/status/2081954086065442974" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P0" data-expert="gdb" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_normal.jpg" alt="Greg Brockman avatar" loading="lazy"></div>
+          <div class="identity"><strong>Greg Brockman</strong><span>@gdb · OpenAI / 联合创始人</span></div>
+          <div class="score">97<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>基座模型 / OpenAI</span><time>07-28 12:10 北京</time></div>
+        <p class="post-text original" lang="auto">congrats on the amazing result!</p><p class="post-text translation" lang="zh-CN">祝贺取得这个了不起的成果！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1658294920078303232/VwLSasgF_normal.jpg" alt="David Turturean avatar" loading="lazy"></div><div><strong>David Turturean</strong><span>@DavidTurturean</span></div></div><p class="quote-text original" lang="auto">Using mostly my voice, I solved one of @EpochAIResearch&#x27;s FrontierMath Open Problems: finding an explicit presentation of the 2-adic Absolute Galois Group - open for more than forty years, now with a full proof in collaboration with David Roe, the problem&#x27;s proposer.  🧵 1/n https://t.co/3CGew2uWS0</p><p class="quote-text translation" lang="zh-CN">我主要用语音，解决了 @EpochAIResearch 的一个 FrontierMath Open Problems：找到 2-adic Absolute Galois Group 的显式表示。这个问题开放了四十多年，如今我与该问题提出者 David Roe 合作给出了完整证明。🧵 1/n https://t.co/3CGew2uWS0</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOP3XLmXcAAkFCG.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOP3XLmXcAAkFCG.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/DavidTurturean/status/2081780318881677693" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 498</span><span>↻ 25</span><span>↩ 38</span></div><a href="https://x.com/gdb/status/2081955446404112493" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P0" data-expert="gdb" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_normal.jpg" alt="Greg Brockman avatar" loading="lazy"></div>
+          <div class="identity"><strong>Greg Brockman</strong><span>@gdb · OpenAI / 联合创始人</span></div>
+          <div class="score">94<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>基座模型 / OpenAI</span><time>07-29 06:41 北京</time></div>
+        <p class="post-text original" lang="auto">we&#x27;ve just open-sourced the Codex Security CLI: https://t.co/gIm9X2wDdh</p><p class="post-text translation" lang="zh-CN">我们刚刚开源了 Codex Security CLI：https://t.co/gIm9X2wDdh</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 580</span><span>↻ 60</span><span>↩ 42</span></div><a href="https://x.com/gdb/status/2082235089539526690" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="scottwu46" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1767334743207555072/Fpfh4MWg_normal.jpg" alt="Scott Wu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Scott Wu</strong><span>@ScottWu46 · Cognition / Devin 联合创始人兼 CEO</span></div>
+          <div class="score">75<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 Agent</span><time>07-29 03:09 北京</time></div>
+        <p class="post-text original" lang="auto">Fun convo in Paris with @MollySOShea!</p><p class="post-text translation" lang="zh-CN">在巴黎和 @MollySOShea 聊得很开心！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1673061505351450624/2A8YvQ2N_normal.jpg" alt="Molly O’Shea avatar" loading="lazy"></div><div><strong>Molly O’Shea</strong><span>@MollySOShea</span></div></div><p class="quote-text original" lang="auto">BREAKING: Devin now writes ~95% of Devin&#x27;s code
+
+Scott Wu (@ScottWu46), CEO of @cognition says the abundance era of AI is real &amp; coming soon..
+
+FULL INTERVIEW
+
+Cog Stats:
+› $2.5B raised, $26B valuation
+› $500M+ run rate, up from $37M LY
+› Customer usage is up 11x-12x in 6 months
+› Total code shipped inside Cognition has grown 7x
+› Devin writes ~95% of Cog&#x27;s code, up from 89% at May Series D
+› The entire Windsurf acquisition was negotiated over 1 weekend, ~40 people buying a 200 person company with $82M of ARR
+› Goldman Sachs, Mercedes-Benz, Citi, Dell, Santander, NASA, the US Navy &amp; the US Army all run Devin
+
+R I P : &quot;The tokenmaxx era lasted from January to May of 2026, roughly.&quot;
+
+&quot;I&#x27;m excited to have AI that allows me to spend all of my time &amp; focus on the things that I care about &amp; take care of the rest. I think the abundance era is real, &amp; I think we&#x27;ll be there pretty soon.&quot;
+
+Recorded 7 July 2026. On 23 July 2026 Cognition acquired Poke maker The Interaction Company
+
+𝐓𝐈𝐌𝐄𝐒𝐓𝐀𝐌𝐏𝐒
+(00:00) Scott Wu, Co-Founder &amp; CEO at Cognition
+(01:00) The Identity crisis of building Devin
+(01:42) How Cognition 7X-ed its output in 6 months
+(02:55) The Metric every AI company gets wrong
+(04:18) Cognition&#x27;s 12x growth curve
+(07:46) The Windsurf acquisition
+(13:26) Scaling overnight: Cognition&#x27;s hardest week
+(15:11) The strategy behind the integration of Cognition products
+(17:23) Cognition&#x27;s M&amp;A playbook
+(20:01) Why the DMV is Cognition&#x27;s next big target
+(22:59) Why Cognition bet against AI centralization
+(25:09) Why enterprises refuse to bet on a single AI lab
+(28:32) Scott&#x27;s honest take on Superintelligence
+(32:36) Is Silicon Valley losing its mind over the AI gold rush?
+(33:26) Devin&#x27;s origin story
+(37:17) The question Scott thinks nobody&#x27;s asking yet
+(39:59) Poker with Peter Thiel &amp; Napoleon ?
+(41:24) Scott&#x27;s vision for the next year</p><p class="quote-text translation" lang="zh-CN">突发：现在 Devin 约 95% 的代码都由 Devin 编写
+
+@cognition CEO Scott Wu（@ScottWu46）表示，AI 的丰饶时代是真实存在的，并且很快就会到来……
+
+完整访谈
+
+Cog 数据：
+› 融资 25 亿美元，估值 260 亿美元
+› 年化收入超 5 亿美元，去年为 3700 万美元
+› 客户使用量在 6 个月内增长 11-12 倍
+› Cognition 内部交付的代码总量增长 7 倍
+› Devin 编写了 Cog 约 95% 的代码，高于 5 月 D 轮时的 89%
+› 整个 Windsurf 收购在一个周末内谈成，约 40 人收购了一家拥有 200 人、ARR 达 8200 万美元的公司
+› Goldman Sachs、Mercedes-Benz、Citi、Dell、Santander、NASA、美国海军和美国陆军都在使用 Devin
+
+R I P：“tokenmaxx 时代大约从 2026 年 1 月持续到 5 月。”
+
+“我很期待拥有这样的 AI：它能让我把全部时间和精力都投入到我关心的事情上，并处理好其余事务。我认为丰饶时代是真实的，而且我们很快就会抵达。”
+
+录制于 2026 年 7 月 7 日。2026 年 7 月 23 日，Cognition 收购了 Poke 制作方 The Interaction Company
+
+时间戳
+(00:00) Cognition 联合创始人兼 CEO Scott Wu
+(01:00) 构建 Devin 的身份危机
+(01:42) Cognition 如何在 6 个月内将产出提升 7 倍
+(02:55) 每家 AI 公司都搞错的指标
+(04:18) Cognition 的 12 倍增长曲线
+(07:46) Windsurf 收购
+(13:26) 一夜扩张：Cognition 最艰难的一周
+(15:11) Cognition 产品整合背后的策略
+(17:23) Cognition 的并购打法
+(20:01) 为什么 DMV 是 Cognition 的下一个大目标
+(22:59) 为什么 Cognition 押注反 AI 中心化
+(25:09) 为什么企业拒绝押注单一 AI 实验室
+(28:32) Scott 对超级智能的坦率看法
+(32:36) 硅谷是否因 AI 淘金热而失去理智？
+(33:26) Devin 的起源故事
+(37:17) Scott 认为还没人提出的问题
+(39:59) 和 Peter Thiel、Napoleon 打扑克？
+(41:24) Scott 对未来一年的愿景</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2081737891089383424/img/efabwm_XFcS2OIq7.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2081737891089383424/img/efabwm_XFcS2OIq7.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/MollySOShea/status/2081749064056717807" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 41</span><span>↻ 4</span><span>↩ 4</span></div><a href="https://x.com/ScottWu46/status/2082181705667154372" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">87<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>07-28 11:28 北京</time></div>
+        <p class="post-text original source-only" lang="auto">这篇普林斯顿博士论文，几乎把强化学习过去十年的两条主线串在了一起：
+
+从博弈算法，一路走到世界模型。
+
+作者 Zihan Ding，导师是 Chi Jin。整篇论文超过 300 页，汇集了博士期间八项研究工作，其中多项成果发表于 NeurIPS、ICML、ICLR 和 ICCV。
+
+前半部分研究多智能体博弈：如何学习接近纳什均衡、难以被对手利用的策略，并把这些方法扩展到格斗游戏、多人博弈和真实网络负载均衡。
+
+后半部分转向 Foundation Model 时代：扩散世界模型、生成模型策略、少步视频生成、可交互视频世界模型，以及支持长时预测的记忆机制。
+
+这篇论文最有价值的地方是它记录了强化学习研究重心的一次迁移。
+
+过去，RL 更关注如何在给定环境中学会行动。
+
+现在，Agent 还需要借助生成模型建立对环境的理解，预测不同动作会带来什么未来，再据此规划和决策。
+
+这里收录的也不只是零散的想法，而是一条经过多年研究和多篇顶会论文逐步铺开的路线。
+
+很多论文告诉你某个方法如何提升一个指标。
+
+这篇博士论文更像一张地图，让人看清强化学习如何从策略优化，走向对复杂世界的建模。
+
+想系统理解 RL、世界模型和生成式 AI 之间的关系，这篇很值得完整读一遍。
+
+📎 arxiv: https://t.co/M7rIJ6SKwO</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 1,108</span><span>↻ 226</span><span>↩ 30</span></div><a href="https://x.com/Xudong07452910/status/2081944735434858932" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">82<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>07-28 17:00 北京</time></div>
+        <p class="post-text original source-only" lang="auto">最近被 Harness Engineering、Loop Engineering 和「无人软件工厂」刷屏的人，建议认真看看这篇《Why Software Factories Fail》。
+
+作者真正跑过几个月的全自动软件工厂，最后发现一个现实的问题：Agent 可以很快写出通过测试的代码，却未必能让代码库长期保持好改、好读、好维护。
+
+测试几秒就能给出通过或失败，坏架构的账却可能几个月后才来。更多审查 Agent 和更多 Token 能抓住一些低级错误，但程序设计、边界划分、架构取舍和长期维护，目前仍然需要人来判断。
+
+文章最后给出的路线很值得实践：先把产品目标、系统架构、函数和类型设计讲清楚，再把任务拆成可以逐步运行、逐步验收的纵向切片。小任务直接交给 Agent，大任务保持人类在关键节点里。
+
+它没有鼓吹 10 倍、100 倍的全自动速度，而是接受当前模型的边界，安全地获得 2—3 倍效率。
+
+这可能比继续堆 Skills、Prompt 和循环，更接近 AI 编程真正成熟的样子。
+
+https://t.co/A18mOwzpmm</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 182</span><span>↻ 36</span><span>↩ 19</span></div><a href="https://x.com/Xudong07452910/status/2082028299275149685" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">67<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>07-28 18:00 北京</time></div>
+        <p class="post-text original source-only" lang="auto">上周 Claude Code 的密集更新了很多次，一些新的改动值得大家关注一下。
+
+Opus 5 刚成为默认 Opus，带着 100 万 Token 上下文和 Fast Mode 进入 Claude Code。与此同时，Claude Code 自己的工作方式也在发生变化。
+
+2.1.218 先把 /code-review 放进后台 Subagent，带 context: fork 的 Skills 也默认在后台运行。审查和研究过程不会再塞满主会话，你可以继续讨论和推进任务，后台 Agent 单独完成自己的工作。
+
+到了 2.1.219，Subagent 已经可以继续调用 Subagent，默认最多嵌套三层。主会话更像项目负责人，下面可以拆出实现、测试、调研和审查等不同角色。Dynamic Workflows 也增加了规模控制，默认建议少于 15 个 Agent，同时加入更严格的网络白名单。
+
+更有意思的是，前一版 Anthropic 刚给后台 Agent 加上并发上限和预算上限，避免一次任务无限分裂、失控烧额度；下一版才把多层 Agent 放开。
+
+这个节奏很像：先装刹车，再踩油门。
+
+看下来，Claude Code 正在从一个终端里的编程助手，变成一套真正的 Agent 运行时：主会话负责目标和判断，后台任务负责执行，子 Agent 可以继续分工，系统则负责上下文、权限、网络和成本边界。
+
+以后用 Claude Code，选哪个模型只是其中一部分。怎么组织这支 Agent 小队，可能会成为新的使用门槛。
+
+https://t.co/I85BGJcBFl</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 5</span><span>↻ 1</span><span>↩ 3</span></div><a href="https://x.com/Xudong07452910/status/2082043387524337974" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="amasad" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div>
+          <div class="identity"><strong>Amjad Masad</strong><span>@amasad · Replit / CEO</span></div>
+          <div class="score">90<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 / 开发者平台</span><time>07-28 15:09 北京</time></div>
+        <p class="post-text original" lang="auto">We’re entering a new era of exploration.
+
+Our ancestors mapped the Earth. Then they explored space.
+
+Our generation may explore the computational universe: the vast space of algorithms, programs, proofs, and designs that AI agents can search.</p><p class="post-text translation" lang="zh-CN">我们正在进入一个探索新时代。
+
+我们的祖先绘制了地球地图。随后他们探索了太空。
+
+我们这一代人或许将探索计算宇宙：由算法、程序、证明和设计构成的广阔空间，AI agents 可以在其中搜索。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1823182344766836736/5YwQsWZb_normal.jpg" alt="Shouqiao Wang avatar" loading="lazy"></div><div><strong>Shouqiao Wang</strong><span>@Qiaoqiao2001</span></div></div><p class="quote-text original" lang="auto">I solved 6 open Erdős problems in 5 days, using @OpenAI GPT-5.6 Sol.
+
+I have a math background, but the Codex workflow I used does not require deep mathematical knowledge.
+
+Here’s exactly how I approached it, including my prompts 🧵</p><p class="quote-text translation" lang="zh-CN">我用 @OpenAI GPT-5.6 Sol，在 5 天内解决了 6 个开放的 Erdős 问题。
+
+我有数学背景，但我使用的 Codex 工作流并不需要深厚的数学知识。
+
+下面是我的具体做法，包括我的提示词 🧵</p><a class="quote-link" href="https://x.com/Qiaoqiao2001/status/2080003441821163958" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 575</span><span>↻ 33</span><span>↩ 41</span></div><a href="https://x.com/amasad/status/2082000490066592127" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P0" data-expert="amasad" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div>
+          <div class="identity"><strong>Amjad Masad</strong><span>@amasad · Replit / CEO</span></div>
+          <div class="score">84<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 / 开发者平台</span><time>07-28 16:04 北京</time></div>
+        <p class="post-text original" lang="auto">hit massive diminishing returns training my chess LLM on board→move pairs.
+
+then an accident: a &quot;think before you move&quot; branch failed (hallucinated moves) but mixing just ~8% of those reasoning traces into plain board→move training beat pure move data at equal budget.
+
+the model internalizes the thinking without ever doing it at inference.</p><p class="post-text translation" lang="zh-CN">用棋盘→走法配对训练我的国际象棋 LLM 时，遇到了严重的收益递减。
+
+后来一次意外：一个“落子前先思考”的分支失败了（产生了幻觉走法），但把其中约 8% 的推理轨迹混入普通的棋盘→走法训练后，在相同预算下效果超过了纯走法数据。
+
+模型把思考过程内化了，即使推理时从不显式执行它。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div><div><strong>Amjad Masad</strong><span>@amasad</span></div></div><p class="quote-text original" lang="auto">Just deployed a new chess engine; we&#x27;re closing in on an estimated 1200 Elo.
+
+The goal is to get it to 2000+, while keeping the constraints:
+
+1. One small finetuned LLM (no custom pretraining or architecture)
+2. The model has to produce the moves with no chess engine assistance
+
+If you relax these constraints, it gets much easier.</p><p class="quote-text translation" lang="zh-CN">刚部署了一个新的国际象棋引擎；我们正接近估计 1200 Elo 的水平。
+
+目标是在保持以下约束的同时，把它提升到 2000+：
+
+1. 一个小型微调 LLM（不做自定义预训练或架构）
+2. 模型必须在没有国际象棋引擎辅助的情况下生成走法
+
+如果放宽这些约束，事情会容易得多。</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOGAZyQbkAAvbvC.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOGAZyQbkAAvbvC.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/amasad/status/2081086837263937543" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 139</span><span>↻ 8</span><span>↩ 21</span></div><a href="https://x.com/amasad/status/2082014295177724025" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="simonw" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
+          <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
+          <div class="score">85<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>07-29 04:44 北京</time></div>
+        <p class="post-text original" lang="auto">This is detailed, fascinating and answers all sorts of open questions
+
+I&#x27;d love to know more about the &quot;unsecured public code-evaluation sandbox hosted on a third-party provider&#x27;s infrastructure&quot; that the agent used to stage its attack against HF after it broke out of OpenAI</p><p class="post-text translation" lang="zh-CN">这份内容非常详细、很有意思，也回答了各种悬而未决的问题
+
+我很想进一步了解那个“托管在第三方提供商基础设施上的不安全公共代码评估沙箱”：该 agent 在突破 OpenAI 后，曾利用它来发起对 HF 的攻击</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1100512198139498497/utHSJ4st_normal.png" alt="clem 🤗 avatar" loading="lazy"></div><div><strong>clem 🤗</strong><span>@ClementDelangue</span></div></div><p class="quote-text original" lang="auto">The first autonomous agent cyberattack is an unprecedented event that deserves unprecedented transparency. Today we’re sharing everything we can: a full technical timeline, an interactive replay, and how we used an open model to defend ourselves, so defenders everywhere can learn from it and prepare for what’s next.
+
+https://t.co/uPxIpjW8Xn</p><p class="quote-text translation" lang="zh-CN">首起自主智能体网络攻击是一次前所未有的事件，理应获得前所未有的透明度。今天我们将尽可能公开一切：完整技术时间线、交互式回放，以及我们如何使用开放模型进行防御，让各地防御者都能从中学习并为下一步做好准备。
+
+https://t.co/uPxIpjW8Xn</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOV2qy9W0AAkKpg.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOV2qy9W0AAkKpg.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/ClementDelangue/status/2082201245813514613" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 176</span><span>↻ 16</span><span>↩ 17</span></div><a href="https://x.com/simonw/status/2082205602772844978" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="simonw" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
+          <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
+          <div class="score">69<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>07-29 07:21 北京</time></div>
+        <p class="post-text original" lang="auto">I really hope we get details from @OpenAI on the task that as specifies to their rogue agent
+
+I&#x27;m guessing it was given the full ExploitGym suite and told to solve it, with an option to run 5.6-Sol subagents as part of the exercise</p><p class="post-text translation" lang="zh-CN">我真的希望 @OpenAI 能公布他们给那个失控智能体指定的任务细节
+
+我猜它拿到了完整的 ExploitGym 套件，并被要求解决它，同时可选择在练习过程中运行 5.6-Sol 子智能体</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 23</span><span>↻ 1</span><span>↩ 4</span></div><a href="https://x.com/simonw/status/2082245091243229348" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P0" data-expert="thom_wolf" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2068682157451571200/_ZNKM_5E_normal.jpg" alt="Thomas Wolf avatar" loading="lazy"></div>
+          <div class="identity"><strong>Thomas Wolf</strong><span>@Thom_Wolf · Hugging Face / 联合创始人兼 CSO</span></div>
+          <div class="score">73<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>开源模型 / Hugging Face</span><time>07-29 00:29 北京</time></div>
+        <p class="post-text original" lang="auto">ExploitGym is the Kobayashi Maru test for AI&#x27;s</p><p class="post-text translation" lang="zh-CN">ExploitGym 是 AI 版小林丸测试</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2061217275915698176/bNzHXnV2_normal.jpg" alt="Kyle Saunders avatar" loading="lazy"></div><div><strong>Kyle Saunders</strong><span>@profgoose</span></div></div><p class="quote-text original" lang="auto">1/ An AI took a cybersecurity exam, decided the exam was hard, and broke into the company that stores the answers.
+Not hypothetical or science fiction. Sourced to @OpenAI&#x27;s own writeup, Reuters, the WSJ, the FT, &amp;amp; the victim&#x27;s incident report.
+Link and summary in replies! ⬇️⬇️ https://t.co/KhWfXHm0hu</p><p class="quote-text translation" lang="zh-CN">1/ 一个 AI 参加网络安全考试，觉得考试太难，于是入侵了存放答案的公司。
+这不是假设，也不是科幻。来源包括 @OpenAI 自己的文章、Reuters、WSJ、FT，以及受害者的事件报告。
+链接和摘要见回复！⬇️⬇️ https://t.co/KhWfXHm0hu</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOUpFb6b0AAvZqh.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOUpFb6b0AAvZqh.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/profgoose/status/2082115753063620910" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 15</span><span>↻ 4</span><span>↩ 6</span></div><a href="https://x.com/Thom_Wolf/status/2082141418869625277" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P0" data-expert="thom_wolf" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2068682157451571200/_ZNKM_5E_normal.jpg" alt="Thomas Wolf avatar" loading="lazy"></div>
+          <div class="identity"><strong>Thomas Wolf</strong><span>@Thom_Wolf · Hugging Face / 联合创始人兼 CSO</span></div>
+          <div class="score">72<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>开源模型 / Hugging Face</span><time>07-29 04:23 北京</time></div>
+        <p class="post-text original" lang="auto">Pushing for more transparency in AI safety and cybersecurity: we’re releasing a full detailed technical timeline of the autonomous AI agent intrusion in our infrastructure: https://t.co/DocIO8IzVD</p><p class="post-text translation" lang="zh-CN">推动 AI 安全与网络安全领域提高透明度：我们发布了发生在我们基础设施中的自主 AI 智能体入侵事件的完整详细技术时间线：https://t.co/DocIO8IzVD</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 47</span><span>↻ 6</span><span>↩ 7</span></div><a href="https://x.com/Thom_Wolf/status/2082200406558429593" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="infra" data-priority="P0" data-expert="tri_dao" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1389486324516671496/owa9Z4AC_normal.jpg" alt="Tri Dao avatar" loading="lazy"></div>
+          <div class="identity"><strong>Tri Dao</strong><span>@tri_dao · Together AI；FlashAttention 作者</span></div>
+          <div class="score">74<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 基础设施 / 训练优化</span><time>07-29 02:46 北京</time></div>
+        <p class="post-text original" lang="auto">Putting LLM brain on robots -&amp;gt; 4x SOTA with no extra training. I’ve been very surprised by how well this works. The time for agents running on robots is coming soon</p><p class="post-text translation" lang="zh-CN">把 LLM 大脑装到机器人上 -&gt; 无需额外训练即可达到 4 倍 SOTA。这个效果好得让我非常意外。机器人上的智能体时代很快就要来了</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2036632771544637440/kvqj-aEY_normal.jpg" alt="Liane Galanti avatar" loading="lazy"></div><div><strong>Liane Galanti</strong><span>@lianegalanti</span></div></div><p class="quote-text original" lang="auto">Robot policies can move but can&#x27;t think.
+LLMs can think but can&#x27;t move.
+So we connected them.
+Real robot: 16.7% → 97.3%
+Sim (LIBERO-PRO): 12.8% → 53.3% https://t.co/4ZrIMR86gv</p><p class="quote-text translation" lang="zh-CN">机器人策略能行动，但不会思考。
+LLM 会思考，但不会行动。
+所以我们把它们连接起来。
+真实机器人：16.7% → 97.3%
+仿真（LIBERO-PRO）：12.8% → 53.3% https://t.co/4ZrIMR86gv</p><div class="media-grid media-grid--2"><a class="media-item" href="https://pbs.twimg.com/media/HOVE_sCW8AEsh9J.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOVE_sCW8AEsh9J.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2082145244577972224/img/tMtlIJ2veT_rHF5c.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2082145244577972224/img/tMtlIJ2veT_rHF5c.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/lianegalanti/status/2082146266461405552" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 27</span><span>↻ 4</span><span>↩ 2</span></div><a href="https://x.com/tri_dao/status/2082175796710658210" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="products" data-priority="P0" data-expert="aravsrinivas" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2028729526822588416/WhtMUI-P_normal.jpg" alt="Aravind Srinivas avatar" loading="lazy"></div>
+          <div class="identity"><strong>Aravind Srinivas</strong><span>@AravSrinivas · Perplexity / CEO</span></div>
+          <div class="score">81<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 搜索 / 产品</span><time>07-29 03:42 北京</time></div>
+        <p class="post-text original" lang="auto">US-hosted Kimi K3 now available on Perplexity for Pro and Max, both in Search and Computer modes. Enjoy! It’s a great frontier model!</p><p class="post-text translation" lang="zh-CN">托管在美国的 Kimi K3 现已在 Perplexity 面向 Pro 和 Max 用户开放，支持 Search 和 Computer 模式。尽情体验！这是一个很棒的前沿模型！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2009310641165660160/XArF3_Ib_normal.jpg" alt="Perplexity avatar" loading="lazy"></div><div><strong>Perplexity</strong><span>@perplexity_ai</span></div></div><p class="quote-text original" lang="auto">We&#x27;ve added Kimi K3 to Perplexity and Perplexity Computer for Pro and Max subscribers.
+
+Kimi K3 in Perplexity is hosted exclusively on U.S.-based servers. https://t.co/sKl7gOCqQy</p><p class="quote-text translation" lang="zh-CN">我们已为 Pro 和 Max 订阅用户在 Perplexity 和 Perplexity Computer 中加入 Kimi K3。
+
+Perplexity 中的 Kimi K3 仅托管在美国境内服务器上。 https://t.co/sKl7gOCqQy</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2082188714948902912/img/_Q5oS6Xm2zejq7ny.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2082188714948902912/img/_Q5oS6Xm2zejq7ny.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/perplexity_ai/status/2082188732585972120" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 142</span><span>↻ 11</span><span>↩ 17</span></div><a href="https://x.com/AravSrinivas/status/2082189982786277652" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="products" data-priority="P0" data-expert="aravsrinivas" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2028729526822588416/WhtMUI-P_normal.jpg" alt="Aravind Srinivas avatar" loading="lazy"></div>
+          <div class="identity"><strong>Aravind Srinivas</strong><span>@AravSrinivas · Perplexity / CEO</span></div>
+          <div class="score">79<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 搜索 / 产品</span><time>07-29 00:01 北京</time></div>
+        <p class="post-text original" lang="auto">True</p><p class="post-text translation" lang="zh-CN">正确</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1772444459625766913/1meZwC16_normal.jpg" alt="the tiny corp avatar" loading="lazy"></div><div><strong>the tiny corp</strong><span>@__tinygrad__</span></div></div><p class="quote-text original" lang="auto">Yes, but nothing compares to the feeling of knowing the metal box your AI lives in is yours. Forget home ownership, owning a datacenter is the new American Dream.</p><p class="quote-text translation" lang="zh-CN">是的，但没有什么比知道承载你 AI 的金属盒子属于你更让人满足。忘掉买房吧，拥有一座数据中心才是新的美国梦。</p><a class="quote-link" href="https://x.com/__tinygrad__/status/2082125356727939524" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 88</span><span>↻ 3</span><span>↩ 14</span></div><a href="https://x.com/AravSrinivas/status/2082134234999976387" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="jiayq" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2048664382486507520/kqp6QDtM_normal.jpg" alt="贾扬清 Yangqing Jia avatar" loading="lazy"></div>
+          <div class="identity"><strong>贾扬清 Yangqing Jia</strong><span>@jiayq · Lepton AI / 创始人；Caffe 作者</span></div>
+          <div class="score">84<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>中国 / ML 系统</span><time>07-29 00:05 北京</time></div>
+        <p class="post-text original" lang="auto">We are starting Intent Lab, building an autonomous team we call &quot;fleet&quot; that turns intent into production software. Today we are sharing some early results: the fastest GLM5.2 inference engine, one shot database creation, and a fully verified agent filesystem.
+
+https://t.co/CtwtypE0rH</p><p class="post-text translation" lang="zh-CN">我们正在启动 Intent Lab，打造一支名为“fleet”的自主团队，将意图转化为生产级软件。今天，我们分享一些早期成果：最快的 GLM5.2 推理引擎、一次性数据库创建，以及经过完整验证的 agent 文件系统。
+
+https://t.co/CtwtypE0rH</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 292</span><span>↻ 44</span><span>↩ 44</span></div><a href="https://x.com/jiayq/status/2082135245776920681" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="infra" data-priority="P0" data-expert="jiayq" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2048664382486507520/kqp6QDtM_normal.jpg" alt="贾扬清 Yangqing Jia avatar" loading="lazy"></div>
+          <div class="identity"><strong>贾扬清 Yangqing Jia</strong><span>@jiayq · Lepton AI / 创始人；Caffe 作者</span></div>
+          <div class="score">72<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>中国 / ML 系统</span><time>07-29 00:05 北京</time></div>
+        <p class="post-text original" lang="auto">1/ The fleet re-engineered the TRT-LLM inference engine and made it the fastest engine we know of for GLM 5.2: 102 to 647 tokens/sec on 2x Grace Blackwell nodes, a 6.3x speedup. This is with the fleet building and implementing optimization end to end. https://t.co/K0nnBhNlVh</p><p class="post-text translation" lang="zh-CN">1/ fleet 重新设计了 TRT-LLM 推理引擎，使其成为我们所知最快的 GLM 5.2 引擎：在 2 个 Grace Blackwell 节点上达到 102 到 647 tokens/sec，提速 6.3 倍。这是 fleet 端到端构建并实现优化的结果。https://t.co/K0nnBhNlVh</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOU6-fhbAAAI9iY.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOU6-fhbAAAI9iY.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 16</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/jiayq/status/2082135260134019473" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="jiayq" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2048664382486507520/kqp6QDtM_normal.jpg" alt="贾扬清 Yangqing Jia avatar" loading="lazy"></div>
+          <div class="identity"><strong>贾扬清 Yangqing Jia</strong><span>@jiayq · Lepton AI / 创始人；Caffe 作者</span></div>
+          <div class="score">71<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>中国 / ML 系统</span><time>07-29 00:05 北京</time></div>
+        <p class="post-text original" lang="auto">3/ It also builds a super fast file system for a world where agents, not people, use the infra. Filesystems are notorius for its complexity. In this example, with formal verification, we catch a coding agent bug by identifying, and then fixing, a transient corrupted state. https://t.co/gEGFFWvbA8</p><p class="post-text translation" lang="zh-CN">3/ 它还为一个由 agent 而非人来使用基础设施的世界，构建了一个超高速文件系统。文件系统以复杂著称。在这个例子中，通过形式化验证，我们识别并修复了一个短暂的损坏状态，从而捕获了一个 coding agent 的 bug。https://t.co/gEGFFWvbA8</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2082135275044839424/img/kOlUlSs5zhHe4vHg.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2082135275044839424/img/kOlUlSs5zhHe4vHg.jpg" alt="X post media"><span>VIDEO</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 12</span><span>↻ 0</span><span>↩ 2</span></div><a href="https://x.com/jiayq/status/2082135285274714236" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="drfeifei" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/841385099799085056/R1iX4QGX_normal.jpg" alt="Fei-Fei Li avatar" loading="lazy"></div>
+          <div class="identity"><strong>Fei-Fei Li</strong><span>@drfeifei · 权威 AI 研究者</span></div>
+          <div class="score">89<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>具身智能与计算机视觉</span><time>07-29 00:13 北京</time></div>
+        <p class="post-text original" lang="auto">When SceniX joined World Labs, we said spatial intelligence was never only about perceiving and generating virtual and physical worlds, but also interacting with them. Today, we’re sharing early results from that vision: building worlds that train robots. 🌎🤖↓ https://t.co/U0UKE5nmZN</p><p class="post-text translation" lang="zh-CN">SceniX 加入 World Labs 时，我们曾说空间智能从来不只是感知和生成虚拟与物理世界，还包括与它们交互。今天，我们分享这一愿景的早期成果：构建用于训练机器人的世界。🌎🤖↓ https://t.co/U0UKE5nmZN</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2082133798440054785/img/yndM5h5mY5ZR5jcv.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2082133798440054785/img/yndM5h5mY5ZR5jcv.jpg" alt="X post media"><span>VIDEO</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 451</span><span>↻ 59</span><span>↩ 18</span></div><a href="https://x.com/drfeifei/status/2082137335052075298" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P0" data-expert="drfeifei" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/841385099799085056/R1iX4QGX_normal.jpg" alt="Fei-Fei Li avatar" loading="lazy"></div>
+          <div class="identity"><strong>Fei-Fei Li</strong><span>@drfeifei · 权威 AI 研究者</span></div>
+          <div class="score">81<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>具身智能与计算机视觉</span><time>07-29 00:13 北京</time></div>
+        <p class="post-text original" lang="auto">With the help of generative world models, a real-to-sim-to-real (R2S2R) simulation engine turns one physical task into many controllable, reusable worlds, helping robotics teams train policy models and test changes faster, uncover failures earlier, and reduce costly experimentation on hardware.</p><p class="post-text translation" lang="zh-CN">借助生成式世界模型，真实到仿真再到真实（R2S2R）仿真引擎可以将一个物理任务转化为多个可控、可复用的世界，帮助机器人团队更快训练策略模型和测试改动，更早发现失败，并减少昂贵的硬件实验。</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOU5y2AbcAIb1Xb.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOU5y2AbcAIb1Xb.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 81</span><span>↻ 14</span><span>↩ 2</span></div><a href="https://x.com/drfeifei/status/2082137336989761693" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P0" data-expert="drfeifei" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/841385099799085056/R1iX4QGX_normal.jpg" alt="Fei-Fei Li avatar" loading="lazy"></div>
+          <div class="identity"><strong>Fei-Fei Li</strong><span>@drfeifei · 权威 AI 研究者</span></div>
+          <div class="score">80<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>具身智能与计算机视觉</span><time>07-29 00:13 北京</time></div>
+        <p class="post-text original" lang="auto">The Real-to-Sim part of R2S2R transforms physical robots, sensors, environments, objects, and interactions into simulations that preserve task-relevant observations and dynamics - not only how the world looks, but how it acts when the robot interacts with it. These results set a new bar for sim-real alignment in robot manipulation.</p><p class="post-text translation" lang="zh-CN">R2S2R 中的真实到仿真部分，会将物理机器人、传感器、环境、物体和交互转化为仿真，同时保留与任务相关的观测和动力学，也就是不仅保留世界的外观，还保留机器人与其交互时的行为方式。这些结果为机器人操作中的仿真-真实一致性树立了新标杆。</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2082134005168930816/img/jHvRRo6tiCSoddCH.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2082134005168930816/img/jHvRRo6tiCSoddCH.jpg" alt="X post media"><span>VIDEO</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 79</span><span>↻ 11</span><span>↩ 2</span></div><a href="https://x.com/drfeifei/status/2082137339430859021" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P1" data-expert="lilianweng" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1923619459643711488/qmXOBhZ1_normal.jpg" alt="Lilian Weng avatar" loading="lazy"></div>
+          <div class="identity"><strong>Lilian Weng</strong><span>@lilianweng · OpenAI / 研究员，技术博客作者</span></div>
+          <div class="score">84<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 研究 / 教育</span><time>07-28 08:54 北京</time></div>
+        <p class="post-text original" lang="auto">I&#x27;ve always been a curiosity-driven person. Leaning new knowledge or figuring out how to solve problems that are not well defined often gives me simple joy.
+
+The fun part of being a cofounder is how it &quot;forced&quot; me to develop new perspectives on company strategies, team building (at the company level), and much more, as well as how these seemingly abstract terms are deeply connected with our day-to-day actions, planning and narratives.
+
+With real-world experience, ideas that once felt theoretical become approachable and it is true for many terms in many domains.</p><p class="post-text translation" lang="zh-CN">我一直是一个由好奇心驱动的人。学习新知识，或弄清楚如何解决定义不清的问题，常常会给我带来简单的快乐。
+
+作为联合创始人有趣的一点在于，它“迫使”我在公司战略、团队建设（公司层面）等方面形成新的视角，也让我看到这些看似抽象的术语如何与我们的日常行动、规划和叙事深度相连。
+
+有了真实世界的经验后，曾经显得理论化的想法会变得更容易理解；这同样适用于许多领域中的许多概念。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 391</span><span>↻ 6</span><span>↩ 6</span></div><a href="https://x.com/lilianweng/status/2081906054821302344" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="swyx" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx avatar" loading="lazy"></div>
+          <div class="identity"><strong>swyx</strong><span>@swyx · Latent Space / AI Engineer</span></div>
+          <div class="score">74<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 工作流</span><time>07-29 04:20 北京</time></div>
+        <p class="post-text original" lang="auto">re: hiring right now
+
+it&#x27;s a huge bull market for AI-native IC&#x27;s/player-coaches
+it&#x27;s a huge bear market for &quot;heads of X&quot; managers
+
+never seen such furious bifurcation. to oversimplify: 1 year experience managing 10 agents &amp;gt; 10 years experience managing 10-100 people</p><p class="post-text translation" lang="zh-CN">关于：眼下的招聘
+
+对 AI 原生 IC/球员兼教练来说，这是一个巨大的牛市
+对“某某负责人”这类管理者来说，这是一个巨大的熊市
+
+从没见过如此剧烈的分化。简单概括：管理 10 个智能体的 1 年经验 &amp;gt; 管理 10-100 人的 10 年经验</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 325</span><span>↻ 10</span><span>↩ 45</span></div><a href="https://x.com/swyx/status/2082199414656127010" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="swyx" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx avatar" loading="lazy"></div>
+          <div class="identity"><strong>swyx</strong><span>@swyx · Latent Space / AI Engineer</span></div>
+          <div class="score">72<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 工作流</span><time>07-29 02:04 北京</time></div>
+        <p class="post-text original" lang="auto">really grateful to @realbasilchatha for helping me curate a survey of the entire field of Forward Deployed Engineering in one track!
+
+From FDE 101 by @zkevinbai (Anthropic, Palantir, Rippling Founding FDE) to head of FDE practices at:
+
+- Decagon
+- Cursor
+- Sierra
+- Ramp
+- Cognition
+- Factory
+- Kepler
+- Varick (tooling for FDEs)
+
+loving the track drop model for releasing the 30+ tracks from AIEWF. please give them some love and send to friends exploring FDE career paths.
+
+all of the speakers are hiring. naturally.</p><p class="post-text translation" lang="zh-CN">非常感谢 @realbasilchatha 帮我把整个 Forward Deployed Engineering 领域的调研策划成一条专题！
+
+从 @zkevinbai（Anthropic、Palantir、Rippling 创始 FDE）的 FDE 101，到以下公司的 FDE 实践负责人：
+
+- Decagon
+- Cursor
+- Sierra
+- Ramp
+- Cognition
+- Factory
+- Kepler
+- Varick（面向 FDE 的工具）
+
+我很喜欢用专题发布模式来推出 AIEWF 的 30+ 条专题。请多多支持，并转发给正在探索 FDE 职业路径的朋友。
+
+所有演讲者都在招聘。这很自然。</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOVVdVkawAEq1fy.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOVVdVkawAEq1fy.jpg" alt="X post media"><span>IMAGE</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1669807115815493633/4MFvljkc_normal.png" alt="AI Engineer avatar" loading="lazy"></div><div><strong>AI Engineer</strong><span>@aiDotEngineer</span></div></div><p class="quote-text original" lang="auto">Live now: our entire Forward Deployed Engineering Track from AI Engineer World&#x27;s Fair!
+
+https://t.co/j7UQuGpsRf
+
+- @EnoReyes, CTO &amp; Co-Founder, Factory
+- Pauline Brunet, VP of FDE, Cursor
+- @vasuman, Founder &amp; CEO, Varick Agents
+- Jia Wu, Deployed Engineering Lead, Cognition
+- @natalie_meurer, Head of Agent Engineering, Sierra
+- Sunny Rekhi, FDE CTO, Decagon
+- @leomehr, Director of Engineering, Ramp
+- @zkevinbai, Anthropic, ex-Palantir &amp; founding FDE at Rippling
+- @vinooganesh, CEO &amp; Co-Founder, Kepler</p><p class="quote-text translation" lang="zh-CN">正在直播：AI Engineer World&#x27;s Fair 的完整 Forward Deployed Engineering 专场！
+
+https://t.co/j7UQuGpsRf
+
+- @EnoReyes，Factory CTO 兼联合创始人
+- Pauline Brunet，Cursor FDE 副总裁
+- @vasuman，Varick Agents 创始人兼 CEO
+- Jia Wu，Cognition Deployed Engineering 负责人
+- @natalie_meurer，Sierra Agent Engineering 负责人
+- Sunny Rekhi，Decagon FDE CTO
+- @leomehr，Ramp 工程总监
+- @zkevinbai，Anthropic，前 Palantir，Rippling 创始 FDE
+- @vinooganesh，Kepler CEO 兼联合创始人</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOVK90GXcAAbze5.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOVK90GXcAAbze5.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/aiDotEngineer/status/2082159947236655311" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 36</span><span>↻ 6</span><span>↩ 9</span></div><a href="https://x.com/swyx/status/2082165420237492346" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="swyx" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx avatar" loading="lazy"></div>
+          <div class="identity"><strong>swyx</strong><span>@swyx · Latent Space / AI Engineer</span></div>
+          <div class="score">58<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 工作流</span><time>07-29 02:52 北京</time></div>
+        <p class="post-text original" lang="auto">@alexkoch_ai come demo at new media lab and we film it?? https://t.co/GeFnEJkY8k</p><p class="post-text translation" lang="zh-CN">@alexkoch_ai 来 new media lab 做个演示，我们拍下来？？https://t.co/GeFnEJkY8k</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx 🇸🇬 avatar" loading="lazy"></div><div><strong>swyx 🇸🇬</strong><span>@swyx</span></div></div><p class="quote-text original" lang="auto">minor milestone in the growth of swyx inc:
+
+we took over my new media lab today
+
+it will be the new home for engineer-creatives in san francisco; a third place to make; a finishing school for technical storytellers; a place to inspire the inspirational.
+
+to our complete surprise; it came with a datacenter rack randomly set up and wired up! need advice on what to put in this thing. @alexocheema halp</p><p class="quote-text translation" lang="zh-CN">swyx inc 发展中的一个小里程碑：
+
+我们今天接手了我的 new media lab
+
+它将成为旧金山工程师型创作者的新据点；一个创作的第三空间；技术叙事者的精修学校；一个激发灵感之人的地方。
+
+完全出乎意料的是，这里居然随机配好并接好了一个数据中心机架！需要建议该往里面放点什么。@alexocheema 救命</p><div class="media-grid media-grid--3"><a class="media-item" href="https://pbs.twimg.com/media/HLzHHAwawAA2_98.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HLzHHAwawAA2_98.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HLzHHAtbgAAskyD.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HLzHHAtbgAAskyD.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HLzHHAsagAA8VjO.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HLzHHAsagAA8VjO.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/swyx/status/2070748857441362056" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 12</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/swyx/status/2082177315648557062" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="joaomdmoura" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1993772444268810240/FPCMce3S_normal.jpg" alt="Joao Moura avatar" loading="lazy"></div>
+          <div class="identity"><strong>Joao Moura</strong><span>@joaomdmoura · CrewAI / 创始人兼 CEO</span></div>
+          <div class="score">72<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 框架</span><time>07-28 23:58 北京</time></div>
+        <p class="post-text original" lang="auto">Today, we&#x27;re launching Crew Studio.
+
+For the last few months I&#x27;ve been visiting some of the largest companies that already run AI agents in production, to understand how they actually do it.
+
+Everything I learned went into what we&#x27;re shipping today https://t.co/6qNcRLACEu</p><p class="post-text translation" lang="zh-CN">今天，我们发布 Crew Studio。
+
+过去几个月，我拜访了一些已经在生产环境中运行 AI agents 的大型公司，了解他们实际是怎么做的。
+
+我学到的一切，都融入了我们今天发布的产品 https://t.co/6qNcRLACEu</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2082133188953202688/img/wpkp7IACKv3cfGKQ.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2082133188953202688/img/wpkp7IACKv3cfGKQ.jpg" alt="X post media"><span>VIDEO</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 83</span><span>↻ 19</span><span>↩ 10</span></div><a href="https://x.com/joaomdmoura/status/2082133609264374271" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="products" data-priority="P1" data-expert="joaomdmoura" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1993772444268810240/FPCMce3S_normal.jpg" alt="Joao Moura avatar" loading="lazy"></div>
+          <div class="identity"><strong>Joao Moura</strong><span>@joaomdmoura · CrewAI / 创始人兼 CEO</span></div>
+          <div class="score">60<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 框架</span><time>07-29 04:46 北京</time></div>
+        <p class="post-text original" lang="auto">Thank you all so much for engaging with this!
+Very happy to see everyone excited about this!</p><p class="post-text translation" lang="zh-CN">非常感谢大家对此的参与！
+很高兴看到大家对此如此兴奋！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1993772444268810240/FPCMce3S_normal.jpg" alt="João Moura avatar" loading="lazy"></div><div><strong>João Moura</strong><span>@joaomdmoura</span></div></div><p class="quote-text original" lang="auto">Today, we&#x27;re launching Crew Studio.
+
+For the last few months I&#x27;ve been visiting some of the largest companies that already run AI agents in production, to understand how they actually do it.
+
+Everything I learned went into what we&#x27;re shipping today https://t.co/6qNcRLACEu</p><p class="quote-text translation" lang="zh-CN">今天，我们发布 Crew Studio。
+
+过去几个月，我拜访了一些已经在生产环境中运行 AI agents 的大型公司，了解他们实际是怎么做的。
+
+我学到的一切，都融入了我们今天发布的产品 https://t.co/6qNcRLACEu</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2082133188953202688/img/wpkp7IACKv3cfGKQ.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2082133188953202688/img/wpkp7IACKv3cfGKQ.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/joaomdmoura/status/2082133609264374271" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 16</span><span>↻ 1</span><span>↩ 0</span></div><a href="https://x.com/joaomdmoura/status/2082206018419966412" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="joaomdmoura" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1993772444268810240/FPCMce3S_normal.jpg" alt="Joao Moura avatar" loading="lazy"></div>
+          <div class="identity"><strong>Joao Moura</strong><span>@joaomdmoura · CrewAI / 创始人兼 CEO</span></div>
+          <div class="score">57<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 框架</span><time>07-28 23:59 北京</time></div>
+        <p class="post-text original" lang="auto">OWN
+
+What you get is real, readable code that belongs to you. Your engineers can open it, change it, and run it wherever you want, on your infrastructure or ours, on any model. If you ever leave, you keep everything you built. https://t.co/jg2q5MqtbL</p><p class="post-text translation" lang="zh-CN">拥有
+
+你得到的是真实、可读、属于你的代码。你的工程师可以打开它、修改它，并在你想要的任何地方运行：你的基础设施或我们的基础设施，任何模型都可以。如果你有一天离开，你保留自己构建的一切。https://t.co/jg2q5MqtbL</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2082133704353427456/img/XVuydlrWOzuC17Tb.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2082133704353427456/img/XVuydlrWOzuC17Tb.jpg" alt="X post media"><span>VIDEO</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 4</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/joaomdmoura/status/2082133734346907907" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="infra" data-priority="P1" data-expert="alexandr_wang" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">78<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>07-29 02:23 北京</time></div>
+        <p class="post-text original" lang="auto">Great letter from Mark articulating the principles guiding MSL: individual empowerment, invention over automation, and balance of power through broad access rather than concentrated control.</p><p class="post-text translation" lang="zh-CN">Mark 的这封信写得很好，清晰阐述了指导 MSL 的原则：赋能个体、以发明优先于自动化，以及通过广泛访问而非集中控制来实现权力平衡。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/77846223/profile_normal.jpg" alt="Mark Zuckerberg avatar" loading="lazy"></div><div><strong>Mark Zuckerberg</strong><span>@finkd</span></div></div><p class="quote-text original" lang="auto">I wrote about why we believe the future is for everyone. More coming about a positive vision for a world with superintelligence soon.</p><p class="quote-text translation" lang="zh-CN">我写了我们为什么相信未来属于每个人。很快会有更多内容，讲述一个拥有超级智能世界的积极愿景。</p><a class="quote-link" href="https://x.com/finkd/status/2082160210399948869" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 891</span><span>↻ 51</span><span>↩ 46</span></div><a href="https://x.com/alexandr_wang/status/2082170165781778901" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+    </main>
+    <footer>Generated 2026-07-29 07:32:34 Asia/Shanghai · Read-only X ingestion via Bird · Translation via Codex</footer>
+  </div>
+</body>
+</html>
