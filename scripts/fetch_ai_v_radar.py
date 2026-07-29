@@ -125,6 +125,9 @@ RECRUITMENT_PATTERNS = tuple(
         r"\bapplications? (?:are )?open\b",
         r"\bjob (?:opening|openings|opportunity|opportunities)\b",
         r"\bapply (?:here|now|for)\b",
+        # Recruitment calls often use role-oriented wording rather than
+        # "apply for": e.g. "Apply to be an OpenAI Campus Lead".
+        r"\bapply to (?:be(?:come)?|join|work)\b",
         r"\b(?:good|great) role for you\b",
         r"\bthis role (?:is|could be) for you\b",
         r"\brecruit(?:ing|er|ers|ment)\b",
