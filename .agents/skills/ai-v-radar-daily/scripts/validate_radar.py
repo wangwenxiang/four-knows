@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import struct
@@ -30,6 +31,25 @@ def parse_report_dir_date(name: str):
         return datetime.strptime(name, "%Y%m%d").date()
     except ValueError:
         return None
+
+
+# Keep this final publication guard independent from the production selector.
+# It deliberately covers role-oriented application language that previously
+# passed a narrower recruitment matcher.
+INDEPENDENT_RECRUITMENT_AUDIT_PATTERNS = (
+    re.compile(r"\bapply to (?:be(?:come)?|join|work)\b", re.IGNORECASE),
+    re.compile(r"\bapply\b.{0,80}\b(?:campus lead|fellow|intern|role|position|program)\b", re.IGNORECASE),
+)
+
+
+def independently_flags_recruitment(post: dict) -> bool:
+    parts = [str(post.get("text") or "")]
+    for nested_key in ("quotedTweet", "article"):
+        nested = post.get(nested_key)
+        if isinstance(nested, dict):
+            parts.extend((str(nested.get("text") or ""), str(nested.get("title") or ""), str(nested.get("previewText") or "")))
+    text = "\n".join(parts)
+    return any(pattern.search(text) for pattern in INDEPENDENT_RECRUITMENT_AUDIT_PATTERNS)
 
 
 def main() -> int:
@@ -90,6 +110,8 @@ def main() -> int:
             errors.append(f"post {post.get('id')} lacks a visible Beijing time label")
         if is_recruitment_post(post):
             errors.append(f"post {post.get('id')} contains recruitment content")
+        if independently_flags_recruitment(post):
+            errors.append(f"post {post.get('id')} contains role-application recruitment content")
         if not is_technical_post(post):
             errors.append(f"post {post.get('id')} is not technical")
         if is_redundant_nontechnical_wrapper(post, selected_ids):

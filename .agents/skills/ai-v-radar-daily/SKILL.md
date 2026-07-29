@@ -44,7 +44,7 @@ Reserve `--reuse-data ai-v-radar/YYYYMMDD/data/posts.json` for repairing transla
 - Keep only content directly related to AI, models, agents, software, research, infrastructure, security, or technical industry developments.
 - Evaluate the primary post together with quoted posts and X Article title/preview.
 - Exclude low-signal replies unless media, a quote, or strong engagement makes them useful.
-- Exclude recruitment completely, including hiring, open roles, job openings, applications, careers pages, “join our team”, “good role for you”, and Chinese 招聘/招人/岗位开放 language.
+- Exclude recruitment completely, including hiring, open roles, job openings, applications, careers pages, role/application calls to action such as “Apply to be an …” or “Apply to join …”, “join our team”, “good role for you”, and Chinese 招聘/招人/岗位开放 language.
 - Exclude lifestyle, generic company culture, swag, casual banter, and other nontechnical material unless the attached quote/article itself contains a substantive technical signal.
 - When a lifestyle or swag wrapper quotes a technical post that is already selected directly, keep the substantive technical post once and remove the redundant wrapper.
 - Deduplicate by post ID. Never backfill with old content when the current window is quiet.
@@ -152,6 +152,14 @@ Require all of the following:
 - no dated report directory exists on or before the current report date minus seven days; only the latest seven Beijing calendar dates may remain.
 
 Serve the repository through local HTTP for visual QA; do not validate only a `file://` page. Use the Browser skill when available, reload after rebuilding, verify the first three authors/content/times, and leave the final report tab as the deliverable.
+
+## Recover quality failures and strengthen the system
+
+Treat a failed production invariant as an ownership obligation, not merely a status to report. First check whether another daily job is active; never overlap a fetch. A single fresh rerun is appropriate for a transient acquisition, rendering, or publication failure. If the rerun reproduces the same content, ranking, validation, or publish defect, do not repeat the same fetch and do not publish a known-bad report.
+
+Instead, preserve the evidence, identify the earliest layer that allowed the defect through, and repair that mechanism. Add a regression test using the actual failure phrasing or structure; add or strengthen an independent final validator guard when the defect concerns a publication invariant; then rebuild from the saved `posts.json` when the repair is limited to filtering, ranking, translation, avatar, or layout. Re-render the poster, recapture the native PNG, run the full validator, and visually inspect the changed first three cards before publication.
+
+Only stop for external authority or state that cannot safely be changed here (for example unavailable X authentication, a remote Git divergence, or fewer than three genuinely eligible technical stories). In that case retain the local artifacts and report the precise blocker plus the next recovery action. Record the incident's invariant, root cause, guard added, test added, and verification result in the final handoff so later runs improve rather than merely repeat the failure.
 
 ## Publish the validated report to GitHub
 
