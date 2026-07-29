@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import html
 import json
 import re
@@ -192,7 +193,8 @@ def select_poster_posts(all_posts: list[dict[str, Any]]) -> list[dict[str, Any]]
 def main() -> int:
     args = parse_args()
     posts_path = (args.input or latest_posts_path()).resolve()
-    payload = json.loads(posts_path.read_text(encoding="utf-8"))
+    input_bytes = posts_path.read_bytes()
+    payload = json.loads(input_bytes)
     all_posts = [post for post in payload.get("posts", []) if isinstance(post, dict)]
     posts = select_poster_posts(all_posts)
     copies = editorial_copy(posts, use_codex=not args.no_codex)
@@ -203,6 +205,7 @@ def main() -> int:
         "generatedAt": generated.isoformat(),
         "monitored": monitored,
         "selected": args.selected_count,
+        "inputSha256": hashlib.sha256(input_bytes).hexdigest(),
         "stories": [
             {
                 "id": post.get("id"),

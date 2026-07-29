@@ -180,6 +180,9 @@ def main() -> int:
             if (width, height) != (1744, 960):
                 errors.append(f"poster dimensions are {width}x{height}, expected 1744x960")
         poster_data = json.loads(poster_data_path.read_text(encoding="utf-8"))
+        expected_input_digest = hashlib.sha256((output_dir / "data/posts.json").read_bytes()).hexdigest()
+        if poster_data.get("inputSha256") != expected_input_digest:
+            errors.append("poster was not generated from the current posts.json")
         if poster_data.get("monitored") != 54 or poster_data.get("selected") != 13:
             errors.append("poster stats must be 54 monitored / 13 selected")
         expected_stories = 3
