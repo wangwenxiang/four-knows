@@ -1,11 +1,13 @@
 {
-  "generatedAt": "2026-07-28T23:32:34.238544+00:00",
-  "fetchStartedAt": "2026-07-28T23:32:34.238544+00:00",
-  "windowStart": "2026-07-28T00:32:34.238544+00:00",
+  "generatedAt": "2026-07-29T02:20:48.466449+00:00",
+  "fetchStartedAt": "2026-07-29T02:20:48.466449+00:00",
+  "windowStart": "2026-07-28T03:20:48.466449+00:00",
+  "windowHours": 23.0,
   "accountsRequested": 62,
+  "fetchMode": "search",
   "accountsSucceeded": 62,
   "accountsFailed": 0,
-  "postsSelected": 32,
+  "postsSelected": 34,
   "topStories": [
     {
       "id": "2082025429901390266",
@@ -32,13 +34,12 @@
     "promptVersion": "codex-v1",
     "preflight": {
       "ok": true,
-      "attempts": 0,
-      "error": "",
-      "source": "cache-only"
+      "attempts": 1,
+      "error": ""
     },
-    "eligibleTexts": 44,
-    "cacheHits": 44,
-    "translatedNow": 0,
+    "eligibleTexts": 49,
+    "cacheHits": 42,
+    "translatedNow": 7,
     "failed": 0,
     "coverage": 1.0,
     "degraded": false,
@@ -48,40 +49,54 @@
   },
   "avatars": {
     "enabled": true,
-    "authors": 28,
+    "authors": 29,
     "primaryAuthors": 15,
-    "quotedAuthors": 16,
-    "cacheHits": 28,
+    "quotedAuthors": 18,
+    "cacheHits": 27,
     "inlineCached": 0,
-    "profileRequestsNeeded": 0,
-    "attemptedNow": 0,
-    "fetchedNow": 0,
+    "profileRequestsNeeded": 2,
+    "attemptedNow": 2,
+    "fetchedNow": 2,
     "rateLimited": false,
     "deferredDueToRateLimit": 0,
-    "postsWithAvatar": 32,
+    "postsWithAvatar": 34,
     "coverage": 1.0,
-    "quotedPostsWithAvatar": 16,
+    "quotedPostsWithAvatar": 18,
     "quotedCoverage": 1.0,
     "errors": [],
-    "cache": "/Users/jay/Documents/ai-coder/four-knows/ai-v-radar/avatar-cache.json"
+    "cache": "ai-v-radar/avatar-cache.json"
   },
+  "dropped": {
+    "lowSignalReply": 91,
+    "outsideWindow": 19,
+    "nonTechnical": 14,
+    "recruitment": 2,
+    "hotspotDirectionMismatch:agents": 3,
+    "hotspotDirectionMismatch:foundation_models": 3,
+    "hotspotDirectionMismatch:robotics": 1,
+    "perAuthorCap": 15
+  },
+  "editorial": {
+    "enabled": false
+  },
+  "searchFallbacks": [],
   "xHotspotSearch": {
     "schemaVersion": 2,
     "enabled": true,
     "directionsRequested": 5,
     "directionsSucceeded": 5,
     "directionsFailed": 0,
-    "fetched": 8,
-    "selectedPosts": 0,
+    "fetched": 9,
+    "selectedPosts": 1,
     "selectedPostsByDirection": {
-      "foundation_models": 0,
+      "foundation_models": 1,
       "agents": 0,
       "robotics": 0,
       "life_sciences": 0,
       "machine_consciousness": 0
     },
     "directionMismatches": {
-      "foundation_models": 2,
+      "foundation_models": 3,
       "agents": 3,
       "robotics": 1,
       "life_sciences": 0,
@@ -102,12 +117,14 @@
           "benchmark"
         ],
         "ok": true,
-        "fetched": 3,
-        "selectedPosts": 0,
-        "selectedPostIds": [],
-        "directionMismatches": 2,
+        "fetched": 4,
+        "selectedPosts": 1,
+        "selectedPostIds": [
+          "2082153311189225927"
+        ],
+        "directionMismatches": 3,
         "attempts": 1,
-        "elapsedSeconds": 1.25,
+        "elapsedSeconds": 1.85,
         "error": null
       },
       {
@@ -127,7 +144,7 @@
         "selectedPostIds": [],
         "directionMismatches": 3,
         "attempts": 1,
-        "elapsedSeconds": 1.21,
+        "elapsedSeconds": 1.72,
         "error": null
       },
       {
@@ -147,7 +164,7 @@
         "selectedPostIds": [],
         "directionMismatches": 1,
         "attempts": 1,
-        "elapsedSeconds": 1.23,
+        "elapsedSeconds": 1.51,
         "error": null
       },
       {
@@ -168,7 +185,7 @@
         "selectedPostIds": [],
         "directionMismatches": 0,
         "attempts": 1,
-        "elapsedSeconds": 0.68,
+        "elapsedSeconds": 0.91,
         "error": null
       },
       {
@@ -187,18 +204,146 @@
         "selectedPostIds": [],
         "directionMismatches": 0,
         "attempts": 1,
-        "elapsedSeconds": 1.19,
+        "elapsedSeconds": 1.44,
         "error": null
       }
     ]
   },
-  "rebuiltFromData": "ai-v-radar/20260729/data/posts.json",
-  "rebuildDroppedRecruitment": 0,
-  "rebuildDroppedNonTechnical": 0,
-  "rebuildDroppedPerAuthorCap": 0,
-  "dropped": {
-    "recruitment": 0,
-    "nonTechnical": 0,
-    "perAuthorCap": 0
-  }
+  "failures": [],
+  "fetches": [
+    {
+      "handles": [
+        "AmandaAskell",
+        "TrentonBricken",
+        "carlini",
+        "dpkingma",
+        "demishassabis",
+        "JeffDean",
+        "Thom_Wolf",
+        "GuillaumeLample"
+      ],
+      "ok": true,
+      "fetched": 5,
+      "attempts": 1,
+      "elapsedSeconds": 1.65,
+      "source": "search"
+    },
+    {
+      "handles": [
+        "anilkseth",
+        "Ken_Goldberg",
+        "RussTedrake",
+        "patrickbutlin",
+        "cyrilzakka",
+        "marinkazitnik"
+      ],
+      "ok": true,
+      "fetched": 7,
+      "attempts": 1,
+      "elapsedSeconds": 1.56,
+      "source": "search"
+    },
+    {
+      "handles": [
+        "bcherny",
+        "karpathy",
+        "michael_truell",
+        "scottwu46",
+        "Xudong07452910",
+        "amasad",
+        "hwchase17",
+        "jerryjliu0"
+      ],
+      "ok": true,
+      "fetched": 40,
+      "attempts": 1,
+      "elapsedSeconds": 2.93,
+      "source": "search"
+    },
+    {
+      "handles": [
+        "chelseabfinn",
+        "c_valenzuelab",
+        "demi_guo",
+        "RichardSocher",
+        "mustafasuleyman",
+        "alexandr_wang",
+        "realGeorgeHotz",
+        "drfeifei"
+      ],
+      "ok": true,
+      "fetched": 15,
+      "attempts": 1,
+      "elapsedSeconds": 1.36,
+      "source": "search"
+    },
+    {
+      "handles": [
+        "hwchung27",
+        "jiayq",
+        "miramurati",
+        "johnschulman2",
+        "yoshua_bengio",
+        "fchollet",
+        "lilianweng",
+        "Tim_Dettmers"
+      ],
+      "ok": true,
+      "fetched": 40,
+      "attempts": 1,
+      "elapsedSeconds": 2.37,
+      "source": "search"
+    },
+    {
+      "handles": [
+        "istoica05",
+        "sh_reya",
+        "HamelHusain",
+        "swyx",
+        "yoheinakajima",
+        "joaomdmoura",
+        "pabbeel",
+        "svlevine"
+      ],
+      "ok": true,
+      "fetched": 40,
+      "attempts": 1,
+      "elapsedSeconds": 3.67,
+      "source": "search"
+    },
+    {
+      "handles": [
+        "simonw",
+        "sama",
+        "gdb",
+        "polynoamial",
+        "jackclarkSF",
+        "ch402",
+        "mikeyk",
+        "alexalbert__"
+      ],
+      "ok": true,
+      "fetched": 17,
+      "attempts": 1,
+      "elapsedSeconds": 1.88,
+      "source": "search"
+    },
+    {
+      "handles": [
+        "tri_dao",
+        "matei_zaharia",
+        "chipro",
+        "DrJimFan",
+        "AravSrinivas",
+        "ilyasut",
+        "janleike",
+        "NoamShazeer"
+      ],
+      "ok": true,
+      "fetched": 9,
+      "attempts": 1,
+      "elapsedSeconds": 1.57,
+      "source": "search"
+    }
+  ]
 }
