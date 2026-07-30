@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-07-24T09:50:32.454908+00:00",
-  "fetchStartedAt": "2026-07-24T09:50:32.454908+00:00",
-  "windowStart": "2026-07-23T10:50:32.454908+00:00",
+  "generatedAt": "2026-07-30T23:01:09.137410+00:00",
+  "fetchStartedAt": "2026-07-30T23:01:09.137410+00:00",
+  "windowStart": "2026-07-30T00:01:09.137410+00:00",
   "windowHours": 23.0,
-  "accountsRequested": 61,
+  "accountsRequested": 62,
   "fetchMode": "search",
-  "accountsSucceeded": 61,
+  "accountsSucceeded": 62,
   "accountsFailed": 0,
-  "postsSelected": 30,
+  "postsSelected": 41,
   "topStories": [
     {
-      "id": "2080407414537695474",
-      "author": "matei_zaharia",
+      "id": "2082881262679642281",
+      "author": "sama",
       "category": "AI 技术进步",
-      "editorialScore": 61
+      "editorialScore": 89
     },
     {
-      "id": "2080332282028507234",
+      "id": "2082919656403435638",
+      "author": "gdb",
+      "category": "AI 技术进步",
+      "editorialScore": 76
+    },
+    {
+      "id": "2082883806323728416",
       "author": "demishassabis",
-      "category": "AI 技术应用",
-      "editorialScore": 57
-    },
-    {
-      "id": "2080343858022354975",
-      "author": "Thom_Wolf",
       "category": "AI 技术进步",
-      "editorialScore": 48
+      "editorialScore": 58
     }
   ],
   "translation": {
@@ -37,9 +37,9 @@
       "attempts": 1,
       "error": ""
     },
-    "eligibleTexts": 51,
-    "cacheHits": 39,
-    "translatedNow": 12,
+    "eligibleTexts": 55,
+    "cacheHits": 2,
+    "translatedNow": 53,
     "failed": 0,
     "coverage": 1.0,
     "degraded": false,
@@ -49,28 +49,29 @@
   },
   "avatars": {
     "enabled": true,
-    "authors": 38,
-    "primaryAuthors": 20,
-    "quotedAuthors": 20,
-    "cacheHits": 36,
+    "authors": 36,
+    "primaryAuthors": 22,
+    "quotedAuthors": 17,
+    "cacheHits": 27,
     "inlineCached": 0,
-    "profileRequestsNeeded": 2,
-    "attemptedNow": 2,
-    "fetchedNow": 2,
+    "profileRequestsNeeded": 9,
+    "attemptedNow": 9,
+    "fetchedNow": 9,
     "rateLimited": false,
     "deferredDueToRateLimit": 0,
-    "postsWithAvatar": 30,
+    "postsWithAvatar": 41,
     "coverage": 1.0,
-    "quotedPostsWithAvatar": 20,
+    "quotedPostsWithAvatar": 22,
     "quotedCoverage": 1.0,
     "errors": [],
     "cache": "/Users/jay/Documents/ai-coder/four-knows/ai-v-radar/avatar-cache.json"
   },
   "dropped": {
-    "lowSignalReply": 44,
-    "nonTechnical": 15,
-    "outsideWindow": 35,
-    "hotspotDirectionMismatch:foundation_models": 3
+    "nonTechnical": 16,
+    "outsideWindow": 37,
+    "lowSignalReply": 43,
+    "hotspotDirectionMismatch:foundation_models": 2,
+    "perAuthorCap": 17
   },
   "editorial": {
     "enabled": false
@@ -82,17 +83,17 @@
     "directionsRequested": 5,
     "directionsSucceeded": 5,
     "directionsFailed": 0,
-    "fetched": 6,
-    "selectedPosts": 1,
+    "fetched": 19,
+    "selectedPosts": 5,
     "selectedPostsByDirection": {
       "foundation_models": 0,
-      "agents": 0,
-      "robotics": 0,
+      "agents": 2,
+      "robotics": 3,
       "life_sciences": 1,
       "machine_consciousness": 0
     },
     "directionMismatches": {
-      "foundation_models": 3,
+      "foundation_models": 2,
       "agents": 0,
       "robotics": 0,
       "life_sciences": 0,
@@ -113,12 +114,12 @@
           "benchmark"
         ],
         "ok": true,
-        "fetched": 3,
+        "fetched": 8,
         "selectedPosts": 0,
         "selectedPostIds": [],
-        "directionMismatches": 3,
+        "directionMismatches": 2,
         "attempts": 1,
-        "elapsedSeconds": 3.02,
+        "elapsedSeconds": 1.53,
         "error": null
       },
       {
@@ -133,12 +134,15 @@
           "autonomous agent"
         ],
         "ok": true,
-        "fetched": 1,
-        "selectedPosts": 0,
-        "selectedPostIds": [],
+        "fetched": 3,
+        "selectedPosts": 2,
+        "selectedPostIds": [
+          "2082878485354438751",
+          "2082841399838327289"
+        ],
         "directionMismatches": 0,
         "attempts": 1,
-        "elapsedSeconds": 1.79,
+        "elapsedSeconds": 1.67,
         "error": null
       },
       {
@@ -153,12 +157,16 @@
           "vla"
         ],
         "ok": true,
-        "fetched": 1,
-        "selectedPosts": 0,
-        "selectedPostIds": [],
+        "fetched": 7,
+        "selectedPosts": 3,
+        "selectedPostIds": [
+          "2082844162928381956",
+          "2082904276293062994",
+          "2082844165570798071"
+        ],
         "directionMismatches": 0,
         "attempts": 1,
-        "elapsedSeconds": 1.7,
+        "elapsedSeconds": 1.58,
         "error": null
       },
       {
@@ -177,11 +185,11 @@
         "fetched": 1,
         "selectedPosts": 1,
         "selectedPostIds": [
-          "2080323548560650663"
+          "2082844162928381956"
         ],
         "directionMismatches": 0,
         "attempts": 1,
-        "elapsedSeconds": 1.6,
+        "elapsedSeconds": 1.39,
         "error": null
       },
       {
@@ -200,7 +208,7 @@
         "selectedPostIds": [],
         "directionMismatches": 0,
         "attempts": 1,
-        "elapsedSeconds": 1.04,
+        "elapsedSeconds": 1.09,
         "error": null
       }
     ]
@@ -209,57 +217,24 @@
   "fetches": [
     {
       "handles": [
-        "bcherny",
-        "karpathy",
-        "michael_truell",
-        "scottwu46",
-        "amasad",
-        "hwchase17",
-        "jerryjliu0",
-        "simonw"
+        "AmandaAskell",
+        "TrentonBricken",
+        "carlini",
+        "dpkingma",
+        "demishassabis",
+        "JeffDean",
+        "Thom_Wolf",
+        "GuillaumeLample"
       ],
       "ok": true,
-      "fetched": 40,
+      "fetched": 1,
       "attempts": 1,
-      "elapsedSeconds": 2.88,
+      "elapsedSeconds": 1.83,
       "source": "search"
     },
     {
       "handles": [
-        "c_valenzuelab",
-        "demi_guo",
-        "RichardSocher",
-        "mustafasuleyman",
-        "alexandr_wang",
-        "realGeorgeHotz",
-        "drfeifei",
-        "anilkseth"
-      ],
-      "ok": true,
-      "fetched": 18,
-      "attempts": 1,
-      "elapsedSeconds": 1.96,
-      "source": "search"
-    },
-    {
-      "handles": [
-        "jiayq",
-        "miramurati",
-        "johnschulman2",
-        "yoshua_bengio",
-        "fchollet",
-        "lilianweng",
-        "Tim_Dettmers",
-        "istoica05"
-      ],
-      "ok": true,
-      "fetched": 2,
-      "attempts": 1,
-      "elapsedSeconds": 2.03,
-      "source": "search"
-    },
-    {
-      "handles": [
+        "anilkseth",
         "Ken_Goldberg",
         "RussTedrake",
         "patrickbutlin",
@@ -267,77 +242,111 @@
         "marinkazitnik"
       ],
       "ok": true,
-      "fetched": 1,
+      "fetched": 5,
       "attempts": 1,
-      "elapsedSeconds": 1.54,
+      "elapsedSeconds": 1.89,
       "source": "search"
     },
     {
       "handles": [
-        "matei_zaharia",
-        "chipro",
-        "DrJimFan",
-        "AravSrinivas",
-        "ilyasut",
-        "janleike",
-        "NoamShazeer",
-        "hwchung27"
+        "bcherny",
+        "karpathy",
+        "michael_truell",
+        "scottwu46",
+        "Xudong07452910",
+        "amasad",
+        "hwchase17",
+        "jerryjliu0"
       ],
       "ok": true,
-      "fetched": 6,
+      "fetched": 40,
       "attempts": 1,
-      "elapsedSeconds": 2.03,
+      "elapsedSeconds": 2.58,
       "source": "search"
     },
     {
       "handles": [
-        "sama",
-        "gdb",
-        "polynoamial",
-        "jackclarkSF",
-        "ch402",
-        "mikeyk",
-        "alexalbert__",
-        "AmandaAskell"
+        "chelseabfinn",
+        "c_valenzuelab",
+        "demi_guo",
+        "RichardSocher",
+        "mustafasuleyman",
+        "alexandr_wang",
+        "realGeorgeHotz",
+        "drfeifei"
       ],
       "ok": true,
-      "fetched": 8,
+      "fetched": 10,
       "attempts": 1,
-      "elapsedSeconds": 2.08,
+      "elapsedSeconds": 1.55,
       "source": "search"
     },
     {
       "handles": [
+        "hwchung27",
+        "jiayq",
+        "miramurati",
+        "johnschulman2",
+        "yoshua_bengio",
+        "fchollet",
+        "lilianweng",
+        "Tim_Dettmers"
+      ],
+      "ok": true,
+      "fetched": 11,
+      "attempts": 1,
+      "elapsedSeconds": 1.5,
+      "source": "search"
+    },
+    {
+      "handles": [
+        "istoica05",
         "sh_reya",
         "HamelHusain",
         "swyx",
         "yoheinakajima",
         "joaomdmoura",
         "pabbeel",
-        "svlevine",
-        "chelseabfinn"
+        "svlevine"
       ],
       "ok": true,
       "fetched": 40,
       "attempts": 1,
-      "elapsedSeconds": 2.68,
+      "elapsedSeconds": 2.2,
       "source": "search"
     },
     {
       "handles": [
-        "TrentonBricken",
-        "carlini",
-        "dpkingma",
-        "demishassabis",
-        "JeffDean",
-        "Thom_Wolf",
-        "GuillaumeLample",
-        "tri_dao"
+        "simonw",
+        "sama",
+        "gdb",
+        "polynoamial",
+        "jackclarkSF",
+        "ch402",
+        "mikeyk",
+        "alexalbert__"
       ],
       "ok": true,
-      "fetched": 6,
+      "fetched": 27,
       "attempts": 1,
-      "elapsedSeconds": 2.35,
+      "elapsedSeconds": 2.22,
+      "source": "search"
+    },
+    {
+      "handles": [
+        "tri_dao",
+        "matei_zaharia",
+        "chipro",
+        "DrJimFan",
+        "AravSrinivas",
+        "ilyasut",
+        "janleike",
+        "NoamShazeer"
+      ],
+      "ok": true,
+      "fetched": 5,
+      "attempts": 1,
+      "elapsedSeconds": 1.63,
       "source": "search"
     }
   ]
