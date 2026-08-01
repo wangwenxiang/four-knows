@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import concurrent.futures
 import dataclasses
+import fcntl
 import hashlib
 import html
 import json
@@ -13,6 +14,7 @@ import math
 import re
 import subprocess
 import sys
+import tempfile
 import time
 from collections import Counter, defaultdict
 from datetime import datetime, timedelta, timezone
@@ -23,9 +25,44 @@ from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_WATCHLIST = ROOT / "ai_key_people_watchlist_visual.html"
+DEFAULT_EXPANSION_WATCHLIST = ROOT / "config" / "ai_x_expansion_watchlist.json"
+DEFAULT_HOTSPOT_QUERIES = ROOT / "config" / "ai_x_hotspot_queries.json"
 DEFAULT_OUTPUT_ROOT = ROOT / "ai-v-radar"
+DEFAULT_AVATAR_CACHE = DEFAULT_OUTPUT_ROOT / "avatar-cache.json"
 SHANGHAI = ZoneInfo("Asia/Shanghai")
 TWITTER_DATE = "%a %b %d %H:%M:%S %z %Y"
+
+
+def write_text_atomic(path: Path, text: str) -> None:
+    """Replace one generated file without exposing a truncated intermediate file."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.NamedTemporaryFile(
+        mode="w", encoding="utf-8", dir=path.parent, prefix=f".{path.name}.", delete=False
+    ) as temporary:
+        temporary.write(text)
+        temporary_path = Path(temporary.name)
+    temporary_path.replace(path)
+
+
+def write_json_atomic(path: Path, value: Any) -> None:
+    write_text_atomic(path, json.dumps(value, ensure_ascii=False, indent=2))
+
+
+def translation_complete(report: dict[str, Any]) -> bool:
+    return report.get("failed") == 0 and report.get("coverage") == 1.0
+
+
+def acquire_run_lock(output_root: Path):
+    """Reject overlapping jobs before they can touch shared output or caches."""
+    identity = hashlib.sha256(str(output_root.resolve()).encode("utf-8")).hexdigest()[:16]
+    lock_path = Path(tempfile.gettempdir()) / f"ai-v-radar-{identity}.lock"
+    handle = lock_path.open("a+", encoding="utf-8")
+    try:
+        fcntl.flock(handle.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except BlockingIOError:
+        handle.close()
+        raise RuntimeError("Another AI V-Radar run is already active; this run did not modify the published report")
+    return handle
 
 
 @dataclasses.dataclass(frozen=True)
@@ -148,6 +185,15 @@ NONTECHNICAL_PRIMARY_PATTERNS = tuple(
 )
 
 
+LIFESTYLE_OR_CULTURE_PATTERNS = tuple(
+    re.compile(pattern, re.IGNORECASE)
+    for pattern in (
+        r"\b(?:team|company)\b.{0,140}\b(?:offsite|onsite|retreat|dinner|lunch|party|happy hour|topgolf|soccer|escape room|swag|merch(?:andise)?)\b",
+        r"\b(?:we|the team|our team)\s+(?:flew|travelled|traveled|gathered)\b.{0,100}\b(?:onsite|offsite|retreat)\b",
+    )
+)
+
+
 TOP_STORY_CORE_TERMS = (
     "ai", "llm", "vlm", "gpt", "claude", "model", "agent", "reasoning",
     "training", "inference", "benchmark", "eval", "coding", "software",
@@ -181,16 +227,38 @@ TOP_STORY_APPLICATION_TERMS = (
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--watchlist", type=Path, default=DEFAULT_WATCHLIST)
+    parser.add_argument(
+        "--expansion-watchlist",
+        type=Path,
+        default=DEFAULT_EXPANSION_WATCHLIST,
+        help="Approved JSON account list appended to the HTML watchlist",
+    )
     parser.add_argument("--output-root", type=Path, default=DEFAULT_OUTPUT_ROOT)
     parser.add_argument("--hours", type=float, default=23.0)
     parser.add_argument("--count-per-user", type=int, default=20)
     parser.add_argument("--workers", type=int, default=3)
     parser.add_argument("--retries", type=int, default=2)
     parser.add_argument("--fetch-mode", choices=("search", "timeline"), default="search")
+    parser.add_argument(
+        "--search-fallback",
+        choices=("timeline", "none"),
+        default="timeline",
+        help="When a batched Bird search fails, retry its accounts with read-only user timelines",
+    )
     parser.add_argument("--search-batch-size", type=int, default=8)
     parser.add_argument("--search-max-pages", type=int, default=5)
+    parser.add_argument(
+        "--hotspot-queries",
+        type=Path,
+        default=DEFAULT_HOTSPOT_QUERIES,
+        help="Five-direction X hotspot searches; matches join the report without changing the monitored-account count",
+    )
+    parser.add_argument("--hotspot-max-pages", type=int, default=3)
     parser.add_argument("--limit", type=int, default=0, help="Only fetch the first N experts")
     parser.add_argument("--max-posts", type=int, default=120)
+    parser.add_argument("--editorial-ai", action="store_true", help="Use local Codex for semantic relevance and headline decisions")
+    parser.add_argument("--editorial-batch-size", type=int, default=10)
+    parser.add_argument("--editorial-retries", type=int, default=1)
     parser.add_argument("--cookie-source", default="chrome")
     parser.add_argument("--no-translate", dest="translate", action="store_false", help="Skip Codex translation")
     parser.set_defaults(translate=True)
@@ -201,7 +269,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--no-avatars", dest="avatars", action="store_false", help="Skip X avatar enrichment")
     parser.set_defaults(avatars=True)
     parser.add_argument("--avatar-workers", type=int, default=3)
-    parser.add_argument("--avatar-cache", type=Path, help="Persistent X avatar cache JSON")
+    parser.add_argument(
+        "--avatar-cache",
+        type=Path,
+        default=DEFAULT_AVATAR_CACHE,
+        help="Persistent X avatar cache JSON; stays shared even when --output-root is temporary",
+    )
     parser.add_argument("--reuse-data", type=Path, help="Skip Bird and rebuild from an existing posts.json")
     parser.add_argument("--now", help="ISO timestamp override for deterministic reruns")
     return parser.parse_args()
@@ -240,6 +313,69 @@ def load_experts(path: Path) -> list[Expert]:
     if not experts:
         raise RuntimeError(f"No X accounts found in {path}")
     return experts
+
+
+def append_expansion_experts(experts: list[Expert], path: Path | None) -> list[Expert]:
+    if path is None:
+        return experts
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    accounts = payload.get("accounts") or []
+    if len(accounts) > int(payload.get("maxAccounts") or len(accounts)):
+        raise RuntimeError(f"Expansion watchlist exceeds its cap: {path}")
+    combined = list(experts)
+    seen = {expert.handle.casefold() for expert in combined}
+    for account in accounts:
+        handle = str(account.get("handle") or "").lstrip("@").strip()
+        if not handle or handle.casefold() in seen:
+            continue
+        seen.add(handle.casefold())
+        combined.append(Expert(
+            priority=str(account.get("priority") or "P1"),
+            domain=str(account.get("domain") or "AI 权威扩展"),
+            name=str(account.get("name") or handle),
+            role=str(account.get("role") or "人工筛选的权威扩展账号"),
+            why=str(account.get("why") or "历史发布内容通过技术密度审计"),
+            handle=handle,
+        ))
+    return combined
+
+
+def load_hotspot_searches(path: Path | None) -> tuple[list[dict[str, Any]], list[Expert]]:
+    if path is None:
+        return [], []
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    directions = payload.get("directions") or []
+    if len(directions) != 5:
+        raise RuntimeError(f"X hotspot config must contain exactly five directions: {path}")
+    experts: list[Expert] = []
+    seen: set[str] = set()
+    for direction in directions:
+        direction_id = str(direction.get("id") or "").strip()
+        direction_label = str(direction.get("label") or direction_id).strip()
+        query = str(direction.get("query") or "").strip()
+        post_match_any = [
+            str(term).strip()
+            for term in (direction.get("postMatchAny") or [])
+            if str(term).strip()
+        ]
+        accounts = direction.get("accounts") or []
+        if not direction_id or not query or not post_match_any or not accounts:
+            raise RuntimeError(f"Incomplete X hotspot direction in {path}: {direction_label}")
+        direction["postMatchAny"] = post_match_any
+        for account in accounts:
+            handle = str(account.get("handle") or "").lstrip("@").strip()
+            if not handle or handle.casefold() in seen:
+                continue
+            seen.add(handle.casefold())
+            experts.append(Expert(
+                priority="P0",
+                domain=direction_label,
+                name=str(account.get("name") or handle),
+                role=str(account.get("role") or "X 权威人物/重要项目"),
+                why=f"五方向 X 主动热点搜索：{direction_label}",
+                handle=handle,
+            ))
+    return directions, experts
 
 
 def redact(message: str) -> str:
@@ -312,6 +448,59 @@ def load_avatar_cache(path: Path) -> dict[str, Any]:
     return payload
 
 
+def avatar_cache_url(entry: Any) -> str:
+    """Return a usable cached avatar URL without accepting malformed entries."""
+    if not isinstance(entry, dict):
+        return ""
+    url = str(entry.get("url") or "").strip()
+    return url if url.startswith(("https://", "http://")) else ""
+
+
+def seed_avatar_cache_from_posts(posts: list[dict[str, Any]], cached_avatars: dict[str, Any]) -> int:
+    """Persist avatars already returned by read-only post/search responses.
+
+    The fetch path often includes a profile image for both the primary author and
+    the quoted author.  Reusing that result avoids a second Bird profile read for
+    the same handle on future reports.
+    """
+    seeded = 0
+    seen_posts: set[int] = set()
+
+    def visit(post: Any) -> None:
+        nonlocal seeded
+        if not isinstance(post, dict) or id(post) in seen_posts:
+            return
+        seen_posts.add(id(post))
+        author = post.get("author")
+        if isinstance(author, dict):
+            handle = str(author.get("username") or "").strip()
+            url = str(author.get("profileImageUrl") or "").strip()
+            key = handle.casefold()
+            if handle and url.startswith(("https://", "http://")) and not avatar_cache_url(cached_avatars.get(key)):
+                cached_avatars[key] = {
+                    "username": handle,
+                    "url": url,
+                    "updatedAt": datetime.now(timezone.utc).isoformat(),
+                    "source": "bird-post-payload",
+                }
+                seeded += 1
+        visit(post.get("quotedTweet"))
+
+    for post in posts:
+        visit(post)
+    return seeded
+
+
+def is_rate_limited_avatar_error(error: str) -> bool:
+    normalized = str(error or "").casefold()
+    return (
+        "http 429" in normalized
+        or "status 429" in normalized
+        or "too many requests" in normalized
+        or "rate limit" in normalized
+    )
+
+
 def avatar_from_truncated_json(output: str, handle: str) -> str:
     escaped_handle = re.escape(handle)
     patterns = (
@@ -353,6 +542,9 @@ def fetch_profile_avatar(handle: str, cookie_source: str, retries: int) -> tuple
                 last_error = "Avatar not found in Bird profile response"
             else:
                 last_error = redact(completed.stderr or completed.stdout or f"exit {completed.returncode}")
+        if is_rate_limited_avatar_error(last_error):
+            # A retry during a server-side throttle only prolongs the throttle.
+            return handle, "", last_error
         if attempt < retries:
             time.sleep(2 ** attempt)
     return handle, "", last_error
@@ -374,31 +566,60 @@ def hydrate_post_avatars(
         if isinstance(post.get("quotedTweet"), dict) and ((post.get("quotedTweet") or {}).get("author") or {}).get("username")
     }
     all_handles = sorted(primary_handles | quote_handles, key=str.casefold)
-    missing = [handle for handle in all_handles if not isinstance(cached_avatars.get(handle.casefold()), dict) or not cached_avatars[handle.casefold()].get("url")]
+    inline_cached = seed_avatar_cache_from_posts(posts, cached_avatars)
+    missing = [handle for handle in all_handles if not avatar_cache_url(cached_avatars.get(handle.casefold()))]
     errors: list[dict[str, str]] = []
     fetched = 0
+    attempted = 0
+    rate_limited = False
+    deferred_due_to_rate_limit = 0
     if missing:
         print(f"Fetching {len(missing)} real X author avatars with Bird...", flush=True)
-        with concurrent.futures.ThreadPoolExecutor(max_workers=max(1, workers)) as pool:
-            futures = {pool.submit(fetch_profile_avatar, handle, cookie_source, retries): handle for handle in missing}
-            for future in concurrent.futures.as_completed(futures):
-                handle, url, error = future.result()
-                if url:
-                    cached_avatars[handle.casefold()] = {"username": handle, "url": url, "updatedAt": datetime.now(timezone.utc).isoformat()}
-                    fetched += 1
-                else:
-                    errors.append({"handle": handle, "error": error})
+        max_workers = min(max(1, workers), len(missing))
+        next_missing = 0
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as pool:
+            futures: dict[concurrent.futures.Future[tuple[str, str, str]], str] = {}
+            while futures or (next_missing < len(missing) and not rate_limited):
+                while len(futures) < max_workers and next_missing < len(missing) and not rate_limited:
+                    handle = missing[next_missing]
+                    next_missing += 1
+                    futures[pool.submit(fetch_profile_avatar, handle, cookie_source, retries)] = handle
+                    attempted += 1
+                if not futures:
+                    break
+                done, _ = concurrent.futures.wait(
+                    futures, return_when=concurrent.futures.FIRST_COMPLETED
+                )
+                for future in done:
+                    requested_handle = futures.pop(future)
+                    try:
+                        handle, url, error = future.result()
+                    except Exception as exc:  # Keep a failed profile lookup from aborting the report.
+                        handle, url, error = requested_handle, "", redact(str(exc))
+                    if url:
+                        cached_avatars[handle.casefold()] = {
+                            "username": handle,
+                            "url": url,
+                            "updatedAt": datetime.now(timezone.utc).isoformat(),
+                            "source": "bird-profile",
+                        }
+                        fetched += 1
+                    else:
+                        errors.append({"handle": handle, "error": error})
+                        rate_limited = rate_limited or is_rate_limited_avatar_error(error)
+            if rate_limited:
+                deferred_due_to_rate_limit = len(missing) - next_missing
 
     avatar_map = {
-        key: str(entry.get("url"))
+        key: avatar_cache_url(entry)
         for key, entry in cached_avatars.items()
-        if isinstance(entry, dict) and entry.get("url")
+        if avatar_cache_url(entry)
     }
     attach_author_avatars(posts, avatar_map)
     cache["version"] = 1
     cache["updatedAt"] = datetime.now(timezone.utc).isoformat()
     cache_path.parent.mkdir(parents=True, exist_ok=True)
-    cache_path.write_text(json.dumps(cache, ensure_ascii=False, indent=2), encoding="utf-8")
+    write_json_atomic(cache_path, cache)
     with_avatar = sum(bool((post.get("author") or {}).get("profileImageUrl")) for post in posts)
     quoted_posts = [post["quotedTweet"] for post in posts if isinstance(post.get("quotedTweet"), dict)]
     quoted_with_avatar = sum(bool((quote.get("author") or {}).get("profileImageUrl")) for quote in quoted_posts)
@@ -408,7 +629,12 @@ def hydrate_post_avatars(
         "primaryAuthors": len(primary_handles),
         "quotedAuthors": len(quote_handles),
         "cacheHits": len(all_handles) - len(missing),
+        "inlineCached": inline_cached,
+        "profileRequestsNeeded": len(missing),
+        "attemptedNow": attempted,
         "fetchedNow": fetched,
+        "rateLimited": rate_limited,
+        "deferredDueToRateLimit": deferred_due_to_rate_limit,
         "postsWithAvatar": with_avatar,
         "coverage": round(with_avatar / len(posts), 4) if posts else 1.0,
         "quotedPostsWithAvatar": quoted_with_avatar,
@@ -549,6 +775,120 @@ def fetch_search_batch(
     }
 
 
+def fetch_hotspot_direction(
+    direction: dict[str, Any],
+    cutoff: datetime,
+    cookie_source: str,
+    max_pages: int,
+    retries: int,
+) -> dict[str, Any]:
+    accounts = direction.get("accounts") or []
+    handles = [str(account.get("handle") or "").lstrip("@").strip() for account in accounts]
+    handles = [handle for handle in handles if handle]
+    author_query = "(" + " OR ".join(f"from:{handle}" for handle in handles) + ")"
+    query = f"{author_query} ({str(direction['query']).strip()})"
+    query += f" since:{cutoff.astimezone(timezone.utc):%Y-%m-%d} -filter:retweets"
+    command = [
+        "bird", "--cookie-source", cookie_source, "search", query,
+        "--all", "--max-pages", str(max(1, max_pages)), "--json",
+    ]
+    started = time.monotonic()
+    last_error = ""
+    for attempt in range(retries + 1):
+        try:
+            completed = subprocess.run(command, capture_output=True, text=True, timeout=120, check=False)
+        except subprocess.TimeoutExpired:
+            last_error = "Bird X hotspot search timed out after 120 seconds"
+        else:
+            if completed.returncode == 0:
+                try:
+                    payload = json.loads(completed.stdout)
+                    tweets = normalize_bird_payload(payload)
+                    attach_author_avatars(tweets, extract_avatar_map(payload))
+                except json.JSONDecodeError as exc:
+                    last_error = f"Invalid Bird JSON: {exc}"
+                else:
+                    return {
+                        "experts": [],
+                        "label": f"X hotspot: {direction['label']}",
+                        "ok": True,
+                        "tweets": tweets,
+                        "elapsedSeconds": round(time.monotonic() - started, 2),
+                        "attempts": attempt + 1,
+                        "source": "x-hotspot-search",
+                        "hotspotDirection": str(direction["id"]),
+                        "hotspotDirectionLabel": str(direction["label"]),
+                        "hotspotPostMatchAny": list(direction.get("postMatchAny") or []),
+                        "query": query,
+                    }
+            else:
+                last_error = redact(completed.stderr or completed.stdout or f"exit {completed.returncode}")
+        if attempt < retries:
+            time.sleep(2 ** attempt)
+    return {
+        "experts": [],
+        "label": f"X hotspot: {direction['label']}",
+        "ok": False,
+        "tweets": [],
+        "error": last_error,
+        "elapsedSeconds": round(time.monotonic() - started, 2),
+        "attempts": retries + 1,
+        "source": "x-hotspot-search",
+        "hotspotDirection": str(direction["id"]),
+        "hotspotDirectionLabel": str(direction["label"]),
+        "hotspotPostMatchAny": list(direction.get("postMatchAny") or []),
+        "query": query,
+    }
+
+
+def recover_failed_search_batches(
+    results: list[dict[str, Any]],
+    count: int,
+    cookie_source: str,
+    retries: int,
+    workers: int,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Replace failed search batches with per-account timeline reads.
+
+    X search can reject a compound ``from:`` query while the same authenticated
+    session can still read each author's timeline.  Keeping failed batches in
+    ``results`` would count every account as lost, so retain their diagnostics
+    separately and use the individual read outcomes as the account-level truth.
+    """
+    failed_batches = [result for result in results if not result.get("ok")]
+    if not failed_batches:
+        return results, []
+
+    retained = [result for result in results if result.get("ok")]
+    fallback_items = [
+        (expert, str(batch.get("error") or "unknown search failure"))
+        for batch in failed_batches
+        for expert in batch.get("experts", [])
+    ]
+    diagnostics = [
+        {
+            "handles": [expert.get("handle") for expert in batch.get("experts", [])],
+            "error": str(batch.get("error") or "unknown search failure"),
+            "strategy": "timeline",
+        }
+        for batch in failed_batches
+    ]
+    print(f"Retrying {len(fallback_items)} accounts from failed search batches with Bird timelines...", flush=True)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=max(1, workers)) as pool:
+        future_map = {
+            pool.submit(fetch_expert, Expert(**expert), count, cookie_source, retries): search_error
+            for expert, search_error in fallback_items
+        }
+        for future in concurrent.futures.as_completed(future_map):
+            result = future.result()
+            result["source"] = "timeline-fallback"
+            result["searchBatchError"] = future_map[future]
+            retained.append(result)
+            status = "ok" if result["ok"] else "failed"
+            print(f"[fallback] {result['label']}: {status} ({len(result.get('tweets', []))} fetched)", flush=True)
+    return retained, diagnostics
+
+
 def parse_created_at(value: str) -> datetime | None:
     value = (value or "").strip()
     if not value:
@@ -579,8 +919,78 @@ def technical_context(post: dict[str, Any]) -> str:
     return "\n".join(parts).casefold()
 
 
-def is_technical_post(post: dict[str, Any]) -> bool:
-    text = technical_context(post)
+def term_matches(text: str, term: str) -> bool:
+    """Match a configured hotspot term without treating short words as substrings."""
+    normalized = str(term or "").casefold().strip()
+    if not normalized:
+        return False
+    if normalized.isalnum() and len(normalized) <= 4:
+        return bool(re.search(rf"(?<![a-z0-9]){re.escape(normalized)}(?![a-z0-9])", text))
+    return normalized in text
+
+
+def hotspot_attribution(raw: dict[str, Any], result: dict[str, Any]) -> dict[str, Any] | None:
+    """Return evidence only when a hotspot result still fits its configured direction.
+
+    Bird's query result is deliberately treated as a candidate rather than proof:
+    the primary post, quote, and article are checked again after retrieval.
+    """
+    if result.get("source") != "x-hotspot-search":
+        return None
+    direction_id = str(result.get("hotspotDirection") or "").strip()
+    direction_label = str(result.get("hotspotDirectionLabel") or direction_id).strip()
+    terms = [str(term).strip() for term in (result.get("hotspotPostMatchAny") or []) if str(term).strip()]
+    if not direction_id or not terms:
+        return None
+    context = technical_context(raw)
+    matched_terms = [term for term in terms if term_matches(context, term)]
+    if not matched_terms:
+        return None
+    return {
+        "id": direction_id,
+        "label": direction_label,
+        "matchedTerms": matched_terms,
+    }
+
+
+def hotspot_matches(post: dict[str, Any]) -> list[dict[str, Any]]:
+    value = post.get("hotspotMatches")
+    return [item for item in value if isinstance(item, dict)] if isinstance(value, list) else []
+
+
+def merge_hotspot_matches(post: dict[str, Any], incoming: list[dict[str, Any]]) -> None:
+    """Union hotspot provenance so duplicate IDs keep every confirmed direction."""
+    by_id: dict[str, dict[str, Any]] = {}
+    for match in hotspot_matches(post) + incoming:
+        direction_id = str(match.get("id") or "").strip()
+        label = str(match.get("label") or direction_id).strip()
+        terms = [str(term).strip() for term in (match.get("matchedTerms") or []) if str(term).strip()]
+        if not direction_id or not label or not terms:
+            continue
+        previous = by_id.get(direction_id)
+        if previous is None:
+            by_id[direction_id] = {"id": direction_id, "label": label, "matchedTerms": terms}
+            continue
+        previous["matchedTerms"] = list(dict.fromkeys(previous["matchedTerms"] + terms))
+    if not by_id:
+        return
+    matches = list(by_id.values())
+    post["hotspotMatches"] = matches
+    post["hotspotDirections"] = [match["id"] for match in matches]
+    post["hotspotDirection"] = matches[0]["id"]
+    post["hotspotDirectionLabel"] = matches[0]["label"]
+    post["discoveredBy"] = "x-hotspot-search"
+
+
+def merge_duplicate_post(existing: dict[str, Any], candidate: dict[str, Any]) -> dict[str, Any]:
+    """Keep the stronger duplicate record while preserving confirmed hotspot evidence."""
+    all_matches = hotspot_matches(existing) + hotspot_matches(candidate)
+    selected = candidate if candidate["signalScore"] > existing["signalScore"] else existing
+    merge_hotspot_matches(selected, all_matches)
+    return selected
+
+
+def has_technical_signal(text: str) -> bool:
     if any(marker in text for marker in TECHNICAL_URL_MARKERS):
         return True
     for keyword in TECHNICAL_KEYWORDS:
@@ -593,9 +1003,47 @@ def is_technical_post(post: dict[str, Any]) -> bool:
     return False
 
 
+def is_technical_post(post: dict[str, Any]) -> bool:
+    return has_technical_signal(technical_context(post))
+
+
 def is_recruitment_post(post: dict[str, Any]) -> bool:
     text = technical_context(post)
     return any(pattern.search(text) for pattern in RECRUITMENT_PATTERNS)
+
+
+def is_excluded_author(post: dict[str, Any], expert: Expert | None = None) -> bool:
+    """Return whether the primary author is permanently excluded from display."""
+    handle = str(
+        (expert.handle if expert else "")
+        or (post.get("expert") or {}).get("handle")
+        or (post.get("author") or {}).get("username")
+        or ""
+    ).lstrip("@").casefold()
+    return handle in EXCLUDED_AUTHOR_HANDLES
+
+
+def has_substantive_attached_content(post: dict[str, Any]) -> bool:
+    """Allow a lifestyle wrapper only when its quote/article carries the real signal."""
+    parts: list[str] = []
+    quote = post.get("quotedTweet")
+    if isinstance(quote, dict):
+        parts.append(str(quote.get("text") or ""))
+        quote_article = quote.get("article")
+        if isinstance(quote_article, dict):
+            parts.extend((str(quote_article.get("title") or ""), str(quote_article.get("previewText") or "")))
+    article = post.get("article")
+    if isinstance(article, dict):
+        parts.extend((str(article.get("title") or ""), str(article.get("previewText") or "")))
+    return has_technical_signal("\n".join(parts).casefold()) if parts else False
+
+
+def is_low_signal_lifestyle_post(post: dict[str, Any]) -> bool:
+    primary = str(post.get("text") or "")
+    return bool(
+        any(pattern.search(primary) for pattern in LIFESTYLE_OR_CULTURE_PATTERNS)
+        and not has_substantive_attached_content(post)
+    )
 
 
 def is_redundant_nontechnical_wrapper(post: dict[str, Any], selected_ids: set[str]) -> bool:
@@ -636,7 +1084,12 @@ def top_story_profile(post: dict[str, Any], expert: Expert) -> tuple[bool, int, 
     frontier_hits = count_term_hits(text, TOP_STORY_FRONTIER_TERMS)
     application_hits = count_term_hits(text, TOP_STORY_APPLICATION_TERMS)
     dimension_hits = progress_hits + frontier_hits + application_hits
-    eligible = core_hits >= 1 and dimension_hits >= 2 and not is_recruitment_post(post)
+    eligible = (
+        core_hits >= 1
+        and dimension_hits >= 2
+        and not is_recruitment_post(post)
+        and not is_excluded_author(post, expert)
+    )
     category_counts = {
         "AI 技术进步": progress_hits,
         "AI 技术前沿": frontier_hits,
@@ -714,6 +1167,9 @@ def normalize_posts(
             if expert is None:
                 dropped["unmatchedAuthor"] += 1
                 continue
+            if is_excluded_author(raw, expert):
+                dropped["excludedAuthor"] += 1
+                continue
             created_at = parse_created_at(str(raw.get("createdAt") or ""))
             if not created_at:
                 dropped["invalidDate"] += 1
@@ -726,6 +1182,11 @@ def normalize_posts(
             if not post_id:
                 dropped["missingId"] += 1
                 continue
+            attribution = hotspot_attribution(raw, result)
+            if result.get("source") == "x-hotspot-search" and attribution is None:
+                direction_id = str(result.get("hotspotDirection") or "unknown")
+                dropped[f"hotspotDirectionMismatch:{direction_id}"] += 1
+                continue
             conversation_id = str(raw.get("conversationId") or "")
             is_reply = bool(conversation_id and conversation_id != post_id)
             engagement = int(raw.get("likeCount") or 0) + int(raw.get("retweetCount") or 0)
@@ -734,6 +1195,9 @@ def normalize_posts(
                 continue
             if is_recruitment_post(raw):
                 dropped["recruitment"] += 1
+                continue
+            if is_low_signal_lifestyle_post(raw):
+                dropped["nonTechnical"] += 1
                 continue
             if not is_technical_post(raw):
                 dropped["nonTechnical"] += 1
@@ -749,9 +1213,10 @@ def normalize_posts(
             post["themeId"] = classify_theme(post, expert)
             post["signalScore"] = signal_score(post, expert)
             attach_editorial_rank(post, expert)
+            if attribution is not None:
+                merge_hotspot_matches(post, [attribution])
             existing = posts_by_id.get(post_id)
-            if existing is None or post["signalScore"] > existing["signalScore"]:
-                posts_by_id[post_id] = post
+            posts_by_id[post_id] = post if existing is None else merge_duplicate_post(existing, post)
     selected_ids = set(posts_by_id)
     redundant_wrapper_ids = {
         post_id
@@ -772,9 +1237,70 @@ def normalize_posts(
     return posts, dropped
 
 
+def collect_editorial_candidates(
+    results: list[dict[str, Any]], experts: list[Expert], cutoff: datetime, now: datetime
+) -> tuple[list[dict[str, Any]], Counter[str]]:
+    """Keep every source post that passes only non-editorial hard constraints."""
+    candidates_by_id: dict[str, dict[str, Any]] = {}
+    dropped = Counter()
+    experts_by_handle = {expert.handle.casefold(): expert for expert in experts}
+    for result in results:
+        for raw in result.get("tweets", []):
+            username = str((raw.get("author") or {}).get("username") or "")
+            expert = experts_by_handle.get(username.casefold())
+            if expert is None:
+                dropped["unmatchedAuthor"] += 1
+                continue
+            if is_excluded_author(raw, expert):
+                dropped["excludedAuthor"] += 1
+                continue
+            created_at = parse_created_at(str(raw.get("createdAt") or ""))
+            if not created_at:
+                dropped["invalidDate"] += 1
+                continue
+            created_at = created_at.astimezone(timezone.utc)
+            if created_at < cutoff.astimezone(timezone.utc) or created_at > now.astimezone(timezone.utc):
+                dropped["outsideWindow"] += 1
+                continue
+            post_id = str(raw.get("id") or "").strip()
+            if not post_id:
+                dropped["missingId"] += 1
+                continue
+            attribution = hotspot_attribution(raw, result)
+            if result.get("source") == "x-hotspot-search" and attribution is None:
+                direction_id = str(result.get("hotspotDirection") or "unknown")
+                dropped[f"hotspotDirectionMismatch:{direction_id}"] += 1
+                continue
+            if is_recruitment_post(raw):
+                dropped["recruitment"] += 1
+                continue
+            if is_low_signal_lifestyle_post(raw):
+                dropped["nonTechnical"] += 1
+                continue
+            post = dict(raw)
+            post["id"] = post_id
+            post["expert"] = dataclasses.asdict(expert)
+            post["createdAtIso"] = created_at.isoformat()
+            post["createdAtBeijing"] = created_at.astimezone(SHANGHAI).isoformat()
+            post["createdAtLocal"] = created_at.astimezone(SHANGHAI).strftime("%m-%d %H:%M 北京")
+            post["url"] = f"https://x.com/{username or expert.handle}/status/{post_id}"
+            post["themeId"] = "editorial"
+            post["signalScore"] = signal_score(post, expert)
+            if attribution is not None:
+                merge_hotspot_matches(post, [attribution])
+            existing = candidates_by_id.get(post_id)
+            candidates_by_id[post_id] = post if existing is None else merge_duplicate_post(existing, post)
+    return list(candidates_by_id.values()), dropped
+
+
 ANSI_ESCAPE = re.compile(r"\x1b\[[0-?]*[ -/]*[@-~]")
 CJK = re.compile(r"[\u3400-\u9fff]")
 TRANSLATION_PROMPT_VERSION = "codex-v1"
+TRANSLATION_UNAVAILABLE = "翻译暂不可用，请参阅上方英文原文。"
+MAX_SELECTED_POSTS_PER_AUTHOR = 3
+# Keep this account in the 62-person acquisition watchlist, but never surface
+# its posts in the editorial output. The separation keeps coverage auditable.
+EXCLUDED_AUTHOR_HANDLES = frozenset({"sama"})
 CODEX_EXEC_COMMAND = [
     "codex",
     "-a",
@@ -833,6 +1359,16 @@ def collect_translation_targets(posts: list[dict[str, Any]]) -> dict[str, dict[s
     return targets
 
 
+def apply_translation_fallbacks(targets: dict[str, dict[str, Any]], resolved: set[str]) -> int:
+    """Make an incomplete translation visible without pretending it succeeded."""
+    missing = set(targets) - resolved
+    for key in missing:
+        for container, field in targets[key]["destinations"]:
+            container[field] = TRANSLATION_UNAVAILABLE
+            container["translationFallback"] = True
+    return len(missing)
+
+
 def load_translation_cache(path: Path) -> dict[str, Any]:
     if not path.exists():
         return {"version": 1, "translations": {}}
@@ -866,6 +1402,249 @@ def parse_translation_json(output: str) -> dict[str, str]:
         if isinstance(value, dict):
             return {str(key): str(text).strip() for key, text in value.items() if str(text).strip()}
     raise ValueError("Codex did not return a JSON object")
+
+
+def compact_codex_error(message: str, limit: int = 600) -> str:
+    """Keep one safe, useful Codex diagnostic instead of repeated CLI noise."""
+    cleaned = ANSI_ESCAPE.sub("", redact(str(message or "")))
+    unique_lines: list[str] = []
+    seen: set[str] = set()
+    for line in cleaned.splitlines():
+        normalized = re.sub(r"\s+", " ", line).strip()
+        if not normalized or normalized in seen:
+            continue
+        seen.add(normalized)
+        unique_lines.append(normalized)
+    compact = " | ".join(unique_lines[-8:]) or "unknown Codex failure"
+    return compact[-max(80, limit):]
+
+
+def codex_translation_preflight(retries: int) -> dict[str, Any]:
+    """Check the actual local Codex backend before starting translation batches."""
+    source = "AI agents can use tools."
+    prompt = (
+        "把下方 JSON 的 value 翻译成自然、准确的简体中文。保留原 key，"
+        "只输出合法 JSON，不要解释或使用 Markdown。\n"
+        f'INPUT:\n{{"preflight":{json.dumps(source)}}}'
+    )
+    last_error = ""
+    attempts = 0
+    for attempt in range(max(0, retries) + 1):
+        attempts = attempt + 1
+        try:
+            completed = subprocess.run(
+                CODEX_EXEC_COMMAND,
+                input=prompt,
+                capture_output=True,
+                text=True,
+                timeout=120,
+                check=False,
+            )
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            last_error = str(exc)
+        else:
+            if completed.returncode == 0:
+                try:
+                    translated = parse_translation_json(completed.stdout).get("preflight", "")
+                except ValueError as exc:
+                    last_error = str(exc)
+                else:
+                    if translated and translated != source and CJK.search(translated):
+                        return {"ok": True, "attempts": attempts, "error": ""}
+                    last_error = "Codex preflight returned no valid Chinese translation"
+            else:
+                last_error = completed.stderr or completed.stdout or f"exit {completed.returncode}"
+        if attempt < retries:
+            time.sleep(2 ** attempt)
+    return {
+        "ok": False,
+        "attempts": attempts,
+        "error": compact_codex_error(last_error),
+    }
+
+
+EDITORIAL_PROMPT_VERSION = "codex-editorial-v2"
+
+
+def parse_editorial_json(output: str) -> dict[str, Any]:
+    cleaned = ANSI_ESCAPE.sub("", output).strip()
+    decoder = json.JSONDecoder()
+    for index, char in enumerate(cleaned):
+        if char != "{":
+            continue
+        try:
+            value, _ = decoder.raw_decode(cleaned[index:])
+        except json.JSONDecodeError:
+            continue
+        if isinstance(value, dict):
+            return value
+    raise ValueError("Codex did not return an editorial JSON object")
+
+
+def editorial_source(post: dict[str, Any]) -> dict[str, Any]:
+    expert = post.get("expert") or {}
+    quote = post.get("quotedTweet") or {}
+    article = post.get("article") or {}
+    return {
+        "id": str(post.get("id") or ""),
+        "author": str(expert.get("handle") or (post.get("author") or {}).get("username") or ""),
+        "role": str(expert.get("role") or expert.get("domain") or ""),
+        "engagement": {"likes": int(post.get("likeCount") or 0), "reposts": int(post.get("retweetCount") or 0)},
+        "primary": str(post.get("text") or ""),
+        "quote": str(quote.get("text") or "") if isinstance(quote, dict) else "",
+        "articleTitle": str(article.get("title") or "") if isinstance(article, dict) else "",
+        "articlePreview": str(article.get("previewText") or "") if isinstance(article, dict) else "",
+    }
+
+
+def review_editorial_batch(batch: list[dict[str, Any]], retries: int) -> tuple[dict[str, dict[str, Any]], str]:
+    expected_ids = {str(post["id"]) for post in batch}
+    prompt = """你是严格、可靠的硅谷 AI 技术日报编辑。审读 INPUT 的每条完整材料，primary、quote、article 都是材料的一部分。
+
+先独立判断 technicalRelevant：它只回答“是否包含真实的 AI/模型/agent/软件/研究/基础设施技术事实或可复用工程经验”，不要把“是否重大”混进来。版本确认、实现细节、工程排障也可以 technicalRelevant=true；纯观点、营销、闲聊、招聘、无事实的预测为 false。
+
+再给 dailyGrade：A=重大新能力/研究/正式发布/明确生产效果，B=有价值技术或工程经验，C=技术相关但窄或证据不足，D=不相关。不要用作者身份或互动量代替事实。对每条给 evidence（不超过28个汉字，只写材料中的事实）和 rationale（不超过36个汉字）。
+
+只输出合法 JSON：{"items":[{"id":"...","technicalRelevant":true,"dailyGrade":"A|B|C|D","topic":"...","evidence":"...","rationale":"..."}]}。必须覆盖 INPUT 的每个 id，且不得编造材料外事实。
+INPUT:
+""" + json.dumps([editorial_source(post) for post in batch], ensure_ascii=False)
+    last_error = ""
+    for attempt in range(max(0, retries) + 1):
+        try:
+            completed = subprocess.run(CODEX_EXEC_COMMAND, input=prompt, capture_output=True, text=True, timeout=360, check=False)
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            last_error = str(exc)
+        else:
+            if completed.returncode == 0:
+                try:
+                    payload = parse_editorial_json(completed.stdout)
+                    rows = payload.get("items") if isinstance(payload.get("items"), list) else []
+                    reviews = {str(row.get("id")): row for row in rows if isinstance(row, dict) and str(row.get("id")) in expected_ids}
+                    if set(reviews) == expected_ids:
+                        for review in reviews.values():
+                            review["technicalRelevant"] = bool(review.get("technicalRelevant"))
+                            review["dailyGrade"] = str(review.get("dailyGrade") or "D").upper()
+                            if review["dailyGrade"] not in {"A", "B", "C", "D"}:
+                                review["dailyGrade"] = "D"
+                        return reviews, ""
+                    last_error = f"Codex omitted {len(expected_ids - set(reviews))} editorial ids"
+                except ValueError as exc:
+                    last_error = str(exc)
+            else:
+                last_error = redact(completed.stderr or completed.stdout or f"exit {completed.returncode}")
+        if attempt < retries:
+            time.sleep(2 ** attempt)
+    return {}, last_error
+
+
+def review_editorial_candidates(posts: list[dict[str, Any]], batch_size: int, retries: int) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    batches = [posts[index : index + max(1, batch_size)] for index in range(0, len(posts), max(1, batch_size))]
+    reviews: dict[str, dict[str, Any]] = {}
+    errors: list[str] = []
+    for index, batch in enumerate(batches, start=1):
+        reviewed, error = review_editorial_batch(batch, retries)
+        print(f"[editorial {index:02d}/{len(batches):02d}] {len(reviewed)}/{len(batch)} posts", flush=True)
+        reviews.update(reviewed)
+        if error:
+            errors.append(error)
+    if errors or len(reviews) != len(posts):
+        raise RuntimeError("Editorial review incomplete: " + "; ".join(errors or ["missing reviews"]))
+    for post in posts:
+        post["editorial"] = reviews[str(post["id"])]
+    retained = [post for post in posts if post["editorial"]["technicalRelevant"]]
+    dropped = [post for post in posts if not post["editorial"]["technicalRelevant"]]
+    return retained, {
+        "enabled": True,
+        "backend": "codex exec",
+        "promptVersion": EDITORIAL_PROMPT_VERSION,
+        "candidates": len(posts),
+        "retained": len(retained),
+        "dropped": len(dropped),
+        "droppedPosts": [{"id": post["id"], "author": post["expert"]["handle"], **post["editorial"]} for post in dropped],
+    }
+
+
+def select_editorial_top_stories(posts: list[dict[str, Any]], retries: int) -> list[dict[str, Any]]:
+    candidates: list[dict[str, Any]] = []
+    candidate_profiles: dict[str, tuple[int, str]] = {}
+    for post in posts:
+        expert = Expert(**post["expert"])
+        deterministic_eligible, deterministic_score, deterministic_category = top_story_profile(post, expert)
+        grade = str(post.get("editorial", {}).get("dailyGrade") or "D")
+        # A strong, technically eligible B item from a core lab must still be
+        # considered. This prevents the semantic grade from nullifying the
+        # watchlist's explicit OpenAI/Anthropic importance policy.
+        core_lab = strategic_org_rank(expert) <= 1
+        if grade == "A" or (grade == "B" and deterministic_eligible and core_lab):
+            candidates.append(post)
+            candidate_profiles[str(post["id"])] = (deterministic_score, deterministic_category)
+    if not candidates:
+        return []
+    prompt = """你是硅谷 AI 技术日报主编。只从 INPUT 的合格候选中选择最多三条真正头条。必须是不同作者，且同一事件只能保留一条；不够三条就少选，绝不补位。选择必须基于材料中可核实的新能力、研究、正式发布、量化结果或明确生产效果；普通产品更新只有在影响明确且实质时才选。相近质量下，OpenAI 核心人物优先于应用框架创业者，Greg Brockman 必须排在 Jerry Liu 之前。不要编造。
+只输出合法 JSON：{"topStories":[{"id":"...","category":"AI 技术进步|AI 技术前沿|AI 技术应用","rationale":"不超过36个汉字"}]}。
+INPUT:
+""" + json.dumps([
+        editorial_source(post) | {
+            "editorial": post["editorial"],
+            "deterministicTopScore": candidate_profiles[str(post["id"])][0],
+            "organizationPriority": strategic_org_rank(Expert(**post["expert"])),
+        }
+        for post in candidates
+    ], ensure_ascii=False)
+    try:
+        completed = subprocess.run(CODEX_EXEC_COMMAND, input=prompt, capture_output=True, text=True, timeout=360, check=False)
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        raise RuntimeError(str(exc)) from exc
+    if completed.returncode != 0:
+        raise RuntimeError(redact(completed.stderr or completed.stdout or "Codex headline review failed"))
+    payload = parse_editorial_json(completed.stdout)
+    rows = payload.get("topStories") if isinstance(payload.get("topStories"), list) else []
+    by_id = {str(post["id"]): post for post in candidates}
+    selected: list[dict[str, Any]] = []
+    seen_authors: set[str] = set()
+    for row in rows[:3]:
+        post = by_id.get(str(row.get("id"))) if isinstance(row, dict) else None
+        if not post:
+            continue
+        author = top_story_author_key(post)
+        category = str(row.get("category") or "")
+        if (
+            author in seen_authors
+            or category not in {"AI 技术进步", "AI 技术前沿", "AI 技术应用"}
+            or any(same_top_story_event(post, selected_post) for selected_post in selected)
+        ):
+            continue
+        post["isTopStory"] = True
+        post["topStoryEligible"] = True
+        post["topStoryCategory"] = category
+        post["topStoryScore"] = 100 - len(selected)
+        post["editorialTopRationale"] = str(row.get("rationale") or "")
+        selected.append(post)
+        seen_authors.add(author)
+    by_handle = {str(post["expert"]["handle"]).casefold(): post for post in candidates}
+    selected_handles = [str(post["expert"]["handle"]).casefold() for post in selected]
+    greg = by_handle.get("gdb")
+    if greg and "jerryjliu0" in selected_handles and "gdb" not in selected_handles:
+        replace_at = selected_handles.index("jerryjliu0")
+        replaced = selected[replace_at]
+        remaining_selected = selected[:replace_at] + selected[replace_at + 1:]
+        if not any(same_top_story_event(greg, selected_post) for selected_post in remaining_selected):
+            replaced["isTopStory"] = False
+            replaced["topStoryEligible"] = False
+            greg_score, greg_category = candidate_profiles[str(greg["id"])]
+            greg["isTopStory"] = True
+            greg["topStoryEligible"] = True
+            greg["topStoryCategory"] = greg_category
+            greg["topStoryScore"] = max(90, greg_score)
+            greg["editorialTopRationale"] = "OpenAI 前沿模型结果优先"
+            selected[replace_at] = greg
+            selected_handles[replace_at] = "gdb"
+    if "gdb" in selected_handles and "jerryjliu0" in selected_handles:
+        greg_at = selected_handles.index("gdb")
+        jerry_at = selected_handles.index("jerryjliu0")
+        if greg_at > jerry_at:
+            selected[greg_at], selected[jerry_at] = selected[jerry_at], selected[greg_at]
+    return selected
 
 
 def translate_batch(batch: dict[str, str], retries: int) -> tuple[dict[str, str], str]:
@@ -907,7 +1686,9 @@ def translate_batch(batch: dict[str, str], retries: int) -> tuple[dict[str, str]
                     else:
                         last_error = "Codex returned no matching translation keys"
             else:
-                last_error = redact(completed.stderr or completed.stdout or f"exit {completed.returncode}")
+                last_error = compact_codex_error(
+                    completed.stderr or completed.stdout or f"exit {completed.returncode}"
+                )
         if attempt < retries:
             time.sleep(2 ** attempt)
     if len(remaining) > 1:
@@ -930,12 +1711,14 @@ def translate_posts(
     batch_size: int,
     workers: int,
     retries: int,
+    preflight: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     targets = collect_translation_targets(posts)
     cache = load_translation_cache(cache_path)
     cached_translations = cache["translations"]
     pending: dict[str, str] = {}
     cache_hits = 0
+    resolved: set[str] = set()
 
     for key, target in targets.items():
         entry = cached_translations.get(key)
@@ -948,6 +1731,7 @@ def translate_posts(
         )
         if translation:
             cache_hits += 1
+            resolved.add(key)
             for container, field in target["destinations"]:
                 container[field] = translation
         else:
@@ -960,43 +1744,55 @@ def translate_posts(
     translated_count = 0
     errors: list[str] = []
     if batches:
-        print(f"Translating {len(pending)} unique texts with Codex in {len(batches)} batches...", flush=True)
-        with concurrent.futures.ThreadPoolExecutor(max_workers=max(1, workers)) as pool:
-            future_map = {pool.submit(translate_batch, batch, retries): batch for batch in batches}
-            completed_count = 0
-            for future in concurrent.futures.as_completed(future_map):
-                batch = future_map[future]
-                translated, error = future.result()
-                completed_count += 1
-                print(f"[translate {completed_count:02d}/{len(batches):02d}] {len(translated)}/{len(batch)} texts", flush=True)
-                if error:
-                    errors.append(error)
-                for key, translation in translated.items():
-                    target = targets[key]
-                    cached_translations[key] = {
-                        "source": target["text"],
-                        "zh": translation,
-                        "promptVersion": TRANSLATION_PROMPT_VERSION,
-                    }
-                    for container, field in target["destinations"]:
-                        container[field] = translation
-                    translated_count += 1
+        preflight = preflight or codex_translation_preflight(retries)
+        if preflight.get("ok"):
+            print(f"Translating {len(pending)} unique texts with Codex in {len(batches)} batches...", flush=True)
+            with concurrent.futures.ThreadPoolExecutor(max_workers=max(1, workers)) as pool:
+                future_map = {pool.submit(translate_batch, batch, retries): batch for batch in batches}
+                completed_count = 0
+                for future in concurrent.futures.as_completed(future_map):
+                    batch = future_map[future]
+                    translated, error = future.result()
+                    completed_count += 1
+                    print(f"[translate {completed_count:02d}/{len(batches):02d}] {len(translated)}/{len(batch)} texts", flush=True)
+                    if error:
+                        errors.append(compact_codex_error(error))
+                    for key, translation in translated.items():
+                        target = targets[key]
+                        resolved.add(key)
+                        cached_translations[key] = {
+                            "source": target["text"],
+                            "zh": translation,
+                            "promptVersion": TRANSLATION_PROMPT_VERSION,
+                        }
+                        for container, field in target["destinations"]:
+                            container[field] = translation
+                        translated_count += 1
+        else:
+            error = compact_codex_error(str(preflight.get("error") or "unknown failure"))
+            errors.append(f"Codex translation preflight unavailable: {error}")
+            print(f"Translation backend unavailable; publishing with explicit source-language fallbacks: {error}", flush=True)
 
     cache["version"] = 2
     cache["updatedAt"] = datetime.now(timezone.utc).isoformat()
     cache_path.parent.mkdir(parents=True, exist_ok=True)
-    cache_path.write_text(json.dumps(cache, ensure_ascii=False, indent=2), encoding="utf-8")
+    write_json_atomic(cache_path, cache)
     completed = cache_hits + translated_count
+    failed_count = max(0, len(targets) - completed)
+    fallback_count = apply_translation_fallbacks(targets, resolved)
     return {
         "enabled": True,
         "backend": "codex exec",
         "promptVersion": TRANSLATION_PROMPT_VERSION,
+        "preflight": preflight or {"ok": True, "attempts": 0, "error": "", "source": "cache-only"},
         "eligibleTexts": len(targets),
         "cacheHits": cache_hits,
         "translatedNow": translated_count,
-        "failed": max(0, len(targets) - completed),
+        "failed": failed_count,
         "coverage": round(completed / len(targets), 4) if targets else 1.0,
-        "errors": errors[:5],
+        "degraded": bool(fallback_count),
+        "fallbacks": fallback_count,
+        "errors": list(dict.fromkeys(errors))[:5],
         "cache": str(cache_path),
     }
 
@@ -1102,6 +1898,55 @@ def render_post(post: dict[str, Any]) -> str:
     """
 
 
+EVENT_STOPWORDS = frozenset({
+    "about", "after", "also", "and", "are", "been", "being", "can", "could", "for", "from",
+    "have", "into", "its", "more", "most", "new", "not", "now", "our", "out", "over", "than",
+    "that", "the", "their", "these", "this", "they", "through", "with", "would", "you", "your",
+    "ai", "openai", "anthropic", "claude", "model", "models", "system", "systems", "technology",
+    "technical", "research", "software", "tool", "tools", "use", "used", "using", "data", "team",
+})
+EVENT_BROAD_TERMS = frozenset({
+    "benchmark", "capable", "cyber", "defence", "defender", "evaluation", "incident", "partnership",
+    "production", "security", "sharing", "vulnerabil",
+})
+EVENT_ANCHOR_TERMS = frozenset({
+    "attack", "benchmark", "compromis", "cyber", "evaluation", "incident", "production", "security",
+    "vulnerabil", "zero",
+})
+
+def normalize_event_token(token: str) -> str:
+    token = token.casefold()
+    if token.endswith("ies") and len(token) > 5:
+        return token[:-3] + "y"
+    if token.endswith(("ing", "ed")) and len(token) > 6:
+        return token[:-3] if token.endswith("ing") else token[:-2]
+    if token.endswith("s") and len(token) > 5:
+        return token[:-1]
+    return token
+
+
+def top_story_event_terms(post: dict[str, Any]) -> set[str]:
+    """Extract concrete event terms, excluding generic AI-report vocabulary."""
+    text = re.sub(r"https?://\S+", " ", technical_context(post))
+    tokens = {
+        normalize_event_token(token)
+        for token in re.findall(r"[a-z][a-z0-9_-]{2,}", text)
+    }
+    return {token for token in tokens if token not in EVENT_STOPWORDS}
+
+
+def same_top_story_event(left: dict[str, Any], right: dict[str, Any]) -> bool:
+    """Conservatively identify two authors narrating the same underlying event."""
+    left_quote = (left.get("quotedTweet") or {}).get("id") if isinstance(left.get("quotedTweet"), dict) else None
+    right_quote = (right.get("quotedTweet") or {}).get("id") if isinstance(right.get("quotedTweet"), dict) else None
+    if left_quote and str(left_quote) == str(right_quote):
+        return True
+    shared = top_story_event_terms(left) & top_story_event_terms(right)
+    if len(shared) < 4 or not (shared - EVENT_BROAD_TERMS):
+        return False
+    return len(shared & EVENT_ANCHOR_TERMS) >= 2 or len(shared) >= 6
+
+
 def top_story_author_key(post: dict[str, Any]) -> str:
     expert = post.get("expert") or {}
     author = post.get("author") or {}
@@ -1131,7 +1976,7 @@ def select_diverse_top_stories(posts: list[dict[str, Any]], limit: int = 3) -> l
 
     for post in candidates:
         author_key = top_story_author_key(post)
-        if author_key in seen_authors:
+        if author_key in seen_authors or any(same_top_story_event(post, selected_post) for selected_post in selected):
             continue
         selected.append(post)
         selected_ids.add(str(post.get("id") or ""))
@@ -1141,7 +1986,7 @@ def select_diverse_top_stories(posts: list[dict[str, Any]], limit: int = 3) -> l
 
     for post in candidates:
         post_id = str(post.get("id") or "")
-        if post_id in selected_ids:
+        if post_id in selected_ids or any(same_top_story_event(post, selected_post) for selected_post in selected):
             continue
         selected.append(post)
         selected_ids.add(post_id)
@@ -1178,12 +2023,30 @@ def order_posts_for_report(experts: list[Expert], posts: list[dict[str, Any]]) -
     return top_stories + ordered_remaining
 
 
+def cap_selected_posts_per_author(
+    posts: list[dict[str, Any]], limit: int = MAX_SELECTED_POSTS_PER_AUTHOR
+) -> tuple[list[dict[str, Any]], int]:
+    """Keep the ranked stream diverse without displacing its leading stories."""
+    retained: list[dict[str, Any]] = []
+    author_counts: Counter[str] = Counter()
+    capped = 0
+    for post in posts:
+        author = top_story_author_key(post)
+        if author_counts[author] >= limit:
+            capped += 1
+            continue
+        retained.append(post)
+        author_counts[author] += 1
+    return retained, capped
+
+
 def render_report(
     experts: list[Expert],
     posts: list[dict[str, Any]],
     results: list[dict[str, Any]],
     now: datetime,
     cutoff: datetime,
+    translation: dict[str, Any] | None = None,
 ) -> str:
     active_handles = {post["expert"]["handle"].casefold() for post in posts}
     failures = [result for result in results if not result["ok"]]
@@ -1194,6 +2057,12 @@ def render_report(
     failure_note = ""
     if failures:
         failure_note = f'<div class="notice">有 {failed_accounts} 个账号本轮抓取失败，详情见 data/run-report.json；其他账号的日报已正常生成。</div>'
+    translation_note = ""
+    if translation and translation.get("degraded"):
+        translation_note = (
+            f'<div class="notice">本轮有 {int(translation.get("fallbacks") or 0)} 段内容翻译暂不可用；'
+            '对应位置保留英文原文并已明确标注，详情见 data/run-report.json。</div>'
+        )
     generated = now.astimezone(SHANGHAI)
     rendered = f"""<!doctype html>
 <html lang="zh-CN">
@@ -1227,7 +2096,7 @@ def render_report(
       <h1>硅谷 AI 原声 <span class="report-date">· {generated:%Y-%m-%d}</span></h1>
       <div class="metrics"><div class="metric"><strong>{len(experts)}</strong><span>监控专家</span></div><div class="metric"><strong>{len(active_handles)}</strong><span>活跃专家</span></div><div class="metric"><strong>{len(posts)}</strong><span>精选原文</span></div></div>
     </header>
-    {failure_note}
+    {failure_note}{translation_note}
     <main class="grid">{cards}</main>
     <footer>Generated {generated:%Y-%m-%d %H:%M:%S} Asia/Shanghai · Read-only X ingestion via Bird · Translation via Codex</footer>
   </div>
@@ -1246,6 +2115,9 @@ def rebuild_from_data(args: argparse.Namespace, experts: list[Expert]) -> int:
     selected_ids = {str(post.get("id") or "") for post in posts}
     posts = [post for post in posts if not is_redundant_nontechnical_wrapper(post, selected_ids)]
     removed_redundant_wrappers = original_post_count - len(posts)
+    excluded_author_candidate_count = len(posts)
+    posts = [post for post in posts if not is_excluded_author(post)]
+    removed_excluded_author = excluded_author_candidate_count - len(posts)
     recruitment_candidate_count = len(posts)
     posts = [post for post in posts if not is_recruitment_post(post)]
     removed_recruitment = recruitment_candidate_count - len(posts)
@@ -1257,6 +2129,7 @@ def rebuild_from_data(args: argparse.Namespace, experts: list[Expert]) -> int:
         handle = str((post.get("expert") or {}).get("handle") or "").casefold()
         expert = experts_by_handle.get(handle)
         if expert:
+            post["expert"] = dataclasses.asdict(expert)
             post["signalScore"] = signal_score(post, expert)
             attach_editorial_rank(post, expert)
         created_at = parse_created_at(str(post.get("createdAtIso") or post.get("createdAt") or ""))
@@ -1266,6 +2139,7 @@ def rebuild_from_data(args: argparse.Namespace, experts: list[Expert]) -> int:
             post["createdAtBeijing"] = created_at.astimezone(SHANGHAI).isoformat()
             post["createdAtLocal"] = created_at.astimezone(SHANGHAI).strftime("%m-%d %H:%M 北京")
     posts = order_posts_for_report(experts, posts)
+    posts, capped_posts = cap_selected_posts_per_author(posts)
     now = datetime.fromisoformat(str(payload["generatedAt"]).replace("Z", "+00:00")).astimezone(timezone.utc)
     cutoff = datetime.fromisoformat(str(payload["windowStart"]).replace("Z", "+00:00")).astimezone(timezone.utc)
     if args.avatars:
@@ -1292,6 +2166,21 @@ def rebuild_from_data(args: argparse.Namespace, experts: list[Expert]) -> int:
     payload["fetchStartedAt"] = str(payload.get("fetchStartedAt") or payload.get("generatedAt"))
     payload["translation"] = translation_report
     payload["avatars"] = avatar_report
+    hotspot_summary = payload.get("xHotspotSearch")
+    if isinstance(hotspot_summary, dict):
+        hotspot_summary = json.loads(json.dumps(hotspot_summary))
+        tagged_posts = [post for post in posts if hotspot_matches(post)]
+        for row in hotspot_summary.get("directions") or []:
+            direction_id = str(row.get("direction") or "")
+            selected = [post for post in tagged_posts if direction_id in (post.get("hotspotDirections") or [])]
+            row["selectedPosts"] = len(selected)
+            row["selectedPostIds"] = [str(post.get("id") or "") for post in selected]
+        hotspot_summary["selectedPosts"] = len(tagged_posts)
+        hotspot_summary["selectedPostsByDirection"] = {
+            str(row.get("direction") or ""): int(row.get("selectedPosts") or 0)
+            for row in hotspot_summary.get("directions") or []
+        }
+        payload["xHotspotSearch"] = hotspot_summary
     results = [{
         "label": "reused-data",
         "ok": True,
@@ -1300,18 +2189,13 @@ def rebuild_from_data(args: argparse.Namespace, experts: list[Expert]) -> int:
         "attempts": 0,
         "elapsedSeconds": 0,
     }]
-    report_path = data_dir / "run-report.json"
-    try:
-        report = json.loads(report_path.read_text(encoding="utf-8")) if report_path.exists() else {}
-    except json.JSONDecodeError:
-        report = {}
-    report.update({
+    report = {
         "generatedAt": now.isoformat(),
         "fetchStartedAt": str(payload.get("fetchStartedAt") or now.isoformat()),
         "windowStart": cutoff.isoformat(),
-        "accountsRequested": int(report.get("accountsRequested") or len(experts)),
-        "accountsSucceeded": int(report.get("accountsSucceeded") or len(experts)),
-        "accountsFailed": int(report.get("accountsFailed") or 0),
+        "accountsRequested": int(payload.get("accountsRequested") or len(experts)),
+        "accountsSucceeded": int(payload.get("accountsSucceeded") or len(experts)),
+        "accountsFailed": int(payload.get("accountsFailed") or 0),
         "postsSelected": len(posts),
         "topStories": [
             {
@@ -1325,27 +2209,87 @@ def rebuild_from_data(args: argparse.Namespace, experts: list[Expert]) -> int:
         ],
         "translation": translation_report,
         "avatars": avatar_report,
+        "xHotspotSearch": hotspot_summary,
         "rebuiltFromData": str(args.reuse_data),
         "rebuildDroppedRecruitment": removed_recruitment,
+        "rebuildDroppedExcludedAuthor": removed_excluded_author,
         "rebuildDroppedNonTechnical": removed_nontechnical + removed_redundant_wrappers,
-    })
-    (data_dir / "posts.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
-    report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
-    (output_dir / "index.html").write_text(render_report(experts, posts, results, now, cutoff), encoding="utf-8")
+        "rebuildDroppedPerAuthorCap": capped_posts,
+        "dropped": {
+            "recruitment": removed_recruitment,
+            "excludedAuthor": removed_excluded_author,
+            "nonTechnical": removed_nontechnical + removed_redundant_wrappers,
+            "perAuthorCap": capped_posts,
+        },
+    }
+    write_json_atomic(data_dir / "posts.json", payload)
+    write_json_atomic(data_dir / "run-report.json", report)
+    write_text_atomic(output_dir / "index.html", render_report(experts, posts, results, now, cutoff, translation_report))
     print(json.dumps(report | {"output": str(output_dir / "index.html")}, ensure_ascii=False, indent=2))
     return 0
 
 
+def build_hotspot_summary(
+    directions: list[dict[str, Any]],
+    results: list[dict[str, Any]],
+    posts: list[dict[str, Any]],
+    dropped: Counter[str],
+) -> dict[str, Any]:
+    """Expose the post-fetch direction audit in the raw data and run report."""
+    result_by_direction = {
+        str(result.get("hotspotDirection") or ""): result
+        for result in results
+        if str(result.get("hotspotDirection") or "")
+    }
+    tagged_posts = [post for post in posts if hotspot_matches(post)]
+    direction_rows: list[dict[str, Any]] = []
+    for direction in directions:
+        direction_id = str(direction.get("id") or "")
+        selected = [post for post in tagged_posts if direction_id in (post.get("hotspotDirections") or [])]
+        result = result_by_direction.get(direction_id, {})
+        direction_rows.append({
+            "direction": direction_id,
+            "label": str(direction.get("label") or direction_id),
+            "postMatchAny": list(direction.get("postMatchAny") or []),
+            "ok": bool(result.get("ok")),
+            "fetched": len(result.get("tweets", [])),
+            "selectedPosts": len(selected),
+            "selectedPostIds": [str(post.get("id") or "") for post in selected],
+            "directionMismatches": int(dropped.get(f"hotspotDirectionMismatch:{direction_id}") or 0),
+            "attempts": result.get("attempts"),
+            "elapsedSeconds": result.get("elapsedSeconds"),
+            "error": result.get("error"),
+        })
+    return {
+        "schemaVersion": 2,
+        "enabled": bool(directions),
+        "directionsRequested": len(directions),
+        "directionsSucceeded": sum(1 for result in results if result.get("ok")),
+        "directionsFailed": sum(1 for result in results if not result.get("ok")),
+        "fetched": sum(len(result.get("tweets", [])) for result in results if result.get("ok")),
+        "selectedPosts": len(tagged_posts),
+        "selectedPostsByDirection": {
+            row["direction"]: row["selectedPosts"] for row in direction_rows
+        },
+        "directionMismatches": {
+            row["direction"]: row["directionMismatches"] for row in direction_rows
+        },
+        "directions": direction_rows,
+    }
+
+
 def main() -> int:
     args = parse_args()
-    if not math.isclose(args.hours, 23.0):
-        raise RuntimeError("AI V-Radar requires an exact 23-hour window")
+    if args.hours <= 0:
+        raise RuntimeError("AI V-Radar requires a positive fixed-hour window")
+    run_lock = acquire_run_lock(args.output_root)
     now = datetime.fromisoformat(args.now.replace("Z", "+00:00")) if args.now else datetime.now(timezone.utc)
     if now.tzinfo is None:
         now = now.replace(tzinfo=SHANGHAI)
     now = now.astimezone(timezone.utc)
     cutoff = now - timedelta(hours=args.hours)
-    experts = load_experts(args.watchlist)
+    experts = append_expansion_experts(load_experts(args.watchlist), args.expansion_watchlist)
+    hotspot_directions, hotspot_experts = load_hotspot_searches(args.hotspot_queries)
     if args.limit > 0:
         experts = experts[: args.limit]
     if args.reuse_data:
@@ -1390,9 +2334,97 @@ def main() -> int:
             label = result["label"] if args.fetch_mode == "timeline" else f"{len(item)} accounts"
             print(f"[{completed_count:02d}/{len(work_items):02d}] {label}: {status} ({tweet_count} fetched)", flush=True)
 
+    search_fallbacks: list[dict[str, Any]] = []
+    if args.fetch_mode == "search":
+        if args.search_fallback == "timeline":
+            results, search_fallbacks = recover_failed_search_batches(
+                results,
+                args.count_per_user,
+                args.cookie_source,
+                args.retries,
+                args.workers,
+            )
+        else:
+            search_fallbacks = [
+                {
+                    "handles": [expert["handle"] for expert in result.get("experts", [])],
+                    "error": result.get("error", "unknown search failure"),
+                    "strategy": "none",
+                }
+                for result in results
+                if not result.get("ok")
+            ]
     results.sort(key=lambda item: item["label"].casefold())
-    posts, dropped = normalize_posts(results, experts, cutoff, now, args.max_posts)
-    posts = order_posts_for_report(experts, posts)
+    hotspot_results: list[dict[str, Any]] = []
+    if hotspot_directions:
+        print(f"Searching X hotspots in {len(hotspot_directions)} directions with Bird...", flush=True)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=min(5, max(1, args.workers))) as pool:
+            future_map = {
+                pool.submit(
+                    fetch_hotspot_direction,
+                    direction,
+                    cutoff,
+                    args.cookie_source,
+                    args.hotspot_max_pages,
+                    args.retries,
+                ): direction
+                for direction in hotspot_directions
+            }
+            for future in concurrent.futures.as_completed(future_map):
+                result = future.result()
+                hotspot_results.append(result)
+                status = "ok" if result["ok"] else "failed"
+                print(f"[hotspot] {result['label']}: {status} ({len(result.get('tweets', []))} fetched)", flush=True)
+        hotspot_results.sort(key=lambda item: item["label"].casefold())
+    known_handles = {expert.handle.casefold() for expert in experts}
+    candidate_experts = experts + [
+        expert for expert in hotspot_experts if expert.handle.casefold() not in known_handles
+    ]
+    candidate_results = results + hotspot_results
+    editorial_audit: dict[str, Any] = {"enabled": False}
+    if args.editorial_ai:
+        all_candidates, dropped = collect_editorial_candidates(candidate_results, candidate_experts, cutoff, now)
+        posts, editorial_audit = review_editorial_candidates(
+            all_candidates, args.editorial_batch_size, args.editorial_retries
+        )
+        dropped["aiNotTechnical"] = editorial_audit["dropped"]
+        for post in posts:
+            post["isTopStory"] = False
+            post["topStoryEligible"] = False
+            post["topStoryCategory"] = ""
+            post["topStoryScore"] = 0
+        top_stories = select_editorial_top_stories(posts, args.editorial_retries)
+        top_ids = {str(post["id"]) for post in top_stories}
+        grade_order = {"A": 0, "B": 1, "C": 2, "D": 3}
+        remaining = sorted(
+            (post for post in posts if str(post["id"]) not in top_ids),
+            key=lambda post: (
+                grade_order.get(str(post.get("editorial", {}).get("dailyGrade") or "D"), 9),
+                -int(post.get("signalScore") or 0),
+                str(post.get("createdAtIso") or ""),
+            ),
+        )
+        posts = top_stories + remaining
+        posts, capped_posts = cap_selected_posts_per_author(posts)
+        if capped_posts:
+            dropped["perAuthorCap"] += capped_posts
+        if len(posts) > args.max_posts:
+            dropped["maxPosts"] += len(posts) - args.max_posts
+            posts = posts[: args.max_posts]
+        editorial_audit["topStories"] = [
+            {"id": post["id"], "author": post["expert"]["handle"], "category": post["topStoryCategory"], "rationale": post.get("editorialTopRationale", "")}
+            for post in top_stories
+        ]
+        editorial_audit["reviewedPosts"] = [
+            {"id": post["id"], "author": post["expert"]["handle"], "text": post.get("text", ""), **post["editorial"]}
+            for post in all_candidates
+        ]
+    else:
+        posts, dropped = normalize_posts(candidate_results, candidate_experts, cutoff, now, args.max_posts)
+        posts = order_posts_for_report(candidate_experts, posts)
+        posts, capped_posts = cap_selected_posts_per_author(posts)
+        if capped_posts:
+            dropped["perAuthorCap"] += capped_posts
     if args.avatars:
         avatar_cache = args.avatar_cache or (args.output_root / "avatar-cache.json")
         avatar_report = hydrate_post_avatars(posts, avatar_cache, args.cookie_source, args.avatar_workers, args.retries)
@@ -1421,6 +2453,7 @@ def main() -> int:
     output_dir = args.output_root / local_date
     data_dir = output_dir / "data"
     data_dir.mkdir(parents=True, exist_ok=True)
+    hotspot_summary = build_hotspot_summary(hotspot_directions, hotspot_results, posts, dropped)
 
     raw_payload = {
         "generatedAt": now.isoformat(),
@@ -1429,6 +2462,8 @@ def main() -> int:
         "windowHours": args.hours,
         "experts": [dataclasses.asdict(expert) for expert in experts],
         "posts": posts,
+        "xHotspotSearch": hotspot_summary,
+        "editorial": editorial_audit,
         "translation": translation_report,
         "avatars": avatar_report,
     }
@@ -1436,6 +2471,7 @@ def main() -> int:
         "generatedAt": now.isoformat(),
         "fetchStartedAt": now.isoformat(),
         "windowStart": cutoff.isoformat(),
+        "windowHours": args.hours,
         "accountsRequested": len(experts),
         "fetchMode": args.fetch_mode,
         "accountsSucceeded": sum(len(result.get("experts", [])) for result in results if result["ok"]),
@@ -1454,8 +2490,15 @@ def main() -> int:
         "translation": translation_report,
         "avatars": avatar_report,
         "dropped": dict(dropped),
+        "editorial": editorial_audit,
+        "searchFallbacks": search_fallbacks,
+        "xHotspotSearch": hotspot_summary,
         "failures": [
-            {"handles": [expert["handle"] for expert in result.get("experts", [])], "error": result.get("error", "unknown")}
+            {
+                "handles": [expert["handle"] for expert in result.get("experts", [])],
+                "error": result.get("error", "unknown"),
+                "searchBatchError": result.get("searchBatchError"),
+            }
             for result in results
             if not result["ok"]
         ],
@@ -1466,16 +2509,20 @@ def main() -> int:
                 "fetched": len(result.get("tweets", [])),
                 "attempts": result["attempts"],
                 "elapsedSeconds": result["elapsedSeconds"],
+                "source": result.get("source", args.fetch_mode),
             }
             for result in results
         ],
     }
-    (data_dir / "posts.json").write_text(json.dumps(raw_payload, ensure_ascii=False, indent=2), encoding="utf-8")
-    (data_dir / "run-report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
-    (output_dir / "index.html").write_text(render_report(experts, posts, results, now, cutoff), encoding="utf-8")
+    write_json_atomic(data_dir / "posts.json", raw_payload)
+    write_json_atomic(data_dir / "run-report.json", report)
+    if args.editorial_ai:
+        write_json_atomic(data_dir / "editorial-audit.json", editorial_audit)
+    write_text_atomic(output_dir / "index.html", render_report(experts, posts, results, now, cutoff, translation_report))
 
     print(json.dumps(report | {"output": str(output_dir / "index.html")}, ensure_ascii=False, indent=2))
-    return 0 if report["accountsSucceeded"] else 2
+    hotspot_complete = not hotspot_directions or not report["xHotspotSearch"]["directionsFailed"]
+    return 0 if report["accountsSucceeded"] and hotspot_complete else 2
 
 
 if __name__ == "__main__":

@@ -12,10 +12,12 @@ Operate from the root of the `four-knows` repository that contains this skill. T
 Run from the project root:
 
 ```bash
-python3 scripts/fetch_ai_v_radar.py --hours 23 --fetch-mode search --search-batch-size 8 --search-max-pages 5 --workers 2 --retries 2 --avatar-workers 3 --translation-batch-size 8 --translation-workers 2 --translation-retries 2
+python3 scripts/fetch_ai_v_radar.py --hours 23 --fetch-mode search --search-batch-size 8 --search-max-pages 5 --expansion-watchlist config/ai_x_expansion_watchlist.json --hotspot-queries config/ai_x_hotspot_queries.json --hotspot-max-pages 3 --workers 2 --retries 2 --avatar-workers 3 --avatar-cache ai-v-radar/avatar-cache.json --translation-batch-size 8 --translation-workers 2 --translation-retries 2
 ```
 
-Use the embedded watchlist in `ai_key_people_watchlist_visual.html` (currently 54 accounts). Use Bird only for read operations and the local non-interactive Codex CLI for Simplified Chinese translation.
+Invoke every command that starts the local `codex` CLI, including the fresh fetch and poster-copy renderer, with the execution tool's `sandbox_permissions=require_escalated` from its first attempt. The nested CLI needs its normal authenticated local runtime. If that permission is unavailable, continue the report with the explicit translation or poster-copy fallback described below; do not block the whole daily publication solely because Codex is unavailable.
+
+Use the embedded 55-account core watchlist in `ai_key_people_watchlist_visual.html` plus the seven explicitly approved accounts in `config/ai_x_expansion_watchlist.json`, for 62 monitored accounts. Also execute all five X-only directions in `config/ai_x_hotspot_queries.json`; hotspot discoveries enrich the candidate pool but do not change the 62 monitored-account count. Re-check every hotspot result against that direction's configured `postMatchAny` terms across its primary post, quote, and article before it can enter the pool; retain matched-term provenance, merge multi-direction matches, and record per-direction selected/mismatch counts. Display the actual monitored count. Use Bird only for read operations and the local non-interactive Codex CLI for Simplified Chinese translation.
 
 Bird reads the saved X session directly from the local Chrome profile with `--cookie-source chrome`; it does not drive a live Chrome tab. Chrome may be closed during a run. Treat a logged-out X session, expired or cleared cookies, a different Chrome profile, or denied macOS cookie decryption as authentication failures and report them without exposing credentials.
 
@@ -27,7 +29,7 @@ Reserve `--reuse-data ai-v-radar/YYYYMMDD/data/posts.json` for repairing transla
 - Run translation in an ephemeral, read-only Codex session with approvals disabled. Keep the translation task isolated from unrelated project instructions.
 - Preserve handles, URLs, hashtags, product names, model names, code, numbers, and technical claims.
 - Cache translations by exact source text plus prompt version. A prompt-version change invalidates older cached translations so stale translation behavior does not silently persist.
-- Require `translation.failed=0` and `translation.coverage=1.0`. Report failures instead of silently falling back to untranslated content.
+- Target `translation.failed=0` and `translation.coverage=1.0`. Immediately before the translation batches, the production script performs a real Codex preflight in the same execution environment. If the preflight or any later batch fails after retries, keep every successful/cache-hit translation, atomically update the shared cache, retain the complete English original, show `翻译暂不可用，请参阅上方英文原文。` at each unresolved location, and continue the daily publication. Record the exact failed count, coverage, fallback count, and compact sanitized diagnostic; never claim a fallback is a completed translation.
 
 ## Enforce the time window
 
@@ -46,8 +48,10 @@ Reserve `--reuse-data ai-v-radar/YYYYMMDD/data/posts.json` for repairing transla
 - Exclude low-signal replies unless media, a quote, or strong engagement makes them useful.
 - Exclude recruitment completely, including hiring, open roles, job openings, applications, careers pages, role/application calls to action such as “Apply to be an …” or “Apply to join …”, “join our team”, “good role for you”, and Chinese 招聘/招人/岗位开放 language.
 - Exclude lifestyle, generic company culture, swag, casual banter, and other nontechnical material unless the attached quote/article itself contains a substantive technical signal.
+- Permanently exclude posts authored by Sam Altman (`@sama`) from selected content and top stories. Keep the account in the 62-person fetch count so acquisition coverage remains auditable.
 - When a lifestyle or swag wrapper quotes a technical post that is already selected directly, keep the substantive technical post once and remove the redundant wrapper.
-- Deduplicate by post ID. Never backfill with old content when the current window is quiet.
+- Deduplicate by post ID, preserving every confirmed hotspot-direction tag when the same post appears in multiple searches. Never backfill with old content when the current window is quiet.
+- After all eligibility, ranking, and top-story decisions, retain at most three selected posts per author. Keep the ranked first three and record any omitted later posts in `dropped.perAuthorCap`; do not relax this cap to fill the page.
 
 ## Guarantee the first three cards
 
@@ -61,7 +65,7 @@ Use technical evidence, author importance, engagement, quoted technical detail, 
 
 Mark the selected cards with `isTopStory=true`, `topStoryEligible=true`, `topStoryCategory`, and `topStoryScore`. A publishable poster requires exactly three genuinely eligible top stories that describe substantive AI technical progress, frontier research, or concrete technical application; never fill a poster position with commentary, marketing, policy chatter, or another non-eligible record. If fewer than three qualify, keep the generated local report artifacts but stop poster publication and report the shortage rather than weakening the rule or enlarging the window.
 
-Maximize author diversity across the three top stories. Select the strongest eligible story from each distinct author before considering a second story from anyone. When at least three eligible authors exist, all three poster cards must come from different authors. When only one or two eligible authors exist, use the maximum available diversity and allow repetition only to fill the remaining positions; never publish three cards from one author when another eligible author is available.
+Maximize author diversity across the three top stories. Select the strongest eligible story from each distinct author before considering a second story from anyone. When at least three eligible authors exist, all three poster cards must come from different authors. When only one or two eligible authors exist, use the maximum available diversity and allow repetition only to fill the remaining positions; never publish three cards from one author when another eligible author is available. Do not fill two leading cards with different authors recounting the same underlying event; prefer the strongest original account and select the next distinct technical event.
 
 After the first three, order by P0/P1 importance, current organization boost, and curated watchlist order. Apply `+10` signal weight to current OpenAI authors and `+9` to current Anthropic/Claude authors. Remove “前 OpenAI”, `former OpenAI`, and `ex-OpenAI` before detecting current OpenAI affiliation; a current Anthropic employee who previously worked at OpenAI remains Anthropic.
 
@@ -72,7 +76,7 @@ After the first three, order by P0/P1 importance, current organization boost, an
 - Render a dense, responsive two-column stream on desktop and one column on narrow screens.
 - Show the complete English original first in the larger font. Show the complete Chinese translation after it in the smaller font. Never replace either with a summary.
 - Preserve the same bilingual order in quoted posts and X Articles.
-- Show a real X avatar for every primary author and every quoted author. Cache the URLs; do not invent avatar artwork when Bird can resolve the profile.
+- Show a real X avatar for every primary author and every quoted author. Reuse the persistent `ai-v-radar/avatar-cache.json` first, persist avatars returned with post/search payloads, and query Bird only for genuinely new missing handles. On a 429 rate limit, stop scheduling more avatar lookups and leave publication blocked until a later retry can reach full coverage; do not repeatedly re-query cached authors.
 - Keep author name, handle, current role/domain, Beijing timestamp, engagement, media, quote, article, and direct X link.
 - Do not add theme filters, priority filters, search, language switches, result counters, author shortcut navigation, author group headings, header topic metrics, or explanatory hero copy.
 
@@ -91,22 +95,32 @@ ai-v-radar/avatar-cache.json
 After the report passes content validation, run:
 
 ```bash
-python3 scripts/render_ai_v_poster.py --input ai-v-radar/YYYYMMDD/data/posts.json --selected-count 13
+python3 scripts/render_ai_v_poster.py --input ai-v-radar/YYYYMMDD/data/posts.json
 ```
 
-This writes `poster.html` and `data/poster.json` in the dated report directory. Use exactly the first three display records after technical-importance ranking and author-diversity selection; all three must be eligible top stories. Generate concise Chinese technical titles and subtitles with the local non-interactive Codex CLI; preserve model/product names, numbers, and claims, and fall back to deterministic source-derived copy if Codex fails.
+This writes `poster.html` and `data/poster.json` in the dated report directory. Use exactly the first three display records after technical-importance ranking and author-diversity selection; all three must be eligible top stories. Generate concise Chinese technical titles and subtitles with the local non-interactive Codex CLI; the title must summarize the primary post, while a quote/article may only support it. Preserve model/product names, numbers, and claims, and fall back to deterministic source-derived copy if Codex fails. Persist the copy backend, retry count, and a sanitized error status in `data/poster.json`.
 
-Render `poster.html` through local HTTP with the Browser skill. Set the viewport to 1744×960, take a full-page capture, and save the final RGB PNG as `ai-v-radar/YYYYMMDD/screenshots.png`. Do not rely on a viewport-only capture because browser chrome may reduce its width. If the Browser backend returns JPEG bytes, save a temporary `.jpg`, convert it to PNG with `sips -s format png`, then move the temporary source out of the report directory.
+Capture the production poster directly as PNG with the isolated headless-Chrome helper:
+
+```bash
+python3 scripts/capture_ai_v_poster.py --project . --date YYYYMMDD
+```
+
+The helper starts its own collision-free local HTTP port, asks Chrome to write `capture.png` natively, requires exact 1744×960 8-bit RGB PNG bytes, and replaces `screenshots.png` atomically. It uses an isolated temporary Chrome profile and never reads the user's browser session. This native PNG path is the production default; do not create JPEG first.
+
+Use the Browser skill afterward for visual QA when available. Only if the native helper is unavailable may a Browser capture be used as a recovery path: save the raw Browser bytes outside the report directory and run `scripts/finalize_ai_v_poster.py` to detect and normalize the actual format. JPEG-to-PNG conversion is an exception handler for a backend that returned JPEG, never the normal production sequence.
 
 Match the established poster system:
 
 - exact 1744×960 canvas;
 - black-and-white editorial header `硅谷 AI 原声 | M/D`;
 - subtitle for global expert highlights from the latest 23 hours;
-- exact visible stats `54 人监控` and `13 条精选`;
+- visible stats must use the actual monitored-account count and actual selected-post count;
 - three large bordered cards with real author avatar, rank, author/role, category pill, large Chinese headline, and gray technical subtitle;
 - no invented facts, decorative stock art, filters, navigation, or extra explanatory blocks.
-- when a selected post quotes another post, use the quoted post's complete Chinese translation as the smaller two-line subtitle; only use the generated summary when there is no quoted post.
+- when a selected post quotes another post, pass the quoted post's complete Chinese translation through as the smaller subtitle. Do not shorten it in copy generation; the report page always retains the full bilingual quote.
+- adapt typography to the actual headline width as well as content density: short single-line headlines may grow up to 84 px to use the right side of the card; balanced cards are about 56/30 px and dense cards are no smaller than 52/27 px. Do not leave a short headline as a small island with a large unused right-side gap.
+- target a visually substantial text block in every card. Fix horizontal whitespace first through headline scale and line length, not by cutting source-derived quote text; never invent, repeat, or weaken content merely to fill the canvas.
 
 ## Prune expired reports
 
@@ -139,16 +153,21 @@ python3 .agents/skills/ai-v-radar-daily/scripts/validate_radar.py --project .
 Require all of the following:
 
 - exact 23-hour `windowStart`/`fetchStartedAt` interval;
-- 54 requested accounts and zero failed accounts for a production run;
+- all configured core and expansion accounts (currently 62) requested, with zero failed accounts;
+- all five configured X hotspot directions completed successfully;
+- every retained hotspot post has configured matched-term evidence, correct multi-direction provenance, and auditable per-direction counts;
 - unique IDs and every post inside the fixed window;
 - UTC source timestamp, `+08:00` Beijing timestamp, and visible `北京` card time;
 - zero technical-filter or recruitment violations in selected posts;
 - exactly three eligible leading records and HTML cards marked as top stories for a publishable poster;
 - maximum author diversity in the first three: three different authors whenever at least three eligible authors exist, otherwise no avoidable repetition;
-- `translation.failed=0` and `translation.coverage=1.0`;
+- no two leading records recount the same underlying event;
+- prefer translation `failed=0` and `coverage=1.0`; incomplete translation is a visible validation warning and does not block an otherwise valid publication;
 - primary and quoted avatar coverage both `1.0`, with `postsWithAvatar=postsSelected`;
 - density-reducing UI shortcuts and removed controls remain absent.
-- `screenshots.png` is a real 1744×960 PNG and `data/poster.json` contains `monitored=54`, `selected=13`, and exactly three displayed eligible stories.
+- `screenshots.png` is a real 1744×960 RGB PNG and `data/poster.json` contains the actual monitored/selected counts and exactly three displayed eligible stories.
+- `data/poster.json.inputSha256` exactly matches the current `data/posts.json`; a poster built from stale input is a hard failure and must be regenerated before publication.
+- each poster card uses the appropriate sparse/balanced/dense typography class, has no clipped byline, and does not leave a small text block floating in a mostly empty card.
 - no dated report directory exists on or before the current report date minus seven days; only the latest seven Beijing calendar dates may remain.
 
 Serve the repository through local HTTP for visual QA; do not validate only a `file://` page. Use the Browser skill when available, reload after rebuilding, verify the first three authors/content/times, and leave the final report tab as the deliverable.
