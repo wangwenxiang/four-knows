@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>硅谷 AI 原声 · 2026-08-02</title>
+  <style>
+    :root{--bg:#f4f6f8;--surface:#fff;--text:#16181c;--muted:#65717e;--line:#dfe4e9;--accent:#0066cc;--green:#117a62;--shadow:0 16px 42px rgba(18,28,38,.08);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 15% 0,#e8f2ff 0,transparent 27%),var(--bg);color:var(--text)} a{color:inherit;text-decoration:none} button{font:inherit}
+    .shell{width:min(1500px,calc(100% - 28px));margin:0 auto;padding:14px 0 40px}
+    .hero{display:grid;grid-template-columns:minmax(250px,1fr) auto;align-items:center;gap:12px;padding:15px 18px;border:1px solid rgba(255,255,255,.75);border-radius:16px;background:rgba(255,255,255,.88);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    h1{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin:0;font-size:clamp(28px,3.4vw,44px);line-height:1;letter-spacing:-.05em} .report-date{color:var(--green);font-size:clamp(10px,1vw,13px);font-weight:900;letter-spacing:.08em;white-space:nowrap}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(62px,1fr));gap:6px;align-content:start} .metric{padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fff} .metric strong{display:block;font-size:19px;line-height:1} .metric span{display:block;margin-top:3px;color:var(--muted);font-size:8px;font-weight:820;white-space:nowrap}
+    .notice{margin-top:12px;padding:11px 14px;border:1px solid #e1b866;border-radius:12px;background:#fff8e8;color:#7a5612;font-size:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px;align-items:start} .signal-card{min-width:0;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 9px 26px rgba(18,28,38,.045)}
+    .card-top{display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:10px} .avatar{display:grid;width:46px;height:46px;overflow:hidden;place-items:center;border:1px solid #d9e0e7;border-radius:999px;background:linear-gradient(135deg,#111827,#46627d);color:#fff;font-size:12px;font-weight:900} .avatar img{width:100%;height:100%;object-fit:cover;display:block} .identity{display:grid;gap:3px;min-width:0} .identity strong,.identity span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .identity strong{font-size:14px} .identity span{color:var(--muted);font-size:11px}
+    .score{display:grid;justify-items:center;min-width:40px;padding:5px 6px;border:1px solid #e3ebe8;border-radius:8px;background:#f4f8f6;color:#527267;font-size:15px;font-weight:820;line-height:1} .score small{margin-top:2px;color:#71877f;font-size:7px;letter-spacing:.06em;text-transform:uppercase}
+    .meta{display:flex;align-items:center;gap:6px;margin:11px 0 9px;color:var(--muted);font-size:10.5px;font-weight:750} .meta span:not(.priority){overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .meta time{margin-left:auto;white-space:nowrap} .priority{padding:3px 6px;border-radius:999px;background:#111827;color:#fff;font-size:9px}
+    .post-text{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.58} .post-text.original{font-size:16px;font-weight:570;color:#20252b} .post-text.translation{margin-top:8px;color:#66727f;font-size:13px;font-weight:470;line-height:1.62} .article .original+.translation{margin-top:2px;color:#65717e;font-size:11px;font-weight:650} .quote,.article{display:grid;gap:6px;margin-top:10px;padding:11px;border:1px solid var(--line);border-radius:12px;background:#f7f9fb} .quote__author{display:flex;align-items:center;gap:7px;font-size:11px} .quote__author>div:last-child{display:grid;gap:1px} .quote__author span{color:var(--muted)} .quote-avatar{display:grid;width:28px;height:28px;overflow:hidden;place-items:center;border:1px solid var(--line);border-radius:999px;background:#dfe6ed;color:#52606d;font-size:10px;font-weight:900} .quote-avatar img{width:100%;height:100%;object-fit:cover} .quote p,.article p{margin:0;color:#4f5a66;font-size:12px;line-height:1.48;white-space:pre-wrap} .article strong{font-size:13px} .article strong.original{font-size:13.5px} .quote-text.original{font-size:12.5px;color:#36414d} .quote-text.translation{font-size:11.5px;color:#6a7682} .quote-link{justify-self:start;color:var(--accent);font-size:10px;font-weight:850}
+    .media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:10px;overflow:hidden;border-radius:12px} .media-grid--1{grid-template-columns:1fr} .media-item{position:relative;min-height:150px;background:#e8edf2} .media-item img{width:100%;height:100%;max-height:330px;object-fit:cover;display:block} .media-item span{position:absolute;right:7px;bottom:7px;padding:4px 6px;border-radius:6px;background:rgba(0,0,0,.68);color:#fff;font-size:8px;font-weight:900}
+    .card-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid #edf0f3} .engagement{display:flex;gap:10px;color:var(--muted);font-size:10.5px;font-weight:750} .card-bottom>a{color:var(--accent);font-size:11px;font-weight:850} .empty{grid-column:1/-1;padding:70px;text-align:center;border:1px dashed #cdd5dd;border-radius:16px;background:#fff;color:var(--muted)}
+    footer{padding:26px 4px 0;color:var(--muted);font-size:11px;text-align:center}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}} @media(max-width:560px){.shell{width:min(100% - 16px,1500px);padding-top:7px}.hero{gap:10px;padding:13px 14px;border-radius:15px}h1{font-size:28px}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.metric{padding:7px 9px}.metric strong{font-size:18px}.signal-card{padding:13px}.post-text.original{font-size:15px}.post-text.translation{font-size:12.5px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <h1>硅谷 AI 原声 <span class="report-date">· 2026-08-02</span></h1>
+      <div class="metrics"><div class="metric"><strong>62</strong><span>监控专家</span></div><div class="metric"><strong>9</strong><span>活跃专家</span></div><div class="metric"><strong>14</strong><span>精选原文</span></div></div>
+    </header>
+
+    <main class="grid">
+      <article class="signal-card" data-theme="models" data-priority="P0" data-expert="polynoamial" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1872883170292457472/8ywVGO5M_normal.jpg" alt="Noam Brown avatar" loading="lazy"></div>
+          <div class="identity"><strong>Noam Brown</strong><span>@polynoamial · OpenAI / 推理研究</span></div>
+          <div class="score">98<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>推理模型 / OpenAI</span><time>08-01 16:32 北京</time></div>
+        <p class="post-text original" lang="auto">The cost of generating the proofs for all 10 of these breakthroughs combined was under $2,000 at Sol API prices. We’re excited to see what scientists and researchers are able to create with our upcoming Astra models!</p><p class="post-text translation" lang="zh-CN">按 Sol API 价格计算，为这 10 项突破生成全部证明的成本合计不到 2,000 美元。我们很期待看到科学家和研究人员能用即将推出的 Astra 模型创造什么！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1872883170292457472/8ywVGO5M_normal.jpg" alt="Noam Brown avatar" loading="lazy"></div><div><strong>Noam Brown</strong><span>@polynoamial</span></div></div><p class="quote-text original" lang="auto">An internal version of Astra, @OpenAI’s next major model family, solved 10 major open problems in mathematics, quantum complexity, and theoretical computer science.
+
+We believe it will be a major step for scientific reasoning. https://t.co/iP6cyheZ7i https://t.co/jHuulDwV46</p><p class="quote-text translation" lang="zh-CN">@OpenAI 下一代主要模型家族 Astra 的一个内部版本，解决了数学、量子复杂性和理论计算机科学中的 10 个重大开放问题。
+
+我们相信，这将是科学推理的一大步。https://t.co/iP6cyheZ7i https://t.co/jHuulDwV46</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOn2XyYasAA_rAp.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOn2XyYasAA_rAp.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/polynoamial/status/2083467194663571701" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 2,593</span><span>↻ 224</span><span>↩ 115</span></div><a href="https://x.com/polynoamial/status/2083470822258467194" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="products" data-priority="P0" data-expert="aravsrinivas" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2028729526822588416/WhtMUI-P_normal.jpg" alt="Aravind Srinivas avatar" loading="lazy"></div>
+          <div class="identity"><strong>Aravind Srinivas</strong><span>@AravSrinivas · Perplexity / CEO</span></div>
+          <div class="score">86<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 搜索 / 产品</span><time>08-02 05:29 北京</time></div>
+        <p class="post-text original" lang="auto">Two orders of magnitude improvements are quite rare. This is a big deal.</p><p class="post-text translation" lang="zh-CN">两个数量级的提升相当罕见。这是一件大事。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1728327996375719936/RW7VBJfD_normal.jpg" alt="Chubby♨️ avatar" loading="lazy"></div><div><strong>Chubby♨️</strong><span>@kimmonismus</span></div></div><p class="quote-text original" lang="auto">DeepSeek V4-Flash isn’t just cheaper per token.
+
+It reportedly completes the same benchmark tasks as Fable 5 at 105× lower total cost, according to @ArtificialAnlys !
+
+That&#x27;s precisely why the Flash release is, for me, the DeepSeek 2.0 moment. It will cause a huge stir.</p><p class="quote-text translation" lang="zh-CN">DeepSeek V4-Flash 不只是每 token 更便宜。
+
+据 @ArtificialAnlys 称，它完成与 Fable 5 相同基准任务的总成本低了 105 倍！
+
+这正是为什么对我来说，Flash 的发布是 DeepSeek 2.0 时刻。它会引起巨大轰动。</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOqqzJdW8AAdznm.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOqqzJdW8AAdznm.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/kimmonismus/status/2083665587226787959" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 386</span><span>↻ 28</span><span>↩ 26</span></div><a href="https://x.com/AravSrinivas/status/2083666472052957392" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P1" data-expert="johnschulman2" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1389000537195040770/DzWPljT-_normal.jpg" alt="John Schulman avatar" loading="lazy"></div>
+          <div class="identity"><strong>John Schulman</strong><span>@johnschulman2 · 前 OpenAI；RLHF 关键人物</span></div>
+          <div class="score">77<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 研究</span><time>08-02 02:07 北京</time></div>
+        <p class="post-text original" lang="auto">We love open weights and plan to keep releasing open-weight models and fine-tuning tools. But we’re not absolutists; misuse risks are real. Here’s how we’re thinking about a safe path forward, and the research needed to get there. Come work on it with us.</p><p class="post-text translation" lang="zh-CN">我们热爱开放权重，并计划继续发布开放权重模型和微调工具。但我们不是绝对主义者；滥用风险是真实存在的。这里是我们对安全前进路径的思考，以及实现它所需的研究。欢迎加入我们一起做这件事。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2075275500420001792/Q9J4M1DL_normal.jpg" alt="Thinking Machines avatar" loading="lazy"></div><div><strong>Thinking Machines</strong><span>@thinkymachines</span></div></div><p class="quote-text original" lang="auto">Releasing weights indiscriminately isn&#x27;t safe. Neither is keeping capable models inside a few labs.
+
+We think there&#x27;s a path between them. We haven&#x27;t mapped all of it. Our new post covers the part we can see: how we assessed Inkling, and why access should widen in stages.
+
+https://t.co/zGFbuXNr0Y</p><p class="quote-text translation" lang="zh-CN">不加区分地发布权重并不安全。把强大的模型只留在少数实验室里也不安全。
+
+我们认为两者之间存在一条路径。我们还没有完全摸清它。我们的新文章讲述了我们目前能看清的部分：我们如何评估 Inkling，以及为什么访问权限应分阶段扩大。
+
+https://t.co/zGFbuXNr0Y</p><a class="quote-link" href="https://x.com/thinkymachines/status/2083338736436400536" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 300</span><span>↻ 15</span><span>↩ 7</span></div><a href="https://x.com/johnschulman2/status/2083615606784573669" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P0" data-expert="gdb" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_normal.jpg" alt="Greg Brockman avatar" loading="lazy"></div>
+          <div class="identity"><strong>Greg Brockman</strong><span>@gdb · OpenAI / 联合创始人</span></div>
+          <div class="score">98<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>基座模型 / OpenAI</span><time>08-01 15:39 北京</time></div>
+        <p class="post-text original" lang="auto">ten significant advances in mathematics and theoretical computer science.
+
+solved using an internal version of Astra, our next major model, for a total cost of about $2000 at Sol API prices:</p><p class="post-text translation" lang="zh-CN">数学和理论计算机科学中的十项重大进展。
+
+使用我们下一代主要模型 Astra 的内部版本解决，按 Sol API 价格计算总成本约为 2000 美元：</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1709609135321583616/6bXuF85D_normal.jpg" alt="Sebastien Bubeck avatar" loading="lazy"></div><div><strong>Sebastien Bubeck</strong><span>@SebastienBubeck</span></div></div><p class="quote-text original" lang="auto">yes, nonsofic groups exist: this statement is one of many new beautiful results proved by Astra, our next major model.
+
+We&#x27;re releasing 10 such Astra proofs, complete with lean certificates and CoT walkthroughs for each of them. The results are wide-ranging, from von Neumann algebras (disproof of Connes&#x27; Rigidity Conjecture) to better bounds for high dimensional sphere packing, for circuit complexity, for monochromatic triangles in multicolored graphs, and more.
+
+More thoughts here: https://t.co/8SjXONeh38</p><p class="quote-text translation" lang="zh-CN">是的，非 sofic 群存在：这一论断是我们的下一代主要模型 Astra 证明的众多全新精彩结果之一。
+
+我们将发布 10 个这样的 Astra 证明，每个都附带 Lean 证书和 CoT 演练。这些结果覆盖广泛，从冯·诺依曼代数（推翻 Connes 刚性猜想），到高维球堆积、更优电路复杂性界、多色图中的单色三角形等。
+
+更多想法在这里：https://t.co/8SjXONeh38</p><a class="quote-link" href="https://x.com/SebastienBubeck/status/2083456300692979886" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 5,232</span><span>↻ 307</span><span>↩ 202</span></div><a href="https://x.com/gdb/status/2083457463337287721" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P0" data-expert="gdb" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_normal.jpg" alt="Greg Brockman avatar" loading="lazy"></div>
+          <div class="identity"><strong>Greg Brockman</strong><span>@gdb · OpenAI / 联合创始人</span></div>
+          <div class="score">94<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>基座模型 / OpenAI</span><time>08-02 03:51 北京</time></div>
+        <p class="post-text original" lang="auto">chatgpt work&#x27;s cloud browser is really cool to use, lets you easily monitor what your AI is up to and also intervene with the live application if needed</p><p class="post-text translation" lang="zh-CN">chatgpt work 的云浏览器真的很好用，可以轻松监控你的 AI 在做什么，也能在需要时介入实时应用</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 766</span><span>↻ 27</span><span>↩ 98</span></div><a href="https://x.com/gdb/status/2083641828415602989" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P0" data-expert="polynoamial" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1872883170292457472/8ywVGO5M_normal.jpg" alt="Noam Brown avatar" loading="lazy"></div>
+          <div class="identity"><strong>Noam Brown</strong><span>@polynoamial · OpenAI / 推理研究</span></div>
+          <div class="score">99<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>推理模型 / OpenAI</span><time>08-01 16:17 北京</time></div>
+        <p class="post-text original" lang="auto">An internal version of Astra, @OpenAI’s next major model family, solved 10 major open problems in mathematics, quantum complexity, and theoretical computer science.
+
+We believe it will be a major step for scientific reasoning. https://t.co/iP6cyheZ7i https://t.co/jHuulDwV46</p><p class="post-text translation" lang="zh-CN">@OpenAI 下一代主要模型家族 Astra 的一个内部版本，解决了数学、量子复杂性和理论计算机科学中的 10 个重大开放问题。
+
+我们相信，这将是科学推理的一大步。https://t.co/iP6cyheZ7i https://t.co/jHuulDwV46</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOn2XyYasAA_rAp.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOn2XyYasAA_rAp.jpg" alt="X post media"><span>IMAGE</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1810196750009094144/nq1dEwmM_normal.jpg" alt="Lijie Chen avatar" loading="lazy"></div><div><strong>Lijie Chen</strong><span>@wjmzbmr1</span></div></div><p class="quote-text original" lang="auto">10 proofs from our next major model Astra on long-standing open problems in mathematics and theoretical computer science (also including new circuit lower bounds for computing the permanent!)
+
+GPT-5.6 has already enabled so much exciting work in math and science. Can’t wait to see what comes next!</p><p class="quote-text translation" lang="zh-CN">我们下一代主力模型 Astra 给出了 10 个关于数学和理论计算机科学长期未解难题的证明（还包括计算 permanent 的新电路下界！）
+
+GPT-5.6 已经在数学和科学领域促成了许多令人兴奋的工作。迫不及待想看看接下来会发生什么！</p><a class="quote-link" href="https://x.com/wjmzbmr1/status/2083465844735226099" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 12,824</span><span>↻ 1,749</span><span>↩ 532</span></div><a href="https://x.com/polynoamial/status/2083467194663571701" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="models" data-priority="P0" data-expert="polynoamial" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1872883170292457472/8ywVGO5M_normal.jpg" alt="Noam Brown avatar" loading="lazy"></div>
+          <div class="identity"><strong>Noam Brown</strong><span>@polynoamial · OpenAI / 推理研究</span></div>
+          <div class="score">94<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>推理模型 / OpenAI</span><time>08-01 17:01 北京</time></div>
+        <p class="post-text original" lang="auto">And yes we did try other major problems without success. Sadly no Millennium Prize problems (yet).
+
+But also, we didn’t spend a lot on each problem. It’s possible to push test-time compute much further.</p><p class="post-text translation" lang="zh-CN">是的，我们也尝试了其他重大问题，但没有成功。遗憾的是，目前还没有 Millennium Prize 问题。
+
+不过，我们在每个问题上投入的资源并不多。测试时计算量还有可能进一步加大。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 1,690</span><span>↻ 68</span><span>↩ 53</span></div><a href="https://x.com/polynoamial/status/2083478171975082334" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">74<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>08-01 16:22 北京</time></div>
+        <p class="post-text original source-only" lang="auto">我们辛辛苦苦写下的 Skills，最后都会变成下一代大模型的训练养料。
+
+今天我们还在教模型怎么拆任务、调用工具、检查结果；等这些用法被大量重复、记录和整理之后，模型公司就可以把它们继续用于训练。
+
+于是下一代模型发布时，原本需要写进 Skills 的方法，已经变成了模型默认会做的事情。Claude Code 能删掉 80% 的系统提示词，某种程度上就是这个过程的结果。
+
+这对用户当然是好事，模型更强，Prompt 更短。
+
+但从另一个角度看，我们也在免费替模型公司探索最佳实践、整理工作流，最后再花钱购买被重新打包后的能力。
+
+真正能长期保留下来的，可能只剩那些模型公司拿不到的东西：私有数据、内部流程、真实反馈，以及长期积累下来的业务判断。
+
+Skills 的价值不会消失，只是它们会不断从「公开方法」退到「私有经验」。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 25</span><span>↻ 0</span><span>↩ 16</span></div><a href="https://x.com/Xudong07452910/status/2083468274839560360" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="simonw" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
+          <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
+          <div class="score">72<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>08-02 08:07 北京</time></div>
+        <p class="post-text original" lang="auto">What&#x27;s frustrating is that a detailed manual exists right now!  It&#x27;s the system prompt and list of tool descriptions... but when you ask for them ChatGPT says &quot;I can’t reveal the verbatim system/developer prompts or hidden internal instructions&quot; (it offers a summary instead) https://t.co/jTg4jtNkXk</p><p class="post-text translation" lang="zh-CN">令人沮丧的是，现在其实已经有一份详细手册了！就是系统提示词和工具描述列表……但当你向 ChatGPT 索要时，它会说“我不能逐字透露系统/开发者提示词或隐藏的内部指令”（只会提供摘要）https://t.co/jTg4jtNkXk</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOrP0ruaUAAEo8c.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOrP0ruaUAAEo8c.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 11</span><span>↻ 1</span><span>↩ 2</span></div><a href="https://x.com/simonw/status/2083706287473524894" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P0" data-expert="simonw" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
+          <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
+          <div class="score">68<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>08-02 06:39 北京</time></div>
+        <p class="post-text original" lang="auto">@_chenglou Slight echoes of that from OpenAI themselves, apparently there was much internal debate over whether ChatGPT was worth launching or not https://t.co/WsmJECeHji https://t.co/9CDzd3IxcQ</p><p class="post-text translation" lang="zh-CN">@_chenglou 这和 OpenAI 自己的情况有点相似，显然他们内部曾就是否值得发布 ChatGPT 进行过很多争论 https://t.co/WsmJECeHji https://t.co/9CDzd3IxcQ</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOq7gqgbcAARmMd.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOq7gqgbcAARmMd.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 15</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/simonw/status/2083683950686511425" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="sh_reya" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1342529111839944705/hzr44mb5_normal.jpg" alt="Shreya Shankar avatar" loading="lazy"></div>
+          <div class="identity"><strong>Shreya Shankar</strong><span>@sh_reya · UC Berkeley / AI 工程研究员</span></div>
+          <div class="score">65<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>08-02 02:20 北京</time></div>
+        <p class="post-text original" lang="auto">💯
+
+Check out our skill https://t.co/lkg13LPrIy</p><p class="post-text translation" lang="zh-CN">💯
+
+看看我们的 skill https://t.co/lkg13LPrIy</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1993156513053954048/iPoQyi9h_normal.jpg" alt="!RTFM avatar" loading="lazy"></div><div><strong>!RTFM</strong><span>@jbdamask</span></div></div><p class="quote-text original" lang="auto">One of the best tips from @HamelHusain and @sh_reya Evals course is to build a data labelling tool for every AI app you make.
+
+It takes no time at all for an LLM to code one up. https://t.co/rVucNVgrw7</p><p class="quote-text translation" lang="zh-CN">@HamelHusain 和 @sh_reya 的 Evals 课程里有个很棒的建议：为你做的每个 AI 应用构建一个数据标注工具。
+
+让 LLM 编一个这样的工具几乎不费时间。https://t.co/rVucNVgrw7</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOp1MRbXgAAUWkY.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOp1MRbXgAAUWkY.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/jbdamask/status/2083607657043157258" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 40</span><span>↻ 6</span><span>↩ 3</span></div><a href="https://x.com/sh_reya/status/2083618823098548352" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="swyx" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx avatar" loading="lazy"></div>
+          <div class="identity"><strong>swyx</strong><span>@swyx · Latent Space / AI Engineer</span></div>
+          <div class="score">67<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 工作流</span><time>08-02 05:20 北京</time></div>
+        <p class="post-text original" lang="auto">btw i baked off @FredKSchott flue vs @cramforce eve... bc i think i am an ideal user of a metaharness...
+
+... and @matei_zaharia&#x27;s omnigent won hands down for our needs except it is quite container/python centric
+
+https://t.co/aCgd4EIOEJ https://t.co/rpKKLDhrAb</p><p class="post-text translation" lang="zh-CN">顺便说一句，我对比测试了 @FredKSchott 的 flue 和 @cramforce 的 eve……因为我觉得自己是 metaharness 的理想用户……
+
+……结果 @matei_zaharia 的 omnigent 完全胜出，最符合我们的需求，只是它相当偏向 container/python
+
+https://t.co/aCgd4EIOEJ https://t.co/rpKKLDhrAb</p>
+
+        <div class="media-grid media-grid--4"><a class="media-item" href="https://pbs.twimg.com/media/HOqpL9QaQAAaxzB.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOqpL9QaQAAaxzB.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HOqpZ6ebIAAzSBv.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOqpZ6ebIAAzSBv.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HOqpb-EaoAAJpLg.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOqpb-EaoAAJpLg.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HOqpd4EbEAA96sd.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOqpd4EbEAA96sd.jpg" alt="X post media"><span>IMAGE</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1888346877428641792/rMxtG84Z_normal.jpg" alt="Latent.Space avatar" loading="lazy"></div><div><strong>Latent.Space</strong><span>@latentspacepod</span></div></div><p class="quote-text original" lang="auto">Why the Frontier Ecosystem must be Open — Matei Zaharia and Reynold Xin, Databricks https://t.co/lSnxhhgmbc
+
+@databricks cofounders @matei_zaharia and @rxin  explain why Databricks is moving into the infrastructure layer for enterprise agents, how Omnigent creates a shared harness for coding agents and custom agents, why LTAP and Lakebase rethink the split between operational and analytical databases, why agent security needs contextual policies and spend controls, and why the future of software may be as simple as getting the right data in place and putting agents on top.</p><p class="quote-text translation" lang="zh-CN">为什么 Frontier Ecosystem 必须开放 — Matei Zaharia 和 Reynold Xin，Databricks https://t.co/lSnxhhgmbc
+
+@databricks 联合创始人 @matei_zaharia 和 @rxin 解释了为什么 Databricks 正在进入企业 agent 的基础设施层，Omnigent 如何为 coding agent 和自定义 agent 创建共享 harness，为什么 LTAP 和 Lakebase 重新思考操作型数据库与分析型数据库之间的分工，为什么 agent 安全需要上下文策略和支出控制，以及为什么软件的未来可能简单到只需把合适的数据准备好，再在其上部署 agent。</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2069857611261046784/img/uXqGGy-UEcniU7Qq.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2069857611261046784/img/uXqGGy-UEcniU7Qq.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/latentspacepod/status/2069857879847526632" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 3</span><span>↻ 2</span><span>↩ 9</span></div><a href="https://x.com/swyx/status/2083664187969196152" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="coding" data-priority="P1" data-expert="swyx" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx avatar" loading="lazy"></div>
+          <div class="identity"><strong>swyx</strong><span>@swyx · Latent Space / AI Engineer</span></div>
+          <div class="score">67<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 工作流</span><time>08-02 04:41 北京</time></div>
+        <p class="post-text original" lang="auto">started work on forge agents today https://t.co/u3nBCzF7sM</p><p class="post-text translation" lang="zh-CN">今天开始做 forge agents https://t.co/u3nBCzF7sM</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOqgmyLa0AApDDD.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOqgmyLa0AApDDD.jpg" alt="X post media"><span>IMAGE</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx avatar" loading="lazy"></div><div><strong>swyx</strong><span>@swyx</span></div></div><p class="quote-text original" lang="auto">ok fine 4 new features - SmolForge is now getting customizable skins and spritesheet animations https://t.co/6uSOT102QS</p><p class="quote-text translation" lang="zh-CN">好吧，4 个新功能 - SmolForge 现在支持自定义皮肤和 spritesheet 动画了 https://t.co/6uSOT102QS</p><div class="media-grid media-grid--4"><a class="media-item" href="https://pbs.twimg.com/media/HOBPG8NaoAEfcm8.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOBPG8NaoAEfcm8.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HOBPJhla0AARF6H.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOBPJhla0AARF6H.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HOBPWrhaUAAjxjz.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOBPWrhaUAAjxjz.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HOBPbKRaYAANfqR.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOBPbKRaYAANfqR.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/swyx/status/2080750437133901925" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 27</span><span>↻ 1</span><span>↩ 11</span></div><a href="https://x.com/swyx/status/2083654369095156219" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="products" data-priority="P1" data-expert="c_valenzuelab" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2070496516893229056/bm-CWE5N_normal.jpg" alt="Cristobal Valenzuela avatar" loading="lazy"></div>
+          <div class="identity"><strong>Cristobal Valenzuela</strong><span>@c_valenzuelab · Runway / 联合创始人兼 CEO</span></div>
+          <div class="score">70<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>生成式视频</span><time>08-01 17:13 北京</time></div>
+        <p class="post-text original" lang="auto">It&#x27;s 2027, and imagine you record a 60 sec video of a dog in the park. Now imagine you take the first frame of that video and give it to the most powerful video model ever created at that time and ask it to create a 60 sec video only with that frame. If the current pace of video models continues on the trajectory we&#x27;re seeing, you can expect that by then (or in a not-too-distant future), you will, theoretically, be able to generate a video that&#x27;s identical to the original 60 sec video. The generated video is equivalent to the real video. The motion, physics, movements, actions, and all possible outcomes of every possible scenario of that video are somewhere in the latents of the model. If you can find the one that represents the reality you experience then you have a generated video that&#x27;s the same video you recorded. But you can also, theoretically, create every variation of your original video with any possible permutation possible.
+
+That means we have finally created a simulation of reality. The map is the territory.
+
+Now imagine it&#x27;s 2028 and you can do all of this in real-time...</p><p class="post-text translation" lang="zh-CN">现在是 2027 年，想象你在公园里拍了一段 60 秒的狗狗视频。再想象你取出这段视频的第一帧，交给当时有史以来最强大的视频模型，并让它只凭这一帧生成一段 60 秒的视频。如果视频模型继续沿着我们目前看到的轨迹发展，那么到那时（或在不太遥远的未来），理论上你可以生成一段与原始 60 秒视频完全相同的视频。生成的视频等同于真实视频。那段视频中的运动、物理规律、动作、行为，以及每一种可能场景的所有可能结果，都以某种形式存在于模型的潜变量中。如果你能找到那个代表你所体验现实的潜变量，就能得到一段与你录制的视频相同的生成视频。但理论上，你也可以基于原始视频创造出任何可能排列组合下的所有变体。
+
+这意味着我们终于创造出了现实的模拟。地图即领土。
+
+现在想象一下，到了 2028 年，你可以实时完成这一切……</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 130</span><span>↻ 7</span><span>↩ 27</span></div><a href="https://x.com/c_valenzuelab/status/2083481213696659942" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+    </main>
+    <footer>Generated 2026-08-02 09:05:02 Asia/Shanghai · Read-only X ingestion via Bird · Translation via Codex</footer>
+  </div>
+</body>
+</html>
