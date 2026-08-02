@@ -3238,7 +3238,117 @@
       "source": "It's 2027, and imagine you record a 60 sec video of a dog in the park. Now imagine you take the first frame of that video and give it to the most powerful video model ever created at that time and ask it to create a 60 sec video only with that frame. If the current pace of video models continues on the trajectory we're seeing, you can expect that by then (or in a not-too-distant future), you will, theoretically, be able to generate a video that's identical to the original 60 sec video. The generated video is equivalent to the real video. The motion, physics, movements, actions, and all possible outcomes of every possible scenario of that video are somewhere in the latents of the model. If you can find the one that represents the reality you experience then you have a generated video that's the same video you recorded. But you can also, theoretically, create every variation of your original video with any possible permutation possible.  \n\nThat means we have finally created a simulation of reality. The map is the territory.\n\nNow imagine it's 2028 and you can do all of this in real-time...",
       "zh": "现在是 2027 年，想象你在公园里拍了一段 60 秒的狗狗视频。再想象你取出这段视频的第一帧，交给当时有史以来最强大的视频模型，并让它只凭这一帧生成一段 60 秒的视频。如果视频模型继续沿着我们目前看到的轨迹发展，那么到那时（或在不太遥远的未来），理论上你可以生成一段与原始 60 秒视频完全相同的视频。生成的视频等同于真实视频。那段视频中的运动、物理规律、动作、行为，以及每一种可能场景的所有可能结果，都以某种形式存在于模型的潜变量中。如果你能找到那个代表你所体验现实的潜变量，就能得到一段与你录制的视频相同的生成视频。但理论上，你也可以基于原始视频创造出任何可能排列组合下的所有变体。\n\n这意味着我们终于创造出了现实的模拟。地图即领土。\n\n现在想象一下，到了 2028 年，你可以实时完成这一切……",
       "promptVersion": "codex-v1"
+    },
+    "d294f09009db5a7a32a1a494364e638ff21a426605806284d677df950eb42989": {
+      "source": "chatgpt for building interactive educational tools",
+      "zh": "用 chatgpt 构建交互式教育工具",
+      "promptVersion": "codex-v1"
+    },
+    "d0b4c73260147be27404e0e1d2d43483c84bd383eaee01fd8f895eb39259ca90": {
+      "source": "Only if education could be this interactive ❤️‍🔥\n\nI've had a looong wish to build something genuinely useful through vibe coding, and I finally did it. \n\nA 3D human anatomy application built with @threejs using GPT 5.6 Sol. \n\nIt all started with a single design image that I created using GPT Image 2.0. I then used it to generate every 3D organ image, one by one.\n\nNext, I converted each of those images into 3D models using @tripoai (and no, they didn't sponsor this 😄).\n\nAfter that, I opened Codex, wrote a master prompt based on the design, and gave it the prompt, the design image, and all the 3D models.\n\nCodex built the first version beautifully, but there was one big problem. \n\nEvery single 3D model was nearly 120-150 MB. That obviously wasn't practical for the web and was giving a performance of 16fps.\n\nAfter a few iterations, Codex optimized each model down to roughly 2–5.5 MB while preserving the visual quality, reducing the total asset size from ~900 MB to just 28.6 MB. And each model loads on demand. \n\nAlong the way, Codex also generated those anatomical illustrations showing where each organ sits in the human body, and even created the interactive hotspot markers that explain different parts of every organ. It handled all of that.\n\nThe process wasn't exactly one shot, but it also wasn't difficult. You just have to do it step by step. \n\nIt genuinely felt like building something that could make learning anatomy much more engaging.\n\nThe inspiration came from @DilumSanjaya's 3D animal plant cell project. I remember seeing it and thinking, \"I want to build something like this one day.\" \n\nAnd I did it :D\n\nLive: https://t.co/gIFgkj8UVB\nCode: https://t.co/nijvyWcyxO",
+      "zh": "要是教育也能这么互动就好了 ❤️‍🔥\n\n我一直很想通过 vibe coding 做出真正有用的东西，现在终于做到了。\n\n这是一个用 @threejs 和 GPT 5.6 Sol 构建的 3D 人体解剖应用。\n\n一切都始于我用 GPT Image 2.0 创建的一张设计图。然后我用它逐个生成了每个 3D 器官图像。\n\n接着，我用 @tripoai 把这些图像转换成 3D 模型（他们真的没有赞助我 😄）。\n\n之后，我打开 Codex，根据设计写了一份主提示词，并把提示词、设计图和所有 3D 模型都交给它。\n\nCodex 很漂亮地构建出了第一个版本，但有一个大问题。\n\n每个 3D 模型都接近 120-150 MB。这显然不适合网页，性能只有 16fps。\n\n经过几轮迭代，Codex 在保留视觉质量的同时，把每个模型优化到约 2–5.5 MB，将总资源大小从约 900 MB 降到仅 28.6 MB。而且每个模型都会按需加载。\n\n在这个过程中，Codex 还生成了那些显示各个器官在人体中位置的解剖插图，甚至创建了交互式热点标记，用来解释每个器官的不同部位。这些它全都处理了。\n\n这个过程并不是一次完成，但也不难。你只需要一步一步来。\n\n这真的让我感觉自己做出了一个能让解剖学习更有趣的东西。\n\n灵感来自 @DilumSanjaya 的 3D 动物植物细胞项目。我记得当时看到它时就在想：“总有一天我也要做一个这样的东西。”\n\n然后我做到了 :D\n\nLive: https://t.co/gIFgkj8UVB\nCode: https://t.co/nijvyWcyxO",
+      "promptVersion": "codex-v1"
+    },
+    "5c3d6fcccc036dd08cff70112068127ba4bcf4284240d989723529b9a7395cab": {
+      "source": "My LLM chess engine is now on LiChess autonomously playing real games against people and bots. \n\n1253 Elo: https://t.co/W3qp1Z1i7I",
+      "zh": "我的 LLM 国际象棋引擎现在已经在 LiChess 上自主和真人及机器人下实战了。\n\n1253 Elo: https://t.co/W3qp1Z1i7I",
+      "promptVersion": "codex-v1"
+    },
+    "731e433971a53648c79f15d81984bf2cc29b6fdcc40efc973cf02ad38d2ccfc9": {
+      "source": "~1500 Elo!\n\nConsistently beats frontier models and Stockfish level 0.\n\nFun seeing an 8b model mogging GPT 5.6 with high reasoning and response chaining. Spends 1-2 seconds per move vs 30 seconds.\n\nPlay it: https://t.co/qRg0HNwgC4 https://t.co/w6H0MWOmPx",
+      "zh": "约 1500 Elo！\n\n稳定击败前沿模型和 Stockfish level 0。\n\n看到一个 8b 模型在高推理和响应链式处理下碾压 GPT 5.6 真的很有意思。每步只花 1-2 秒，而不是 30 秒。\n\n来玩： https://t.co/qRg0HNwgC4 https://t.co/w6H0MWOmPx",
+      "promptVersion": "codex-v1"
+    },
+    "a67179d2bf8d9c675c1ede2983a65122e366ab971b6724c956fba991b3dcdd84": {
+      "source": "Worth noting that to this day, base LLMs (no test time compute) *still* perform poorly on the ARC 1 benchmark from 2019 (on unseen tasks) despite continued massive scaling (~100,000x since 2019). We can say that without the switch to the test-time compute paradigm, AI would still not be capable of the kind of advanced reasoning that sota systems display today. Scaling the single-pass, static, next-token prediction paradigm of the GPT-2 through GPT-4 era was running into a capability asymptote. To bypass this plateau, test-time adaptation was a necessary evolutionary step.",
+      "zh": "值得注意的是，直到今天，基础 LLM（没有测试时计算）在 2019 年的 ARC 1 基准上（面对未见过的任务）表现仍然很差，尽管规模持续大幅扩大（自 2019 年以来约 100,000 倍）。可以说，如果没有转向测试时计算范式，AI 仍无法具备当今 sota 系统展现出的那种高级推理能力。GPT-2 到 GPT-4 时代那种单次前向、静态、下一个 token 预测范式的扩展，已经逼近能力渐近线。要突破这个平台期，测试时适应是必要的演进步骤。",
+      "promptVersion": "codex-v1"
+    },
+    "9e5e35e3913ff261b92ff31ca86c34d283e1e49d66d192ce21fad782aaf6ce21": {
+      "source": "The irony of AI:\n\nSmarter than a math PhD. Solves 10 open math problems.\n\nDumber than my intern. Can’t follow 3 simple instructions, but somehow burns 10M tokens and $250.",
+      "zh": "AI 的讽刺之处：\n\n比数学博士还聪明。能解决 10 个开放数学问题。\n\n比我的实习生还笨。连 3 条简单指令都跟不明白，却莫名其妙烧掉 1000 万 token 和 250 美元。",
+      "promptVersion": "codex-v1"
+    },
+    "cf699683634fe5a61b7e7bd479c016d8f75460492412c4d6746f62711616625f": {
+      "source": "Woah",
+      "zh": "哇",
+      "promptVersion": "codex-v1"
+    },
+    "625c07b21b2a2013d46aa5059c8534ac986cb1b0a1dbdfbf013bed9044f6e0e1": {
+      "source": "@Replit Chess ♟️\n\nTwo-shot this in Replit Design Mode.\n\nRidiculous.\n\n#Replit #BuildInPublic #AI #Chess #VibeMaxxing https://t.co/npCqVWXa10",
+      "zh": "@Replit Chess ♟️\n\n在 Replit Design Mode 里两轮提示就做出来了。\n\n离谱。\n\n#Replit #BuildInPublic #AI #Chess #VibeMaxxing https://t.co/npCqVWXa10",
+      "promptVersion": "codex-v1"
+    },
+    "5991589c40ee04ca38586d8f86983fa7bf5f1337862c82ea5f950b3dd0ed8d64": {
+      "source": "Here's my attempt at summarizing the various \"open letters\" about AI development that have been doing the rounds over the past few weeks https://t.co/VXA7OMIAgJ",
+      "zh": "这是我对过去几周流传的各种关于 AI 发展的“公开信”的总结尝试 https://t.co/VXA7OMIAgJ",
+      "promptVersion": "codex-v1"
+    },
+    "f62c93466e592af8fe582f51f861eace154ebd46351ca922bbba95ff2723a591": {
+      "source": "@jxnlco Lack of deeply technical documentation - I don't want \"it can access tour calendar\", I want to know the exact tool calls and constraints",
+      "zh": "@jxnlco 缺少深入的技术文档——我不想看“它可以访问你的日历”，我想知道具体的工具调用和约束",
+      "promptVersion": "codex-v1"
+    },
+    "1eb45aae4b42cffdeba6b730e40c738e5053026115afe5e448ea2eca04b07864": {
+      "source": "\"Honolulu’s airport has started playing 17 island-themed, AI-generated songs on rotation, according to state transportation spokeswoman Shelly Kunishige.\" ! https://t.co/6SDfXhDeLH",
+      "zh": "“据州交通部发言人 Shelly Kunishige 称，Honolulu 机场已开始循环播放 17 首岛屿主题的 AI 生成歌曲。”！ https://t.co/6SDfXhDeLH",
+      "promptVersion": "codex-v1"
+    },
+    "11ee8a0bc734ab4d7263b86d4a661d6d989dd1596a2cdfb132cb26e42df89ffd": {
+      "source": "@simonw they are playing AI slop fake Hawaiian music at the honolulu airport too right now. everyone here in hawaii is pissed about it.",
+      "zh": "@simonw 他们现在也在 honolulu 机场播放 AI 垃圾假 Hawaiian 音乐。hawaii 这里所有人都对此很愤怒。",
+      "promptVersion": "codex-v1"
+    },
+    "74c94cf7bcdbcc89907eb0871467471d1499baf23a30a55dec50a010ff846cd5": {
+      "source": "@GaryMarcus is right.  Cognition is uneven.  But there’s a positive take to be had too. It is precisely the non-unformity of cognition that opens space for AI that can genuinely complement/amplify human cognition, rather than replace it (as the AGI narrative implies)",
+      "zh": "@GaryMarcus 是对的。认知是不均衡的。但也可以有一个积极的解读。正是认知的不均一性，为真正能够补充/增强人类认知而不是取代它的 AI 打开了空间（不像 AGI 叙事所暗示的那样）。",
+      "promptVersion": "codex-v1"
+    },
+    "d2c930090ba8514e1aa4f8136770d6ee29a7a3ec944f97951b8c37438c02d079": {
+      "source": "The “AGI-is-near” community keeps committing the same logical fallacy over and over; I have seen it at least half a dozen times today alone. Every time there’s an advance, I see the same error.\n\nHere’s how the fallacy works.\n\n1. Someone pretends that all cognition is created equally. (Totally untrue.)\n\n2. Whenever AI achieves success on some form of (fancy) cognition they want you to believe that success on all forms of AI is imminent.   \n\nI include three prominent examples from today below, each promising that some grand universal can be solved (“science”, “every discipline”, “every problem [people] face in life”), simply because there was an advance in a particular domain (today, math, other times coding, etc).\n\nYou don’t have to be a cognitive psychologist to realize that this inference just doesn’t follow. We all know that expertise in math doesn’t guarantee genius in all domains.\n\nWe all know, for example, people who are great at math or physics or programming but struggle with writing or understanding human relationships (and conversely great writers who are weak at math), etc. \n\nIt’s common to be good at some forms of cognition and not others. Expertise in one domain does not at all guarantee expertise in all or even most domains.\n\nThat’s precisely *why* people like Gardner and Sternberg developed multidimensional theories of intelligence, why the SAT tests math separately from verbal, etc.\n\nAstra is (apparently - we still haven’t seen the methodology) great at math, or at least some forms of math, but that does not mean that it will avoid hallucinations or solve the reliability problems other GenAI systems have. It doesn’t even mean it will be able to read a PDF properly.  It doesn’t mean it will be able to follow hard rules either. (Which should terrify you.)\n\nIn fact, the performance we saw today doesn’t even mean it can write a decent math proof; to the contrary, the mathematician @henryquantum has already given an example where clarity in the proof was lacking.\n\nWhatever you do, please don’t get suckered into the “all cognition is alike” fallacy. It’s not  all alike. \n\nAstra is obviously good at some problems; but that doesn’t mean it will be good at problems that are hard to formalize. It doesn’t mean it will be magic. It doesn’t mean it’s AGI or ASI or any of that. \n\nIt’s *very* impressive. But I see no reason whatsoever to think it is AGI let alone ASI. If it can score even a 5/10 on my 2024 bet with Miles Brundage I will be surprised.\n\nEnough with this fallacy.",
+      "zh": "“AGI 即将到来”群体一再犯同一个逻辑谬误；光是今天我就至少见过六次。每当有进展出现，我都会看到同样的错误。\n\n这个谬误是这样运作的。\n\n1. 有人假装所有认知都是一样的。（完全不对。）\n\n2. 每当 AI 在某种（高级）认知形式上取得成功，他们就想让你相信，AI 在所有形式上的成功都近在眼前。\n\n我在下面列出今天的三个典型例子，它们都承诺某个宏大的普遍目标可以被解决（“科学”、“每个学科”、“[人们]生活中面对的每个问题”），仅仅因为某个特定领域取得了进展（今天是数学，其他时候是编程等）。\n\n你不必是认知心理学家也能意识到，这种推论根本站不住脚。我们都知道，数学专长并不能保证在所有领域都是天才。\n\n例如，我们都认识一些数学、物理或编程很强，但在写作或理解人际关系方面吃力的人（反过来也有数学薄弱的优秀作家），等等。\n\n擅长某些认知形式而不擅长另一些，是很常见的。一个领域的专长完全不能保证在所有甚至大多数领域都有专长。\n\n这正是 Gardner 和 Sternberg 等人提出多维智能理论的原因，也是 SAT 将数学和语文分开测试的原因，等等。\n\nAstra（显然——我们还没看到方法论）很擅长数学，或至少某些形式的数学，但这并不意味着它会避免幻觉，或解决其他 GenAI 系统存在的可靠性问题。甚至不意味着它能正确读取 PDF。也不意味着它能遵循严格规则。（这应该让你感到害怕。）\n\n事实上，我们今天看到的表现甚至不意味着它能写出一篇像样的数学证明；相反，数学家 @henryquantum 已经给出一个例子，说明其证明缺乏清晰性。\n\n无论如何，请不要被“所有认知都一样”的谬误骗了。它们并不都一样。\n\nAstra 显然擅长某些问题；但这并不意味着它会擅长难以形式化的问题。不意味着它是魔法。不意味着它是 AGI 或 ASI 或诸如此类的东西。\n\n它非常令人印象深刻。但我完全看不出有什么理由认为它是 AGI，更不用说 ASI 了。如果它能在我 2024 年与 Miles Brundage 的赌约中拿到哪怕 5/10，我都会感到惊讶。\n\n别再犯这个谬误了。",
+      "promptVersion": "codex-v1"
+    },
+    "5a301111de5d507a128dd71bc3c8c15b214784c7e2bcea754194a6151fb06d58": {
+      "source": "@BBCWorldatOne today dedicated its entire episode to \"Preparing for our AI future\". As part of it, I explain why AI is vanishingly unlikely to be conscious, and why the anthropomorphic language we use for AI (e.g., \"going rogue\") makes the challenge of alignment/control/regulation very much harder than it already is. The whole episode is well worth a listen @BBCRadio4 https://t.co/g2gRlZWuc3",
+      "zh": "@BBCWorldatOne 今天整期节目都献给了“为我们的 AI 未来做准备”。其中，我解释了为什么 AI 几乎不可能有意识，以及为什么我们用于 AI 的拟人化语言（例如“失控”）会让对齐/控制/监管这一挑战变得比现在更困难。整期节目非常值得一听 @BBCRadio4 https://t.co/g2gRlZWuc3",
+      "promptVersion": "codex-v1"
+    },
+    "f9687e43689a5ebe049034ebdd8e790948e3d521d0e633aabbe73deb610f1754": {
+      "source": "To address the limits of deep learning and avoid stalling, the field of AI started by applying patch (1), which started being demoed 9 months later in December 2024 and has now become completely ubiquitous. However, long term, it is simply inevitable that AI will move to patch (2).",
+      "zh": "为了解决深度学习的局限并避免停滞，AI 领域一开始采用了补丁 (1)，并在 9 个月后的 2024 年 12 月开始展示，如今已变得无处不在。然而，从长远看，AI 转向补丁 (2) 是不可避免的。",
+      "promptVersion": "codex-v1"
+    },
+    "a4688ab930ff70cd962aba6b7edf200d294535f6af5fceed8475738d8c52971d": {
+      "source": "There are essentially two main options to remedy this: \n\n1. Find ways to perform active inference, so that the model adapts its learned program in contact with a new data distribution at test time. Would likely lead to some meaningful progress, but it isn't the ultimate solution, more of an incremental improvement. \n\n2. Change the training mechanism to something more robust than SGD, such as the MDL principle. This would pretty much require moving away from deep learning (curve fitting) altogether and embracing discrete program search instead (which I have advocated for many years as a way to tackle reasoning problems...)",
+      "zh": "本质上有两个主要办法可以补救：\n\n1. 寻找进行主动推理的方法，让模型在测试时接触新的数据分布时调整其学到的程序。这可能会带来一些有意义的进展，但不是最终解决方案，更像是渐进式改进。\n\n2. 将训练机制换成比 SGD 更稳健的东西，比如 MDL 原则。这基本上需要彻底离开深度学习（曲线拟合），转而采用离散程序搜索（多年来我一直主张用这种方式解决推理问题……）",
+      "promptVersion": "codex-v1"
+    },
+    "e0625290f631b69286ca7e869cd42eaba922329cc1dde763c53f6c7e2d7104e2": {
+      "source": "My December 2024 takes were \"there will be no wall\", \"if the only bottleneck is test-time search, we will see continued scaling in the future\", and \"the world is once again about to run out of GPUs\"\n\nTo this day, I do expect post-training scaling and TTA scaling to continue to deliver. At least 10-100x from current levels.\n\nhttps://t.co/cKe1lF2FTw",
+      "zh": "我在 2024 年 12 月的看法是：“不会撞墙”、“如果唯一瓶颈是测试时搜索，未来我们会看到持续扩展”，以及“世界又快要耗尽 GPU 了”。\n\n直到今天，我仍然认为后训练扩展和 TTA 扩展会继续带来效果。至少比当前水平提升 10-100 倍。\n\nhttps://t.co/cKe1lF2FTw",
+      "promptVersion": "codex-v1"
+    },
+    "f06f10a98079f79a29c763b5a74e92faca11a2df7aae48fb07121e4fd6964936": {
+      "source": "The limitations of specific techniques are predictable and correspondingly lead to plateaus for those techniques. But there is always the next technique, building on top of the pile that's already available.\n\nThere is enough research investment that there will be no wall.",
+      "zh": "特定技术的局限是可以预见的，也会相应地导致这些技术进入平台期。但总会有下一项技术，建立在已有积累之上。\n\n研究投入足够多，所以不会撞墙。",
+      "promptVersion": "codex-v1"
+    },
+    "1f4209ee0b77977f98257841f06b1e0a2b05afb68cf4fffcb6102d9fbb9c3902": {
+      "source": "Has anyone cracked the code of LLM speak? it's truly atrocious\n\nI recently added a \"deslopify\" command to my plain-writing skill to get the agents to write responses better\nhttps://t.co/eoFhSo3SrU \n\nnot perfect but better than nothing\n\nh/t @bradenjhancock for the idea https://t.co/23XxsKEeDV",
+      "zh": "有人破解 LLM 腔的密码了吗？真的糟透了。\n\n我最近在自己的 plain-writing skill 里加了一个 “deslopify” 命令，让 agent 写出更好的回复。\nhttps://t.co/eoFhSo3SrU \n\n不完美，但总比没有好。\n\n感谢 @bradenjhancock 提供这个想法 https://t.co/23XxsKEeDV",
+      "promptVersion": "codex-v1"
+    },
+    "21f8336df2a0dfcff7576366977de6c825439b3973804ca400e78512568097e9": {
+      "source": "I've developed a physiological response to text like this. Eyes absolutely glazing over. It could be a message to myself sent from the future and the words would pass right through me. https://t.co/xXfvW8kMVZ",
+      "zh": "我已经对这种文字产生了生理反应。眼睛彻底失焦。哪怕这是未来的我发给自己的消息，这些字也会直接从我脑子里穿过去。https://t.co/xXfvW8kMVZ",
+      "promptVersion": "codex-v1"
+    },
+    "7e979a6790194fc8565165a0af82544ab95938ccc5e956749a20dd5cb7c96d01": {
+      "source": "one way i'm developing Forge (https://t.co/2x9e0oRjxQ) is to use it to host all my projects going forward. so I often find myself having to bounce back and forth between platform and product.\n\nsharing neat trick - in @openai codex you can @ a thread + queue up the @, so if your project is blocked on a platform feature, you can actually premove your project to proceed once the platform is unblocked.\n\nnow of course.. i wasnt actually strictly necessary in this whole process, so an even better multiagent harness would seamlessly orchestrate work back and forth between platform and project... it's just not a very common usecase unless you're building a real platform (which most people dont - most people just build applications on top of platforms, or a small platform with only 1 proudct/application tenant)",
+      "zh": "我开发 Forge（https://t.co/2x9e0oRjxQ）的一种方式，是以后把我所有项目都托管在上面。所以我经常发现自己不得不在平台和产品之间来回切换。\n\n分享一个小技巧：在 @openai codex 里，你可以 @ 一个线程并把这个 @ 排进队列，所以如果你的项目被某个平台功能卡住了，你实际上可以预先推进项目，让它在平台解锁后继续进行。\n\n当然了……在整个过程中，我其实并不是严格必要的。所以一个更好的 multiagent harness 会在平台和项目之间无缝来回编排工作……只是这不是一个很常见的用例，除非你真的在构建一个平台（大多数人并不是；大多数人只是基于平台构建应用，或者构建一个只有 1 个产品/应用租户的小平台）。",
+      "promptVersion": "codex-v1"
     }
   },
-  "updatedAt": "2026-08-02T01:11:33.143480+00:00"
+  "updatedAt": "2026-08-02T23:04:42.950765+00:00"
 }
