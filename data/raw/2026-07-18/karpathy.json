@@ -1,0 +1,483 @@
+{
+  "tweets": [
+    {
+      "id": "2075266731170537506",
+      "text": "RT @jarredsumner: Rewriting Bun in Rust\n\nhttps://t.co/Rl8bcaxBFc",
+      "createdAt": "Thu Jul 09 17:11:59 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 1074,
+      "likeCount": 0,
+      "conversationId": "2075266731170537506",
+      "author": {
+        "username": "karpathy",
+        "name": "Andrej Karpathy"
+      },
+      "authorId": "33836629"
+    },
+    {
+      "id": "2073496962566164990",
+      "text": "RT @petergostev: I spent a LOT of time through the hardest 3D prompts at Fable, it is a 45 min video, but I have 60+ very cool demos for yo…",
+      "createdAt": "Sat Jul 04 19:59:34 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 151,
+      "likeCount": 0,
+      "conversationId": "2073496962566164990",
+      "author": {
+        "username": "karpathy",
+        "name": "Andrej Karpathy"
+      },
+      "authorId": "33836629"
+    },
+    {
+      "id": "2072051876816945486",
+      "text": "RT @Etched: We're coming out of stealth.\n\nWe've built our first racks after a successful A0 tapeout, $1B+ in customer contracts, and $800m…",
+      "createdAt": "Tue Jun 30 20:17:18 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 933,
+      "likeCount": 0,
+      "conversationId": "2072051876816945486",
+      "author": {
+        "username": "karpathy",
+        "name": "Andrej Karpathy"
+      },
+      "authorId": "33836629"
+    },
+    {
+      "id": "2069579404163031082",
+      "text": "RT @EngramLab: https://t.co/CGIef5lIBI",
+      "createdAt": "Wed Jun 24 00:32:35 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 242,
+      "likeCount": 0,
+      "conversationId": "2069579404163031082",
+      "author": {
+        "username": "karpathy",
+        "name": "Andrej Karpathy"
+      },
+      "authorId": "33836629"
+    },
+    {
+      "id": "2069547676849557725",
+      "text": "This is a new paradigm for interacting with Claude that is significantly more \"inline\" with all the other human activity org-wide. Once you do all of the under the hood engineering work to make this \"just work\" (e.g. across tools, integrations, compute environments, memory, security, etc.), Claude basically joins the team in a seamless way - you can talk to it as you would talk to a person and it can help with a very large variety of workloads.\n\nImo this is the 3rd major redesign of LLM UIUX. The first paradigm was that the LLM is a website you go to, the second was that it is an app you download to your computer. This third one is that it is a self-contained, persistent, asynchronous entity with org-wide tools and context, working alongside teams of humans. It really takes a while to wrap your head around it, but it works and it is awesome.",
+      "createdAt": "Tue Jun 23 22:26:31 +0000 2026",
+      "replyCount": 1343,
+      "retweetCount": 1904,
+      "likeCount": 23076,
+      "conversationId": "2069547676849557725",
+      "author": {
+        "username": "karpathy",
+        "name": "Andrej Karpathy"
+      },
+      "authorId": "33836629",
+      "quotedTweet": {
+        "id": "2069468693017268244",
+        "text": "Introducing Claude Tag, a new way for teams to work with Claude.\n\nIn Slack, Claude joins as a team member with access to the channels and tools you choose. Tag Claude in and delegate tasks to it while you focus on other work. https://t.co/R2C6A5Kcye",
+        "createdAt": "Tue Jun 23 17:12:39 +0000 2026",
+        "replyCount": 1615,
+        "retweetCount": 2163,
+        "likeCount": 28485,
+        "conversationId": "2069468693017268244",
+        "author": {
+          "username": "claudeai",
+          "name": "Claude"
+        },
+        "authorId": "1943306828697550848",
+        "media": [
+          {
+            "type": "video",
+            "url": "https://pbs.twimg.com/media/HLg9iF5XYAAhaS7.jpg",
+            "width": 1920,
+            "height": 1080,
+            "previewUrl": "https://pbs.twimg.com/media/HLg9iF5XYAAhaS7.jpg:small",
+            "videoUrl": "https://video.twimg.com/amplify_video/2069465784653348866/vid/avc1/1920x1080/aOm62nVrBOoaXvw_.mp4?tag=28",
+            "durationMs": 144811
+          }
+        ]
+      }
+    },
+    {
+      "id": "2065490793092337691",
+      "text": "In awe of SpaceX and its story - past, present and the future. You can think about it in 10+ different ways and continue re-blowing your mind in circles. Huge congrats to the team! 🚀",
+      "createdAt": "Fri Jun 12 17:45:54 +0000 2026",
+      "replyCount": 400,
+      "retweetCount": 1026,
+      "likeCount": 22036,
+      "conversationId": "2065490793092337691",
+      "author": {
+        "username": "karpathy",
+        "name": "Andrej Karpathy"
+      },
+      "authorId": "33836629"
+    },
+    {
+      "id": "2064409694761054332",
+      "text": "This is a super exciting release - Claude Fable 5 is the same underlying model as Mythos but with added safeguards. The benchmarks are great and it's SOTA on everything by a margin but I'll add that *qualitatively* also, this is a major-version-bump-deserving step change forward (imo of the same order as Claude 4.5 was in November), peaking especially for long problem-solving sessions on very difficult problems. You can give it a lot more ambitious tasks than what you're used to, the model \"gets it\" and it will just go, and it's never felt this tempting to stop looking at the code at all (but don't do this in prod!). The model still has quirks that people will run into and the safeguards are configured to be a little too trigger happy for launch, which can hopefully be tuned over time.\n\nI feel a lot of things changing as working software increasingly comes out on a tap. The Jevon's paradox kicks in and I feel my own demand for software growing substantially. You can ask for anything - explainers, visualizers, dashboards, bespoke single-use apps (e.g. a full wandb that is hyper-specific just for your project), you can 10X your test suite, auto-optimize code, run giant research projects with custom HTML for the results, anything! \"Free your mind\" (Matrix ref). Really looking forward to all the things people build!",
+      "createdAt": "Tue Jun 09 18:10:00 +0000 2026",
+      "replyCount": 1332,
+      "retweetCount": 2399,
+      "likeCount": 25627,
+      "conversationId": "2064409694761054332",
+      "author": {
+        "username": "karpathy",
+        "name": "Andrej Karpathy"
+      },
+      "authorId": "33836629",
+      "quotedTweet": {
+        "id": "2064394151441863006",
+        "text": "Fable 5 is state-of-the-art on nearly all tested benchmarks, with exceptional performance in software engineering, knowledge work, scientific research, and vision.\n\nThe longer and more complex the task, the larger Fable 5’s lead over our other models. https://t.co/DxgSu0KUxh",
+        "createdAt": "Tue Jun 09 17:08:14 +0000 2026",
+        "replyCount": 508,
+        "retweetCount": 1783,
+        "likeCount": 15539,
+        "conversationId": "2064394146916229443",
+        "inReplyToStatusId": "2064394146916229443",
+        "author": {
+          "username": "claudeai",
+          "name": "Claude"
+        },
+        "authorId": "1943306828697550848",
+        "media": [
+          {
+            "type": "photo",
+            "url": "https://pbs.twimg.com/media/HKYwNlEWMAAJanX.png",
+            "width": 2048,
+            "height": 2048,
+            "previewUrl": "https://pbs.twimg.com/media/HKYwNlEWMAAJanX.png:small"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2061930040003280905",
+      "text": "RT @DKThomp: This has quietly been a miracle month in medicine. \n\nIn the last 5 weeks we’ve got news on:  \n\n- retatrutide, the triple agoni…",
+      "createdAt": "Tue Jun 02 21:56:45 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 1936,
+      "likeCount": 0,
+      "conversationId": "2061930040003280905",
+      "author": {
+        "username": "karpathy",
+        "name": "Andrej Karpathy"
+      },
+      "authorId": "33836629"
+    },
+    {
+      "id": "2061928642029158853",
+      "text": "RT @trq212: https://t.co/R6exTuF7P8",
+      "createdAt": "Tue Jun 02 21:51:11 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 1428,
+      "likeCount": 0,
+      "conversationId": "2061928642029158853",
+      "author": {
+        "username": "karpathy",
+        "name": "Andrej Karpathy"
+      },
+      "authorId": "33836629"
+    },
+    {
+      "id": "2056753169888334312",
+      "text": "Personal update: I've joined Anthropic. I think the next few years at the frontier of LLMs will be especially formative. I am very excited to join the team here and get back to R&amp;D. I remain deeply passionate about education and plan to resume my work on it in time.",
+      "createdAt": "Tue May 19 15:05:42 +0000 2026",
+      "replyCount": 7966,
+      "retweetCount": 11067,
+      "likeCount": 150147,
+      "conversationId": "2056753169888334312",
+      "author": {
+        "username": "karpathy",
+        "name": "Andrej Karpathy"
+      },
+      "authorId": "33836629"
+    },
+    {
+      "id": "2053872850101285137",
+      "text": "This works really well btw, at the end of your query ask your LLM to \"structure your response as HTML\", then view the generated file in your browser. I've also had some success asking the LLM to present its output as slideshows, etc.\n\nMore generally, imo audio is the human-preferred input to AIs but vision (images/animations/video) is the preferred output from them. Around a ~third of our brains are a massively parallel processor dedicated to vision, it is the 10-lane superhighway of information into brain. As AI improves, I think we'll see a progression that takes advantage:\n\n1) raw text (hard/effortful to read)\n2) markdown (bold, italic, headings, tables, a bit easier on the eyes) <-- current default\n3) HTML (still procedural with underlying code, but a lot more flexibility on the graphics, layout, even interactivity) <-- early but forming new good default\n...4,5,6,...\nn) interactive neural videos/simulations\n\nImo the extrapolation (though the technology doesn't exist just yet) ends in some kind of interactive videos generated directly by a diffusion neural net. Many open questions as to how exact/procedural \"Software 1.0\" artifacts (e.g. interactive simulations) may be woven together with neural artifacts (diffusion grids), but generally something in the direction of the recently viral https://t.co/z21CP5iQfu\n\nThere are also improvements necessary and pending at the input. Audio nor text nor video alone are not enough, e.g. I feel a need to point/gesture to things on the screen, similar to all the things you would do with a person physically next to you and your computer screen.\n\nTLDR The input/output mind meld between humans and AIs is ongoing and there is a lot of work to do and significant progress to be made, way before jumping all the way into neuralink-esque BCIs and all that. For what's worth exploring at the current stage, hot tip try ask for HTML.",
+      "createdAt": "Mon May 11 16:20:21 +0000 2026",
+      "replyCount": 1048,
+      "retweetCount": 2029,
+      "likeCount": 19370,
+      "conversationId": "2053872850101285137",
+      "author": {
+        "username": "karpathy",
+        "name": "Andrej Karpathy"
+      },
+      "authorId": "33836629",
+      "quotedTweet": {
+        "id": "2052809885763747935",
+        "text": "Using Claude Code: The Unreasonable Effectiveness of HTML",
+        "createdAt": "Fri May 08 17:56:30 +0000 2026",
+        "replyCount": 1088,
+        "retweetCount": 2275,
+        "likeCount": 17715,
+        "conversationId": "2052809885763747935",
+        "author": {
+          "username": "trq212",
+          "name": "Thariq"
+        },
+        "authorId": "352806502",
+        "article": {
+          "title": "Using Claude Code: The Unreasonable Effectiveness of HTML",
+          "previewText": "This is now also on the Claude Blog.\n\nMarkdown has become the dominant file format used by agents to communicate with us. It’s simple, portable, has some rich text capability and is easy for you to"
+        }
+      }
+    },
+    {
+      "id": "2049907410303865030",
+      "text": "This is the the quote I've been citing a lot recently.",
+      "createdAt": "Thu Apr 30 17:43:06 +0000 2026",
+      "replyCount": 856,
+      "retweetCount": 4387,
+      "likeCount": 46856,
+      "conversationId": "2049907410303865030",
+      "author": {
+        "username": "karpathy",
+        "name": "Andrej Karpathy"
+      },
+      "authorId": "33836629",
+      "quotedTweet": {
+        "id": "2018886083120153046",
+        "text": "you can outsource your thinking\nbut you cannot outsource your understanding",
+        "createdAt": "Wed Feb 04 03:15:25 +0000 2026",
+        "replyCount": 288,
+        "retweetCount": 4193,
+        "likeCount": 18621,
+        "conversationId": "2018886083120153046",
+        "author": {
+          "username": "yacineMTB",
+          "name": "kache"
+        },
+        "authorId": "1173552893003255808"
+      }
+    },
+    {
+      "id": "2049903821095354523",
+      "text": "Fireside chat at Sequoia Ascent 2026 from a ~week ago. Some highlights:\n\nThe first theme I tried to push on is that LLMs are about a lot more than just speeding up what existed before (e.g. coding). Three examples of new horizons:\n\n1. menugen: an app that can be fully engulfed by LLMs, with no classical code needed: input an image, output an image and an LLM can natively do the thing.\n2. install .md skills instead of install .sh scripts. Why create a complex Software 1.0 bash script for e.g. installing a piece of software if you can write the installation out in words and say \"just show this to your LLM\".  The LLM is an advanced interpreter of English and can intelligently target installation to your setup, debug everything inline, etc.\n3. LLM knowledge bases as an example of something that was *impossible* with classical code because it's computation over unstructured data (knowledge) from arbitrary sources and in arbitrary formats, including simply text articles etc.\n\nI pushed on these because in every new paradigm change, the obvious things are always in the realm of speeding up or somehow improving what existed, but here we have examples of functionality that either suddenly perhaps shouldn't even exist (1,2), or was fundamentally not possible before (3).\n\nThe second (ongoing) theme is trying to explain the pattern of jaggedness in LLMs. How it can be true that a single artifact will simultaneously 1) coherently refactor a 100,000-line code base *and* 2) tell you to walk to the car wash to wash your car. I previously wrote about the source of this as having to do with verifiability of a domain, here I expand on this as having to also do with economics because revenue/TAM dictates what the frontier labs choose to package into training data distributions during RL. You're either in the data distribution (on the rails of the RL circuits) and flying or you're off-roading in the jungle with a machete, in relative terms. Still not 100% satisfied with this, but it's an ongoing struggle to build an accurate model of LLM capabilities if you wish to practically take advantage of their power while avoiding their pitfalls, which brings me to...\n\nLast theme is the agent-native economy. The decomposition of products and services into sensors, actuators and logic (split up across all of 1.0/2.0/3.0 computing paradigms), how we can make information maximally legible to LLMs, some words on the quickly emerging agentic engineering and its skill set, related hiring practices, etc., possibly even hints/dreams of fully neural computing handling the vast majority of computation with some help from (classical) CPU coprocessors.",
+      "createdAt": "Thu Apr 30 17:28:50 +0000 2026",
+      "replyCount": 377,
+      "retweetCount": 814,
+      "likeCount": 6166,
+      "conversationId": "2049903821095354523",
+      "author": {
+        "username": "karpathy",
+        "name": "Andrej Karpathy"
+      },
+      "authorId": "33836629",
+      "quotedTweet": {
+        "id": "2049518659513852109",
+        "text": "@karpathy and I are back! At @sequoia AI Ascent 2026. And a lot has changed. Last year, he coined “vibe coding”. This year, he’s never felt more behind as a programmer.\n\nThe big shift: vibe coding raised the floor. Agentic engineering raises the ceiling.\n\nWe talk about what it means to build seriously in the agent era. Not just moving faster. Building new things, with new tools, while preserving the parts that still require human taste, judgment, and understanding.",
+        "createdAt": "Wed Apr 29 15:58:21 +0000 2026",
+        "replyCount": 74,
+        "retweetCount": 205,
+        "likeCount": 1816,
+        "conversationId": "2049518659513852109",
+        "author": {
+          "username": "stephzhan",
+          "name": "Stephanie Zhan"
+        },
+        "authorId": "1258886893",
+        "media": [
+          {
+            "type": "video",
+            "url": "https://pbs.twimg.com/amplify_video_thumb/2049267312243638273/img/VIiHQxskxmLlm1Xi.jpg",
+            "width": 1920,
+            "height": 1080,
+            "previewUrl": "https://pbs.twimg.com/amplify_video_thumb/2049267312243638273/img/VIiHQxskxmLlm1Xi.jpg:small",
+            "videoUrl": "https://video.twimg.com/amplify_video/2049267312243638273/vid/avc1/1920x1080/DD544SxNk5dlN89y.mp4?tag=21",
+            "durationMs": 1788578
+          }
+        ]
+      }
+    },
+    {
+      "id": "2049180863036813717",
+      "text": "RT @status_effects: New work with @AlecRad and @DavidDuvenaud:\n\nHave you ever dreamed of talking to someone from the past? Introducing talk…",
+      "createdAt": "Tue Apr 28 17:36:04 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 406,
+      "likeCount": 0,
+      "conversationId": "2049180863036813717",
+      "author": {
+        "username": "karpathy",
+        "name": "Andrej Karpathy"
+      },
+      "authorId": "33836629"
+    },
+    {
+      "id": "2047098199954047313",
+      "text": "RT @zan2434: Imagine every pixel on your screen, streamed live directly from a model. No HTML, no layout engine, no code. Just exactly what…",
+      "createdAt": "Wed Apr 22 23:40:18 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 3744,
+      "likeCount": 0,
+      "conversationId": "2047098199954047313",
+      "author": {
+        "username": "karpathy",
+        "name": "Andrej Karpathy"
+      },
+      "authorId": "33836629"
+    },
+    {
+      "id": "2042334451611693415",
+      "text": "Judging by my tl there is a growing gap in understanding of AI capability.\n\nThe first issue I think is around recency and tier of use. I think a lot of people tried the free tier of ChatGPT somewhere  last year and allowed it to inform their views on AI a little too much. This is a group of reactions laughing at various quirks of the models, hallucinations, etc. Yes I also saw the viral videos of OpenAI's Advanced Voice mode fumbling simple queries like \"should I drive or walk to the carwash\". The thing is that these free and old/deprecated models don't reflect the capability in the latest round of state of the art agentic models of this year, especially OpenAI Codex and Claude Code.\n\nBut that brings me to the second issue. Even if people paid $200/month to use the state of the art models, a lot of the capabilities are relatively \"peaky\" in highly technical areas. Typical queries around search, writing, advice, etc. are *not* the domain that has made the most noticeable and dramatic strides in capability. Partly,  this is due to the technical details of reinforcement learning and its use of verifiable rewards. But partly, it's also because these use cases are not sufficiently prioritized by the companies in their hillclimbing because they don't lead to as much $$$ value. The goldmines are elsewhere, and the focus comes along.\n\nSo that brings me to the second group of people, who *both* 1) pay for and use the state of the art frontier agentic models (OpenAI Codex / Claude Code) and 2) do so professionally in technical domains like programming, math and research. This group of people is subject to the highest amount of \"AI Psychosis\" because the recent improvements in these domains as of this year have been nothing short of staggering. When you hand a computer terminal to one of these models, you can now watch them melt programming problems that you'd normally expect to take days/weeks of work. It's this second group of people that assigns a much greater gravity to the capabilities, their slope, and various cyber-related repercussions.\n\nTLDR the people in these two groups are speaking past each other. It really is simultaneously the case that OpenAI's free and I think slightly orphaned (?) \"Advanced Voice Mode\" will fumble the dumbest questions in your Instagram's reels and *at the same time*, OpenAI's highest-tier and paid Codex model will go off for 1 hour to coherently restructure an entire code base, or find and exploit vulnerabilities in computer systems. This part really works and has made dramatic strides because 2 properties: 1) these domains offer explicit reward functions that are verifiable meaning they are easily amenable to reinforcement learning training (e.g. unit tests passed yes or no, in contrast to writing, which is much harder to explicitly judge),  but also 2) they are a lot more valuable in b2b settings, meaning that the biggest fraction of the team is focused on improving them. So here we are.",
+      "createdAt": "Thu Apr 09 20:10:52 +0000 2026",
+      "replyCount": 1201,
+      "retweetCount": 2517,
+      "likeCount": 20867,
+      "conversationId": "2042334451611693415",
+      "author": {
+        "username": "karpathy",
+        "name": "Andrej Karpathy"
+      },
+      "authorId": "33836629",
+      "quotedTweet": {
+        "id": "2042063369432183238",
+        "text": "The degree to which you are awed by AI is perfectly correlated with how much you use AI to code.",
+        "createdAt": "Thu Apr 09 02:13:41 +0000 2026",
+        "replyCount": 82,
+        "retweetCount": 180,
+        "likeCount": 1701,
+        "conversationId": "2042063369432183238",
+        "author": {
+          "username": "staysaasy",
+          "name": "staysaasy"
+        },
+        "authorId": "1254131357774733312"
+      }
+    },
+    {
+      "id": "2042341482531864741",
+      "text": "Someone recently suggested to me that the reason OpenClaw moment was so big is because it's the first time a large group of non-technical people (who otherwise only knew AI as synonymous with ChatGPT as a website) experienced the latest agentic models.",
+      "createdAt": "Thu Apr 09 20:38:48 +0000 2026",
+      "replyCount": 276,
+      "retweetCount": 191,
+      "likeCount": 4139,
+      "conversationId": "2042334451611693415",
+      "inReplyToStatusId": "2042334451611693415",
+      "author": {
+        "username": "karpathy",
+        "name": "Andrej Karpathy"
+      },
+      "authorId": "33836629"
+    },
+    {
+      "id": "2040470801506541998",
+      "text": "Wow, this tweet went very viral!\n\nI wanted share a possibly slightly improved version of the tweet in an \"idea file\". The idea of the idea file is that in this era of LLM agents, there is less of a point/need of sharing the specific code/app, you just share the idea, then the other person's agent customizes & builds it for your specific needs.\n\nSo here's the idea in a gist format: https://t.co/NlAfEJjtJV\n\nYou can give this to your agent and it can build you your own LLM wiki and guide you on how to use it etc. It's intentionally kept a little bit abstract/vague because there are so many directions to take this in. And ofc, people can adjust the idea or contribute their own in the Discussion which is cool.",
+      "createdAt": "Sat Apr 04 16:45:23 +0000 2026",
+      "replyCount": 1125,
+      "retweetCount": 2836,
+      "likeCount": 26837,
+      "conversationId": "2040470801506541998",
+      "author": {
+        "username": "karpathy",
+        "name": "Andrej Karpathy"
+      },
+      "authorId": "33836629",
+      "quotedTweet": {
+        "id": "2039805659525644595",
+        "text": "LLM Knowledge Bases\n\nSomething I'm finding very useful recently: using LLMs to build personal knowledge bases for various topics of research interest. In this way, a large fraction of my recent token throughput is going less into manipulating code, and more into manipulating knowledge (stored as markdown and images). The latest LLMs are quite good at it. So:\n\nData ingest:\nI index source documents (articles, papers, repos, datasets, images, etc.) into a raw/ directory, then I use an LLM to incrementally \"compile\" a wiki, which is just a collection of .md files in a directory structure. The wiki includes summaries of all the data in raw/, backlinks, and then it categorizes data into concepts, writes articles for them, and links them all. To convert web articles into .md files I like to use the Obsidian Web Clipper extension, and then I also use a hotkey to download all the related images to local so that my LLM can easily reference them.\n\nIDE:\nI use Obsidian as the IDE \"frontend\" where I can view the raw data, the the compiled wiki, and the derived visualizations. Important to note that the LLM writes and maintains all of the data of the wiki, I rarely touch it directly. I've played with a few Obsidian plugins to render and view data in other ways (e.g. Marp for slides).\n\nQ&A:\nWhere things get interesting is that once your wiki is big enough (e.g. mine on some recent research is ~100 articles and ~400K words), you can ask your LLM agent all kinds of complex questions against the wiki, and it will go off, research the answers, etc. I thought I had to reach for fancy RAG, but the LLM has been pretty good about auto-maintaining index files and brief summaries of all the documents and it reads all the important related data fairly easily at this ~small scale.\n\nOutput:\nInstead of getting answers in text/terminal, I like to have it render markdown files for me, or slide shows (Marp format), or matplotlib images, all of which I then view again in Obsidian. You can imagine many other visual output formats depending on the query. Often, I end up \"filing\" the outputs back into the wiki to enhance it for further queries. So my own explorations and queries always \"add up\" in the knowledge base.\n\nLinting:\nI've run some LLM \"health checks\" over the wiki to e.g. find inconsistent data, impute missing data (with web searchers), find interesting connections for new article candidates, etc., to incrementally clean up the wiki and enhance its overall data integrity. The LLMs are quite good at suggesting further questions to ask and look into.\n\nExtra tools:\nI find myself developing additional tools to process the data, e.g. I vibe coded a small and naive search engine over the wiki, which I both use directly (in a web ui), but more often I want to hand it off to an LLM via CLI as a tool for larger queries. \n\nFurther explorations:\nAs the repo grows, the natural desire is to also think about synthetic data generation + finetuning to have your LLM \"know\" the data in its weights instead of just context windows.\n\nTLDR: raw data from a given number of sources is collected, then compiled by an LLM into a .md wiki, then operated on by various CLIs by the LLM to do Q&A and to incrementally enhance the wiki, and all of it viewable in Obsidian. You rarely ever write or edit the wiki manually, it's the domain of the LLM. I think there is room here for an incredible new product instead of a hacky collection of scripts.",
+        "createdAt": "Thu Apr 02 20:42:21 +0000 2026",
+        "replyCount": 2919,
+        "retweetCount": 7372,
+        "likeCount": 60601,
+        "conversationId": "2039805659525644595",
+        "author": {
+          "username": "karpathy",
+          "name": "Andrej Karpathy"
+        },
+        "authorId": "33836629"
+      }
+    },
+    {
+      "id": "2040806346556428585",
+      "text": "Surprised with how good the comments on github gists are. A lot more helpful, insightful, constructive, a lot less AI... Is it the user community? The markdown format? The (lack of) incentives?\n\nSuddenly feeling like I should gist more.\n@github consider competing with X (?)",
+      "createdAt": "Sun Apr 05 14:58:44 +0000 2026",
+      "replyCount": 181,
+      "retweetCount": 48,
+      "likeCount": 1221,
+      "conversationId": "2040470801506541998",
+      "inReplyToStatusId": "2040470801506541998",
+      "author": {
+        "username": "karpathy",
+        "name": "Andrej Karpathy"
+      },
+      "authorId": "33836629"
+    },
+    {
+      "id": "2040572272944324650",
+      "text": "Farzapedia, personal wikipedia of Farza, good example following my Wiki LLM tweet.\n\nI really like this approach to personalization in a number of ways, compared to \"status quo\" of an AI that allegedly gets better the more you use it or something:\n\n1. Explicit. The memory artifact is explicit and navigable (the wiki), you can see exactly what the AI does and does not know and you can inspect and manage this artifact, even if you don't do the direct text writing (the LLM does). The knowledge of you is not implicit and unknown, it's explicit and viewable.\n2. Yours. Your data is yours, on your local computer, it's not in some particular AI provider's system without the ability to extract it. You're in control of your information. \n3. File over app. The memory here is a simple collection of files in universal formats (images, markdown). This means the data is interoperable: you can use a very large collection of tools/CLIs or whatever you want over this information because it's just files. The agents can apply the entire Unix toolkit over them. They can natively read and understand them. Any kind of data can be imported into files as input, and any kind of interface can be used to view them as the output. E.g. you can use Obsidian to view them or vibe code something of your own. Search \"File over app\" for an article on this philosophy.\n4. BYOAI. You can use whatever AI you want to \"plug into\" this information - Claude, Codex, OpenCode, whatever. You can even think about taking an open source AI and finetuning it on your wiki - in principle, this AI could \"know\" you in its weights, not just attend over your data.\n\nSo this approach to personalization puts *you* in full control. The data is yours. In Universal formats. Explicit and inspectable. Use whatever AI you want over it, keep the AI companies on their toes! :)\n\nCertainly this is not the simplest way to get an AI to know you - it does require you to manage file directories and so on, but agents also make it quite simple and they can help you a lot. I imagine a number of products might come out to make this all easier, but imo \"agent proficiency\" is a CORE SKILL of the 21st century. These are extremely powerful tools - they speak English and they do all the computer stuff for you. Try this opportunity to play with one.",
+      "createdAt": "Sat Apr 04 23:28:36 +0000 2026",
+      "replyCount": 476,
+      "retweetCount": 827,
+      "likeCount": 9085,
+      "conversationId": "2040572272944324650",
+      "author": {
+        "username": "karpathy",
+        "name": "Andrej Karpathy"
+      },
+      "authorId": "33836629",
+      "quotedTweet": {
+        "id": "2040563939797504467",
+        "text": "This is Farzapedia.\n\nI had an LLM take 2,500 entries from my diary, Apple Notes, and some iMessage convos to create a personal Wikipedia for me.\n\nIt made 400 detailed articles for my friends, my startups, research areas, and even my favorite animes and their impact on me complete with backlinks.\n\nBut, this Wiki was not built for me! I built it for my agent!\n\nThe structure of the wiki files and how it's all backlinked is very easily crawlable by any agent + makes it a truly useful knowledge base.\n\nI can spin up Claude Code on the wiki and starting at index.md (a catalog of all my articles) the agent does a really good job at drilling into the specific pages on my wiki it needs context on when I have a query.\n\nFor example, when trying to cook up a new landing page I may ask:\n\n\"I'm trying to design this landing page for a new idea I have. Please look into the images and films that inspired me recently and give me ideas for new copy and aesthetics\".\n\nIn my diary I kept track of everything from: learnings, people, inspo, interesting links, images.\n\nSo the agent reads my wiki and pulls up my \"Philosophy\" articles from notes on a Studio Ghibli documentary, \"Competitor\" articles with YC companies whose landing pages I screenshotted, and pics of 1970s Beatles merch I saved years ago. And it delivers a great answer.\n\nI built a similar system to this a year ago with RAG but it was ass.\n\nA knowledge base that lets an agent find what it needs via a file system it actually understands just works better.\n\nThe most magical thing now is as I add new things to my wiki (articles, images of inspo, meeting notes) the system will likely update 2-3 different articles where it feels that context belongs, or, just creates a new article.\n\nIt's like this super genius librarian for your brain that's always filing stuff for your perfectly and also let's you easily query the knowledge for tasks useful to you (ex. design, product, writing, etc) and it never gets tired.\n\nI might spend next week productizing this, if that's of interest to you DM me + tell me your usecase!",
+        "createdAt": "Sat Apr 04 22:55:29 +0000 2026",
+        "replyCount": 237,
+        "retweetCount": 383,
+        "likeCount": 4900,
+        "conversationId": "2040563939797504467",
+        "author": {
+          "username": "FarzaTV",
+          "name": "Farza 🇵🇰🇺🇸"
+        },
+        "authorId": "327403216",
+        "media": [
+          {
+            "type": "video",
+            "url": "https://pbs.twimg.com/amplify_video_thumb/2040562032819486720/img/jVrKry6tC4BPFnCg.jpg",
+            "width": 1680,
+            "height": 1080,
+            "previewUrl": "https://pbs.twimg.com/amplify_video_thumb/2040562032819486720/img/jVrKry6tC4BPFnCg.jpg:small",
+            "videoUrl": "https://video.twimg.com/amplify_video/2040562032819486720/vid/avc1/1680x1080/TVdUCbM1akMYC6hL.mp4?tag=21",
+            "durationMs": 144768
+          }
+        ]
+      }
+    },
+    {
+      "id": "2040549459193704852",
+      "text": "Something I've been thinking about - I am bullish on people (empowered by AI) increasing the visibility, legibility and accountability of their governments.\n\nHistorically, it is the governments that act to make society legible (e.g. \"Seeing like a state\" is the common reference), but with AI, society can dramatically improve its ability to do this in reverse. Government accountability has not been constrained by access (the various branches of government publish an enormous amount of data), it has been constrained by intelligence - the ability to process a lot of raw data, combine it with domain expertise and derive insights. As an example, the 4000-page omnibus bill is \"transparent\" in principle and in a legal sense, but certainly not in a practical sense for most people. There's a lot more like it: laws, spending bills, federal budgets, freedom of information act responses, lobbying disclosures... Only a few highly trained professionals (investigative journalists) could historically process this information. This bottleneck might dissolve - not only are the professionals further empowered, but a lot more people can participate.\n\nSome examples to be precise: Detailed accounting of spending and budgets, diff tracking of legislation, individual voting trends w.r.t. stated positions or speeches, lobbying and influence (e.g. graph of lobbyist -> firm -> client -> legislator -> committee -> vote -> regulation), procurement and contracting, regulatory capture warning lights, judicial and legal patterns, campaign finance... Local governments might be even more interesting because the governed population is smaller so there is less national coverage: city council meetings, decisions around zoning, policing, schools, utilities...\n\nCertainly, the same tools can easily cut the other way and it's worth being very mindful of that, but I lean optimistic overall that added participation, transparency and accountability will improve democratic, free societies.\n\n(the quoted tweet is half-ish related, but inspired me to post some recent thoughts)",
+      "createdAt": "Sat Apr 04 21:57:57 +0000 2026",
+      "replyCount": 413,
+      "retweetCount": 732,
+      "likeCount": 5974,
+      "conversationId": "2040549459193704852",
+      "author": {
+        "username": "karpathy",
+        "name": "Andrej Karpathy"
+      },
+      "authorId": "33836629",
+      "quotedTweet": {
+        "id": "2040406616806179001",
+        "text": "The British Government is a complicated beast. Dozens of departments, hundreds of public bodies, more corporations than one can count...\n\nSuch is its complexity that there isn't an org chart for it.\n\nWell, there wasn't...\n\nIntroducing ⚙️Machinery of Government⚙️ https://t.co/YRt8r3yHyn",
+        "createdAt": "Sat Apr 04 12:30:21 +0000 2026",
+        "replyCount": 100,
+        "retweetCount": 424,
+        "likeCount": 2919,
+        "conversationId": "2040406616806179001",
+        "author": {
+          "username": "Hrushworth",
+          "name": "Harry Rushworth"
+        },
+        "authorId": "272923763",
+        "media": [
+          {
+            "type": "photo",
+            "url": "https://pbs.twimg.com/media/HFD4KSmWkAAdI3Z.jpg",
+            "width": 2048,
+            "height": 1411,
+            "previewUrl": "https://pbs.twimg.com/media/HFD4KSmWkAAdI3Z.jpg:small"
+          }
+        ]
+      }
+    }
+  ],
+  "nextCursor": "DAAHCgABHNg6fs7__-wLAAIAAAATMjA0MDU0OTQ1OTE5MzcwNDg1MggAAwAAAAIAAA"
+}

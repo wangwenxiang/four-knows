@@ -1,0 +1,911 @@
+{
+  "generatedAt": "2026-07-20T13:56:50.221657+00:00",
+  "fetchStartedAt": "2026-07-20T13:56:50.221657+00:00",
+  "windowStart": "2026-07-19T14:56:50.221657+00:00",
+  "windowHours": 23.0,
+  "accountsRequested": 61,
+  "fetchMode": "search",
+  "accountsSucceeded": 61,
+  "accountsFailed": 0,
+  "postsSelected": 10,
+  "topStories": [
+    {
+      "id": "2079113095188984161",
+      "author": "UnitreeRobotics",
+      "category": "AI 技术应用",
+      "editorialScore": 100
+    },
+    {
+      "id": "2078977720793661459",
+      "author": "gdb",
+      "category": "AI 技术进步",
+      "editorialScore": 74
+    },
+    {
+      "id": "2078893555330986008",
+      "author": "jerryjliu0",
+      "category": "AI 技术应用",
+      "editorialScore": 52
+    }
+  ],
+  "translation": {
+    "enabled": true,
+    "backend": "codex exec",
+    "promptVersion": "codex-v1",
+    "eligibleTexts": 15,
+    "cacheHits": 15,
+    "translatedNow": 0,
+    "failed": 0,
+    "coverage": 1.0,
+    "errors": [],
+    "cache": "ai-hotspot-radar/translation-cache.json"
+  },
+  "avatars": {
+    "enabled": true,
+    "authors": 10,
+    "primaryAuthors": 7,
+    "quotedAuthors": 5,
+    "cacheHits": 10,
+    "fetchedNow": 0,
+    "postsWithAvatar": 10,
+    "coverage": 1.0,
+    "quotedPostsWithAvatar": 5,
+    "quotedCoverage": 1.0,
+    "errors": [],
+    "cache": "ai-hotspot-radar/avatar-cache.json"
+  },
+  "dropped": {
+    "outsideWindow": 16,
+    "aiNotTechnical": 27
+  },
+  "editorial": {
+    "enabled": true,
+    "backend": "codex exec",
+    "promptVersion": "codex-editorial-v2",
+    "candidates": 38,
+    "retained": 11,
+    "dropped": 27,
+    "droppedPosts": [
+      {
+        "id": "2079091691034927185",
+        "author": "amasad",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "AI工具建议",
+        "evidence": "免费ChatGPT或Gemini够用",
+        "rationale": "仅笼统推荐，无技术事实"
+      },
+      {
+        "id": "2079086360703680583",
+        "author": "amasad",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "AI订阅市场",
+        "evidence": "2.2%美国家庭付费AI订阅",
+        "rationale": "市场消费数据，非技术内容"
+      },
+      {
+        "id": "2078906303674773577",
+        "author": "simonw",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "社媒机器人动机",
+        "evidence": "询问回复涨粉建议",
+        "rationale": "社媒运营讨论，无AI技术事实"
+      },
+      {
+        "id": "2078881739079119326",
+        "author": "jerryjliu0",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "闲聊评论",
+        "evidence": "称一句话很疯狂",
+        "rationale": "无技术事实或经验"
+      },
+      {
+        "id": "2078861444813381899",
+        "author": "simonw",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "博客引用说明",
+        "evidence": "称博客中引用声明",
+        "rationale": "缺少具体技术事实"
+      },
+      {
+        "id": "2079183351374864793",
+        "author": "c_valenzuelab",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "Runway企业营销影响",
+        "evidence": "50万美元活动降至5千",
+        "rationale": "成本营销叙事，非技术细节"
+      },
+      {
+        "id": "2079109029486620968",
+        "author": "RichardSocher",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "版权争议",
+        "evidence": "提到Anthropic书籍罚款",
+        "rationale": "法律争论无技术事实"
+      },
+      {
+        "id": "2079071654593093885",
+        "author": "RichardSocher",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "AI经济影响",
+        "evidence": "称AI进步或不增经济活动",
+        "rationale": "观点判断无技术细节"
+      },
+      {
+        "id": "2079003865974813000",
+        "author": "c_valenzuelab",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "体育观赛",
+        "evidence": "西班牙队庆祝时球迷唱歌",
+        "rationale": "体育内容与技术无关"
+      },
+      {
+        "id": "2078914281869861255",
+        "author": "c_valenzuelab",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "个人动态",
+        "evidence": "Unexpected Sunday plans",
+        "rationale": "无技术事实"
+      },
+      {
+        "id": "2078884449328975990",
+        "author": "c_valenzuelab",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "视频模型预测",
+        "evidence": "称视频模型落后语言模型12个月",
+        "rationale": "预测类观点证据不足"
+      },
+      {
+        "id": "2079057411902710053",
+        "author": "fchollet",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "机器能力观点",
+        "evidence": "称机器专项不代表通用能力",
+        "rationale": "概念观点无实现事实"
+      },
+      {
+        "id": "2079056619120595063",
+        "author": "fchollet",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "AI能力分布",
+        "evidence": "称AI能力尖峰且窄域超人",
+        "rationale": "行业批评无具体技术"
+      },
+      {
+        "id": "2079002018790756680",
+        "author": "Tim_Dettmers",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "经验征询",
+        "evidence": "询问搭建经验教训",
+        "rationale": "只提问未给事实"
+      },
+      {
+        "id": "2078860051897327871",
+        "author": "Tim_Dettmers",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "技术澄清",
+        "evidence": "询问是仓库迭代还是训练模型",
+        "rationale": "只提问无事实结论"
+      },
+      {
+        "id": "2078978610179015033",
+        "author": "gdb",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "闲聊评价",
+        "evidence": "称其被低估",
+        "rationale": "无技术事实或经验"
+      },
+      {
+        "id": "2078977910824898783",
+        "author": "gdb",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "产品反馈询问",
+        "evidence": "询问喜欢点和改进",
+        "rationale": "无具体技术信息"
+      },
+      {
+        "id": "2078952214664798283",
+        "author": "AmandaAskell",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "体育评论",
+        "evidence": "阿根廷门将表现",
+        "rationale": "与AI技术无关"
+      },
+      {
+        "id": "2078856665932402764",
+        "author": "jackclarkSF",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "简短附和",
+        "evidence": "仅表示赞同",
+        "rationale": "无技术事实"
+      },
+      {
+        "id": "2079061713048199625",
+        "author": "swyx",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "键盘分享",
+        "evidence": "称定制键盘很酷",
+        "rationale": "非AI技术材料"
+      },
+      {
+        "id": "2078985078781419800",
+        "author": "yoheinakajima",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "社交回复",
+        "evidence": "仅表情式回复",
+        "rationale": "无技术内容"
+      },
+      {
+        "id": "2078918662271258993",
+        "author": "swyx",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "闲聊回复",
+        "evidence": "仅称has",
+        "rationale": "无技术事实或工程经验"
+      },
+      {
+        "id": "2078912371901481110",
+        "author": "swyx",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "链接转发",
+        "evidence": "仅发布短链接",
+        "rationale": "材料无可审读技术事实"
+      },
+      {
+        "id": "2078895501001584818",
+        "author": "yoheinakajima",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "账号被标记",
+        "evidence": "称被flagged",
+        "rationale": "无AI或工程技术事实"
+      },
+      {
+        "id": "2078863262985457887",
+        "author": "HamelHusain",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "简单附和",
+        "evidence": "仅回复Exactly",
+        "rationale": "无技术事实"
+      },
+      {
+        "id": "2078861814818034160",
+        "author": "HamelHusain",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "文章推荐",
+        "evidence": "称文章会快速补课",
+        "rationale": "未给出文章技术内容"
+      },
+      {
+        "id": "2078860327631167738",
+        "author": "HamelHusain",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "算法信息流",
+        "evidence": "点赞后算法锁定",
+        "rationale": "泛谈推荐算法无工程事实"
+      }
+    ],
+    "topStories": [
+      {
+        "id": "2079113095188984161",
+        "author": "UnitreeRobotics",
+        "category": "AI 技术应用",
+        "rationale": "单模型实现全身自主移动操作"
+      },
+      {
+        "id": "2078983078069051857",
+        "author": "yoheinakajima",
+        "category": "AI 技术前沿",
+        "rationale": "提出可审计可分叉Agent图架构"
+      },
+      {
+        "id": "2078887562681430221",
+        "author": "jerryjliu0",
+        "category": "AI 技术进步",
+        "rationale": "LlamaParse新增混合检索端点"
+      }
+    ],
+    "reviewedPosts": [
+      {
+        "id": "2079091691034927185",
+        "author": "amasad",
+        "text": "@rgarrett88 Free ChatGPT or Gemini is probably good enough for that",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "AI工具建议",
+        "evidence": "免费ChatGPT或Gemini够用",
+        "rationale": "仅笼统推荐，无技术事实"
+      },
+      {
+        "id": "2079086360703680583",
+        "author": "amasad",
+        "text": "Consumers spend money on food, rent, and entertainment, phone &amp; internet, and shopping. Software is typically bought by their companies. Which is why outside of Netflix, Spotify, etc it’s hard to think of *huge* consumer subscription businesses.",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "AI订阅市场",
+        "evidence": "2.2%美国家庭付费AI订阅",
+        "rationale": "市场消费数据，非技术内容"
+      },
+      {
+        "id": "2078970363971846323",
+        "author": "simonw",
+        "text": "@reach_vb @gdb I've started thinking of ChatGPT\nMobile's \"Work\" as ChatGPT Code Interpreter with most of the safeties turned off",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "ChatGPT移动端Work",
+        "evidence": "称像低安全Code Interpreter",
+        "rationale": "涉及功能类比，证据较弱"
+      },
+      {
+        "id": "2078906303674773577",
+        "author": "simonw",
+        "text": "Does anyone know if there's common advice out there about growing your Twitter followers by replying to lots of other people's posts?\n\nI'm trying to figure out the motivation for all these bot reply accounts",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "社媒机器人动机",
+        "evidence": "询问回复涨粉建议",
+        "rationale": "社媒运营讨论，无AI技术事实"
+      },
+      {
+        "id": "2078893555330986008",
+        "author": "jerryjliu0",
+        "text": "I don't think there's a ton of value in creating custom general harnesses.\n\nBut there will always tremendous value in creating custom task-specific harnesses, especially if you need to satisfy accuracy/cost/latency constraints for production. You can encode all the domain-specific priors, the right model mixture, and the right UX so it's far better than you trying to prompt a general agent with some skills/prompts. \n\n1. You can always bootstrap any workflow with Codex/Claude Code first\n2. Distill it into something more specific",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "任务特定Agent Harness",
+        "evidence": "需满足准确成本延迟约束",
+        "rationale": "有生产工程取舍经验"
+      },
+      {
+        "id": "2078887562681430221",
+        "author": "jerryjliu0",
+        "text": "We've built the following document retrieval endpoints into LlamaParse: \n* Hybrid search (grep + vector search) \n* File grep (grep incl. regex search) \n* File find (`find`) \n* File read (`sed`) \n\nWe're continuing to experiment to see what combination allows agents to get the highest retrieval quality over unstructured docs. If you have thoughts let us know!",
+        "technicalRelevant": true,
+        "dailyGrade": "A",
+        "topic": "LlamaParse文档检索",
+        "evidence": "内置混合搜索和grep端点",
+        "rationale": "明确产品能力与检索工程细节"
+      },
+      {
+        "id": "2078881989785264368",
+        "author": "jerryjliu0",
+        "text": "I've noticed this too. I'm starting to have trouble understanding and articulating what AI generates",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "AI生成文本可理解性",
+        "evidence": "AI摘要信息密度变高",
+        "rationale": "技术相关观察，缺少方案证据"
+      },
+      {
+        "id": "2078881739079119326",
+        "author": "jerryjliu0",
+        "text": "@tszzl this is a crazy sentence",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "闲聊评论",
+        "evidence": "称一句话很疯狂",
+        "rationale": "无技术事实或经验"
+      },
+      {
+        "id": "2078861444813381899",
+        "author": "simonw",
+        "text": "@stanzillaz @jdalton I quoted them stating it in my blog post, this is just me finding ways to demonstrate that for myself https://t.co/FnBOsprwm0",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "博客引用说明",
+        "evidence": "称博客中引用声明",
+        "rationale": "缺少具体技术事实"
+      },
+      {
+        "id": "2079183351374864793",
+        "author": "c_valenzuelab",
+        "text": "Content Factories Don't Have Factories",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "Runway企业营销影响",
+        "evidence": "50万美元活动降至5千",
+        "rationale": "成本营销叙事，非技术细节"
+      },
+      {
+        "id": "2079109029486620968",
+        "author": "RichardSocher",
+        "text": "@AskSathvik You're making up stuff I didn't write...\nBut either way. Yes we all know anthropic stole a ton of books and then paid a maybe billion dollar fine for it.\n\nBut you don't hear that out of China or do you? https://t.co/NYV6DMao4S",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "版权争议",
+        "evidence": "提到Anthropic书籍罚款",
+        "rationale": "法律争论无技术事实"
+      },
+      {
+        "id": "2079071654593093885",
+        "author": "RichardSocher",
+        "text": "@paulg I've talked about this before also. All the injury lawyers, the ERs and hospitals, the car mechanics, etc.\nAI progress may not always create more economic activity even though it's morally the right direction.",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "AI经济影响",
+        "evidence": "称AI进步或不增经济活动",
+        "rationale": "观点判断无技术细节"
+      },
+      {
+        "id": "2079003865974813000",
+        "author": "c_valenzuelab",
+        "text": "Congrats to Spain, well deserved. But the Argentine fans completely took over the stadium. Even while the Spanish team was celebrating, they kept chanting.\n\nComo buena barra sudamericana. https://t.co/lJTUd43EVY",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "体育观赛",
+        "evidence": "西班牙队庆祝时球迷唱歌",
+        "rationale": "体育内容与技术无关"
+      },
+      {
+        "id": "2078914281869861255",
+        "author": "c_valenzuelab",
+        "text": "Unexpected Sunday plans https://t.co/8DxwD9BMCJ",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "个人动态",
+        "evidence": "Unexpected Sunday plans",
+        "rationale": "无技术事实"
+      },
+      {
+        "id": "2078884449328975990",
+        "author": "c_valenzuelab",
+        "text": "Generally, video models are about 12 months behind language models. The next generation of frontier pixel models will likely feel to media what Fable/Kimi 3/Sol are to language.",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "视频模型预测",
+        "evidence": "称视频模型落后语言模型12个月",
+        "rationale": "预测类观点证据不足"
+      },
+      {
+        "id": "2079057411902710053",
+        "author": "fchollet",
+        "text": "This trick works because of anthropomorphism. If a human is exceptional at one thing, chances are they could have become exceptional at many other things all the same: their specialized skills are indicative of general skill acquisition ability. Not so with machines.",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "机器能力观点",
+        "evidence": "称机器专项不代表通用能力",
+        "rationale": "概念观点无实现事实"
+      },
+      {
+        "id": "2079056619120595063",
+        "author": "fchollet",
+        "text": "AI competence has always been very spiky, superhuman in some narrow domains and largely useless in others. The fundamental marketing trick of the AI industry is to make you believe the tallest spike is a floor.",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "AI能力分布",
+        "evidence": "称AI能力尖峰且窄域超人",
+        "rationale": "行业批评无具体技术"
+      },
+      {
+        "id": "2079002018790756680",
+        "author": "Tim_Dettmers",
+        "text": "@AllanatrixQ @eliebakouch Very interesting! I think this is a good example. Curious about any  lessons you learned when you set this up",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "经验征询",
+        "evidence": "询问搭建经验教训",
+        "rationale": "只提问未给事实"
+      },
+      {
+        "id": "2079001540489048530",
+        "author": "Tim_Dettmers",
+        "text": "@mausch I guess what I mean here is loops with sub-agents. This is what people on X mean right now with \"loop\". Ralph loops work well, and that is what I am mainly using for overnight single-agent sessions",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "Agent循环工作流",
+        "evidence": "sub-agent循环和单agent过夜会话",
+        "rationale": "包含可复用Agent实践"
+      },
+      {
+        "id": "2078860051897327871",
+        "author": "Tim_Dettmers",
+        "text": "@AllanatrixQ @eliebakouch What is this? Seems like iterating on a repo, but also seems like tuning/training a model or something?",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "技术澄清",
+        "evidence": "询问是仓库迭代还是训练模型",
+        "rationale": "只提问无事实结论"
+      },
+      {
+        "id": "2078978610179015033",
+        "author": "gdb",
+        "text": "@andymac4182 @OpenAI it’s highly underrated imo",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "闲聊评价",
+        "evidence": "称其被低估",
+        "rationale": "无技术事实或经验"
+      },
+      {
+        "id": "2078977910824898783",
+        "author": "gdb",
+        "text": "@DavidOndrej1 curious what you like (and any room for improvement)!",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "产品反馈询问",
+        "evidence": "询问喜欢点和改进",
+        "rationale": "无具体技术信息"
+      },
+      {
+        "id": "2078977720793661459",
+        "author": "gdb",
+        "text": "Feels like a watershed moment for advancing mathematics. Scientific and medical advances which can really improve people’s lives feeling very close now.",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "模型数学能力",
+        "evidence": "GPT 5.6 Sol证明正确",
+        "rationale": "含模型数学表现证据"
+      },
+      {
+        "id": "2078952214664798283",
+        "author": "AmandaAskell",
+        "text": "Argentinian goalkeeper sure is earning his salary.",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "体育评论",
+        "evidence": "阿根廷门将表现",
+        "rationale": "与AI技术无关"
+      },
+      {
+        "id": "2078922461660533120",
+        "author": "gdb",
+        "text": "one of the best features of ChatGPT Work is that it runs in the cloud, meaning that it works from mobile, with your laptop closed.\n\nkinda crazy how long the main way to get the magic of agents has been while leaving your laptop cracked open!",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "云端Agent运行",
+        "evidence": "ChatGPT Work云端运行",
+        "rationale": "说明Agent运行形态"
+      },
+      {
+        "id": "2078911208401641615",
+        "author": "jackclarkSF",
+        "text": "Very interesting personal milestone - Fable just had a good suggestion for some text of a fictional story to delete. I find AI writing broadly excruciating, AI sub-editing pretty helpful, and feels like 'AI editing' is now coming online. Story coming in Import AI tomorrow!",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "AI文本编辑",
+        "evidence": "Fable建议删除文本",
+        "rationale": "个人体验且证据窄"
+      },
+      {
+        "id": "2078856665932402764",
+        "author": "jackclarkSF",
+        "text": "@pleometric @celestineia Concur",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "简短附和",
+        "evidence": "仅表示赞同",
+        "rationale": "无技术事实"
+      },
+      {
+        "id": "2079061713048199625",
+        "author": "swyx",
+        "text": "even as someone who is most definitely not a custom keyboards guy, i gotta admit this is pretty dang cool. https://t.co/NOKBYlX9D9",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "键盘分享",
+        "evidence": "称定制键盘很酷",
+        "rationale": "非AI技术材料"
+      },
+      {
+        "id": "2078985078781419800",
+        "author": "yoheinakajima",
+        "text": "@solomonneas my man 🫡",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "社交回复",
+        "evidence": "仅表情式回复",
+        "rationale": "无技术内容"
+      },
+      {
+        "id": "2078983078069051857",
+        "author": "yoheinakajima",
+        "text": "if you like graphRAG, function graphs, code graphs, DAG workflows, context graphs, and log/trace graphs… you might like my graph runtime",
+        "technicalRelevant": true,
+        "dailyGrade": "A",
+        "topic": "Agent图运行时",
+        "evidence": "事件源反应式图论文",
+        "rationale": "提出可审计Agent架构"
+      },
+      {
+        "id": "2078918662271258993",
+        "author": "swyx",
+        "text": "@thdxr @shloked has",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "闲聊回复",
+        "evidence": "仅称has",
+        "rationale": "无技术事实或工程经验"
+      },
+      {
+        "id": "2078912371901481110",
+        "author": "swyx",
+        "text": "here goes https://t.co/TMg4KbJTmb",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "链接转发",
+        "evidence": "仅发布短链接",
+        "rationale": "材料无可审读技术事实"
+      },
+      {
+        "id": "2078895501001584818",
+        "author": "yoheinakajima",
+        "text": "oh man I got flagged by the nicer parent https://t.co/vhS514YrpT",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "账号被标记",
+        "evidence": "称被flagged",
+        "rationale": "无AI或工程技术事实"
+      },
+      {
+        "id": "2078864016370454778",
+        "author": "swyx",
+        "text": "@menhguin give it npx wrangler, if you implement traffic sampling it actually is quite costless imo",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "Wrangler流量采样",
+        "evidence": "npx wrangler与traffic sampling",
+        "rationale": "有工程建议但细节很少"
+      },
+      {
+        "id": "2078863262985457887",
+        "author": "HamelHusain",
+        "text": "@ThePrimeagen Exactly",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "简单附和",
+        "evidence": "仅回复Exactly",
+        "rationale": "无技术事实"
+      },
+      {
+        "id": "2078861814818034160",
+        "author": "HamelHusain",
+        "text": "@delightsheriff Bro skip the loops.  The article will catch you up fast",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "文章推荐",
+        "evidence": "称文章会快速补课",
+        "rationale": "未给出文章技术内容"
+      },
+      {
+        "id": "2078860327631167738",
+        "author": "HamelHusain",
+        "text": "@bclavie @lateinteraction All you gotta do is go and like a bunch of posts then the algorithm locks you in",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "算法信息流",
+        "evidence": "点赞后算法锁定",
+        "rationale": "泛谈推荐算法无工程事实"
+      },
+      {
+        "id": "2079113095188984161",
+        "author": "UnitreeRobotics",
+        "text": "Real-Time Omni-Modal Interaction Driven Whole-Body Mobile Manipulation🥳\nUnitree UnifoLM-OminiA-0.3 — a single model handling diverse home-care and wellness tasks, with omni-modal interactive understanding, fully autonomous, stable and disturbance-resistant execution. https://t.co/lgB7XdMLAT",
+        "technicalRelevant": true,
+        "dailyGrade": "A",
+        "topic": "机器人全身移动操作模型",
+        "evidence": "单模型处理居家康养任务",
+        "rationale": "描述新模型能力与自主执行"
+      }
+    ]
+  },
+  "searchFallbacks": [],
+  "xHotspotSearch": {
+    "enabled": true,
+    "directionsRequested": 5,
+    "directionsSucceeded": 5,
+    "directionsFailed": 0,
+    "fetched": 2,
+    "selectedPosts": 1,
+    "results": [
+      {
+        "direction": "agents",
+        "label": "Agent 技术突破",
+        "ok": true,
+        "fetched": 0,
+        "attempts": 1,
+        "elapsedSeconds": 0.91,
+        "error": null
+      },
+      {
+        "direction": "life_sciences",
+        "label": "AI 在生命科学突破（疾病、大脑）",
+        "ok": true,
+        "fetched": 0,
+        "attempts": 1,
+        "elapsedSeconds": 1.01,
+        "error": null
+      },
+      {
+        "direction": "machine_consciousness",
+        "label": "AI 意识研究",
+        "ok": true,
+        "fetched": 0,
+        "attempts": 1,
+        "elapsedSeconds": 1.21,
+        "error": null
+      },
+      {
+        "direction": "foundation_models",
+        "label": "基础模型突破",
+        "ok": true,
+        "fetched": 1,
+        "attempts": 1,
+        "elapsedSeconds": 1.96,
+        "error": null
+      },
+      {
+        "direction": "robotics",
+        "label": "机器人领域突破",
+        "ok": true,
+        "fetched": 1,
+        "attempts": 1,
+        "elapsedSeconds": 1.99,
+        "error": null
+      }
+    ]
+  },
+  "failures": [],
+  "fetches": [
+    {
+      "handles": [
+        "bcherny",
+        "karpathy",
+        "michael_truell",
+        "scottwu46",
+        "amasad",
+        "hwchase17",
+        "jerryjliu0",
+        "simonw"
+      ],
+      "ok": true,
+      "fetched": 16,
+      "attempts": 1,
+      "elapsedSeconds": 1.89,
+      "source": "search"
+    },
+    {
+      "handles": [
+        "c_valenzuelab",
+        "demi_guo",
+        "RichardSocher",
+        "mustafasuleyman",
+        "alexandr_wang",
+        "realGeorgeHotz",
+        "drfeifei",
+        "anilkseth"
+      ],
+      "ok": true,
+      "fetched": 8,
+      "attempts": 1,
+      "elapsedSeconds": 1.39,
+      "source": "search"
+    },
+    {
+      "handles": [
+        "jiayq",
+        "miramurati",
+        "johnschulman2",
+        "yoshua_bengio",
+        "fchollet",
+        "lilianweng",
+        "Tim_Dettmers",
+        "istoica05"
+      ],
+      "ok": true,
+      "fetched": 6,
+      "attempts": 1,
+      "elapsedSeconds": 1.39,
+      "source": "search"
+    },
+    {
+      "handles": [
+        "Ken_Goldberg",
+        "RussTedrake",
+        "patrickbutlin",
+        "cyrilzakka",
+        "marinkazitnik"
+      ],
+      "ok": true,
+      "fetched": 0,
+      "attempts": 1,
+      "elapsedSeconds": 0.77,
+      "source": "search"
+    },
+    {
+      "handles": [
+        "matei_zaharia",
+        "chipro",
+        "DrJimFan",
+        "AravSrinivas",
+        "ilyasut",
+        "janleike",
+        "NoamShazeer",
+        "hwchung27"
+      ],
+      "ok": true,
+      "fetched": 0,
+      "attempts": 1,
+      "elapsedSeconds": 0.73,
+      "source": "search"
+    },
+    {
+      "handles": [
+        "sama",
+        "gdb",
+        "polynoamial",
+        "jackclarkSF",
+        "ch402",
+        "mikeyk",
+        "alexalbert__",
+        "AmandaAskell"
+      ],
+      "ok": true,
+      "fetched": 7,
+      "attempts": 1,
+      "elapsedSeconds": 2.83,
+      "source": "search"
+    },
+    {
+      "handles": [
+        "sh_reya",
+        "HamelHusain",
+        "swyx",
+        "yoheinakajima",
+        "joaomdmoura",
+        "pabbeel",
+        "svlevine",
+        "chelseabfinn"
+      ],
+      "ok": true,
+      "fetched": 15,
+      "attempts": 1,
+      "elapsedSeconds": 1.75,
+      "source": "search"
+    },
+    {
+      "handles": [
+        "TrentonBricken",
+        "carlini",
+        "dpkingma",
+        "demishassabis",
+        "JeffDean",
+        "Thom_Wolf",
+        "GuillaumeLample",
+        "tri_dao"
+      ],
+      "ok": true,
+      "fetched": 0,
+      "attempts": 1,
+      "elapsedSeconds": 0.8,
+      "source": "search"
+    }
+  ],
+  "rebuiltFromData": "ai-hotspot-radar/20260720/data/posts.json",
+  "rebuildDroppedRecruitment": 0,
+  "rebuildDroppedNonTechnical": 0
+}

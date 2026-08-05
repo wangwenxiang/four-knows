@@ -9,6 +9,15 @@ Daily, read-only X/Twitter monitoring for the expert list embedded in
 python3 scripts/fetch_ai_v_radar.py
 ```
 
+## 热点发现范围
+
+热点以最近 23 小时的 X 一手内容为主：固定 54 个账号负责稳定信号，人工筛选的 7 个账号作为独立扩展层保留。系统不再把 arXiv、出版物 RSS、实验室新闻 RSS 或普通 GitHub release 当作热点补充源；这些来源容易重复或偏离实际应用。
+
+主要名单与规则：
+
+- `config/ai_x_expansion_watchlist.json`：单独保留、上限固定为 7 人的 X 扩展名单；
+- `reports/ai-hotspot-coverage-strategy.md`：应用导向的热点判断规则。
+
 The command uses the local `bird` CLI with Chrome cookies, fixes an exact
 24-hour window at the instant the command starts, searches the targets in small
 batches, keeps technical posts inside that window, enriches each

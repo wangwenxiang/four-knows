@@ -41,6 +41,19 @@ INDEPENDENT_RECRUITMENT_AUDIT_PATTERNS = (
     re.compile(r"\bapply\b.{0,80}\b(?:campus lead|fellow|intern|role|position|program)\b", re.IGNORECASE),
 )
 
+# This must remain independent from the production selector.  It rejects
+# cultural-consumption posts whose only AI connection is generated media, even
+# if a broad keyword matcher sees "AI" in the text.  A technical attachment
+# may still make a lifestyle wrapper useful, so require substantive attachment
+# evidence before allowing it through this final publication guard.
+INDEPENDENT_CULTURAL_DEPLOYMENT_PATTERNS = (
+    re.compile(r"\b(?:airport|hotel|restaurant|store|venue|station)\b.{0,140}\b(?:playing|plays|playlist|songs?|music)\b", re.IGNORECASE),
+    re.compile(r"\b(?:playing|plays|playlist|songs?|music)\b.{0,140}\b(?:airport|hotel|restaurant|store|venue|station)\b", re.IGNORECASE),
+)
+INDEPENDENT_SUBSTANTIVE_ATTACHMENT_PATTERNS = (
+    re.compile(r"\b(?:model|agent|benchmark|training|inference|code|software|open[ -]source|dataset|algorithm|api|gpu|research)\b", re.IGNORECASE),
+)
+
 # Independent publication guard for the explicit editorial exclusion. Do not
 # import the selector's constant: this must still catch a future selector bug.
 FORBIDDEN_SELECTED_HANDLES = frozenset({"sama"})
@@ -54,6 +67,18 @@ def independently_flags_recruitment(post: dict) -> bool:
             parts.extend((str(nested.get("text") or ""), str(nested.get("title") or ""), str(nested.get("previewText") or "")))
     text = "\n".join(parts)
     return any(pattern.search(text) for pattern in INDEPENDENT_RECRUITMENT_AUDIT_PATTERNS)
+
+
+def independently_flags_low_signal_cultural_deployment(post: dict) -> bool:
+    primary = str(post.get("text") or "")
+    if not any(pattern.search(primary) for pattern in INDEPENDENT_CULTURAL_DEPLOYMENT_PATTERNS):
+        return False
+    attachments: list[str] = []
+    for nested_key in ("quotedTweet", "article"):
+        nested = post.get(nested_key)
+        if isinstance(nested, dict):
+            attachments.extend((str(nested.get("text") or ""), str(nested.get("title") or ""), str(nested.get("previewText") or "")))
+    return not any(pattern.search("\n".join(attachments)) for pattern in INDEPENDENT_SUBSTANTIVE_ATTACHMENT_PATTERNS)
 
 
 def main() -> int:
@@ -92,6 +117,9 @@ def main() -> int:
     posts = posts_payload.get("posts") or []
     errors: list[str] = []
     warnings: list[str] = []
+    editorial = report.get("editorial") or {}
+    if not editorial.get("enabled"):
+        errors.append("semantic editorial review was not enabled for this production report")
     expected_experts = append_expansion_experts(
         load_experts(DEFAULT_WATCHLIST), DEFAULT_EXPANSION_WATCHLIST
     )
@@ -156,6 +184,8 @@ def main() -> int:
             errors.append(f"post {post.get('id')} contains recruitment content")
         if independently_flags_recruitment(post):
             errors.append(f"post {post.get('id')} contains role-application recruitment content")
+        if independently_flags_low_signal_cultural_deployment(post):
+            errors.append(f"post {post.get('id')} is a low-signal cultural AI deployment")
         if not is_technical_post(post):
             errors.append(f"post {post.get('id')} is not technical")
         if is_redundant_nontechnical_wrapper(post, selected_ids):

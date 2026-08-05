@@ -12,14 +12,14 @@ Operate from the root of the `four-knows` repository that contains this skill. T
 Run from the project root:
 
 ```bash
-python3 scripts/fetch_ai_v_radar.py --hours 23 --fetch-mode search --search-batch-size 8 --search-max-pages 5 --expansion-watchlist config/ai_x_expansion_watchlist.json --hotspot-queries config/ai_x_hotspot_queries.json --hotspot-max-pages 3 --workers 2 --retries 2 --avatar-workers 3 --avatar-cache ai-v-radar/avatar-cache.json --translation-batch-size 8 --translation-workers 2 --translation-retries 2
+python3 scripts/fetch_ai_v_radar.py --hours 23 --fetch-mode search --search-batch-size 8 --search-max-pages 5 --expansion-watchlist config/ai_x_expansion_watchlist.json --hotspot-queries config/ai_x_hotspot_queries.json --hotspot-max-pages 3 --workers 2 --retries 2 --editorial-ai --avatar-workers 3 --avatar-cache ai-v-radar/avatar-cache.json --translation-batch-size 8 --translation-workers 2 --translation-retries 2
 ```
 
 Invoke every command that starts the local `codex` CLI, including the fresh fetch and poster-copy renderer, with the execution tool's `sandbox_permissions=require_escalated` from its first attempt. The nested CLI needs its normal authenticated local runtime. If that permission is unavailable, continue the report with the explicit translation or poster-copy fallback described below; do not block the whole daily publication solely because Codex is unavailable.
 
 Use the embedded 55-account core watchlist in `ai_key_people_watchlist_visual.html` plus the seven explicitly approved accounts in `config/ai_x_expansion_watchlist.json`, for 62 monitored accounts. Also execute all five X-only directions in `config/ai_x_hotspot_queries.json`; hotspot discoveries enrich the candidate pool but do not change the 62 monitored-account count. Re-check every hotspot result against that direction's configured `postMatchAny` terms across its primary post, quote, and article before it can enter the pool; retain matched-term provenance, merge multi-direction matches, and record per-direction selected/mismatch counts. Display the actual monitored count. Use Bird only for read operations and the local non-interactive Codex CLI for Simplified Chinese translation.
 
-Bird reads the saved X session directly from the local Chrome profile with `--cookie-source chrome`; it does not drive a live Chrome tab. Chrome may be closed during a run. Treat a logged-out X session, expired or cleared cookies, a different Chrome profile, or denied macOS cookie decryption as authentication failures and report them without exposing credentials.
+Bird uses the local Cookie Manager Chrome extension by default to retrieve a fresh `x.com` session at the start of each scan; it does not drive a live Chrome tab. The session is passed only through the Bird child process environment, never command-line arguments, generated files, logs, reports, or caches. `--cookie-source chrome` remains an explicit diagnostic fallback. Treat a disconnected extension, logged-out X session, expired or cleared cookies, or a different Chrome profile as authentication failures and report them without exposing credentials.
 
 Reserve `--reuse-data ai-v-radar/YYYYMMDD/data/posts.json` for repairing translation, avatar, layout, or ranking on an already fetched dataset. Never describe reuse as a new 23-hour fetch.
 
@@ -137,7 +137,8 @@ Use the command's JSON `removed` list as the exact deletion set for Git staging 
 ## Protect the X session
 
 - Never run `bird check` for this workflow.
-- Never read, print, copy, save, or expose `auth_token`, `ct0`, cookies, local storage, or browser profile secrets.
+- Cookie Manager may read the live `x.com` session only when a read-only Bird scan begins. Keep the header and its `auth_token`/`ct0` components in process memory, pass them only in the Bird child environment, and discard them when the process exits.
+- Never print, copy, save, expose, put on command lines, or write to logs/reports/caches `auth_token`, `ct0`, Cookie headers, local storage, or browser profile secrets.
 - Use only Bird `search`, `user-tweets`, and other read-only profile/timeline operations needed for the report.
 - Never run `tweet`, `reply`, `follow`, `unfollow`, or any other X write operation.
 - Do not substitute unsourced web snippets or stale cached posts for a Bird fetch failure. Report the failed accounts.

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-02T23:02:47.061038+00:00",
-  "fetchStartedAt": "2026-08-02T23:02:47.061038+00:00",
-  "windowStart": "2026-08-02T00:02:47.061038+00:00",
+  "generatedAt": "2026-08-03T00:02:02.608466+00:00",
+  "fetchStartedAt": "2026-08-03T00:02:02.608466+00:00",
+  "windowStart": "2026-08-02T01:02:02.608466+00:00",
   "windowHours": 23.0,
   "experts": [
     {
@@ -506,9 +506,9 @@
       "id": "2083934330146197989",
       "text": "chatgpt for building interactive educational tools",
       "createdAt": "Sun Aug 02 15:13:56 +0000 2026",
-      "replyCount": 140,
-      "retweetCount": 189,
-      "likeCount": 3320,
+      "replyCount": 141,
+      "retweetCount": 195,
+      "likeCount": 3466,
       "conversationId": "2083934330146197989",
       "author": {
         "username": "gdb",
@@ -520,9 +520,9 @@
         "id": "2083884856531177942",
         "text": "Only if education could be this interactive ❤️‍🔥\n\nI've had a looong wish to build something genuinely useful through vibe coding, and I finally did it. \n\nA 3D human anatomy application built with @threejs using GPT 5.6 Sol. \n\nIt all started with a single design image that I created using GPT Image 2.0. I then used it to generate every 3D organ image, one by one.\n\nNext, I converted each of those images into 3D models using @tripoai (and no, they didn't sponsor this 😄).\n\nAfter that, I opened Codex, wrote a master prompt based on the design, and gave it the prompt, the design image, and all the 3D models.\n\nCodex built the first version beautifully, but there was one big problem. \n\nEvery single 3D model was nearly 120-150 MB. That obviously wasn't practical for the web and was giving a performance of 16fps.\n\nAfter a few iterations, Codex optimized each model down to roughly 2–5.5 MB while preserving the visual quality, reducing the total asset size from ~900 MB to just 28.6 MB. And each model loads on demand. \n\nAlong the way, Codex also generated those anatomical illustrations showing where each organ sits in the human body, and even created the interactive hotspot markers that explain different parts of every organ. It handled all of that.\n\nThe process wasn't exactly one shot, but it also wasn't difficult. You just have to do it step by step. \n\nIt genuinely felt like building something that could make learning anatomy much more engaging.\n\nThe inspiration came from @DilumSanjaya's 3D animal plant cell project. I remember seeing it and thinking, \"I want to build something like this one day.\" \n\nAnd I did it :D\n\nLive: https://t.co/gIFgkj8UVB\nCode: https://t.co/nijvyWcyxO",
         "createdAt": "Sun Aug 02 11:57:21 +0000 2026",
-        "replyCount": 254,
-        "retweetCount": 624,
-        "likeCount": 5072,
+        "replyCount": 260,
+        "retweetCount": 660,
+        "likeCount": 5320,
         "conversationId": "2083884856531177942",
         "author": {
           "username": "thebuggeddev",
@@ -555,21 +555,30 @@
       "createdAtBeijing": "2026-08-02T23:13:56+08:00",
       "createdAtLocal": "08-02 23:13 北京",
       "url": "https://x.com/gdb/status/2083934330146197989",
-      "themeId": "models",
+      "themeId": "editorial",
       "signalScore": 98,
-      "topStoryEligible": true,
-      "topStoryScore": 79,
-      "topStoryCategory": "AI 技术进步",
+      "editorial": {
+        "id": "2083934330146197989",
+        "technicalRelevant": true,
+        "dailyGrade": "A",
+        "topic": "AI构建3D教育工具",
+        "evidence": "资产900MB降至28.6MB",
+        "rationale": "明确生产优化和可运行成果"
+      },
       "isTopStory": true,
+      "topStoryEligible": true,
+      "topStoryCategory": "AI 技术进步",
+      "topStoryScore": 79,
+      "editorialTopRationale": "3D教育工具资产大幅优化上线",
       "translationZh": "用 chatgpt 构建交互式教育工具"
     },
     {
       "id": "2083926395403821427",
       "text": "My LLM chess engine is now on LiChess autonomously playing real games against people and bots. \n\n1253 Elo: https://t.co/W3qp1Z1i7I",
       "createdAt": "Sun Aug 02 14:42:24 +0000 2026",
-      "replyCount": 36,
-      "retweetCount": 9,
-      "likeCount": 190,
+      "replyCount": 37,
+      "retweetCount": 10,
+      "likeCount": 194,
       "conversationId": "2083926395403821427",
       "author": {
         "username": "amasad",
@@ -614,12 +623,21 @@
       "createdAtBeijing": "2026-08-02T22:42:24+08:00",
       "createdAtLocal": "08-02 22:42 北京",
       "url": "https://x.com/amasad/status/2083926395403821427",
-      "themeId": "models",
+      "themeId": "editorial",
       "signalScore": 83,
-      "topStoryEligible": true,
-      "topStoryScore": 53,
-      "topStoryCategory": "AI 技术前沿",
+      "editorial": {
+        "id": "2083926395403821427",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "LLM棋类引擎",
+        "evidence": "8b模型1-2秒走棋",
+        "rationale": "有模型部署与性能事实"
+      },
       "isTopStory": true,
+      "topStoryEligible": true,
+      "topStoryCategory": "AI 技术前沿",
+      "topStoryScore": 53,
+      "editorialTopRationale": "8B棋类模型实战达1253 Elo",
       "translationZh": "我的 LLM 国际象棋引擎现在已经在 LiChess 上自主和真人及机器人下实战了。\n\n1253 Elo: https://t.co/W3qp1Z1i7I"
     },
     {
@@ -628,7 +646,7 @@
       "createdAt": "Sun Aug 02 12:06:52 +0000 2026",
       "replyCount": 6,
       "retweetCount": 8,
-      "likeCount": 95,
+      "likeCount": 101,
       "conversationId": "2083863030589231160",
       "inReplyToStatusId": "2083863030589231160",
       "author": {
@@ -649,13 +667,108 @@
       "createdAtBeijing": "2026-08-02T20:06:52+08:00",
       "createdAtLocal": "08-02 20:06 北京",
       "url": "https://x.com/fchollet/status/2083887253164609742",
-      "themeId": "models",
+      "themeId": "editorial",
       "signalScore": 68,
-      "topStoryEligible": true,
-      "topStoryScore": 48,
-      "topStoryCategory": "AI 技术前沿",
+      "editorial": {
+        "id": "2083887253164609742",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "测试时计算与ARC",
+        "evidence": "base LLM在ARC1仍差",
+        "rationale": "提供模型能力边界判断"
+      },
       "isTopStory": true,
+      "topStoryEligible": true,
+      "topStoryCategory": "AI 技术前沿",
+      "topStoryScore": 48,
+      "editorialTopRationale": "ARC显示测试时计算成关键",
       "translationZh": "值得注意的是，直到今天，基础 LLM（没有测试时计算）在 2019 年的 ARC 1 基准上（面对未见过的任务）表现仍然很差，尽管规模持续大幅扩大（自 2019 年以来约 100,000 倍）。可以说，如果没有转向测试时计算范式，AI 仍无法具备当今 sota 系统展现出的那种高级推理能力。GPT-2 到 GPT-4 时代那种单次前向、静态、下一个 token 预测范式的扩展，已经逼近能力渐近线。要突破这个平台期，测试时适应是必要的演进步骤。"
+    },
+    {
+      "id": "2084017844455690558",
+      "text": "@rainisto @DavidmComfort agree!! i quite like the idea of procedural code for storyboarding and control, and then video to video models for texturing and looksmaxxing.",
+      "createdAt": "Sun Aug 02 20:45:47 +0000 2026",
+      "replyCount": 2,
+      "retweetCount": 1,
+      "likeCount": 50,
+      "conversationId": "2083749667410727319",
+      "inReplyToStatusId": "2083917030835524063",
+      "author": {
+        "username": "karpathy",
+        "name": "Andrej Karpathy",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/1296667294148382721/9Pr6XrPB_normal.jpg"
+      },
+      "authorId": "33836629",
+      "expert": {
+        "priority": "P0",
+        "domain": "AI 编程 / 通用 AI",
+        "name": "Andrej Karpathy",
+        "role": "Eureka Labs；前 OpenAI/Tesla",
+        "why": "高信号 AI 教育者和产品思想者，长期影响 Software 2.0、AI Coding、Vibe Coding 等叙事",
+        "handle": "karpathy"
+      },
+      "createdAtIso": "2026-08-02T20:45:47+00:00",
+      "createdAtBeijing": "2026-08-03T04:45:47+08:00",
+      "createdAtLocal": "08-03 04:45 北京",
+      "url": "https://x.com/karpathy/status/2084017844455690558",
+      "themeId": "editorial",
+      "signalScore": 71,
+      "editorial": {
+        "id": "2084017844455690558",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "视频生成工作流",
+        "evidence": "代码分镜加video-to-video",
+        "rationale": "有生成视频工程思路"
+      },
+      "isTopStory": false,
+      "topStoryEligible": false,
+      "topStoryCategory": "AI 技术进步",
+      "topStoryScore": 29,
+      "translationZh": "@rainisto @DavidmComfort 同意！！我很喜欢用程序化代码来做分镜和控制，然后用 video to video 模型来做纹理和视觉强化。"
+    },
+    {
+      "id": "2084056739197108667",
+      "text": "@MattBeton so fun! :) at some point i wonder if ngram (tables) or even something like decision trees start to give superior log probs, and at much smaller program lengths overall (sum of program + weights). i.e. what is the best val loss model overall, for 25KB of user space. fun q!",
+      "createdAt": "Sun Aug 02 23:20:21 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 10,
+      "conversationId": "2079647915572592759",
+      "inReplyToStatusId": "2079647915572592759",
+      "author": {
+        "username": "karpathy",
+        "name": "Andrej Karpathy",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/1296667294148382721/9Pr6XrPB_normal.jpg"
+      },
+      "authorId": "33836629",
+      "expert": {
+        "priority": "P0",
+        "domain": "AI 编程 / 通用 AI",
+        "name": "Andrej Karpathy",
+        "role": "Eureka Labs；前 OpenAI/Tesla",
+        "why": "高信号 AI 教育者和产品思想者，长期影响 Software 2.0、AI Coding、Vibe Coding 等叙事",
+        "handle": "karpathy"
+      },
+      "createdAtIso": "2026-08-02T23:20:21+00:00",
+      "createdAtBeijing": "2026-08-03T07:20:21+08:00",
+      "createdAtLocal": "08-03 07:20 北京",
+      "url": "https://x.com/karpathy/status/2084056739197108667",
+      "themeId": "editorial",
+      "signalScore": 67,
+      "editorial": {
+        "id": "2084056739197108667",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "小模型压缩与损失",
+        "evidence": "比较ngram和决策树log probs",
+        "rationale": "有可复用建模思路"
+      },
+      "isTopStory": false,
+      "topStoryEligible": false,
+      "topStoryCategory": "AI 技术进步",
+      "topStoryScore": 25,
+      "translationZh": "@MattBeton 太好玩了！:) 我有点好奇，到某个阶段 ngram（表）甚至类似决策树的东西，会不会开始给出更好的 log probs，而且整体程序长度小得多（程序 + 权重之和）。也就是说，在 25KB 用户空间内，整体 val loss 最好的模型是什么。很有意思的问题！"
     },
     {
       "id": "2083826269087547739",
@@ -702,12 +815,20 @@
       "createdAtBeijing": "2026-08-02T16:04:32+08:00",
       "createdAtLocal": "08-02 16:04 北京",
       "url": "https://x.com/Xudong07452910/status/2083826269087547739",
-      "themeId": "coding",
+      "themeId": "editorial",
       "signalScore": 71,
+      "editorial": {
+        "id": "2083826269087547739",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "YC 开源多人 Agent Harness",
+        "evidence": "QM 可在 Slack 和网页使用",
+        "rationale": "含开源Agent协作系统事实"
+      },
+      "isTopStory": false,
       "topStoryEligible": false,
-      "topStoryScore": 32,
       "topStoryCategory": "AI 技术应用",
-      "isTopStory": false
+      "topStoryScore": 32
     },
     {
       "id": "2084044355950502365",
@@ -727,9 +848,9 @@
         "id": "2083961472661815319",
         "text": "The irony of AI:\n\nSmarter than a math PhD. Solves 10 open math problems.\n\nDumber than my intern. Can’t follow 3 simple instructions, but somehow burns 10M tokens and $250.",
         "createdAt": "Sun Aug 02 17:01:47 +0000 2026",
-        "replyCount": 56,
-        "retweetCount": 34,
-        "likeCount": 822,
+        "replyCount": 62,
+        "retweetCount": 43,
+        "likeCount": 936,
         "conversationId": "2083961472661815319",
         "author": {
           "username": "Yuchenj_UW",
@@ -751,20 +872,28 @@
       "createdAtBeijing": "2026-08-03T06:31:08+08:00",
       "createdAtLocal": "08-03 06:31 北京",
       "url": "https://x.com/Xudong07452910/status/2084044355950502365",
-      "themeId": "coding",
+      "themeId": "editorial",
       "signalScore": 62,
+      "editorial": {
+        "id": "2084044355950502365",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "AI推理与常识短板",
+        "evidence": "数学代码易验证常识难",
+        "rationale": "技术相关但偏概括"
+      },
+      "isTopStory": false,
       "topStoryEligible": false,
-      "topStoryScore": 25,
       "topStoryCategory": "AI 技术进步",
-      "isTopStory": false
+      "topStoryScore": 25
     },
     {
       "id": "2084017252152856716",
       "text": "Woah",
       "createdAt": "Sun Aug 02 20:43:26 +0000 2026",
       "replyCount": 6,
-      "retweetCount": 3,
-      "likeCount": 45,
+      "retweetCount": 2,
+      "likeCount": 53,
       "conversationId": "2084017252152856716",
       "author": {
         "username": "amasad",
@@ -778,7 +907,7 @@
         "createdAt": "Sun Aug 02 19:34:52 +0000 2026",
         "replyCount": 7,
         "retweetCount": 1,
-        "likeCount": 24,
+        "likeCount": 25,
         "conversationId": "2083999993875066941",
         "author": {
           "username": "Andrew_Blumson",
@@ -811,47 +940,21 @@
       "createdAtBeijing": "2026-08-03T04:43:26+08:00",
       "createdAtLocal": "08-03 04:43 北京",
       "url": "https://x.com/amasad/status/2084017252152856716",
-      "themeId": "coding",
+      "themeId": "editorial",
       "signalScore": 76,
-      "topStoryEligible": false,
-      "topStoryScore": 33,
-      "topStoryCategory": "AI 技术进步",
+      "editorial": {
+        "id": "2084017252152856716",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "Replit Design Mode",
+        "evidence": "两轮生成棋类项目",
+        "rationale": "有AI工具使用事实但细节少"
+      },
       "isTopStory": false,
+      "topStoryEligible": false,
+      "topStoryCategory": "AI 技术进步",
+      "topStoryScore": 34,
       "translationZh": "哇"
-    },
-    {
-      "id": "2083904679826849918",
-      "text": "Here's my attempt at summarizing the various \"open letters\" about AI development that have been doing the rounds over the past few weeks https://t.co/VXA7OMIAgJ",
-      "createdAt": "Sun Aug 02 13:16:07 +0000 2026",
-      "replyCount": 28,
-      "retweetCount": 13,
-      "likeCount": 101,
-      "conversationId": "2083904679826849918",
-      "author": {
-        "username": "simonw",
-        "name": "Simon Willison",
-        "profileImageUrl": "https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg"
-      },
-      "authorId": "12497",
-      "expert": {
-        "priority": "P0",
-        "domain": "AI 工程实践",
-        "name": "Simon Willison",
-        "role": "Datasette；独立 AI 工程评论者",
-        "why": "LLM 工程、评测、Prompt Injection、本地模型等实践内容质量很高",
-        "handle": "simonw"
-      },
-      "createdAtIso": "2026-08-02T13:16:07+00:00",
-      "createdAtBeijing": "2026-08-02T21:16:07+08:00",
-      "createdAtLocal": "08-02 21:16 北京",
-      "url": "https://x.com/simonw/status/2083904679826849918",
-      "themeId": "coding",
-      "signalScore": 77,
-      "topStoryEligible": false,
-      "topStoryScore": 33,
-      "topStoryCategory": "AI 技术进步",
-      "isTopStory": false,
-      "translationZh": "这是我对过去几周流传的各种关于 AI 发展的“公开信”的总结尝试 https://t.co/VXA7OMIAgJ"
     },
     {
       "id": "2083942863277273463",
@@ -859,7 +962,7 @@
       "createdAt": "Sun Aug 02 15:47:51 +0000 2026",
       "replyCount": 7,
       "retweetCount": 0,
-      "likeCount": 51,
+      "likeCount": 54,
       "conversationId": "2083932275482452002",
       "inReplyToStatusId": "2083932275482452002",
       "author": {
@@ -880,21 +983,29 @@
       "createdAtBeijing": "2026-08-02T23:47:51+08:00",
       "createdAtLocal": "08-02 23:47 北京",
       "url": "https://x.com/simonw/status/2083942863277273463",
-      "themeId": "coding",
+      "themeId": "editorial",
       "signalScore": 72,
-      "topStoryEligible": false,
-      "topStoryScore": 29,
-      "topStoryCategory": "AI 技术应用",
+      "editorial": {
+        "id": "2083942863277273463",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "AI工具文档要求",
+        "evidence": "要精确tool calls和约束",
+        "rationale": "指出工程集成所需文档细节"
+      },
       "isTopStory": false,
+      "topStoryEligible": false,
+      "topStoryCategory": "AI 技术应用",
+      "topStoryScore": 29,
       "translationZh": "@jxnlco 缺少深入的技术文档——我不想看“它可以访问你的日历”，我想知道具体的工具调用和约束"
     },
     {
       "id": "2084051004212027840",
       "text": "\"Honolulu’s airport has started playing 17 island-themed, AI-generated songs on rotation, according to state transportation spokeswoman Shelly Kunishige.\" ! https://t.co/6SDfXhDeLH",
       "createdAt": "Sun Aug 02 22:57:33 +0000 2026",
-      "replyCount": 0,
-      "retweetCount": 0,
-      "likeCount": 4,
+      "replyCount": 4,
+      "retweetCount": 2,
+      "likeCount": 75,
       "conversationId": "2084046721148145809",
       "inReplyToStatusId": "2084046721148145809",
       "author": {
@@ -908,8 +1019,8 @@
         "text": "@simonw they are playing AI slop fake Hawaiian music at the honolulu airport too right now. everyone here in hawaii is pissed about it.",
         "createdAt": "Sun Aug 02 22:49:30 +0000 2026",
         "replyCount": 0,
-        "retweetCount": 0,
-        "likeCount": 2,
+        "retweetCount": 1,
+        "likeCount": 28,
         "conversationId": "2084046721148145809",
         "inReplyToStatusId": "2084046721148145809",
         "author": {
@@ -932,13 +1043,64 @@
       "createdAtBeijing": "2026-08-03T06:57:33+08:00",
       "createdAtLocal": "08-03 06:57 北京",
       "url": "https://x.com/simonw/status/2084051004212027840",
-      "themeId": "coding",
-      "signalScore": 64,
-      "topStoryEligible": false,
-      "topStoryScore": 26,
-      "topStoryCategory": "AI 技术进步",
+      "themeId": "editorial",
+      "signalScore": 77,
+      "editorial": {
+        "id": "2084051004212027840",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "AI生成音乐应用",
+        "evidence": "机场轮播17首AI歌",
+        "rationale": "有AI应用事实但技术细节少"
+      },
       "isTopStory": false,
+      "topStoryEligible": false,
+      "topStoryCategory": "AI 技术进步",
+      "topStoryScore": 35,
       "translationZh": "“据州交通部发言人 Shelly Kunishige 称，Honolulu 机场已开始循环播放 17 首岛屿主题的 AI 生成歌曲。”！ https://t.co/6SDfXhDeLH"
+    },
+    {
+      "id": "2083928958077440299",
+      "text": "@willmcgugan I tell ChatGPT to use \"credible sources\" and it actually works pretty well, you can see it start ruling out random blogs and marketing sites in its reasoning traces",
+      "createdAt": "Sun Aug 02 14:52:35 +0000 2026",
+      "replyCount": 6,
+      "retweetCount": 0,
+      "likeCount": 39,
+      "conversationId": "2083826355813142901",
+      "inReplyToStatusId": "2083826355813142901",
+      "author": {
+        "username": "simonw",
+        "name": "Simon Willison",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg"
+      },
+      "authorId": "12497",
+      "expert": {
+        "priority": "P0",
+        "domain": "AI 工程实践",
+        "name": "Simon Willison",
+        "role": "Datasette；独立 AI 工程评论者",
+        "why": "LLM 工程、评测、Prompt Injection、本地模型等实践内容质量很高",
+        "handle": "simonw"
+      },
+      "createdAtIso": "2026-08-02T14:52:35+00:00",
+      "createdAtBeijing": "2026-08-02T22:52:35+08:00",
+      "createdAtLocal": "08-02 22:52 北京",
+      "url": "https://x.com/simonw/status/2083928958077440299",
+      "themeId": "editorial",
+      "signalScore": 71,
+      "editorial": {
+        "id": "2083928958077440299",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "AI检索提示",
+        "evidence": "提示使用可信来源",
+        "rationale": "仅为模型使用经验，证据较弱"
+      },
+      "isTopStory": false,
+      "topStoryEligible": true,
+      "topStoryCategory": "AI 技术前沿",
+      "topStoryScore": 34,
+      "translationZh": "@willmcgugan 我让 ChatGPT 使用“可信来源”，效果确实相当不错。你可以在它的推理轨迹里看到，它开始排除随机博客和营销网站。"
     },
     {
       "id": "2083867018197889104",
@@ -946,7 +1108,7 @@
       "createdAt": "Sun Aug 02 10:46:28 +0000 2026",
       "replyCount": 7,
       "retweetCount": 3,
-      "likeCount": 37,
+      "likeCount": 38,
       "conversationId": "2083867018197889104",
       "author": {
         "username": "anilkseth",
@@ -1005,21 +1167,29 @@
       "createdAtBeijing": "2026-08-02T18:46:28+08:00",
       "createdAtLocal": "08-02 18:46 北京",
       "url": "https://x.com/anilkseth/status/2083867018197889104",
-      "themeId": "coding",
+      "themeId": "editorial",
       "signalScore": 78,
-      "topStoryEligible": true,
-      "topStoryScore": 45,
-      "topStoryCategory": "AI 技术应用",
+      "editorial": {
+        "id": "2083867018197889104",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "AI认知能力边界",
+        "evidence": "Astra数学强但方法未见",
+        "rationale": "相关评估讨论证据不足"
+      },
       "isTopStory": false,
+      "topStoryEligible": true,
+      "topStoryCategory": "AI 技术应用",
+      "topStoryScore": 45,
       "translationZh": "@GaryMarcus 是对的。认知是不均衡的。但也可以有一个积极的解读。正是认知的不均一性，为真正能够补充/增强人类认知而不是取代它的 AI 打开了空间（不像 AGI 叙事所暗示的那样）。"
     },
     {
       "id": "2083937918922469668",
       "text": "@BBCWorldatOne today dedicated its entire episode to \"Preparing for our AI future\". As part of it, I explain why AI is vanishingly unlikely to be conscious, and why the anthropomorphic language we use for AI (e.g., \"going rogue\") makes the challenge of alignment/control/regulation very much harder than it already is. The whole episode is well worth a listen @BBCRadio4 https://t.co/g2gRlZWuc3",
       "createdAt": "Sun Aug 02 15:28:12 +0000 2026",
-      "replyCount": 1,
+      "replyCount": 2,
       "retweetCount": 5,
-      "likeCount": 34,
+      "likeCount": 36,
       "conversationId": "2083937918922469668",
       "author": {
         "username": "anilkseth",
@@ -1039,21 +1209,72 @@
       "createdAtBeijing": "2026-08-02T23:28:12+08:00",
       "createdAtLocal": "08-02 23:28 北京",
       "url": "https://x.com/anilkseth/status/2083937918922469668",
-      "themeId": "models",
-      "signalScore": 73,
-      "topStoryEligible": true,
-      "topStoryScore": 34,
-      "topStoryCategory": "AI 技术前沿",
+      "themeId": "editorial",
+      "signalScore": 74,
+      "editorial": {
+        "id": "2083937918922469668",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "AI意识与拟人化",
+        "evidence": "称AI极不可能有意识",
+        "rationale": "AI安全观点但缺工程细节"
+      },
       "isTopStory": false,
+      "topStoryEligible": true,
+      "topStoryCategory": "AI 技术前沿",
+      "topStoryScore": 34,
       "translationZh": "@BBCWorldatOne 今天整期节目都献给了“为我们的 AI 未来做准备”。其中，我解释了为什么 AI 几乎不可能有意识，以及为什么我们用于 AI 的拟人化语言（例如“失控”）会让对齐/控制/监管这一挑战变得比现在更困难。整期节目非常值得一听 @BBCRadio4 https://t.co/g2gRlZWuc3"
+    },
+    {
+      "id": "2083868728601539013",
+      "text": "Models typically don't use test time training, they do test time search in token space. They effectively do test time natural language program synthesis. Models nowadays use an enormous amount of test time compute, we are not in the single forward pass, next-token answer prediction regime of yore.",
+      "createdAt": "Sun Aug 02 10:53:15 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 27,
+      "conversationId": "2083863030589231160",
+      "inReplyToStatusId": "2083866487895330825",
+      "author": {
+        "username": "fchollet",
+        "name": "François Chollet",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/2006806326140350470/Kd5oZv-f_normal.jpg"
+      },
+      "authorId": "68746721",
+      "expert": {
+        "priority": "P1",
+        "domain": "AI 研究 / 评测",
+        "name": "Francois Chollet",
+        "role": "ARC Prize；Keras 作者",
+        "why": "AGI 评测、抽象能力、推理基准",
+        "handle": "fchollet"
+      },
+      "createdAtIso": "2026-08-02T10:53:15+00:00",
+      "createdAtBeijing": "2026-08-02T18:53:15+08:00",
+      "createdAtLocal": "08-02 18:53 北京",
+      "url": "https://x.com/fchollet/status/2083868728601539013",
+      "themeId": "editorial",
+      "signalScore": 61,
+      "editorial": {
+        "id": "2083868728601539013",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "测试时搜索",
+        "evidence": "测试时在token空间搜索",
+        "rationale": "说明当前推理实现机制"
+      },
+      "isTopStory": false,
+      "topStoryEligible": true,
+      "topStoryCategory": "AI 技术前沿",
+      "topStoryScore": 26,
+      "translationZh": "模型通常不用测试时训练，而是在 token 空间里做测试时搜索。它们实际上是在测试时进行自然语言程序合成。如今的模型会使用海量测试时计算，我们早已不再处于过去那种单次前向传播、预测下一个 token 答案的范式。"
     },
     {
       "id": "2083863030589231160",
       "text": "To address the limits of deep learning and avoid stalling, the field of AI started by applying patch (1), which started being demoed 9 months later in December 2024 and has now become completely ubiquitous. However, long term, it is simply inevitable that AI will move to patch (2).",
       "createdAt": "Sun Aug 02 10:30:37 +0000 2026",
-      "replyCount": 32,
+      "replyCount": 33,
       "retweetCount": 34,
-      "likeCount": 406,
+      "likeCount": 422,
       "conversationId": "2083863030589231160",
       "author": {
         "username": "fchollet",
@@ -1067,7 +1288,7 @@
         "createdAt": "Fri Mar 08 10:14:10 +0000 2024",
         "replyCount": 9,
         "retweetCount": 15,
-        "likeCount": 224,
+        "likeCount": 230,
         "conversationId": "1759002153551814796",
         "inReplyToStatusId": "1766043598137491649",
         "author": {
@@ -1090,72 +1311,29 @@
       "createdAtBeijing": "2026-08-02T18:30:37+08:00",
       "createdAtLocal": "08-02 18:30 北京",
       "url": "https://x.com/fchollet/status/2083863030589231160",
-      "themeId": "models",
+      "themeId": "editorial",
       "signalScore": 79,
+      "editorial": {
+        "id": "2083863030589231160",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "AI训练范式",
+        "evidence": "主动推理和MDL方案",
+        "rationale": "含技术路线但偏观点预测"
+      },
+      "isTopStory": false,
       "topStoryEligible": true,
-      "topStoryScore": 55,
       "topStoryCategory": "AI 技术进步",
-      "isTopStory": false,
+      "topStoryScore": 55,
       "translationZh": "为了解决深度学习的局限并避免停滞，AI 领域一开始采用了补丁 (1)，并在 9 个月后的 2024 年 12 月开始展示，如今已变得无处不在。然而，从长远看，AI 转向补丁 (2) 是不可避免的。"
-    },
-    {
-      "id": "2083891318997016754",
-      "text": "My December 2024 takes were \"there will be no wall\", \"if the only bottleneck is test-time search, we will see continued scaling in the future\", and \"the world is once again about to run out of GPUs\"\n\nTo this day, I do expect post-training scaling and TTA scaling to continue to deliver. At least 10-100x from current levels.\n\nhttps://t.co/cKe1lF2FTw",
-      "createdAt": "Sun Aug 02 12:23:01 +0000 2026",
-      "replyCount": 2,
-      "retweetCount": 1,
-      "likeCount": 52,
-      "conversationId": "2083863030589231160",
-      "inReplyToStatusId": "2083888155812356395",
-      "author": {
-        "username": "fchollet",
-        "name": "François Chollet",
-        "profileImageUrl": "https://pbs.twimg.com/profile_images/2006806326140350470/Kd5oZv-f_normal.jpg"
-      },
-      "authorId": "68746721",
-      "quotedTweet": {
-        "id": "1870194696477388836",
-        "text": "The limitations of specific techniques are predictable and correspondingly lead to plateaus for those techniques. But there is always the next technique, building on top of the pile that's already available.\n\nThere is enough research investment that there will be no wall.",
-        "createdAt": "Fri Dec 20 19:48:56 +0000 2024",
-        "replyCount": 32,
-        "retweetCount": 76,
-        "likeCount": 790,
-        "conversationId": "1870194696477388836",
-        "author": {
-          "username": "fchollet",
-          "name": "François Chollet",
-          "profileImageUrl": "https://pbs.twimg.com/profile_images/2006806326140350470/Kd5oZv-f_normal.jpg"
-        },
-        "authorId": "68746721",
-        "translationZh": "特定技术的局限是可以预见的，也会相应地导致这些技术进入平台期。但总会有下一项技术，建立在已有积累之上。\n\n研究投入足够多，所以不会撞墙。"
-      },
-      "expert": {
-        "priority": "P1",
-        "domain": "AI 研究 / 评测",
-        "name": "Francois Chollet",
-        "role": "ARC Prize；Keras 作者",
-        "why": "AGI 评测、抽象能力、推理基准",
-        "handle": "fchollet"
-      },
-      "createdAtIso": "2026-08-02T12:23:01+00:00",
-      "createdAtBeijing": "2026-08-02T20:23:01+08:00",
-      "createdAtLocal": "08-02 20:23 北京",
-      "url": "https://x.com/fchollet/status/2083891318997016754",
-      "themeId": "models",
-      "signalScore": 68,
-      "topStoryEligible": true,
-      "topStoryScore": 35,
-      "topStoryCategory": "AI 技术前沿",
-      "isTopStory": false,
-      "translationZh": "我在 2024 年 12 月的看法是：“不会撞墙”、“如果唯一瓶颈是测试时搜索，未来我们会看到持续扩展”，以及“世界又快要耗尽 GPU 了”。\n\n直到今天，我仍然认为后训练扩展和 TTA 扩展会继续带来效果。至少比当前水平提升 10-100 倍。\n\nhttps://t.co/cKe1lF2FTw"
     },
     {
       "id": "2083994977223532693",
       "text": "Has anyone cracked the code of LLM speak? it's truly atrocious\n\nI recently added a \"deslopify\" command to my plain-writing skill to get the agents to write responses better\nhttps://t.co/eoFhSo3SrU \n\nnot perfect but better than nothing\n\nh/t @bradenjhancock for the idea https://t.co/23XxsKEeDV",
       "createdAt": "Sun Aug 02 19:14:55 +0000 2026",
-      "replyCount": 8,
-      "retweetCount": 1,
-      "likeCount": 49,
+      "replyCount": 9,
+      "retweetCount": 3,
+      "likeCount": 52,
       "conversationId": "2083994977223532693",
       "author": {
         "username": "sh_reya",
@@ -1167,9 +1345,9 @@
         "id": "2083920933966741653",
         "text": "I've developed a physiological response to text like this. Eyes absolutely glazing over. It could be a message to myself sent from the future and the words would pass right through me. https://t.co/xXfvW8kMVZ",
         "createdAt": "Sun Aug 02 14:20:42 +0000 2026",
-        "replyCount": 35,
-        "retweetCount": 33,
-        "likeCount": 986,
+        "replyCount": 40,
+        "retweetCount": 35,
+        "likeCount": 1083,
         "conversationId": "2083920933966741653",
         "author": {
           "username": "charliermarsh",
@@ -1209,21 +1387,72 @@
       "createdAtBeijing": "2026-08-03T03:14:55+08:00",
       "createdAtLocal": "08-03 03:14 北京",
       "url": "https://x.com/sh_reya/status/2083994977223532693",
-      "themeId": "coding",
+      "themeId": "editorial",
       "signalScore": 72,
-      "topStoryEligible": true,
-      "topStoryScore": 32,
-      "topStoryCategory": "AI 技术进步",
+      "editorial": {
+        "id": "2083994977223532693",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "LLM写作风格优化",
+        "evidence": "加入deslopify命令",
+        "rationale": "可复用的agent写作改进经验"
+      },
       "isTopStory": false,
+      "topStoryEligible": true,
+      "topStoryCategory": "AI 技术进步",
+      "topStoryScore": 32,
       "translationZh": "有人破解 LLM 腔的密码了吗？真的糟透了。\n\n我最近在自己的 plain-writing skill 里加了一个 “deslopify” 命令，让 agent 写出更好的回复。\nhttps://t.co/eoFhSo3SrU \n\n不完美，但总比没有好。\n\n感谢 @bradenjhancock 提供这个想法 https://t.co/23XxsKEeDV"
+    },
+    {
+      "id": "2084012599273050395",
+      "text": "@BEBischof @AAAzzam @HamelHusain @bradenjhancock I like that you are programmatically checking for the slop patterns, so it is much faster than an agent. I want to think about applying this principle to my plain writing rules",
+      "createdAt": "Sun Aug 02 20:24:57 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 1,
+      "conversationId": "2083994977223532693",
+      "inReplyToStatusId": "2084011820952744165",
+      "author": {
+        "username": "sh_reya",
+        "name": "Shreya Shankar",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/1342529111839944705/hzr44mb5_normal.jpg"
+      },
+      "authorId": "2286218053",
+      "expert": {
+        "priority": "P1",
+        "domain": "Agent / 评测",
+        "name": "Shreya Shankar",
+        "role": "UC Berkeley / AI 工程研究员",
+        "why": "评测、LLM Pipeline、AI 工程学科化",
+        "handle": "sh_reya"
+      },
+      "createdAtIso": "2026-08-02T20:24:57+00:00",
+      "createdAtBeijing": "2026-08-03T04:24:57+08:00",
+      "createdAtLocal": "08-03 04:24 北京",
+      "url": "https://x.com/sh_reya/status/2084012599273050395",
+      "themeId": "editorial",
+      "signalScore": 48,
+      "editorial": {
+        "id": "2084012599273050395",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "程序化质量检查",
+        "evidence": "程序检查slop模式",
+        "rationale": "可复用工程方法"
+      },
+      "isTopStory": false,
+      "topStoryEligible": true,
+      "topStoryCategory": "AI 技术应用",
+      "topStoryScore": 18,
+      "translationZh": "@BEBischof @AAAzzam @HamelHusain @bradenjhancock 我喜欢你们用程序化方式检查那些灌水套路，这比 agent 快得多。我想考虑把这个原则应用到我的朴素写作规则上。"
     },
     {
       "id": "2083993378258288976",
       "text": "one way i'm developing Forge (https://t.co/2x9e0oRjxQ) is to use it to host all my projects going forward. so I often find myself having to bounce back and forth between platform and product.\n\nsharing neat trick - in @openai codex you can @ a thread + queue up the @, so if your project is blocked on a platform feature, you can actually premove your project to proceed once the platform is unblocked.\n\nnow of course.. i wasnt actually strictly necessary in this whole process, so an even better multiagent harness would seamlessly orchestrate work back and forth between platform and project... it's just not a very common usecase unless you're building a real platform (which most people dont - most people just build applications on top of platforms, or a small platform with only 1 proudct/application tenant)",
       "createdAt": "Sun Aug 02 19:08:34 +0000 2026",
-      "replyCount": 17,
+      "replyCount": 18,
       "retweetCount": 0,
-      "likeCount": 17,
+      "likeCount": 19,
       "conversationId": "2083993378258288976",
       "author": {
         "username": "swyx",
@@ -1291,13 +1520,64 @@
       "createdAtBeijing": "2026-08-03T03:08:34+08:00",
       "createdAtLocal": "08-03 03:08 北京",
       "url": "https://x.com/swyx/status/2083993378258288976",
-      "themeId": "coding",
+      "themeId": "editorial",
       "signalScore": 70,
-      "topStoryEligible": true,
-      "topStoryScore": 29,
-      "topStoryCategory": "AI 技术应用",
+      "editorial": {
+        "id": "2083993378258288976",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "Codex多线程工作流",
+        "evidence": "可@线程并排队继续",
+        "rationale": "具体agent工程协作技巧"
+      },
       "isTopStory": false,
+      "topStoryEligible": true,
+      "topStoryCategory": "AI 技术应用",
+      "topStoryScore": 30,
       "translationZh": "我开发 Forge（https://t.co/2x9e0oRjxQ）的一种方式，是以后把我所有项目都托管在上面。所以我经常发现自己不得不在平台和产品之间来回切换。\n\n分享一个小技巧：在 @openai codex 里，你可以 @ 一个线程并把这个 @ 排进队列，所以如果你的项目被某个平台功能卡住了，你实际上可以预先推进项目，让它在平台解锁后继续进行。\n\n当然了……在整个过程中，我其实并不是严格必要的。所以一个更好的 multiagent harness 会在平台和项目之间无缝来回编排工作……只是这不是一个很常见的用例，除非你真的在构建一个平台（大多数人并不是；大多数人只是基于平台构建应用，或者构建一个只有 1 个产品/应用租户的小平台）。"
+    },
+    {
+      "id": "2084035273017765898",
+      "text": "@vaibcode @OpenAI latter - i dont think im a better infra guy than microsoft! already had long outages due to stupid git server congestion issues even at my small scale",
+      "createdAt": "Sun Aug 02 21:55:03 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2083993378258288976",
+      "inReplyToStatusId": "2083996961934549428",
+      "author": {
+        "username": "swyx",
+        "name": "swyx",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg"
+      },
+      "authorId": "33521530",
+      "expert": {
+        "priority": "P1",
+        "domain": "Agent / 工作流",
+        "name": "swyx",
+        "role": "Latent Space / AI Engineer",
+        "why": "AI 工程社区、Agent、开发工具信号源",
+        "handle": "swyx"
+      },
+      "createdAtIso": "2026-08-02T21:55:03+00:00",
+      "createdAtBeijing": "2026-08-03T05:55:03+08:00",
+      "createdAtLocal": "08-03 05:55 北京",
+      "url": "https://x.com/swyx/status/2084035273017765898",
+      "themeId": "editorial",
+      "signalScore": 42,
+      "editorial": {
+        "id": "2084035273017765898",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "Git服务拥塞",
+        "evidence": "git服务器拥塞导致停机",
+        "rationale": "窄工程故障经验"
+      },
+      "isTopStory": false,
+      "topStoryEligible": false,
+      "topStoryCategory": "AI 技术进步",
+      "topStoryScore": 7,
+      "translationZh": "@vaibcode @OpenAI 后者——我不觉得自己在基础设施方面比 Microsoft 更强！即使在我这么小的规模下，也已经因为愚蠢的 Git 服务器拥堵问题经历过长时间宕机"
     }
   ],
   "xHotspotSearch": {
@@ -1342,7 +1622,7 @@
         "selectedPostIds": [],
         "directionMismatches": 0,
         "attempts": 1,
-        "elapsedSeconds": 1.21,
+        "elapsedSeconds": 1.14,
         "error": null
       },
       {
@@ -1362,7 +1642,7 @@
         "selectedPostIds": [],
         "directionMismatches": 0,
         "attempts": 1,
-        "elapsedSeconds": 1.3,
+        "elapsedSeconds": 1.14,
         "error": null
       },
       {
@@ -1382,7 +1662,7 @@
         "selectedPostIds": [],
         "directionMismatches": 0,
         "attempts": 1,
-        "elapsedSeconds": 1.26,
+        "elapsedSeconds": 1.16,
         "error": null
       },
       {
@@ -1403,7 +1683,7 @@
         "selectedPostIds": [],
         "directionMismatches": 0,
         "attempts": 1,
-        "elapsedSeconds": 1.46,
+        "elapsedSeconds": 1.15,
         "error": null
       },
       {
@@ -1422,13 +1702,942 @@
         "selectedPostIds": [],
         "directionMismatches": 0,
         "attempts": 1,
-        "elapsedSeconds": 1.3,
+        "elapsedSeconds": 1.17,
         "error": null
       }
     ]
   },
   "editorial": {
-    "enabled": false
+    "enabled": true,
+    "backend": "codex exec",
+    "promptVersion": "codex-editorial-v2",
+    "candidates": 63,
+    "retained": 33,
+    "dropped": 30,
+    "droppedPosts": [
+      {
+        "id": "2083953880014971204",
+        "author": "anilkseth",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "广播节目转发",
+        "evidence": "只提到BBC节目嘉宾",
+        "rationale": "无AI技术事实"
+      },
+      {
+        "id": "2084053257945567622",
+        "author": "Xudong07452910",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "个人电脑闲聊",
+        "evidence": "用了十年联想游戏本",
+        "rationale": "无AI或软件事实"
+      },
+      {
+        "id": "2084043107755286641",
+        "author": "amasad",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "棋力评分闲聊",
+        "evidence": "提到lichess真实elo",
+        "rationale": "未给AI技术事实"
+      },
+      {
+        "id": "2084001534111604912",
+        "author": "Xudong07452910",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "GPT数学能力传言",
+        "evidence": "称破解黎曼猜想",
+        "rationale": "无证据重大断言非事实材料"
+      },
+      {
+        "id": "2084001406101377440",
+        "author": "Xudong07452910",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "速度评价",
+        "evidence": "感觉也很快",
+        "rationale": "纯主观感受无技术事实"
+      },
+      {
+        "id": "2083968936991998297",
+        "author": "amasad",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "闲聊回复",
+        "evidence": "Nice",
+        "rationale": "无技术信息"
+      },
+      {
+        "id": "2083942542178132297",
+        "author": "karpathy",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "闲聊回复",
+        "evidence": "love it",
+        "rationale": "无技术事实"
+      },
+      {
+        "id": "2083935660516487505",
+        "author": "amasad",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "性能闲聊",
+        "evidence": "Too slow right now",
+        "rationale": "缺少具体技术事实"
+      },
+      {
+        "id": "2083931232174551290",
+        "author": "hwchase17",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "反馈回复",
+        "evidence": "passing along to team",
+        "rationale": "仅致谢转交反馈"
+      },
+      {
+        "id": "2083907271529017450",
+        "author": "Xudong07452910",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "产学讨论",
+        "evidence": "产学结合互相反哺",
+        "rationale": "观点无技术事实"
+      },
+      {
+        "id": "2083906743331950842",
+        "author": "Xudong07452910",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "GPT论文作图",
+        "evidence": "GPT做论文初稿图",
+        "rationale": "泛泛用法证据不足"
+      },
+      {
+        "id": "2083906537114747158",
+        "author": "Xudong07452910",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "论文落地观点",
+        "evidence": "90%论文不接地气",
+        "rationale": "主观评价无技术事实"
+      },
+      {
+        "id": "2083906160839491724",
+        "author": "Xudong07452910",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "团队项目偏好",
+        "evidence": "团队使用的项目",
+        "rationale": "偏好表达无技术事实"
+      },
+      {
+        "id": "2083905969780646103",
+        "author": "Xudong07452910",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "科研路径依赖",
+        "evidence": "科研路径依赖",
+        "rationale": "观点无工程事实"
+      },
+      {
+        "id": "2083891259295297970",
+        "author": "Xudong07452910",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "实习建议",
+        "evidence": "公司实习做研究",
+        "rationale": "职业建议非技术内容"
+      },
+      {
+        "id": "2083880082649596041",
+        "author": "Xudong07452910",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "简短回复",
+        "evidence": "好角度",
+        "rationale": "无技术信息"
+      },
+      {
+        "id": "2083854367640150380",
+        "author": "Xudong07452910",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "闲聊回复",
+        "evidence": "实力不允许",
+        "rationale": "无技术事实或经验"
+      },
+      {
+        "id": "2083850635091259684",
+        "author": "Xudong07452910",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "读博与产业观点",
+        "evidence": "论文写进产业里",
+        "rationale": "职业观点无技术事实"
+      },
+      {
+        "id": "2083843573095534973",
+        "author": "Xudong07452910",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "密码学归类",
+        "evidence": "密码学也算数学",
+        "rationale": "泛泛分类无工程事实"
+      },
+      {
+        "id": "2083822074762543436",
+        "author": "Xudong07452910",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "趋势闲聊",
+        "evidence": "以后就不好说了",
+        "rationale": "无明确技术事实"
+      },
+      {
+        "id": "2083821695106736252",
+        "author": "Xudong07452910",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "趋势回应",
+        "evidence": "顺应这种趋势",
+        "rationale": "纯态度无技术事实"
+      },
+      {
+        "id": "2083820395396751395",
+        "author": "Xudong07452910",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "项目审美评价",
+        "evidence": "审美还是很在线",
+        "rationale": "审美评价非技术事实"
+      },
+      {
+        "id": "2084031272192807074",
+        "author": "HamelHusain",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "开源协作",
+        "evidence": "fork后想开PR",
+        "rationale": "协作闲聊无技术事实"
+      },
+      {
+        "id": "2084029123463467152",
+        "author": "HamelHusain",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "本地定制",
+        "evidence": "fork并定制链接",
+        "rationale": "未给出具体技术事实"
+      },
+      {
+        "id": "2084011215651737718",
+        "author": "sh_reya",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "链接评价",
+        "evidence": "仅说neat",
+        "rationale": "无可审读技术内容"
+      },
+      {
+        "id": "2084001425881985308",
+        "author": "HamelHusain",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "computer use",
+        "evidence": "只提到Computer use",
+        "rationale": "无具体技术事实或经验"
+      },
+      {
+        "id": "2083962939606990864",
+        "author": "sh_reya",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "闲聊回复",
+        "evidence": "仅称赞Very nice",
+        "rationale": "无技术事实或经验"
+      },
+      {
+        "id": "2083961070314819789",
+        "author": "yoheinakajima",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "产品寒暄",
+        "evidence": "仅说looks awesome",
+        "rationale": "无技术事实或经验"
+      },
+      {
+        "id": "2083908765120860565",
+        "author": "simonw",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "闲聊追问",
+        "evidence": "Where?",
+        "rationale": "无技术事实或工程经验"
+      },
+      {
+        "id": "2083904679826849918",
+        "author": "simonw",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "AI公开信",
+        "evidence": "总结AI开发公开信",
+        "rationale": "偏观点材料，无技术事实"
+      }
+    ],
+    "topStories": [
+      {
+        "id": "2083934330146197989",
+        "author": "gdb",
+        "category": "AI 技术应用",
+        "rationale": "3D教育工具资产大幅优化上线"
+      },
+      {
+        "id": "2083926395403821427",
+        "author": "amasad",
+        "category": "AI 技术进步",
+        "rationale": "8B棋类模型实战达1253 Elo"
+      },
+      {
+        "id": "2083887253164609742",
+        "author": "fchollet",
+        "category": "AI 技术前沿",
+        "rationale": "ARC显示测试时计算成关键"
+      }
+    ],
+    "reviewedPosts": [
+      {
+        "id": "2083953880014971204",
+        "author": "anilkseth",
+        "text": "@BBCWorldatOne ... with some excellent input (as to be expected) from Henry Shevlin @dioscuri, Gina Neff @ginasue  and others too",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "广播节目转发",
+        "evidence": "只提到BBC节目嘉宾",
+        "rationale": "无AI技术事实"
+      },
+      {
+        "id": "2083937918922469668",
+        "author": "anilkseth",
+        "text": "@BBCWorldatOne today dedicated its entire episode to \"Preparing for our AI future\". As part of it, I explain why AI is vanishingly unlikely to be conscious, and why the anthropomorphic language we use for AI (e.g., \"going rogue\") makes the challenge of alignment/control/regulation very much harder than it already is. The whole episode is well worth a listen @BBCRadio4 https://t.co/g2gRlZWuc3",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "AI意识与拟人化",
+        "evidence": "称AI极不可能有意识",
+        "rationale": "AI安全观点但缺工程细节"
+      },
+      {
+        "id": "2083867018197889104",
+        "author": "anilkseth",
+        "text": "@GaryMarcus is right.  Cognition is uneven.  But there’s a positive take to be had too. It is precisely the non-unformity of cognition that opens space for AI that can genuinely complement/amplify human cognition, rather than replace it (as the AGI narrative implies)",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "AI认知能力边界",
+        "evidence": "Astra数学强但方法未见",
+        "rationale": "相关评估讨论证据不足"
+      },
+      {
+        "id": "2084056739197108667",
+        "author": "karpathy",
+        "text": "@MattBeton so fun! :) at some point i wonder if ngram (tables) or even something like decision trees start to give superior log probs, and at much smaller program lengths overall (sum of program + weights). i.e. what is the best val loss model overall, for 25KB of user space. fun q!",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "小模型压缩与损失",
+        "evidence": "比较ngram和决策树log probs",
+        "rationale": "有可复用建模思路"
+      },
+      {
+        "id": "2084053257945567622",
+        "author": "Xudong07452910",
+        "text": "@aronhouyu 我用了十年的联想拯救者游戏本，到现在还在用🤣",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "个人电脑闲聊",
+        "evidence": "用了十年联想游戏本",
+        "rationale": "无AI或软件事实"
+      },
+      {
+        "id": "2084049052505948384",
+        "author": "amasad",
+        "text": "@ReplitSupport @storyofgene You can also switch models under power. GPT is significantly cheaper.",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "Replit模型切换成本",
+        "evidence": "power下可切模型",
+        "rationale": "产品细节较窄"
+      },
+      {
+        "id": "2084044355950502365",
+        "author": "Xudong07452910",
+        "text": "借用心理学「系统一 / 系统二」的说法，AI 正在形成一种很有意思的能力结构：\n\n它可以解决极其复杂的数学问题，也会在看似简单的常识题上翻车。\n\n数学和代码更接近「系统二」：步骤明确，可以反复推演，也容易验证。AI 在这类任务上的进步非常快。\n\n真正难补的，反而是「系统一」依赖的直觉、常识和情境判断。很多人类不假思索就能理解的事情，可能才是 AI 最难学会的。",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "AI推理与常识短板",
+        "evidence": "数学代码易验证常识难",
+        "rationale": "技术相关但偏概括"
+      },
+      {
+        "id": "2084043107755286641",
+        "author": "amasad",
+        "text": "@thedogfather That’s humiliating…. It’s very irregular and depends on your playing style for now.\n\nIt’s on lichess now and getting better idea of real elo https://t.co/W3qp1Z1i7I",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "棋力评分闲聊",
+        "evidence": "提到lichess真实elo",
+        "rationale": "未给AI技术事实"
+      },
+      {
+        "id": "2084022739967623505",
+        "author": "amasad",
+        "text": "@triviatroy @Replit VM hosting is the closest alternative and is functionally always on. We’ll find a fix for this",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "Replit VM托管",
+        "evidence": "VM hosting接近always on",
+        "rationale": "基础设施信息较窄"
+      },
+      {
+        "id": "2084017844455690558",
+        "author": "karpathy",
+        "text": "@rainisto @DavidmComfort agree!! i quite like the idea of procedural code for storyboarding and control, and then video to video models for texturing and looksmaxxing.",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "视频生成工作流",
+        "evidence": "代码分镜加video-to-video",
+        "rationale": "有生成视频工程思路"
+      },
+      {
+        "id": "2084017252152856716",
+        "author": "amasad",
+        "text": "Woah",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "Replit Design Mode",
+        "evidence": "两轮生成棋类项目",
+        "rationale": "有AI工具使用事实但细节少"
+      },
+      {
+        "id": "2084001534111604912",
+        "author": "Xudong07452910",
+        "text": "@xyztime66 GPT内部最新的模型已经破解很多数学难题了，包括黎曼猜想",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "GPT数学能力传言",
+        "evidence": "称破解黎曼猜想",
+        "rationale": "无证据重大断言非事实材料"
+      },
+      {
+        "id": "2084001406101377440",
+        "author": "Xudong07452910",
+        "text": "@heizolshao 已经感觉也很快呀",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "速度评价",
+        "evidence": "感觉也很快",
+        "rationale": "纯主观感受无技术事实"
+      },
+      {
+        "id": "2083968936991998297",
+        "author": "amasad",
+        "text": "@AJToce Nice!",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "闲聊回复",
+        "evidence": "Nice",
+        "rationale": "无技术信息"
+      },
+      {
+        "id": "2083968817118749119",
+        "author": "amasad",
+        "text": "@kristoph Kinda. It will just talk about chess",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "棋类聊天行为",
+        "evidence": "只会谈论国际象棋",
+        "rationale": "有功能边界但信息很窄"
+      },
+      {
+        "id": "2083968593570738497",
+        "author": "amasad",
+        "text": "@ashen_one Nice! Going to add Opus to the benchmark!",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "模型基准测试",
+        "evidence": "将把Opus加入benchmark",
+        "rationale": "模型评测计划但无结果"
+      },
+      {
+        "id": "2083948654377996480",
+        "author": "karpathy",
+        "text": "More on the pelican on the bicycle test from @simonw:\nhttps://t.co/OXmtODyTKj\n\nI uploaded the source here so it's playable in the browser, forkable etc.\nhttps://t.co/w3Nctc888d\n\nLook out for GTA Hobbiton dropping before GTA VI :)",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "浏览器可玩源码",
+        "evidence": "源码可浏览器运行和fork",
+        "rationale": "提供可复用软件工程材料"
+      },
+      {
+        "id": "2083942542178132297",
+        "author": "karpathy",
+        "text": "@Izkimar love it! :)",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "闲聊回复",
+        "evidence": "love it",
+        "rationale": "无技术事实"
+      },
+      {
+        "id": "2083936067355635948",
+        "author": "amasad",
+        "text": "You can watch the games live on the website. Mf is playing 3 concurrent games rn https://t.co/J1a4ij9J07",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "在线对局网站",
+        "evidence": "网站直播三局并发棋局",
+        "rationale": "有软件运行事实但价值窄"
+      },
+      {
+        "id": "2083935820764123458",
+        "author": "amasad",
+        "text": "@vsaietta Yes part of the idea is to collect more diverse data",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "数据收集",
+        "evidence": "收集更多多样数据",
+        "rationale": "涉及数据策略但细节不足"
+      },
+      {
+        "id": "2083935660516487505",
+        "author": "amasad",
+        "text": "@posingularity Too slow for that right now",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "性能闲聊",
+        "evidence": "Too slow right now",
+        "rationale": "缺少具体技术事实"
+      },
+      {
+        "id": "2083931232174551290",
+        "author": "hwchase17",
+        "text": "@dragos_coj Ty for this - passing along to team. Always appreciate it!!!",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "反馈回复",
+        "evidence": "passing along to team",
+        "rationale": "仅致谢转交反馈"
+      },
+      {
+        "id": "2083926395403821427",
+        "author": "amasad",
+        "text": "My LLM chess engine is now on LiChess autonomously playing real games against people and bots. \n\n1253 Elo: https://t.co/W3qp1Z1i7I",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "LLM棋类引擎",
+        "evidence": "8b模型1-2秒走棋",
+        "rationale": "有模型部署与性能事实"
+      },
+      {
+        "id": "2083907271529017450",
+        "author": "Xudong07452910",
+        "text": "@aronhouyu 是嘞，如果导师产业化做的好的话，学生也会收益的，产学结合互相反哺。",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "产学讨论",
+        "evidence": "产学结合互相反哺",
+        "rationale": "观点无技术事实"
+      },
+      {
+        "id": "2083906743331950842",
+        "author": "Xudong07452910",
+        "text": "@maximumbaelz 看着像，不过GPT做论文初稿图已经很常见了",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "GPT论文作图",
+        "evidence": "GPT做论文初稿图",
+        "rationale": "泛泛用法证据不足"
+      },
+      {
+        "id": "2083906537114747158",
+        "author": "Xudong07452910",
+        "text": "@ned714 对呀，但是90%论文都是不接地气的，不会被落地的",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "论文落地观点",
+        "evidence": "90%论文不接地气",
+        "rationale": "主观评价无技术事实"
+      },
+      {
+        "id": "2083906160839491724",
+        "author": "Xudong07452910",
+        "text": "@ai_super_niko 对，我个人来说还是非常喜欢这种可以团队使用的项目的",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "团队项目偏好",
+        "evidence": "团队使用的项目",
+        "rationale": "偏好表达无技术事实"
+      },
+      {
+        "id": "2083905969780646103",
+        "author": "Xudong07452910",
+        "text": "@aronhouyu 是的，不过这些大佬还是很少的，很多搞科研的会有路径依赖，眼界也放不开",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "科研路径依赖",
+        "evidence": "科研路径依赖",
+        "rationale": "观点无工程事实"
+      },
+      {
+        "id": "2083891259295297970",
+        "author": "Xudong07452910",
+        "text": "@Harold_W_Chen 可以去公司实习做研究和论文",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "实习建议",
+        "evidence": "公司实习做研究",
+        "rationale": "职业建议非技术内容"
+      },
+      {
+        "id": "2083880082649596041",
+        "author": "Xudong07452910",
+        "text": "@sheriyuo 喔噢，好角度!",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "简短回复",
+        "evidence": "好角度",
+        "rationale": "无技术信息"
+      },
+      {
+        "id": "2083854367640150380",
+        "author": "Xudong07452910",
+        "text": "@tspy 实力不允许呀",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "闲聊回复",
+        "evidence": "实力不允许",
+        "rationale": "无技术事实或经验"
+      },
+      {
+        "id": "2083850635091259684",
+        "author": "Xudong07452910",
+        "text": "最近深刻体会到\n\n读博要是能把论文写进产业里\n\n路才会越走越宽",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "读博与产业观点",
+        "evidence": "论文写进产业里",
+        "rationale": "职业观点无技术事实"
+      },
+      {
+        "id": "2083843573095534973",
+        "author": "Xudong07452910",
+        "text": "@Ju_Jason_2024 密码学也算数学一种吧",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "密码学归类",
+        "evidence": "密码学也算数学",
+        "rationale": "泛泛分类无工程事实"
+      },
+      {
+        "id": "2083826269087547739",
+        "author": "Xudong07452910",
+        "text": "YC 最近这两天开源了一个叫 QM 的开源项目，还是蛮值得关注的，特别适合团队使用。\n\nQM 定义为面向工作的多人 Agent Harness，可以在 Slack 和网页中使用。按照官方说法，它已经被用于 YC 内部的财务、法务、活动和工程场景，包括开发 QM 自己。",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "YC 开源多人 Agent Harness",
+        "evidence": "QM 可在 Slack 和网页使用",
+        "rationale": "含开源Agent协作系统事实"
+      },
+      {
+        "id": "2083822074762543436",
+        "author": "Xudong07452910",
+        "text": "@ErwinWu000 现在还能当个养料，以后就不好说了",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "趋势闲聊",
+        "evidence": "以后就不好说了",
+        "rationale": "无明确技术事实"
+      },
+      {
+        "id": "2083821860886569154",
+        "author": "Xudong07452910",
+        "text": "@workbuycat 还有就是蒸馏公司的专有数据和经验",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "数据蒸馏",
+        "evidence": "蒸馏专有数据和经验",
+        "rationale": "提到技术方向但缺细节"
+      },
+      {
+        "id": "2083821695106736252",
+        "author": "Xudong07452910",
+        "text": "@OomolShaun 是的，只能顺应这种趋势",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "趋势回应",
+        "evidence": "顺应这种趋势",
+        "rationale": "纯态度无技术事实"
+      },
+      {
+        "id": "2083820395396751395",
+        "author": "Xudong07452910",
+        "text": "@zhongxingyuyes 你项目的审美还是很在线的",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "项目审美评价",
+        "evidence": "审美还是很在线",
+        "rationale": "审美评价非技术事实"
+      },
+      {
+        "id": "2083900966953230801",
+        "author": "fchollet",
+        "text": "@MarvinTBaumann I don't mean it the way Friston means it, I mean the opposite of static inference, i.e. \"adaptation at inference time\"",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "推理时适应",
+        "evidence": "adaptation at inference time",
+        "rationale": "概念解释但信息很窄"
+      },
+      {
+        "id": "2083891318997016754",
+        "author": "fchollet",
+        "text": "My December 2024 takes were \"there will be no wall\", \"if the only bottleneck is test-time search, we will see continued scaling in the future\", and \"the world is once again about to run out of GPUs\"\n\nTo this day, I do expect post-training scaling and TTA scaling to continue to deliver. At least 10-100x from current levels.\n\nhttps://t.co/cKe1lF2FTw",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "后训练与TTA扩展",
+        "evidence": "post-training和TTA继续扩展",
+        "rationale": "技术预测证据不足"
+      },
+      {
+        "id": "2083888155812356395",
+        "author": "fchollet",
+        "text": "I know it feels very tempting to dunk, and that's fair, but to be clear, my past criticism of base LLMs does not apply to TTA systems, in the same way that criticism of the limits of steam trains would not apply to current-day electrified bullet trains (even if they feel similar and use the same platform, the principles at work are substantially different). I have first updated my views in December 2024 -- by that point I no longer believed the LLM tech platform (with TTA) would stall.\n\nIf you want to assess how my past assessment of the limits of base LLMs has fared with hindsight, compare to current-day base LLMs (yes, my points still apply, even with a few years of scaling added).",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "LLM推理范式",
+        "evidence": "TTA不同于base LLM",
+        "rationale": "有技术判断但缺少新证据"
+      },
+      {
+        "id": "2083887253164609742",
+        "author": "fchollet",
+        "text": "Worth noting that to this day, base LLMs (no test time compute) *still* perform poorly on the ARC 1 benchmark from 2019 (on unseen tasks) despite continued massive scaling (~100,000x since 2019). We can say that without the switch to the test-time compute paradigm, AI would still not be capable of the kind of advanced reasoning that sota systems display today. Scaling the single-pass, static, next-token prediction paradigm of the GPT-2 through GPT-4 era was running into a capability asymptote. To bypass this plateau, test-time adaptation was a necessary evolutionary step.",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "测试时计算与ARC",
+        "evidence": "base LLM在ARC1仍差",
+        "rationale": "提供模型能力边界判断"
+      },
+      {
+        "id": "2083868728601539013",
+        "author": "fchollet",
+        "text": "Models typically don't use test time training, they do test time search in token space. They effectively do test time natural language program synthesis. Models nowadays use an enormous amount of test time compute, we are not in the single forward pass, next-token answer prediction regime of yore.",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "测试时搜索",
+        "evidence": "测试时在token空间搜索",
+        "rationale": "说明当前推理实现机制"
+      },
+      {
+        "id": "2083863030589231160",
+        "author": "fchollet",
+        "text": "To address the limits of deep learning and avoid stalling, the field of AI started by applying patch (1), which started being demoed 9 months later in December 2024 and has now become completely ubiquitous. However, long term, it is simply inevitable that AI will move to patch (2).",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "AI训练范式",
+        "evidence": "主动推理和MDL方案",
+        "rationale": "含技术路线但偏观点预测"
+      },
+      {
+        "id": "2084035273017765898",
+        "author": "swyx",
+        "text": "@vaibcode @OpenAI latter - i dont think im a better infra guy than microsoft! already had long outages due to stupid git server congestion issues even at my small scale",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "Git服务拥塞",
+        "evidence": "git服务器拥塞导致停机",
+        "rationale": "窄工程故障经验"
+      },
+      {
+        "id": "2084031272192807074",
+        "author": "HamelHusain",
+        "text": "@AAAzzam @sh_reya @BEBischof @bradenjhancock yeah I was forking it and customizing it and felt antisocial without at least opening a PR.  \n\nBut maybe the times of PRs are over, everyone should just customize their local?",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "开源协作",
+        "evidence": "fork后想开PR",
+        "rationale": "协作闲聊无技术事实"
+      },
+      {
+        "id": "2084029123463467152",
+        "author": "HamelHusain",
+        "text": "@sh_reya @BEBischof @AAAzzam @bradenjhancock Cool I'm gonna try it, will add onto it \n\nIncase you are curious (my fork is probably overzealous but hey the AI needs to be controlled) https://t.co/n9LKAlnHKX",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "本地定制",
+        "evidence": "fork并定制链接",
+        "rationale": "未给出具体技术事实"
+      },
+      {
+        "id": "2084012599273050395",
+        "author": "sh_reya",
+        "text": "@BEBischof @AAAzzam @HamelHusain @bradenjhancock I like that you are programmatically checking for the slop patterns, so it is much faster than an agent. I want to think about applying this principle to my plain writing rules",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "程序化质量检查",
+        "evidence": "程序检查slop模式",
+        "rationale": "可复用工程方法"
+      },
+      {
+        "id": "2084011215651737718",
+        "author": "sh_reya",
+        "text": "@AAAzzam @HamelHusain @bradenjhancock https://t.co/UmQ8qM0PTI neat",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "链接评价",
+        "evidence": "仅说neat",
+        "rationale": "无可审读技术内容"
+      },
+      {
+        "id": "2084009935139217622",
+        "author": "sh_reya",
+        "text": "@AAAzzam @HamelHusain @bradenjhancock Great idea. More like a hook, not a skill",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "Hook设计",
+        "evidence": "更像hook不是skill",
+        "rationale": "有窄实现分类判断"
+      },
+      {
+        "id": "2084001425881985308",
+        "author": "HamelHusain",
+        "text": "@sqs @connorado @AmpCode Computer use !",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "computer use",
+        "evidence": "只提到Computer use",
+        "rationale": "无具体技术事实或经验"
+      },
+      {
+        "id": "2083994977223532693",
+        "author": "sh_reya",
+        "text": "Has anyone cracked the code of LLM speak? it's truly atrocious\n\nI recently added a \"deslopify\" command to my plain-writing skill to get the agents to write responses better\nhttps://t.co/eoFhSo3SrU \n\nnot perfect but better than nothing\n\nh/t @bradenjhancock for the idea https://t.co/23XxsKEeDV",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "LLM写作风格优化",
+        "evidence": "加入deslopify命令",
+        "rationale": "可复用的agent写作改进经验"
+      },
+      {
+        "id": "2083993378258288976",
+        "author": "swyx",
+        "text": "one way i'm developing Forge (https://t.co/2x9e0oRjxQ) is to use it to host all my projects going forward. so I often find myself having to bounce back and forth between platform and product.\n\nsharing neat trick - in @openai codex you can @ a thread + queue up the @, so if your project is blocked on a platform feature, you can actually premove your project to proceed once the platform is unblocked.\n\nnow of course.. i wasnt actually strictly necessary in this whole process, so an even better multiagent harness would seamlessly orchestrate work back and forth between platform and project... it's just not a very common usecase unless you're building a real platform (which most people dont - most people just build applications on top of platforms, or a small platform with only 1 proudct/application tenant)",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "Codex多线程工作流",
+        "evidence": "可@线程并排队继续",
+        "rationale": "具体agent工程协作技巧"
+      },
+      {
+        "id": "2083962939606990864",
+        "author": "sh_reya",
+        "text": "@eevmanu Very nice!",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "闲聊回复",
+        "evidence": "仅称赞Very nice",
+        "rationale": "无技术事实或经验"
+      },
+      {
+        "id": "2083961070314819789",
+        "author": "yoheinakajima",
+        "text": "@bu7emba @ActiveGraphAI looks awesome, good stuff! will check it out :)",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "产品寒暄",
+        "evidence": "仅说looks awesome",
+        "rationale": "无技术事实或经验"
+      },
+      {
+        "id": "2084051004212027840",
+        "author": "simonw",
+        "text": "\"Honolulu’s airport has started playing 17 island-themed, AI-generated songs on rotation, according to state transportation spokeswoman Shelly Kunishige.\" ! https://t.co/6SDfXhDeLH",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "AI生成音乐应用",
+        "evidence": "机场轮播17首AI歌",
+        "rationale": "有AI应用事实但技术细节少"
+      },
+      {
+        "id": "2083955608504721747",
+        "author": "simonw",
+        "text": "@emollick (Though to be fair the most convincing results were against text-davinci-002, which was only ten weeks old when the paper came out)",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "模型版本对比",
+        "evidence": "结果针对text-davinci-002",
+        "rationale": "涉及模型版本但上下文不足"
+      },
+      {
+        "id": "2083948805918183443",
+        "author": "simonw",
+        "text": "@emollick My favorite things about that paper is that it described a prompting trick against GPT-3, which was already two years old at that point",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "GPT-3提示技巧",
+        "evidence": "论文描述GPT-3提示技巧",
+        "rationale": "技术相关但缺少方法细节"
+      },
+      {
+        "id": "2083942863277273463",
+        "author": "simonw",
+        "text": "@jxnlco Lack of deeply technical documentation - I don't want \"it can access tour calendar\", I want to know the exact tool calls and constraints",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "AI工具文档要求",
+        "evidence": "要精确tool calls和约束",
+        "rationale": "指出工程集成所需文档细节"
+      },
+      {
+        "id": "2083934330146197989",
+        "author": "gdb",
+        "text": "chatgpt for building interactive educational tools",
+        "technicalRelevant": true,
+        "dailyGrade": "A",
+        "topic": "AI构建3D教育工具",
+        "evidence": "资产900MB降至28.6MB",
+        "rationale": "明确生产优化和可运行成果"
+      },
+      {
+        "id": "2083928958077440299",
+        "author": "simonw",
+        "text": "@willmcgugan I tell ChatGPT to use \"credible sources\" and it actually works pretty well, you can see it start ruling out random blogs and marketing sites in its reasoning traces",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "AI检索提示",
+        "evidence": "提示使用可信来源",
+        "rationale": "仅为模型使用经验，证据较弱"
+      },
+      {
+        "id": "2083908765120860565",
+        "author": "simonw",
+        "text": "@rishirsv Where?\n\n(I've genuinely missed them)",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "闲聊追问",
+        "evidence": "Where?",
+        "rationale": "无技术事实或工程经验"
+      },
+      {
+        "id": "2083904679826849918",
+        "author": "simonw",
+        "text": "Here's my attempt at summarizing the various \"open letters\" about AI development that have been doing the rounds over the past few weeks https://t.co/VXA7OMIAgJ",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "AI公开信",
+        "evidence": "总结AI开发公开信",
+        "rationale": "偏观点材料，无技术事实"
+      }
+    ]
   },
   "translation": {
     "enabled": true,
@@ -1436,12 +2645,13 @@
     "promptVersion": "codex-v1",
     "preflight": {
       "ok": true,
-      "attempts": 1,
-      "error": ""
+      "attempts": 0,
+      "error": "",
+      "source": "cache-only"
     },
-    "eligibleTexts": 23,
-    "cacheHits": 1,
-    "translatedNow": 22,
+    "eligibleTexts": 26,
+    "cacheHits": 26,
+    "translatedNow": 0,
     "failed": 0,
     "coverage": 1.0,
     "degraded": false,
@@ -1451,21 +2661,21 @@
   },
   "avatars": {
     "enabled": true,
-    "authors": 15,
-    "primaryAuthors": 8,
+    "authors": 16,
+    "primaryAuthors": 9,
     "quotedAuthors": 10,
-    "cacheHits": 8,
+    "cacheHits": 16,
     "inlineCached": 0,
-    "profileRequestsNeeded": 7,
-    "attemptedNow": 7,
-    "fetchedNow": 7,
+    "profileRequestsNeeded": 0,
+    "attemptedNow": 0,
+    "fetchedNow": 0,
     "rateLimited": false,
     "deferredDueToRateLimit": 0,
-    "postsWithAvatar": 15,
+    "postsWithAvatar": 19,
     "coverage": 1.0,
-    "quotedPostsWithAvatar": 11,
+    "quotedPostsWithAvatar": 10,
     "quotedCoverage": 1.0,
     "errors": [],
-    "cache": "/Users/jay/Documents/ai-coder/four-knows/ai-v-radar/avatar-cache.json"
+    "cache": "ai-v-radar/avatar-cache.json"
   }
 }

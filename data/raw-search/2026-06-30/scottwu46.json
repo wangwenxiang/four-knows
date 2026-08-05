@@ -1,0 +1,39 @@
+[
+  {
+    "id": "2071718682250928421",
+    "text": "Model routing is a hot topic but there are two challenges to doing routing for coding agents:\n1) Even if different models can pass the task, there are subtle differences in behavior & style that mean they aren't perfectly interchangeable.\n2) The initial agent prompt isn't enough to know the difficulty of the task. \"Fix xyz bug\" could be a one-line edge case or could require rearchitecting your entire product; you can't know until you've actually investigated the code.\n\nHow do you solve these problems? Well, you need evals that account for style and behavior, not just pass/fail. And you need the agent to be able to dynamically update and re-route. We built Devin Fusion with both of these points in mind and found that it reduces costs by 30-40% while still maintaining the frontier intelligence \"smell\":",
+    "createdAt": "Mon Jun 29 22:13:19 +0000 2026",
+    "replyCount": 31,
+    "retweetCount": 42,
+    "likeCount": 510,
+    "conversationId": "2071718682250928421",
+    "author": {
+      "username": "ScottWu46",
+      "name": "Scott Wu"
+    },
+    "authorId": "967200699896352768",
+    "quotedTweet": {
+      "id": "2071624568465490170",
+      "text": "Conventional model routing sucks. It passes benchmarks but fails to write code you'd actually merge. \n\nIntroducing Devin Fusion, a new hybrid-model harness for agentic coding. \n\nIn testing, it reduces the cost of Fable-level intelligence by 35% and still feels good to use.",
+      "createdAt": "Mon Jun 29 15:59:20 +0000 2026",
+      "replyCount": 69,
+      "retweetCount": 113,
+      "likeCount": 1045,
+      "conversationId": "2071624568465490170",
+      "author": {
+        "username": "cognition",
+        "name": "Cognition"
+      },
+      "authorId": "1751810001751183361",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HL_jEV1W0AAqzAC.jpg",
+          "width": 1796,
+          "height": 1254,
+          "previewUrl": "https://pbs.twimg.com/media/HL_jEV1W0AAqzAC.jpg:small"
+        }
+      ]
+    }
+  }
+]

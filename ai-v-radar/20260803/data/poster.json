@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-03T07:02:47.061038+08:00",
+  "generatedAt": "2026-08-03T08:02:02.608466+08:00",
   "windowHours": 23.0,
   "monitored": 62,
-  "selected": 15,
-  "inputSha256": "f641f719675b1be1e8a14f631169bcb2c04b9eca31e9295ddfc2890bba29cd82",
+  "selected": 19,
+  "inputSha256": "61b77fb2845b921d9fa69002726f13e9fb5e71eda44e757676ae9ff2ee1cc106",
   "copyBackend": "codex",
   "copyAttempts": 1,
   "copyRetries": 0,
@@ -13,22 +13,22 @@
       "id": "2083934330146197989",
       "author": "Greg Brockman",
       "category": "AI 技术进步",
-      "title": "ChatGPT 驱动交互式教育工具走向 3D 解剖学习",
+      "title": "ChatGPT辅助构建交互式3D解剖教育工具",
       "summary": "引用｜要是教育也能这么互动就好了 ❤️‍🔥\n\n我一直很想通过 vibe coding 做出真正有用的东西，现在终于做到了。\n\n这是一个用 @threejs 和 GPT 5.6 Sol 构建的 3D 人体解剖应用。\n\n一切都始于我用 GPT Image 2.0 创建的一张设计图。然后我用它逐个生成了每个 3D 器官图像。\n\n接着，我用 @tripoai 把这些图像转换成 3D 模型（他们真的没有赞助我 😄）。\n\n之后，我打开 Codex，根据设计写了一份主提示词，并把提示词、设计图和所有 3D 模型都交给它。\n\nCodex 很漂亮地构建出了第一个版本，但有一个大问题。\n\n每个 3D 模型都接近 120-150 MB。这显然不适合网页，性能只有 16fps。\n\n经过几轮迭代，Codex 在保留视觉质量的同时，把每个模型优化到约 2–5.5 MB，将总资源大小从约 900 MB 降到仅 28.6 MB。而且每个模型都会按需加载。\n\n在这个过程中，Codex 还生成了那些显示各个器官在人体中位置的解剖插图，甚至创建了交互式热点标记，用来解释每个器官的不同部位。这些它全都处理了。\n\n这个过程并不是一次完成，但也不难。你只需要一步一步来。\n\n这真的让我感觉自己做出了一个能让解剖学习更有趣的东西。\n\n灵感来自 @DilumSanjaya 的 3D 动物植物细胞项目。我记得当时看到它时就在想：“总有一天我也要做一个这样的东西。”\n\n然后我做到了 :D\n\nLive: https://t.co/gIFgkj8UVB\nCode: https://t.co/nijvyWcyxO"
     },
     {
       "id": "2083926395403821427",
       "author": "Amjad Masad",
       "category": "AI 技术前沿",
-      "title": "LLM 国际象棋引擎已在 LiChess 自主实战",
+      "title": "LLM国际象棋引擎上线LiChess自主实战",
       "summary": "引用｜约 1500 Elo！\n\n稳定击败前沿模型和 Stockfish level 0。\n\n看到一个 8b 模型在高推理和响应链式处理下碾压 GPT 5.6 真的很有意思。每步只花 1-2 秒，而不是 30 秒。\n\n来玩： https://t.co/qRg0HNwgC4 https://t.co/w6H0MWOmPx"
     },
     {
       "id": "2083887253164609742",
       "author": "Francois Chollet",
       "category": "AI 技术前沿",
-      "title": "ARC 1 显示基础 LLM 扩展已接近推理平台期",
-      "summary": "作者指出无测试时计算的基础模型在未见任务上仍弱，尽管规模较 2019 年扩大约十万倍"
+      "title": "基础LLM在ARC 1上暴露静态扩展推理瓶颈",
+      "summary": "作者认为自2019年以来规模扩大约十万倍仍难解未见任务，测试时计算是突破能力平台期的必要步骤"
     }
   ]
 }

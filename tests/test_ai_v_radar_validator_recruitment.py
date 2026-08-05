@@ -19,6 +19,13 @@ class ValidatorRecruitmentGuardTests(unittest.TestCase):
         post = {"text": "We released an AI security benchmark and open-source evaluation tooling."}
         self.assertFalse(validator.independently_flags_recruitment(post))
 
+    def test_cultural_ai_playlist_is_blocked_independently_of_selector(self) -> None:
+        post = {
+            "text": "Honolulu airport has started playing AI-generated island-themed songs on rotation.",
+            "quotedTweet": {"text": "Everyone here is upset about the fake Hawaiian music."},
+        }
+        self.assertTrue(validator.independently_flags_low_signal_cultural_deployment(post))
+
 
 if __name__ == "__main__":
     unittest.main()

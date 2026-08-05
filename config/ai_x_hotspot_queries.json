@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "source": "X only",
+  "directions": [
+    {
+      "id": "foundation_models",
+      "label": "基础模型突破",
+      "query": "model OR reasoning OR multimodal OR benchmark OR release OR launch",
+      "postMatchAny": ["foundation model", "language model", "large language model", "llm", "reasoning", "multimodal", "open-weight", "benchmark"],
+      "accounts": [
+        {"handle": "OpenAI", "name": "OpenAI", "role": "基础模型机构"},
+        {"handle": "AnthropicAI", "name": "Anthropic", "role": "基础模型机构"},
+        {"handle": "GoogleDeepMind", "name": "Google DeepMind", "role": "基础模型研究机构"},
+        {"handle": "AIatMeta", "name": "Meta AI", "role": "开源基础模型项目"},
+        {"handle": "MistralAI", "name": "Mistral AI", "role": "基础模型机构"},
+        {"handle": "Alibaba_Qwen", "name": "Qwen", "role": "基础模型项目"}
+      ]
+    },
+    {
+      "id": "agents",
+      "label": "Agent 技术突破",
+      "query": "agent OR agentic OR computer-use OR tool-use OR coding OR benchmark",
+      "postMatchAny": ["agent", "agentic", "computer use", "tool use", "coding agent", "autonomous agent"],
+      "accounts": [
+        {"handle": "OpenAIDevs", "name": "OpenAI Developers", "role": "Agent 平台与开发者产品"},
+        {"handle": "AnthropicAI", "name": "Anthropic", "role": "Agent 与 Claude 项目"},
+        {"handle": "cursor_ai", "name": "Cursor", "role": "AI 编程 Agent 项目"},
+        {"handle": "cognition_labs", "name": "Cognition", "role": "软件工程 Agent 项目"},
+        {"handle": "LangChainAI", "name": "LangChain", "role": "Agent 开发框架"},
+        {"handle": "llama_index", "name": "LlamaIndex", "role": "Agent 数据框架"}
+      ]
+    },
+    {
+      "id": "robotics",
+      "label": "机器人领域突破",
+      "query": "robot OR robotics OR humanoid OR manipulation OR VLA OR autonomy",
+      "postMatchAny": ["robot", "robotics", "humanoid", "manipulation", "embodied", "vla"],
+      "accounts": [
+        {"handle": "GoogleDeepMind", "name": "Google DeepMind", "role": "机器人基础模型研究"},
+        {"handle": "NVIDIAAI", "name": "NVIDIA AI", "role": "机器人模型与仿真平台"},
+        {"handle": "physical_int", "name": "Physical Intelligence", "role": "机器人基础模型项目"},
+        {"handle": "Figure_robot", "name": "Figure", "role": "人形机器人项目"},
+        {"handle": "BostonDynamics", "name": "Boston Dynamics", "role": "机器人项目"},
+        {"handle": "UnitreeRobotics", "name": "Unitree", "role": "人形与四足机器人项目"}
+      ]
+    },
+    {
+      "id": "life_sciences",
+      "label": "AI 在生命科学突破（疾病、大脑）",
+      "query": "(AI OR model OR machine-learning) (disease OR drug OR protein OR brain OR neuroscience OR genomics)",
+      "postMatchAny": ["drug", "disease", "protein", "genom", "brain", "neuroscience", "cell biology"],
+      "accounts": [
+        {"handle": "IsomorphicLabs", "name": "Isomorphic Labs", "role": "AI 药物发现项目"},
+        {"handle": "GoogleDeepMind", "name": "Google DeepMind", "role": "AI 生命科学研究"},
+        {"handle": "ArcInstitute", "name": "Arc Institute", "role": "生物医学研究机构"},
+        {"handle": "broadinstitute", "name": "Broad Institute", "role": "基因组与疾病研究机构"},
+        {"handle": "AllenInstitute", "name": "Allen Institute", "role": "大脑与生命科学研究机构"},
+        {"handle": "czbiohub", "name": "CZ Biohub", "role": "生物医学研究机构"}
+      ]
+    },
+    {
+      "id": "machine_consciousness",
+      "label": "AI 意识研究",
+      "query": "consciousness OR sentience OR self-model OR model-welfare OR global-workspace",
+      "postMatchAny": ["consciousness", "sentience", "self-model", "model welfare", "global workspace"],
+      "accounts": [
+        {"handle": "anilkseth", "name": "Anil Seth", "role": "意识科学研究者"},
+        {"handle": "patrickbutlin", "name": "Patrick Butlin", "role": "AI 意识研究者"},
+        {"handle": "davidchalmers42", "name": "David Chalmers", "role": "意识哲学研究者"},
+        {"handle": "AmandaAskell", "name": "Amanda Askell", "role": "AI 行为与意识相关研究者"},
+        {"handle": "AnthropicAI", "name": "Anthropic", "role": "模型行为与福利研究机构"}
+      ]
+    }
+  ]
+}

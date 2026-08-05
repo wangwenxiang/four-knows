@@ -11,6 +11,7 @@ import hashlib
 import html
 import json
 import math
+import os
 import re
 import subprocess
 import sys
@@ -29,6 +30,7 @@ DEFAULT_EXPANSION_WATCHLIST = ROOT / "config" / "ai_x_expansion_watchlist.json"
 DEFAULT_HOTSPOT_QUERIES = ROOT / "config" / "ai_x_hotspot_queries.json"
 DEFAULT_OUTPUT_ROOT = ROOT / "ai-v-radar"
 DEFAULT_AVATAR_CACHE = DEFAULT_OUTPUT_ROOT / "avatar-cache.json"
+COOKIE_MANAGER_BRIDGE = Path.home() / ".agents" / "skills" / "cookie-manager" / "scripts" / "cookie_bridge.py"
 SHANGHAI = ZoneInfo("Asia/Shanghai")
 TWITTER_DATE = "%a %b %d %H:%M:%S %z %Y"
 
@@ -73,6 +75,67 @@ class Expert:
     role: str
     why: str
     handle: str
+
+
+@dataclasses.dataclass(frozen=True)
+class CookieManagerBirdSession:
+    """Ephemeral X session material; never serialize, log, or put in argv."""
+
+    auth_token: str
+    ct0: str
+
+
+def cookie_manager_bird_session() -> CookieManagerBirdSession:
+    """Fetch a fresh x.com session from the Chrome extension, only in memory."""
+    if not COOKIE_MANAGER_BRIDGE.is_file():
+        raise RuntimeError("Cookie Manager bridge is unavailable")
+    try:
+        completed = subprocess.run(
+            [sys.executable, str(COOKIE_MANAGER_BRIDGE), "get", "x.com", "--format", "header"],
+            capture_output=True,
+            text=True,
+            timeout=45,
+            check=False,
+        )
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        raise RuntimeError("Cookie Manager session request failed") from exc
+    if completed.returncode != 0:
+        raise RuntimeError(f"Cookie Manager session request failed (exit {completed.returncode})")
+    header = completed.stdout.strip()
+    if header.casefold().startswith("cookie:"):
+        header = header.split(":", 1)[1].strip()
+    cookies: dict[str, str] = {}
+    for pair in header.split(";"):
+        name, separator, value = pair.strip().partition("=")
+        if separator and name in {"auth_token", "ct0"} and value:
+            cookies[name] = value
+    if not cookies.get("auth_token") or not cookies.get("ct0"):
+        raise RuntimeError("Cookie Manager returned an incomplete x.com session")
+    return CookieManagerBirdSession(cookies["auth_token"], cookies["ct0"])
+
+
+def prepare_bird_session(cookie_source: str) -> str | CookieManagerBirdSession:
+    """Resolve the configured Bird authentication source once per fresh scan."""
+    return cookie_manager_bird_session() if cookie_source == "cookie-manager" else cookie_source
+
+
+def bird_command(cookie_source: str | CookieManagerBirdSession, *arguments: str) -> list[str]:
+    """Build a read-only Bird command without placing Cookie Manager values in argv."""
+    if isinstance(cookie_source, CookieManagerBirdSession):
+        return ["bird", *arguments]
+    return ["bird", "--cookie-source", cookie_source, *arguments]
+
+
+def run_bird(
+    command: list[str], cookie_source: str | CookieManagerBirdSession, timeout: int
+) -> subprocess.CompletedProcess[str]:
+    """Run Bird with optional one-process credential environment and no persistence."""
+    environment = None
+    if isinstance(cookie_source, CookieManagerBirdSession):
+        environment = os.environ.copy()
+        environment["AUTH_TOKEN"] = cookie_source.auth_token
+        environment["CT0"] = cookie_source.ct0
+    return subprocess.run(command, capture_output=True, text=True, timeout=timeout, check=False, env=environment)
 
 
 THEMES = {
@@ -194,6 +257,20 @@ LIFESTYLE_OR_CULTURE_PATTERNS = tuple(
 )
 
 
+# A mention of AI alone is not a technical signal.  These patterns cover
+# cultural consumption stories (for example venue playlists) that happen to
+# mention AI-generated media but contain no model, research, or engineering
+# development.  Keep this separate from the broader keyword gate so genuine
+# technical posts about audio models still need substantive evidence to pass.
+LOW_SIGNAL_CULTURAL_DEPLOYMENT_PATTERNS = tuple(
+    re.compile(pattern, re.IGNORECASE)
+    for pattern in (
+        r"\b(?:airport|hotel|restaurant|store|venue|station)\b.{0,140}\b(?:playing|plays|playlist|songs?|music)\b",
+        r"\b(?:playing|plays|playlist|songs?|music)\b.{0,140}\b(?:airport|hotel|restaurant|store|venue|station)\b",
+    )
+)
+
+
 TOP_STORY_CORE_TERMS = (
     "ai", "llm", "vlm", "gpt", "claude", "model", "agent", "reasoning",
     "training", "inference", "benchmark", "eval", "coding", "software",
@@ -221,6 +298,17 @@ TOP_STORY_APPLICATION_TERMS = (
     "use", "apply", "deploy", "production", "workflow", "coding", "review",
     "security", "secure", "system", "robot", "agent", "api", "ocr", "tool",
     "developer", "automation", "infrastructure", "data center", "datacenter",
+)
+
+
+# These terms are more discriminating than broad "AI" or organization-name
+# mentions.  They identify a concrete method, measurable result, or usable
+# system interface that should carry extra weight in poster headline ranking.
+CONCRETE_TECHNICAL_EVIDENCE_TERMS = (
+    "swe-bench", "terminalbench", "failure taxonomy", "reasoning trace",
+    "reasoning transcript", "responses api", "server-side tool", "logging",
+    "benchmark", "evaluation", "safeguard", "open-weight", "open weight",
+    "on-device", "on device", "deploy", "api", "taxonomy",
 )
 
 
@@ -256,10 +344,26 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--hotspot-max-pages", type=int, default=3)
     parser.add_argument("--limit", type=int, default=0, help="Only fetch the first N experts")
     parser.add_argument("--max-posts", type=int, default=120)
-    parser.add_argument("--editorial-ai", action="store_true", help="Use local Codex for semantic relevance and headline decisions")
+    parser.add_argument(
+        "--editorial-ai",
+        dest="editorial_ai",
+        action="store_true",
+        help="Use local Codex for semantic relevance and headline decisions (the production default)",
+    )
+    parser.add_argument(
+        "--no-editorial-ai",
+        dest="editorial_ai",
+        action="store_false",
+        help="Disable semantic editorial review (for local diagnostics only; publication validation will fail)",
+    )
+    parser.set_defaults(editorial_ai=True)
     parser.add_argument("--editorial-batch-size", type=int, default=10)
     parser.add_argument("--editorial-retries", type=int, default=1)
-    parser.add_argument("--cookie-source", default="chrome")
+    parser.add_argument(
+        "--cookie-source",
+        default="cookie-manager",
+        help="Bird session source: cookie-manager (default, live Chrome extension) or a Bird browser source such as chrome",
+    )
     parser.add_argument("--no-translate", dest="translate", action="store_false", help="Skip Codex translation")
     parser.set_defaults(translate=True)
     parser.add_argument("--translation-batch-size", type=int, default=18)
@@ -517,15 +621,12 @@ def avatar_from_truncated_json(output: str, handle: str) -> str:
     return ""
 
 
-def fetch_profile_avatar(handle: str, cookie_source: str, retries: int) -> tuple[str, str, str]:
-    command = [
-        "bird", "--cookie-source", cookie_source, "user-tweets", handle,
-        "-n", "1", "--json-full",
-    ]
+def fetch_profile_avatar(handle: str, cookie_source: str | CookieManagerBirdSession, retries: int) -> tuple[str, str, str]:
+    command = bird_command(cookie_source, "user-tweets", handle, "-n", "1", "--json-full")
     last_error = ""
     for attempt in range(max(0, retries) + 1):
         try:
-            completed = subprocess.run(command, capture_output=True, text=True, timeout=90, check=False)
+            completed = run_bird(command, cookie_source, timeout=90)
         except (OSError, subprocess.TimeoutExpired) as exc:
             last_error = str(exc)
         else:
@@ -553,7 +654,7 @@ def fetch_profile_avatar(handle: str, cookie_source: str, retries: int) -> tuple
 def hydrate_post_avatars(
     posts: list[dict[str, Any]],
     cache_path: Path,
-    cookie_source: str,
+    cookie_source: str | CookieManagerBirdSession,
     workers: int,
     retries: int,
 ) -> dict[str, Any]:
@@ -647,30 +748,15 @@ def hydrate_post_avatars(
 def fetch_expert(
     expert: Expert,
     count: int,
-    cookie_source: str,
+    cookie_source: str | CookieManagerBirdSession,
     retries: int,
 ) -> dict[str, Any]:
-    command = [
-        "bird",
-        "--cookie-source",
-        cookie_source,
-        "user-tweets",
-        expert.handle,
-        "-n",
-        str(count),
-        "--json",
-    ]
+    command = bird_command(cookie_source, "user-tweets", expert.handle, "-n", str(count), "--json")
     started = time.monotonic()
     last_error = ""
     for attempt in range(retries + 1):
         try:
-            completed = subprocess.run(
-                command,
-                capture_output=True,
-                text=True,
-                timeout=90,
-                check=False,
-            )
+            completed = run_bird(command, cookie_source, timeout=90)
         except subprocess.TimeoutExpired:
             last_error = "Bird timed out after 90 seconds"
         else:
@@ -710,35 +796,21 @@ def fetch_expert(
 def fetch_search_batch(
     experts: list[Expert],
     cutoff: datetime,
-    cookie_source: str,
+    cookie_source: str | CookieManagerBirdSession,
     max_pages: int,
     retries: int,
 ) -> dict[str, Any]:
     handles = [expert.handle for expert in experts]
     query = "(" + " OR ".join(f"from:{handle}" for handle in handles) + ")"
     query += f" since:{cutoff.astimezone(timezone.utc):%Y-%m-%d} -filter:retweets"
-    command = [
-        "bird",
-        "--cookie-source",
-        cookie_source,
-        "search",
-        query,
-        "--all",
-        "--max-pages",
-        str(max(1, max_pages)),
-        "--json",
-    ]
+    command = bird_command(
+        cookie_source, "search", query, "--all", "--max-pages", str(max(1, max_pages)), "--json"
+    )
     started = time.monotonic()
     last_error = ""
     for attempt in range(retries + 1):
         try:
-            completed = subprocess.run(
-                command,
-                capture_output=True,
-                text=True,
-                timeout=120,
-                check=False,
-            )
+            completed = run_bird(command, cookie_source, timeout=120)
         except subprocess.TimeoutExpired:
             last_error = "Bird batch search timed out after 120 seconds"
         else:
@@ -778,7 +850,7 @@ def fetch_search_batch(
 def fetch_hotspot_direction(
     direction: dict[str, Any],
     cutoff: datetime,
-    cookie_source: str,
+    cookie_source: str | CookieManagerBirdSession,
     max_pages: int,
     retries: int,
 ) -> dict[str, Any]:
@@ -788,15 +860,14 @@ def fetch_hotspot_direction(
     author_query = "(" + " OR ".join(f"from:{handle}" for handle in handles) + ")"
     query = f"{author_query} ({str(direction['query']).strip()})"
     query += f" since:{cutoff.astimezone(timezone.utc):%Y-%m-%d} -filter:retweets"
-    command = [
-        "bird", "--cookie-source", cookie_source, "search", query,
-        "--all", "--max-pages", str(max(1, max_pages)), "--json",
-    ]
+    command = bird_command(
+        cookie_source, "search", query, "--all", "--max-pages", str(max(1, max_pages)), "--json"
+    )
     started = time.monotonic()
     last_error = ""
     for attempt in range(retries + 1):
         try:
-            completed = subprocess.run(command, capture_output=True, text=True, timeout=120, check=False)
+            completed = run_bird(command, cookie_source, timeout=120)
         except subprocess.TimeoutExpired:
             last_error = "Bird X hotspot search timed out after 120 seconds"
         else:
@@ -844,7 +915,7 @@ def fetch_hotspot_direction(
 def recover_failed_search_batches(
     results: list[dict[str, Any]],
     count: int,
-    cookie_source: str,
+    cookie_source: str | CookieManagerBirdSession,
     retries: int,
     workers: int,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
@@ -1040,6 +1111,8 @@ def has_substantive_attached_content(post: dict[str, Any]) -> bool:
 
 def is_low_signal_lifestyle_post(post: dict[str, Any]) -> bool:
     primary = str(post.get("text") or "")
+    if any(pattern.search(primary) for pattern in LOW_SIGNAL_CULTURAL_DEPLOYMENT_PATTERNS):
+        return True
     return bool(
         any(pattern.search(primary) for pattern in LIFESTYLE_OR_CULTURE_PATTERNS)
         and not has_substantive_attached_content(post)
@@ -1077,6 +1150,14 @@ def count_term_hits(text: str, terms: tuple[str, ...]) -> int:
     return hits
 
 
+def concrete_technical_evidence_score(post: dict[str, Any]) -> int:
+    """Score methods, measurable results, and implementation detail for headlines."""
+    text = technical_context(post)
+    term_hits = count_term_hits(text, CONCRETE_TECHNICAL_EVIDENCE_TERMS)
+    numeric_claims = len(re.findall(r"\b\d+(?:\.\d+)?\s*(?:%|gb|tb|ms|s|b)\b", text))
+    return min(16, term_hits * 2 + min(4, numeric_claims * 2))
+
+
 def top_story_profile(post: dict[str, Any], expert: Expert) -> tuple[bool, int, str]:
     text = technical_context(post)
     core_hits = count_term_hits(text, TOP_STORY_CORE_TERMS)
@@ -1104,6 +1185,7 @@ def top_story_profile(post: dict[str, Any], expert: Expert) -> tuple[bool, int, 
     score = 40 if org_rank == 0 else 36 if org_rank == 1 else 14 if expert.priority == "P0" else 5
     score += min(28, core_hits * 3 + progress_hits * 2 + frontier_hits * 3 + application_hits * 2)
     score += min(20, round(math.log10(engagement + 1) * 7))
+    score += concrete_technical_evidence_score(post)
     score += 4 if post.get("quotedTweet") else 0
     score += 3 if post.get("article") else 0
     return eligible, min(99, score), category
@@ -1551,8 +1633,15 @@ def review_editorial_candidates(posts: list[dict[str, Any]], batch_size: int, re
         raise RuntimeError("Editorial review incomplete: " + "; ".join(errors or ["missing reviews"]))
     for post in posts:
         post["editorial"] = reviews[str(post["id"])]
-    retained = [post for post in posts if post["editorial"]["technicalRelevant"]]
-    dropped = [post for post in posts if not post["editorial"]["technicalRelevant"]]
+    semantic_retained = [post for post in posts if post["editorial"]["technicalRelevant"]]
+    # Semantic review is valuable but not sufficient as a publication gate.
+    # Reapply the deterministic technical and lifestyle exclusions after it so
+    # a broad "AI application" judgment cannot reintroduce culture or chatter.
+    retained = [
+        post for post in semantic_retained
+        if is_technical_post(post) and not is_low_signal_lifestyle_post(post)
+    ]
+    dropped = [post for post in posts if post not in retained]
     return retained, {
         "enabled": True,
         "backend": "codex exec",
@@ -1566,27 +1655,34 @@ def review_editorial_candidates(posts: list[dict[str, Any]], batch_size: int, re
 
 def select_editorial_top_stories(posts: list[dict[str, Any]], retries: int) -> list[dict[str, Any]]:
     candidates: list[dict[str, Any]] = []
-    candidate_profiles: dict[str, tuple[int, str]] = {}
+    candidate_profiles: dict[str, tuple[int, str, int]] = {}
     for post in posts:
         expert = Expert(**post["expert"])
         deterministic_eligible, deterministic_score, deterministic_category = top_story_profile(post, expert)
         grade = str(post.get("editorial", {}).get("dailyGrade") or "D")
-        # A strong, technically eligible B item from a core lab must still be
-        # considered. This prevents the semantic grade from nullifying the
-        # watchlist's explicit OpenAI/Anthropic importance policy.
-        core_lab = strategic_org_rank(expert) <= 1
-        if grade == "A" or (grade == "B" and deterministic_eligible and core_lab):
+        # A semantic B is still a valid top-story candidate when the
+        # deterministic profile confirms concrete technical substance.  It
+        # must not be limited to core labs: that restriction can incorrectly
+        # leave a publishable day with fewer than three qualified stories.
+        if grade == "A" or (grade == "B" and deterministic_eligible):
             candidates.append(post)
-            candidate_profiles[str(post["id"])] = (deterministic_score, deterministic_category)
+            candidate_profiles[str(post["id"])] = (
+                deterministic_score,
+                deterministic_category,
+                concrete_technical_evidence_score(post),
+            )
     if not candidates:
         return []
-    prompt = """你是硅谷 AI 技术日报主编。只从 INPUT 的合格候选中选择最多三条真正头条。必须是不同作者，且同一事件只能保留一条；不够三条就少选，绝不补位。选择必须基于材料中可核实的新能力、研究、正式发布、量化结果或明确生产效果；普通产品更新只有在影响明确且实质时才选。相近质量下，OpenAI 核心人物优先于应用框架创业者，Greg Brockman 必须排在 Jerry Liu 之前。不要编造。
+    prompt = """你是硅谷 AI 技术日报主编。只从 INPUT 的合格候选中选择最多三条真正头条。必须是不同作者，且同一事件只能保留一条；不够三条就少选，绝不补位。选择必须基于材料中可核实的新能力、研究、正式发布、量化结果或明确生产效果。
+
+排序时优先选择含有可复核硬技术证据的内容：基准分数/百分比、失败分类或评测方法、模型架构或权重、部署资源约束、推理链路、API/工具/日志等明确系统能力。纯月度汇总、泛泛产品动态、品牌发布或“新模型上线”不能仅因作者或机构重要而压过这些硬证据；只有没有更强候选时才可选。INPUT 中的 concreteEvidenceScore 越高，说明原文中这类证据越多，必须认真优先考虑。相近质量下，OpenAI 核心人物优先于应用框架创业者，Greg Brockman 必须排在 Jerry Liu 之前。不要编造。
 只输出合法 JSON：{"topStories":[{"id":"...","category":"AI 技术进步|AI 技术前沿|AI 技术应用","rationale":"不超过36个汉字"}]}。
 INPUT:
 """ + json.dumps([
         editorial_source(post) | {
             "editorial": post["editorial"],
             "deterministicTopScore": candidate_profiles[str(post["id"])][0],
+            "concreteEvidenceScore": candidate_profiles[str(post["id"])][2],
             "organizationPriority": strategic_org_rank(Expert(**post["expert"])),
         }
         for post in candidates
@@ -1602,6 +1698,9 @@ INPUT:
     by_id = {str(post["id"]): post for post in candidates}
     selected: list[dict[str, Any]] = []
     seen_authors: set[str] = set()
+    strong_candidate_count = sum(
+        1 for post in candidates if candidate_profiles[str(post["id"])][2] >= 4
+    )
     for row in rows[:3]:
         post = by_id.get(str(row.get("id"))) if isinstance(row, dict) else None
         if not post:
@@ -1612,6 +1711,10 @@ INPUT:
             author in seen_authors
             or category not in {"AI 技术进步", "AI 技术前沿", "AI 技术应用"}
             or any(same_top_story_event(post, selected_post) for selected_post in selected)
+            or (
+                candidate_profiles[str(post["id"])][2] < 4
+                and strong_candidate_count >= 3
+            )
         ):
             continue
         post["isTopStory"] = True
@@ -1619,6 +1722,33 @@ INPUT:
         post["topStoryCategory"] = category
         post["topStoryScore"] = 100 - len(selected)
         post["editorialTopRationale"] = str(row.get("rationale") or "")
+        selected.append(post)
+        seen_authors.add(author)
+    # The editorial model may conservatively return fewer than three even
+    # when enough independently qualified candidates exist.  Complete the
+    # leading set only from those same candidates, preserving author and event
+    # diversity; this is a guard against under-selection, never a relaxation
+    # of the technical eligibility contract.
+    for post in sorted(
+        candidates,
+        key=lambda item: (
+            -candidate_profiles[str(item["id"])][2],
+            -candidate_profiles[str(item["id"])][0],
+            strategic_org_rank(Expert(**item["expert"])),
+            -int(item.get("signalScore") or 0),
+        ),
+    ):
+        if len(selected) >= 3:
+            break
+        author = top_story_author_key(post)
+        if author in seen_authors or any(same_top_story_event(post, selected_post) for selected_post in selected):
+            continue
+        score, category, _evidence_score = candidate_profiles[str(post["id"])]
+        post["isTopStory"] = True
+        post["topStoryEligible"] = True
+        post["topStoryCategory"] = category
+        post["topStoryScore"] = max(1, 100 - len(selected))
+        post["editorialTopRationale"] = "确定性技术资格补足头条多样性"
         selected.append(post)
         seen_authors.add(author)
     by_handle = {str(post["expert"]["handle"]).casefold(): post for post in candidates}
@@ -2122,7 +2252,7 @@ def rebuild_from_data(args: argparse.Namespace, experts: list[Expert]) -> int:
     posts = [post for post in posts if not is_recruitment_post(post)]
     removed_recruitment = recruitment_candidate_count - len(posts)
     technical_candidate_count = len(posts)
-    posts = [post for post in posts if is_technical_post(post)]
+    posts = [post for post in posts if is_technical_post(post) and not is_low_signal_lifestyle_post(post)]
     removed_nontechnical = technical_candidate_count - len(posts)
     experts_by_handle = {expert.handle.casefold(): expert for expert in experts}
     for post in posts:
@@ -2138,7 +2268,25 @@ def rebuild_from_data(args: argparse.Namespace, experts: list[Expert]) -> int:
             post["createdAtIso"] = created_at.isoformat()
             post["createdAtBeijing"] = created_at.astimezone(SHANGHAI).isoformat()
             post["createdAtLocal"] = created_at.astimezone(SHANGHAI).strftime("%m-%d %H:%M 北京")
-    posts = order_posts_for_report(experts, posts)
+    if args.editorial_ai and all(isinstance(post.get("editorial"), dict) for post in posts):
+        for post in posts:
+            post["isTopStory"] = False
+            post["topStoryEligible"] = False
+            post["topStoryCategory"] = ""
+            post["topStoryScore"] = 0
+        top_stories = select_editorial_top_stories(posts, args.editorial_retries)
+        top_ids = {str(post.get("id") or "") for post in top_stories}
+        grade_order = {"A": 0, "B": 1, "C": 2, "D": 3}
+        posts = top_stories + sorted(
+            (post for post in posts if str(post.get("id") or "") not in top_ids),
+            key=lambda post: (
+                grade_order.get(str(post.get("editorial", {}).get("dailyGrade") or "D"), 9),
+                -int(post.get("signalScore") or 0),
+                str(post.get("createdAtIso") or ""),
+            ),
+        )
+    else:
+        posts = order_posts_for_report(experts, posts)
     posts, capped_posts = cap_selected_posts_per_author(posts)
     now = datetime.fromisoformat(str(payload["generatedAt"]).replace("Z", "+00:00")).astimezone(timezone.utc)
     cutoff = datetime.fromisoformat(str(payload["windowStart"]).replace("Z", "+00:00")).astimezone(timezone.utc)
@@ -2209,6 +2357,7 @@ def rebuild_from_data(args: argparse.Namespace, experts: list[Expert]) -> int:
         ],
         "translation": translation_report,
         "avatars": avatar_report,
+        "editorial": payload.get("editorial") if isinstance(payload.get("editorial"), dict) else {"enabled": False},
         "xHotspotSearch": hotspot_summary,
         "rebuiltFromData": str(args.reuse_data),
         "rebuildDroppedRecruitment": removed_recruitment,
@@ -2278,6 +2427,39 @@ def build_hotspot_summary(
     }
 
 
+def acquisition_failure_reasons(report: dict[str, Any]) -> list[str]:
+    """Return publication-blocking acquisition gaps before rendering a report."""
+    requested = int(report.get("accountsRequested") or 0)
+    succeeded = int(report.get("accountsSucceeded") or 0)
+    failed = int(report.get("accountsFailed") or 0)
+    reasons: list[str] = []
+    if requested <= 0 or succeeded != requested or failed:
+        reasons.append(f"accounts {succeeded}/{requested} succeeded; {failed} failed")
+    hotspots = report.get("xHotspotSearch") or {}
+    directions_requested = int(hotspots.get("directionsRequested") or 0)
+    directions_succeeded = int(hotspots.get("directionsSucceeded") or 0)
+    directions_failed = int(hotspots.get("directionsFailed") or 0)
+    if directions_requested and (directions_succeeded != directions_requested or directions_failed):
+        reasons.append(
+            f"hotspot directions {directions_succeeded}/{directions_requested} succeeded; "
+            f"{directions_failed} failed"
+        )
+    return reasons
+
+
+def abort_incomplete_acquisition(output_dir: Path, report: dict[str, Any]) -> None:
+    """Persist evidence but never render a publish-looking empty daily report."""
+    reasons = acquisition_failure_reasons(report)
+    if not reasons:
+        return
+    data_dir = output_dir / "data"
+    data_dir.mkdir(parents=True, exist_ok=True)
+    write_json_atomic(data_dir / "failed-run-report.json", report)
+    raise RuntimeError(
+        "Acquisition incomplete; no daily report was rendered or published: " + "; ".join(reasons)
+    )
+
+
 def main() -> int:
     args = parse_args()
     if args.hours <= 0:
@@ -2295,7 +2477,10 @@ def main() -> int:
     if args.reuse_data:
         return rebuild_from_data(args, experts)
 
-    print(f"Fetching {len(experts)} X accounts with Bird ({args.fetch_mode})...", flush=True)
+    bird_session = prepare_bird_session(args.cookie_source)
+
+    session_source = "cookie-manager" if isinstance(bird_session, CookieManagerBirdSession) else str(bird_session)
+    print(f"Fetching {len(experts)} X accounts with Bird ({args.fetch_mode}; session={session_source})...", flush=True)
     results: list[dict[str, Any]] = []
     if args.fetch_mode == "search":
         batch_size = max(1, args.search_batch_size)
@@ -2312,7 +2497,7 @@ def main() -> int:
                     fetch_search_batch,
                     batch,
                     cutoff,
-                    args.cookie_source,
+                    bird_session,
                     args.search_max_pages,
                     args.retries,
                 ): batch
@@ -2320,7 +2505,7 @@ def main() -> int:
             }
         else:
             future_map = {
-                pool.submit(fetch_expert, expert, args.count_per_user, args.cookie_source, args.retries): expert
+                pool.submit(fetch_expert, expert, args.count_per_user, bird_session, args.retries): expert
                 for expert in work_items
             }
         completed_count = 0
@@ -2340,7 +2525,7 @@ def main() -> int:
             results, search_fallbacks = recover_failed_search_batches(
                 results,
                 args.count_per_user,
-                args.cookie_source,
+                bird_session,
                 args.retries,
                 args.workers,
             )
@@ -2364,7 +2549,7 @@ def main() -> int:
                     fetch_hotspot_direction,
                     direction,
                     cutoff,
-                    args.cookie_source,
+                    bird_session,
                     args.hotspot_max_pages,
                     args.retries,
                 ): direction
@@ -2427,7 +2612,7 @@ def main() -> int:
             dropped["perAuthorCap"] += capped_posts
     if args.avatars:
         avatar_cache = args.avatar_cache or (args.output_root / "avatar-cache.json")
-        avatar_report = hydrate_post_avatars(posts, avatar_cache, args.cookie_source, args.avatar_workers, args.retries)
+        avatar_report = hydrate_post_avatars(posts, avatar_cache, bird_session, args.avatar_workers, args.retries)
     else:
         avatar_report = {"enabled": False, "authors": 0, "postsWithAvatar": 0, "coverage": 0.0, "errors": []}
     if args.translate:
@@ -2514,6 +2699,10 @@ def main() -> int:
             for result in results
         ],
     }
+    # A zero/partial Bird acquisition is not a quiet news day.  Preserve its
+    # diagnostics separately, then stop before emitting an index/posts pair
+    # that can be mistaken for a valid daily report or accidentally published.
+    abort_incomplete_acquisition(output_dir, report)
     write_json_atomic(data_dir / "posts.json", raw_payload)
     write_json_atomic(data_dir / "run-report.json", report)
     if args.editorial_ai:

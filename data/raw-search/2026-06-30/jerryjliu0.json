@@ -1,0 +1,155 @@
+[
+  {
+    "id": "2071802591147901339",
+    "text": "Come for the Germany games, stay for the Raising Canes 🇺🇸🇺🇸🦅",
+    "createdAt": "Tue Jun 30 03:46:44 +0000 2026",
+    "replyCount": 2,
+    "retweetCount": 1,
+    "likeCount": 6,
+    "conversationId": "2071802591147901339",
+    "author": {
+      "username": "jerryjliu0",
+      "name": "Jerry Liu"
+    },
+    "authorId": "369777416",
+    "quotedTweet": {
+      "id": "2071780757547176273",
+      "text": "Frustration dinner. https://t.co/8DiYEkEKdD",
+      "createdAt": "Tue Jun 30 02:19:59 +0000 2026",
+      "replyCount": 1420,
+      "retweetCount": 733,
+      "likeCount": 69256,
+      "conversationId": "2071780757547176273",
+      "author": {
+        "username": "FreddyLA7",
+        "name": "Freddy🇩🇪"
+      },
+      "authorId": "1372983710644068355",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HMBxnmoXoAAdqsX.jpg",
+          "width": 1536,
+          "height": 2048,
+          "previewUrl": "https://pbs.twimg.com/media/HMBxnmoXoAAdqsX.jpg:small"
+        }
+      ]
+    }
+  },
+  {
+    "id": "2071737452323303750",
+    "text": "This is a neat idea around doing model routing and sub-agent delegation while ensuring cache hits on accumulated context for all agents. \n\nIt makes a lot of sense: you want to ensure that all subagents can also make use of accumulated context in their cache",
+    "createdAt": "Mon Jun 29 23:27:54 +0000 2026",
+    "replyCount": 5,
+    "retweetCount": 3,
+    "likeCount": 52,
+    "conversationId": "2071737452323303750",
+    "author": {
+      "username": "jerryjliu0",
+      "name": "Jerry Liu"
+    },
+    "authorId": "369777416",
+    "quotedTweet": {
+      "id": "2071624574270157074",
+      "text": "Devin Fusion uses a hybrid-model harness built around two ideas:\n\nFirst, a “sidekick” agent: a smaller agent runs in parallel with the frontier agent. The frontier agent delegates work, monitors progress, and keeps ownership of planning, ambiguity, and final review.\n\nThis lets Fusion stay intelligent while avoiding unnecessary frontier-model spend.",
+      "createdAt": "Mon Jun 29 15:59:22 +0000 2026",
+      "replyCount": 3,
+      "retweetCount": 5,
+      "likeCount": 125,
+      "conversationId": "2071624568465490170",
+      "inReplyToStatusId": "2071624571086639215",
+      "author": {
+        "username": "cognition",
+        "name": "Cognition"
+      },
+      "authorId": "1751810001751183361",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HL_jNjjXoAA2fIe.jpg",
+          "width": 2048,
+          "height": 1435,
+          "previewUrl": "https://pbs.twimg.com/media/HL_jNjjXoAA2fIe.jpg:small"
+        }
+      ]
+    }
+  },
+  {
+    "id": "2071735844793385020",
+    "text": "Which AI engineer is GOATed at pickleball? \n\nCome find out tomorrow! \n\nhttps://t.co/ZPEExKTlvE",
+    "createdAt": "Mon Jun 29 23:21:31 +0000 2026",
+    "replyCount": 3,
+    "retweetCount": 0,
+    "likeCount": 4,
+    "conversationId": "2071735844793385020",
+    "author": {
+      "username": "jerryjliu0",
+      "name": "Jerry Liu"
+    },
+    "authorId": "369777416",
+    "quotedTweet": {
+      "id": "2069155722323968188",
+      "text": "Bring your hot takes and your drop shots.🔥\n\nNext week, we're co-hosting The Agent Open: an afternoon of pickleball, food, drinks, and industry-leading speakers who ace their code and commit to their serves. 🏓\n\nCatch our co-founder and CEO, Jerry Liu after Day 2 of AIE World's Fair on a panel moderated by Gergely Orosz (𝘛𝘩𝘦 𝘗𝘳𝘢𝘨𝘮𝘢𝘵𝘪𝘤 𝘌𝘯𝘨𝘪𝘯𝘦𝘦𝘳). Get ready for a real conversation about the Future of AI and learn how to avoid the hype, stay out of the kitchen, and strategically position your team for what's next.\n\n🗓️ Tuesday, June 30th @ 5:00pm PT\n📍 San Francisco (register for the address)\n🦙 Co-hosted by LlamaIndex with Braintrust, turbopuffer, Cursor, Parallel Web Systems, Modal, and Browserbase\n\nCome for the panel, stay for the championship rounds.\n\nRSVP: https://t.co/sGoLGt0lHH\n\n#AIEngineering #AIAgents #DocumentAI",
+      "createdAt": "Mon Jun 22 20:29:01 +0000 2026",
+      "replyCount": 4,
+      "retweetCount": 2,
+      "likeCount": 7,
+      "conversationId": "2069155722323968188",
+      "author": {
+        "username": "llama_index",
+        "name": "LlamaIndex 🦙"
+      },
+      "authorId": "1604278358296055808"
+    }
+  },
+  {
+    "id": "2071729856900215261",
+    "text": "We're excited to introduce the Retrieval Harness in LlamaParse - which is the 2026 version of RAG over documents\n\nGeneralized agents need the right set of tools to scalably search and read through an arbitrary corpus of data (from 10 docs to 1m+ docs). They can already demonstrate great retrieval performance over a local filesystem, need a proper backend for a large collection of managed data. The Retrieval Harness exposes a diverse set of tools for various needs: \n\n1. Hybrid Retrieval: Combine vector search with keyword search, let the agent set the alpha value to toggle between the two \n2. List Files: a scalable version of `ls` to list files within an index\n3. File Grep: enable regex search within a given file \n4. File Read: Allow agents to read a subsection from an existing document.\n\nThe agent can choose to interleave any sequence of these tools in order to complete a variety of tasks, from simple to hard. \n\nCome check it out! \n\nBlog: https://t.co/AGQV6JVkKj\n\nSign up to LlamaParse: https://t.co/XYZmx5TFz8",
+    "createdAt": "Mon Jun 29 22:57:43 +0000 2026",
+    "replyCount": 1,
+    "retweetCount": 10,
+    "likeCount": 135,
+    "conversationId": "2071729856900215261",
+    "author": {
+      "username": "jerryjliu0",
+      "name": "Jerry Liu"
+    },
+    "authorId": "369777416",
+    "quotedTweet": {
+      "id": "2071656315210826006",
+      "text": "Semantic search alone doesn't cut it. Neither does brute-force grep.\nAgents need both.\n\nToday we're shipping the Retrieval Harness in LlamaParse Index: semantic search, server-side grep, and file-level navigation working together in a single agent reasoning loop. 🦙🌤️\n\nGrep a file, list what's in an index, read past a chunk boundary,\nrun hybrid search with reranking — all as native agent tools.\n\nNow in beta across all paid tiers. Full breakdown in the blog 👇\n\nLearn More: https://t.co/q86Lu6tdOI",
+      "createdAt": "Mon Jun 29 18:05:29 +0000 2026",
+      "replyCount": 5,
+      "retweetCount": 4,
+      "likeCount": 59,
+      "conversationId": "2071656315210826006",
+      "author": {
+        "username": "llama_index",
+        "name": "LlamaIndex 🦙"
+      },
+      "authorId": "1604278358296055808",
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/ext_tw_video_thumb/2071656275679559680/pu/img/FRJzYu7XIIdRcVGH.jpg",
+          "width": 2048,
+          "height": 1152,
+          "previewUrl": "https://pbs.twimg.com/ext_tw_video_thumb/2071656275679559680/pu/img/FRJzYu7XIIdRcVGH.jpg:small",
+          "videoUrl": "https://video.twimg.com/ext_tw_video/2071656275679559680/pu/vid/avc1/1280x720/QT_wrcjJdzYvP3Xs.mp4?tag=12",
+          "durationMs": 53300
+        }
+      ]
+    },
+    "media": [
+      {
+        "type": "video",
+        "url": "https://pbs.twimg.com/amplify_video_thumb/2071729793788465153/img/pCZbHPW7sr6G49hs.jpg",
+        "width": 1280,
+        "height": 720,
+        "previewUrl": "https://pbs.twimg.com/amplify_video_thumb/2071729793788465153/img/pCZbHPW7sr6G49hs.jpg:small",
+        "videoUrl": "https://video.twimg.com/amplify_video/2071729793788465153/vid/avc1/1280x720/KkfIAltvt5CjAneC.mp4?tag=28",
+        "durationMs": 53354
+      }
+    ]
+  }
+]
