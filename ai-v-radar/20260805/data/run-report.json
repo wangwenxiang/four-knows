@@ -2,29 +2,27 @@
   "generatedAt": "2026-08-05T01:20:41.373487+00:00",
   "fetchStartedAt": "2026-08-05T01:20:41.373487+00:00",
   "windowStart": "2026-08-04T02:20:41.373487+00:00",
-  "windowHours": 23.0,
   "accountsRequested": 62,
-  "fetchMode": "search",
   "accountsSucceeded": 62,
   "accountsFailed": 0,
   "postsSelected": 18,
   "topStories": [
     {
-      "id": "2084748111239344556",
-      "author": "AnthropicAI",
-      "category": "AI 技术前沿",
+      "id": "2084684735725379637",
+      "author": "MistralAI",
+      "category": "AI 技术进步",
       "editorialScore": 100
     },
     {
-      "id": "2084731700106711209",
-      "author": "OpenAIDevs",
-      "category": "AI 技术进步",
+      "id": "2084748111239344556",
+      "author": "AnthropicAI",
+      "category": "AI 技术前沿",
       "editorialScore": 99
     },
     {
-      "id": "2084684735725379637",
-      "author": "MistralAI",
-      "category": "AI 技术应用",
+      "id": "2084756900462141646",
+      "author": "istoica05",
+      "category": "AI 技术前沿",
       "editorialScore": 98
     }
   ],
@@ -34,12 +32,13 @@
     "promptVersion": "codex-v1",
     "preflight": {
       "ok": true,
-      "attempts": 1,
-      "error": ""
+      "attempts": 0,
+      "error": "",
+      "source": "cache-only"
     },
     "eligibleTexts": 22,
-    "cacheHits": 0,
-    "translatedNow": 22,
+    "cacheHits": 22,
+    "translatedNow": 0,
     "failed": 0,
     "coverage": 1.0,
     "degraded": false,
@@ -52,11 +51,11 @@
     "authors": 17,
     "primaryAuthors": 10,
     "quotedAuthors": 7,
-    "cacheHits": 10,
+    "cacheHits": 17,
     "inlineCached": 0,
-    "profileRequestsNeeded": 7,
-    "attemptedNow": 7,
-    "fetchedNow": 7,
+    "profileRequestsNeeded": 0,
+    "attemptedNow": 0,
+    "fetchedNow": 0,
     "rateLimited": false,
     "deferredDueToRateLimit": 0,
     "postsWithAvatar": 18,
@@ -64,14 +63,7 @@
     "quotedPostsWithAvatar": 7,
     "quotedCoverage": 1.0,
     "errors": [],
-    "cache": "/Users/jay/Documents/ai-coder/four-knows/ai-v-radar/avatar-cache.json"
-  },
-  "dropped": {
-    "outsideWindow": 15,
-    "excludedAuthor": 1,
-    "hotspotDirectionMismatch:foundation_models": 1,
-    "aiNotTechnical": 68,
-    "perAuthorCap": 13
+    "cache": "ai-v-radar/avatar-cache.json"
   },
   "editorial": {
     "enabled": true,
@@ -1707,7 +1699,6 @@
       }
     ]
   },
-  "searchFallbacks": [],
   "xHotspotSearch": {
     "schemaVersion": 2,
     "enabled": true,
@@ -1748,8 +1739,8 @@
         "fetched": 8,
         "selectedPosts": 3,
         "selectedPostIds": [
-          "2084748111239344556",
           "2084684735725379637",
+          "2084748111239344556",
           "2084684737554141253"
         ],
         "directionMismatches": 1,
@@ -1841,141 +1832,15 @@
       }
     ]
   },
-  "failures": [],
-  "fetches": [
-    {
-      "handles": [
-        "AmandaAskell",
-        "TrentonBricken",
-        "carlini",
-        "dpkingma",
-        "demishassabis",
-        "JeffDean",
-        "Thom_Wolf",
-        "GuillaumeLample"
-      ],
-      "ok": true,
-      "fetched": 4,
-      "attempts": 1,
-      "elapsedSeconds": 1.65,
-      "source": "search"
-    },
-    {
-      "handles": [
-        "anilkseth",
-        "Ken_Goldberg",
-        "RussTedrake",
-        "patrickbutlin",
-        "cyrilzakka",
-        "marinkazitnik"
-      ],
-      "ok": true,
-      "fetched": 0,
-      "attempts": 1,
-      "elapsedSeconds": 0.87,
-      "source": "search"
-    },
-    {
-      "handles": [
-        "bcherny",
-        "karpathy",
-        "michael_truell",
-        "scottwu46",
-        "Xudong07452910",
-        "amasad",
-        "hwchase17",
-        "jerryjliu0"
-      ],
-      "ok": true,
-      "fetched": 40,
-      "attempts": 1,
-      "elapsedSeconds": 1.95,
-      "source": "search"
-    },
-    {
-      "handles": [
-        "chelseabfinn",
-        "c_valenzuelab",
-        "demi_guo",
-        "RichardSocher",
-        "mustafasuleyman",
-        "alexandr_wang",
-        "realGeorgeHotz",
-        "drfeifei"
-      ],
-      "ok": true,
-      "fetched": 2,
-      "attempts": 1,
-      "elapsedSeconds": 1.41,
-      "source": "search"
-    },
-    {
-      "handles": [
-        "hwchung27",
-        "jiayq",
-        "miramurati",
-        "johnschulman2",
-        "yoshua_bengio",
-        "fchollet",
-        "lilianweng",
-        "Tim_Dettmers"
-      ],
-      "ok": true,
-      "fetched": 0,
-      "attempts": 1,
-      "elapsedSeconds": 0.89,
-      "source": "search"
-    },
-    {
-      "handles": [
-        "istoica05",
-        "sh_reya",
-        "HamelHusain",
-        "swyx",
-        "yoheinakajima",
-        "joaomdmoura",
-        "pabbeel",
-        "svlevine"
-      ],
-      "ok": true,
-      "fetched": 40,
-      "attempts": 1,
-      "elapsedSeconds": 2.15,
-      "source": "search"
-    },
-    {
-      "handles": [
-        "simonw",
-        "sama",
-        "gdb",
-        "polynoamial",
-        "jackclarkSF",
-        "ch402",
-        "mikeyk",
-        "alexalbert__"
-      ],
-      "ok": true,
-      "fetched": 18,
-      "attempts": 1,
-      "elapsedSeconds": 1.79,
-      "source": "search"
-    },
-    {
-      "handles": [
-        "tri_dao",
-        "matei_zaharia",
-        "chipro",
-        "DrJimFan",
-        "AravSrinivas",
-        "ilyasut",
-        "janleike",
-        "NoamShazeer"
-      ],
-      "ok": true,
-      "fetched": 1,
-      "attempts": 1,
-      "elapsedSeconds": 1.93,
-      "source": "search"
-    }
-  ]
+  "rebuiltFromData": "ai-v-radar/20260805/data/posts.json",
+  "rebuildDroppedRecruitment": 0,
+  "rebuildDroppedExcludedAuthor": 0,
+  "rebuildDroppedNonTechnical": 0,
+  "rebuildDroppedPerAuthorCap": 0,
+  "dropped": {
+    "recruitment": 0,
+    "excludedAuthor": 0,
+    "nonTechnical": 0,
+    "perAuthorCap": 0
+  }
 }
