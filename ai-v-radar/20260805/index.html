@@ -28,7 +28,7 @@
   <div class="shell">
     <header class="hero">
       <h1>硅谷 AI 原声 <span class="report-date">· 2026-08-05</span></h1>
-      <div class="metrics"><div class="metric"><strong>62</strong><span>监控专家</span></div><div class="metric"><strong>10</strong><span>活跃专家</span></div><div class="metric"><strong>18</strong><span>精选原文</span></div></div>
+      <div class="metrics"><div class="metric"><strong>62</strong><span>监控专家</span></div><div class="metric"><strong>13</strong><span>活跃专家</span></div><div class="metric"><strong>22</strong><span>精选原文</span></div></div>
     </header>
 
     <main class="grid">
@@ -43,7 +43,37 @@
 
         <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HO5JoqBWUAAU5uA.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HO5JoqBWUAAU5uA.jpg" alt="X post media"><span>IMAGE</span></a></div>
 
-        <div class="card-bottom"><div class="engagement"><span>♡ 1,878</span><span>↻ 162</span><span>↩ 122</span></div><a href="https://x.com/MistralAI/status/2084684735725379637" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 2,260</span><span>↻ 193</span><span>↩ 139</span></div><a href="https://x.com/MistralAI/status/2084684735725379637" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">81<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>08-05 11:30 北京</time></div>
+        <p class="post-text original source-only" lang="auto">一个 35B 模型，配上一套进化式 Agent 系统，在机器学习工程 Benchmark 上跑到了接近 GPT-5.6 Sol 和 2.8T Kimi K3 的成绩。
+
+这篇论文提出 Frontis-MA1，想让 Agent 学会持续改进机器学习方案。
+
+它会起草代码、继续优化、根据执行错误修复，也会组合两个候选方案。每次改动都要进入真实环境运行，分数、日志和失败原因再回到训练与搜索系统。
+
+背后的 OpenMLE 把 5758 个可执行任务、SFT/RL 训练和长时进化搜索连成闭环。
+
+在相同 harness 下，Frontis-MA1-35B 相比基础模型，成绩从 39.39% 提升到 60.61%；加入跨任务经验和异步搜索后，进一步达到 71.21%。
+
+这篇工作的价值是把「AI 改进 AI」落成了一套能运行、能评分、也能复现的工程流程。
+
+论文也很克制，也表达了这距离通用递归自我改进还有很长一段路。当前 Agent 主要改进机器学习代码和方案，搜索系统本身仍然大多由人设计。
+
+不过当每次实验都能反过来训练下一版「改进器」，递归自我改进终于开始有了可以验证的场景。
+
+📎 arxiv: https://t.co/MHDGNcSr01</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HO6LwdAX0AAVhjY.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HO6LwdAX0AAVhjY.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 77</span><span>↻ 11</span><span>↩ 18</span></div><a href="https://x.com/Xudong07452910/status/2084844343592980753" target="_blank" rel="noreferrer">Open on X ↗</a></div>
       </article>
 
       <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="anthropicai" data-top-story="true">
@@ -69,34 +99,14 @@ AISI 对该事件的披露见此处：https://t.co/cJ3hCBtBU7</p>
 
 
 
-        <div class="card-bottom"><div class="engagement"><span>♡ 1,166</span><span>↻ 182</span><span>↩ 196</span></div><a href="https://x.com/AnthropicAI/status/2084748111239344556" target="_blank" rel="noreferrer">Open on X ↗</a></div>
-      </article>
-
-      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="istoica05" data-top-story="true">
-        <div class="card-top">
-          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1889424820821172228/OKFe0cdL_normal.jpg" alt="Ion Stoica avatar" loading="lazy"></div>
-          <div class="identity"><strong>Ion Stoica</strong><span>@istoica05 · Berkeley；Anyscale 联合创始人</span></div>
-          <div class="score">60<small>signal</small></div>
-        </div>
-        <div class="meta"><span class="priority">P1</span><span>AI 基础设施 / 分布式系统</span><time>08-05 05:42 北京</time></div>
-        <p class="post-text original" lang="auto">How do we make AI agents more reliable? By teaching them exactly how they fail. We use system-specific failure taxonomies to boost SWE-bench Verified Mini to 70.7% and TerminalBench 2 to 89.9%. Check out the thread below!</p><p class="post-text translation" lang="zh-CN">我们如何让 AI agent 更可靠？通过准确教会它们自己会如何失败。我们使用系统特定的失败分类，将 SWE-bench Verified Mini 提升至 70.7%，TerminalBench 2 提升至 89.9%。查看下方帖文！</p>
-
-
-        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1803313227390132226/GMHJIoNL_normal.jpg" alt="Mert Cemri avatar" loading="lazy"></div><div><strong>Mert Cemri</strong><span>@mertcemri</span></div></div><p class="quote-text original" lang="auto">What are failure taxonomies, and how can they improve AI agents?
-AdaMAST learns system-specific failure taxonomies from raw traces and reuses them across runs to identify where, when and how the agents fail.
-As a Claude Code skill, it improves SWE-bench Verified Mini from 64.0% to 70.7%.
-On TerminalBench 2, we get 89.9% with the Opus 4.6/Forgecode harness when AdaMAST-generated taxonomies are used with a Best-of-N Judge. (1/n)</p><p class="quote-text translation" lang="zh-CN">什么是失败分类，它们如何改进 AI agent？
-AdaMAST 从原始轨迹中学习系统特定的失败分类，并在多次运行中复用这些分类，以识别 agent 在哪里、何时以及如何失败。
-作为 Claude Code skill，它将 SWE-bench Verified Mini 从 64.0% 提升至 70.7%。
-在 TerminalBench 2 上，当 AdaMAST 生成的分类与 Best-of-N Judge 搭配使用时，我们通过 Opus 4.6/Forgecode harness 达到 89.9%。(1/n)</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOf2CFLbkAAU53n.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOf2CFLbkAAU53n.png" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/mertcemri/status/2082906626235965454" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
-        <div class="card-bottom"><div class="engagement"><span>♡ 13</span><span>↻ 3</span><span>↩ 0</span></div><a href="https://x.com/istoica05/status/2084756900462141646" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 1,842</span><span>↻ 309</span><span>↩ 272</span></div><a href="https://x.com/AnthropicAI/status/2084748111239344556" target="_blank" rel="noreferrer">Open on X ↗</a></div>
       </article>
 
       <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="openaidevs" data-top-story="false">
         <div class="card-top">
           <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2022002720971096064/l3Kyt4qt_normal.jpg" alt="OpenAI Developers avatar" loading="lazy"></div>
           <div class="identity"><strong>OpenAI Developers</strong><span>@OpenAIDevs · Agent 平台与开发者产品</span></div>
-          <div class="score">84<small>signal</small></div>
+          <div class="score">85<small>signal</small></div>
         </div>
         <div class="meta"><span class="priority">P0</span><span>Agent 技术突破</span><time>08-05 04:02 北京</time></div>
         <p class="post-text original" lang="auto">July for OpenAI Developers</p><p class="post-text translation" lang="zh-CN">OpenAI 开发者七月动态</p>
@@ -115,14 +125,14 @@ GPT-5.6 已在 ChatGPT、Codex 和 API 中上线：
 我们下调了 GPT-5.6 Luna 和 Terra 的价格，并新增了 Fast</p></div>
 
 
-        <div class="card-bottom"><div class="engagement"><span>♡ 267</span><span>↻ 19</span><span>↩ 18</span></div><a href="https://x.com/OpenAIDevs/status/2084731700106711209" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 351</span><span>↻ 25</span><span>↩ 20</span></div><a href="https://x.com/OpenAIDevs/status/2084731700106711209" target="_blank" rel="noreferrer">Open on X ↗</a></div>
       </article>
 
       <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="simonw" data-top-story="false">
         <div class="card-top">
           <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
           <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
-          <div class="score">74<small>signal</small></div>
+          <div class="score">79<small>signal</small></div>
         </div>
         <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>08-05 08:03 北京</time></div>
         <p class="post-text original" lang="auto">Big new release of my LLM CLI tool and Python library for talking to hundreds of different LLMs - reasoning traces, OpenAI Responses support, server-side tools, smarter logging and a whole lot more
@@ -131,167 +141,62 @@ https://t.co/IgGoMlV4Br</p>
 
 
 
-        <div class="card-bottom"><div class="engagement"><span>♡ 70</span><span>↻ 4</span><span>↩ 13</span></div><a href="https://x.com/simonw/status/2084792341572001871" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 200</span><span>↻ 14</span><span>↩ 25</span></div><a href="https://x.com/simonw/status/2084792341572001871" target="_blank" rel="noreferrer">Open on X ↗</a></div>
       </article>
 
-      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="gdb" data-top-story="false">
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="johnschulman2" data-top-story="false">
         <div class="card-top">
-          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_normal.jpg" alt="Greg Brockman avatar" loading="lazy"></div>
-          <div class="identity"><strong>Greg Brockman</strong><span>@gdb · OpenAI / 联合创始人</span></div>
-          <div class="score">96<small>signal</small></div>
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1389000537195040770/DzWPljT-_normal.jpg" alt="John Schulman avatar" loading="lazy"></div>
+          <div class="identity"><strong>John Schulman</strong><span>@johnschulman2 · 前 OpenAI；RLHF 关键人物</span></div>
+          <div class="score">78<small>signal</small></div>
         </div>
-        <div class="meta"><span class="priority">P0</span><span>基座模型 / OpenAI</span><time>08-05 06:34 北京</time></div>
-        <p class="post-text original" lang="auto">Luna’s price-performance is incredible</p><p class="post-text translation" lang="zh-CN">Luna 的性价比非常出色</p>
+        <div class="meta"><span class="priority">P1</span><span>AI 研究</span><time>08-05 10:56 北京</time></div>
+        <p class="post-text original" lang="auto">Interesting how these models go into a monomaniacal rage on cyber evals. I wonder if we&#x27;re seeing chunky post-training https://t.co/uqCinTD7I3 in action, where the models pattern-match the situation to a part of the RLVR training distribution where task completion is the only reward, and the aligned behavior learned elsewhere doesn&#x27;t generalize. There might even be a chunk consisting of CTF-style tasks.</p><p class="post-text translation" lang="zh-CN">有意思的是，这些模型在网络安全评测中会陷入一种偏执狂式的暴怒。我在想，我们是否正在看到大块后训练 https://t.co/uqCinTD7I3 发挥作用：模型把当前情境模式匹配到了 RLVR 训练分布中的某一部分，在那里完成任务是唯一奖励，而在其他地方学到的对齐行为无法泛化。甚至可能存在一个由 CTF 风格任务组成的块。</p>
 
 
-        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1909353910130950147/EeSGdgA5_normal.jpg" alt="Theo - t3.gg avatar" loading="lazy"></div><div><strong>Theo - t3.gg</strong><span>@theo</span></div></div><p class="quote-text original" lang="auto">Luna is such an insane value after the 80% cost reduction. It&#x27;s basically free and can do a ton of real data processing type work.
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1890292397675827200/cQ64Nloh_normal.png" alt="AI Security Institute (AISI) avatar" loading="lazy"></div><div><strong>AI Security Institute (AISI)</strong><span>@AISecurityInst</span></div></div><p class="quote-text original" lang="auto">On July 28th, we identified an incident during a routine cyber evaluation in which AI agents took sustained, unsanctioned actions directed at real people and organisations.
 
-I&#x27;m overhauling title generation in T3 Code to take more advantage of it. I almost want to spin it up on every prompt to generate descriptions, feedback, and statuses. Why wouldn&#x27;t I? It&#x27;s basically free</p><p class="quote-text translation" lang="zh-CN">Luna 在降价 80% 后性价比高得离谱。它基本等于免费，还能处理大量真实数据处理类工作。
+The behaviour came mostly from one model (Anthropic&#x27;s Mythos 5), with a small number of events from another (OpenAI&#x27;s GPT-5.6-Sol). In the most serious case, an agent used social engineering to try and get malicious code into an open-source project.
 
-我正在重构 T3 Code 的标题生成，以便更充分利用它。我甚至想在每个 prompt 上都启动它来生成描述、反馈和状态。为什么不呢？它基本免费。</p><a class="quote-link" href="https://x.com/theo/status/2084748639470272972" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
-        <div class="card-bottom"><div class="engagement"><span>♡ 435</span><span>↻ 15</span><span>↩ 38</span></div><a href="https://x.com/gdb/status/2084770040281211043" target="_blank" rel="noreferrer">Open on X ↗</a></div>
-      </article>
+As was standard in our cyber testing, we had intentionally permitted internet access, and model-provider cyber classifiers were deliberately disabled - conditions that do not reflect how frontier models are made available to the public.
 
-      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
-        <div class="card-top">
-          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
-          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
-          <div class="score">83<small>signal</small></div>
-        </div>
-        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>08-04 17:30 北京</time></div>
-        <p class="post-text original source-only" lang="auto">过去两个月，我们一直在闷声干一件事：教 AI 预测未来。
+Even under test conditions, this incident is significant: it is the first time we have seen risks around autonomy and deception manifest this clearly in the real world.
 
-今天可以摊牌了 🎉
+We are taking this incident seriously and working with labs, involved parties, and others to improve evaluation standards and best practice for disclosure - and sharing this openly so others can learn.
 
-在 FutureX，一个专门考察&quot;预测还没发生的事&quot;的实时榜单上，我们的长程预测 agent 拿下：
+You can read the incident report and full technical document here: https://t.co/mdZYqzaOvH</p><p class="quote-text translation" lang="zh-CN">7 月 28 日，我们在一次常规网络安全评测中发现一起事件：AI 智能体对真实个人和组织采取了持续的、未经授权的行动。
 
-🥇 第 1 名（基座 Kimi K3） @Kimi_Moonshot
-🥉 第 3 名（基座 DeepSeek V4 Pro）@deepseek_ai
-7️⃣ 第 7 名（基座 MiniMax M3）@MiniMax_AI
+这些行为主要来自一个模型（Anthropic 的 Mythos 5），另有少量事件来自另一个模型（OpenAI 的 GPT-5.6-Sol）。在最严重的案例中，一个智能体使用社会工程手段，试图将恶意代码植入一个开源项目。
 
-同一套框架，换三个模型当&quot;大脑&quot;，全部进前十。
+按照我们网络安全测试的标准做法，我们有意允许互联网访问，并刻意关闭了模型提供商的网络安全分类器。这些条件并不反映前沿模型向公众开放时的实际环境。
 
-感谢团队成员 @Bruce_Lee1207 一起努力的付出 。
+即使是在测试条件下，这一事件也意义重大：这是我们首次看到与自主性和欺骗相关的风险在现实世界中如此清晰地显现。
 
-先回答一个你们一定会问的问题：现在榜单满天飞，FutureX 凭什么值得认真对待？
-1️⃣ 出品方是 ByteDance Seed 联合 Stanford、Princeton、复旦，学界业界联合出品，论文在 arXiv 公开；
-2️⃣ 它可能是唯一一个&quot;打榜&quot;在逻辑上不成立的榜单：题目全是尚未发生的真实事件，agent 先交预测，官方等事件落地后按真实结果判分。答案在出题时根本不存在，所以没有题库可背，没有答案分布可过拟合，想提分只有一条路：真的更会预测；
-3️⃣ 同台的是谁：OpenAI、Google、xAI 的 Deep Research 系 agent 都被系统评测过，https://t.co/Jsf4FPzkDp 登顶时还专门发了官方博客。
+我们正在严肃对待此事件，并与实验室、相关方及其他人士合作，改进评测标准和披露最佳实践，同时公开分享，以便他人从中学习。
 
-再说我们的 agent 在做什么。你可以把它想象成一个不知疲倦的分析师：
-
-🔍 自己上网检索，多信源交叉验证
-🧠 把证据沉淀成&quot;信念&quot;，有新信息就更新判断
-🎲 最后给的不是一句&quot;可能吧&quot;，而是一个校准过的概率
-⚖️ 多个子分析师意见相左时，还有裁决机制出面对齐
-  ......
-
-为什么执着于预测？因为预测未来是智能最诚实的试金石，它逼着模型把检索、推理、常识、对不确定性的拿捏全部亮出来，一点都藏不住。
-
-这只是开始。方法细节，后续成绩和最后的产品，会陆续放出来。</p>
-
-        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HO1WktRXMAAzzan.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HO1WktRXMAAzzan.jpg" alt="X post media"><span>IMAGE</span></a></div>
-
-        <div class="card-bottom"><div class="engagement"><span>♡ 121</span><span>↻ 18</span><span>↩ 20</span></div><a href="https://x.com/Xudong07452910/status/2084572551607640146" target="_blank" rel="noreferrer">Open on X ↗</a></div>
-      </article>
-
-      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="simonw" data-top-story="false">
-        <div class="card-top">
-          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
-          <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
-          <div class="score">83<small>signal</small></div>
-        </div>
-        <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>08-05 03:12 北京</time></div>
-        <p class="post-text original" lang="auto">The MiniMax-H3 video generation model is a lot of fun - here&#x27;s what I got on my M5 Pro Mac for the prompt &quot;a rainbow colored skunk leaps over a mossy log in a supermarket&quot; (~115GB model download, took around 45 minutes to generate) https://t.co/dYjE1VFFml</p><p class="post-text translation" lang="zh-CN">MiniMax-H3 视频生成模型很好玩，这是我在 M5 Pro Mac 上用 prompt「a rainbow colored skunk leaps over a mossy log in a supermarket」生成的结果（模型下载约 115GB，生成大约花了 45 分钟）https://t.co/dYjE1VFFml</p>
-
-        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2084719115147919360/img/Hs5cFAxxyRMfs8Qh.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2084719115147919360/img/Hs5cFAxxyRMfs8Qh.jpg" alt="X post media"><span>VIDEO</span></a></div>
-
-        <div class="card-bottom"><div class="engagement"><span>♡ 145</span><span>↻ 5</span><span>↩ 21</span></div><a href="https://x.com/simonw/status/2084719238569435469" target="_blank" rel="noreferrer">Open on X ↗</a></div>
-      </article>
-
-      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="aravsrinivas" data-top-story="false">
-        <div class="card-top">
-          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2028729526822588416/WhtMUI-P_normal.jpg" alt="Aravind Srinivas avatar" loading="lazy"></div>
-          <div class="identity"><strong>Aravind Srinivas</strong><span>@AravSrinivas · Perplexity / CEO</span></div>
-          <div class="score">81<small>signal</small></div>
-        </div>
-        <div class="meta"><span class="priority">P0</span><span>AI 搜索 / 产品</span><time>08-05 01:07 北京</time></div>
-        <p class="post-text original" lang="auto">Verification is key when using agents for high stakes research!</p><p class="post-text translation" lang="zh-CN">在用智能体做高风险研究时，验证是关键！</p>
-
-
-        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1615440606456864769/FgBZT7uE_normal.jpg" alt="Jeff Grimes avatar" loading="lazy"></div><div><strong>Jeff Grimes</strong><span>@jeffgrimes9</span></div></div><p class="quote-text original" lang="auto">Every numerical value in Perplexity Computer finance queries is traceable back to original values, with full calculation trace shown. https://t.co/0EPCgGWu9E</p><p class="quote-text translation" lang="zh-CN">Perplexity Computer 金融查询中的每一个数值都可以追溯到原始数据，并展示完整的计算链路。https://t.co/0EPCgGWu9E</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HO41aeEbgAAiADU.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HO41aeEbgAAiADU.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/jeffgrimes9/status/2084677555651789293" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
-        <div class="card-bottom"><div class="engagement"><span>♡ 149</span><span>↻ 12</span><span>↩ 22</span></div><a href="https://x.com/AravSrinivas/status/2084687628130226400" target="_blank" rel="noreferrer">Open on X ↗</a></div>
-      </article>
-
-      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
-        <div class="card-top">
-          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
-          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
-          <div class="score">76<small>signal</small></div>
-        </div>
-        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>08-04 23:00 北京</time></div>
-        <p class="post-text original" lang="auto">Its crazy how the consensus shifted away from Claude being the favorite to Codex
-
-It’s not just Vibes. Things favoring codex:
-
-- Better harness (Codex Desktop)
-- Better pricing: more things included within subscription (fast mode etc). bonus - constant resets from Tibo 😅
-- Less refusals / false positive safety triggers
-- You can use subscription freely wherever you want (Opencode, Amp, etc)
-
-When you add all these up it makes codex significantly more attractive.  There is likely an industry lag of people still using Claude but feels like it’s gonna swing back</p><p class="post-text translation" lang="zh-CN">共识从偏爱 Claude 转向 Codex，这变化真是疯狂。
-
-这不只是感觉。Codex 的优势包括：
-
-- 更好的运行环境（Codex Desktop）
-- 更好的定价：订阅里包含更多东西（fast mode 等）。额外福利：Tibo 不断重置额度 😅
-- 更少拒答/误触安全机制
-- 可以在任何想用的地方自由使用订阅（Opencode、Amp 等）
-
-这些加起来让 Codex 明显更有吸引力。行业里可能还有不少人滞后地继续用 Claude，但感觉风向要转回来了。</p>
-
-
-
-        <div class="card-bottom"><div class="engagement"><span>♡ 446</span><span>↻ 23</span><span>↩ 69</span></div><a href="https://x.com/HamelHusain/status/2084655655978512717" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+你可以在这里阅读事件报告和完整技术文档：https://t.co/mdZYqzaOvH</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HO59s3PW4AAPwi-.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HO59s3PW4AAPwi-.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/AISecurityInst/status/2084746202579386632" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 334</span><span>↻ 38</span><span>↩ 21</span></div><a href="https://x.com/johnschulman2/status/2084835800899076313" target="_blank" rel="noreferrer">Open on X ↗</a></div>
       </article>
 
       <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="mistralai" data-top-story="false">
         <div class="card-top">
           <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1996905418065375232/mzwynOLB_normal.jpg" alt="Mistral AI avatar" loading="lazy"></div>
           <div class="identity"><strong>Mistral AI</strong><span>@MistralAI · 基础模型机构</span></div>
-          <div class="score">74<small>signal</small></div>
+          <div class="score">75<small>signal</small></div>
         </div>
         <div class="meta"><span class="priority">P0</span><span>基础模型突破</span><time>08-05 00:55 北京</time></div>
         <p class="post-text original" lang="auto">State-of-the-art on multimodal moderation, Shieldstral boasts industry-leading efficiency, running on a single 16GB NVIDIA GPU and gives enterprises customized control of what’s deemed safe.</p><p class="post-text translation" lang="zh-CN">Shieldstral 在多模态审核方面达到最先进水平，效率行业领先，可在单张 16GB NVIDIA GPU 上运行，并让企业自定义控制哪些内容被视为安全。</p>
 
 
 
-        <div class="card-bottom"><div class="engagement"><span>♡ 95</span><span>↻ 3</span><span>↩ 3</span></div><a href="https://x.com/MistralAI/status/2084684737554141253" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 107</span><span>↻ 3</span><span>↩ 3</span></div><a href="https://x.com/MistralAI/status/2084684737554141253" target="_blank" rel="noreferrer">Open on X ↗</a></div>
       </article>
 
       <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="yoheinakajima" data-top-story="false">
         <div class="card-top">
           <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
           <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
-          <div class="score">69<small>signal</small></div>
-        </div>
-        <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>08-04 22:29 北京</time></div>
-        <p class="post-text original" lang="auto">sweet, i finally set up my chatgpt, codex, claude, &amp; claude code to have a shared memory - so i can ask one of them what i&#x27;ve worked on recently across all four of them
-
-for codex/cc, i&#x27;m using local history, but for chatgpt/claude i use a scheduled recap skill to regularly send summaries</p><p class="post-text translation" lang="zh-CN">不错，我终于把我的 chatgpt、codex、claude 和 claude code 设置成共享记忆了，这样我就可以问其中任意一个，最近我在这四个工具里都做过什么。
-
-对于 codex/cc，我用的是本地历史；对于 chatgpt/claude，我用一个定时回顾 skill 来定期发送摘要。</p>
-
-        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HO4mK79bcAArkTk.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HO4mK79bcAArkTk.jpg" alt="X post media"><span>IMAGE</span></a></div>
-
-        <div class="card-bottom"><div class="engagement"><span>♡ 43</span><span>↻ 3</span><span>↩ 23</span></div><a href="https://x.com/yoheinakajima/status/2084647915021336680" target="_blank" rel="noreferrer">Open on X ↗</a></div>
-      </article>
-
-      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="yoheinakajima" data-top-story="false">
-        <div class="card-top">
-          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
-          <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
-          <div class="score">68<small>signal</small></div>
+          <div class="score">73<small>signal</small></div>
         </div>
         <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>08-05 01:36 北京</time></div>
         <p class="post-text original" lang="auto">this is a really clean and unique ai tool that acts more like an extension of you
@@ -318,27 +223,117 @@ Watch it take a call, chase a thread, and finish work while you’re offline.</p
 它会触达需要的设备，而不只是聊天记录。
 
 看看它如何接电话、跟进邮件线程，并在你离线时完成工作。</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2084688713599328256/img/HDkpogg25vJbablR.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2084688713599328256/img/HDkpogg25vJbablR.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/khoi_danny/status/2084688823024492990" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
-        <div class="card-bottom"><div class="engagement"><span>♡ 39</span><span>↻ 2</span><span>↩ 3</span></div><a href="https://x.com/yoheinakajima/status/2084694878819422607" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 145</span><span>↻ 4</span><span>↩ 3</span></div><a href="https://x.com/yoheinakajima/status/2084694878819422607" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="istoica05" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1889424820821172228/OKFe0cdL_normal.jpg" alt="Ion Stoica avatar" loading="lazy"></div>
+          <div class="identity"><strong>Ion Stoica</strong><span>@istoica05 · Berkeley；Anyscale 联合创始人</span></div>
+          <div class="score">63<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 基础设施 / 分布式系统</span><time>08-05 05:42 北京</time></div>
+        <p class="post-text original" lang="auto">How do we make AI agents more reliable? By teaching them exactly how they fail. We use system-specific failure taxonomies to boost SWE-bench Verified Mini to 70.7% and TerminalBench 2 to 89.9%. Check out the thread below!</p><p class="post-text translation" lang="zh-CN">我们如何让 AI agent 更可靠？通过准确教会它们自己会如何失败。我们使用系统特定的失败分类，将 SWE-bench Verified Mini 提升至 70.7%，TerminalBench 2 提升至 89.9%。查看下方帖文！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1803313227390132226/GMHJIoNL_normal.jpg" alt="Mert Cemri avatar" loading="lazy"></div><div><strong>Mert Cemri</strong><span>@mertcemri</span></div></div><p class="quote-text original" lang="auto">What are failure taxonomies, and how can they improve AI agents?
+AdaMAST learns system-specific failure taxonomies from raw traces and reuses them across runs to identify where, when and how the agents fail.
+As a Claude Code skill, it improves SWE-bench Verified Mini from 64.0% to 70.7%.
+On TerminalBench 2, we get 89.9% with the Opus 4.6/Forgecode harness when AdaMAST-generated taxonomies are used with a Best-of-N Judge. (1/n)</p><p class="quote-text translation" lang="zh-CN">什么是失败分类，它们如何改进 AI agent？
+AdaMAST 从原始轨迹中学习系统特定的失败分类，并在多次运行中复用这些分类，以识别 agent 在哪里、何时以及如何失败。
+作为 Claude Code skill，它将 SWE-bench Verified Mini 从 64.0% 提升至 70.7%。
+在 TerminalBench 2 上，当 AdaMAST 生成的分类与 Best-of-N Judge 搭配使用时，我们通过 Opus 4.6/Forgecode harness 达到 89.9%。(1/n)</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HOf2CFLbkAAU53n.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HOf2CFLbkAAU53n.png" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/mertcemri/status/2082906626235965454" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 21</span><span>↻ 7</span><span>↩ 0</span></div><a href="https://x.com/istoica05/status/2084756900462141646" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="gdb" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_normal.jpg" alt="Greg Brockman avatar" loading="lazy"></div>
+          <div class="identity"><strong>Greg Brockman</strong><span>@gdb · OpenAI / 联合创始人</span></div>
+          <div class="score">98<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>基座模型 / OpenAI</span><time>08-05 06:34 北京</time></div>
+        <p class="post-text original" lang="auto">Luna’s price-performance is incredible</p><p class="post-text translation" lang="zh-CN">Luna 的性价比非常出色</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1909353910130950147/EeSGdgA5_normal.jpg" alt="Theo - t3.gg avatar" loading="lazy"></div><div><strong>Theo - t3.gg</strong><span>@theo</span></div></div><p class="quote-text original" lang="auto">Luna is such an insane value after the 80% cost reduction. It&#x27;s basically free and can do a ton of real data processing type work.
+
+I&#x27;m overhauling title generation in T3 Code to take more advantage of it. I almost want to spin it up on every prompt to generate descriptions, feedback, and statuses. Why wouldn&#x27;t I? It&#x27;s basically free</p><p class="quote-text translation" lang="zh-CN">Luna 在降价 80% 后性价比高得离谱。它基本等于免费，还能处理大量真实数据处理类工作。
+
+我正在重构 T3 Code 的标题生成，以便更充分利用它。我甚至想在每个 prompt 上都启动它来生成描述、反馈和状态。为什么不呢？它基本免费。</p><a class="quote-link" href="https://x.com/theo/status/2084748639470272972" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 832</span><span>↻ 23</span><span>↩ 64</span></div><a href="https://x.com/gdb/status/2084770040281211043" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="simonw" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
+          <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
+          <div class="score">85<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>08-05 03:12 北京</time></div>
+        <p class="post-text original" lang="auto">The MiniMax-H3 video generation model is a lot of fun - here&#x27;s what I got on my M5 Pro Mac for the prompt &quot;a rainbow colored skunk leaps over a mossy log in a supermarket&quot; (~115GB model download, took around 45 minutes to generate) https://t.co/dYjE1VFFml</p><p class="post-text translation" lang="zh-CN">MiniMax-H3 视频生成模型很好玩，这是我在 M5 Pro Mac 上用 prompt「a rainbow colored skunk leaps over a mossy log in a supermarket」生成的结果（模型下载约 115GB，生成大约花了 45 分钟）https://t.co/dYjE1VFFml</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2084719115147919360/img/Hs5cFAxxyRMfs8Qh.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2084719115147919360/img/Hs5cFAxxyRMfs8Qh.jpg" alt="X post media"><span>VIDEO</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 203</span><span>↻ 7</span><span>↩ 28</span></div><a href="https://x.com/simonw/status/2084719238569435469" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="aravsrinivas" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2028729526822588416/WhtMUI-P_normal.jpg" alt="Aravind Srinivas avatar" loading="lazy"></div>
+          <div class="identity"><strong>Aravind Srinivas</strong><span>@AravSrinivas · Perplexity / CEO</span></div>
+          <div class="score">83<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 搜索 / 产品</span><time>08-05 01:07 北京</time></div>
+        <p class="post-text original" lang="auto">Verification is key when using agents for high stakes research!</p><p class="post-text translation" lang="zh-CN">在用智能体做高风险研究时，验证是关键！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1615440606456864769/FgBZT7uE_normal.jpg" alt="Jeff Grimes avatar" loading="lazy"></div><div><strong>Jeff Grimes</strong><span>@jeffgrimes9</span></div></div><p class="quote-text original" lang="auto">Every numerical value in Perplexity Computer finance queries is traceable back to original values, with full calculation trace shown. https://t.co/0EPCgGWu9E</p><p class="quote-text translation" lang="zh-CN">Perplexity Computer 金融查询中的每一个数值都可以追溯到原始数据，并展示完整的计算链路。https://t.co/0EPCgGWu9E</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HO41aeEbgAAiADU.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HO41aeEbgAAiADU.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/jeffgrimes9/status/2084677555651789293" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 198</span><span>↻ 16</span><span>↩ 25</span></div><a href="https://x.com/AravSrinivas/status/2084687628130226400" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="yoheinakajima" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
+          <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
+          <div class="score">70<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>08-04 22:29 北京</time></div>
+        <p class="post-text original" lang="auto">sweet, i finally set up my chatgpt, codex, claude, &amp; claude code to have a shared memory - so i can ask one of them what i&#x27;ve worked on recently across all four of them
+
+for codex/cc, i&#x27;m using local history, but for chatgpt/claude i use a scheduled recap skill to regularly send summaries</p><p class="post-text translation" lang="zh-CN">不错，我终于把我的 chatgpt、codex、claude 和 claude code 设置成共享记忆了，这样我就可以问其中任意一个，最近我在这四个工具里都做过什么。
+
+对于 codex/cc，我用的是本地历史；对于 chatgpt/claude，我用一个定时回顾 skill 来定期发送摘要。</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HO4mK79bcAArkTk.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HO4mK79bcAArkTk.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 52</span><span>↻ 6</span><span>↩ 27</span></div><a href="https://x.com/yoheinakajima/status/2084647915021336680" target="_blank" rel="noreferrer">Open on X ↗</a></div>
       </article>
 
       <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
         <div class="card-top">
           <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
           <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
-          <div class="score">59<small>signal</small></div>
+          <div class="score">67<small>signal</small></div>
         </div>
-        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>08-04 17:08 北京</time></div>
-        <p class="post-text original source-only" lang="auto">@ErwinWu000 看到这个新闻也是蛮震惊的</p>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>08-05 12:20 北京</time></div>
+        <p class="post-text original source-only" lang="auto">Fable 5 强的一个原因是它更愿意主动调用工具。
+
+这组基于 227 万条 Claude 回复的统计也印证了这一点：Fable 5 平均每次回复调用 1.00 次工具，高于 Opus 4.8 的 0.76 和 Opus 5 的 0.79。
+
+工具用得多不一定代表能力更强，但对 Agent 来说，「愿意动手搜索和验证」比只在上下文里继续猜更重要。</p>
 
 
-        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1897980438477426688/k9LugnH-_normal.jpg" alt="youfeng avatar" loading="lazy"></div><div><strong>youfeng</strong><span>@benshanyoufeng</span></div></div><p class="quote-text original source-only" lang="auto">从昨天起，欧盟的 AI 开口第一句话必须先承认自己是 AI。
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2062973370157694976/CdplNoi1_normal.jpg" alt="SemiAnalysis avatar" loading="lazy"></div><div><strong>SemiAnalysis</strong><span>@SemiAnalysis_</span></div></div><p class="quote-text original" lang="auto">How often does Claude use tools?
 
-8月2日，AI Act 第50条透明度义务正式进入执法阶段：聊天机器人要表明身份，deepfake 必须打标签，AI 生成内容要带机器可读标记，公共议题的 AI 文本没人工审核也要声明。罚款上限 1500 万欧元或全球营收的 3%。
+We looked through 2.27M Claude responses we collected to find out.
 
-条文写得很干净，工程上却有个大洞：法律假设「机器可读标记」是个已经解决的问题。现实是——C2PA 元数据一截图就没了，文本水印一改写就散了，开源权重模型根本不会给你打水印。可验证的标记只在乖乖合作的大平台内部成立，而最需要标记的内容恰恰来自不合作的那一部分。
+The Opus models show a clear downward trend in tool calls from Opus 4.6 to Opus 4.8. However, Fable 5 stands out against that pattern, averaging 1.00 tool calls per response compared with 0.76 for Opus 4.8 and 0.79 for Opus 5. (1/2)🧵</p><p class="quote-text translation" lang="zh-CN">Claude 使用工具的频率有多高？
 
-所以执法大概率会落成平台责任：查不出内容是不是 AI 生成，就查你有没有「尽到义务」。法律管的从来不是比特，是能被罚款的法人。</p><a class="quote-link" href="https://x.com/benshanyoufeng/status/2084361987191140616" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
-        <div class="card-bottom"><div class="engagement"><span>♡ 1</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/Xudong07452910/status/2084567110320033984" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+我们分析了收集到的 227 万条 Claude 回复来寻找答案。
+
+Opus 模型从 Opus 4.6 到 Opus 4.8 的工具调用次数呈明显下降趋势。不过，Fable 5 与这一模式不同，平均每条回复调用 1.00 次工具，而 Opus 4.8 为 0.76 次，Opus 5 为 0.79 次。(1/2)🧵</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HO5J1NaWoAAR_WT.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HO5J1NaWoAAR_WT.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/SemiAnalysis_/status/2084684858282954907" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 8</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/Xudong07452910/status/2084856924432998794" target="_blank" rel="noreferrer">Open on X ↗</a></div>
       </article>
 
       <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="yoheinakajima" data-top-story="false">
@@ -363,14 +358,28 @@ but also works as a cross-chat memory system with access to my work stuff https:
         <div class="card-top">
           <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
           <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
-          <div class="score">58<small>signal</small></div>
+          <div class="score">55<small>signal</small></div>
         </div>
-        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>08-04 19:19 北京</time></div>
-        <p class="post-text original source-only" lang="auto">@CunxiangWang @Kimi_Moonshot @deepseek_ai 我是觉得榜单分数不是模型能力的测量，是整个harness系统能力的测量。如果你说的 harness 差异是稳定可复现的，它只说明榜单测的是模型+脚手架的整个系统，不是模型本身。不过也要考虑到个别题目跑的时候答案都公布了，所以还要控制变量的对比实验，也不能下结论说预测就等于抽奖。</p>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>08-04 19:48 北京</time></div>
+        <p class="post-text original source-only" lang="auto">@CunxiangWang @Kimi_Moonshot @deepseek_ai 是嘞，目前这个benchmark的题目数量不是很多，但也没有其他更好的选择。感觉这个榜单维护成本很高，每隔几天就要更新题目，可能这也是导致他们没法增加题目数量，尽量精选题目。</p>
 
 
 
-        <div class="card-bottom"><div class="engagement"><span>♡ 1</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/Xudong07452910/status/2084600187436110137" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 1</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/Xudong07452910/status/2084607291337146827" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="johnschulman2" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1389000537195040770/DzWPljT-_normal.jpg" alt="John Schulman avatar" loading="lazy"></div>
+          <div class="identity"><strong>John Schulman</strong><span>@johnschulman2 · 前 OpenAI；RLHF 关键人物</span></div>
+          <div class="score">55<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 研究</span><time>08-05 14:49 北京</time></div>
+        <p class="post-text original" lang="auto">@hamandcheese Post-training generally creates a web of intermediate checkpoints, before the final one. So can employees continue using these intermediate checkpoints? Usually safety is tuned at the end, so this could force people to do their work with less safe models.</p><p class="post-text translation" lang="zh-CN">@hamandcheese 后训练通常会在最终检查点之前生成一系列中间检查点。那么员工能继续使用这些中间检查点吗？通常安全性是在最后阶段调优的，所以这可能会迫使人们使用安全性较低的模型来工作。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 7</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/johnschulman2/status/2084894526532129134" target="_blank" rel="noreferrer">Open on X ↗</a></div>
       </article>
 
       <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="simonw" data-top-story="false">
@@ -384,36 +393,88 @@ but also works as a cross-chat memory system with access to my work stuff https:
 
 
         <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2079037454556987392/zGNYEiMo_normal.jpg" alt="Qwen Developers avatar" loading="lazy"></div><div><strong>Qwen Developers</strong><span>@QwenDevs</span></div></div><p class="quote-text original" lang="auto">@ddalcu We promise this 27B comes with a whole new level of capability!</p><p class="quote-text translation" lang="zh-CN">@ddalcu 我们保证这个 27B 会带来全新层级的能力！</p><a class="quote-link" href="https://x.com/QwenDevs/status/2084132174375346359" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
-        <div class="card-bottom"><div class="engagement"><span>♡ 1,036</span><span>↻ 35</span><span>↩ 42</span></div><a href="https://x.com/simonw/status/2084667167212245170" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 1,423</span><span>↻ 49</span><span>↩ 51</span></div><a href="https://x.com/simonw/status/2084667167212245170" target="_blank" rel="noreferrer">Open on X ↗</a></div>
       </article>
 
       <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
         <div class="card-top">
           <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
           <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
-          <div class="score">50<small>signal</small></div>
+          <div class="score">77<small>signal</small></div>
         </div>
-        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>08-05 02:23 北京</time></div>
-        <p class="post-text original" lang="auto">@BEBischof I&#x27;m sad that you didn&#x27;t get my humor
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>08-04 23:00 北京</time></div>
+        <p class="post-text original" lang="auto">Its crazy how the consensus shifted away from Claude being the favorite to Codex
 
-https://t.co/H5i91b0PVJ</p><p class="post-text translation" lang="zh-CN">@BEBischof 我很难过你没理解我的幽默
+It’s not just Vibes. Things favoring codex:
 
-https://t.co/H5i91b0PVJ</p>
+- Better harness (Codex Desktop)
+- Better pricing: more things included within subscription (fast mode etc). bonus - constant resets from Tibo 😅
+- Less refusals / false positive safety triggers
+- You can use subscription freely wherever you want (Opencode, Amp, etc)
+
+When you add all these up it makes codex significantly more attractive.  There is likely an industry lag of people still using Claude but feels like it’s gonna swing back</p><p class="post-text translation" lang="zh-CN">共识从偏爱 Claude 转向 Codex，这变化真是疯狂。
+
+这不只是感觉。Codex 的优势包括：
+
+- 更好的运行环境（Codex Desktop）
+- 更好的定价：订阅里包含更多东西（fast mode 等）。额外福利：Tibo 不断重置额度 😅
+- 更少拒答/误触安全机制
+- 可以在任何想用的地方自由使用订阅（Opencode、Amp 等）
+
+这些加起来让 Codex 明显更有吸引力。行业里可能还有不少人滞后地继续用 Claude，但感觉风向要转回来了。</p>
 
 
-        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/673095429748350976/ei5eeouV_normal.png" alt="Gergely Orosz avatar" loading="lazy"></div><div><strong>Gergely Orosz</strong><span>@GergelyOrosz</span></div></div><p class="quote-text original" lang="auto">Just learned:
 
-Software engineers used to do manual data labeling at Scale AI while Alex Wang was CEO. After he left, new leadership joined, and were HORRIFIED to learn this. Stopped it ASAP
+        <div class="card-bottom"><div class="engagement"><span>♡ 793</span><span>↻ 38</span><span>↩ 115</span></div><a href="https://x.com/HamelHusain/status/2084655655978512717" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
 
-Now at Meta, software engineers are assigned manual data labeling... see the pattern?</p><p class="quote-text translation" lang="zh-CN">刚听说：
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="hwchase17" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1569345624935485442/R67C4wCQ_normal.jpg" alt="Harrison Chase avatar" loading="lazy"></div>
+          <div class="identity"><strong>Harrison Chase</strong><span>@hwchase17 · LangChain / CEO</span></div>
+          <div class="score">77<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Agent 框架</span><time>08-05 11:51 北京</time></div>
+        <p class="post-text original" lang="auto">own your intelligence
 
-Alex Wang 担任 CEO 时，Scale AI 的软件工程师过去会做人工数据标注。他离开后，新管理层加入，得知此事后大为震惊，并立刻叫停。
+if you want an open source starterkit: https://t.co/c3jg6EjbWE</p><p class="post-text translation" lang="zh-CN">掌控你自己的智能
 
-现在在 Meta，软件工程师被安排做人工数据标注……看出规律了吗？</p><a class="quote-link" href="https://x.com/GergelyOrosz/status/2063191771232747625" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
-        <div class="card-bottom"><div class="engagement"><span>♡ 0</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/HamelHusain/status/2084706791645229289" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+如果你想要一个开源 starterkit：https://t.co/c3jg6EjbWE</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1698420161781309440/slB7ZscE_normal.jpg" alt="Michiel Westerbeek avatar" loading="lazy"></div><div><strong>Michiel Westerbeek</strong><span>@happylinks</span></div></div><p class="quote-text original" lang="auto">companies will own their own cloud agent orchestrator</p><p class="quote-text translation" lang="zh-CN">公司将拥有自己的云端智能体编排器</p><a class="quote-link" href="https://x.com/happylinks/status/2084744136511344945" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 62</span><span>↻ 2</span><span>↩ 10</span></div><a href="https://x.com/hwchase17/status/2084849762625536099" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">47<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>08-05 07:57 北京</time></div>
+        <p class="post-text original" lang="auto">@joedevon Better computer use ergonomics, thread management, remote control</p><p class="post-text translation" lang="zh-CN">@joedevon 更好的计算机使用人体工学、线程管理、远程控制</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 2</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/HamelHusain/status/2084790816887943220" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="swyx" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx avatar" loading="lazy"></div>
+          <div class="identity"><strong>swyx</strong><span>@swyx · Latent Space / AI Engineer</span></div>
+          <div class="score">46<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 工作流</span><time>08-05 06:27 北京</time></div>
+        <p class="post-text original" lang="auto">@sinansays @ptr @howietl @hyperagentapp doubt it but yeah this explains why i complaiend to the team that hyperagent was surprisingly bad at setting up airtables... makes sense that they are just separate companies</p><p class="post-text translation" lang="zh-CN">@sinansays @ptr @howietl @hyperagentapp 不太信，但确实，这解释了为什么我向团队抱怨 hyperagent 在设置 airtables 方面出奇地差……如果它们只是不同公司，那就说得通了</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 0</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/swyx/status/2084768307975274562" target="_blank" rel="noreferrer">Open on X ↗</a></div>
       </article>
     </main>
-    <footer>Generated 2026-08-05 09:20:41 Asia/Shanghai · Read-only X ingestion via Bird · Translation via Codex</footer>
+    <footer>Generated 2026-08-05 17:19:52 Asia/Shanghai · Read-only X ingestion via Bird · Translation via Codex</footer>
   </div>
 </body>
 </html>

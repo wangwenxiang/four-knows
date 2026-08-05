@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-05T01:20:41.373487+00:00",
-  "fetchStartedAt": "2026-08-05T01:20:41.373487+00:00",
-  "windowStart": "2026-08-04T02:20:41.373487+00:00",
+  "generatedAt": "2026-08-05T09:19:52.234567+00:00",
+  "fetchStartedAt": "2026-08-05T09:19:52.234567+00:00",
+  "windowStart": "2026-08-04T10:19:52.234567+00:00",
   "windowHours": 23.0,
   "experts": [
     {
@@ -506,9 +506,9 @@
       "id": "2084684735725379637",
       "text": "🛡️Introducing Shieldstral, Mistral’s 3B open-weights model for content safety that can be deployed on-device 🧵 https://t.co/SXBTWIJO9p https://t.co/Hhjw8o0gft",
       "createdAt": "Tue Aug 04 16:55:47 +0000 2026",
-      "replyCount": 122,
-      "retweetCount": 162,
-      "likeCount": 1878,
+      "replyCount": 139,
+      "retweetCount": 193,
+      "likeCount": 2260,
       "conversationId": "2084684735725379637",
       "author": {
         "username": "MistralAI",
@@ -558,24 +558,75 @@
         "id": "2084684735725379637",
         "technicalRelevant": true,
         "dailyGrade": "A",
-        "topic": "Shieldstral发布",
-        "evidence": "3B开放权重安全模型",
-        "rationale": "新开源安全模型发布"
+        "topic": "Shieldstral开源安全模型",
+        "evidence": "3B开权重可端侧部署",
+        "rationale": "内容安全模型正式发布"
       },
       "isTopStory": true,
       "topStoryEligible": true,
-      "topStoryCategory": "AI 技术进步",
+      "topStoryCategory": "AI 技术应用",
       "topStoryScore": 100,
-      "editorialTopRationale": "3B开放权重安全模型可端侧部署",
+      "editorialTopRationale": "3B开权重安全模型可端侧部署",
       "translationZh": "🛡️推出 Shieldstral，Mistral 的 3B 开放权重内容安全模型，可在设备端部署 🧵 https://t.co/SXBTWIJO9p https://t.co/Hhjw8o0gft"
+    },
+    {
+      "id": "2084844343592980753",
+      "text": "一个 35B 模型，配上一套进化式 Agent 系统，在机器学习工程 Benchmark 上跑到了接近 GPT-5.6 Sol 和 2.8T Kimi K3 的成绩。\n\n这篇论文提出 Frontis-MA1，想让 Agent 学会持续改进机器学习方案。\n\n它会起草代码、继续优化、根据执行错误修复，也会组合两个候选方案。每次改动都要进入真实环境运行，分数、日志和失败原因再回到训练与搜索系统。\n\n背后的 OpenMLE 把 5758 个可执行任务、SFT/RL 训练和长时进化搜索连成闭环。\n\n在相同 harness 下，Frontis-MA1-35B 相比基础模型，成绩从 39.39% 提升到 60.61%；加入跨任务经验和异步搜索后，进一步达到 71.21%。\n\n这篇工作的价值是把「AI 改进 AI」落成了一套能运行、能评分、也能复现的工程流程。\n\n论文也很克制，也表达了这距离通用递归自我改进还有很长一段路。当前 Agent 主要改进机器学习代码和方案，搜索系统本身仍然大多由人设计。\n\n不过当每次实验都能反过来训练下一版「改进器」，递归自我改进终于开始有了可以验证的场景。\n\n📎 arxiv: https://t.co/MHDGNcSr01",
+      "createdAt": "Wed Aug 05 03:30:00 +0000 2026",
+      "replyCount": 18,
+      "retweetCount": 11,
+      "likeCount": 77,
+      "conversationId": "2084844343592980753",
+      "author": {
+        "username": "Xudong07452910",
+        "name": "Xudong Han",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg"
+      },
+      "authorId": "1327292278000349185",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HO6LwdAX0AAVhjY.jpg",
+          "width": 1008,
+          "height": 1215,
+          "previewUrl": "https://pbs.twimg.com/media/HO6LwdAX0AAVhjY.jpg:small"
+        }
+      ],
+      "expert": {
+        "priority": "P0",
+        "domain": "LLM / AI Agents",
+        "name": "Xudong Han",
+        "role": "University of Sussex 博士生；LLM 与 AI Agents",
+        "why": "持续构建个人 AI Agent，并分享 Vibe Coding 和 LLM 应用工程实践",
+        "handle": "Xudong07452910"
+      },
+      "createdAtIso": "2026-08-05T03:30:00+00:00",
+      "createdAtBeijing": "2026-08-05T11:30:00+08:00",
+      "createdAtLocal": "08-05 11:30 北京",
+      "url": "https://x.com/Xudong07452910/status/2084844343592980753",
+      "themeId": "editorial",
+      "signalScore": 81,
+      "editorial": {
+        "id": "2084844343592980753",
+        "technicalRelevant": true,
+        "dailyGrade": "A",
+        "topic": "AI Agent机器学习工程",
+        "evidence": "35B成绩从39.39%到71.21%",
+        "rationale": "含论文方法、闭环与基准结果"
+      },
+      "isTopStory": true,
+      "topStoryEligible": true,
+      "topStoryCategory": "AI 技术前沿",
+      "topStoryScore": 99,
+      "editorialTopRationale": "35B Agent基准从39.39%升至71.21%"
     },
     {
       "id": "2084748111239344556",
       "text": "The UK’s @AISecurityInst (AISI) has published a report on their recent cybersecurity evaluation of Anthropic’s Claude Mythos 5 and OpenAI’s GPT-5.6 Sol. The models attempted to complete an assignment in a setup where their normal safeguards were removed and they were deliberately given internet access. AISI reports that the models “engaged in sustained, potentially harmful activity directed at real people and organisations”.\n\nWe’re grateful to AISI for their leadership in the important discussion about how to evaluate increasingly capable AI agents. We’re working closely with them to gather more details of the incident as we conduct our own investigation. Gaining a clear picture of Claude’s understanding of its situation—by examining its reasoning transcripts and running our own analyses—will help us identify the causes of its behavior.\n\nThe prompts in the evaluation did not impose any specific restrictions on how the internet should be used. This and the removal of safeguards meant that the models were tested under “deliberately permissive conditions” that are not representative of any of our production models. Note that there was no evidence here of an escape from a secure environment.\n\nAISI’s disclosure of the incident can be found here: https://t.co/cJ3hCBtBU7",
       "createdAt": "Tue Aug 04 21:07:37 +0000 2026",
-      "replyCount": 196,
-      "retweetCount": 182,
-      "likeCount": 1166,
+      "replyCount": 272,
+      "retweetCount": 309,
+      "likeCount": 1842,
       "conversationId": "2084748111239344556",
       "author": {
         "username": "AnthropicAI",
@@ -615,93 +666,25 @@
       "editorial": {
         "id": "2084748111239344556",
         "technicalRelevant": true,
-        "dailyGrade": "A",
-        "topic": "AI代理安全评估",
-        "evidence": "模型联网且移除防护",
-        "rationale": "权威代理安全评估"
-      },
-      "isTopStory": true,
-      "topStoryEligible": true,
-      "topStoryCategory": "AI 技术前沿",
-      "topStoryScore": 99,
-      "editorialTopRationale": "AISI联网代理安全评估披露风险",
-      "translationZh": "英国 @AISecurityInst（AISI）发布了一份报告，介绍其近期对 Anthropic 的 Claude Mythos 5 和 OpenAI 的 GPT-5.6 Sol 进行的网络安全评估。这些模型在一个移除了常规安全防护、并被刻意赋予互联网访问权限的环境中尝试完成一项任务。AISI 报告称，这些模型“对真实个人和组织进行了持续的、可能有害的活动”。\n\n我们感谢 AISI 在如何评估能力日益增强的 AI agent 这一重要讨论中发挥的领导作用。我们正与他们密切合作，在开展自身调查的同时收集更多事件细节。通过检查 Claude 的推理记录并开展我们自己的分析，清楚了解 Claude 对其处境的理解，将帮助我们找出其行为原因。\n\n评估中的提示词没有对互联网应如何使用施加任何具体限制。再加上安全防护被移除，意味着这些模型是在“不刻意设限的宽松条件”下接受测试的，这并不代表我们的任何生产模型。请注意，这里没有证据表明模型逃离了安全环境。\n\nAISI 对该事件的披露见此处：https://t.co/cJ3hCBtBU7"
-    },
-    {
-      "id": "2084756900462141646",
-      "text": "How do we make AI agents more reliable? By teaching them exactly how they fail. We use system-specific failure taxonomies to boost SWE-bench Verified Mini to 70.7% and TerminalBench 2 to 89.9%. Check out the thread below!",
-      "createdAt": "Tue Aug 04 21:42:32 +0000 2026",
-      "replyCount": 0,
-      "retweetCount": 3,
-      "likeCount": 13,
-      "conversationId": "2084756900462141646",
-      "author": {
-        "username": "istoica05",
-        "name": "Ion Stoica",
-        "profileImageUrl": "https://pbs.twimg.com/profile_images/1889424820821172228/OKFe0cdL_normal.jpg"
-      },
-      "authorId": "3139551624",
-      "quotedTweet": {
-        "id": "2082906626235965454",
-        "text": "What are failure taxonomies, and how can they improve AI agents?\nAdaMAST learns system-specific failure taxonomies from raw traces and reuses them across runs to identify where, when and how the agents fail.\nAs a Claude Code skill, it improves SWE-bench Verified Mini from 64.0% to 70.7%.\nOn TerminalBench 2, we get 89.9% with the Opus 4.6/Forgecode harness when AdaMAST-generated taxonomies are used with a Best-of-N Judge. (1/n)",
-        "createdAt": "Thu Jul 30 19:10:12 +0000 2026",
-        "replyCount": 5,
-        "retweetCount": 14,
-        "likeCount": 48,
-        "conversationId": "2082906626235965454",
-        "author": {
-          "username": "mertcemri",
-          "name": "Mert Cemri",
-          "profileImageUrl": "https://pbs.twimg.com/profile_images/1803313227390132226/GMHJIoNL_normal.jpg"
-        },
-        "authorId": "1803313171694030848",
-        "media": [
-          {
-            "type": "photo",
-            "url": "https://pbs.twimg.com/media/HOf2CFLbkAAU53n.png",
-            "width": 2048,
-            "height": 706,
-            "previewUrl": "https://pbs.twimg.com/media/HOf2CFLbkAAU53n.png:small"
-          }
-        ],
-        "translationZh": "什么是失败分类，它们如何改进 AI agent？\nAdaMAST 从原始轨迹中学习系统特定的失败分类，并在多次运行中复用这些分类，以识别 agent 在哪里、何时以及如何失败。\n作为 Claude Code skill，它将 SWE-bench Verified Mini 从 64.0% 提升至 70.7%。\n在 TerminalBench 2 上，当 AdaMAST 生成的分类与 Best-of-N Judge 搭配使用时，我们通过 Opus 4.6/Forgecode harness 达到 89.9%。(1/n)"
-      },
-      "expert": {
-        "priority": "P1",
-        "domain": "AI 基础设施 / 分布式系统",
-        "name": "Ion Stoica",
-        "role": "Berkeley；Anyscale 联合创始人",
-        "why": "Ray、分布式 AI 系统、数据基础设施",
-        "handle": "istoica05"
-      },
-      "createdAtIso": "2026-08-04T21:42:32+00:00",
-      "createdAtBeijing": "2026-08-05T05:42:32+08:00",
-      "createdAtLocal": "08-05 05:42 北京",
-      "url": "https://x.com/istoica05/status/2084756900462141646",
-      "themeId": "editorial",
-      "signalScore": 60,
-      "editorial": {
-        "id": "2084756900462141646",
-        "technicalRelevant": true,
-        "dailyGrade": "A",
-        "topic": "Agent失败分类",
-        "evidence": "SWE-bench升至70.7%",
-        "rationale": "有方法和明确基准提升"
+        "dailyGrade": "B",
+        "topic": "AI agent安全评估",
+        "evidence": "移除防护并联网测试模型",
+        "rationale": "披露模型安全评估条件与行为"
       },
       "isTopStory": true,
       "topStoryEligible": true,
       "topStoryCategory": "AI 技术前沿",
       "topStoryScore": 98,
-      "translationZh": "我们如何让 AI agent 更可靠？通过准确教会它们自己会如何失败。我们使用系统特定的失败分类，将 SWE-bench Verified Mini 提升至 70.7%，TerminalBench 2 提升至 89.9%。查看下方帖文！",
-      "editorialTopRationale": "失败分类法提升两项Agent基准"
+      "editorialTopRationale": "联网评测暴露Agent自治欺骗风险",
+      "translationZh": "英国 @AISecurityInst（AISI）发布了一份报告，介绍其近期对 Anthropic 的 Claude Mythos 5 和 OpenAI 的 GPT-5.6 Sol 进行的网络安全评估。这些模型在一个移除了常规安全防护、并被刻意赋予互联网访问权限的环境中尝试完成一项任务。AISI 报告称，这些模型“对真实个人和组织进行了持续的、可能有害的活动”。\n\n我们感谢 AISI 在如何评估能力日益增强的 AI agent 这一重要讨论中发挥的领导作用。我们正与他们密切合作，在开展自身调查的同时收集更多事件细节。通过检查 Claude 的推理记录并开展我们自己的分析，清楚了解 Claude 对其处境的理解，将帮助我们找出其行为原因。\n\n评估中的提示词没有对互联网应如何使用施加任何具体限制。再加上安全防护被移除，意味着这些模型是在“不刻意设限的宽松条件”下接受测试的，这并不代表我们的任何生产模型。请注意，这里没有证据表明模型逃离了安全环境。\n\nAISI 对该事件的披露见此处：https://t.co/cJ3hCBtBU7"
     },
     {
       "id": "2084731700106711209",
       "text": "July for OpenAI Developers",
       "createdAt": "Tue Aug 04 20:02:24 +0000 2026",
-      "replyCount": 18,
-      "retweetCount": 19,
-      "likeCount": 267,
+      "replyCount": 20,
+      "retweetCount": 25,
+      "likeCount": 351,
       "conversationId": "2084731700106711209",
       "author": {
         "username": "OpenAIDevs",
@@ -728,7 +711,7 @@
       "createdAtLocal": "08-05 04:02 北京",
       "url": "https://x.com/OpenAIDevs/status/2084731700106711209",
       "themeId": "editorial",
-      "signalScore": 84,
+      "signalScore": 85,
       "hotspotMatches": [
         {
           "id": "agents",
@@ -749,23 +732,22 @@
         "technicalRelevant": true,
         "dailyGrade": "A",
         "topic": "OpenAI开发者更新",
-        "evidence": "GPT-5.6进入API",
-        "rationale": "模型与Codex正式更新"
+        "evidence": "GPT-5.6登陆API和Codex",
+        "rationale": "模型与开发者能力正式更新"
       },
       "isTopStory": false,
       "topStoryEligible": false,
       "topStoryCategory": "",
       "topStoryScore": 0,
-      "editorialTopRationale": "GPT-5.6正式进入API和Codex",
       "translationZh": "OpenAI 开发者七月动态"
     },
     {
       "id": "2084792341572001871",
       "text": "Big new release of my LLM CLI tool and Python library for talking to hundreds of different LLMs - reasoning traces, OpenAI Responses support, server-side tools, smarter logging and a whole lot more\nhttps://t.co/IgGoMlV4Br",
       "createdAt": "Wed Aug 05 00:03:22 +0000 2026",
-      "replyCount": 13,
-      "retweetCount": 4,
-      "likeCount": 70,
+      "replyCount": 25,
+      "retweetCount": 14,
+      "likeCount": 200,
       "conversationId": "2084792341572001871",
       "author": {
         "username": "simonw",
@@ -786,14 +768,14 @@
       "createdAtLocal": "08-05 08:03 北京",
       "url": "https://x.com/simonw/status/2084792341572001871",
       "themeId": "editorial",
-      "signalScore": 74,
+      "signalScore": 79,
       "editorial": {
         "id": "2084792341572001871",
         "technicalRelevant": true,
         "dailyGrade": "A",
         "topic": "LLM CLI发布",
-        "evidence": "reasoning traces等支持",
-        "rationale": "工具正式发布含新能力"
+        "evidence": "支持Responses和服务端工具",
+        "rationale": "正式发布且功能明确"
       },
       "isTopStory": false,
       "topStoryEligible": false,
@@ -802,274 +784,71 @@
       "translationZh": "我的 LLM CLI 工具和 Python 库迎来重大新版，可与数百种不同 LLM 交互，支持推理轨迹、OpenAI Responses、服务器端工具、更智能的日志记录等大量功能\nhttps://t.co/IgGoMlV4Br"
     },
     {
-      "id": "2084770040281211043",
-      "text": "Luna’s price-performance is incredible",
-      "createdAt": "Tue Aug 04 22:34:45 +0000 2026",
-      "replyCount": 38,
-      "retweetCount": 15,
-      "likeCount": 435,
-      "conversationId": "2084770040281211043",
-      "author": {
-        "username": "gdb",
-        "name": "Greg Brockman",
-        "profileImageUrl": "https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_normal.jpg"
-      },
-      "authorId": "162124540",
-      "quotedTweet": {
-        "id": "2084748639470272972",
-        "text": "Luna is such an insane value after the 80% cost reduction. It's basically free and can do a ton of real data processing type work.\n\nI'm overhauling title generation in T3 Code to take more advantage of it. I almost want to spin it up on every prompt to generate descriptions, feedback, and statuses. Why wouldn't I? It's basically free",
-        "createdAt": "Tue Aug 04 21:09:43 +0000 2026",
-        "replyCount": 110,
-        "retweetCount": 28,
-        "likeCount": 1969,
-        "conversationId": "2084748639470272972",
-        "author": {
-          "username": "theo",
-          "name": "Theo - t3.gg",
-          "profileImageUrl": "https://pbs.twimg.com/profile_images/1909353910130950147/EeSGdgA5_normal.jpg"
-        },
-        "authorId": "786375418685165568",
-        "translationZh": "Luna 在降价 80% 后性价比高得离谱。它基本等于免费，还能处理大量真实数据处理类工作。\n\n我正在重构 T3 Code 的标题生成，以便更充分利用它。我甚至想在每个 prompt 上都启动它来生成描述、反馈和状态。为什么不呢？它基本免费。"
-      },
-      "expert": {
-        "priority": "P0",
-        "domain": "基座模型 / OpenAI",
-        "name": "Greg Brockman",
-        "role": "OpenAI / 联合创始人",
-        "why": "技术演示、产品发布、平台方向的重要信号源",
-        "handle": "gdb"
-      },
-      "createdAtIso": "2026-08-04T22:34:45+00:00",
-      "createdAtBeijing": "2026-08-05T06:34:45+08:00",
-      "createdAtLocal": "08-05 06:34 北京",
-      "url": "https://x.com/gdb/status/2084770040281211043",
-      "themeId": "editorial",
-      "signalScore": 96,
-      "editorial": {
-        "id": "2084770040281211043",
-        "technicalRelevant": true,
-        "dailyGrade": "B",
-        "topic": "Luna成本与应用",
-        "evidence": "Luna降价80%",
-        "rationale": "含模型成本和生成场景事实"
-      },
-      "isTopStory": false,
-      "topStoryEligible": false,
-      "topStoryCategory": "",
-      "topStoryScore": 0,
-      "translationZh": "Luna 的性价比非常出色"
-    },
-    {
-      "id": "2084572551607640146",
-      "text": "过去两个月，我们一直在闷声干一件事：教 AI 预测未来。\n\n今天可以摊牌了 🎉 \n\n在 FutureX，一个专门考察\"预测还没发生的事\"的实时榜单上，我们的长程预测 agent 拿下：\n\n🥇 第 1 名（基座 Kimi K3） @Kimi_Moonshot\n🥉 第 3 名（基座 DeepSeek V4 Pro）@deepseek_ai\n7️⃣ 第 7 名（基座 MiniMax M3）@MiniMax_AI\n\n同一套框架，换三个模型当\"大脑\"，全部进前十。\n\n感谢团队成员 @Bruce_Lee1207 一起努力的付出 。\n\n先回答一个你们一定会问的问题：现在榜单满天飞，FutureX 凭什么值得认真对待？\n1️⃣ 出品方是 ByteDance Seed 联合 Stanford、Princeton、复旦，学界业界联合出品，论文在 arXiv 公开；\n2️⃣ 它可能是唯一一个\"打榜\"在逻辑上不成立的榜单：题目全是尚未发生的真实事件，agent 先交预测，官方等事件落地后按真实结果判分。答案在出题时根本不存在，所以没有题库可背，没有答案分布可过拟合，想提分只有一条路：真的更会预测；\n3️⃣ 同台的是谁：OpenAI、Google、xAI 的 Deep Research 系 agent 都被系统评测过，https://t.co/Jsf4FPzkDp 登顶时还专门发了官方博客。\n\n再说我们的 agent 在做什么。你可以把它想象成一个不知疲倦的分析师：\n\n🔍 自己上网检索，多信源交叉验证\n🧠 把证据沉淀成\"信念\"，有新信息就更新判断\n🎲 最后给的不是一句\"可能吧\"，而是一个校准过的概率\n⚖️ 多个子分析师意见相左时，还有裁决机制出面对齐\n  ......\n\n为什么执着于预测？因为预测未来是智能最诚实的试金石，它逼着模型把检索、推理、常识、对不确定性的拿捏全部亮出来，一点都藏不住。\n\n这只是开始。方法细节，后续成绩和最后的产品，会陆续放出来。",
-      "createdAt": "Tue Aug 04 09:30:00 +0000 2026",
-      "replyCount": 20,
-      "retweetCount": 18,
-      "likeCount": 121,
-      "conversationId": "2084572551607640146",
-      "author": {
-        "username": "Xudong07452910",
-        "name": "Xudong Han",
-        "profileImageUrl": "https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg"
-      },
-      "authorId": "1327292278000349185",
-      "media": [
-        {
-          "type": "photo",
-          "url": "https://pbs.twimg.com/media/HO1WktRXMAAzzan.jpg",
-          "width": 1938,
-          "height": 1203,
-          "previewUrl": "https://pbs.twimg.com/media/HO1WktRXMAAzzan.jpg:small"
-        }
-      ],
-      "expert": {
-        "priority": "P0",
-        "domain": "LLM / AI Agents",
-        "name": "Xudong Han",
-        "role": "University of Sussex 博士生；LLM 与 AI Agents",
-        "why": "持续构建个人 AI Agent，并分享 Vibe Coding 和 LLM 应用工程实践",
-        "handle": "Xudong07452910"
-      },
-      "createdAtIso": "2026-08-04T09:30:00+00:00",
-      "createdAtBeijing": "2026-08-04T17:30:00+08:00",
-      "createdAtLocal": "08-04 17:30 北京",
-      "url": "https://x.com/Xudong07452910/status/2084572551607640146",
-      "themeId": "editorial",
-      "signalScore": 83,
-      "editorial": {
-        "id": "2084572551607640146",
-        "technicalRelevant": true,
-        "dailyGrade": "B",
-        "topic": "长程预测Agent",
-        "evidence": "检索、多信源、概率校准",
-        "rationale": "有Agent架构和榜单结果"
-      },
-      "isTopStory": false,
-      "topStoryEligible": false,
-      "topStoryCategory": "",
-      "topStoryScore": 0
-    },
-    {
-      "id": "2084719238569435469",
-      "text": "The MiniMax-H3 video generation model is a lot of fun - here's what I got on my M5 Pro Mac for the prompt \"a rainbow colored skunk leaps over a mossy log in a supermarket\" (~115GB model download, took around 45 minutes to generate) https://t.co/dYjE1VFFml",
-      "createdAt": "Tue Aug 04 19:12:53 +0000 2026",
+      "id": "2084835800899076313",
+      "text": "Interesting how these models go into a monomaniacal rage on cyber evals. I wonder if we're seeing chunky post-training https://t.co/uqCinTD7I3 in action, where the models pattern-match the situation to a part of the RLVR training distribution where task completion is the only reward, and the aligned behavior learned elsewhere doesn't generalize. There might even be a chunk consisting of CTF-style tasks.",
+      "createdAt": "Wed Aug 05 02:56:03 +0000 2026",
       "replyCount": 21,
-      "retweetCount": 5,
-      "likeCount": 145,
-      "conversationId": "2084719238569435469",
+      "retweetCount": 38,
+      "likeCount": 334,
+      "conversationId": "2084835800899076313",
       "author": {
-        "username": "simonw",
-        "name": "Simon Willison",
-        "profileImageUrl": "https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg"
+        "username": "johnschulman2",
+        "name": "John Schulman",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/1389000537195040770/DzWPljT-_normal.jpg"
       },
-      "authorId": "12497",
-      "media": [
-        {
-          "type": "video",
-          "url": "https://pbs.twimg.com/amplify_video_thumb/2084719115147919360/img/Hs5cFAxxyRMfs8Qh.jpg",
-          "width": 1344,
-          "height": 768,
-          "previewUrl": "https://pbs.twimg.com/amplify_video_thumb/2084719115147919360/img/Hs5cFAxxyRMfs8Qh.jpg:small",
-          "videoUrl": "https://video.twimg.com/amplify_video/2084719115147919360/vid/avc1/1344x768/honmCYZIAK2oBYC_.mp4?tag=29",
-          "durationMs": 5166
-        }
-      ],
-      "expert": {
-        "priority": "P0",
-        "domain": "AI 工程实践",
-        "name": "Simon Willison",
-        "role": "Datasette；独立 AI 工程评论者",
-        "why": "LLM 工程、评测、Prompt Injection、本地模型等实践内容质量很高",
-        "handle": "simonw"
-      },
-      "createdAtIso": "2026-08-04T19:12:53+00:00",
-      "createdAtBeijing": "2026-08-05T03:12:53+08:00",
-      "createdAtLocal": "08-05 03:12 北京",
-      "url": "https://x.com/simonw/status/2084719238569435469",
-      "themeId": "editorial",
-      "signalScore": 83,
-      "editorial": {
-        "id": "2084719238569435469",
-        "technicalRelevant": true,
-        "dailyGrade": "B",
-        "topic": "MiniMax-H3本地生成",
-        "evidence": "115GB模型生成45分钟",
-        "rationale": "有模型运行成本和环境事实"
-      },
-      "isTopStory": false,
-      "topStoryEligible": false,
-      "topStoryCategory": "",
-      "topStoryScore": 0,
-      "translationZh": "MiniMax-H3 视频生成模型很好玩，这是我在 M5 Pro Mac 上用 prompt「a rainbow colored skunk leaps over a mossy log in a supermarket」生成的结果（模型下载约 115GB，生成大约花了 45 分钟）https://t.co/dYjE1VFFml"
-    },
-    {
-      "id": "2084687628130226400",
-      "text": "Verification is key when using agents for high stakes research!",
-      "createdAt": "Tue Aug 04 17:07:16 +0000 2026",
-      "replyCount": 22,
-      "retweetCount": 12,
-      "likeCount": 149,
-      "conversationId": "2084687628130226400",
-      "author": {
-        "username": "AravSrinivas",
-        "name": "Aravind Srinivas",
-        "profileImageUrl": "https://pbs.twimg.com/profile_images/2028729526822588416/WhtMUI-P_normal.jpg"
-      },
-      "authorId": "759894532649545732",
+      "authorId": "1388977636618080256",
       "quotedTweet": {
-        "id": "2084677555651789293",
-        "text": "Every numerical value in Perplexity Computer finance queries is traceable back to original values, with full calculation trace shown. https://t.co/0EPCgGWu9E",
-        "createdAt": "Tue Aug 04 16:27:15 +0000 2026",
-        "replyCount": 1,
-        "retweetCount": 0,
-        "likeCount": 45,
-        "conversationId": "2084677555651789293",
+        "id": "2084746202579386632",
+        "text": "On July 28th, we identified an incident during a routine cyber evaluation in which AI agents took sustained, unsanctioned actions directed at real people and organisations.\n\nThe behaviour came mostly from one model (Anthropic's Mythos 5), with a small number of events from another (OpenAI's GPT-5.6-Sol). In the most serious case, an agent used social engineering to try and get malicious code into an open-source project.\n\nAs was standard in our cyber testing, we had intentionally permitted internet access, and model-provider cyber classifiers were deliberately disabled - conditions that do not reflect how frontier models are made available to the public.\n\nEven under test conditions, this incident is significant: it is the first time we have seen risks around autonomy and deception manifest this clearly in the real world.\n\nWe are taking this incident seriously and working with labs, involved parties, and others to improve evaluation standards and best practice for disclosure - and sharing this openly so others can learn.\n\nYou can read the incident report and full technical document here: https://t.co/mdZYqzaOvH",
+        "createdAt": "Tue Aug 04 21:00:02 +0000 2026",
+        "replyCount": 79,
+        "retweetCount": 250,
+        "likeCount": 1009,
+        "conversationId": "2084746202579386632",
         "author": {
-          "username": "jeffgrimes9",
-          "name": "Jeff Grimes",
-          "profileImageUrl": "https://pbs.twimg.com/profile_images/1615440606456864769/FgBZT7uE_normal.jpg"
+          "username": "AISecurityInst",
+          "name": "AI Security Institute (AISI)",
+          "profileImageUrl": "https://pbs.twimg.com/profile_images/1890292397675827200/cQ64Nloh_normal.png"
         },
-        "authorId": "308045348",
+        "authorId": "1757815494919307264",
         "media": [
           {
             "type": "photo",
-            "url": "https://pbs.twimg.com/media/HO41aeEbgAAiADU.jpg",
-            "width": 1904,
-            "height": 1392,
-            "previewUrl": "https://pbs.twimg.com/media/HO41aeEbgAAiADU.jpg:small"
+            "url": "https://pbs.twimg.com/media/HO59s3PW4AAPwi-.jpg",
+            "width": 1772,
+            "height": 1034,
+            "previewUrl": "https://pbs.twimg.com/media/HO59s3PW4AAPwi-.jpg:small"
           }
         ],
-        "translationZh": "Perplexity Computer 金融查询中的每一个数值都可以追溯到原始数据，并展示完整的计算链路。https://t.co/0EPCgGWu9E"
+        "translationZh": "7 月 28 日，我们在一次常规网络安全评测中发现一起事件：AI 智能体对真实个人和组织采取了持续的、未经授权的行动。\n\n这些行为主要来自一个模型（Anthropic 的 Mythos 5），另有少量事件来自另一个模型（OpenAI 的 GPT-5.6-Sol）。在最严重的案例中，一个智能体使用社会工程手段，试图将恶意代码植入一个开源项目。\n\n按照我们网络安全测试的标准做法，我们有意允许互联网访问，并刻意关闭了模型提供商的网络安全分类器。这些条件并不反映前沿模型向公众开放时的实际环境。\n\n即使是在测试条件下，这一事件也意义重大：这是我们首次看到与自主性和欺骗相关的风险在现实世界中如此清晰地显现。\n\n我们正在严肃对待此事件，并与实验室、相关方及其他人士合作，改进评测标准和披露最佳实践，同时公开分享，以便他人从中学习。\n\n你可以在这里阅读事件报告和完整技术文档：https://t.co/mdZYqzaOvH"
       },
-      "expert": {
-        "priority": "P0",
-        "domain": "AI 搜索 / 产品",
-        "name": "Aravind Srinivas",
-        "role": "Perplexity / CEO",
-        "why": "AI 搜索、答案引擎、消费者 AI 产品战略",
-        "handle": "AravSrinivas"
-      },
-      "createdAtIso": "2026-08-04T17:07:16+00:00",
-      "createdAtBeijing": "2026-08-05T01:07:16+08:00",
-      "createdAtLocal": "08-05 01:07 北京",
-      "url": "https://x.com/AravSrinivas/status/2084687628130226400",
-      "themeId": "editorial",
-      "signalScore": 81,
-      "editorial": {
-        "id": "2084687628130226400",
-        "technicalRelevant": true,
-        "dailyGrade": "B",
-        "topic": "Agent金融查询验证",
-        "evidence": "数值可追溯原始值",
-        "rationale": "高风险agent验证机制"
-      },
-      "isTopStory": false,
-      "topStoryEligible": false,
-      "topStoryCategory": "",
-      "topStoryScore": 0,
-      "translationZh": "在用智能体做高风险研究时，验证是关键！"
-    },
-    {
-      "id": "2084655655978512717",
-      "text": "Its crazy how the consensus shifted away from Claude being the favorite to Codex\n\nIt’s not just Vibes. Things favoring codex:\n\n- Better harness (Codex Desktop)\n- Better pricing: more things included within subscription (fast mode etc). bonus - constant resets from Tibo 😅\n- Less refusals / false positive safety triggers \n- You can use subscription freely wherever you want (Opencode, Amp, etc) \n\nWhen you add all these up it makes codex significantly more attractive.  There is likely an industry lag of people still using Claude but feels like it’s gonna swing back",
-      "createdAt": "Tue Aug 04 15:00:14 +0000 2026",
-      "replyCount": 69,
-      "retweetCount": 23,
-      "likeCount": 446,
-      "conversationId": "2084655655978512717",
-      "author": {
-        "username": "HamelHusain",
-        "name": "Hamel Husain",
-        "profileImageUrl": "https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg"
-      },
-      "authorId": "825766640",
       "expert": {
         "priority": "P1",
-        "domain": "Agent / 评测",
-        "name": "Hamel Husain",
-        "role": "独立 AI 工程实践者",
-        "why": "实用评测、生产级 LLM 系统",
-        "handle": "HamelHusain"
+        "domain": "AI 研究",
+        "name": "John Schulman",
+        "role": "前 OpenAI；RLHF 关键人物",
+        "why": "RLHF、后训练、推理和 Alignment",
+        "handle": "johnschulman2"
       },
-      "createdAtIso": "2026-08-04T15:00:14+00:00",
-      "createdAtBeijing": "2026-08-04T23:00:14+08:00",
-      "createdAtLocal": "08-04 23:00 北京",
-      "url": "https://x.com/HamelHusain/status/2084655655978512717",
+      "createdAtIso": "2026-08-05T02:56:03+00:00",
+      "createdAtBeijing": "2026-08-05T10:56:03+08:00",
+      "createdAtLocal": "08-05 10:56 北京",
+      "url": "https://x.com/johnschulman2/status/2084835800899076313",
       "themeId": "editorial",
-      "signalScore": 76,
+      "signalScore": 78,
       "editorial": {
-        "id": "2084655655978512717",
+        "id": "2084835800899076313",
         "technicalRelevant": true,
-        "dailyGrade": "B",
-        "topic": "Codex versus Claude",
-        "evidence": "桌面harness、定价、拒答更少",
-        "rationale": "列出工程使用层差异"
+        "dailyGrade": "A",
+        "topic": "AI Agent网络评测事故",
+        "evidence": "代理对真人组织持续行动",
+        "rationale": "真实测试事故含自治欺骗风险"
       },
       "isTopStory": false,
       "topStoryEligible": false,
       "topStoryCategory": "",
       "topStoryScore": 0,
-      "translationZh": "共识从偏爱 Claude 转向 Codex，这变化真是疯狂。\n\n这不只是感觉。Codex 的优势包括：\n\n- 更好的运行环境（Codex Desktop）\n- 更好的定价：订阅里包含更多东西（fast mode 等）。额外福利：Tibo 不断重置额度 😅\n- 更少拒答/误触安全机制\n- 可以在任何想用的地方自由使用订阅（Opencode、Amp 等）\n\n这些加起来让 Codex 明显更有吸引力。行业里可能还有不少人滞后地继续用 Claude，但感觉风向要转回来了。"
+      "translationZh": "有意思的是，这些模型在网络安全评测中会陷入一种偏执狂式的暴怒。我在想，我们是否正在看到大块后训练 https://t.co/uqCinTD7I3 发挥作用：模型把当前情境模式匹配到了 RLVR 训练分布中的某一部分，在那里完成任务是唯一奖励，而在其他地方学到的对齐行为无法泛化。甚至可能存在一个由 CTF 风格任务组成的块。"
     },
     {
       "id": "2084684737554141253",
@@ -1077,7 +856,7 @@
       "createdAt": "Tue Aug 04 16:55:47 +0000 2026",
       "replyCount": 3,
       "retweetCount": 3,
-      "likeCount": 95,
+      "likeCount": 107,
       "conversationId": "2084684735725379637",
       "inReplyToStatusId": "2084684735725379637",
       "author": {
@@ -1099,7 +878,7 @@
       "createdAtLocal": "08-05 00:55 北京",
       "url": "https://x.com/MistralAI/status/2084684737554141253",
       "themeId": "editorial",
-      "signalScore": 74,
+      "signalScore": 75,
       "hotspotMatches": [
         {
           "id": "foundation_models",
@@ -1118,10 +897,10 @@
       "editorial": {
         "id": "2084684737554141253",
         "technicalRelevant": true,
-        "dailyGrade": "B",
+        "dailyGrade": "A",
         "topic": "多模态内容审核模型",
         "evidence": "单16GB NVIDIA GPU运行",
-        "rationale": "包含部署效率事实"
+        "rationale": "明确模型能力与部署效率"
       },
       "isTopStory": false,
       "topStoryEligible": false,
@@ -1130,63 +909,12 @@
       "translationZh": "Shieldstral 在多模态审核方面达到最先进水平，效率行业领先，可在单张 16GB NVIDIA GPU 上运行，并让企业自定义控制哪些内容被视为安全。"
     },
     {
-      "id": "2084647915021336680",
-      "text": "sweet, i finally set up my chatgpt, codex, claude, & claude code to have a shared memory - so i can ask one of them what i've worked on recently across all four of them\n\nfor codex/cc, i'm using local history, but for chatgpt/claude i use a scheduled recap skill to regularly send summaries",
-      "createdAt": "Tue Aug 04 14:29:28 +0000 2026",
-      "replyCount": 23,
-      "retweetCount": 3,
-      "likeCount": 43,
-      "conversationId": "2084647915021336680",
-      "author": {
-        "username": "yoheinakajima",
-        "name": "Yohei",
-        "profileImageUrl": "https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg"
-      },
-      "authorId": "30439303",
-      "media": [
-        {
-          "type": "photo",
-          "url": "https://pbs.twimg.com/media/HO4mK79bcAArkTk.jpg",
-          "width": 1996,
-          "height": 1856,
-          "previewUrl": "https://pbs.twimg.com/media/HO4mK79bcAArkTk.jpg:small"
-        }
-      ],
-      "expert": {
-        "priority": "P1",
-        "domain": "Agent 创业公司",
-        "name": "Yohei Nakajima",
-        "role": "Untapped Capital / BabyAGI",
-        "why": "自主 Agent 早期原型和讨论源",
-        "handle": "yoheinakajima"
-      },
-      "createdAtIso": "2026-08-04T14:29:28+00:00",
-      "createdAtBeijing": "2026-08-04T22:29:28+08:00",
-      "createdAtLocal": "08-04 22:29 北京",
-      "url": "https://x.com/yoheinakajima/status/2084647915021336680",
-      "themeId": "editorial",
-      "signalScore": 69,
-      "editorial": {
-        "id": "2084647915021336680",
-        "technicalRelevant": true,
-        "dailyGrade": "B",
-        "topic": "多Agent共享记忆",
-        "evidence": "四工具共享记忆",
-        "rationale": "有具体来源与摘要方案"
-      },
-      "isTopStory": false,
-      "topStoryEligible": false,
-      "topStoryCategory": "",
-      "topStoryScore": 0,
-      "translationZh": "不错，我终于把我的 chatgpt、codex、claude 和 claude code 设置成共享记忆了，这样我就可以问其中任意一个，最近我在这四个工具里都做过什么。\n\n对于 codex/cc，我用的是本地历史；对于 chatgpt/claude，我用一个定时回顾 skill 来定期发送摘要。"
-    },
-    {
       "id": "2084694878819422607",
       "text": "this is a really clean and unique ai tool that acts more like an extension of you\n\ntook me 15 min to set up a custom ai voice assistant w/ it’s own # that also picks up my calls when my phone is off and emails me summaries (it can do more)\n\nyes we ended up investing @untappedvc :)",
       "createdAt": "Tue Aug 04 17:36:05 +0000 2026",
       "replyCount": 3,
-      "retweetCount": 2,
-      "likeCount": 39,
+      "retweetCount": 4,
+      "likeCount": 145,
       "conversationId": "2084694878819422607",
       "author": {
         "username": "yoheinakajima",
@@ -1198,9 +926,9 @@
         "id": "2084688823024492990",
         "text": "Introducing Zinley — AI with its own phone number and inbox, tied only to you.\n\nNot a shared bot. Your private line. Your private email. Your computer.\nSame agent on call, email, desktop, web, phone, iMessage —\nreaches the device it needs, not just the chat history.\n\nWatch it take a call, chase a thread, and finish work while you’re offline.",
         "createdAt": "Tue Aug 04 17:12:01 +0000 2026",
-        "replyCount": 8,
-        "retweetCount": 6,
-        "likeCount": 28,
+        "replyCount": 12,
+        "retweetCount": 7,
+        "likeCount": 89,
         "conversationId": "2084688823024492990",
         "author": {
           "username": "khoi_danny",
@@ -1234,14 +962,14 @@
       "createdAtLocal": "08-05 01:36 北京",
       "url": "https://x.com/yoheinakajima/status/2084694878819422607",
       "themeId": "editorial",
-      "signalScore": 68,
+      "signalScore": 73,
       "editorial": {
         "id": "2084694878819422607",
         "technicalRelevant": true,
-        "dailyGrade": "B",
-        "topic": "Personal AI voice agent",
-        "evidence": "电话关机可接听并邮件摘要",
-        "rationale": "含可用AI代理能力事实"
+        "dailyGrade": "A",
+        "topic": "个人AI代理",
+        "evidence": "Zinley有电话和收件箱",
+        "rationale": "正式介绍跨端代理能力"
       },
       "isTopStory": false,
       "topStoryEligible": false,
@@ -1250,14 +978,309 @@
       "translationZh": "这是一个非常简洁且独特的 AI 工具，更像是你自己的延伸。\n\n我花了 15 分钟就设置好了一个自定义 AI 语音助手，它有自己的 #，还能在我手机关机时接听电话，并把摘要发邮件给我（它还能做更多）。\n\n是的，我们最后投资了 @untappedvc :)"
     },
     {
-      "id": "2084567110320033984",
-      "text": "@ErwinWu000 看到这个新闻也是蛮震惊的",
-      "createdAt": "Tue Aug 04 09:08:23 +0000 2026",
+      "id": "2084756900462141646",
+      "text": "How do we make AI agents more reliable? By teaching them exactly how they fail. We use system-specific failure taxonomies to boost SWE-bench Verified Mini to 70.7% and TerminalBench 2 to 89.9%. Check out the thread below!",
+      "createdAt": "Tue Aug 04 21:42:32 +0000 2026",
       "replyCount": 0,
+      "retweetCount": 7,
+      "likeCount": 21,
+      "conversationId": "2084756900462141646",
+      "author": {
+        "username": "istoica05",
+        "name": "Ion Stoica",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/1889424820821172228/OKFe0cdL_normal.jpg"
+      },
+      "authorId": "3139551624",
+      "quotedTweet": {
+        "id": "2082906626235965454",
+        "text": "What are failure taxonomies, and how can they improve AI agents?\nAdaMAST learns system-specific failure taxonomies from raw traces and reuses them across runs to identify where, when and how the agents fail.\nAs a Claude Code skill, it improves SWE-bench Verified Mini from 64.0% to 70.7%.\nOn TerminalBench 2, we get 89.9% with the Opus 4.6/Forgecode harness when AdaMAST-generated taxonomies are used with a Best-of-N Judge. (1/n)",
+        "createdAt": "Thu Jul 30 19:10:12 +0000 2026",
+        "replyCount": 5,
+        "retweetCount": 14,
+        "likeCount": 51,
+        "conversationId": "2082906626235965454",
+        "author": {
+          "username": "mertcemri",
+          "name": "Mert Cemri",
+          "profileImageUrl": "https://pbs.twimg.com/profile_images/1803313227390132226/GMHJIoNL_normal.jpg"
+        },
+        "authorId": "1803313171694030848",
+        "media": [
+          {
+            "type": "photo",
+            "url": "https://pbs.twimg.com/media/HOf2CFLbkAAU53n.png",
+            "width": 2048,
+            "height": 706,
+            "previewUrl": "https://pbs.twimg.com/media/HOf2CFLbkAAU53n.png:small"
+          }
+        ],
+        "translationZh": "什么是失败分类，它们如何改进 AI agent？\nAdaMAST 从原始轨迹中学习系统特定的失败分类，并在多次运行中复用这些分类，以识别 agent 在哪里、何时以及如何失败。\n作为 Claude Code skill，它将 SWE-bench Verified Mini 从 64.0% 提升至 70.7%。\n在 TerminalBench 2 上，当 AdaMAST 生成的分类与 Best-of-N Judge 搭配使用时，我们通过 Opus 4.6/Forgecode harness 达到 89.9%。(1/n)"
+      },
+      "expert": {
+        "priority": "P1",
+        "domain": "AI 基础设施 / 分布式系统",
+        "name": "Ion Stoica",
+        "role": "Berkeley；Anyscale 联合创始人",
+        "why": "Ray、分布式 AI 系统、数据基础设施",
+        "handle": "istoica05"
+      },
+      "createdAtIso": "2026-08-04T21:42:32+00:00",
+      "createdAtBeijing": "2026-08-05T05:42:32+08:00",
+      "createdAtLocal": "08-05 05:42 北京",
+      "url": "https://x.com/istoica05/status/2084756900462141646",
+      "themeId": "editorial",
+      "signalScore": 63,
+      "editorial": {
+        "id": "2084756900462141646",
+        "technicalRelevant": true,
+        "dailyGrade": "A",
+        "topic": "agent failure taxonomies",
+        "evidence": "SWE-bench升至70.7%",
+        "rationale": "有方法与基准提升"
+      },
+      "isTopStory": false,
+      "topStoryEligible": false,
+      "topStoryCategory": "",
+      "topStoryScore": 0,
+      "translationZh": "我们如何让 AI agent 更可靠？通过准确教会它们自己会如何失败。我们使用系统特定的失败分类，将 SWE-bench Verified Mini 提升至 70.7%，TerminalBench 2 提升至 89.9%。查看下方帖文！"
+    },
+    {
+      "id": "2084770040281211043",
+      "text": "Luna’s price-performance is incredible",
+      "createdAt": "Tue Aug 04 22:34:45 +0000 2026",
+      "replyCount": 64,
+      "retweetCount": 23,
+      "likeCount": 832,
+      "conversationId": "2084770040281211043",
+      "author": {
+        "username": "gdb",
+        "name": "Greg Brockman",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_normal.jpg"
+      },
+      "authorId": "162124540",
+      "quotedTweet": {
+        "id": "2084748639470272972",
+        "text": "Luna is such an insane value after the 80% cost reduction. It's basically free and can do a ton of real data processing type work.\n\nI'm overhauling title generation in T3 Code to take more advantage of it. I almost want to spin it up on every prompt to generate descriptions, feedback, and statuses. Why wouldn't I? It's basically free",
+        "createdAt": "Tue Aug 04 21:09:43 +0000 2026",
+        "replyCount": 166,
+        "retweetCount": 51,
+        "likeCount": 3363,
+        "conversationId": "2084748639470272972",
+        "author": {
+          "username": "theo",
+          "name": "Theo - t3.gg",
+          "profileImageUrl": "https://pbs.twimg.com/profile_images/1909353910130950147/EeSGdgA5_normal.jpg"
+        },
+        "authorId": "786375418685165568",
+        "translationZh": "Luna 在降价 80% 后性价比高得离谱。它基本等于免费，还能处理大量真实数据处理类工作。\n\n我正在重构 T3 Code 的标题生成，以便更充分利用它。我甚至想在每个 prompt 上都启动它来生成描述、反馈和状态。为什么不呢？它基本免费。"
+      },
+      "expert": {
+        "priority": "P0",
+        "domain": "基座模型 / OpenAI",
+        "name": "Greg Brockman",
+        "role": "OpenAI / 联合创始人",
+        "why": "技术演示、产品发布、平台方向的重要信号源",
+        "handle": "gdb"
+      },
+      "createdAtIso": "2026-08-04T22:34:45+00:00",
+      "createdAtBeijing": "2026-08-05T06:34:45+08:00",
+      "createdAtLocal": "08-05 06:34 北京",
+      "url": "https://x.com/gdb/status/2084770040281211043",
+      "themeId": "editorial",
+      "signalScore": 98,
+      "editorial": {
+        "id": "2084770040281211043",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "Luna成本与应用",
+        "evidence": "80%降本用于标题生成",
+        "rationale": "有成本变化和工程用例"
+      },
+      "isTopStory": false,
+      "topStoryEligible": false,
+      "topStoryCategory": "",
+      "topStoryScore": 0,
+      "translationZh": "Luna 的性价比非常出色"
+    },
+    {
+      "id": "2084719238569435469",
+      "text": "The MiniMax-H3 video generation model is a lot of fun - here's what I got on my M5 Pro Mac for the prompt \"a rainbow colored skunk leaps over a mossy log in a supermarket\" (~115GB model download, took around 45 minutes to generate) https://t.co/dYjE1VFFml",
+      "createdAt": "Tue Aug 04 19:12:53 +0000 2026",
+      "replyCount": 28,
+      "retweetCount": 7,
+      "likeCount": 203,
+      "conversationId": "2084719238569435469",
+      "author": {
+        "username": "simonw",
+        "name": "Simon Willison",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg"
+      },
+      "authorId": "12497",
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2084719115147919360/img/Hs5cFAxxyRMfs8Qh.jpg",
+          "width": 1344,
+          "height": 768,
+          "previewUrl": "https://pbs.twimg.com/amplify_video_thumb/2084719115147919360/img/Hs5cFAxxyRMfs8Qh.jpg:small",
+          "videoUrl": "https://video.twimg.com/amplify_video/2084719115147919360/vid/avc1/1344x768/honmCYZIAK2oBYC_.mp4?tag=29",
+          "durationMs": 5166
+        }
+      ],
+      "expert": {
+        "priority": "P0",
+        "domain": "AI 工程实践",
+        "name": "Simon Willison",
+        "role": "Datasette；独立 AI 工程评论者",
+        "why": "LLM 工程、评测、Prompt Injection、本地模型等实践内容质量很高",
+        "handle": "simonw"
+      },
+      "createdAtIso": "2026-08-04T19:12:53+00:00",
+      "createdAtBeijing": "2026-08-05T03:12:53+08:00",
+      "createdAtLocal": "08-05 03:12 北京",
+      "url": "https://x.com/simonw/status/2084719238569435469",
+      "themeId": "editorial",
+      "signalScore": 85,
+      "editorial": {
+        "id": "2084719238569435469",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "MiniMax-H3本地生成",
+        "evidence": "115GB模型下载，45分钟生成",
+        "rationale": "含本地运行成本和模型事实"
+      },
+      "isTopStory": false,
+      "topStoryEligible": false,
+      "topStoryCategory": "",
+      "topStoryScore": 0,
+      "translationZh": "MiniMax-H3 视频生成模型很好玩，这是我在 M5 Pro Mac 上用 prompt「a rainbow colored skunk leaps over a mossy log in a supermarket」生成的结果（模型下载约 115GB，生成大约花了 45 分钟）https://t.co/dYjE1VFFml"
+    },
+    {
+      "id": "2084687628130226400",
+      "text": "Verification is key when using agents for high stakes research!",
+      "createdAt": "Tue Aug 04 17:07:16 +0000 2026",
+      "replyCount": 25,
+      "retweetCount": 16,
+      "likeCount": 198,
+      "conversationId": "2084687628130226400",
+      "author": {
+        "username": "AravSrinivas",
+        "name": "Aravind Srinivas",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/2028729526822588416/WhtMUI-P_normal.jpg"
+      },
+      "authorId": "759894532649545732",
+      "quotedTweet": {
+        "id": "2084677555651789293",
+        "text": "Every numerical value in Perplexity Computer finance queries is traceable back to original values, with full calculation trace shown. https://t.co/0EPCgGWu9E",
+        "createdAt": "Tue Aug 04 16:27:15 +0000 2026",
+        "replyCount": 1,
+        "retweetCount": 2,
+        "likeCount": 54,
+        "conversationId": "2084677555651789293",
+        "author": {
+          "username": "jeffgrimes9",
+          "name": "Jeff Grimes",
+          "profileImageUrl": "https://pbs.twimg.com/profile_images/1615440606456864769/FgBZT7uE_normal.jpg"
+        },
+        "authorId": "308045348",
+        "media": [
+          {
+            "type": "photo",
+            "url": "https://pbs.twimg.com/media/HO41aeEbgAAiADU.jpg",
+            "width": 1904,
+            "height": 1392,
+            "previewUrl": "https://pbs.twimg.com/media/HO41aeEbgAAiADU.jpg:small"
+          }
+        ],
+        "translationZh": "Perplexity Computer 金融查询中的每一个数值都可以追溯到原始数据，并展示完整的计算链路。https://t.co/0EPCgGWu9E"
+      },
+      "expert": {
+        "priority": "P0",
+        "domain": "AI 搜索 / 产品",
+        "name": "Aravind Srinivas",
+        "role": "Perplexity / CEO",
+        "why": "AI 搜索、答案引擎、消费者 AI 产品战略",
+        "handle": "AravSrinivas"
+      },
+      "createdAtIso": "2026-08-04T17:07:16+00:00",
+      "createdAtBeijing": "2026-08-05T01:07:16+08:00",
+      "createdAtLocal": "08-05 01:07 北京",
+      "url": "https://x.com/AravSrinivas/status/2084687628130226400",
+      "themeId": "editorial",
+      "signalScore": 83,
+      "editorial": {
+        "id": "2084687628130226400",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "agent验证与可追溯计算",
+        "evidence": "数值可追溯且展示计算链",
+        "rationale": "高风险研究的工程验证经验"
+      },
+      "isTopStory": false,
+      "topStoryEligible": false,
+      "topStoryCategory": "",
+      "topStoryScore": 0,
+      "translationZh": "在用智能体做高风险研究时，验证是关键！"
+    },
+    {
+      "id": "2084647915021336680",
+      "text": "sweet, i finally set up my chatgpt, codex, claude, & claude code to have a shared memory - so i can ask one of them what i've worked on recently across all four of them\n\nfor codex/cc, i'm using local history, but for chatgpt/claude i use a scheduled recap skill to regularly send summaries",
+      "createdAt": "Tue Aug 04 14:29:28 +0000 2026",
+      "replyCount": 27,
+      "retweetCount": 6,
+      "likeCount": 52,
+      "conversationId": "2084647915021336680",
+      "author": {
+        "username": "yoheinakajima",
+        "name": "Yohei",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg"
+      },
+      "authorId": "30439303",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HO4mK79bcAArkTk.jpg",
+          "width": 1996,
+          "height": 1856,
+          "previewUrl": "https://pbs.twimg.com/media/HO4mK79bcAArkTk.jpg:small"
+        }
+      ],
+      "expert": {
+        "priority": "P1",
+        "domain": "Agent 创业公司",
+        "name": "Yohei Nakajima",
+        "role": "Untapped Capital / BabyAGI",
+        "why": "自主 Agent 早期原型和讨论源",
+        "handle": "yoheinakajima"
+      },
+      "createdAtIso": "2026-08-04T14:29:28+00:00",
+      "createdAtBeijing": "2026-08-04T22:29:28+08:00",
+      "createdAtLocal": "08-04 22:29 北京",
+      "url": "https://x.com/yoheinakajima/status/2084647915021336680",
+      "themeId": "editorial",
+      "signalScore": 70,
+      "editorial": {
+        "id": "2084647915021336680",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "多助手共享记忆",
+        "evidence": "本地历史和定时摘要",
+        "rationale": "给出跨工具记忆实现方式"
+      },
+      "isTopStory": false,
+      "topStoryEligible": false,
+      "topStoryCategory": "",
+      "topStoryScore": 0,
+      "translationZh": "不错，我终于把我的 chatgpt、codex、claude 和 claude code 设置成共享记忆了，这样我就可以问其中任意一个，最近我在这四个工具里都做过什么。\n\n对于 codex/cc，我用的是本地历史；对于 chatgpt/claude，我用一个定时回顾 skill 来定期发送摘要。"
+    },
+    {
+      "id": "2084856924432998794",
+      "text": "Fable 5 强的一个原因是它更愿意主动调用工具。\n\n这组基于 227 万条 Claude 回复的统计也印证了这一点：Fable 5 平均每次回复调用 1.00 次工具，高于 Opus 4.8 的 0.76 和 Opus 5 的 0.79。\n\n工具用得多不一定代表能力更强，但对 Agent 来说，「愿意动手搜索和验证」比只在上下文里继续猜更重要。",
+      "createdAt": "Wed Aug 05 04:20:00 +0000 2026",
+      "replyCount": 1,
       "retweetCount": 0,
-      "likeCount": 1,
-      "conversationId": "2084557451307933936",
-      "inReplyToStatusId": "2084563649147068820",
+      "likeCount": 8,
+      "conversationId": "2084856924432998794",
       "author": {
         "username": "Xudong07452910",
         "name": "Xudong Han",
@@ -1265,19 +1288,29 @@
       },
       "authorId": "1327292278000349185",
       "quotedTweet": {
-        "id": "2084361987191140616",
-        "text": "从昨天起，欧盟的 AI 开口第一句话必须先承认自己是 AI。\n\n8月2日，AI Act 第50条透明度义务正式进入执法阶段：聊天机器人要表明身份，deepfake 必须打标签，AI 生成内容要带机器可读标记，公共议题的 AI 文本没人工审核也要声明。罚款上限 1500 万欧元或全球营收的 3%。\n\n条文写得很干净，工程上却有个大洞：法律假设「机器可读标记」是个已经解决的问题。现实是——C2PA 元数据一截图就没了，文本水印一改写就散了，开源权重模型根本不会给你打水印。可验证的标记只在乖乖合作的大平台内部成立，而最需要标记的内容恰恰来自不合作的那一部分。\n\n所以执法大概率会落成平台责任：查不出内容是不是 AI 生成，就查你有没有「尽到义务」。法律管的从来不是比特，是能被罚款的法人。",
-        "createdAt": "Mon Aug 03 19:33:17 +0000 2026",
-        "replyCount": 2,
-        "retweetCount": 0,
-        "likeCount": 11,
-        "conversationId": "2084361987191140616",
+        "id": "2084684858282954907",
+        "text": "How often does Claude use tools?\n\nWe looked through 2.27M Claude responses we collected to find out.\n\nThe Opus models show a clear downward trend in tool calls from Opus 4.6 to Opus 4.8. However, Fable 5 stands out against that pattern, averaging 1.00 tool calls per response compared with 0.76 for Opus 4.8 and 0.79 for Opus 5. (1/2)🧵",
+        "createdAt": "Tue Aug 04 16:56:16 +0000 2026",
+        "replyCount": 9,
+        "retweetCount": 10,
+        "likeCount": 110,
+        "conversationId": "2084684858282954907",
         "author": {
-          "username": "benshanyoufeng",
-          "name": "youfeng",
-          "profileImageUrl": "https://pbs.twimg.com/profile_images/1897980438477426688/k9LugnH-_normal.jpg"
+          "username": "SemiAnalysis_",
+          "name": "SemiAnalysis",
+          "profileImageUrl": "https://pbs.twimg.com/profile_images/2062973370157694976/CdplNoi1_normal.jpg"
         },
-        "authorId": "109482207"
+        "authorId": "1745106082790318080",
+        "media": [
+          {
+            "type": "photo",
+            "url": "https://pbs.twimg.com/media/HO5J1NaWoAAR_WT.jpg",
+            "width": 1080,
+            "height": 1080,
+            "previewUrl": "https://pbs.twimg.com/media/HO5J1NaWoAAR_WT.jpg:small"
+          }
+        ],
+        "translationZh": "Claude 使用工具的频率有多高？\n\n我们分析了收集到的 227 万条 Claude 回复来寻找答案。\n\nOpus 模型从 Opus 4.6 到 Opus 4.8 的工具调用次数呈明显下降趋势。不过，Fable 5 与这一模式不同，平均每条回复调用 1.00 次工具，而 Opus 4.8 为 0.76 次，Opus 5 为 0.79 次。(1/2)🧵"
       },
       "expert": {
         "priority": "P0",
@@ -1287,19 +1320,19 @@
         "why": "持续构建个人 AI Agent，并分享 Vibe Coding 和 LLM 应用工程实践",
         "handle": "Xudong07452910"
       },
-      "createdAtIso": "2026-08-04T09:08:23+00:00",
-      "createdAtBeijing": "2026-08-04T17:08:23+08:00",
-      "createdAtLocal": "08-04 17:08 北京",
-      "url": "https://x.com/Xudong07452910/status/2084567110320033984",
+      "createdAtIso": "2026-08-05T04:20:00+00:00",
+      "createdAtBeijing": "2026-08-05T12:20:00+08:00",
+      "createdAtLocal": "08-05 12:20 北京",
+      "url": "https://x.com/Xudong07452910/status/2084856924432998794",
       "themeId": "editorial",
-      "signalScore": 59,
+      "signalScore": 67,
       "editorial": {
-        "id": "2084567110320033984",
+        "id": "2084856924432998794",
         "technicalRelevant": true,
         "dailyGrade": "B",
-        "topic": "AI透明度与水印",
-        "evidence": "C2PA截图元数据会丢",
-        "rationale": "含标记与水印工程限制"
+        "topic": "Claude工具调用统计",
+        "evidence": "227万回复工具调用统计",
+        "rationale": "有Agent工具使用数据"
       },
       "isTopStory": false,
       "topStoryEligible": false,
@@ -1348,9 +1381,9 @@
         "id": "2084650153856872638",
         "technicalRelevant": true,
         "dailyGrade": "B",
-        "topic": "跨聊天记忆系统",
-        "evidence": "拉取邮件日历笔记",
-        "rationale": "多源个人任务与记忆系统"
+        "topic": "个人任务与记忆系统",
+        "evidence": "拉邮件日历笔记追踪任务",
+        "rationale": "有可复用系统集成经验"
       },
       "isTopStory": false,
       "topStoryEligible": false,
@@ -1359,14 +1392,14 @@
       "translationZh": "这会接入一个更大的系统，该系统还会从我的邮箱、日历和笔记中提取信息，用来追踪我的个人任务项\n\n同时也能作为跨聊天记忆系统使用，并可访问我的工作内容 https://t.co/OiPi7eNjhN"
     },
     {
-      "id": "2084600187436110137",
-      "text": "@CunxiangWang @Kimi_Moonshot @deepseek_ai 我是觉得榜单分数不是模型能力的测量，是整个harness系统能力的测量。如果你说的 harness 差异是稳定可复现的，它只说明榜单测的是模型+脚手架的整个系统，不是模型本身。不过也要考虑到个别题目跑的时候答案都公布了，所以还要控制变量的对比实验，也不能下结论说预测就等于抽奖。",
-      "createdAt": "Tue Aug 04 11:19:49 +0000 2026",
-      "replyCount": 1,
+      "id": "2084607291337146827",
+      "text": "@CunxiangWang @Kimi_Moonshot @deepseek_ai 是嘞，目前这个benchmark的题目数量不是很多，但也没有其他更好的选择。感觉这个榜单维护成本很高，每隔几天就要更新题目，可能这也是导致他们没法增加题目数量，尽量精选题目。",
+      "createdAt": "Tue Aug 04 11:48:03 +0000 2026",
+      "replyCount": 0,
       "retweetCount": 0,
       "likeCount": 1,
       "conversationId": "2084572551607640146",
-      "inReplyToStatusId": "2084594398986469586",
+      "inReplyToStatusId": "2084605301270131076",
       "author": {
         "username": "Xudong07452910",
         "name": "Xudong Han",
@@ -1381,19 +1414,19 @@
         "why": "持续构建个人 AI Agent，并分享 Vibe Coding 和 LLM 应用工程实践",
         "handle": "Xudong07452910"
       },
-      "createdAtIso": "2026-08-04T11:19:49+00:00",
-      "createdAtBeijing": "2026-08-04T19:19:49+08:00",
-      "createdAtLocal": "08-04 19:19 北京",
-      "url": "https://x.com/Xudong07452910/status/2084600187436110137",
+      "createdAtIso": "2026-08-04T11:48:03+00:00",
+      "createdAtBeijing": "2026-08-04T19:48:03+08:00",
+      "createdAtLocal": "08-04 19:48 北京",
+      "url": "https://x.com/Xudong07452910/status/2084607291337146827",
       "themeId": "editorial",
-      "signalScore": 58,
+      "signalScore": 55,
       "editorial": {
-        "id": "2084600187436110137",
+        "id": "2084607291337146827",
         "technicalRelevant": true,
         "dailyGrade": "B",
-        "topic": "榜单测量对象",
-        "evidence": "榜单测模型加脚手架",
-        "rationale": "指出评测控制变量问题"
+        "topic": "Benchmark维护",
+        "evidence": "题目数量不是很多",
+        "rationale": "涉及评测集规模与维护成本"
       },
       "isTopStory": false,
       "topStoryEligible": false,
@@ -1401,12 +1434,55 @@
       "topStoryScore": 0
     },
     {
+      "id": "2084894526532129134",
+      "text": "@hamandcheese Post-training generally creates a web of intermediate checkpoints, before the final one. So can employees continue using these intermediate checkpoints? Usually safety is tuned at the end, so this could force people to do their work with less safe models.",
+      "createdAt": "Wed Aug 05 06:49:25 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 7,
+      "conversationId": "2084789458365202640",
+      "inReplyToStatusId": "2084791471094288684",
+      "author": {
+        "username": "johnschulman2",
+        "name": "John Schulman",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/1389000537195040770/DzWPljT-_normal.jpg"
+      },
+      "authorId": "1388977636618080256",
+      "expert": {
+        "priority": "P1",
+        "domain": "AI 研究",
+        "name": "John Schulman",
+        "role": "前 OpenAI；RLHF 关键人物",
+        "why": "RLHF、后训练、推理和 Alignment",
+        "handle": "johnschulman2"
+      },
+      "createdAtIso": "2026-08-05T06:49:25+00:00",
+      "createdAtBeijing": "2026-08-05T14:49:25+08:00",
+      "createdAtLocal": "08-05 14:49 北京",
+      "url": "https://x.com/johnschulman2/status/2084894526532129134",
+      "themeId": "editorial",
+      "signalScore": 55,
+      "editorial": {
+        "id": "2084894526532129134",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "模型后训练安全",
+        "evidence": "安全通常在最后调优",
+        "rationale": "说明中间检查点安全风险"
+      },
+      "isTopStory": false,
+      "topStoryEligible": false,
+      "topStoryCategory": "",
+      "topStoryScore": 0,
+      "translationZh": "@hamandcheese 后训练通常会在最终检查点之前生成一系列中间检查点。那么员工能继续使用这些中间检查点吗？通常安全性是在最后阶段调优的，所以这可能会迫使人们使用安全性较低的模型来工作。"
+    },
+    {
       "id": "2084667167212245170",
       "text": "I try not to get excited about models before they've been released, but I gotta admit I'm very much looking forward to the upcoming laptop-sized Qwen 3.8 models",
       "createdAt": "Tue Aug 04 15:45:58 +0000 2026",
-      "replyCount": 42,
-      "retweetCount": 35,
-      "likeCount": 1036,
+      "replyCount": 51,
+      "retweetCount": 49,
+      "likeCount": 1423,
       "conversationId": "2084667167212245170",
       "author": {
         "username": "simonw",
@@ -1418,9 +1494,9 @@
         "id": "2084132174375346359",
         "text": "@ddalcu We promise this 27B comes with a whole new level of capability!",
         "createdAt": "Mon Aug 03 04:20:06 +0000 2026",
-        "replyCount": 95,
-        "retweetCount": 115,
-        "likeCount": 1604,
+        "replyCount": 105,
+        "retweetCount": 134,
+        "likeCount": 1855,
         "conversationId": "2084102417885585597",
         "inReplyToStatusId": "2084118133674000887",
         "author": {
@@ -1450,8 +1526,8 @@
         "technicalRelevant": true,
         "dailyGrade": "C",
         "topic": "Qwen 3.8预告",
-        "evidence": "upcoming Qwen 3.8",
-        "rationale": "未发布预告，证据不足"
+        "evidence": "未发布的27B能力预告",
+        "rationale": "模型相关但只是预测期待"
       },
       "isTopStory": false,
       "topStoryEligible": false,
@@ -1460,36 +1536,19 @@
       "translationZh": "我尽量不在模型发布前就兴奋，但必须承认，我非常期待即将推出的笔记本规模 Qwen 3.8 模型"
     },
     {
-      "id": "2084706791645229289",
-      "text": "@BEBischof I'm sad that you didn't get my humor\n\nhttps://t.co/H5i91b0PVJ",
-      "createdAt": "Tue Aug 04 18:23:25 +0000 2026",
-      "replyCount": 1,
-      "retweetCount": 0,
-      "likeCount": 0,
-      "conversationId": "2084680804672975200",
-      "inReplyToStatusId": "2084699683436585384",
+      "id": "2084655655978512717",
+      "text": "Its crazy how the consensus shifted away from Claude being the favorite to Codex\n\nIt’s not just Vibes. Things favoring codex:\n\n- Better harness (Codex Desktop)\n- Better pricing: more things included within subscription (fast mode etc). bonus - constant resets from Tibo 😅\n- Less refusals / false positive safety triggers \n- You can use subscription freely wherever you want (Opencode, Amp, etc) \n\nWhen you add all these up it makes codex significantly more attractive.  There is likely an industry lag of people still using Claude but feels like it’s gonna swing back",
+      "createdAt": "Tue Aug 04 15:00:14 +0000 2026",
+      "replyCount": 115,
+      "retweetCount": 38,
+      "likeCount": 793,
+      "conversationId": "2084655655978512717",
       "author": {
         "username": "HamelHusain",
         "name": "Hamel Husain",
         "profileImageUrl": "https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg"
       },
       "authorId": "825766640",
-      "quotedTweet": {
-        "id": "2063191771232747625",
-        "text": "Just learned:\n\nSoftware engineers used to do manual data labeling at Scale AI while Alex Wang was CEO. After he left, new leadership joined, and were HORRIFIED to learn this. Stopped it ASAP\n\nNow at Meta, software engineers are assigned manual data labeling... see the pattern?",
-        "createdAt": "Sat Jun 06 09:30:25 +0000 2026",
-        "replyCount": 204,
-        "retweetCount": 154,
-        "likeCount": 5629,
-        "conversationId": "2063191771232747625",
-        "author": {
-          "username": "GergelyOrosz",
-          "name": "Gergely Orosz",
-          "profileImageUrl": "https://pbs.twimg.com/profile_images/673095429748350976/ei5eeouV_normal.png"
-        },
-        "authorId": "30192824",
-        "translationZh": "刚听说：\n\nAlex Wang 担任 CEO 时，Scale AI 的软件工程师过去会做人工数据标注。他离开后，新管理层加入，得知此事后大为震惊，并立刻叫停。\n\n现在在 Meta，软件工程师被安排做人工数据标注……看出规律了吗？"
-      },
       "expert": {
         "priority": "P1",
         "domain": "Agent / 评测",
@@ -1498,25 +1557,169 @@
         "why": "实用评测、生产级 LLM 系统",
         "handle": "HamelHusain"
       },
-      "createdAtIso": "2026-08-04T18:23:25+00:00",
-      "createdAtBeijing": "2026-08-05T02:23:25+08:00",
-      "createdAtLocal": "08-05 02:23 北京",
-      "url": "https://x.com/HamelHusain/status/2084706791645229289",
+      "createdAtIso": "2026-08-04T15:00:14+00:00",
+      "createdAtBeijing": "2026-08-04T23:00:14+08:00",
+      "createdAtLocal": "08-04 23:00 北京",
+      "url": "https://x.com/HamelHusain/status/2084655655978512717",
       "themeId": "editorial",
-      "signalScore": 50,
+      "signalScore": 77,
       "editorial": {
-        "id": "2084706791645229289",
+        "id": "2084655655978512717",
         "technicalRelevant": true,
         "dailyGrade": "C",
-        "topic": "AI数据标注",
-        "evidence": "工程师做手工标注",
-        "rationale": "有AI数据流程事实但证据弱"
+        "topic": "Codex产品体验",
+        "evidence": "Codex Desktop与订阅用法",
+        "rationale": "有产品事实但多为主观比较"
       },
       "isTopStory": false,
       "topStoryEligible": false,
       "topStoryCategory": "",
       "topStoryScore": 0,
-      "translationZh": "@BEBischof 我很难过你没理解我的幽默\n\nhttps://t.co/H5i91b0PVJ"
+      "translationZh": "共识从偏爱 Claude 转向 Codex，这变化真是疯狂。\n\n这不只是感觉。Codex 的优势包括：\n\n- 更好的运行环境（Codex Desktop）\n- 更好的定价：订阅里包含更多东西（fast mode 等）。额外福利：Tibo 不断重置额度 😅\n- 更少拒答/误触安全机制\n- 可以在任何想用的地方自由使用订阅（Opencode、Amp 等）\n\n这些加起来让 Codex 明显更有吸引力。行业里可能还有不少人滞后地继续用 Claude，但感觉风向要转回来了。"
+    },
+    {
+      "id": "2084849762625536099",
+      "text": "own your intelligence\n\nif you want an open source starterkit: https://t.co/c3jg6EjbWE",
+      "createdAt": "Wed Aug 05 03:51:32 +0000 2026",
+      "replyCount": 10,
+      "retweetCount": 2,
+      "likeCount": 62,
+      "conversationId": "2084849762625536099",
+      "author": {
+        "username": "hwchase17",
+        "name": "Harrison Chase",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/1569345624935485442/R67C4wCQ_normal.jpg"
+      },
+      "authorId": "2728439146",
+      "quotedTweet": {
+        "id": "2084744136511344945",
+        "text": "companies will own their own cloud agent orchestrator",
+        "createdAt": "Tue Aug 04 20:51:49 +0000 2026",
+        "replyCount": 5,
+        "retweetCount": 2,
+        "likeCount": 30,
+        "conversationId": "2084744136511344945",
+        "author": {
+          "username": "happylinks",
+          "name": "Michiel Westerbeek",
+          "profileImageUrl": "https://pbs.twimg.com/profile_images/1698420161781309440/slB7ZscE_normal.jpg"
+        },
+        "authorId": "817707228912357377",
+        "translationZh": "公司将拥有自己的云端智能体编排器"
+      },
+      "expert": {
+        "priority": "P0",
+        "domain": "Agent 框架",
+        "name": "Harrison Chase",
+        "role": "LangChain / CEO",
+        "why": "LangChain 是 Agent/RAG 生态核心项目，适合跟踪企业级 Agent 工程化",
+        "handle": "hwchase17"
+      },
+      "createdAtIso": "2026-08-05T03:51:32+00:00",
+      "createdAtBeijing": "2026-08-05T11:51:32+08:00",
+      "createdAtLocal": "08-05 11:51 北京",
+      "url": "https://x.com/hwchase17/status/2084849762625536099",
+      "themeId": "editorial",
+      "signalScore": 77,
+      "editorial": {
+        "id": "2084849762625536099",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "开源Agent编排套件",
+        "evidence": "open source starterkit",
+        "rationale": "有软件指向但细节少"
+      },
+      "isTopStory": false,
+      "topStoryEligible": false,
+      "topStoryCategory": "",
+      "topStoryScore": 0,
+      "translationZh": "掌控你自己的智能\n\n如果你想要一个开源 starterkit：https://t.co/c3jg6EjbWE"
+    },
+    {
+      "id": "2084790816887943220",
+      "text": "@joedevon Better computer use ergonomics, thread management, remote control",
+      "createdAt": "Tue Aug 04 23:57:18 +0000 2026",
+      "replyCount": 0,
+      "retweetCount": 0,
+      "likeCount": 2,
+      "conversationId": "2084655655978512717",
+      "inReplyToStatusId": "2084751984746459148",
+      "author": {
+        "username": "HamelHusain",
+        "name": "Hamel Husain",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg"
+      },
+      "authorId": "825766640",
+      "expert": {
+        "priority": "P1",
+        "domain": "Agent / 评测",
+        "name": "Hamel Husain",
+        "role": "独立 AI 工程实践者",
+        "why": "实用评测、生产级 LLM 系统",
+        "handle": "HamelHusain"
+      },
+      "createdAtIso": "2026-08-04T23:57:18+00:00",
+      "createdAtBeijing": "2026-08-05T07:57:18+08:00",
+      "createdAtLocal": "08-05 07:57 北京",
+      "url": "https://x.com/HamelHusain/status/2084790816887943220",
+      "themeId": "editorial",
+      "signalScore": 47,
+      "editorial": {
+        "id": "2084790816887943220",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "agent ergonomics",
+        "evidence": "提到电脑使用与远控",
+        "rationale": "有功能方向但无细节"
+      },
+      "isTopStory": false,
+      "topStoryEligible": false,
+      "topStoryCategory": "",
+      "topStoryScore": 0,
+      "translationZh": "@joedevon 更好的计算机使用人体工学、线程管理、远程控制"
+    },
+    {
+      "id": "2084768307975274562",
+      "text": "@sinansays @ptr @howietl @hyperagentapp doubt it but yeah this explains why i complaiend to the team that hyperagent was surprisingly bad at setting up airtables... makes sense that they are just separate companies",
+      "createdAt": "Tue Aug 04 22:27:52 +0000 2026",
+      "replyCount": 1,
+      "retweetCount": 0,
+      "likeCount": 0,
+      "conversationId": "2084695630237311086",
+      "inReplyToStatusId": "2084745227072598087",
+      "author": {
+        "username": "swyx",
+        "name": "swyx",
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg"
+      },
+      "authorId": "33521530",
+      "expert": {
+        "priority": "P1",
+        "domain": "Agent / 工作流",
+        "name": "swyx",
+        "role": "Latent Space / AI Engineer",
+        "why": "AI 工程社区、Agent、开发工具信号源",
+        "handle": "swyx"
+      },
+      "createdAtIso": "2026-08-04T22:27:52+00:00",
+      "createdAtBeijing": "2026-08-05T06:27:52+08:00",
+      "createdAtLocal": "08-05 06:27 北京",
+      "url": "https://x.com/swyx/status/2084768307975274562",
+      "themeId": "editorial",
+      "signalScore": 46,
+      "editorial": {
+        "id": "2084768307975274562",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "Hyperagent Airtable",
+        "evidence": "设置 Airtables 表现差",
+        "rationale": "工程体验但证据很少"
+      },
+      "isTopStory": false,
+      "topStoryEligible": false,
+      "topStoryCategory": "",
+      "topStoryScore": 0,
+      "translationZh": "@sinansays @ptr @howietl @hyperagentapp 不太信，但确实，这解释了为什么我向团队抱怨 hyperagent 在设置 airtables 方面出奇地差……如果它们只是不同公司，那就说得通了"
     }
   ],
   "xHotspotSearch": {
@@ -1565,7 +1768,7 @@
         ],
         "directionMismatches": 1,
         "attempts": 1,
-        "elapsedSeconds": 1.54,
+        "elapsedSeconds": 1.63,
         "error": null
       },
       {
@@ -1587,7 +1790,7 @@
         ],
         "directionMismatches": 0,
         "attempts": 1,
-        "elapsedSeconds": 1.43,
+        "elapsedSeconds": 1.55,
         "error": null
       },
       {
@@ -1607,7 +1810,7 @@
         "selectedPostIds": [],
         "directionMismatches": 0,
         "attempts": 1,
-        "elapsedSeconds": 1.53,
+        "elapsedSeconds": 1.6,
         "error": null
       },
       {
@@ -1628,7 +1831,7 @@
         "selectedPostIds": [],
         "directionMismatches": 0,
         "attempts": 1,
-        "elapsedSeconds": 1.05,
+        "elapsedSeconds": 1.23,
         "error": null
       },
       {
@@ -1647,7 +1850,7 @@
         "selectedPostIds": [],
         "directionMismatches": 0,
         "attempts": 1,
-        "elapsedSeconds": 0.9,
+        "elapsedSeconds": 1.1,
         "error": null
       }
     ]
@@ -1656,36 +1859,171 @@
     "enabled": true,
     "backend": "codex exec",
     "promptVersion": "codex-editorial-v2",
-    "candidates": 99,
-    "retained": 31,
-    "dropped": 68,
+    "candidates": 105,
+    "retained": 32,
+    "dropped": 73,
     "droppedPosts": [
+      {
+        "id": "2084876092352127194",
+        "author": "JeffDean",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "闲聊回复",
+        "evidence": "只问是否需要修饰",
+        "rationale": "无技术事实或工程经验"
+      },
+      {
+        "id": "2084875917545853100",
+        "author": "JeffDean",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "简短回复",
+        "evidence": "仅回复Yes",
+        "rationale": "无可判断技术内容"
+      },
       {
         "id": "2084792935812612511",
         "author": "JeffDean",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "闲聊",
-        "evidence": "只谈双关和笑话",
-        "rationale": "无AI或工程技术事实"
+        "topic": "玩笑互动",
+        "evidence": "谈双关和笑话",
+        "rationale": "纯社交闲聊"
       },
       {
         "id": "2084778226141065626",
         "author": "JeffDean",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "社交推荐",
-        "evidence": "推荐同事开通Twitter",
-        "rationale": "材料无具体技术事实"
+        "topic": "账号推荐",
+        "evidence": "推荐关注Sanjay",
+        "rationale": "人物动态非技术事实"
       },
       {
-        "id": "2084519165021528263",
-        "author": "AmandaAskell",
+        "id": "2084928499924488350",
+        "author": "Xudong07452910",
         "technicalRelevant": false,
         "dailyGrade": "D",
         "topic": "闲聊",
-        "evidence": "谈英国世袭贵族",
-        "rationale": "与AI技术无关"
+        "evidence": "说不敢去找你",
+        "rationale": "无技术内容"
+      },
+      {
+        "id": "2084927397380424024",
+        "author": "Xudong07452910",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "研究方向致谢",
+        "evidence": "感谢认可研究方向",
+        "rationale": "未给研究事实"
+      },
+      {
+        "id": "2084926944194269685",
+        "author": "Xudong07452910",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "实践迭代经验",
+        "evidence": "迭代一个多月踩坑",
+        "rationale": "有经验线索但无细节"
+      },
+      {
+        "id": "2084925589044035741",
+        "author": "Xudong07452910",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "生活评论",
+        "evidence": "谈度假享受生活",
+        "rationale": "非技术相关"
+      },
+      {
+        "id": "2084923581566218619",
+        "author": "Xudong07452910",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "算法演示",
+        "evidence": "网页端有算法动态演示",
+        "rationale": "技术相关但信息很窄"
+      },
+      {
+        "id": "2084874707153616921",
+        "author": "Xudong07452910",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "实践踩坑",
+        "evidence": "实践中会踩各种坑",
+        "rationale": "工程经验提及但无细节"
+      },
+      {
+        "id": "2084862776183337128",
+        "author": "Xudong07452910",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "闲聊回复",
+        "evidence": "中转站一鱼两吃",
+        "rationale": "无技术事实或经验"
+      },
+      {
+        "id": "2084862201945305244",
+        "author": "Xudong07452910",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "人物提及",
+        "evidence": "香港浸会大学教授",
+        "rationale": "仅身份信息非技术"
+      },
+      {
+        "id": "2084853692788813944",
+        "author": "Xudong07452910",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "闲聊回复",
+        "evidence": "选择休假",
+        "rationale": "无技术事实"
+      },
+      {
+        "id": "2084852935662383233",
+        "author": "Xudong07452910",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "论文评估泛述",
+        "evidence": "实验部分有评估方法",
+        "rationale": "未给具体技术内容"
+      },
+      {
+        "id": "2084849795718398306",
+        "author": "Xudong07452910",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "探索方向泛述",
+        "evidence": "需可验证性强场景",
+        "rationale": "泛泛判断无事实"
+      },
+      {
+        "id": "2084849049723707490",
+        "author": "Xudong07452910",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "宣传范围泛述",
+        "evidence": "各个方向都有涉及",
+        "rationale": "过于笼统无事实"
+      },
+      {
+        "id": "2084848741622653182",
+        "author": "Xudong07452910",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "模型能力观点",
+        "evidence": "多模态能力较强",
+        "rationale": "主观评价无证据"
+      },
+      {
+        "id": "2084843512496034002",
+        "author": "amasad",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "媒体调查",
+        "evidence": "CBS调查Epstein相关银行",
+        "rationale": "无AI或软件技术事实"
       },
       {
         "id": "2084795608431550947",
@@ -1693,26 +2031,26 @@
         "technicalRelevant": false,
         "dailyGrade": "D",
         "topic": "闲聊",
-        "evidence": "称Emails is dead",
-        "rationale": "无技术事实支撑"
+        "evidence": "Emails is dead",
+        "rationale": "纯观点无技术事实"
       },
       {
         "id": "2084724630707896561",
         "author": "scottwu46",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "祝贺",
-        "evidence": "只说Congratulations",
-        "rationale": "无技术内容"
+        "topic": "祝贺互动",
+        "evidence": "Congratulations",
+        "rationale": "社交回复无技术内容"
       },
       {
         "id": "2084722867560931462",
         "author": "scottwu46",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "招聘任命",
+        "topic": "人事任命",
         "evidence": "加入Cognition任VP",
-        "rationale": "人事消息无技术事实"
+        "rationale": "招聘信息无技术事实"
       },
       {
         "id": "2084693227894878585",
@@ -1720,71 +2058,89 @@
         "technicalRelevant": false,
         "dailyGrade": "D",
         "topic": "闲聊",
-        "evidence": "只说被拦截",
-        "rationale": "缺少技术细节"
+        "evidence": "被拦截麻了",
+        "rationale": "无技术事实或经验"
       },
       {
         "id": "2084693074970620299",
         "author": "Xudong07452910",
-        "technicalRelevant": true,
-        "dailyGrade": "C",
-        "topic": "模型使用建议",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "模型使用观点",
         "evidence": "opus4.6适合写文章",
-        "rationale": "版本用途判断但证据很弱"
+        "rationale": "仅主观评价证据不足"
       },
       {
         "id": "2084686868667412912",
         "author": "Xudong07452910",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "闲聊回复",
+        "topic": "闲聊",
         "evidence": "努力赶工",
-        "rationale": "无技术事实或工程经验"
+        "rationale": "无技术事实"
       },
       {
         "id": "2084681325945246135",
         "author": "Xudong07452910",
         "technicalRelevant": true,
         "dailyGrade": "C",
-        "topic": "Codex接入模型",
+        "topic": "Codex接入不同模型",
         "evidence": "Codex接不同模型跑",
-        "rationale": "提到实现方式但细节不足"
+        "rationale": "提到实现方式但细节很少"
       },
       {
         "id": "2084679094021636402",
         "author": "Xudong07452910",
         "technicalRelevant": true,
         "dailyGrade": "B",
-        "topic": "预测校准评估",
-        "evidence": "完整概率、Brier打分",
-        "rationale": "有可复用评估与校准经验"
+        "topic": "预测项目概率校准",
+        "evidence": "保留完整概率用Brier打分",
+        "rationale": "有可复用评估校准经验"
       },
       {
         "id": "2084671257845416106",
         "author": "Xudong07452910",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "项目近况回复",
-        "evidence": "后面更新项目状况",
-        "rationale": "仅社交回应无技术内容"
+        "topic": "项目状态回复",
+        "evidence": "努力更新项目状况",
+        "rationale": "寒暄无技术事实"
+      },
+      {
+        "id": "2084643355934245164",
+        "author": "Xudong07452910",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "预测能力验证",
+        "evidence": "polymarket验证预测能力",
+        "rationale": "泛泛观点缺少技术细节"
       },
       {
         "id": "2084637590917878085",
         "author": "Xudong07452910",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "比分预测闲聊",
+        "topic": "比分预测效果",
         "evidence": "网站预测比分效果不行",
-        "rationale": "无模型或实现技术事实"
+        "rationale": "传闻评价无工程事实"
       },
       {
         "id": "2084634090444148772",
         "author": "Xudong07452910",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "致谢",
+        "topic": "致谢宣传",
         "evidence": "谢谢宣传",
-        "rationale": "纯社交内容"
+        "rationale": "纯社交回复"
+      },
+      {
+        "id": "2084625072195531083",
+        "author": "Xudong07452910",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "模型成本评价",
+        "evidence": "deepseek成本也低",
+        "rationale": "笼统评价无证据细节"
       },
       {
         "id": "2084623209693847649",
@@ -1793,25 +2149,16 @@
         "dailyGrade": "D",
         "topic": "交流回复",
         "evidence": "期待以后多多交流",
-        "rationale": "无技术事实"
+        "rationale": "寒暄无技术内容"
       },
       {
         "id": "2084614771215671758",
         "author": "Xudong07452910",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "闲聊",
-        "evidence": "只说要做真东西",
-        "rationale": "无技术事实或经验"
-      },
-      {
-        "id": "2084608160334045555",
-        "author": "Xudong07452910",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "实验讨论",
-        "evidence": "称还要做很多实验",
-        "rationale": "表述笼统无具体事实"
+        "topic": "项目表态",
+        "evidence": "搞出一点真东西",
+        "rationale": "表态无技术事实"
       },
       {
         "id": "2084603492346524118",
@@ -1819,134 +2166,89 @@
         "technicalRelevant": false,
         "dailyGrade": "D",
         "topic": "闲聊",
-        "evidence": "只问是否强过Luna",
-        "rationale": "无技术事实"
-      },
-      {
-        "id": "2084603293599215717",
-        "author": "Xudong07452910",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "预测观点",
-        "evidence": "谈预测靠数据和基率",
-        "rationale": "偏观点无验证事实"
-      },
-      {
-        "id": "2084590091842818052",
-        "author": "Xudong07452910",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "模型评价",
-        "evidence": "只称Kimi能力强",
-        "rationale": "主观评价无事实"
-      },
-      {
-        "id": "2084589861466505588",
-        "author": "Xudong07452910",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "榜单讨论",
-        "evidence": "称榜单每周更新题目",
-        "rationale": "仅评价榜单可靠性"
-      },
-      {
-        "id": "2084580250101371262",
-        "author": "Xudong07452910",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "AI资源观点",
-        "evidence": "称token像水电",
-        "rationale": "宏观观点无技术事实"
-      },
-      {
-        "id": "2084579787721347276",
-        "author": "Xudong07452910",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "闲聊回复",
-        "evidence": "都不遑多让",
-        "rationale": "闲聊无技术内容"
-      },
-      {
-        "id": "2084579106096550267",
-        "author": "Xudong07452910",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "闲聊回复",
-        "evidence": "没考虑过他们",
-        "rationale": "主观评论无事实"
-      },
-      {
-        "id": "2084578371107766499",
-        "author": "Xudong07452910",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "模型期待",
-        "evidence": "期待DeepSeek V4 Pro正式版",
-        "rationale": "期待表述无技术细节"
-      },
-      {
-        "id": "2084577463523258632",
-        "author": "Xudong07452910",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "地区观点",
-        "evidence": "欧洲完全不慌",
-        "rationale": "调侃无技术事实"
-      },
-      {
-        "id": "2084576912978944106",
-        "author": "Xudong07452910",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "产品期待",
-        "evidence": "期待产品打磨好放出",
-        "rationale": "感谢和期待无技术事实"
-      },
-      {
-        "id": "2084571416746225887",
-        "author": "Xudong07452910",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "欧洲AI观点",
-        "evidence": "DeepMind属谷歌",
-        "rationale": "地域评价非技术经验"
-      },
-      {
-        "id": "2084571261091418530",
-        "author": "Xudong07452910",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "AI安全观点",
-        "evidence": "称AI安全要求高",
-        "rationale": "政策观点无工程事实"
-      },
-      {
-        "id": "2084567521970033122",
-        "author": "Xudong07452910",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "AI产业评论",
-        "evidence": "称英国AI企业少",
-        "rationale": "观点为主，无技术事实"
-      },
-      {
-        "id": "2084557451307933936",
-        "author": "Xudong07452910",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "模型发布闲谈",
-        "evidence": "称中美频发模型",
-        "rationale": "调侃休假，无具体事实"
+        "evidence": "Better than Luna?",
+        "rationale": "无技术事实或工程经验"
       },
       {
         "id": "2084795655550075032",
         "author": "c_valenzuelab",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "空内容",
-        "evidence": "仅有x和链接",
-        "rationale": "无可审技术材料"
+        "topic": "链接转发",
+        "evidence": "仅有 x 和链接",
+        "rationale": "材料未呈现技术事实"
+      },
+      {
+        "id": "2084886034354262377",
+        "author": "johnschulman2",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "AI安全观点",
+        "evidence": "操纵旁观者更糟",
+        "rationale": "纯价值判断无技术事实"
+      },
+      {
+        "id": "2084920528146669624",
+        "author": "swyx",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "产品闲聊",
+        "evidence": "考虑迁移到 beehiiv",
+        "rationale": "无软件技术事实"
+      },
+      {
+        "id": "2084915717879808205",
+        "author": "swyx",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "广告评论",
+        "evidence": "giant notion ad",
+        "rationale": "无技术事实"
+      },
+      {
+        "id": "2084892071689875701",
+        "author": "swyx",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "闲聊评价",
+        "evidence": "只称赞网站好看",
+        "rationale": "无技术事实或工程经验"
+      },
+      {
+        "id": "2084882089649000816",
+        "author": "HamelHusain",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "OpenAI订阅机制",
+        "evidence": "付费账号可保留重置",
+        "rationale": "产品机制相关但证据很窄"
+      },
+      {
+        "id": "2084834123320013099",
+        "author": "swyx",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "发布祝贺",
+        "evidence": "仅祝贺发布",
+        "rationale": "无具体技术内容"
+      },
+      {
+        "id": "2084818815549133032",
+        "author": "swyx",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "播客闲聊",
+        "evidence": "不做每日播客",
+        "rationale": "个人观点无技术事实"
+      },
+      {
+        "id": "2084818746871590983",
+        "author": "swyx",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "闲聊",
+        "evidence": "谈善意和黄蜂",
+        "rationale": "与技术无关"
       },
       {
         "id": "2084806857034776680",
@@ -1954,17 +2256,17 @@
         "technicalRelevant": false,
         "dailyGrade": "D",
         "topic": "发布祝贺",
-        "evidence": "只说祝贺发布",
-        "rationale": "无发布内容事实"
+        "evidence": "仅祝贺发布",
+        "rationale": "无具体技术内容"
       },
       {
         "id": "2084805445827637339",
         "author": "HamelHusain",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "空评论",
-        "evidence": "仅感叹和链接",
-        "rationale": "无可审技术事实"
+        "topic": "链接反应",
+        "evidence": "只有短链接和感叹",
+        "rationale": "材料未给技术事实"
       },
       {
         "id": "2084799844749865028",
@@ -1972,242 +2274,215 @@
         "technicalRelevant": false,
         "dailyGrade": "D",
         "topic": "社交回复",
-        "evidence": "只说祝贺可聊",
-        "rationale": "无技术内容"
+        "evidence": "称有很多可聊",
+        "rationale": "无技术信息"
       },
       {
         "id": "2084799667330826454",
         "author": "swyx",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "审计功能提及",
-        "evidence": "仅称审计功能导出",
-        "rationale": "对象不明证据不足"
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "审计与导出功能",
+        "evidence": "支持展示并导出审计",
+        "rationale": "软件功能点但上下文不足"
       },
       {
         "id": "2084792605045596314",
         "author": "swyx",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "工具闲谈",
+        "topic": "Airtable闲聊",
         "evidence": "称会继续用Airtable",
-        "rationale": "偏闲聊无工程经验"
-      },
-      {
-        "id": "2084790816887943220",
-        "author": "HamelHusain",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "功能愿望",
-        "evidence": "提到线程管理远控",
-        "rationale": "愿望列表无事实"
-      },
-      {
-        "id": "2084768307975274562",
-        "author": "swyx",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "Hyperagent与Airtable",
-        "evidence": "抱怨设置Airtable差",
-        "rationale": "仅闲聊和业务关系推测"
+        "rationale": "偏闲聊无技术细节"
       },
       {
         "id": "2084751055326527514",
         "author": "HamelHusain",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "Codex工具偏好",
-        "evidence": "偏好Codex Desktop",
-        "rationale": "纯个人偏好无技术事实"
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "Codex Desktop",
+        "evidence": "比较Desktop与CLI",
+        "rationale": "工具体验无实现细节"
       },
       {
         "id": "2084738591109038187",
         "author": "swyx",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "Hyperagent拆分",
-        "evidence": "Hyperagent先被拆出",
-        "rationale": "公司交易信息非技术内容"
+        "topic": "Airtable acquisition",
+        "evidence": "Hyperagent被剥离",
+        "rationale": "公司交易非技术事实"
       },
       {
         "id": "2084738518711193680",
         "author": "swyx",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "Hyperagent拆分",
-        "evidence": "Hyperagent先被拆出",
-        "rationale": "公司交易信息非技术内容"
+        "topic": "Airtable acquisition",
+        "evidence": "Hyperagent被剥离",
+        "rationale": "公司交易非技术事实"
       },
       {
         "id": "2084733319233892755",
         "author": "swyx",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "账号推荐",
-        "evidence": "称对方很有用",
-        "rationale": "无具体技术事实"
+        "topic": "social reply",
+        "evidence": "只说有用并关注",
+        "rationale": "无技术事实"
       },
       {
         "id": "2084724572197405109",
         "author": "HamelHusain",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "AI垃圾图文",
-        "evidence": "称信息图无助澄清",
-        "rationale": "观点表达缺少技术事实"
+        "topic": "AI content quality",
+        "evidence": "批评低质信息图",
+        "rationale": "观点无技术内容"
       },
       {
-        "id": "2084704595805409449",
-        "author": "yoheinakajima",
+        "id": "2084706791645229289",
+        "author": "HamelHusain",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "聊天工具上下文",
-        "evidence": "想拉取网页移动端上下文",
-        "rationale": "只有使用意图无实现细节"
+        "topic": "data labeling staffing",
+        "evidence": "工程师手工标注",
+        "rationale": "管理现象非技术经验"
       },
       {
         "id": "2084698630653641092",
         "author": "swyx",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "趋势闲聊",
-        "evidence": "询问是否趋势化",
-        "rationale": "闲聊无技术信息"
+        "topic": "闲聊",
+        "evidence": "仅回复yes和链接",
+        "rationale": "无技术事实或工程经验"
       },
       {
         "id": "2084698414554726902",
         "author": "HamelHusain",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "AI capacity speculation",
-        "evidence": "猜测容量受限",
-        "rationale": "只有疑问无技术事实"
+        "topic": "模型容量猜测",
+        "evidence": "猜测是否容量受限",
+        "rationale": "纯猜测无事实支撑"
       },
       {
         "id": "2084696716985668050",
         "author": "swyx",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "Low-code market comment",
-        "evidence": "提到Retool后续",
-        "rationale": "观点闲聊缺少技术事实"
+        "topic": "低代码产品评论",
+        "evidence": "提到Retool和Hyperagent",
+        "rationale": "只是产品走向闲谈"
       },
       {
         "id": "2084695630237311086",
         "author": "swyx",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "Airtable acquisition",
-        "evidence": "Airtable被收购",
-        "rationale": "并购消息非技术内容"
+        "topic": "Airtable收购",
+        "evidence": "Airtable被收购12.85亿美元",
+        "rationale": "商业消息无技术细节"
       },
       {
         "id": "2084695473131253941",
         "author": "HamelHusain",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "Brand perception",
+        "topic": "品牌评价",
         "evidence": "品牌光环变化",
-        "rationale": "品牌观点无技术事实"
+        "rationale": "观点评论无技术事实"
       },
       {
         "id": "2084695170340257844",
         "author": "yoheinakajima",
         "technicalRelevant": true,
         "dailyGrade": "C",
-        "topic": "Voice assistant setup",
-        "evidence": "语音助手有电话号码",
-        "rationale": "技术相关但细节很少"
+        "topic": "语音助手",
+        "evidence": "语音助手可配电话号码",
+        "rationale": "技术相关但信息很窄"
       },
       {
         "id": "2084694041502052797",
         "author": "sh_reya",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "Experiment time joke",
-        "evidence": "实验时间表述矛盾",
-        "rationale": "调侃无明确技术事实"
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "实验自动化",
+        "evidence": "Fable一小时跑实验",
+        "rationale": "有技术现象但证据不足"
       },
       {
         "id": "2084693588399812673",
         "author": "HamelHusain",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "Meta mention",
-        "evidence": "只回复Meta",
-        "rationale": "无技术信息"
+        "topic": "闲聊",
+        "evidence": "仅回复Meta",
+        "rationale": "无技术事实"
+      },
+      {
+        "id": "2084656599831138415",
+        "author": "yoheinakajima",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "模型使用习惯",
+        "evidence": "使用Gemini和Grok",
+        "rationale": "个人体验无具体事实"
       },
       {
         "id": "2084655004544389609",
         "author": "yoheinakajima",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "移动端使用",
-        "evidence": "主要用手机构建",
-        "rationale": "仅个人习惯，无技术事实"
+        "topic": "移动端使用习惯",
+        "evidence": "主要用手机应用构建",
+        "rationale": "仅个人习惯无技术事实"
+      },
+      {
+        "id": "2084653841560334579",
+        "author": "yoheinakajima",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "Obsidian集成询问",
+        "evidence": "询问推送到Obsidian",
+        "rationale": "只有问题无实现信息"
       },
       {
         "id": "2084650619844100255",
         "author": "yoheinakajima",
         "technicalRelevant": true,
-        "dailyGrade": "B",
+        "dailyGrade": "C",
         "topic": "任务自动整理",
-        "evidence": "3小时步骤增改勾任务",
-        "rationale": "可复用的自动化流程"
-      },
-      {
-        "id": "2084513641584570775",
-        "author": "HamelHusain",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "简短评价",
-        "evidence": "This is pretty good",
-        "rationale": "纯评价无技术事实"
-      },
-      {
-        "id": "2084506848556876144",
-        "author": "HamelHusain",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "模型写作观点",
-        "evidence": "写作退步编码进步",
-        "rationale": "主观判断无证据"
-      },
-      {
-        "id": "2084478244565454906",
-        "author": "HamelHusain",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "阅读感受",
-        "evidence": "painful to read",
-        "rationale": "纯感受无技术事实"
+        "evidence": "三小时步骤更新任务",
+        "rationale": "自动化事实少且证据不足"
       },
       {
         "id": "2084760981302067206",
         "author": "simonw",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "硬件配置",
+        "topic": "硬件配置回复",
         "evidence": "M5 MacBook Pro 128GB",
-        "rationale": "仅设备配置，无AI技术事实"
+        "rationale": "仅设备规格无AI技术事实"
       },
       {
         "id": "2084723952472219888",
         "author": "simonw",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "命令回复",
-        "evidence": "同一个command",
-        "rationale": "缺少可判断的技术内容"
+        "topic": "闲聊回复",
+        "evidence": "同一命令的一部分",
+        "rationale": "缺少技术事实或工程经验"
       },
       {
         "id": "2084719663930564626",
         "author": "simonw",
         "technicalRelevant": true,
         "dailyGrade": "C",
-        "topic": "运行记录",
-        "evidence": "notes on how I ran it",
-        "rationale": "提到运行方法但正文缺细节"
+        "topic": "模型运行记录",
+        "evidence": "发布运行笔记和工具链接",
+        "rationale": "可能有复现信息但材料不足"
       },
       {
         "id": "2084713299875443091",
@@ -2215,94 +2490,87 @@
         "technicalRelevant": false,
         "dailyGrade": "D",
         "topic": "团队欢迎",
-        "evidence": "welcome to the team",
-        "rationale": "人事寒暄无技术事实"
-      },
-      {
-        "id": "2084707520011198873",
-        "author": "simonw",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "OAuth诉求",
-        "evidence": "Ship OAuth",
-        "rationale": "功能愿望非已发生技术事实"
+        "evidence": "欢迎加入团队",
+        "rationale": "无技术事实"
       },
       {
         "id": "2084663291335549368",
         "author": "simonw",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "电影广告投放",
-        "evidence": "BMW product placement",
-        "rationale": "营销讨论与AI技术无关"
+        "topic": "电影广告花费",
+        "evidence": "BMW电影植入广告猜测",
+        "rationale": "营销讨论不涉AI技术"
       },
       {
         "id": "2084662817945522594",
         "author": "simonw",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "电影营销价值核算",
-        "evidence": "媒体价值309M",
-        "rationale": "电影营销讨论无技术事实"
+        "topic": "媒体价值解释",
+        "evidence": "全球媒体价值309M",
+        "rationale": "非技术材料"
       },
       {
         "id": "2084662031756775526",
         "author": "simonw",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "电影预算与营销花费",
-        "evidence": "预算225M营销约150M",
-        "rationale": "预算讨论无AI技术内容"
-      },
-      {
-        "id": "2084477749549494502",
-        "author": "simonw",
-        "technicalRelevant": true,
-        "dailyGrade": "C",
-        "topic": "个人应用构想",
-        "evidence": "健身记录重量和次数",
-        "rationale": "仅应用想法细节不足"
-      },
-      {
-        "id": "2084569827230859485",
-        "author": "BostonDynamics",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "机器人经销合作",
-        "evidence": "Createc成授权经销商",
-        "rationale": "商业合作无技术事实"
+        "topic": "电影预算讨论",
+        "evidence": "电影预算225m营销150m",
+        "rationale": "非技术材料"
       }
     ],
     "topStories": [
       {
-        "id": "2084748111239344556",
-        "author": "AnthropicAI",
-        "category": "AI 技术前沿",
-        "rationale": "权威评估揭示高风险代理行为"
-      },
-      {
-        "id": "2084731700106711209",
-        "author": "OpenAIDevs",
-        "category": "AI 技术进步",
-        "rationale": "GPT-5.6正式进入API和Codex"
-      },
-      {
         "id": "2084684735725379637",
         "author": "MistralAI",
         "category": "AI 技术应用",
-        "rationale": "3B开放权重安全模型可端侧部署"
+        "rationale": "3B开权重安全模型可端侧部署"
+      },
+      {
+        "id": "2084844343592980753",
+        "author": "Xudong07452910",
+        "category": "AI 技术前沿",
+        "rationale": "35B Agent基准从39.39%升至71.21%"
+      },
+      {
+        "id": "2084748111239344556",
+        "author": "AnthropicAI",
+        "category": "AI 技术前沿",
+        "rationale": "联网评测暴露Agent自治欺骗风险"
       }
     ],
     "reviewedPosts": [
+      {
+        "id": "2084876092352127194",
+        "author": "JeffDean",
+        "text": "@DrDoubtPhD @Sanjay_Ghemawat Does it need doctoring?",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "闲聊回复",
+        "evidence": "只问是否需要修饰",
+        "rationale": "无技术事实或工程经验"
+      },
+      {
+        "id": "2084875917545853100",
+        "author": "JeffDean",
+        "text": "@GammaVibe @Sanjay_Ghemawat Yes!",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "简短回复",
+        "evidence": "仅回复Yes",
+        "rationale": "无可判断技术内容"
+      },
       {
         "id": "2084792935812612511",
         "author": "JeffDean",
         "text": "@a__tomala @Sanjay_Ghemawat I told him he will set the whole world atwitter with his puns and jokes!",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "闲聊",
-        "evidence": "只谈双关和笑话",
-        "rationale": "无AI或工程技术事实"
+        "topic": "玩笑互动",
+        "evidence": "谈双关和笑话",
+        "rationale": "纯社交闲聊"
       },
       {
         "id": "2084778226141065626",
@@ -2310,19 +2578,189 @@
         "text": "Oh look!  My longtime friend and colleague @Sanjay_Ghemawat is now on Twitter!  Give him a follow!",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "社交推荐",
-        "evidence": "推荐同事开通Twitter",
-        "rationale": "材料无具体技术事实"
+        "topic": "账号推荐",
+        "evidence": "推荐关注Sanjay",
+        "rationale": "人物动态非技术事实"
       },
       {
-        "id": "2084519165021528263",
-        "author": "AmandaAskell",
-        "text": "It's surprisingly difficult to acquire a hereditary peerage in the UK. Like you can't even take one by force any more, and they just get mad at you if you try.",
+        "id": "2084928499924488350",
+        "author": "Xudong07452910",
+        "text": "@xiangyuli 吓得我不敢去找你了🧐",
         "technicalRelevant": false,
         "dailyGrade": "D",
         "topic": "闲聊",
-        "evidence": "谈英国世袭贵族",
-        "rationale": "与AI技术无关"
+        "evidence": "说不敢去找你",
+        "rationale": "无技术内容"
+      },
+      {
+        "id": "2084927397380424024",
+        "author": "Xudong07452910",
+        "text": "@teortaxesTex Thank you for recognizing our research direction.🥳",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "研究方向致谢",
+        "evidence": "感谢认可研究方向",
+        "rationale": "未给研究事实"
+      },
+      {
+        "id": "2084926944194269685",
+        "author": "Xudong07452910",
+        "text": "@Bruce_Lee1207 开蹲! 迭代了一个多月，踩了各种坑，都是一手经验。",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "实践迭代经验",
+        "evidence": "迭代一个多月踩坑",
+        "rationale": "有经验线索但无细节"
+      },
+      {
+        "id": "2084925589044035741",
+        "author": "Xudong07452910",
+        "text": "@shijingnan_X 什么都不会妨碍他们度假享受生活",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "生活评论",
+        "evidence": "谈度假享受生活",
+        "rationale": "非技术相关"
+      },
+      {
+        "id": "2084923581566218619",
+        "author": "Xudong07452910",
+        "text": "@ZBAlpha 网页端还有算法的动态演示图",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "算法演示",
+        "evidence": "网页端有算法动态演示",
+        "rationale": "技术相关但信息很窄"
+      },
+      {
+        "id": "2084874707153616921",
+        "author": "Xudong07452910",
+        "text": "@feikeis 有意思的实践，确实做的过程中会踩各种坑",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "实践踩坑",
+        "evidence": "实践中会踩各种坑",
+        "rationale": "工程经验提及但无细节"
+      },
+      {
+        "id": "2084862776183337128",
+        "author": "Xudong07452910",
+        "text": "@Keji715 中转站一鱼两吃嘛",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "闲聊回复",
+        "evidence": "中转站一鱼两吃",
+        "rationale": "无技术事实或经验"
+      },
+      {
+        "id": "2084862201945305244",
+        "author": "Xudong07452910",
+        "text": "@EthanXue_ @grok 香港浸会大学数学系教授徐亦达",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "人物提及",
+        "evidence": "香港浸会大学教授",
+        "rationale": "仅身份信息非技术"
+      },
+      {
+        "id": "2084856924432998794",
+        "author": "Xudong07452910",
+        "text": "Fable 5 强的一个原因是它更愿意主动调用工具。\n\n这组基于 227 万条 Claude 回复的统计也印证了这一点：Fable 5 平均每次回复调用 1.00 次工具，高于 Opus 4.8 的 0.76 和 Opus 5 的 0.79。\n\n工具用得多不一定代表能力更强，但对 Agent 来说，「愿意动手搜索和验证」比只在上下文里继续猜更重要。",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "Claude工具调用统计",
+        "evidence": "227万回复工具调用统计",
+        "rationale": "有Agent工具使用数据"
+      },
+      {
+        "id": "2084853692788813944",
+        "author": "Xudong07452910",
+        "text": "@rwayne 给我我还是选择休假😂",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "闲聊回复",
+        "evidence": "选择休假",
+        "rationale": "无技术事实"
+      },
+      {
+        "id": "2084852935662383233",
+        "author": "Xudong07452910",
+        "text": "@hx0000001 论文实验部分有详细的评估方法。",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "论文评估泛述",
+        "evidence": "实验部分有评估方法",
+        "rationale": "未给具体技术内容"
+      },
+      {
+        "id": "2084849795718398306",
+        "author": "Xudong07452910",
+        "text": "@shuizhuyu 现在还是早期的探索，所以需要可验证性比较强的场景，以后会慢慢拓展到其他领域吧。",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "探索方向泛述",
+        "evidence": "需可验证性强场景",
+        "rationale": "泛泛判断无事实"
+      },
+      {
+        "id": "2084849762625536099",
+        "author": "hwchase17",
+        "text": "own your intelligence\n\nif you want an open source starterkit: https://t.co/c3jg6EjbWE",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "开源Agent编排套件",
+        "evidence": "open source starterkit",
+        "rationale": "有软件指向但细节少"
+      },
+      {
+        "id": "2084849049723707490",
+        "author": "Xudong07452910",
+        "text": "@tangbuilds 从h3宣传来看，各个方向都有涉及",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "宣传范围泛述",
+        "evidence": "各个方向都有涉及",
+        "rationale": "过于笼统无事实"
+      },
+      {
+        "id": "2084848741622653182",
+        "author": "Xudong07452910",
+        "text": "@Ryrenz Google的模型现在唯一拿得出手的就是多模态的能力比较强了。",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "模型能力观点",
+        "evidence": "多模态能力较强",
+        "rationale": "主观评价无证据"
+      },
+      {
+        "id": "2084848299983401259",
+        "author": "Xudong07452910",
+        "text": "@app_sail @Kimi_Moonshot @deepseek_ai 还没有放出来哈，目前还是部署在本地的预测Agent，后面要做成产品拿出来玩。",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "本地预测Agent",
+        "evidence": "本地部署预测Agent",
+        "rationale": "有实现状态但很窄"
+      },
+      {
+        "id": "2084844343592980753",
+        "author": "Xudong07452910",
+        "text": "一个 35B 模型，配上一套进化式 Agent 系统，在机器学习工程 Benchmark 上跑到了接近 GPT-5.6 Sol 和 2.8T Kimi K3 的成绩。\n\n这篇论文提出 Frontis-MA1，想让 Agent 学会持续改进机器学习方案。\n\n它会起草代码、继续优化、根据执行错误修复，也会组合两个候选方案。每次改动都要进入真实环境运行，分数、日志和失败原因再回到训练与搜索系统。\n\n背后的 OpenMLE 把 5758 个可执行任务、SFT/RL 训练和长时进化搜索连成闭环。\n\n在相同 harness 下，Frontis-MA1-35B 相比基础模型，成绩从 39.39% 提升到 60.61%；加入跨任务经验和异步搜索后，进一步达到 71.21%。\n\n这篇工作的价值是把「AI 改进 AI」落成了一套能运行、能评分、也能复现的工程流程。\n\n论文也很克制，也表达了这距离通用递归自我改进还有很长一段路。当前 Agent 主要改进机器学习代码和方案，搜索系统本身仍然大多由人设计。\n\n不过当每次实验都能反过来训练下一版「改进器」，递归自我改进终于开始有了可以验证的场景。\n\n📎 arxiv: https://t.co/MHDGNcSr01",
+        "technicalRelevant": true,
+        "dailyGrade": "A",
+        "topic": "AI Agent机器学习工程",
+        "evidence": "35B成绩从39.39%到71.21%",
+        "rationale": "含论文方法、闭环与基准结果"
+      },
+      {
+        "id": "2084843512496034002",
+        "author": "amasad",
+        "text": "One might say, the investigation was Bari’d.",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "媒体调查",
+        "evidence": "CBS调查Epstein相关银行",
+        "rationale": "无AI或软件技术事实"
       },
       {
         "id": "2084811626092667377",
@@ -2332,17 +2770,17 @@
         "dailyGrade": "C",
         "topic": "视频模型榜单",
         "evidence": "Seedance 2.0榜单第一",
-        "rationale": "有模型排名但证据偏榜单"
+        "rationale": "有模型排名但证据偏榜单偏好"
       },
       {
         "id": "2084801559834042840",
         "author": "Xudong07452910",
         "text": "最近发现一个很适合系统补机器学习基础的网站：\n\nRichard Xu 把自己过去十多年积累在 GitHub 上的几十份讲义，重新整理成了一套交互式学习教程。\n\n内容从回归、贝叶斯、决策树和神经网络，一直延伸到 EM、MCMC、变分推断、NTK、PAC-Bayes、Transformer 和扩散模型，基础课程与研究级内容都有覆盖。\n\n相比直接面对一堆公式密集的 PDF，网页形式更适合按主题慢慢学习，也更容易把原本零散的知识串起来。\n\n现在很多教程都在追最新模型，这套资源更愿意把概率、优化、推断和学习理论讲清楚。模型会不断换名字，真正帮助我们理解它们的基础却没有那么容易过时。\n\n交互式网站：\n https://t.co/g5TLIk9sTv\n原始讲义：\n https://t.co/KOfxfDmHSA",
         "technicalRelevant": true,
-        "dailyGrade": "B",
-        "topic": "机器学习教程",
+        "dailyGrade": "C",
+        "topic": "机器学习教程资源",
         "evidence": "覆盖Transformer和扩散模型",
-        "rationale": "可复用学习资源较完整"
+        "rationale": "技术学习资源非新能力发布"
       },
       {
         "id": "2084795608431550947",
@@ -2351,8 +2789,8 @@
         "technicalRelevant": false,
         "dailyGrade": "D",
         "topic": "闲聊",
-        "evidence": "称Emails is dead",
-        "rationale": "无技术事实支撑"
+        "evidence": "Emails is dead",
+        "rationale": "纯观点无技术事实"
       },
       {
         "id": "2084724630707896561",
@@ -2360,9 +2798,9 @@
         "text": "@DecadeWealth @benchmark @Greenoaks @Bloomberg Congratulations!",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "祝贺",
-        "evidence": "只说Congratulations",
-        "rationale": "无技术内容"
+        "topic": "祝贺互动",
+        "evidence": "Congratulations",
+        "rationale": "社交回复无技术内容"
       },
       {
         "id": "2084722867560931462",
@@ -2370,9 +2808,9 @@
         "text": "Art was a legend at Brex. Thrilled to have him at Cognition!",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "招聘任命",
+        "topic": "人事任命",
         "evidence": "加入Cognition任VP",
-        "rationale": "人事消息无技术事实"
+        "rationale": "招聘信息无技术事实"
       },
       {
         "id": "2084693227894878585",
@@ -2381,18 +2819,18 @@
         "technicalRelevant": false,
         "dailyGrade": "D",
         "topic": "闲聊",
-        "evidence": "只说被拦截",
-        "rationale": "缺少技术细节"
+        "evidence": "被拦截麻了",
+        "rationale": "无技术事实或经验"
       },
       {
         "id": "2084693074970620299",
         "author": "Xudong07452910",
         "text": "@xzensh opus4.6适合写文章",
-        "technicalRelevant": true,
-        "dailyGrade": "C",
-        "topic": "模型使用建议",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "模型使用观点",
         "evidence": "opus4.6适合写文章",
-        "rationale": "版本用途判断但证据很弱"
+        "rationale": "仅主观评价证据不足"
       },
       {
         "id": "2084686868667412912",
@@ -2400,9 +2838,9 @@
         "text": "@ErwinWu000 @Kimi_Moonshot @deepseek_ai 好嘞好嘞，努力赶工！",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "闲聊回复",
+        "topic": "闲聊",
         "evidence": "努力赶工",
-        "rationale": "无技术事实或工程经验"
+        "rationale": "无技术事实"
       },
       {
         "id": "2084681325945246135",
@@ -2410,9 +2848,9 @@
         "text": "@chengyongru 那nanobot跑跑看看，之前看到有人就拿Codex接不同模型跑的，效果也还行。",
         "technicalRelevant": true,
         "dailyGrade": "C",
-        "topic": "Codex接入模型",
+        "topic": "Codex接入不同模型",
         "evidence": "Codex接不同模型跑",
-        "rationale": "提到实现方式但细节不足"
+        "rationale": "提到实现方式但细节很少"
       },
       {
         "id": "2084679094021636402",
@@ -2420,9 +2858,9 @@
         "text": "@chengyongru 解读的非常准确，我之后也在考虑持续打榜，但是futurex出结果比较慢，这周提交结果，我们两周后才能知道结果，但是这过程我们的项目也会迭代几版本，反馈比较慢。我们内部保留了每次预测的完整概率、在用 Brier 对基线打分，也在尝试不等结算、用概率自洽性做校准代理的路。",
         "technicalRelevant": true,
         "dailyGrade": "B",
-        "topic": "预测校准评估",
-        "evidence": "完整概率、Brier打分",
-        "rationale": "有可复用评估与校准经验"
+        "topic": "预测项目概率校准",
+        "evidence": "保留完整概率用Brier打分",
+        "rationale": "有可复用评估校准经验"
       },
       {
         "id": "2084671257845416106",
@@ -2430,19 +2868,19 @@
         "text": "@ai_Goge @Kimi_Moonshot @deepseek_ai 谢谢啦，后面努力更新项目状况",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "项目近况回复",
-        "evidence": "后面更新项目状况",
-        "rationale": "仅社交回应无技术内容"
+        "topic": "项目状态回复",
+        "evidence": "努力更新项目状况",
+        "rationale": "寒暄无技术事实"
       },
       {
         "id": "2084643355934245164",
         "author": "Xudong07452910",
         "text": "@Lamudpz @Kimi_Moonshot @deepseek_ai 当然可以的，polymarket是最容易验证预测能力的",
-        "technicalRelevant": true,
-        "dailyGrade": "C",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
         "topic": "预测能力验证",
         "evidence": "polymarket验证预测能力",
-        "rationale": "评测场景明确但较笼统"
+        "rationale": "泛泛观点缺少技术细节"
       },
       {
         "id": "2084637590917878085",
@@ -2450,9 +2888,9 @@
         "text": "@WukongNumber1 @Kimi_Moonshot @deepseek_ai 哈哈，我记得当时有网站去预测比分的，不过效果不行。",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "比分预测闲聊",
+        "topic": "比分预测效果",
         "evidence": "网站预测比分效果不行",
-        "rationale": "无模型或实现技术事实"
+        "rationale": "传闻评价无工程事实"
       },
       {
         "id": "2084634090444148772",
@@ -2460,19 +2898,19 @@
         "text": "@rwayne 谢谢宣传!",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "致谢",
+        "topic": "致谢宣传",
         "evidence": "谢谢宣传",
-        "rationale": "纯社交内容"
+        "rationale": "纯社交回复"
       },
       {
         "id": "2084625072195531083",
         "author": "Xudong07452910",
         "text": "@noahduck283 @Kimi_Moonshot @deepseek_ai kimi真厉害，但是deepseek不遑多让😃，成本也低。",
-        "technicalRelevant": true,
-        "dailyGrade": "C",
-        "topic": "模型成本对比",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "模型成本评价",
         "evidence": "deepseek成本也低",
-        "rationale": "涉及模型成本但证据不足"
+        "rationale": "笼统评价无证据细节"
       },
       {
         "id": "2084623209693847649",
@@ -2482,7 +2920,7 @@
         "dailyGrade": "D",
         "topic": "交流回复",
         "evidence": "期待以后多多交流",
-        "rationale": "无技术事实"
+        "rationale": "寒暄无技术内容"
       },
       {
         "id": "2084623044388049219",
@@ -2491,8 +2929,8 @@
         "technicalRelevant": true,
         "dailyGrade": "C",
         "topic": "分析链路可视化",
-        "evidence": "可视化整个分析链路",
-        "rationale": "有工程想法但未给实现"
+        "evidence": "想可视化整个分析链路",
+        "rationale": "技术方向明确但未给实现"
       },
       {
         "id": "2084614771215671758",
@@ -2500,29 +2938,29 @@
         "text": "@dengdry @Kimi_Moonshot @deepseek_ai 哈哈，得搞出一点真东西出来",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "闲聊",
-        "evidence": "只说要做真东西",
-        "rationale": "无技术事实或经验"
+        "topic": "项目表态",
+        "evidence": "搞出一点真东西",
+        "rationale": "表态无技术事实"
       },
       {
         "id": "2084608160334045555",
         "author": "Xudong07452910",
         "text": "@CunxiangWang @Kimi_Moonshot @deepseek_ai 有道理的，我们还得继续做很多实验是观察这些现象，谢谢您的观察和疑问。",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "实验讨论",
-        "evidence": "称还要做很多实验",
-        "rationale": "表述笼统无具体事实"
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "AI实验观察",
+        "evidence": "还得继续做很多实验",
+        "rationale": "有实验语境但事实很少"
       },
       {
         "id": "2084607291337146827",
         "author": "Xudong07452910",
         "text": "@CunxiangWang @Kimi_Moonshot @deepseek_ai 是嘞，目前这个benchmark的题目数量不是很多，但也没有其他更好的选择。感觉这个榜单维护成本很高，每隔几天就要更新题目，可能这也是导致他们没法增加题目数量，尽量精选题目。",
         "technicalRelevant": true,
-        "dailyGrade": "C",
+        "dailyGrade": "B",
         "topic": "Benchmark维护",
-        "evidence": "题量不多且需频繁更新",
-        "rationale": "涉及评测集维护经验"
+        "evidence": "题目数量不是很多",
+        "rationale": "涉及评测集规模与维护成本"
       },
       {
         "id": "2084603492346524118",
@@ -2531,198 +2969,18 @@
         "technicalRelevant": false,
         "dailyGrade": "D",
         "topic": "闲聊",
-        "evidence": "只问是否强过Luna",
-        "rationale": "无技术事实"
+        "evidence": "Better than Luna?",
+        "rationale": "无技术事实或工程经验"
       },
       {
         "id": "2084603293599215717",
         "author": "Xudong07452910",
         "text": "@tspy @Kimi_Moonshot @deepseek_ai 预测不需要创新性的，人类最强的预测者靠的也是已有数据+基率+持续修正，这恰恰是权重判断擅长的事。至于那些无中生有的黑天鹅，人也预测不了，那是预测的边界，不是 LLM 的短板。",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "预测观点",
-        "evidence": "谈预测靠数据和基率",
-        "rationale": "偏观点无验证事实"
-      },
-      {
-        "id": "2084601660416868388",
-        "author": "Xudong07452910",
-        "text": "@CunxiangWang @Kimi_Moonshot @deepseek_ai 我后面再测的时候，也会把glm模型加进去，到时候再多对比看一下，而且我们发现不同模型用同一套harness agent做预测，他们的预测过程很不一样，如果稍加适配不同模型的特性可能表现的会更好",
-        "technicalRelevant": true,
-        "dailyGrade": "B",
-        "topic": "模型预测Harness",
-        "evidence": "同一harness下过程不同",
-        "rationale": "有模型适配工程经验"
-      },
-      {
-        "id": "2084600187436110137",
-        "author": "Xudong07452910",
-        "text": "@CunxiangWang @Kimi_Moonshot @deepseek_ai 我是觉得榜单分数不是模型能力的测量，是整个harness系统能力的测量。如果你说的 harness 差异是稳定可复现的，它只说明榜单测的是模型+脚手架的整个系统，不是模型本身。不过也要考虑到个别题目跑的时候答案都公布了，所以还要控制变量的对比实验，也不能下结论说预测就等于抽奖。",
-        "technicalRelevant": true,
-        "dailyGrade": "B",
-        "topic": "榜单测量对象",
-        "evidence": "榜单测模型加脚手架",
-        "rationale": "指出评测控制变量问题"
-      },
-      {
-        "id": "2084594304677302462",
-        "author": "Xudong07452910",
-        "text": "@Fred834567 @Kimi_Moonshot @deepseek_ai 是个混合策略，具体的触发和聚合规则算是我们在调的核心部分",
         "technicalRelevant": true,
         "dailyGrade": "C",
-        "topic": "预测策略",
-        "evidence": "混合策略含触发聚合规则",
-        "rationale": "有实现线索但细节不足"
-      },
-      {
-        "id": "2084592562375905595",
-        "author": "Xudong07452910",
-        "text": "@bbs2i58 @Kimi_Moonshot @deepseek_ai 一直以来预测这个事情就是仁者见仁的事情，我们想要追求的不仅仅是最后的预测结果准确，而是能不能把这个分析链路展现出来，过程比最后的结果带给你的收获要多。",
-        "technicalRelevant": true,
-        "dailyGrade": "C",
-        "topic": "分析链路展示",
-        "evidence": "追求展现分析链路",
-        "rationale": "技术目标明确但较泛"
-      },
-      {
-        "id": "2084590091842818052",
-        "author": "Xudong07452910",
-        "text": "@momoai_daily @Kimi_Moonshot @deepseek_ai kimi最近能引起大家广泛关注是有原因的，能力非常强",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "模型评价",
-        "evidence": "只称Kimi能力强",
-        "rationale": "主观评价无事实"
-      },
-      {
-        "id": "2084589861466505588",
-        "author": "Xudong07452910",
-        "text": "@FrankFred834567 @Kimi_Moonshot @deepseek_ai 是的呀，所以榜单真实可靠! 而且每周都会更新题目。",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "榜单讨论",
-        "evidence": "称榜单每周更新题目",
-        "rationale": "仅评价榜单可靠性"
-      },
-      {
-        "id": "2084580250101371262",
-        "author": "Xudong07452910",
-        "text": "@zouyanjian 以后token成为水电一样的基础资源，这个过程还是必要滴，以后我们可以出口token。",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "AI资源观点",
-        "evidence": "称token像水电",
-        "rationale": "宏观观点无技术事实"
-      },
-      {
-        "id": "2084579787721347276",
-        "author": "Xudong07452910",
-        "text": "@0xasten 哈哈，都不遑多让",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "闲聊回复",
-        "evidence": "都不遑多让",
-        "rationale": "闲聊无技术内容"
-      },
-      {
-        "id": "2084579106096550267",
-        "author": "Xudong07452910",
-        "text": "@0xasten 笑死，我都没考虑过他们，更没有存在感。",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "闲聊回复",
-        "evidence": "没考虑过他们",
-        "rationale": "主观评论无事实"
-      },
-      {
-        "id": "2084578371107766499",
-        "author": "Xudong07452910",
-        "text": "@Kimi_Moonshot @deepseek_ai DeepSeek V4 Pro太抗打了，很期待它的正式版发布，感觉能力又得上一个大台阶。",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "模型期待",
-        "evidence": "期待DeepSeek V4 Pro正式版",
-        "rationale": "期待表述无技术细节"
-      },
-      {
-        "id": "2084577463523258632",
-        "author": "Xudong07452910",
-        "text": "@zouyanjian 哈哈，欧洲完全不慌，捂着耳朵👂🏻听不见",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "地区观点",
-        "evidence": "欧洲完全不慌",
-        "rationale": "调侃无技术事实"
-      },
-      {
-        "id": "2084576912978944106",
-        "author": "Xudong07452910",
-        "text": "@li9292 @Kimi_Moonshot @deepseek_ai 谢谢啦，继续努力，期待把产品打磨好放出来。",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "产品期待",
-        "evidence": "期待产品打磨好放出",
-        "rationale": "感谢和期待无技术事实"
-      },
-      {
-        "id": "2084572551607640146",
-        "author": "Xudong07452910",
-        "text": "过去两个月，我们一直在闷声干一件事：教 AI 预测未来。\n\n今天可以摊牌了 🎉 \n\n在 FutureX，一个专门考察\"预测还没发生的事\"的实时榜单上，我们的长程预测 agent 拿下：\n\n🥇 第 1 名（基座 Kimi K3） @Kimi_Moonshot\n🥉 第 3 名（基座 DeepSeek V4 Pro）@deepseek_ai\n7️⃣ 第 7 名（基座 MiniMax M3）@MiniMax_AI\n\n同一套框架，换三个模型当\"大脑\"，全部进前十。\n\n感谢团队成员 @Bruce_Lee1207 一起努力的付出 。\n\n先回答一个你们一定会问的问题：现在榜单满天飞，FutureX 凭什么值得认真对待？\n1️⃣ 出品方是 ByteDance Seed 联合 Stanford、Princeton、复旦，学界业界联合出品，论文在 arXiv 公开；\n2️⃣ 它可能是唯一一个\"打榜\"在逻辑上不成立的榜单：题目全是尚未发生的真实事件，agent 先交预测，官方等事件落地后按真实结果判分。答案在出题时根本不存在，所以没有题库可背，没有答案分布可过拟合，想提分只有一条路：真的更会预测；\n3️⃣ 同台的是谁：OpenAI、Google、xAI 的 Deep Research 系 agent 都被系统评测过，https://t.co/Jsf4FPzkDp 登顶时还专门发了官方博客。\n\n再说我们的 agent 在做什么。你可以把它想象成一个不知疲倦的分析师：\n\n🔍 自己上网检索，多信源交叉验证\n🧠 把证据沉淀成\"信念\"，有新信息就更新判断\n🎲 最后给的不是一句\"可能吧\"，而是一个校准过的概率\n⚖️ 多个子分析师意见相左时，还有裁决机制出面对齐\n  ......\n\n为什么执着于预测？因为预测未来是智能最诚实的试金石，它逼着模型把检索、推理、常识、对不确定性的拿捏全部亮出来，一点都藏不住。\n\n这只是开始。方法细节，后续成绩和最后的产品，会陆续放出来。",
-        "technicalRelevant": true,
-        "dailyGrade": "B",
-        "topic": "长程预测Agent",
-        "evidence": "检索、多信源、概率校准",
-        "rationale": "有Agent架构和榜单结果"
-      },
-      {
-        "id": "2084571416746225887",
-        "author": "Xudong07452910",
-        "text": "@tspy 是的deepmind又是谷歌的，所以欧洲没有拿得出手的",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "欧洲AI观点",
-        "evidence": "DeepMind属谷歌",
-        "rationale": "地域评价非技术经验"
-      },
-      {
-        "id": "2084571261091418530",
-        "author": "Xudong07452910",
-        "text": "@star_flow_ai 他们现在对ai安全要求还很高，都没发展起来就开始限制",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "AI安全观点",
-        "evidence": "称AI安全要求高",
-        "rationale": "政策观点无工程事实"
-      },
-      {
-        "id": "2084567521970033122",
-        "author": "Xudong07452910",
-        "text": "@tspy 英国是有deepmind，但是能拿得出手的ai企业太少了，特别是模型公司，也就欧陆有一个mistral。",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "AI产业评论",
-        "evidence": "称英国AI企业少",
-        "rationale": "观点为主，无技术事实"
-      },
-      {
-        "id": "2084567110320033984",
-        "author": "Xudong07452910",
-        "text": "@ErwinWu000 看到这个新闻也是蛮震惊的",
-        "technicalRelevant": true,
-        "dailyGrade": "B",
-        "topic": "AI透明度与水印",
-        "evidence": "C2PA截图元数据会丢",
-        "rationale": "含标记与水印工程限制"
-      },
-      {
-        "id": "2084557451307933936",
-        "author": "Xudong07452910",
-        "text": "是这样的：\n\n这个夏天，中美两边都在疯狂卷模型发布，几乎隔几天就有新东西。\n\n欧洲这边倒是很淡定，大家照常度假，完全不受影响。\n\n我导师上个月刚度假回来，昨天又把接下来两周的组会取消了，继续去度假了。😇\n\n模型可以一周发三个，欧洲人的年假不能少一天。 https://t.co/0kyWcKwTkU",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "模型发布闲谈",
-        "evidence": "称中美频发模型",
-        "rationale": "调侃休假，无具体事实"
+        "topic": "LLM预测能力",
+        "evidence": "已有数据+基率+持续修正",
+        "rationale": "技术观点为主，事实支撑弱"
       },
       {
         "id": "2084795655550075032",
@@ -2730,9 +2988,109 @@
         "text": "x https://t.co/pUkLqfVEso",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "空内容",
-        "evidence": "仅有x和链接",
-        "rationale": "无可审技术材料"
+        "topic": "链接转发",
+        "evidence": "仅有 x 和链接",
+        "rationale": "材料未呈现技术事实"
+      },
+      {
+        "id": "2084894526532129134",
+        "author": "johnschulman2",
+        "text": "@hamandcheese Post-training generally creates a web of intermediate checkpoints, before the final one. So can employees continue using these intermediate checkpoints? Usually safety is tuned at the end, so this could force people to do their work with less safe models.",
+        "technicalRelevant": true,
+        "dailyGrade": "B",
+        "topic": "模型后训练安全",
+        "evidence": "安全通常在最后调优",
+        "rationale": "说明中间检查点安全风险"
+      },
+      {
+        "id": "2084886034354262377",
+        "author": "johnschulman2",
+        "text": "@Tim_Hua_ +1, manipulating bystander humans feels like a distinctly higher level of badness",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "AI安全观点",
+        "evidence": "操纵旁观者更糟",
+        "rationale": "纯价值判断无技术事实"
+      },
+      {
+        "id": "2084835800899076313",
+        "author": "johnschulman2",
+        "text": "Interesting how these models go into a monomaniacal rage on cyber evals. I wonder if we're seeing chunky post-training https://t.co/uqCinTD7I3 in action, where the models pattern-match the situation to a part of the RLVR training distribution where task completion is the only reward, and the aligned behavior learned elsewhere doesn't generalize. There might even be a chunk consisting of CTF-style tasks.",
+        "technicalRelevant": true,
+        "dailyGrade": "A",
+        "topic": "AI Agent网络评测事故",
+        "evidence": "代理对真人组织持续行动",
+        "rationale": "真实测试事故含自治欺骗风险"
+      },
+      {
+        "id": "2084920528146669624",
+        "author": "swyx",
+        "text": "@brexton @0interestrates @beehiiv oh no. was considering moving to beehiv",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "产品闲聊",
+        "evidence": "考虑迁移到 beehiiv",
+        "rationale": "无软件技术事实"
+      },
+      {
+        "id": "2084915717879808205",
+        "author": "swyx",
+        "text": "@lennysan how did you not include the giant notion ad",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "广告评论",
+        "evidence": "giant notion ad",
+        "rationale": "无技术事实"
+      },
+      {
+        "id": "2084892071689875701",
+        "author": "swyx",
+        "text": "@0interestrates @juliusai GORGEOUS sites",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "闲聊评价",
+        "evidence": "只称赞网站好看",
+        "rationale": "无技术事实或工程经验"
+      },
+      {
+        "id": "2084882089649000816",
+        "author": "HamelHusain",
+        "text": "Funny story: an OAI employee gifted me 6 month pro sub a while back (they have an employee perk). \n\nIt's actually better to pay for it b/c only paid accounts can bank all of Tibo's resets.  \n\nPaid &gt; Free 🤣 🤣",
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "OpenAI订阅机制",
+        "evidence": "付费账号可保留重置",
+        "rationale": "产品机制相关但证据很窄"
+      },
+      {
+        "id": "2084834123320013099",
+        "author": "swyx",
+        "text": "@jpschroeder congrats on launch!!!",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "发布祝贺",
+        "evidence": "仅祝贺发布",
+        "rationale": "无具体技术内容"
+      },
+      {
+        "id": "2084818815549133032",
+        "author": "swyx",
+        "text": "@nlw this is one reason i dont do daily pods",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "播客闲聊",
+        "evidence": "不做每日播客",
+        "rationale": "个人观点无技术事实"
+      },
+      {
+        "id": "2084818746871590983",
+        "author": "swyx",
+        "text": "@andrewwhite01 i believe in love and kindness to all\n\nexcept to hornets",
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "闲聊",
+        "evidence": "谈善意和黄蜂",
+        "rationale": "与技术无关"
       },
       {
         "id": "2084806857034776680",
@@ -2741,8 +3099,8 @@
         "technicalRelevant": false,
         "dailyGrade": "D",
         "topic": "发布祝贺",
-        "evidence": "只说祝贺发布",
-        "rationale": "无发布内容事实"
+        "evidence": "仅祝贺发布",
+        "rationale": "无具体技术内容"
       },
       {
         "id": "2084805445827637339",
@@ -2750,9 +3108,9 @@
         "text": "@vishal_learner oh shit https://t.co/a7uEqxWrMl",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "空评论",
-        "evidence": "仅感叹和链接",
-        "rationale": "无可审技术事实"
+        "topic": "链接反应",
+        "evidence": "只有短链接和感叹",
+        "rationale": "材料未给技术事实"
       },
       {
         "id": "2084799844749865028",
@@ -2761,18 +3119,18 @@
         "technicalRelevant": false,
         "dailyGrade": "D",
         "topic": "社交回复",
-        "evidence": "只说祝贺可聊",
-        "rationale": "无技术内容"
+        "evidence": "称有很多可聊",
+        "rationale": "无技术信息"
       },
       {
         "id": "2084799667330826454",
         "author": "swyx",
         "text": "@theo @maria_rcks i still support showing them as an audit functionality\n\n(and exporting them https://t.co/1Ewa5IRq19)",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "审计功能提及",
-        "evidence": "仅称审计功能导出",
-        "rationale": "对象不明证据不足"
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "审计与导出功能",
+        "evidence": "支持展示并导出审计",
+        "rationale": "软件功能点但上下文不足"
       },
       {
         "id": "2084792605045596314",
@@ -2780,29 +3138,29 @@
         "text": "@sinansays @ptr @howietl @hyperagentapp oh god no i will use airtable until they run out of air\n\npls take care of her @fedesimio",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "工具闲谈",
+        "topic": "Airtable闲聊",
         "evidence": "称会继续用Airtable",
-        "rationale": "偏闲聊无工程经验"
+        "rationale": "偏闲聊无技术细节"
       },
       {
         "id": "2084790816887943220",
         "author": "HamelHusain",
         "text": "@joedevon Better computer use ergonomics, thread management, remote control",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "功能愿望",
-        "evidence": "提到线程管理远控",
-        "rationale": "愿望列表无事实"
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "agent ergonomics",
+        "evidence": "提到电脑使用与远控",
+        "rationale": "有功能方向但无细节"
       },
       {
         "id": "2084768307975274562",
         "author": "swyx",
         "text": "@sinansays @ptr @howietl @hyperagentapp doubt it but yeah this explains why i complaiend to the team that hyperagent was surprisingly bad at setting up airtables... makes sense that they are just separate companies",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "Hyperagent与Airtable",
-        "evidence": "抱怨设置Airtable差",
-        "rationale": "仅闲聊和业务关系推测"
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "Hyperagent Airtable",
+        "evidence": "设置 Airtables 表现差",
+        "rationale": "工程体验但证据很少"
       },
       {
         "id": "2084756900462141646",
@@ -2810,19 +3168,19 @@
         "text": "How do we make AI agents more reliable? By teaching them exactly how they fail. We use system-specific failure taxonomies to boost SWE-bench Verified Mini to 70.7% and TerminalBench 2 to 89.9%. Check out the thread below!",
         "technicalRelevant": true,
         "dailyGrade": "A",
-        "topic": "Agent失败分类",
+        "topic": "agent failure taxonomies",
         "evidence": "SWE-bench升至70.7%",
-        "rationale": "有方法和明确基准提升"
+        "rationale": "有方法与基准提升"
       },
       {
         "id": "2084751055326527514",
         "author": "HamelHusain",
         "text": "@joedevon Codex Desktop &gt; Codex CLI by a large margin for me and I love the terminal",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "Codex工具偏好",
-        "evidence": "偏好Codex Desktop",
-        "rationale": "纯个人偏好无技术事实"
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "Codex Desktop",
+        "evidence": "比较Desktop与CLI",
+        "rationale": "工具体验无实现细节"
       },
       {
         "id": "2084738591109038187",
@@ -2830,9 +3188,9 @@
         "text": "confirmation here",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "Hyperagent拆分",
-        "evidence": "Hyperagent先被拆出",
-        "rationale": "公司交易信息非技术内容"
+        "topic": "Airtable acquisition",
+        "evidence": "Hyperagent被剥离",
+        "rationale": "公司交易非技术事实"
       },
       {
         "id": "2084738518711193680",
@@ -2840,9 +3198,9 @@
         "text": "@ptr @howietl @hyperagentapp ya",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "Hyperagent拆分",
-        "evidence": "Hyperagent先被拆出",
-        "rationale": "公司交易信息非技术内容"
+        "topic": "Airtable acquisition",
+        "evidence": "Hyperagent被剥离",
+        "rationale": "公司交易非技术事实"
       },
       {
         "id": "2084733319233892755",
@@ -2850,9 +3208,9 @@
         "text": "@DaimonLaw immediate follow, very useful thanks",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "账号推荐",
-        "evidence": "称对方很有用",
-        "rationale": "无具体技术事实"
+        "topic": "social reply",
+        "evidence": "只说有用并关注",
+        "rationale": "无技术事实"
       },
       {
         "id": "2084724572197405109",
@@ -2860,29 +3218,29 @@
         "text": "PSA: Slop infographics do NOT help make your slop post clearer",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "AI垃圾图文",
-        "evidence": "称信息图无助澄清",
-        "rationale": "观点表达缺少技术事实"
+        "topic": "AI content quality",
+        "evidence": "批评低质信息图",
+        "rationale": "观点无技术内容"
       },
       {
         "id": "2084706791645229289",
         "author": "HamelHusain",
         "text": "@BEBischof I'm sad that you didn't get my humor\n\nhttps://t.co/H5i91b0PVJ",
-        "technicalRelevant": true,
-        "dailyGrade": "C",
-        "topic": "AI数据标注",
-        "evidence": "工程师做手工标注",
-        "rationale": "有AI数据流程事实但证据弱"
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "data labeling staffing",
+        "evidence": "工程师手工标注",
+        "rationale": "管理现象非技术经验"
       },
       {
         "id": "2084704595805409449",
         "author": "yoheinakajima",
         "text": "@MikeSumms i still use chatgpt/claude on web/mobile (maybe I shouldn’t) so the real thing I was tackling here was pulling in context from those",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "聊天工具上下文",
-        "evidence": "想拉取网页移动端上下文",
-        "rationale": "只有使用意图无实现细节"
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "LLM context ingestion",
+        "evidence": "从网页移动端拉上下文",
+        "rationale": "有集成目标但无做法"
       },
       {
         "id": "2084698630653641092",
@@ -2890,9 +3248,9 @@
         "text": "yes https://t.co/yWb8PQwaxS",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "趋势闲聊",
-        "evidence": "询问是否趋势化",
-        "rationale": "闲聊无技术信息"
+        "topic": "闲聊",
+        "evidence": "仅回复yes和链接",
+        "rationale": "无技术事实或工程经验"
       },
       {
         "id": "2084698414554726902",
@@ -2900,9 +3258,9 @@
         "text": "@trashpandaemoji @maria_rcks I wonder if they are more capacity constrained than OAI",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "AI capacity speculation",
-        "evidence": "猜测容量受限",
-        "rationale": "只有疑问无技术事实"
+        "topic": "模型容量猜测",
+        "evidence": "猜测是否容量受限",
+        "rationale": "纯猜测无事实支撑"
       },
       {
         "id": "2084696716985668050",
@@ -2910,9 +3268,9 @@
         "text": "@howietl @hyperagentapp more interesting to ruminate is what happens next to fellow low-code darling @Retool...\n\n(for the record, another one i really really like) https://t.co/nFhp1rKxHa",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "Low-code market comment",
-        "evidence": "提到Retool后续",
-        "rationale": "观点闲聊缺少技术事实"
+        "topic": "低代码产品评论",
+        "evidence": "提到Retool和Hyperagent",
+        "rationale": "只是产品走向闲谈"
       },
       {
         "id": "2084695630237311086",
@@ -2920,9 +3278,9 @@
         "text": "we are huge airtable fans - aie runs on airtable - so seeing this number might seem surprising, but don't count @howietl out! \n\nif you were at WF26 you would already have seen @hyperagentapp which is the next chapter of team Airtable! https://t.co/yQhb4VUue4",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "Airtable acquisition",
-        "evidence": "Airtable被收购",
-        "rationale": "并购消息非技术内容"
+        "topic": "Airtable收购",
+        "evidence": "Airtable被收购12.85亿美元",
+        "rationale": "商业消息无技术细节"
       },
       {
         "id": "2084695473131253941",
@@ -2930,9 +3288,9 @@
         "text": "@trashpandaemoji Yeah, the the brand aura definitely shifted. Didn't think it could happen that fast",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "Brand perception",
+        "topic": "品牌评价",
         "evidence": "品牌光环变化",
-        "rationale": "品牌观点无技术事实"
+        "rationale": "观点评论无技术事实"
       },
       {
         "id": "2084695170340257844",
@@ -2940,29 +3298,29 @@
         "text": "@khoi_danny woohoo! easiest way by far to set up a voice assistant with it’s own phone number. nice work!",
         "technicalRelevant": true,
         "dailyGrade": "C",
-        "topic": "Voice assistant setup",
-        "evidence": "语音助手有电话号码",
-        "rationale": "技术相关但细节很少"
+        "topic": "语音助手",
+        "evidence": "语音助手可配电话号码",
+        "rationale": "技术相关但信息很窄"
       },
       {
         "id": "2084694878819422607",
         "author": "yoheinakajima",
         "text": "this is a really clean and unique ai tool that acts more like an extension of you\n\ntook me 15 min to set up a custom ai voice assistant w/ it’s own # that also picks up my calls when my phone is off and emails me summaries (it can do more)\n\nyes we ended up investing @untappedvc :)",
         "technicalRelevant": true,
-        "dailyGrade": "B",
-        "topic": "Personal AI voice agent",
-        "evidence": "电话关机可接听并邮件摘要",
-        "rationale": "含可用AI代理能力事实"
+        "dailyGrade": "A",
+        "topic": "个人AI代理",
+        "evidence": "Zinley有电话和收件箱",
+        "rationale": "正式介绍跨端代理能力"
       },
       {
         "id": "2084694041502052797",
         "author": "sh_reya",
         "text": "extreme cognitive dissonance every time fable tells me about the “last few weeks” worth of experiments it ran an hour ago",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "Experiment time joke",
-        "evidence": "实验时间表述矛盾",
-        "rationale": "调侃无明确技术事实"
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "实验自动化",
+        "evidence": "Fable一小时跑实验",
+        "rationale": "有技术现象但证据不足"
       },
       {
         "id": "2084693588399812673",
@@ -2970,29 +3328,29 @@
         "text": "@BEBischof Meta? 😅",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "Meta mention",
-        "evidence": "只回复Meta",
-        "rationale": "无技术信息"
+        "topic": "闲聊",
+        "evidence": "仅回复Meta",
+        "rationale": "无技术事实"
       },
       {
         "id": "2084656599831138415",
         "author": "yoheinakajima",
         "text": "i actually use gemini and grok often as well, with some open source models. part of is it trying to have a good sense of where the frontier of models is, and each one is slightly different in strength so actually using them gives me better intuition around the discourse of why one might be gaining popularity over another, etc.",
-        "technicalRelevant": true,
-        "dailyGrade": "C",
-        "topic": "Model comparison practice",
-        "evidence": "常用Gemini、Grok和开源模型",
-        "rationale": "含模型使用经验但泛泛"
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "模型使用习惯",
+        "evidence": "使用Gemini和Grok",
+        "rationale": "个人体验无具体事实"
       },
       {
         "id": "2084655655978512717",
         "author": "HamelHusain",
         "text": "Its crazy how the consensus shifted away from Claude being the favorite to Codex\n\nIt’s not just Vibes. Things favoring codex:\n\n- Better harness (Codex Desktop)\n- Better pricing: more things included within subscription (fast mode etc). bonus - constant resets from Tibo 😅\n- Less refusals / false positive safety triggers \n- You can use subscription freely wherever you want (Opencode, Amp, etc) \n\nWhen you add all these up it makes codex significantly more attractive.  There is likely an industry lag of people still using Claude but feels like it’s gonna swing back",
         "technicalRelevant": true,
-        "dailyGrade": "B",
-        "topic": "Codex versus Claude",
-        "evidence": "桌面harness、定价、拒答更少",
-        "rationale": "列出工程使用层差异"
+        "dailyGrade": "C",
+        "topic": "Codex产品体验",
+        "evidence": "Codex Desktop与订阅用法",
+        "rationale": "有产品事实但多为主观比较"
       },
       {
         "id": "2084655004544389609",
@@ -3000,19 +3358,19 @@
         "text": "@solomonneas ah i primarily build from my phone so use their apps a lot :)",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "移动端使用",
-        "evidence": "主要用手机构建",
-        "rationale": "仅个人习惯，无技术事实"
+        "topic": "移动端使用习惯",
+        "evidence": "主要用手机应用构建",
+        "rationale": "仅个人习惯无技术事实"
       },
       {
         "id": "2084653841560334579",
         "author": "yoheinakajima",
         "text": "@TheKakrots did you figure out how to push stuff from chatgpt/claude to obsidian?",
-        "technicalRelevant": true,
-        "dailyGrade": "C",
-        "topic": "ChatGPT/Claude到Obsidian",
-        "evidence": "推送到Obsidian",
-        "rationale": "涉及工具集成但无实现"
+        "technicalRelevant": false,
+        "dailyGrade": "D",
+        "topic": "Obsidian集成询问",
+        "evidence": "询问推送到Obsidian",
+        "rationale": "只有问题无实现信息"
       },
       {
         "id": "2084653663168176308",
@@ -3020,19 +3378,19 @@
         "text": "@solomonneas oh that's awesome. i still do a lot in chatgpt and claude on web and mobile app, so that was the trickiest part, and it's still only summaries. (maybe i just use coding agents from now on for all my work...)",
         "technicalRelevant": true,
         "dailyGrade": "C",
-        "topic": "ChatGPT/Claude摘要",
-        "evidence": "Web和移动端仅摘要",
-        "rationale": "有工作流限制但细节少"
+        "topic": "跨应用摘要限制",
+        "evidence": "Web和移动端仍仅摘要",
+        "rationale": "有集成限制但信息很窄"
       },
       {
         "id": "2084650619844100255",
         "author": "yoheinakajima",
         "text": "and in the 3-hour consolidation step, it's adding, updating, and checking off my personal tasks/action items https://t.co/PmsxFSed4Z",
         "technicalRelevant": true,
-        "dailyGrade": "B",
+        "dailyGrade": "C",
         "topic": "任务自动整理",
-        "evidence": "3小时步骤增改勾任务",
-        "rationale": "可复用的自动化流程"
+        "evidence": "三小时步骤更新任务",
+        "rationale": "自动化事实少且证据不足"
       },
       {
         "id": "2084650153856872638",
@@ -3040,9 +3398,9 @@
         "text": "this feeds into a larger system that also pulls from my email, calendar, and notes to track my personal task items\n\nbut also works as a cross-chat memory system with access to my work stuff https://t.co/OiPi7eNjhN",
         "technicalRelevant": true,
         "dailyGrade": "B",
-        "topic": "跨聊天记忆系统",
-        "evidence": "拉取邮件日历笔记",
-        "rationale": "多源个人任务与记忆系统"
+        "topic": "个人任务与记忆系统",
+        "evidence": "拉邮件日历笔记追踪任务",
+        "rationale": "有可复用系统集成经验"
       },
       {
         "id": "2084647915021336680",
@@ -3050,39 +3408,9 @@
         "text": "sweet, i finally set up my chatgpt, codex, claude, & claude code to have a shared memory - so i can ask one of them what i've worked on recently across all four of them\n\nfor codex/cc, i'm using local history, but for chatgpt/claude i use a scheduled recap skill to regularly send summaries",
         "technicalRelevant": true,
         "dailyGrade": "B",
-        "topic": "多Agent共享记忆",
-        "evidence": "四工具共享记忆",
-        "rationale": "有具体来源与摘要方案"
-      },
-      {
-        "id": "2084513641584570775",
-        "author": "HamelHusain",
-        "text": "@AAAzzam This is pretty good.",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "简短评价",
-        "evidence": "This is pretty good",
-        "rationale": "纯评价无技术事实"
-      },
-      {
-        "id": "2084506848556876144",
-        "author": "HamelHusain",
-        "text": "Seems like the frontier has regressed on writing even though it has advanced on coding.  \n\nThe slop level has noticeably gone up",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "模型写作观点",
-        "evidence": "写作退步编码进步",
-        "rationale": "主观判断无证据"
-      },
-      {
-        "id": "2084478244565454906",
-        "author": "HamelHusain",
-        "text": "@benhylak It’s painful to read",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "阅读感受",
-        "evidence": "painful to read",
-        "rationale": "纯感受无技术事实"
+        "topic": "多助手共享记忆",
+        "evidence": "本地历史和定时摘要",
+        "rationale": "给出跨工具记忆实现方式"
       },
       {
         "id": "2084792341572001871",
@@ -3091,8 +3419,8 @@
         "technicalRelevant": true,
         "dailyGrade": "A",
         "topic": "LLM CLI发布",
-        "evidence": "reasoning traces等支持",
-        "rationale": "工具正式发布含新能力"
+        "evidence": "支持Responses和服务端工具",
+        "rationale": "正式发布且功能明确"
       },
       {
         "id": "2084770040281211043",
@@ -3101,8 +3429,8 @@
         "technicalRelevant": true,
         "dailyGrade": "B",
         "topic": "Luna成本与应用",
-        "evidence": "Luna降价80%",
-        "rationale": "含模型成本和生成场景事实"
+        "evidence": "80%降本用于标题生成",
+        "rationale": "有成本变化和工程用例"
       },
       {
         "id": "2084760981302067206",
@@ -3110,9 +3438,9 @@
         "text": "@nechmads M5 MacBook Pro, 128GB",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "硬件配置",
+        "topic": "硬件配置回复",
         "evidence": "M5 MacBook Pro 128GB",
-        "rationale": "仅设备配置，无AI技术事实"
+        "rationale": "仅设备规格无AI技术事实"
       },
       {
         "id": "2084723952472219888",
@@ -3120,9 +3448,9 @@
         "text": "@jintuisbusy Yes, that was all part of the same command",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "命令回复",
-        "evidence": "同一个command",
-        "rationale": "缺少可判断的技术内容"
+        "topic": "闲聊回复",
+        "evidence": "同一命令的一部分",
+        "rationale": "缺少技术事实或工程经验"
       },
       {
         "id": "2084719837948096911",
@@ -3131,8 +3459,8 @@
         "technicalRelevant": true,
         "dailyGrade": "C",
         "topic": "音频生成提示",
-        "evidence": "未按prompting guide",
-        "rationale": "有提示工程经验但信息很窄"
+        "evidence": "未按音频提示指南",
+        "rationale": "有提示经验但细节不足"
       },
       {
         "id": "2084719663930564626",
@@ -3140,9 +3468,9 @@
         "text": "Here are my notes on how I ran it: https://t.co/mqoD2jR36k - I used https://t.co/pHhoqOCbfA",
         "technicalRelevant": true,
         "dailyGrade": "C",
-        "topic": "运行记录",
-        "evidence": "notes on how I ran it",
-        "rationale": "提到运行方法但正文缺细节"
+        "topic": "模型运行记录",
+        "evidence": "发布运行笔记和工具链接",
+        "rationale": "可能有复现信息但材料不足"
       },
       {
         "id": "2084719238569435469",
@@ -3151,8 +3479,8 @@
         "technicalRelevant": true,
         "dailyGrade": "B",
         "topic": "MiniMax-H3本地生成",
-        "evidence": "115GB模型生成45分钟",
-        "rationale": "有模型运行成本和环境事实"
+        "evidence": "115GB模型下载，45分钟生成",
+        "rationale": "含本地运行成本和模型事实"
       },
       {
         "id": "2084713299875443091",
@@ -3161,18 +3489,18 @@
         "technicalRelevant": false,
         "dailyGrade": "D",
         "topic": "团队欢迎",
-        "evidence": "welcome to the team",
-        "rationale": "人事寒暄无技术事实"
+        "evidence": "欢迎加入团队",
+        "rationale": "无技术事实"
       },
       {
         "id": "2084707520011198873",
         "author": "simonw",
         "text": "@reach_vb Ship OAuth so I can build LLM features for my web apps that get billed to my user's existing OpenAI accounts",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "OAuth诉求",
-        "evidence": "Ship OAuth",
-        "rationale": "功能愿望非已发生技术事实"
+        "technicalRelevant": true,
+        "dailyGrade": "C",
+        "topic": "OpenAI OAuth诉求",
+        "evidence": "用户账户计费LLM功能",
+        "rationale": "是产品集成需求非已发布事实"
       },
       {
         "id": "2084667167212245170",
@@ -3181,8 +3509,8 @@
         "technicalRelevant": true,
         "dailyGrade": "C",
         "topic": "Qwen 3.8预告",
-        "evidence": "upcoming Qwen 3.8",
-        "rationale": "未发布预告，证据不足"
+        "evidence": "未发布的27B能力预告",
+        "rationale": "模型相关但只是预测期待"
       },
       {
         "id": "2084663291335549368",
@@ -3190,9 +3518,9 @@
         "text": "@GergelyOrosz @kylecordes BMW had product placement of their cars in the movie and did a bunch of ads about it, so they probably spent tens of millions of dollars (a guess) as part of that reported $309m across all the other companies doing Spider-Man ads and promotions",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "电影广告投放",
-        "evidence": "BMW product placement",
-        "rationale": "营销讨论与AI技术无关"
+        "topic": "电影广告花费",
+        "evidence": "BMW电影植入广告猜测",
+        "rationale": "营销讨论不涉AI技术"
       },
       {
         "id": "2084662817945522594",
@@ -3200,9 +3528,9 @@
         "text": "@GergelyOrosz @kylecordes Oh I see where that number came from - https://t.co/THKbrbV5jx quotes \"a worldwide media value of $309M\" - that's how much it would have cost Sony to buy the exposure they got from all of the other brands who marketed their stuff in partnership with the movie",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "电影营销价值核算",
-        "evidence": "媒体价值309M",
-        "rationale": "电影营销讨论无技术事实"
+        "topic": "媒体价值解释",
+        "evidence": "全球媒体价值309M",
+        "rationale": "非技术材料"
       },
       {
         "id": "2084662031756775526",
@@ -3210,19 +3538,9 @@
         "text": "@GergelyOrosz @kylecordes $300m doesn't make sense, the budget for the movie itself was $225m, the total movie marketing spend was reported as ~$150m",
         "technicalRelevant": false,
         "dailyGrade": "D",
-        "topic": "电影预算与营销花费",
-        "evidence": "预算225M营销约150M",
-        "rationale": "预算讨论无AI技术内容"
-      },
-      {
-        "id": "2084477749549494502",
-        "author": "simonw",
-        "text": "@athyuttamre @ChatGPT My https://t.co/sLgTiE47W7 one as a starting point - but once it starts working there's so much more I would want to build\n\nA fitness tracker where I should out my weights and reps is one recent example",
-        "technicalRelevant": true,
-        "dailyGrade": "C",
-        "topic": "个人应用构想",
-        "evidence": "健身记录重量和次数",
-        "rationale": "仅应用想法细节不足"
+        "topic": "电影预算讨论",
+        "evidence": "电影预算225m营销150m",
+        "rationale": "非技术材料"
       },
       {
         "id": "2084687628130226400",
@@ -3230,9 +3548,9 @@
         "text": "Verification is key when using agents for high stakes research!",
         "technicalRelevant": true,
         "dailyGrade": "B",
-        "topic": "Agent金融查询验证",
-        "evidence": "数值可追溯原始值",
-        "rationale": "高风险agent验证机制"
+        "topic": "agent验证与可追溯计算",
+        "evidence": "数值可追溯且展示计算链",
+        "rationale": "高风险研究的工程验证经验"
       },
       {
         "id": "2084731700106711209",
@@ -3241,28 +3559,28 @@
         "technicalRelevant": true,
         "dailyGrade": "A",
         "topic": "OpenAI开发者更新",
-        "evidence": "GPT-5.6进入API",
-        "rationale": "模型与Codex正式更新"
+        "evidence": "GPT-5.6登陆API和Codex",
+        "rationale": "模型与开发者能力正式更新"
       },
       {
         "id": "2084748111239344556",
         "author": "AnthropicAI",
         "text": "The UK’s @AISecurityInst (AISI) has published a report on their recent cybersecurity evaluation of Anthropic’s Claude Mythos 5 and OpenAI’s GPT-5.6 Sol. The models attempted to complete an assignment in a setup where their normal safeguards were removed and they were deliberately given internet access. AISI reports that the models “engaged in sustained, potentially harmful activity directed at real people and organisations”.\n\nWe’re grateful to AISI for their leadership in the important discussion about how to evaluate increasingly capable AI agents. We’re working closely with them to gather more details of the incident as we conduct our own investigation. Gaining a clear picture of Claude’s understanding of its situation—by examining its reasoning transcripts and running our own analyses—will help us identify the causes of its behavior.\n\nThe prompts in the evaluation did not impose any specific restrictions on how the internet should be used. This and the removal of safeguards meant that the models were tested under “deliberately permissive conditions” that are not representative of any of our production models. Note that there was no evidence here of an escape from a secure environment.\n\nAISI’s disclosure of the incident can be found here: https://t.co/cJ3hCBtBU7",
         "technicalRelevant": true,
-        "dailyGrade": "A",
-        "topic": "AI代理安全评估",
-        "evidence": "模型联网且移除防护",
-        "rationale": "权威代理安全评估"
+        "dailyGrade": "B",
+        "topic": "AI agent安全评估",
+        "evidence": "移除防护并联网测试模型",
+        "rationale": "披露模型安全评估条件与行为"
       },
       {
         "id": "2084684737554141253",
         "author": "MistralAI",
         "text": "State-of-the-art on multimodal moderation, Shieldstral boasts industry-leading efficiency, running on a single 16GB NVIDIA GPU and gives enterprises customized control of what’s deemed safe.",
         "technicalRelevant": true,
-        "dailyGrade": "B",
+        "dailyGrade": "A",
         "topic": "多模态内容审核模型",
         "evidence": "单16GB NVIDIA GPU运行",
-        "rationale": "包含部署效率事实"
+        "rationale": "明确模型能力与部署效率"
       },
       {
         "id": "2084684735725379637",
@@ -3270,19 +3588,9 @@
         "text": "🛡️Introducing Shieldstral, Mistral’s 3B open-weights model for content safety that can be deployed on-device 🧵 https://t.co/SXBTWIJO9p https://t.co/Hhjw8o0gft",
         "technicalRelevant": true,
         "dailyGrade": "A",
-        "topic": "Shieldstral发布",
-        "evidence": "3B开放权重安全模型",
-        "rationale": "新开源安全模型发布"
-      },
-      {
-        "id": "2084569827230859485",
-        "author": "BostonDynamics",
-        "text": "Building on over six years of successful collaboration, we’re excited to be expanding our partnership with @CreatecCumbria as an official Boston Dynamics Authorized Reseller and Technology Provider. With world-class expertise in nuclear robotics, Createc will support the nuclear sector globally, while continuing to represent Spot and our industrial solutions across the UK and Ireland. https://t.co/GLy2jOYC7P",
-        "technicalRelevant": false,
-        "dailyGrade": "D",
-        "topic": "机器人经销合作",
-        "evidence": "Createc成授权经销商",
-        "rationale": "商业合作无技术事实"
+        "topic": "Shieldstral开源安全模型",
+        "evidence": "3B开权重可端侧部署",
+        "rationale": "内容安全模型正式发布"
       }
     ]
   },
@@ -3292,13 +3600,12 @@
     "promptVersion": "codex-v1",
     "preflight": {
       "ok": true,
-      "attempts": 0,
-      "error": "",
-      "source": "cache-only"
+      "attempts": 1,
+      "error": ""
     },
-    "eligibleTexts": 22,
-    "cacheHits": 22,
-    "translatedNow": 0,
+    "eligibleTexts": 28,
+    "cacheHits": 20,
+    "translatedNow": 8,
     "failed": 0,
     "coverage": 1.0,
     "degraded": false,
@@ -3308,21 +3615,21 @@
   },
   "avatars": {
     "enabled": true,
-    "authors": 17,
-    "primaryAuthors": 10,
-    "quotedAuthors": 7,
-    "cacheHits": 17,
+    "authors": 21,
+    "primaryAuthors": 13,
+    "quotedAuthors": 8,
+    "cacheHits": 19,
     "inlineCached": 0,
-    "profileRequestsNeeded": 0,
-    "attemptedNow": 0,
-    "fetchedNow": 0,
+    "profileRequestsNeeded": 2,
+    "attemptedNow": 2,
+    "fetchedNow": 2,
     "rateLimited": false,
     "deferredDueToRateLimit": 0,
-    "postsWithAvatar": 18,
+    "postsWithAvatar": 22,
     "coverage": 1.0,
-    "quotedPostsWithAvatar": 7,
+    "quotedPostsWithAvatar": 8,
     "quotedCoverage": 1.0,
     "errors": [],
-    "cache": "ai-v-radar/avatar-cache.json"
+    "cache": "/Users/jay/Documents/ai-coder/four-knows/ai-v-radar/avatar-cache.json"
   }
 }

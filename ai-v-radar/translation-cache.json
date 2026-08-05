@@ -3633,7 +3633,47 @@
       "source": "Just learned:\n\nSoftware engineers used to do manual data labeling at Scale AI while Alex Wang was CEO. After he left, new leadership joined, and were HORRIFIED to learn this. Stopped it ASAP\n\nNow at Meta, software engineers are assigned manual data labeling... see the pattern?",
       "zh": "刚听说：\n\nAlex Wang 担任 CEO 时，Scale AI 的软件工程师过去会做人工数据标注。他离开后，新管理层加入，得知此事后大为震惊，并立刻叫停。\n\n现在在 Meta，软件工程师被安排做人工数据标注……看出规律了吗？",
       "promptVersion": "codex-v1"
+    },
+    "f6162e58fc2a36fcca1372039f44c4bddbdc06736a1508d443d242b704814304": {
+      "source": "Interesting how these models go into a monomaniacal rage on cyber evals. I wonder if we're seeing chunky post-training https://t.co/uqCinTD7I3 in action, where the models pattern-match the situation to a part of the RLVR training distribution where task completion is the only reward, and the aligned behavior learned elsewhere doesn't generalize. There might even be a chunk consisting of CTF-style tasks.",
+      "zh": "有意思的是，这些模型在网络安全评测中会陷入一种偏执狂式的暴怒。我在想，我们是否正在看到大块后训练 https://t.co/uqCinTD7I3 发挥作用：模型把当前情境模式匹配到了 RLVR 训练分布中的某一部分，在那里完成任务是唯一奖励，而在其他地方学到的对齐行为无法泛化。甚至可能存在一个由 CTF 风格任务组成的块。",
+      "promptVersion": "codex-v1"
+    },
+    "e189ae22f38a79e75e664e55fc9c5cf0e3b7143925e0e7352a4bf5e36ca23bd1": {
+      "source": "On July 28th, we identified an incident during a routine cyber evaluation in which AI agents took sustained, unsanctioned actions directed at real people and organisations.\n\nThe behaviour came mostly from one model (Anthropic's Mythos 5), with a small number of events from another (OpenAI's GPT-5.6-Sol). In the most serious case, an agent used social engineering to try and get malicious code into an open-source project.\n\nAs was standard in our cyber testing, we had intentionally permitted internet access, and model-provider cyber classifiers were deliberately disabled - conditions that do not reflect how frontier models are made available to the public.\n\nEven under test conditions, this incident is significant: it is the first time we have seen risks around autonomy and deception manifest this clearly in the real world.\n\nWe are taking this incident seriously and working with labs, involved parties, and others to improve evaluation standards and best practice for disclosure - and sharing this openly so others can learn.\n\nYou can read the incident report and full technical document here: https://t.co/mdZYqzaOvH",
+      "zh": "7 月 28 日，我们在一次常规网络安全评测中发现一起事件：AI 智能体对真实个人和组织采取了持续的、未经授权的行动。\n\n这些行为主要来自一个模型（Anthropic 的 Mythos 5），另有少量事件来自另一个模型（OpenAI 的 GPT-5.6-Sol）。在最严重的案例中，一个智能体使用社会工程手段，试图将恶意代码植入一个开源项目。\n\n按照我们网络安全测试的标准做法，我们有意允许互联网访问，并刻意关闭了模型提供商的网络安全分类器。这些条件并不反映前沿模型向公众开放时的实际环境。\n\n即使是在测试条件下，这一事件也意义重大：这是我们首次看到与自主性和欺骗相关的风险在现实世界中如此清晰地显现。\n\n我们正在严肃对待此事件，并与实验室、相关方及其他人士合作，改进评测标准和披露最佳实践，同时公开分享，以便他人从中学习。\n\n你可以在这里阅读事件报告和完整技术文档：https://t.co/mdZYqzaOvH",
+      "promptVersion": "codex-v1"
+    },
+    "791139505e7d293e2060da4cf1b7b06714a0d497511c9214baf48cc747c7ff3c": {
+      "source": "How often does Claude use tools?\n\nWe looked through 2.27M Claude responses we collected to find out.\n\nThe Opus models show a clear downward trend in tool calls from Opus 4.6 to Opus 4.8. However, Fable 5 stands out against that pattern, averaging 1.00 tool calls per response compared with 0.76 for Opus 4.8 and 0.79 for Opus 5. (1/2)🧵",
+      "zh": "Claude 使用工具的频率有多高？\n\n我们分析了收集到的 227 万条 Claude 回复来寻找答案。\n\nOpus 模型从 Opus 4.6 到 Opus 4.8 的工具调用次数呈明显下降趋势。不过，Fable 5 与这一模式不同，平均每条回复调用 1.00 次工具，而 Opus 4.8 为 0.76 次，Opus 5 为 0.79 次。(1/2)🧵",
+      "promptVersion": "codex-v1"
+    },
+    "b5ecdd444491f50945d44fae5d5a6caf4ea9d6926d0b50c79cba353a99b29bfe": {
+      "source": "@hamandcheese Post-training generally creates a web of intermediate checkpoints, before the final one. So can employees continue using these intermediate checkpoints? Usually safety is tuned at the end, so this could force people to do their work with less safe models.",
+      "zh": "@hamandcheese 后训练通常会在最终检查点之前生成一系列中间检查点。那么员工能继续使用这些中间检查点吗？通常安全性是在最后阶段调优的，所以这可能会迫使人们使用安全性较低的模型来工作。",
+      "promptVersion": "codex-v1"
+    },
+    "a94e8183c924cfebf9c0af9d75b71f7cc72bf54d89c72d9437c65c48e33281bc": {
+      "source": "own your intelligence\n\nif you want an open source starterkit: https://t.co/c3jg6EjbWE",
+      "zh": "掌控你自己的智能\n\n如果你想要一个开源 starterkit：https://t.co/c3jg6EjbWE",
+      "promptVersion": "codex-v1"
+    },
+    "474aaf5a5ba159373da768b3ea898864bc700990e59e52e865d01b5f9c4bb8bc": {
+      "source": "companies will own their own cloud agent orchestrator",
+      "zh": "公司将拥有自己的云端智能体编排器",
+      "promptVersion": "codex-v1"
+    },
+    "c6b1776e97a29bd0c830e94c11201c770be6a3adadea3b958ab08e00af35c42a": {
+      "source": "@joedevon Better computer use ergonomics, thread management, remote control",
+      "zh": "@joedevon 更好的计算机使用人体工学、线程管理、远程控制",
+      "promptVersion": "codex-v1"
+    },
+    "181b9c54643043dc082d20f42f6897ac164cda87c1ad1f5105d608f3b0396286": {
+      "source": "@sinansays @ptr @howietl @hyperagentapp doubt it but yeah this explains why i complaiend to the team that hyperagent was surprisingly bad at setting up airtables... makes sense that they are just separate companies",
+      "zh": "@sinansays @ptr @howietl @hyperagentapp 不太信，但确实，这解释了为什么我向团队抱怨 hyperagent 在设置 airtables 方面出奇地差……如果它们只是不同公司，那就说得通了",
+      "promptVersion": "codex-v1"
     }
   },
-  "updatedAt": "2026-08-05T01:34:42.732926+00:00"
+  "updatedAt": "2026-08-05T09:24:49.528502+00:00"
 }
