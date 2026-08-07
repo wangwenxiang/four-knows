@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-08-08T07:01:13.351192+08:00",
+  "windowHours": 23.0,
+  "monitored": 62,
+  "selected": 31,
+  "inputSha256": "83bc1400bce07ac38050352ffdf8245735c1e197ec6d0a77d4baf9de4a90627b",
+  "copyBackend": "codex",
+  "copyAttempts": 1,
+  "copyRetries": 0,
+  "copyError": "",
+  "stories": [
+    {
+      "id": "2085569120695972046",
+      "author": "Xudong Han",
+      "category": "AI 技术前沿",
+      "title": "Skill Entropy 衡量大模型长任务中的技能切换瓶颈",
+      "summary": "普林斯顿等提出 Skill2-Bench 覆盖 9 个领域 558 项技能，跨技能任务使准确率下降约 4% 至 13%。"
+    },
+    {
+      "id": "2085807103382519872",
+      "author": "Boris Cherny",
+      "category": "AI 技术应用",
+      "title": "Claude Code 将把 Auto mode 设为默认权限模式",
+      "summary": "引用｜从 8 月 14 日起，auto mode 将成为 Claude Code 面向 Pro、Max 和 Team 用户的默认权限模式。\n\nAuto mode 会用一个独立分类器审核 shell 命令和操作。在测试中，它拦截了 89% 的危险命令。人工审批拦截了 14%。"
+    },
+    {
+      "id": "2085828254410395666",
+      "author": "Matei Zaharia",
+      "category": "AI 技术应用",
+      "title": "Databricks 用 AI Gateway 集中优化工程 token 成本",
+      "summary": "引用｜今天 @databricks 发布了一篇详细分析，介绍我们在积极推动内部采用 AI 的同时，如何大幅降低内部 AI 开支。节省来自叠加多种技术，在某些场景下可将单位成本降低高达 90%。简而言之，收益来自：\n\n1. 将默认模型切换为更高效的模型，包括 GLM 等 OSS 模型。许多编码任务并不需要最高智能水平的模型，“够用”的模型正迅速变得非常便宜。我们使用 Unity AI Gateway 在模型之间切换流量。预计节省：50% 或更多。\n\n2. 使用智能路由自动选择模型。路由可以通过动态选择最能高效执行特定任务的模型或 harness，进一步提升效率。我们的任务级路由使用 @omnigent_ai。预计节省：30%。\n\n3. 提供用户可见性和自适应预算。每位用户都能看到自己的花费，并会收到控制开销的提示。高消费用户在开销超过某些水平时会遇到逐步增加的阻力。预计节省：10%。\n\n4. 通过裁剪工具调用结果和调优 harness 设置来管理上下文膨胀。多余上下文会花钱，却没有价值。调优缓存设置也有助于降低平均 token 成本。预计节省：10%。"
+    }
+  ]
+}
