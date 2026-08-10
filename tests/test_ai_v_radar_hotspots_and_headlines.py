@@ -116,6 +116,26 @@ def headline_post(post_id: str, handle: str, score: int, text: str) -> dict:
 
 
 class HeadlineEventDedupeTest(unittest.TestCase):
+    def test_shared_two_word_model_name_is_not_split_into_two_headlines(self):
+        announcement = headline_post(
+            "muse-release", "alexandr_wang", 100,
+            "We are releasing Muse Glimmer, a 30B agentic model with open weights under Apache 2.0.",
+        )
+        implementation = headline_post(
+            "muse-implementation", "AIatMeta", 98,
+            "To run Muse Glimmer locally, quantization shrinks the model and DFlash accelerates token generation.",
+        )
+        independent = headline_post(
+            "cyber", "gdb", 99,
+            "OpenAI releases GPT-5.6-Cyber to expand Daybreak for authorized cyber defense work.",
+        )
+        third_event = headline_post(
+            "reasoning", "jeff", 97,
+            "Gemini reasoning model reaches a new benchmark with faster inference.",
+        )
+        selected = select_diverse_top_stories([announcement, implementation, independent, third_event])
+        self.assertEqual([post["id"] for post in selected], ["muse-release", "cyber", "reasoning"])
+
     def test_same_event_from_different_authors_does_not_take_two_headlines(self):
         repeated_event_a = headline_post(
             "a", "gdb", 99,

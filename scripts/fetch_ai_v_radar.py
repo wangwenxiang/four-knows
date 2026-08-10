@@ -2065,11 +2065,37 @@ def top_story_event_terms(post: dict[str, Any]) -> set[str]:
     return {token for token in tokens if token not in EVENT_STOPWORDS}
 
 
+def top_story_event_phrases(post: dict[str, Any]) -> set[tuple[str, str]]:
+    """Return concrete adjacent two-word phrases that can identify one event.
+
+    A product/model name is often a two-token phrase (for example, ``Muse
+    Glimmer``).  Counting only individual terms can miss this kind of
+    cross-author coverage when the surrounding implementation details differ.
+    """
+    text = re.sub(r"https?://\S+", " ", technical_context(post))
+    tokens = [
+        normalize_event_token(token)
+        for token in re.findall(r"[a-z][a-z0-9_-]{2,}", text.casefold())
+    ]
+    return {
+        (left, right)
+        for left, right in zip(tokens, tokens[1:])
+        if left not in EVENT_STOPWORDS
+        and right not in EVENT_STOPWORDS
+        and left not in EVENT_BROAD_TERMS
+        and right not in EVENT_BROAD_TERMS
+    }
+
+
 def same_top_story_event(left: dict[str, Any], right: dict[str, Any]) -> bool:
     """Conservatively identify two authors narrating the same underlying event."""
     left_quote = (left.get("quotedTweet") or {}).get("id") if isinstance(left.get("quotedTweet"), dict) else None
     right_quote = (right.get("quotedTweet") or {}).get("id") if isinstance(right.get("quotedTweet"), dict) else None
     if left_quote and str(left_quote) == str(right_quote):
+        return True
+    # A shared specific two-word product/model name is stronger event evidence
+    # than a loose overlap of generic technical vocabulary.
+    if top_story_event_phrases(left) & top_story_event_phrases(right):
         return True
     shared = top_story_event_terms(left) & top_story_event_terms(right)
     if len(shared) < 4 or not (shared - EVENT_BROAD_TERMS):
