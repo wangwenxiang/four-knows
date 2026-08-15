@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>硅谷 AI 原声 · 2026-08-16</title>
+  <style>
+    :root{--bg:#f4f6f8;--surface:#fff;--text:#16181c;--muted:#65717e;--line:#dfe4e9;--accent:#0066cc;--green:#117a62;--shadow:0 16px 42px rgba(18,28,38,.08);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 15% 0,#e8f2ff 0,transparent 27%),var(--bg);color:var(--text)} a{color:inherit;text-decoration:none} button{font:inherit}
+    .shell{width:min(1500px,calc(100% - 28px));margin:0 auto;padding:14px 0 40px}
+    .hero{display:grid;grid-template-columns:minmax(250px,1fr) auto;align-items:center;gap:12px;padding:15px 18px;border:1px solid rgba(255,255,255,.75);border-radius:16px;background:rgba(255,255,255,.88);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    h1{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin:0;font-size:clamp(28px,3.4vw,44px);line-height:1;letter-spacing:-.05em} .report-date{color:var(--green);font-size:clamp(10px,1vw,13px);font-weight:900;letter-spacing:.08em;white-space:nowrap}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(62px,1fr));gap:6px;align-content:start} .metric{padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fff} .metric strong{display:block;font-size:19px;line-height:1} .metric span{display:block;margin-top:3px;color:var(--muted);font-size:8px;font-weight:820;white-space:nowrap}
+    .notice{margin-top:12px;padding:11px 14px;border:1px solid #e1b866;border-radius:12px;background:#fff8e8;color:#7a5612;font-size:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px;align-items:start} .signal-card{min-width:0;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 9px 26px rgba(18,28,38,.045)}
+    .card-top{display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:10px} .avatar{display:grid;width:46px;height:46px;overflow:hidden;place-items:center;border:1px solid #d9e0e7;border-radius:999px;background:linear-gradient(135deg,#111827,#46627d);color:#fff;font-size:12px;font-weight:900} .avatar img{width:100%;height:100%;object-fit:cover;display:block} .identity{display:grid;gap:3px;min-width:0} .identity strong,.identity span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .identity strong{font-size:14px} .identity span{color:var(--muted);font-size:11px}
+    .score{display:grid;justify-items:center;min-width:40px;padding:5px 6px;border:1px solid #e3ebe8;border-radius:8px;background:#f4f8f6;color:#527267;font-size:15px;font-weight:820;line-height:1} .score small{margin-top:2px;color:#71877f;font-size:7px;letter-spacing:.06em;text-transform:uppercase}
+    .meta{display:flex;align-items:center;gap:6px;margin:11px 0 9px;color:var(--muted);font-size:10.5px;font-weight:750} .meta span:not(.priority){overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .meta time{margin-left:auto;white-space:nowrap} .priority{padding:3px 6px;border-radius:999px;background:#111827;color:#fff;font-size:9px}
+    .post-text{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.58} .post-text.original{font-size:16px;font-weight:570;color:#20252b} .post-text.translation{margin-top:8px;color:#66727f;font-size:13px;font-weight:470;line-height:1.62} .article .original+.translation{margin-top:2px;color:#65717e;font-size:11px;font-weight:650} .quote,.article{display:grid;gap:6px;margin-top:10px;padding:11px;border:1px solid var(--line);border-radius:12px;background:#f7f9fb} .quote__author{display:flex;align-items:center;gap:7px;font-size:11px} .quote__author>div:last-child{display:grid;gap:1px} .quote__author span{color:var(--muted)} .quote-avatar{display:grid;width:28px;height:28px;overflow:hidden;place-items:center;border:1px solid var(--line);border-radius:999px;background:#dfe6ed;color:#52606d;font-size:10px;font-weight:900} .quote-avatar img{width:100%;height:100%;object-fit:cover} .quote p,.article p{margin:0;color:#4f5a66;font-size:12px;line-height:1.48;white-space:pre-wrap} .article strong{font-size:13px} .article strong.original{font-size:13.5px} .quote-text.original{font-size:12.5px;color:#36414d} .quote-text.translation{font-size:11.5px;color:#6a7682} .quote-link{justify-self:start;color:var(--accent);font-size:10px;font-weight:850}
+    .media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:10px;overflow:hidden;border-radius:12px} .media-grid--1{grid-template-columns:1fr} .media-item{position:relative;min-height:150px;background:#e8edf2} .media-item img{width:100%;height:100%;max-height:330px;object-fit:cover;display:block} .media-item span{position:absolute;right:7px;bottom:7px;padding:4px 6px;border-radius:6px;background:rgba(0,0,0,.68);color:#fff;font-size:8px;font-weight:900}
+    .card-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid #edf0f3} .engagement{display:flex;gap:10px;color:var(--muted);font-size:10.5px;font-weight:750} .card-bottom>a{color:var(--accent);font-size:11px;font-weight:850} .empty{grid-column:1/-1;padding:70px;text-align:center;border:1px dashed #cdd5dd;border-radius:16px;background:#fff;color:var(--muted)}
+    footer{padding:26px 4px 0;color:var(--muted);font-size:11px;text-align:center}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}} @media(max-width:560px){.shell{width:min(100% - 16px,1500px);padding-top:7px}.hero{gap:10px;padding:13px 14px;border-radius:15px}h1{font-size:28px}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.metric{padding:7px 9px}.metric strong{font-size:18px}.signal-card{padding:13px}.post-text.original{font-size:15px}.post-text.translation{font-size:12.5px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <h1>硅谷 AI 原声 <span class="report-date">· 2026-08-16</span></h1>
+      <div class="metrics"><div class="metric"><strong>62</strong><span>监控专家</span></div><div class="metric"><strong>11</strong><span>活跃专家</span></div><div class="metric"><strong>19</strong><span>精选原文</span></div></div>
+    </header>
+
+    <main class="grid">
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">81<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>08-15 14:20 北京</time></div>
+        <p class="post-text original source-only" lang="auto">Qwen3.8-27B 这篇 Practical Guide 里，我最关注的还是 1M context。
+
+它原生支持 262K，超过之后可以通过 YaRN 扩展到 1M。这个细节很重要的，因为 1M 并不是默认一直打开，官方甚至建议根据实际任务长度调整 scaling factor，否则可能影响短上下文表现。
+
+对 Agent 来说，我觉得这比单纯把 context window 做大更有意思。
+
+代码、Terminal 日志、测试结果、工具调用和执行轨迹终于可以保留得更久。接下来更难的问题可能会变成给 Agent 一百万 token，它究竟应该留下什么？
+
+另外官方还提了一个很实际的点：降低 reasoning_effort 不一定让 Agent 整体更快。单轮思考少了，如果因此增加失败和重试，最后耗时和 token 反而可能更高。
+
+长上下文和 reasoning budget，感觉都开始从「模型参数」变成 Agent Harness 需要主动管理的资源了。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2079037454556987392/zGNYEiMo_normal.jpg" alt="Qwen Developers avatar" loading="lazy"></div><div><strong>Qwen Developers</strong><span>@QwenDevs</span></div></div><p class="quote-text original" lang="auto">Qwen3.8-27B Practical Guide: Control Reasoning Depth and Extend Context to 1M Tokens</p><p class="quote-text translation" lang="zh-CN">Qwen3.8-27B 实用指南：控制推理深度，并将上下文扩展到 100 万 tokens</p><div class="article"><strong class="original" lang="auto">Qwen3.8-27B Practical Guide: Control Reasoning Depth and Extend Context to 1M Tokens</strong><strong class="translation" lang="zh-CN">Qwen3.8-27B 实用指南：控制推理深度，并将上下文扩展到 100 万 tokens</strong><p class="article-text original" lang="auto">Qwen3.8-27B is here — a compact, deployment-friendly dense model built on the Qwen3.5 architecture, with native vision-language understanding and flexible thinking control.
+Two developer-facing</p><p class="article-text translation" lang="zh-CN">Qwen3.8-27B 来了——一款基于 Qwen3.5 架构、紧凑且便于部署的稠密模型，原生支持视觉语言理解和灵活的思考控制。
+面向开发者的两项</p></div><a class="quote-link" href="https://x.com/QwenDevs/status/2088289608031510811" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 34</span><span>↻ 6</span><span>↩ 29</span></div><a href="https://x.com/Xudong07452910/status/2088511002262339872" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="gdb" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_normal.jpg" alt="Greg Brockman avatar" loading="lazy"></div>
+          <div class="identity"><strong>Greg Brockman</strong><span>@gdb · OpenAI / 联合创始人</span></div>
+          <div class="score">98<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>基座模型 / OpenAI</span><time>08-16 00:04 北京</time></div>
+        <p class="post-text original" lang="auto">towards never having to manually select a model again</p><p class="post-text translation" lang="zh-CN">朝着再也不需要手动选择模型的方向迈进</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2081499052382842880/ilcXqM5r_normal.jpg" alt="eric provencher avatar" loading="lazy"></div><div><strong>eric provencher</strong><span>@pvncher</span></div></div><p class="quote-text original" lang="auto">This went under the radar this week, but we just shipped the ability for models with multi agents v2 to delegate to any supported model, including Luna!
+
+Took a bit of time to make sure this worked reliably https://t.co/84Wto45mzA</p><p class="quote-text translation" lang="zh-CN">这周这件事没怎么被注意到，但我们刚刚上线了一项能力：支持 multi agents v2 的模型可以委托给任何受支持的模型，包括 Luna！
+
+为了确保它稳定可靠，我们花了一些时间 https://t.co/84Wto45mzA</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HPxX-NGWQAAdAs6.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HPxX-NGWQAAdAs6.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/pvncher/status/2088641056237580632" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 1,638</span><span>↻ 56</span><span>↩ 110</span></div><a href="https://x.com/gdb/status/2088658133971509640" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">55<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>08-16 06:46 北京</time></div>
+        <p class="post-text original" lang="auto">Our &quot;agentic plus&quot; extractor in LlamaParse is great for extracting out massive volumes of fields (e.g. 10k-100k+ fields) from long documents (100-500 pages)
+
+We tested with a doc that contains a giant matrix of all creditors for FTX 💸 (75k fields, 114 pages). See screenshot below.
+
+You can find full benchmark results on ExtractBench (https://t.co/RgFNeyrazr). In the meantime, come try out the mode in our playground! https://t.co/XYZmx5T7JA</p><p class="post-text translation" lang="zh-CN">我们在 LlamaParse 中的 “agentic plus” 提取器非常适合从长文档（100-500 页）中提取海量字段（例如 1 万到 10 万+ 个字段）。
+
+我们用一份包含 FTX 所有债权人巨大矩阵的文档做了测试 💸（7.5 万个字段，114 页）。见下方截图。
+
+你可以在 ExtractBench（https://t.co/RgFNeyrazr）查看完整基准测试结果。与此同时，欢迎来我们的 playground 试用这个模式！https://t.co/XYZmx5T7JA</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HPzDBj1XMAAcT6j.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HPzDBj1XMAAcT6j.jpg" alt="X post media"><span>IMAGE</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div><div><strong>Jerry Liu</strong><span>@jerryjliu0</span></div></div><p class="quote-text original" lang="auto">Introducing ExtractBench, the most comprehensive benchmark for information extraction from complex enterprise documents.
+
+The latest models are pushing the frontier of coding and knowledge work, but surprisingly they still struggle on complex doc extraction tasks in production. A well-tuned extractor must parse multi-page filings without dropping rows, emit exact spatial citations for auditability, and handle messy scans. Also they must do all of this at a viable per-page cost so that you can scale this to millions of docs in production (you can’t be paying upwards of $1 in tokens per page!)
+
+Existing extraction benchmarks fall short: they are not large/diverse enough in document domain (finance, energy, gov, auto), elements (long records, scans, grounding), and schemas.
+
+So our applied research team built ExtractBench.
+
+We evaluated 14 systems: frontier VLMs, coding agents, and specialized extraction APIs, against 370 enterprise documents: 4,869 pages, 67 document types.
+
+Our biggest finding 🧪: Short documents mask critical system flaws. On files past 50 pages, commercial VLMs collapse below 35% recall due to silent list truncation. They hold high precision, but lose output attention and drop most of the table rows.
+
+ExtractBench evaluates value accuracy, long-record completeness, spatial grounding, and per-page cost with zero LLM judges. It is 100% deterministic and reproducible.
+
+In tandem with ExtractBench, we’re also introducing 𝗔𝗴𝗲𝗻𝘁𝗶𝗰 𝗣𝗹𝘂𝘀, a new Extract tier in LlamaParse that debuts at #1 on the leaderboard: 95.6% value accuracy, at less than a third the cost of the closest peer.
+
+Explore the findings, download the dataset, or run the harness:
+
+Blog:
+https://t.co/tsXfovKJaz
+GitHub: https://t.co/auzmOGgUl3
+HuggingFace: https://t.co/1eKisSBrE8
+
+We will be actively evolving both our extraction benchmark as well as our extraction harness over time.
+
+If you check out either ExtractBench or LlamaParse, let us know your feedback!</p><p class="quote-text translation" lang="zh-CN">推出 ExtractBench，面向复杂企业文档信息抽取的最全面基准。
+
+最新模型正在推动编码和知识工作的前沿，但令人意外的是，它们在生产中的复杂文档抽取任务上仍然表现吃力。一个调优良好的抽取器必须能解析多页申报文件而不漏行，输出精确的空间引用以便审计，并处理凌乱的扫描件。同时，它们还必须以可行的每页成本完成这一切，才能扩展到生产中的数百万份文档（你不能每页花超过 1 美元的 token 成本！）
+
+现有抽取基准仍有不足：在文档领域（金融、能源、政府、汽车）、元素（长记录、扫描件、定位）和 schema 方面不够大、不够多样。
+
+因此，我们的应用研究团队构建了 ExtractBench。
+
+我们评估了 14 个系统：前沿 VLM、编码代理和专门的抽取 API，对照 370 份企业文档：4,869 页、67 种文档类型。
+
+我们的最大发现 🧪：短文档会掩盖关键系统缺陷。对于超过 50 页的文件，商业 VLM 因静默列表截断导致召回率跌破 35%。它们保持了高精度，但失去输出注意力，漏掉了大多数表格行。
+
+ExtractBench 评估值准确率、长记录完整性、空间定位和每页成本，不使用任何 LLM 裁判。它 100% 确定且可复现。
+
+在推出 ExtractBench 的同时，我们还发布了 𝗔𝗴𝗲𝗻𝘁𝗶𝗰 𝗣𝗹𝘂𝘀，这是 LlamaParse 中新的 Extract 层，首次亮相即登上排行榜第 1：值准确率 95.6%，成本不到最接近竞品的三分之一。
+
+查看研究结果、下载数据集或运行测试框架：
+
+博客：
+https://t.co/tsXfovKJaz
+GitHub： https://t.co/auzmOGgUl3
+HuggingFace： https://t.co/1eKisSBrE8
+
+我们将持续迭代抽取基准和抽取测试框架。
+
+如果你试用了 ExtractBench 或 LlamaParse，欢迎告诉我们你的反馈！</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2087194456252375040/img/n5_g3AZ_m0dJ6sor.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2087194456252375040/img/n5_g3AZ_m0dJ6sor.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/jerryjliu0/status/2087195936225108171" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 1</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/jerryjliu0/status/2088759243365044618" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">83<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>08-15 12:09 北京</time></div>
+        <p class="post-text original source-only" lang="auto">很多时候，小模型缺的可能就是一套能把能力稳定调出来的 Harness。
+
+这篇《AI4AI at Test-Time》研究了一个很有意思的问题：
+
+能不能让更强的模型，直接给弱模型设计一套更好的工作方式？
+
+作者让 GPT-5.5、Claude Opus、Gemini 等强模型自动修改 Harness，包括 Prompt、任务路由、验证规则和确定性代码。整个过程不更新目标模型的权重。
+
+结果 GPT-5.4-mini 原始平均准确率只有 48.8%，加入自动设计的 Harness 后最高达到 91.2%，甚至超过了裸跑的 GPT-5.4。
+
+而且效果好的 Harness 往往会把一些容易出错的推理交给代码和规则处理，让模型只负责它真正擅长的部分。
+
+所以强模型学到的能力是可以被外化成 Prompt、代码、工具和工作流，再交给更便宜的小模型长期复用。
+
+以后就可以让大模型帮其他模型设计更好的「工作环境」。
+
+📎 arxiv: https://t.co/OTyMOG4VBU</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HPtxLsJWkAAHGpU.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HPtxLsJWkAAHGpU.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 110</span><span>↻ 25</span><span>↩ 17</span></div><a href="https://x.com/Xudong07452910/status/2088478035250925651" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">79<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>08-15 09:00 北京</time></div>
+        <p class="post-text original source-only" lang="auto">Anthropic 昨天发的这篇 Multi-Agent 研究里，有一组数据我觉得特别值得看：
+
+45 个协调运行的 Agent 找到了 266 个安全漏洞；另一组 21 个彼此独立运行的 Agent，只找到 21 个。
+
+两组最终发现的漏洞，甚至只有 12 个重叠。
+
+当然，两边算力预算是不一样的。协调组用了 2700 万 token，独立组用了 650 万。但粗略按 token 算，协调组找到漏洞的效率依然高了接近 3 倍。
+
+有意思的是协调过程中 Agent 会自己形成专业分工。
+
+这种分工没有被提前写死。有的 Agent 会逐渐专注某类漏洞，有的去探索其他路径，整个系统因此覆盖了更大的搜索空间。
+
+所以 Agent的研究重点开始变成怎么通信、分工、共享发现，这些会直接改变整个系统能找到什么。把同一个 Agent 独立复制几十份，和让它们组成一个会协作的网络，最后得到的能力边界会差很多。
+
+当然风险也一起放大了。单个 Agent 身上一些看起来无害的行为习惯，经过协作和传播，也可能变成系统级问题。
+
+文章也表达了接下来 Multi-Agent 很重要的一条研究线，可能就是怎么设计和管理这种「Agent 组织」。
+
+文章：
+https://t.co/g7ATDnyxf4</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 104</span><span>↻ 17</span><span>↩ 10</span></div><a href="https://x.com/Xudong07452910/status/2088430477829153231" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="marinkazitnik" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1262814166366240769/uaQvmQNi_normal.jpg" alt="Marinka Zitnik avatar" loading="lazy"></div>
+          <div class="identity"><strong>Marinka Zitnik</strong><span>@marinkazitnik · 权威生物医学 AI 研究者</span></div>
+          <div class="score">74<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>生物医学 AI 与药物发现</span><time>08-15 18:32 北京</time></div>
+        <p class="post-text original" lang="auto">@HarvardMagazine September issue https://t.co/onRddTClds on COMPASS, our pan-cancer foundation model that predicts immunotherapy response from patients&#x27; tumors and identifies the biology driving that response
+
+https://t.co/p27ERHIDew
+
+Wanxiang Shen, Intae Moon, Thinh H. Nguyen, Michelle M. Li, Yepeng Huang, Nitya Nair, Daniel Marbach</p><p class="post-text translation" lang="zh-CN">@HarvardMagazine 9 月刊 https://t.co/onRddTClds 介绍了 COMPASS，这是我们的泛癌种基础模型，可根据患者肿瘤预测免疫治疗反应，并识别驱动该反应的生物学机制。
+
+https://t.co/p27ERHIDew
+
+Wanxiang Shen, Intae Moon, Thinh H. Nguyen, Michelle M. Li, Yepeng Huang, Nitya Nair, Daniel Marbach</p>
+
+        <div class="media-grid media-grid--2"><a class="media-item" href="https://pbs.twimg.com/media/HPwZgs3XwAAbyut.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HPwZgs3XwAAbyut.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HPwZhjYXsAANK35.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HPwZhjYXsAANK35.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 22</span><span>↻ 2</span><span>↩ 2</span></div><a href="https://x.com/marinkazitnik/status/2088574437519987182" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">71<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>08-15 09:30 北京</time></div>
+        <p class="post-text original" lang="auto">https://t.co/n5mIgwug4F</p><p class="post-text translation" lang="zh-CN">https://t.co/n5mIgwug4F</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/tweet_video_thumb/HPufiEybUAA5ka9.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/tweet_video_thumb/HPufiEybUAA5ka9.jpg" alt="X post media"><span>VIDEO</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1876785200010539008/2_HFJjq9_normal.jpg" alt="X Freeze avatar" loading="lazy"></div><div><strong>X Freeze</strong><span>@XFreeze</span></div></div><p class="quote-text original" lang="auto">Grok 4.6 just ranked #1 on CursorBench 3.2
+
+Outperforming Claude Fable 5, Opus 5 and GPT-5.6 Sol on real-world coding performance
+
+And what makes this even crazier is the efficiency....the chart gives CursorBench performance against average cost per task, and Grok 4.6 is sitting right at the top of the frontier
+
+Grok 4.6 is insanely capable at coding....delivering frontier coding performance at ridiculous efficiency</p><p class="quote-text translation" lang="zh-CN">Grok 4.6 刚刚在 CursorBench 3.2 上排名第一。
+
+在真实世界编码性能上超越了 Claude Fable 5、Opus 5 和 GPT-5.6 Sol。
+
+更夸张的是它的效率……图表展示了 CursorBench 性能与单任务平均成本的关系，而 Grok 4.6 正位于前沿顶部。
+
+Grok 4.6 的编码能力极强……以惊人的效率交付前沿级编码性能</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HPqNYuAX0AA_8Kh.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HPqNYuAX0AA_8Kh.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/XFreeze/status/2088137836079804882" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 97</span><span>↻ 0</span><span>↩ 7</span></div><a href="https://x.com/HamelHusain/status/2088438265271693468" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">63<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>08-16 05:02 北京</time></div>
+        <p class="post-text original" lang="auto">We think a lot about the distribution of all real-world documents, particularly for real-world use cases.
+
+We think about the distribution in terms of page length, field length, domain, and task type.
+
+Some documents have a single page but can have anywhere from 1-10 fields to 500-1000 fields to be extracted. Other documents are hundreds of pages long and can have 10k-100k fields. On long documents (e.g. a bankruptcy creditor matrix), commercial VLMs lose attention and create large swaths of missing or hallucinated values.
+
+The number of fields to extract per page also depends on the extraction task.
+1. Needle-in-a-haystack: You find very specific information within a general document corpus. Generally 1-10 fields per page
+2. Dense documents: typically extract from filled forms. Quite dense per page, though not super long in terms of total # pages.
+3. Long-lists: Documents with both massive #&#x27;s of values per page (e.g. 100-1k fields per page) and massive numbers of pages.
+
+We&#x27;d love for you to explore our overall data taxonomy within ExtractBench, our comprehensive benchmark for real-world document extraction tasks. I love the diagram we show below in Figure 6, that offers one slice of the diverse set of data that we curate!
+
+Come check out the ArXiv paper: https://t.co/s5azzQVGoZ
+
+ExtractBench: https://t.co/Bm7ABynXPC</p><p class="post-text translation" lang="zh-CN">我们非常关注真实世界文档的整体分布，尤其是真实使用场景。
+
+我们会从页面长度、字段长度、领域和任务类型等维度来理解这种分布。
+
+有些文档只有一页，但可能需要提取 1-10 个字段，也可能需要提取 500-1000 个字段。另一些文档长达数百页，可能包含 1 万到 10 万个字段。在长文档上（例如破产债权人矩阵），商用 VLM 会注意力涣散，产生大量缺失值或幻觉值。
+
+每页要提取的字段数量也取决于提取任务。
+1. 大海捞针：在通用文档语料中寻找非常具体的信息。通常每页 1-10 个字段
+2. 密集文档：通常从已填写表单中提取。单页信息很密集，但总页数不算特别多。
+3. 长列表：每页有海量数值（例如每页 100-1000 个字段），同时页数也非常多的文档。
+
+欢迎探索 ExtractBench 中的整体数据分类体系，这是我们面向真实世界文档抽取任务构建的综合基准。我很喜欢下面图 6 展示的图表，它呈现了我们整理的多样数据集的一个切面！
+
+来看看 ArXiv 论文：https://t.co/s5azzQVGoZ
+
+ExtractBench：https://t.co/Bm7ABynXPC</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HPyrdZPXAAAbrpW.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HPyrdZPXAAAbrpW.jpg" alt="X post media"><span>IMAGE</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div><div><strong>Jerry Liu</strong><span>@jerryjliu0</span></div></div><p class="quote-text original" lang="auto">Introducing ExtractBench, the most comprehensive benchmark for information extraction from complex enterprise documents.
+
+The latest models are pushing the frontier of coding and knowledge work, but surprisingly they still struggle on complex doc extraction tasks in production. A well-tuned extractor must parse multi-page filings without dropping rows, emit exact spatial citations for auditability, and handle messy scans. Also they must do all of this at a viable per-page cost so that you can scale this to millions of docs in production (you can’t be paying upwards of $1 in tokens per page!)
+
+Existing extraction benchmarks fall short: they are not large/diverse enough in document domain (finance, energy, gov, auto), elements (long records, scans, grounding), and schemas.
+
+So our applied research team built ExtractBench.
+
+We evaluated 14 systems: frontier VLMs, coding agents, and specialized extraction APIs, against 370 enterprise documents: 4,869 pages, 67 document types.
+
+Our biggest finding 🧪: Short documents mask critical system flaws. On files past 50 pages, commercial VLMs collapse below 35% recall due to silent list truncation. They hold high precision, but lose output attention and drop most of the table rows.
+
+ExtractBench evaluates value accuracy, long-record completeness, spatial grounding, and per-page cost with zero LLM judges. It is 100% deterministic and reproducible.
+
+In tandem with ExtractBench, we’re also introducing 𝗔𝗴𝗲𝗻𝘁𝗶𝗰 𝗣𝗹𝘂𝘀, a new Extract tier in LlamaParse that debuts at #1 on the leaderboard: 95.6% value accuracy, at less than a third the cost of the closest peer.
+
+Explore the findings, download the dataset, or run the harness:
+
+Blog:
+https://t.co/tsXfovKJaz
+GitHub: https://t.co/auzmOGgUl3
+HuggingFace: https://t.co/1eKisSBrE8
+
+We will be actively evolving both our extraction benchmark as well as our extraction harness over time.
+
+If you check out either ExtractBench or LlamaParse, let us know your feedback!</p><p class="quote-text translation" lang="zh-CN">推出 ExtractBench，面向复杂企业文档信息抽取的最全面基准。
+
+最新模型正在推动编码和知识工作的前沿，但令人意外的是，它们在生产中的复杂文档抽取任务上仍然表现吃力。一个调优良好的抽取器必须能解析多页申报文件而不漏行，输出精确的空间引用以便审计，并处理凌乱的扫描件。同时，它们还必须以可行的每页成本完成这一切，才能扩展到生产中的数百万份文档（你不能每页花超过 1 美元的 token 成本！）
+
+现有抽取基准仍有不足：在文档领域（金融、能源、政府、汽车）、元素（长记录、扫描件、定位）和 schema 方面不够大、不够多样。
+
+因此，我们的应用研究团队构建了 ExtractBench。
+
+我们评估了 14 个系统：前沿 VLM、编码代理和专门的抽取 API，对照 370 份企业文档：4,869 页、67 种文档类型。
+
+我们的最大发现 🧪：短文档会掩盖关键系统缺陷。对于超过 50 页的文件，商业 VLM 因静默列表截断导致召回率跌破 35%。它们保持了高精度，但失去输出注意力，漏掉了大多数表格行。
+
+ExtractBench 评估值准确率、长记录完整性、空间定位和每页成本，不使用任何 LLM 裁判。它 100% 确定且可复现。
+
+在推出 ExtractBench 的同时，我们还发布了 𝗔𝗴𝗲𝗻𝘁𝗶𝗰 𝗣𝗹𝘂𝘀，这是 LlamaParse 中新的 Extract 层，首次亮相即登上排行榜第 1：值准确率 95.6%，成本不到最接近竞品的三分之一。
+
+查看研究结果、下载数据集或运行测试框架：
+
+博客：
+https://t.co/tsXfovKJaz
+GitHub： https://t.co/auzmOGgUl3
+HuggingFace： https://t.co/1eKisSBrE8
+
+我们将持续迭代抽取基准和抽取测试框架。
+
+如果你试用了 ExtractBench 或 LlamaParse，欢迎告诉我们你的反馈！</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2087194456252375040/img/n5_g3AZ_m0dJ6sor.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2087194456252375040/img/n5_g3AZ_m0dJ6sor.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/jerryjliu0/status/2087195936225108171" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 9</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/jerryjliu0/status/2088733158766501952" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="hwchase17" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1569345624935485442/R67C4wCQ_normal.jpg" alt="Harrison Chase avatar" loading="lazy"></div>
+          <div class="identity"><strong>Harrison Chase</strong><span>@hwchase17 · LangChain / CEO</span></div>
+          <div class="score">83<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Agent 框架</span><time>08-15 23:45 北京</time></div>
+        <p class="post-text original" lang="auto">gave a talk &quot;owning your intelligence&quot; - ty @sequoia @sonyatweetybird for having me
+
+talked about harnesses and evals and the role they play in owning your intelligence
+
+TLDR:
+&gt; agents = model + harness + context
+&gt; model - own the weights using something like @FireworksAI_HQ
+&gt; context - memory needs to be portable
+&gt; harness - needs to be model agnostic. also needs to be good at bringing right context to llm. &quot;right&quot; context may depend on your use case, which is why an open/configurable harness helps
+&gt; how to use middleware in langchain/deepagents to configure your harness
+&gt; how to use langgraph to fully own your cognitive architecture
+&gt; why evals/obs matters - some quotes from @satyanadella
+- “Create your private evals, because evals define what “good” looks like inside the organization”
+- “retain ownership of your organization’s memory, traces, feedbacks, decisions, and institutional context”
+- “you create your own continuous learning loop (i.e. hill climbing machine) that will allow your AI investments to compound the value of your firm”
+&gt; how to use harbor for evals
+&gt; tracing is important
+&gt; evals + observability only matter so you can set up a data flywheel
+&gt; data flywheel = run agent -&gt; collect traces -&gt; find interesting traces -&gt; use those to improve
+&gt; demo of langsmith engine which does exactly this!
+
+full video: https://t.co/k6li5hu6D9</p><p class="post-text translation" lang="zh-CN">做了一场题为“owning your intelligence”的演讲，感谢 @sequoia @sonyatweetybird 邀请我
+
+讲了 harness、evals，以及它们在掌控你自己的智能中的作用
+
+TLDR：
+&gt; agents = model + harness + context
+&gt; model - 用类似 @FireworksAI_HQ 的方式掌控权重
+&gt; context - 记忆需要可迁移
+&gt; harness - 需要与模型无关。还需要擅长把正确的上下文带给 llm。“正确”的上下文可能取决于你的使用场景，这也是开放/可配置 harness 有帮助的原因
+&gt; 如何在 langchain/deepagents 中使用 middleware 来配置你的 harness
+&gt; 如何用 langgraph 完全掌控你的认知架构
+&gt; 为什么 evals/obs 很重要 - 引用了一些 @satyanadella 的话
+- “创建你自己的私有 evals，因为 evals 定义了组织内部什么才算‘好’”
+- “保留对组织记忆、轨迹、反馈、决策和机构上下文的所有权”
+- “你会创建自己的持续学习循环（即爬坡机器），让你的 AI 投资持续复利，提升公司的价值”
+&gt; 如何使用 harbor 做 evals
+&gt; tracing 很重要
+&gt; evals + observability 的意义在于帮你建立数据飞轮
+&gt; 数据飞轮 = 运行 agent -&gt; 收集 traces -&gt; 找到有意思的 traces -&gt; 用它们来改进
+&gt; 演示 langsmith engine，它做的正是这件事！
+
+完整视频：https://t.co/k6li5hu6D9</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HPxb4J5bsAA7XO2.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HPxb4J5bsAA7XO2.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 127</span><span>↻ 16</span><span>↩ 19</span></div><a href="https://x.com/hwchase17/status/2088653366335582629" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="simonw" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
+          <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
+          <div class="score">75<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>08-15 23:26 北京</time></div>
+        <p class="post-text original" lang="auto">... disaster! I forgot to bump up the context length from the default and the server rejected it before it could draw its no-doubt beautiful circle https://t.co/CbFd2ZrutP</p><p class="post-text translation" lang="zh-CN">……灾难！我忘了把上下文长度从默认值调高，服务器在它来得及画出那个毫无疑问会很漂亮的圆之前就拒绝了请求 https://t.co/CbFd2ZrutP</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HPxe1r_aIAAwZcw.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HPxe1r_aIAAwZcw.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 52</span><span>↻ 0</span><span>↩ 6</span></div><a href="https://x.com/simonw/status/2088648622942638557" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="tim_dettmers" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1998431471304876032/BhUl3uX9_normal.jpg" alt="Tim Dettmers avatar" loading="lazy"></div>
+          <div class="identity"><strong>Tim Dettmers</strong><span>@Tim_Dettmers · AI2 / 研究员</span></div>
+          <div class="score">68<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 基础设施 / 量化</span><time>08-16 02:59 北京</time></div>
+        <p class="post-text original" lang="auto">https://t.co/oc0toZadG1</p><p class="post-text translation" lang="zh-CN">https://t.co/oc0toZadG1</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HPyPiR7XEAE5ldk.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HPyPiR7XEAE5ldk.jpg" alt="X post media"><span>IMAGE</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1798110641414443008/XP8gyBaY_normal.jpg" alt="Anthropic avatar" loading="lazy"></div><div><strong>Anthropic</strong><span>@AnthropicAI</span></div></div><p class="quote-text original" lang="auto">We’ve written an FAQ to answer some of the questions we&#x27;ve received about watermarking.
+
+In summary:
+
+• We’re implementing watermarking to comply with the EU AI Act. Other major model developers have signed the same Code of Practice and will also be implementing watermarking;
+• Our watermarking method doesn’t have any practical impact on the quality or content of Claude’s outputs;
+• The difference between watermarked and un-watermarked text will not be distinguishable to readers;
+• Nothing is added to the text and there are no hidden characters;
+• Watermarking doesn’t require extra tokens, and will not be more expensive;
+• Watermarks can’t be traced to a specific person, organization, or chat.
+
+Read more: https://t.co/G76iUOJ7Hu</p><p class="quote-text translation" lang="zh-CN">我们写了一份 FAQ，回答收到的一些关于水印的问题。
+
+总结如下：
+
+• 我们正在实施水印，以遵守《欧盟人工智能法案》。其他主要模型开发者也签署了同一《实践准则》，并将同样实施水印；
+• 我们的水印方法不会对 Claude 输出的质量或内容产生实际影响；
+• 读者无法区分带水印和不带水印的文本；
+• 文本中不会添加任何内容，也没有隐藏字符；
+• 水印不需要额外 token，也不会更贵；
+• 水印无法追踪到具体个人、组织或聊天。
+
+阅读更多：https://t.co/G76iUOJ7Hu</p><a class="quote-link" href="https://x.com/AnthropicAI/status/2088343978873966687" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 49</span><span>↻ 2</span><span>↩ 1</span></div><a href="https://x.com/Tim_Dettmers/status/2088702197953376525" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="sh_reya" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1342529111839944705/hzr44mb5_normal.jpg" alt="Shreya Shankar avatar" loading="lazy"></div>
+          <div class="identity"><strong>Shreya Shankar</strong><span>@sh_reya · UC Berkeley / AI 工程研究员</span></div>
+          <div class="score">68<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>08-16 05:30 北京</time></div>
+        <p class="post-text original" lang="auto">Interesting to see all the agreement. Check out the DocWriter project&#x27;s plain-writing skill: https://t.co/eoFhSo3SrU
+
+We recently added evals for the skill --- comparing a gpt-5.5 agent without the skill to with the skill (using an LLM judge to evaluate each criterion) https://t.co/Bj3LMvNT1h</p><p class="post-text translation" lang="zh-CN">看到大家意见如此一致很有意思。看看 DocWriter 项目的简明写作 skill：https://t.co/eoFhSo3SrU
+
+我们最近为这个 skill 添加了 evals —— 比较未使用该 skill 和使用该 skill 的 gpt-5.5 agent（用 LLM judge 评估每项标准）https://t.co/Bj3LMvNT1h</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HPyx3LrbwAESZFj.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HPyx3LrbwAESZFj.jpg" alt="X post media"><span>IMAGE</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1342529111839944705/hzr44mb5_normal.jpg" alt="Shreya Shankar avatar" loading="lazy"></div><div><strong>Shreya Shankar</strong><span>@sh_reya</span></div></div><p class="quote-text original" lang="auto">opus 4.6 feels like the last model that spoke english</p><p class="quote-text translation" lang="zh-CN">opus 4.6 感觉像是最后一个会说英语的模型</p><a class="quote-link" href="https://x.com/sh_reya/status/2088689106087993664" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 18</span><span>↻ 3</span><span>↩ 2</span></div><a href="https://x.com/sh_reya/status/2088740140395237615" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">67<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>08-15 08:06 北京</time></div>
+        <p class="post-text original" lang="auto">Grok Bot is cool because it is &quot;self-driving&quot; (like Codex desktop).  It can create new threads/tasks and communicate b/w them
+
+It&#x27;s also a simple interface and decent computer use + nice iOS app.
+
+I found computer use lagging behind Codex slightly but its worth trying it, especially if you have a Cursor Ultra sub
+
+ https://t.co/zKGOk8KKwl</p><p class="post-text translation" lang="zh-CN">Grok Bot 很酷，因为它是“自动驾驶”的（类似 Codex desktop）。它可以创建新的线程/任务，并在它们之间通信
+
+它的界面也很简单，computer use 表现不错，还有不错的 iOS app。
+
+我觉得它的 computer use 比 Codex 稍微落后一点，但值得试试，尤其是如果你有 Cursor Ultra 订阅
+
+ https://t.co/zKGOk8KKwl</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 73</span><span>↻ 2</span><span>↩ 11</span></div><a href="https://x.com/HamelHusain/status/2088417091254981013" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="c_valenzuelab" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2070496516893229056/bm-CWE5N_normal.jpg" alt="Cristobal Valenzuela avatar" loading="lazy"></div>
+          <div class="identity"><strong>Cristobal Valenzuela</strong><span>@c_valenzuelab · Runway / 联合创始人兼 CEO</span></div>
+          <div class="score">64<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>生成式视频</span><time>08-16 00:03 北京</time></div>
+        <p class="post-text original" lang="auto">AI is becoming a new computing model for media and entertainment.</p><p class="post-text translation" lang="zh-CN">AI 正在成为媒体与娱乐领域的一种新计算模式。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1828904711124078593/SRvCZSfQ_normal.jpg" alt="NVIDIA avatar" loading="lazy"></div><div><strong>NVIDIA</strong><span>@nvidia</span></div></div><p class="quote-text original" lang="auto">AI is becoming a new computing model for media and entertainment.
+
+At the 2026 Runway AI Summit, NVIDIA’s Richard Kerris explored how real-time generative AI can make creative production a live, artist-controlled process. Powered by NVIDIA Vera Rubin, Runway brought Gen-4.5 to its platform in one day, helping close the gap between imagining a scene and bringing it to life.</p><p class="quote-text translation" lang="zh-CN">AI 正在成为媒体与娱乐领域的一种新计算模式。
+
+在 2026 Runway AI Summit 上，NVIDIA 的 Richard Kerris 探讨了实时生成式 AI 如何让创意制作成为由艺术家掌控的实时流程。借助 NVIDIA Vera Rubin，Runway 在一天内将 Gen-4.5 引入其平台，帮助缩短从构想场景到将其变为现实之间的距离。</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2087991101961449472/img/XUJzhW7Dbo8nsTJf.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2087991101961449472/img/XUJzhW7Dbo8nsTJf.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/nvidia/status/2087991151806521392" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 34</span><span>↻ 2</span><span>↩ 2</span></div><a href="https://x.com/c_valenzuelab/status/2088657912059006988" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="sh_reya" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1342529111839944705/hzr44mb5_normal.jpg" alt="Shreya Shankar avatar" loading="lazy"></div>
+          <div class="identity"><strong>Shreya Shankar</strong><span>@sh_reya · UC Berkeley / AI 工程研究员</span></div>
+          <div class="score">63<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>08-15 09:53 北京</time></div>
+        <p class="post-text original" lang="auto">Lots of new material in our AI evals course this fall.
+
+We put together a revised version of the 200-page course reader. Some of my favorite additions include: how to take an agentic approach to building evals, and how to think about safety, risk, and privacy as someone deploying a bespoke agent for their organization.
+
+Next cohort starts September 5th. Check out the full syllabus here: https://t.co/XQOUlJBmbH</p><p class="post-text translation" lang="zh-CN">今年秋季我们的 AI 评测课程新增了大量内容。
+
+我们整理了修订版的 200 页课程读本。我最喜欢的一些新增内容包括：如何以 agentic 方法构建评测，以及作为为组织部署定制 agent 的人，如何思考安全、风险和隐私。
+
+下一期课程 9 月 5 日开始。完整教学大纲见：https://t.co/XQOUlJBmbH</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 21</span><span>↻ 7</span><span>↩ 2</span></div><a href="https://x.com/sh_reya/status/2088443897261465813" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">58<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>08-16 06:17 北京</time></div>
+        <p class="post-text original" lang="auto">It makes sense to optimize model routing at the harness layer instead of the gateway layer if you want to hillclimb  on accuracy/cost for any e2e task.
+
+Every task is solved by a combination of a model mixture and agent harness. Every task requires a different mixture of models (+harness logic) to be at the pareto frontier of accuracy and cost.
+
+* If you only optimize the model mixture at the gateway layer, you lose the broader context encoded in the harness and only optimize at the LLM completion layer.
+
+* If you optimize the model mixture at the harness layer,  you can make the &quot;optimal&quot; model choices a priori and while in the agent loop
+
+For any given task, the model and harness are probably co-optimized together, so that the model mixture can only exist with this specific harness shape and vice versa</p><p class="post-text translation" lang="zh-CN">如果你想针对任何端到端任务在准确率/成本上持续优化，在 harness 层而不是 gateway 层优化模型路由是合理的。
+
+每个任务都是由模型组合和 agent harness 共同解决的。每个任务都需要不同的模型组合（+harness 逻辑），才能达到准确率和成本的帕累托前沿。
+
+* 如果你只在 gateway 层优化模型组合，就会丢失 harness 中编码的更广泛上下文，只能在 LLM completion 层做优化。
+
+* 如果你在 harness 层优化模型组合，就可以预先以及在 agent 循环中做出“最优”的模型选择。
+
+对于任何给定任务，模型和 harness 很可能是共同优化的，因此模型组合只能与这种特定的 harness 形态共存，反之亦然。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1674895619633352707/R4Vo8eid_normal.jpg" alt="Abhay Singhal avatar" loading="lazy"></div><div><strong>Abhay Singhal</strong><span>@_AbhaySinghal</span></div></div><p class="quote-text original" lang="auto">Why model routing must be in the harness</p><p class="quote-text translation" lang="zh-CN">为什么模型路由必须放在 harness 中</p><div class="article"><strong class="original" lang="auto">Why model routing must be in the harness</strong><strong class="translation" lang="zh-CN">为什么模型路由必须放在 harness 中</strong><p class="article-text original" lang="auto">Inference spend is rising as agents are deployed more widely, take on more complex tasks, and run longer autonomously. Enterprises are starting to put model routing into production to keep that spend</p><p class="article-text translation" lang="zh-CN">随着 agent 部署更广、承担更复杂的任务并自主运行更长时间，推理支出正在上升。企业正开始将模型路由投入生产，以控制这部分支出。</p></div><a class="quote-link" href="https://x.com/_AbhaySinghal/status/2088361241928732705" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 3</span><span>↻ 0</span><span>↩ 2</span></div><a href="https://x.com/jerryjliu0/status/2088752023420248352" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">51<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>08-16 02:07 北京</time></div>
+        <p class="post-text original" lang="auto">The model cascade technique doesn&#x27;t assume anything about the calibration of log probabilities!
+
+Quite the opposite, the technique relies upon you doing statistical analysis **first**  before committing to a threshold.  The paper even discusses the possibility that you may not find a threshold if the proxy score is too noisy.
+
+You have to put your machine learning hat on.  Can you trust the signal for this specific dataset?  Great!  If not, also great, and move on.
+
+However, for classification the technique is cheap to try and easy to verify, even in the presence of noise.
+
+I&#x27;ll link to the paper discussed in the talk here incase it helps you: https://t.co/gVEUWUsAK0</p><p class="post-text translation" lang="zh-CN">模型级联技术并不对对数概率的校准做任何假设！
+
+恰恰相反，这项技术要求你先进行统计分析，然后再确定阈值。论文甚至讨论了这样一种可能性：如果代理分数噪声太大，你可能找不到阈值。
+
+你得戴上机器学习的帽子来思考。你能信任这个特定数据集上的信号吗？很好！如果不能，也很好，那就继续往下走。
+
+不过对于分类任务，这项技术尝试成本低，也容易验证，即使存在噪声也是如此。
+
+我把演讲中讨论的论文链接放在这里，希望对你有帮助：https://t.co/gVEUWUsAK0</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HPyCjABaUAA20gW.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HPyCjABaUAA20gW.png" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 1</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/HamelHusain/status/2088689040027775300" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="simonw" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
+          <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
+          <div class="score">84<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>08-15 23:17 北京</time></div>
+        <p class="post-text original" lang="auto">Qwen 3.8 27B in its default reasoning settings in LM Studio of &quot;extra high&quot; is a chronic over-thinker and I kind of love it https://t.co/w7AS3nPkve</p><p class="post-text translation" lang="zh-CN">Qwen 3.8 27B 在 LM Studio 默认的“extra high”推理设置下，是个长期过度思考者，而我还挺喜欢它的 https://t.co/w7AS3nPkve</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HPxcUQzaYAAvFSB.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HPxcUQzaYAAvFSB.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 322</span><span>↻ 15</span><span>↩ 45</span></div><a href="https://x.com/simonw/status/2088646238933840153" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="yoheinakajima" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
+          <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
+          <div class="score">49<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>08-15 20:35 北京</time></div>
+        <p class="post-text original" lang="auto">@hughpyle really cool! I don’t fully understand the mechanism but seems like a better way to do the repo centric approach that I also started landing on</p><p class="post-text translation" lang="zh-CN">@hughpyle 真的很酷！我还没完全理解其中的机制，但感觉这是实现以 repo 为中心方法的更好方式，我也开始倾向于这种思路</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei avatar" loading="lazy"></div><div><strong>Yohei</strong><span>@yoheinakajima</span></div></div><p class="quote-text original" lang="auto">Building a Repo-Centric Modular Agent Stack</p><p class="quote-text translation" lang="zh-CN">构建以仓库为中心的模块化 Agent 技术栈</p><div class="article"><strong class="original" lang="auto">Building a Repo-Centric Modular Agent Stack</strong><strong class="translation" lang="zh-CN">构建以仓库为中心的模块化 Agent 技术栈</strong><p class="article-text original" lang="auto">I have been converging on a modular architecture for agentic work in which the durable unit is the project, rather than the model, conversation, IDE session, or individual agent.
+A project is</p><p class="article-text translation" lang="zh-CN">我逐渐形成了一种用于 agentic 工作的模块化架构，其中持久单元是项目，而不是模型、对话、IDE 会话或单个 agent。
+项目是</p></div><a class="quote-link" href="https://x.com/yoheinakajima/status/2085784422339768686" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 1</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/yoheinakajima/status/2088605409464725796" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+    </main>
+    <footer>Generated 2026-08-16 07:02:23 Asia/Shanghai · Read-only X ingestion via Bird · Translation via Codex</footer>
+  </div>
+</body>
+</html>
