@@ -1,0 +1,751 @@
+{
+  "enabled": true,
+  "backend": "codex exec",
+  "promptVersion": "codex-editorial-v2",
+  "candidates": 44,
+  "retained": 13,
+  "dropped": 31,
+  "droppedPosts": [
+    {
+      "id": "2089011487209889886",
+      "author": "JeffDean",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "个人饮食",
+      "evidence": "作者谈素食和食物",
+      "rationale": "无AI或工程技术事实"
+    },
+    {
+      "id": "2088934162401014131",
+      "author": "Thom_Wolf",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "模型感受闲聊",
+      "evidence": "称模型感觉不真诚",
+      "rationale": "主观感受无技术事实"
+    },
+    {
+      "id": "2089102235879784956",
+      "author": "anilkseth",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "意识研究评论",
+      "evidence": "讨论充分性非必要性",
+      "rationale": "概念评论缺少技术事实"
+    },
+    {
+      "id": "2088948438666789217",
+      "author": "anilkseth",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "论文交流建议",
+      "evidence": "建议提交commentary",
+      "rationale": "学术流程建议非技术内容"
+    },
+    {
+      "id": "2089043712441761845",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "插件选择",
+      "evidence": "称选插件要慎重",
+      "rationale": "泛泛建议无具体技术事实"
+    },
+    {
+      "id": "2089031011845967959",
+      "author": "hwchase17",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "社交回应",
+      "evidence": "表示同意对方观点",
+      "rationale": "无独立技术信息"
+    },
+    {
+      "id": "2088995134000033801",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "哈哈扎心了",
+      "rationale": "无技术事实或工程经验"
+    },
+    {
+      "id": "2088985500581327286",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "看着确实不错",
+      "rationale": "仅主观评价无技术事实"
+    },
+    {
+      "id": "2088985417852834012",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "经典操作呀",
+      "rationale": "无具体技术信息"
+    },
+    {
+      "id": "2088985362555134397",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "安装安全闲聊",
+      "evidence": "怕被投毒",
+      "rationale": "只有泛化担忧无事实"
+    },
+    {
+      "id": "2088969954561245419",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "对的，赞同",
+      "rationale": "仅表达认同无技术事实"
+    },
+    {
+      "id": "2088966539135316128",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "推荐致谢",
+      "evidence": "谢谢推荐",
+      "rationale": "无技术事实或经验"
+    },
+    {
+      "id": "2088958601750511727",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "是的嘞",
+      "rationale": "仅回应无信息量"
+    },
+    {
+      "id": "2088943857681784924",
+      "author": "Xudong07452910",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "DeepSeek Harness 插件生态",
+      "evidence": "出现十大必装插件",
+      "rationale": "技术相关但缺少细节证据"
+    },
+    {
+      "id": "2088928502389084188",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "问题共鸣",
+      "evidence": "遇到类似问题",
+      "rationale": "未说明问题或技术事实"
+    },
+    {
+      "id": "2088922258194526301",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊提问",
+      "evidence": "询问长程任务效果",
+      "rationale": "只有提问无技术事实"
+    },
+    {
+      "id": "2088885643963212125",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "人物评价",
+      "evidence": "以后会记住这个名字",
+      "rationale": "无具体技术信息"
+    },
+    {
+      "id": "2088869974748328209",
+      "author": "amasad",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "行业观点",
+      "evidence": "同样的水做饭",
+      "rationale": "比喻观点无技术事实"
+    },
+    {
+      "id": "2088869277722185772",
+      "author": "amasad",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "简短回复",
+      "evidence": "取决于时间尺度",
+      "rationale": "缺少上下文和事实"
+    },
+    {
+      "id": "2088868466279502118",
+      "author": "amasad",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI 信任观点",
+      "evidence": "会吓到人们不信任AI",
+      "rationale": "社会观点非技术内容"
+    },
+    {
+      "id": "2089048320211902582",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊地点",
+      "evidence": "只写shasta, ca",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2089022106369732695",
+      "author": "HamelHusain",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "演示提及",
+      "evidence": "只提Paper demo",
+      "rationale": "无完整技术事实"
+    },
+    {
+      "id": "2089017560897651185",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "生活记录",
+      "evidence": "湖边醒来",
+      "rationale": "与技术无关"
+    },
+    {
+      "id": "2088808404995440760",
+      "author": "svlevine",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "致谢回复",
+      "evidence": "感谢夸奖",
+      "rationale": "无技术内容"
+    },
+    {
+      "id": "2088805771459084743",
+      "author": "HamelHusain",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "工具疑问",
+      "evidence": "只说为何可用",
+      "rationale": "缺少技术事实"
+    },
+    {
+      "id": "2088805305794900236",
+      "author": "HamelHusain",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "水印观点",
+      "evidence": "预测会有去水印API",
+      "rationale": "观点预测无事实"
+    },
+    {
+      "id": "2088783913942671728",
+      "author": "HamelHusain",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "水印观点",
+      "evidence": "预测API清除水印",
+      "rationale": "观点预测无事实"
+    },
+    {
+      "id": "2089123799665181082",
+      "author": "simonw",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "工具偏好",
+      "evidence": "Django到coding agents",
+      "rationale": "个人观点非事实"
+    },
+    {
+      "id": "2089017902775312507",
+      "author": "simonw",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "model trust complaint",
+      "evidence": "称无法信任升级效果",
+      "rationale": "纯体验观点无技术事实"
+    },
+    {
+      "id": "2089094505677115825",
+      "author": "AravSrinivas",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "support process audit",
+      "evidence": "将审计支持流程",
+      "rationale": "客服流程非AI技术事实"
+    },
+    {
+      "id": "2089084791044124843",
+      "author": "AravSrinivas",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "support refund issue",
+      "evidence": "提醒邮件未发且已退款",
+      "rationale": "产品运营问题非技术内容"
+    }
+  ],
+  "topStories": [
+    {
+      "id": "2089099864554831995",
+      "author": "jerryjliu0",
+      "category": "AI 技术应用",
+      "rationale": "长文档抽取94%准确率可核验"
+    },
+    {
+      "id": "2088873390182740348",
+      "author": "Xudong07452910",
+      "category": "AI 技术前沿",
+      "rationale": "指出Opus5模糊需求失控风险"
+    },
+    {
+      "id": "2089027147419787431",
+      "author": "amasad",
+      "category": "AI 技术进步",
+      "rationale": "确定性技术资格补足头条多样性"
+    }
+  ],
+  "reviewedPosts": [
+    {
+      "id": "2089011487209889886",
+      "author": "JeffDean",
+      "text": "@aniketvartak @chhaviyadav_ I'm vegetarian (better for health and the environment).  I eat lots of pasta, Indian and Mexican food, pizza, salads, Greek yogurt, bagels, cookies, ice cream, espresso, ...",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "个人饮食",
+      "evidence": "作者谈素食和食物",
+      "rationale": "无AI或工程技术事实"
+    },
+    {
+      "id": "2088934162401014131",
+      "author": "Thom_Wolf",
+      "text": "@fujikanaeda I think the model feels it’s insincere though",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "模型感受闲聊",
+      "evidence": "称模型感觉不真诚",
+      "rationale": "主观感受无技术事实"
+    },
+    {
+      "id": "2089102235879784956",
+      "author": "anilkseth",
+      "text": "@j0hnhaas @robertchisciure Nice - but that would be sufficiency not necessity",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "意识研究评论",
+      "evidence": "讨论充分性非必要性",
+      "rationale": "概念评论缺少技术事实"
+    },
+    {
+      "id": "2089009597390397657",
+      "author": "cyrilzakka",
+      "text": "@thsottiaux I often feel like I have to hand-hold Sol. It will stop prematurely, misinterpret instructions, which has led me to ‘trust’ pre-Opus 5 models more over time",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "模型使用体验",
+      "evidence": "Sol会提前停止误解指令",
+      "rationale": "有模型行为反馈但证据有限"
+    },
+    {
+      "id": "2088948438666789217",
+      "author": "anilkseth",
+      "text": "@adamsafron Why not submit a commentary? Contact the corresponding authors ...",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "论文交流建议",
+      "evidence": "建议提交commentary",
+      "rationale": "学术流程建议非技术内容"
+    },
+    {
+      "id": "2089099864554831995",
+      "author": "jerryjliu0",
+      "text": "We tuned an AI agent that can do large-scale document extraction from long docs (50+ pages, some with 10k-100k fields) with 94%+ accuracy 📈\n\nIt uses a harness + model set that is tuned specifically for reasoning over extracting out complex information from complex docs. Each extracted field comes with a confidence score as well as a bounding box denoting where it came from.\n\nIt does 10-20% better in accuracy than generalized coding agent harnesses (e.g. Claude Code Opus 4.8 and Codex GPT-5.6). \n\nCheck out the video below for a demo. The mode is called LlamaExtract Agentic Plus. \n\nLearn more about our extraction benchmark and agentic plus mode here: https://t.co/tsXfovLh07\n\nIf you have very complex document extraction needs, come check out LlamaParse! https://t.co/XYZmx5TFz8",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "文档抽取Agent",
+      "evidence": "长文档抽取94%+准确率",
+      "rationale": "发布新模式含基准和实现特征"
+    },
+    {
+      "id": "2089069905375351169",
+      "author": "amasad",
+      "text": "18x improvement in intelligence per joule in 16 months. https://t.co/lP62kI5rpr",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "智能能效研究",
+      "evidence": "16个月每焦智能提升18倍",
+      "rationale": "技术相关但材料仅转述结论"
+    },
+    {
+      "id": "2089043712441761845",
+      "author": "Xudong07452910",
+      "text": "@yang02010 所以选插件要慎重呀",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "插件选择",
+      "evidence": "称选插件要慎重",
+      "rationale": "泛泛建议无具体技术事实"
+    },
+    {
+      "id": "2089031011845967959",
+      "author": "hwchase17",
+      "text": "@EbrahimElb Nice totally agree",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "社交回应",
+      "evidence": "表示同意对方观点",
+      "rationale": "无独立技术信息"
+    },
+    {
+      "id": "2089029054611837324",
+      "author": "hwchase17",
+      "text": "totally agree! here's how we architected deepagents to enable this\n\ndeepagents runs connected to a \"backend\". this backend needs to expose filesystem like operations, but it does not have to be a filesystem. it could be a database, object storage, or a real filesystem - it just has to expose read/write/edit etc operations\n\nthis backend could also be what we call a \"sandbox\". if a sandbox, it needs to expose an \"execute\" command which lets it execute code\n\nthis backend is SEPARATE from where the agent loop runs. this allows us to \"separate the brains from the hands\" (https://t.co/Pi3XljhB67)\n\ndeepagents is built on top of langgraph, which means we can easily deploy it with MCP, a2a, and other standard endpoints\n\nwe use this architecture to power many different types of experiences\n\nfirst, we can create a classic TUI like coding experience. we do this by giving deepagents a \"sandbox\" that is running locally in the same directory; deloying deepagents locally behind a light weight server; and then connecting to it with the TUI acting like a frontend. see dcode for an example of this https://t.co/wj48PbCuSx\n\nsecond, we can create a cloud coding experience. we can do this by running deepagents on LangSmith deployments for a production scale deployment, and connecting to a sandbox running on modal, daytona, e2b that is running elsewhere. we can then build a frontend to connect to langsmith deployments and let users interract with it there, and also expose it in slack to let users interract with it there. note: both slack and web ui connect to the same backend, so you can switch between them seamlessly. code: https://t.co/Pdevl2PRrv\n\nof course - deepagents can be used to create agents that are NOT coding agents. a lot of agents still need to write and execute code, so this architecture is still very useful. but for some the code execution is overkill, and thats where you can swap to a \"fake\" backend, and still let it have the ability to interract with files (good for context engineering!) without having to spin up a full sandbox. \n\nfor a really easy way to create these types of agents - see managed deepagents: https://t.co/NAXiKqZbi1",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "Agent架构",
+      "evidence": "后端暴露读写执行接口",
+      "rationale": "有可复用agent工程架构"
+    },
+    {
+      "id": "2089027147419787431",
+      "author": "amasad",
+      "text": "@patrickc Agreed, and desktop apps aren’t that much better. \n\nWe spent a better part of this year generalizing Replit into a cloud coding harness that can work on anything and render any artifact.\n\nSeen people do genetics, CAD, ML, and so many other things. Hope you try it!",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "Replit 云端编码 Harness",
+      "evidence": "云编码harness可渲染artifact",
+      "rationale": "有平台能力与使用场景事实"
+    },
+    {
+      "id": "2088995134000033801",
+      "author": "Xudong07452910",
+      "text": "@0xkyne @tianyi 哈哈扎心了",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "哈哈扎心了",
+      "rationale": "无技术事实或工程经验"
+    },
+    {
+      "id": "2088985500581327286",
+      "author": "Xudong07452910",
+      "text": "@Smartpigai 看着确实不错呀",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "看着确实不错",
+      "rationale": "仅主观评价无技术事实"
+    },
+    {
+      "id": "2088985417852834012",
+      "author": "Xudong07452910",
+      "text": "@safebala 经典操作呀",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "经典操作呀",
+      "rationale": "无具体技术信息"
+    },
+    {
+      "id": "2088985362555134397",
+      "author": "Xudong07452910",
+      "text": "@jingjinglearns 哈哈，得小心安装，怕被投毒",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "安装安全闲聊",
+      "evidence": "怕被投毒",
+      "rationale": "只有泛化担忧无事实"
+    },
+    {
+      "id": "2088969954561245419",
+      "author": "Xudong07452910",
+      "text": "@wubin28 对的，赞同",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "对的，赞同",
+      "rationale": "仅表达认同无技术事实"
+    },
+    {
+      "id": "2088966539135316128",
+      "author": "Xudong07452910",
+      "text": "@supezen 是嘞，谢谢推荐",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "推荐致谢",
+      "evidence": "谢谢推荐",
+      "rationale": "无技术事实或经验"
+    },
+    {
+      "id": "2088958601750511727",
+      "author": "Xudong07452910",
+      "text": "@RealYDT @tianyi 是的嘞",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "是的嘞",
+      "rationale": "仅回应无信息量"
+    },
+    {
+      "id": "2088943857681784924",
+      "author": "Xudong07452910",
+      "text": "笑死，DeepSeek Harness 才出来两天，\n\n我就已经刷到「DeepSeek Harness 十大必装插件」了。\n\n生态建设速度已经快进到无法想象了。",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "DeepSeek Harness 插件生态",
+      "evidence": "出现十大必装插件",
+      "rationale": "技术相关但缺少细节证据"
+    },
+    {
+      "id": "2088928502389084188",
+      "author": "Xudong07452910",
+      "text": "@KakaluoteW45042 我有时候也会遇到类似问题",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "问题共鸣",
+      "evidence": "遇到类似问题",
+      "rationale": "未说明问题或技术事实"
+    },
+    {
+      "id": "2088922258194526301",
+      "author": "Xudong07452910",
+      "text": "@ErwinWu000 长程任务的效果咋样呀？",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊提问",
+      "evidence": "询问长程任务效果",
+      "rationale": "只有提问无技术事实"
+    },
+    {
+      "id": "2088885643963212125",
+      "author": "Xudong07452910",
+      "text": "@antiAIvo @tianyi 以后搞 AI 的都会记住这个名字了",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "人物评价",
+      "evidence": "以后会记住这个名字",
+      "rationale": "无具体技术信息"
+    },
+    {
+      "id": "2088885197437538329",
+      "author": "Xudong07452910",
+      "text": "哈哈哈，真帮你翻出来啦 😂\n\n2011 年 NixOS 官方迁 GitHub 的公告，最后一句就是：\n\n「Thanks to Tianyi Cui for donating the NixOS GitHub organization.」\n\nhttps://t.co/ToKgbgkE3F\n\n甚至还翻到了 2010 年你自己在 nix-dev mailing list 里说，一直在维护 https://t.co/diavZuubw1 的 unofficial git-svn mirror \n\nhttps://t.co/wRaoZhLudg\n\n这下可以完整缅怀一下了哈哈",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "NixOS 迁移历史",
+      "evidence": "NixOS迁GitHub公告",
+      "rationale": "软件项目史料但范围较窄"
+    },
+    {
+      "id": "2088873390182740348",
+      "author": "Xudong07452910",
+      "text": "最近用 Opus 5 写代码，我也一直被一个问题困扰：\n\n模型明明更强了，但有时候反而更难一起工作。\n\n刚好看到一篇文章也在聊这个。作者发现 Opus 5 遇到模糊需求时，更容易自己做假设，然后一路往下执行，甚至会悄悄扩大任务范围、重新解释原来的计划。\n\n以前 Opus 4.8 或 Fable 有些时候会停下来问一句：「你这里到底想要 A 还是 B？」\nOpus 5 更喜欢自己选一个，然后继续干。\n\n更有意思的是，Anthropic 自己的 Opus 5 Prompting Guide 也专门提醒了这个问题：它可能主动扩大 scope、加入没要求的步骤，所以窄任务需要明确告诉它不要擅自扩展。\n\n文章里给了一个挺有意思的猜测：\n\nBenchmark 和 RLVR 更容易奖励「大胆做出假设然后把任务完成」的模型。但真实的软件工程里，很多信息永远写不完整。业务背景、隐含约束、架构取舍，经常没有唯一正确答案。\n\nAgent 更自主当然很好，但如果每次都要盯着它别跑偏，这种 autonomy 的价值就要重新算了。\n\n原文：\nhttps://t.co/60WVUsIs9g",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "Opus 5 编码协作",
+      "evidence": "模糊需求会自行假设",
+      "rationale": "有可复用提示与协作经验"
+    },
+    {
+      "id": "2088869974748328209",
+      "author": "amasad",
+      "text": "@Vanieofweb3 @elonmusk No secrets in the industry. Everyone is cooking with the same water.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "行业观点",
+      "evidence": "同样的水做饭",
+      "rationale": "比喻观点无技术事实"
+    },
+    {
+      "id": "2088869277722185772",
+      "author": "amasad",
+      "text": "@cryptonoobini Depends on the timescale but generally yes.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "简短回复",
+      "evidence": "取决于时间尺度",
+      "rationale": "缺少上下文和事实"
+    },
+    {
+      "id": "2088868466279502118",
+      "author": "amasad",
+      "text": "@elonmusk Saying things like might be fun but is a huge self-own. It’s almost like Tech is actively trying to scare people from AI and invite distrust.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI 信任观点",
+      "evidence": "会吓到人们不信任AI",
+      "rationale": "社会观点非技术内容"
+    },
+    {
+      "id": "2088867492907327573",
+      "author": "amasad",
+      "text": "The argument that “AI structurally centralizes power” because it’s currently compute hungry ignores 125 years of super exponential growth in compute price-performance. \n\nImprovement in algorithms and continued hardware efficiency gains     means there is no reason to assume AGI-level capabilities will always require a data center to run.\n\nScaling laws are not laws of physics. They’re simply empirical relationships observed for particular architectures, objectives, datasets etc. Change any one of those factors and you get a different scaling curve. \n\nIf the brain is any guide, true AGI will likely be very efficient. In fact, current scaling laws might a bug and not a feature. It shows how inefficiency of the ML algorithms we discovered so far.",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "AI 算力与扩展律",
+      "evidence": "扩展律是经验关系",
+      "rationale": "技术相关但主要是观点推断"
+    },
+    {
+      "id": "2088843191189450920",
+      "author": "Xudong07452910",
+      "text": "Agent 自进化，并不会每一轮都变得更强。\n\n这篇《Rethinking Self-Evolving Agent Skills》专门研究 Skill 在多轮迭代里到底是怎么进化的。\n\n作者做了 42 组 evolution run，一共生成 388 个候选 Skill，真正刷新验证集最好结果的只有 55 个。\n\n也就是说，大部分修改其实没有带来有效提升，很多轮次会停滞、退化，最后被回滚。\n\n还有一个很有意思的结果：\n\n最终被选中的 11 个进化 Skill，全部使用了失败轨迹作为反馈；只看成功经验的方案一次都没有胜出。\n\n失败轨迹更像是在告诉 Agent「哪里需要修」，成功轨迹则更适合保留已有能力。\n\n这也说明了自进化更像一场带验证和回滚机制的搜索。\n\n重点不在多迭代几轮，而在每次修改之后，能不能证明这条经验真的值得留下。\n\n📎 arxiv: https://t.co/8sUF1DyGee",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "Agent Skill 自进化",
+      "evidence": "388个Skill仅55个提升",
+      "rationale": "实验结果明确有工程启发"
+    },
+    {
+      "id": "2088815256957268094",
+      "author": "Xudong07452910",
+      "text": "因为 DeepSeek Harness，很多人才第一次听到崔添翼 @tianyi 这个名字。\n\n我好奇继续深挖了下他的公开经历，发现这人的技术轨迹很有意思。\n\n很多程序员都看过的《背包问题九讲》，第一版是他 2007 年写的。2010 年他已经在维护 NixOS 的 Git mirror，后来 NixOS 正式迁往 GitHub，官方还专门感谢他提供了 NixOS 这个 GitHub organisation。\n\n大学期间他很痴迷函数式编程，研究过纯函数式 B-Tree，还用 OCaml 实现过《Purely Functional Data Structures》。\n\n2013 年找工作，他说自己一直想找一份真正使用 Haskell 或类似语言的工作。看到 Jane Street 全面使用 OCaml 后，他从零开始学 OCaml，写了一个 Lisp interpreter 去准备面试。\n\n最后他同时拿到 Google Mountain View 和 Jane Street 的 offer，去了 Jane Street，在香港和纽约做了接近 9 年的软件开发和量化研究。\n\n中间还有个很少被提到的细节：他 2015 年其实还署名过一篇 AAAI 的 NLP 论文。\n\n2022 年出来联合创办 TSY Capital，做的已经是另一类很硬的系统：Python/AWS 的量化研究基础设施，加上 Rust 的低延迟交易系统。\n\n今年 3 月，他加入 DeepSeek，负责 Harness 团队。现在打开他的 GitHub，两个置顶项目刚好一老一新，《背包问题九讲》和 DeepSeek Harness。\n\n这条线串起来，我大概能理解 DeepSeek 为什么会找他来做 Harness 了。\n\n量化系统和 Agent 有一个很像的地方：上层可以产生有不确定性的决策，真正落到现实世界执行时，状态、依赖、风险、失败恢复和可追踪性都不能含糊。\n\nDeepSeek Harness 这次强调「Everything is a plugin」「Every run is traceable」，底层 Cordis 甚至专门研究如何撤销组件产生的副作用。\n\n算法 → 函数式编程 → 交易系统 → Agent Harness。\n\n未来顶级 Agent 团队里，这种系统和基础设施背景的人，可能会比我们现在想象得多。",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "DeepSeek Harness",
+      "evidence": "Every run is traceable",
+      "rationale": "含Agent基础设施设计事实"
+    },
+    {
+      "id": "2088796634348159232",
+      "author": "Xudong07452910",
+      "text": "Anthropic 刚写了一篇很实用的 Claude Code 使用指南。\n\n里面有个细节我之前没有太认真想过：\n\nClaude 读过的文件、跑过的测试、终端输出，一旦进入当前 Session，后面每一轮基本都会继续带着它们。\n\n所以一个 Claude Code Session 用得越久，问题可能不只是 Token 变多，Context 里也会堆满已经没用的信息。\n\nAnthropic 给的建议其实都围绕这件事：\n\n不同任务直接 /clear；长任务阶段结束用 /compact；文件尽量直接 @；测试和日志少输出废话，特别 noisy 的工作可以丢给 Subagent，让这些中间信息待在另一个 Context 里。\n\n还有一点提到了我经常踩的坑：中途切 model、effort 或 Fast Mode，都可能打断 prompt cache。所以最好在一个 Session 开始前就选好。\n\n现在发现用好 Coding Agent 很大一部分其实是在管理 Context。\n\n给模型更多信息很容易，难的是知道哪些东西该进去，哪些应该及时扔掉。\n\nhttps://t.co/ktPsitQ0Uw",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "Claude Code上下文管理",
+      "evidence": "提到/clear和/compact",
+      "rationale": "具体编码代理使用经验"
+    },
+    {
+      "id": "2089048320211902582",
+      "author": "yoheinakajima",
+      "text": "@Ethan_huang0807 shasta, ca",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊地点",
+      "evidence": "只写shasta, ca",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2089022106369732695",
+      "author": "HamelHusain",
+      "text": "@petergyang @rileybrown my fav part was the Paper demo  (https://t.co/avZThTSD8w)",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "演示提及",
+      "evidence": "只提Paper demo",
+      "rationale": "无完整技术事实"
+    },
+    {
+      "id": "2089017560897651185",
+      "author": "yoheinakajima",
+      "text": "fell asleep to the stars and woke up on a lake https://t.co/2PCagsi1AT",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "生活记录",
+      "evidence": "湖边醒来",
+      "rationale": "与技术无关"
+    },
+    {
+      "id": "2088808404995440760",
+      "author": "svlevine",
+      "text": "@AlbertBuchard @seohong_park Thank you for the kind words!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "致谢回复",
+      "evidence": "感谢夸奖",
+      "rationale": "无技术内容"
+    },
+    {
+      "id": "2088805771459084743",
+      "author": "HamelHusain",
+      "text": "@petergyang @X I wonder why it works for me https://t.co/fCUY4Z5lbl",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "工具疑问",
+      "evidence": "只说为何可用",
+      "rationale": "缺少技术事实"
+    },
+    {
+      "id": "2088805305794900236",
+      "author": "HamelHusain",
+      "text": "Re: watermark - all that’s gonna happen is there will be tools and APIs to strip the watermark out\n\nIn the end this will result in more friction instead of visibility",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "水印观点",
+      "evidence": "预测会有去水印API",
+      "rationale": "观点预测无事实"
+    },
+    {
+      "id": "2088783913942671728",
+      "author": "HamelHusain",
+      "text": "@QuaintTransfer Yeah, I agree with you actually\n\nI think what’s bound to happen is that people are going to create all kinds of API‘s and tools to scrub the watermark and it’s going to amount to more friction in many cases instead of visibility",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "水印观点",
+      "evidence": "预测API清除水印",
+      "rationale": "观点预测无事实"
+    },
+    {
+      "id": "2089123799665181082",
+      "author": "simonw",
+      "text": "@trq212 @daniel_levine @mitsuhiko @dhh For me it's always been about finding or building the tools that can help me get the most work done in the least amount of time - so Django to LLMs to coding agents is a natural progression",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "工具偏好",
+      "evidence": "Django到coding agents",
+      "rationale": "个人观点非事实"
+    },
+    {
+      "id": "2089120083499245921",
+      "author": "simonw",
+      "text": "Fun bonus: I set Pi up with Qwen 3.8 27B and had it build a script for transforming its own .jsonl transcripts to Markdown... which it did!\n\nHere's the transcript of it building the tool I then used to share that transcript https://t.co/fEEYk4cORc",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "Qwen脚本生成",
+      "evidence": "Qwen 3.8 27B写脚本",
+      "rationale": "有具体模型和工程任务"
+    },
+    {
+      "id": "2089112517796827439",
+      "author": "simonw",
+      "text": "Here’s my review of Qwen 3.8 27B - I can't remember the last time I've had this much fun playing with a local model that runs on my own computers https://t.co/iFMWjc8qle",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "local model review",
+      "evidence": "Qwen 3.8 27B本地运行",
+      "rationale": "有模型事实但细节不足"
+    },
+    {
+      "id": "2089017902775312507",
+      "author": "simonw",
+      "text": "@emollick I just wish I could trust it! It's burned me too many times, and that's tough because if they upgrade it how am I meant to notice that it's better?",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "model trust complaint",
+      "evidence": "称无法信任升级效果",
+      "rationale": "纯体验观点无技术事实"
+    },
+    {
+      "id": "2089094505677115825",
+      "author": "AravSrinivas",
+      "text": "@CEOAlexColon @GergelyOrosz I am going to audit our support team's processes this week. We will share regular updates on improvements.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "support process audit",
+      "evidence": "将审计支持流程",
+      "rationale": "客服流程非AI技术事实"
+    },
+    {
+      "id": "2089084791044124843",
+      "author": "AravSrinivas",
+      "text": "You’re right @GergelyOrosz, we got this wrong. Reminder email didn’t go out to this user. He has been refunded, but this is not how we want to operate. We are upgrading our support across the board.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "support refund issue",
+      "evidence": "提醒邮件未发且已退款",
+      "rationale": "产品运营问题非技术内容"
+    }
+  ]
+}

@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>硅谷 AI 原声 · 2026-08-17</title>
+  <style>
+    :root{--bg:#f4f6f8;--surface:#fff;--text:#16181c;--muted:#65717e;--line:#dfe4e9;--accent:#0066cc;--green:#117a62;--shadow:0 16px 42px rgba(18,28,38,.08);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 15% 0,#e8f2ff 0,transparent 27%),var(--bg);color:var(--text)} a{color:inherit;text-decoration:none} button{font:inherit}
+    .shell{width:min(1500px,calc(100% - 28px));margin:0 auto;padding:14px 0 40px}
+    .hero{display:grid;grid-template-columns:minmax(250px,1fr) auto;align-items:center;gap:12px;padding:15px 18px;border:1px solid rgba(255,255,255,.75);border-radius:16px;background:rgba(255,255,255,.88);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    h1{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin:0;font-size:clamp(28px,3.4vw,44px);line-height:1;letter-spacing:-.05em} .report-date{color:var(--green);font-size:clamp(10px,1vw,13px);font-weight:900;letter-spacing:.08em;white-space:nowrap}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(62px,1fr));gap:6px;align-content:start} .metric{padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fff} .metric strong{display:block;font-size:19px;line-height:1} .metric span{display:block;margin-top:3px;color:var(--muted);font-size:8px;font-weight:820;white-space:nowrap}
+    .notice{margin-top:12px;padding:11px 14px;border:1px solid #e1b866;border-radius:12px;background:#fff8e8;color:#7a5612;font-size:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px;align-items:start} .signal-card{min-width:0;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 9px 26px rgba(18,28,38,.045)}
+    .card-top{display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:10px} .avatar{display:grid;width:46px;height:46px;overflow:hidden;place-items:center;border:1px solid #d9e0e7;border-radius:999px;background:linear-gradient(135deg,#111827,#46627d);color:#fff;font-size:12px;font-weight:900} .avatar img{width:100%;height:100%;object-fit:cover;display:block} .identity{display:grid;gap:3px;min-width:0} .identity strong,.identity span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .identity strong{font-size:14px} .identity span{color:var(--muted);font-size:11px}
+    .score{display:grid;justify-items:center;min-width:40px;padding:5px 6px;border:1px solid #e3ebe8;border-radius:8px;background:#f4f8f6;color:#527267;font-size:15px;font-weight:820;line-height:1} .score small{margin-top:2px;color:#71877f;font-size:7px;letter-spacing:.06em;text-transform:uppercase}
+    .meta{display:flex;align-items:center;gap:6px;margin:11px 0 9px;color:var(--muted);font-size:10.5px;font-weight:750} .meta span:not(.priority){overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .meta time{margin-left:auto;white-space:nowrap} .priority{padding:3px 6px;border-radius:999px;background:#111827;color:#fff;font-size:9px}
+    .post-text{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.58} .post-text.original{font-size:16px;font-weight:570;color:#20252b} .post-text.translation{margin-top:8px;color:#66727f;font-size:13px;font-weight:470;line-height:1.62} .article .original+.translation{margin-top:2px;color:#65717e;font-size:11px;font-weight:650} .quote,.article{display:grid;gap:6px;margin-top:10px;padding:11px;border:1px solid var(--line);border-radius:12px;background:#f7f9fb} .quote__author{display:flex;align-items:center;gap:7px;font-size:11px} .quote__author>div:last-child{display:grid;gap:1px} .quote__author span{color:var(--muted)} .quote-avatar{display:grid;width:28px;height:28px;overflow:hidden;place-items:center;border:1px solid var(--line);border-radius:999px;background:#dfe6ed;color:#52606d;font-size:10px;font-weight:900} .quote-avatar img{width:100%;height:100%;object-fit:cover} .quote p,.article p{margin:0;color:#4f5a66;font-size:12px;line-height:1.48;white-space:pre-wrap} .article strong{font-size:13px} .article strong.original{font-size:13.5px} .quote-text.original{font-size:12.5px;color:#36414d} .quote-text.translation{font-size:11.5px;color:#6a7682} .quote-link{justify-self:start;color:var(--accent);font-size:10px;font-weight:850}
+    .media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:10px;overflow:hidden;border-radius:12px} .media-grid--1{grid-template-columns:1fr} .media-item{position:relative;min-height:150px;background:#e8edf2} .media-item img{width:100%;height:100%;max-height:330px;object-fit:cover;display:block} .media-item span{position:absolute;right:7px;bottom:7px;padding:4px 6px;border-radius:6px;background:rgba(0,0,0,.68);color:#fff;font-size:8px;font-weight:900}
+    .card-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid #edf0f3} .engagement{display:flex;gap:10px;color:var(--muted);font-size:10.5px;font-weight:750} .card-bottom>a{color:var(--accent);font-size:11px;font-weight:850} .empty{grid-column:1/-1;padding:70px;text-align:center;border:1px dashed #cdd5dd;border-radius:16px;background:#fff;color:var(--muted)}
+    footer{padding:26px 4px 0;color:var(--muted);font-size:11px;text-align:center}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}} @media(max-width:560px){.shell{width:min(100% - 16px,1500px);padding-top:7px}.hero{gap:10px;padding:13px 14px;border-radius:15px}h1{font-size:28px}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.metric{padding:7px 9px}.metric strong{font-size:18px}.signal-card{padding:13px}.post-text.original{font-size:15px}.post-text.translation{font-size:12.5px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <h1>硅谷 AI 原声 <span class="report-date">· 2026-08-17</span></h1>
+      <div class="metrics"><div class="metric"><strong>62</strong><span>监控专家</span></div><div class="metric"><strong>6</strong><span>活跃专家</span></div><div class="metric"><strong>11</strong><span>精选原文</span></div></div>
+    </header>
+
+    <main class="grid">
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">69<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>08-17 05:19 北京</time></div>
+        <p class="post-text original" lang="auto">We tuned an AI agent that can do large-scale document extraction from long docs (50+ pages, some with 10k-100k fields) with 94%+ accuracy 📈
+
+It uses a harness + model set that is tuned specifically for reasoning over extracting out complex information from complex docs. Each extracted field comes with a confidence score as well as a bounding box denoting where it came from.
+
+It does 10-20% better in accuracy than generalized coding agent harnesses (e.g. Claude Code Opus 4.8 and Codex GPT-5.6).
+
+Check out the video below for a demo. The mode is called LlamaExtract Agentic Plus.
+
+Learn more about our extraction benchmark and agentic plus mode here: https://t.co/tsXfovLh07
+
+If you have very complex document extraction needs, come check out LlamaParse! https://t.co/XYZmx5TFz8</p><p class="post-text translation" lang="zh-CN">我们调优了一个 AI agent，能从长文档中进行大规模文档提取（50+ 页，有些包含 1 万到 10 万个字段），准确率超过 94% 📈
+
+它使用了一套专门针对复杂文档中复杂信息提取推理而调优的 harness + 模型组合。每个提取出的字段都带有置信度分数，以及标明其来源位置的边界框。
+
+它的准确率比通用编码 agent harness（如 Claude Code Opus 4.8 和 Codex GPT-5.6）高出 10-20%。
+
+查看下面的视频演示。这个模式叫 LlamaExtract Agentic Plus。
+
+在这里了解更多关于我们的提取基准和 agentic plus 模式的信息：https://t.co/tsXfovLh07
+
+如果你有非常复杂的文档提取需求，来试试 LlamaParse！https://t.co/XYZmx5TFz8</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2089097967550541824/img/4PXvBf0UdfOhLJcJ.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2089097967550541824/img/4PXvBf0UdfOhLJcJ.jpg" alt="X post media"><span>VIDEO</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div><div><strong>Jerry Liu</strong><span>@jerryjliu0</span></div></div><p class="quote-text original" lang="auto">Our &quot;agentic plus&quot; extractor in LlamaParse is great for extracting out massive volumes of fields (e.g. 10k-100k+ fields) from long documents (100-500 pages)
+
+We tested with a doc that contains a giant matrix of all creditors for FTX 💸 (75k fields, 114 pages). See screenshot below.
+
+You can find full benchmark results on ExtractBench (https://t.co/RgFNeyrazr). In the meantime, come try out the mode in our playground! https://t.co/XYZmx5T7JA</p><p class="quote-text translation" lang="zh-CN">我们在 LlamaParse 中的 “agentic plus” 提取器非常适合从长文档（100-500 页）中提取海量字段（例如 1 万到 10 万+ 个字段）。
+
+我们用一份包含 FTX 所有债权人巨大矩阵的文档做了测试 💸（7.5 万个字段，114 页）。见下方截图。
+
+你可以在 ExtractBench（https://t.co/RgFNeyrazr）查看完整基准测试结果。与此同时，欢迎来我们的 playground 试用这个模式！https://t.co/XYZmx5T7JA</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HPzDBj1XMAAcT6j.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HPzDBj1XMAAcT6j.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/jerryjliu0/status/2088759243365044618" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 16</span><span>↻ 2</span><span>↩ 8</span></div><a href="https://x.com/jerryjliu0/status/2089099864554831995" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">77<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>08-16 14:20 北京</time></div>
+        <p class="post-text original source-only" lang="auto">最近用 Opus 5 写代码，我也一直被一个问题困扰：
+
+模型明明更强了，但有时候反而更难一起工作。
+
+刚好看到一篇文章也在聊这个。作者发现 Opus 5 遇到模糊需求时，更容易自己做假设，然后一路往下执行，甚至会悄悄扩大任务范围、重新解释原来的计划。
+
+以前 Opus 4.8 或 Fable 有些时候会停下来问一句：「你这里到底想要 A 还是 B？」
+Opus 5 更喜欢自己选一个，然后继续干。
+
+更有意思的是，Anthropic 自己的 Opus 5 Prompting Guide 也专门提醒了这个问题：它可能主动扩大 scope、加入没要求的步骤，所以窄任务需要明确告诉它不要擅自扩展。
+
+文章里给了一个挺有意思的猜测：
+
+Benchmark 和 RLVR 更容易奖励「大胆做出假设然后把任务完成」的模型。但真实的软件工程里，很多信息永远写不完整。业务背景、隐含约束、架构取舍，经常没有唯一正确答案。
+
+Agent 更自主当然很好，但如果每次都要盯着它别跑偏，这种 autonomy 的价值就要重新算了。
+
+原文：
+https://t.co/60WVUsIs9g</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HPzCA4XWgAAyyAX.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HPzCA4XWgAAyyAX.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 38</span><span>↻ 4</span><span>↩ 6</span></div><a href="https://x.com/Xudong07452910/status/2088873390182740348" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="amasad" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div>
+          <div class="identity"><strong>Amjad Masad</strong><span>@amasad · Replit / CEO</span></div>
+          <div class="score">80<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 / 开发者平台</span><time>08-17 00:30 北京</time></div>
+        <p class="post-text original" lang="auto">@patrickc Agreed, and desktop apps aren’t that much better.
+
+We spent a better part of this year generalizing Replit into a cloud coding harness that can work on anything and render any artifact.
+
+Seen people do genetics, CAD, ML, and so many other things. Hope you try it!</p><p class="post-text translation" lang="zh-CN">@patrickc 同意，而且桌面应用也没好到哪里去。
+
+我们今年花了很大精力，把 Replit 泛化成一个云端编码 harness，可以处理任何东西并渲染任何制品。
+
+看到有人用它做遗传学、CAD、ML，还有很多其他事情。希望你也试试！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div><div><strong>Amjad Masad</strong><span>@amasad</span></div></div><p class="quote-text original" lang="auto">Should we add CAD 3D modeling to Replit? https://t.co/5NsKXGDuxw</p><p class="quote-text translation" lang="zh-CN">我们应该给 Replit 加上 CAD 3D 建模吗？https://t.co/5NsKXGDuxw</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HMvkX_hacAAYR0k.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HMvkX_hacAAYR0k.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/amasad/status/2075003156745089264" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 69</span><span>↻ 0</span><span>↩ 3</span></div><a href="https://x.com/amasad/status/2089027147419787431" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">87<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>08-16 10:29 北京</time></div>
+        <p class="post-text original source-only" lang="auto">因为 DeepSeek Harness，很多人才第一次听到崔添翼 @tianyi 这个名字。
+
+我好奇继续深挖了下他的公开经历，发现这人的技术轨迹很有意思。
+
+很多程序员都看过的《背包问题九讲》，第一版是他 2007 年写的。2010 年他已经在维护 NixOS 的 Git mirror，后来 NixOS 正式迁往 GitHub，官方还专门感谢他提供了 NixOS 这个 GitHub organisation。
+
+大学期间他很痴迷函数式编程，研究过纯函数式 B-Tree，还用 OCaml 实现过《Purely Functional Data Structures》。
+
+2013 年找工作，他说自己一直想找一份真正使用 Haskell 或类似语言的工作。看到 Jane Street 全面使用 OCaml 后，他从零开始学 OCaml，写了一个 Lisp interpreter 去准备面试。
+
+最后他同时拿到 Google Mountain View 和 Jane Street 的 offer，去了 Jane Street，在香港和纽约做了接近 9 年的软件开发和量化研究。
+
+中间还有个很少被提到的细节：他 2015 年其实还署名过一篇 AAAI 的 NLP 论文。
+
+2022 年出来联合创办 TSY Capital，做的已经是另一类很硬的系统：Python/AWS 的量化研究基础设施，加上 Rust 的低延迟交易系统。
+
+今年 3 月，他加入 DeepSeek，负责 Harness 团队。现在打开他的 GitHub，两个置顶项目刚好一老一新，《背包问题九讲》和 DeepSeek Harness。
+
+这条线串起来，我大概能理解 DeepSeek 为什么会找他来做 Harness 了。
+
+量化系统和 Agent 有一个很像的地方：上层可以产生有不确定性的决策，真正落到现实世界执行时，状态、依赖、风险、失败恢复和可追踪性都不能含糊。
+
+DeepSeek Harness 这次强调「Everything is a plugin」「Every run is traceable」，底层 Cordis 甚至专门研究如何撤销组件产生的副作用。
+
+算法 → 函数式编程 → 交易系统 → Agent Harness。
+
+未来顶级 Agent 团队里，这种系统和基础设施背景的人，可能会比我们现在想象得多。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 821</span><span>↻ 58</span><span>↩ 65</span></div><a href="https://x.com/Xudong07452910/status/2088815256957268094" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="hwchase17" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1569345624935485442/R67C4wCQ_normal.jpg" alt="Harrison Chase avatar" loading="lazy"></div>
+          <div class="identity"><strong>Harrison Chase</strong><span>@hwchase17 · LangChain / CEO</span></div>
+          <div class="score">84<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Agent 框架</span><time>08-17 00:38 北京</time></div>
+        <p class="post-text original" lang="auto">totally agree! here&#x27;s how we architected deepagents to enable this
+
+deepagents runs connected to a &quot;backend&quot;. this backend needs to expose filesystem like operations, but it does not have to be a filesystem. it could be a database, object storage, or a real filesystem - it just has to expose read/write/edit etc operations
+
+this backend could also be what we call a &quot;sandbox&quot;. if a sandbox, it needs to expose an &quot;execute&quot; command which lets it execute code
+
+this backend is SEPARATE from where the agent loop runs. this allows us to &quot;separate the brains from the hands&quot; (https://t.co/Pi3XljhB67)
+
+deepagents is built on top of langgraph, which means we can easily deploy it with MCP, a2a, and other standard endpoints
+
+we use this architecture to power many different types of experiences
+
+first, we can create a classic TUI like coding experience. we do this by giving deepagents a &quot;sandbox&quot; that is running locally in the same directory; deloying deepagents locally behind a light weight server; and then connecting to it with the TUI acting like a frontend. see dcode for an example of this https://t.co/wj48PbCuSx
+
+second, we can create a cloud coding experience. we can do this by running deepagents on LangSmith deployments for a production scale deployment, and connecting to a sandbox running on modal, daytona, e2b that is running elsewhere. we can then build a frontend to connect to langsmith deployments and let users interract with it there, and also expose it in slack to let users interract with it there. note: both slack and web ui connect to the same backend, so you can switch between them seamlessly. code: https://t.co/Pdevl2PRrv
+
+of course - deepagents can be used to create agents that are NOT coding agents. a lot of agents still need to write and execute code, so this architecture is still very useful. but for some the code execution is overkill, and thats where you can swap to a &quot;fake&quot; backend, and still let it have the ability to interract with files (good for context engineering!) without having to spin up a full sandbox.
+
+for a really easy way to create these types of agents - see managed deepagents: https://t.co/NAXiKqZbi1</p><p class="post-text translation" lang="zh-CN">完全同意！下面是我们如何设计 deepagents 架构来实现这一点
+
+deepagents 连接到一个“backend”运行。这个 backend 需要暴露类似文件系统的操作，但它不一定必须是文件系统。它可以是数据库、对象存储或真正的文件系统，只要暴露 read/write/edit 等操作即可
+
+这个 backend 也可以是我们所说的“sandbox”。如果是 sandbox，它需要暴露一个“execute”命令，让它能够执行代码
+
+这个 backend 与 agent loop 运行的位置是分离的。这让我们可以“把大脑和双手分开”（https://t.co/Pi3XljhB67）
+
+deepagents 构建在 langgraph 之上，这意味着我们可以很容易地通过 MCP、a2a 和其他标准端点部署它
+
+我们用这种架构支撑了许多不同类型的体验
+
+第一，我们可以创建经典的 TUI 编码体验。做法是给 deepagents 一个在本地同一目录中运行的“sandbox”；在本地通过一个轻量级服务器部署 deepagents；然后用作为前端的 TUI 连接它。dcode 是一个例子：https://t.co/wj48PbCuSx
+
+第二，我们可以创建云端编码体验。做法是在 LangSmith deployments 上运行 deepagents 以实现生产规模部署，并连接到运行在 modal、daytona、e2b 等其他地方的 sandbox。然后我们可以构建一个前端连接到 langsmith deployments，让用户在那里交互，也可以把它暴露到 slack 中，让用户在那里交互。注意：slack 和 web ui 都连接到同一个 backend，因此你可以在它们之间无缝切换。代码：https://t.co/Pdevl2PRrv
+
+当然，deepagents 也可以用来创建并非编码 agent 的 agent。很多 agent 仍然需要编写和执行代码，所以这种架构依然非常有用。但对某些 agent 来说，代码执行有些过度，这时你可以换成一个“fake”backend，仍然让它具备与文件交互的能力（对上下文工程很有用！），而不必启动完整的 sandbox。
+
+如果想用一种非常简单的方式创建这类 agent，可以看 managed deepagents：https://t.co/NAXiKqZbi1</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/825622525342199809/_iAaSUQf_normal.jpg" alt="Patrick Collison avatar" loading="lazy"></div><div><strong>Patrick Collison</strong><span>@patrickc</span></div></div><p class="quote-text original" lang="auto">I love agentic coding harnesses, but they shouldn&#x27;t be primarily terminal-based. The terminal is great for quick and precise commands, but information density is extremely low and UI affordances are minimal. Maybe provision of TUIs is worthwhile for occasional use (when establishing a tunnel is too annoying, or something), but it feels very strange for this to be the default modality. It took a long time for dynamic language REPLs to break out of the terminal (Jupyter notebooks and similar); I hope we don&#x27;t have to wait as long for the harnesses.</p><p class="quote-text translation" lang="zh-CN">我喜欢 agentic coding harness，但它们不应该主要基于终端。终端很适合快速、精确的命令，但信息密度极低，UI affordance 也很少。也许提供 TUI 偶尔使用是有价值的（比如建立隧道太麻烦之类的时候），但把它作为默认形态感觉很奇怪。动态语言 REPL 花了很长时间才走出终端（Jupyter notebooks 及类似工具）；我希望我们不必等这么久才能让这些 harness 也走出来。</p><a class="quote-link" href="https://x.com/patrickc/status/2088978205546017219" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 134</span><span>↻ 6</span><span>↩ 18</span></div><a href="https://x.com/hwchase17/status/2089029054611837324" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">83<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>08-16 12:20 北京</time></div>
+        <p class="post-text original source-only" lang="auto">Agent 自进化，并不会每一轮都变得更强。
+
+这篇《Rethinking Self-Evolving Agent Skills》专门研究 Skill 在多轮迭代里到底是怎么进化的。
+
+作者做了 42 组 evolution run，一共生成 388 个候选 Skill，真正刷新验证集最好结果的只有 55 个。
+
+也就是说，大部分修改其实没有带来有效提升，很多轮次会停滞、退化，最后被回滚。
+
+还有一个很有意思的结果：
+
+最终被选中的 11 个进化 Skill，全部使用了失败轨迹作为反馈；只看成功经验的方案一次都没有胜出。
+
+失败轨迹更像是在告诉 Agent「哪里需要修」，成功轨迹则更适合保留已有能力。
+
+这也说明了自进化更像一场带验证和回滚机制的搜索。
+
+重点不在多迭代几轮，而在每次修改之后，能不能证明这条经验真的值得留下。
+
+📎 arxiv: https://t.co/8sUF1DyGee</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HPzD0kvWwAAWE5w.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HPzD0kvWwAAWE5w.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 126</span><span>↻ 21</span><span>↩ 20</span></div><a href="https://x.com/Xudong07452910/status/2088843191189450920" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="simonw" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
+          <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
+          <div class="score">60<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>08-17 06:40 北京</time></div>
+        <p class="post-text original" lang="auto">Fun bonus: I set Pi up with Qwen 3.8 27B and had it build a script for transforming its own .jsonl transcripts to Markdown... which it did!
+
+Here&#x27;s the transcript of it building the tool I then used to share that transcript https://t.co/fEEYk4cORc</p><p class="post-text translation" lang="zh-CN">有趣的额外收获：我给 Pi 配好了 Qwen 3.8 27B，让它构建一个脚本，把它自己的 .jsonl 转录转换成 Markdown……它真的做到了！
+
+这里是它构建这个工具的转录，而我随后又用这个工具分享了这段转录：https://t.co/fEEYk4cORc</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 2</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/simonw/status/2089120083499245921" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="amasad" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div>
+          <div class="identity"><strong>Amjad Masad</strong><span>@amasad · Replit / CEO</span></div>
+          <div class="score">93<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 / 开发者平台</span><time>08-16 13:56 北京</time></div>
+        <p class="post-text original" lang="auto">The argument that “AI structurally centralizes power” because it’s currently compute hungry ignores 125 years of super exponential growth in compute price-performance.
+
+Improvement in algorithms and continued hardware efficiency gains     means there is no reason to assume AGI-level capabilities will always require a data center to run.
+
+Scaling laws are not laws of physics. They’re simply empirical relationships observed for particular architectures, objectives, datasets etc. Change any one of those factors and you get a different scaling curve.
+
+If the brain is any guide, true AGI will likely be very efficient. In fact, current scaling laws might a bug and not a feature. It shows how inefficiency of the ML algorithms we discovered so far.</p><p class="post-text translation" lang="zh-CN">“AI 在结构上会集中权力，因为它目前很吃算力”这一论点，忽略了 125 年来计算价格性能比的超指数级增长。
+
+算法改进和硬件效率的持续提升，意味着没有理由假设 AGI 级能力永远都需要数据中心才能运行。
+
+Scaling laws 不是物理定律。它们只是针对特定架构、目标、数据集等观察到的经验关系。改变其中任何一个因素，就会得到不同的 scaling curve。
+
+如果大脑能作为参考，真正的 AGI 很可能会非常高效。事实上，当前的 scaling laws 可能是 bug，而不是 feature。它显示的是我们目前发现的 ML 算法有多低效。</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HP0l6gbacAAxMEG.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HP0l6gbacAAxMEG.jpg" alt="X post media"><span>IMAGE</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2015835742577012736/uOwdzrEz_normal.jpg" alt="Dario Amodei avatar" loading="lazy"></div><div><strong>Dario Amodei</strong><span>@DarioAmodei</span></div></div><p class="quote-text original" lang="auto">1/2 Thanks Gavin for an especially thoughtful exchange. I don&#x27;t usually spend much time on social media but I wanted to engage here because it really brings out the heart of an important conversation.
+
+First, on regulation, I think that “either concentrate it in the hands of a chosen few companies and politicians via regulation or distribute it widely” is a false choice.  I know that there’s a sort of Silicon Valley shorthand where regulation = regulatory capture = concentration of power, but I’ve always found this to be an overly simplified picture of the world.  Many people outside this bubble think of regulation as something that constrains corporate power and benefits ordinary people.  I don’t necessarily agree with that perspective either, rather I think it’s complicated and really depends on what the “regulation” consists of.  But in particular I think that those in the “regulation = regulatory capture = concentration of power” frame often underrate the decentralizing power of objective and fair institutional processes.  A crude analogy is that the formal court system can sometimes feel stuffy and elitist, but it does a much better job of defending the rights of vulnerable individuals than the alternative, mob justice.  At their best, institutions can vest power in ideas rather than people, and thereby decentralize that power.
+
+This is why Anthropic has always made its policy proposals very carefully.  We try very hard to make proposals that disadvantage (slow down) frontier AI companies while *advantaging* smaller competitors.  California’s SB53 (which we supported), and even the much-maligned SB 1047 (which we were ambivalent on), completely exempt any company below a certain amount of revenue or model training costs from being covered at all (it was $500M for SB 53, lower for 1047 but we objected to that).  More recently the testing process we’ve advocated for at CAISI and the White House involves more rigorous tests for frontier models than off-frontier models — something that differentially advantages challengers.  Similarly, the “Pacing the Frontier” letter envisions (or at least Anthropic’s preferred implementation of it envisions) modulating the pace of the very best models while not constraining those who are catching up.  This hurts the business interests of the frontier labs and helps challengers, including open-weights!
+
+Overall my view is that AI is *structurally* a technology that tends to concentrate power, for reasons that have nothing to do with regulation (more to do with the extreme implications of the scaling laws).  Open-weights do help some with this but are nowhere near a sufficient solution because they simply shift the concentration somewhat to those with the most compute and chips (which are roughly the frontier labs plus maybe hardware providers).  By contrast I think the right “rules of the road” can simultaneously (a) address AI’s cyber/bio/alignment risks, (b) institutionally constrain the power of the frontier AI companies, and (c) leave room for open-weights models while also addressing the specific risks that they bring.
+
+BTW I do not think that the events of the last few months have “failed to result in [my] preferred regulatory path”.  The approach that the Trump administration is reported to be taking — pre-deployment testing for frontier models, and also testing of open-weights models when they get closer to the frontier — is one that I am very supportive of, though of course I have to see the details to be sure.  I am also supportive of Demis Hassabis’ ideas around a FINRA-like entity.  This contrasts with six months ago when most of the industry was still pushing for preemption of all state regulation and no apparent federal approach either.</p><p class="quote-text translation" lang="zh-CN">1/2 感谢 Gavin 这场格外有深度的交流。我通常不太花时间在社交媒体上，但我想在这里参与讨论，因为它真正触及了一场重要对话的核心。
+
+首先，关于监管，我认为“要么通过监管把它集中到少数被选中的公司和政客手里，要么把它广泛分散出去”是一个错误的二分法。我知道硅谷有一种简化说法：监管 = 监管俘获 = 权力集中，但我一直觉得这是对世界过于简化的图景。这个圈子之外的很多人认为，监管是约束企业权力、惠及普通人的东西。我也不一定同意这种观点；我认为这很复杂，真正取决于“监管”的具体内容。但尤其是，我认为那些持有“监管 = 监管俘获 = 权力集中”框架的人，往往低估了客观、公平的制度流程所具有的去中心化力量。一个粗略的类比是，正式的法院系统有时可能显得古板、精英化，但它在保护弱势个体权利方面，比另一种选择，即暴民正义，要好得多。制度在最佳状态下，可以把权力赋予理念而不是个人，从而使这种权力去中心化。
+
+这就是为什么 Anthropic 一直非常谨慎地提出政策建议。我们非常努力地制定那些会让前沿 AI 公司处于劣势（放慢速度）、同时让较小竞争者受益的提案。加州的 SB53（我们支持），甚至是备受批评的 SB 1047（我们态度暧昧），都完全豁免收入或模型训练成本低于一定规模的公司，使其根本不受覆盖（SB 53 是 5 亿美元，1047 更低，但我们反对这一点）。更近一些，我们在 CAISI 和白宫倡导的测试流程，对前沿模型采用比非前沿模型更严格的测试，这会差异化地有利于挑战者。同样，“Pacing the Frontier”信件设想（或者至少 Anthropic 偏好的实施方式设想）调节最顶尖模型的推进速度，同时不限制正在追赶的人。这会损害前沿实验室的商业利益，并帮助挑战者，包括 open-weights！
+
+总体而言，我的观点是，AI 在结构上是一种倾向于集中权力的技术，原因与监管无关（更多与 scaling laws 的极端含义有关）。Open-weights 在这方面确实有所帮助，但远远不是充分的解决方案，因为它们只是把集中程度部分转移给了拥有最多算力和芯片的人（大致就是前沿实验室，可能还包括硬件提供商）。相比之下，我认为合适的“道路规则”可以同时做到：(a) 应对 AI 的网络、生物和 alignment 风险，(b) 通过制度约束前沿 AI 公司的权力，(c) 为 open-weights 模型留出空间，同时也处理它们带来的具体风险。
+
+顺便说一句，我并不认为过去几个月发生的事情“未能促成[我]偏好的监管路径”。据报道，特朗普政府正在采取的方式，即对前沿模型进行部署前测试，并在 open-weights 模型接近前沿时也对其进行测试，是我非常支持的，当然我还需要看到细节才能确定。我也支持 Demis Hassabis 关于类似 FINRA 的实体的想法。这与六个月前形成对比，当时行业大多数人仍在推动全面优先排除所有州级监管，而且似乎也没有任何联邦层面的方案。</p><a class="quote-link" href="https://x.com/DarioAmodei/status/2088758816376807762" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 489</span><span>↻ 48</span><span>↩ 68</span></div><a href="https://x.com/amasad/status/2088867492907327573" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="amasad" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div>
+          <div class="identity"><strong>Amjad Masad</strong><span>@amasad · Replit / CEO</span></div>
+          <div class="score">90<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 / 开发者平台</span><time>08-17 03:20 北京</time></div>
+        <p class="post-text original" lang="auto">18x improvement in intelligence per joule in 16 months. https://t.co/lP62kI5rpr</p><p class="post-text translation" lang="zh-CN">16 个月内，每焦耳智能提升了 18 倍。https://t.co/lP62kI5rpr</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HP3eAgHbkAAXX8H.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HP3eAgHbkAAXX8H.jpg" alt="X post media"><span>IMAGE</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1859963731691888640/ja8o09t1_normal.jpg" alt="Avanika Narayan avatar" loading="lazy"></div><div><strong>Avanika Narayan</strong><span>@Avanika15</span></div></div><p class="quote-text original" lang="auto">hard agree with @amasad —@JonSaadFalcon and my research indicates that intelligence efficiency (intelligence per watt) is rapidly improving and we will definitely *not* need data center scale compute to run agi!
+
+links to research in comments below 👇</p><p class="quote-text translation" lang="zh-CN">非常同意 @amasad ——@JonSaadFalcon 和我的研究表明，智能效率（每瓦智能）正在快速提升，我们绝对不需要数据中心规模的算力来运行 AGI！
+
+研究链接见下方评论 👇</p><a class="quote-link" href="https://x.com/Avanika15/status/2089028986932470156" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 445</span><span>↻ 45</span><span>↩ 51</span></div><a href="https://x.com/amasad/status/2089069905375351169" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="simonw" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
+          <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
+          <div class="score">78<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>08-17 06:10 北京</time></div>
+        <p class="post-text original" lang="auto">Here’s my review of Qwen 3.8 27B - I can&#x27;t remember the last time I&#x27;ve had this much fun playing with a local model that runs on my own computers https://t.co/iFMWjc8qle</p><p class="post-text translation" lang="zh-CN">这是我对 Qwen 3.8 27B 的评测——我已经记不清上一次在自己电脑上运行本地模型还能玩得这么开心是什么时候了 https://t.co/iFMWjc8qle</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 189</span><span>↻ 18</span><span>↩ 17</span></div><a href="https://x.com/simonw/status/2089112517796827439" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="cyrilzakka" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1852064698273009670/Omj8v2DQ_normal.jpg" alt="Cyril Zakka avatar" loading="lazy"></div>
+          <div class="identity"><strong>Cyril Zakka</strong><span>@cyrilzakka · 医疗 AI 实践者</span></div>
+          <div class="score">52<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>医疗 AI 与生命科学</span><time>08-16 23:21 北京</time></div>
+        <p class="post-text original" lang="auto">@thsottiaux I often feel like I have to hand-hold Sol. It will stop prematurely, misinterpret instructions, which has led me to ‘trust’ pre-Opus 5 models more over time</p><p class="post-text translation" lang="zh-CN">@thsottiaux 我经常觉得自己得手把手带着 Sol。它会过早停止、误解指令，这让我随着时间推移反而更“信任” Opus 5 之前的模型</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 0</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/cyrilzakka/status/2089009597390397657" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+    </main>
+    <footer>Generated 2026-08-17 07:01:27 Asia/Shanghai · Read-only X ingestion via Bird · Translation via Codex</footer>
+  </div>
+</body>
+</html>
