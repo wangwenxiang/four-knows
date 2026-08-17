@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>硅谷 AI 原声 · 2026-08-18</title>
+  <style>
+    :root{--bg:#f4f6f8;--surface:#fff;--text:#16181c;--muted:#65717e;--line:#dfe4e9;--accent:#0066cc;--green:#117a62;--shadow:0 16px 42px rgba(18,28,38,.08);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 15% 0,#e8f2ff 0,transparent 27%),var(--bg);color:var(--text)} a{color:inherit;text-decoration:none} button{font:inherit}
+    .shell{width:min(1500px,calc(100% - 28px));margin:0 auto;padding:14px 0 40px}
+    .hero{display:grid;grid-template-columns:minmax(250px,1fr) auto;align-items:center;gap:12px;padding:15px 18px;border:1px solid rgba(255,255,255,.75);border-radius:16px;background:rgba(255,255,255,.88);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    h1{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin:0;font-size:clamp(28px,3.4vw,44px);line-height:1;letter-spacing:-.05em} .report-date{color:var(--green);font-size:clamp(10px,1vw,13px);font-weight:900;letter-spacing:.08em;white-space:nowrap}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(62px,1fr));gap:6px;align-content:start} .metric{padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fff} .metric strong{display:block;font-size:19px;line-height:1} .metric span{display:block;margin-top:3px;color:var(--muted);font-size:8px;font-weight:820;white-space:nowrap}
+    .notice{margin-top:12px;padding:11px 14px;border:1px solid #e1b866;border-radius:12px;background:#fff8e8;color:#7a5612;font-size:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px;align-items:start} .signal-card{min-width:0;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 9px 26px rgba(18,28,38,.045)}
+    .card-top{display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:10px} .avatar{display:grid;width:46px;height:46px;overflow:hidden;place-items:center;border:1px solid #d9e0e7;border-radius:999px;background:linear-gradient(135deg,#111827,#46627d);color:#fff;font-size:12px;font-weight:900} .avatar img{width:100%;height:100%;object-fit:cover;display:block} .identity{display:grid;gap:3px;min-width:0} .identity strong,.identity span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .identity strong{font-size:14px} .identity span{color:var(--muted);font-size:11px}
+    .score{display:grid;justify-items:center;min-width:40px;padding:5px 6px;border:1px solid #e3ebe8;border-radius:8px;background:#f4f8f6;color:#527267;font-size:15px;font-weight:820;line-height:1} .score small{margin-top:2px;color:#71877f;font-size:7px;letter-spacing:.06em;text-transform:uppercase}
+    .meta{display:flex;align-items:center;gap:6px;margin:11px 0 9px;color:var(--muted);font-size:10.5px;font-weight:750} .meta span:not(.priority){overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .meta time{margin-left:auto;white-space:nowrap} .priority{padding:3px 6px;border-radius:999px;background:#111827;color:#fff;font-size:9px}
+    .post-text{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.58} .post-text.original{font-size:16px;font-weight:570;color:#20252b} .post-text.translation{margin-top:8px;color:#66727f;font-size:13px;font-weight:470;line-height:1.62} .article .original+.translation{margin-top:2px;color:#65717e;font-size:11px;font-weight:650} .quote,.article{display:grid;gap:6px;margin-top:10px;padding:11px;border:1px solid var(--line);border-radius:12px;background:#f7f9fb} .quote__author{display:flex;align-items:center;gap:7px;font-size:11px} .quote__author>div:last-child{display:grid;gap:1px} .quote__author span{color:var(--muted)} .quote-avatar{display:grid;width:28px;height:28px;overflow:hidden;place-items:center;border:1px solid var(--line);border-radius:999px;background:#dfe6ed;color:#52606d;font-size:10px;font-weight:900} .quote-avatar img{width:100%;height:100%;object-fit:cover} .quote p,.article p{margin:0;color:#4f5a66;font-size:12px;line-height:1.48;white-space:pre-wrap} .article strong{font-size:13px} .article strong.original{font-size:13.5px} .quote-text.original{font-size:12.5px;color:#36414d} .quote-text.translation{font-size:11.5px;color:#6a7682} .quote-link{justify-self:start;color:var(--accent);font-size:10px;font-weight:850}
+    .media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:10px;overflow:hidden;border-radius:12px} .media-grid--1{grid-template-columns:1fr} .media-item{position:relative;min-height:150px;background:#e8edf2} .media-item img{width:100%;height:100%;max-height:330px;object-fit:cover;display:block} .media-item span{position:absolute;right:7px;bottom:7px;padding:4px 6px;border-radius:6px;background:rgba(0,0,0,.68);color:#fff;font-size:8px;font-weight:900}
+    .card-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid #edf0f3} .engagement{display:flex;gap:10px;color:var(--muted);font-size:10.5px;font-weight:750} .card-bottom>a{color:var(--accent);font-size:11px;font-weight:850} .empty{grid-column:1/-1;padding:70px;text-align:center;border:1px dashed #cdd5dd;border-radius:16px;background:#fff;color:var(--muted)}
+    footer{padding:26px 4px 0;color:var(--muted);font-size:11px;text-align:center}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}} @media(max-width:560px){.shell{width:min(100% - 16px,1500px);padding-top:7px}.hero{gap:10px;padding:13px 14px;border-radius:15px}h1{font-size:28px}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.metric{padding:7px 9px}.metric strong{font-size:18px}.signal-card{padding:13px}.post-text.original{font-size:15px}.post-text.translation{font-size:12.5px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <h1>硅谷 AI 原声 <span class="report-date">· 2026-08-18</span></h1>
+      <div class="metrics"><div class="metric"><strong>62</strong><span>监控专家</span></div><div class="metric"><strong>10</strong><span>活跃专家</span></div><div class="metric"><strong>18</strong><span>精选原文</span></div></div>
+    </header>
+
+    <main class="grid">
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="llama_index" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1967920417760251904/0ytfduMQ_normal.png" alt="LlamaIndex avatar" loading="lazy"></div>
+          <div class="identity"><strong>LlamaIndex</strong><span>@llama_index · Agent 数据框架</span></div>
+          <div class="score">74<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Agent 技术突破</span><time>08-17 23:59 北京</time></div>
+        <p class="post-text original" lang="auto">Most document extraction APIs can&#x27;t tell you where a value came from.
+
+For ExtractBench, we scored grounding strictly: a field only counts if the value AND its citation are correct, word-level box at IoU 0.5. A perfect box around a wrong value earns nothing.
+
+Results: VLMs and coding agents return no evidence at all — zero at both levels. Among systems that do return boxes, the best word-level F1 is still under 50%. And grounding collapses with length: one specialized API goes from 61.7% page-level on short docs to 0.0% on long ones.
+
+LlamaExtract Agentic Plus leads at both levels — 84.9% page-level, 46.4% word-level — and holds at 87.1% on long documents where others hit zero.
+
+Every extracted value should come with receipts. ExtractBench now gives the field a baseline to track it 👇
+
+Blog: https://t.co/fuAPtCceB6
+Paper: https://t.co/Aw4uOgkQpF</p><p class="post-text translation" lang="zh-CN">大多数文档提取 API 无法告诉你某个值来自哪里。
+
+在 ExtractBench 中，我们严格评估依据定位：只有当字段值和引用都正确时才计分，词级框需达到 IoU 0.5。即使框完美圈住了错误的值，也不得分。
+
+结果：VLM 和编码智能体完全不返回证据，在两个层级上都是零。在会返回框的系统中，最佳词级 F1 仍低于 50%。而且依据定位会随文档长度急剧下降：某个专用 API 在短文档上的页级得分为 61.7%，到长文档上降至 0.0%。
+
+LlamaExtract Agentic Plus 在两个层级都领先，页级 84.9%，词级 46.4%；在其他系统归零的长文档上，它仍保持 87.1%。
+
+每个提取值都应该有凭据。ExtractBench 现在为这个领域提供了一个可跟踪的基准 👇
+
+博客：https://t.co/fuAPtCceB6
+论文：https://t.co/Aw4uOgkQpF</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/ext_tw_video_thumb/2089381541881298945/pu/img/_HDctOyIzzymyqHH.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/ext_tw_video_thumb/2089381541881298945/pu/img/_HDctOyIzzymyqHH.jpg" alt="X post media"><span>VIDEO</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 17</span><span>↻ 4</span><span>↩ 2</span></div><a href="https://x.com/llama_index/status/2089381635464556705" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">82<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>08-17 11:35 北京</time></div>
+        <p class="post-text original source-only" lang="auto">同一个模型不改权重，只让 Harness 像物种一样竞争、遗传和重组，Agent 还能继续变强。
+
+Salesforce 团队这篇 DarwinX，把 Harness 自进化做成了一场「进化搜索」。
+
+很多系统只保留一条修改路线，早期方向一旦走偏，后面很容易困在局部最优。
+
+DarwinX 会同时保留多个 Harness 分支。每次修改后，既看它有没有解决新问题，也看它有没有破坏已经学会的能力。
+
+即使某个版本整体表现一般，只要它解决了独特问题，也会被保留下来，后面再和其他优秀分支组合。
+
+整个过程中模型参数完全冻结，真正进化的是 Prompt、Skill、Tool 和执行流程。
+
+结果也很明显：四类评测平均提升约 17 个点。Terminal-Bench 2.1 上，GPT-5.5 提升到 83.2%；WebArena-Infinity 从 43.5% 提升到 93.0%。
+
+这篇工作有意思的地方在于它把 Agent 自进化变成了「搜索更好的系统」。
+
+有些失败版本也值得留下，因为它们可能保留了一块以后还能重新组合的能力。
+
+📎 arxiv: https://t.co/TOkEHr2dkz</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HP4RSbGWoAE17D6.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HP4RSbGWoAE17D6.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 88</span><span>↻ 16</span><span>↩ 14</span></div><a href="https://x.com/Xudong07452910/status/2089194254690304113" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="polynoamial" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1872883170292457472/8ywVGO5M_normal.jpg" alt="Noam Brown avatar" loading="lazy"></div>
+          <div class="identity"><strong>Noam Brown</strong><span>@polynoamial · OpenAI / 推理研究</span></div>
+          <div class="score">98<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>推理模型 / OpenAI</span><time>08-17 08:32 北京</time></div>
+        <p class="post-text original" lang="auto">Autocompaction in Codex is really good. @OpenAI recognized early on that it would be important and invested in research efforts to make it near-seamless. But if you want 1M-token context, it&#x27;s an option.</p><p class="post-text translation" lang="zh-CN">Codex 的自动压缩真的很不错。@OpenAI 很早就意识到这很重要，并投入研究让它几乎无缝。但如果你想要 100 万 token 上下文，这也是一个选项。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2075819673263001600/pj1vyX6I_normal.jpg" alt="Tibo avatar" loading="lazy"></div><div><strong>Tibo</strong><span>@thsottiaux</span></div></div><p class="quote-text original" lang="auto">Here is how to enable a 1M-token context window in Codex for GPT-5.6 Sol.
+
+Even though we have tuned the context limit in Codex to be set optimally when it comes to performance and cost, this is a common ask, so here it is documented.
+
+A larger context window lets Codex retain more code, tool output, and conversation history before summarizing older material. You need a model that supports it. And GPT-5.6 Sol, for example, has a documented 1,050,000-token window.
+
+Open ~/.codex/config.toml and add or update these settings at the top level, before any [section] headers:
+
+```
+model = &quot;gpt-5.6-sol&quot;
+model_context_window = 1000000
+model_auto_compact_token_limit = 900000
+```
+
+The first setting selects the model. The second tells Codex to use a one-million-token context budget. The third starts automatic history compaction around 900,000 tokens, leaving some headroom. Restart Codex client and start a new session after saving.
+
+To try the configuration for a single CLI session without changing your defaults:
+
+```
+codex -m gpt-5.6-sol \
+  -c model_context_window=1000000 \
+  -c model_auto_compact_token_limit=900000
+```
+
+Have fun, but also know that we tuned the default carefully!</p><p class="quote-text translation" lang="zh-CN">下面是在 Codex 中为 GPT-5.6 Sol 启用 100 万 token 上下文窗口的方法。
+
+虽然我们已经把 Codex 的上下文限制调到兼顾性能和成本的最佳设置，但这是一个常见需求，所以这里记录一下。
+
+更大的上下文窗口可以让 Codex 在总结旧内容之前保留更多代码、工具输出和对话历史。你需要使用支持该能力的模型。例如，GPT-5.6 Sol 的文档中标明其窗口为 1,050,000 token。
+
+打开 ~/.codex/config.toml，并在所有 [section] 标题之前的顶层添加或更新以下设置：
+
+```
+model = &quot;gpt-5.6-sol&quot;
+model_context_window = 1000000
+model_auto_compact_token_limit = 900000
+```
+
+第一项选择模型。第二项告诉 Codex 使用 100 万 token 的上下文预算。第三项会在约 900,000 token 时启动自动历史压缩，留出一些余量。保存后重启 Codex 客户端并开启新会话。
+
+如果想在单次 CLI 会话中试用该配置，而不更改默认设置：
+
+```
+codex -m gpt-5.6-sol \
+  -c model_context_window=1000000 \
+  -c model_auto_compact_token_limit=900000
+```
+
+祝你玩得开心，但也请知道，我们对默认设置是经过仔细调优的！</p><a class="quote-link" href="https://x.com/thsottiaux/status/2089082893804896524" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 1,142</span><span>↻ 21</span><span>↩ 95</span></div><a href="https://x.com/polynoamial/status/2089148291028291665" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="amasad" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div>
+          <div class="identity"><strong>Amjad Masad</strong><span>@amasad · Replit / CEO</span></div>
+          <div class="score">80<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 / 开发者平台</span><time>08-18 03:34 北京</time></div>
+        <p class="post-text original" lang="auto">It’s not enough to scan your code for vulnerabilities; it’s important to try to break them with pen testing.</p><p class="post-text translation" lang="zh-CN">只扫描代码漏洞还不够；重要的是通过渗透测试尝试攻破它们。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2031733558952464384/ERrHv3jK_normal.jpg" alt="Replit ⠕ avatar" loading="lazy"></div><div><strong>Replit ⠕</strong><span>@Replit</span></div></div><p class="quote-text original" lang="auto">You can now run black-box pen tests for your Replit apps.
+
+Security scans that test your Replit apps the way external attackers do.
+
+Replit Agent can fix what it finds in a single click. https://t.co/AyPkiBffFa</p><p class="quote-text translation" lang="zh-CN">你现在可以为 Replit 应用运行黑盒渗透测试。
+
+这种安全扫描会像外部攻击者一样测试你的 Replit 应用。
+
+Replit Agent 可以一键修复发现的问题。https://t.co/AyPkiBffFa</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/ext_tw_video_thumb/2089427160696082432/pu/img/YelOjFVLpTPGOHI-.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/ext_tw_video_thumb/2089427160696082432/pu/img/YelOjFVLpTPGOHI-.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/Replit/status/2089427187162083785" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 111</span><span>↻ 3</span><span>↩ 13</span></div><a href="https://x.com/amasad/status/2089435606338416884" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="swyx" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx avatar" loading="lazy"></div>
+          <div class="identity"><strong>swyx</strong><span>@swyx · Latent Space / AI Engineer</span></div>
+          <div class="score">49<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 工作流</span><time>08-18 05:40 北京</time></div>
+        <p class="post-text original" lang="auto">@TomasReimers @cursor_ai is live! https://t.co/hkyT5adhBO</p><p class="post-text translation" lang="zh-CN">@TomasReimers @cursor_ai 已上线！https://t.co/hkyT5adhBO</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1970182748146180096/dhZeXi_X_normal.jpg" alt="Cursor avatar" loading="lazy"></div><div><strong>Cursor</strong><span>@cursor_ai</span></div></div><p class="quote-text original" lang="auto">Origin, our code hosting platform, is now live.
+
+It&#x27;s fast, easy to use, and deeply integrated with Cursor.
+
+Get started by syncing your repos from GitHub. https://t.co/aqRHavAOQg</p><p class="quote-text translation" lang="zh-CN">我们的代码托管平台 Origin 现已上线。
+
+它速度快、易于使用，并与 Cursor 深度集成。
+
+从 GitHub 同步你的仓库即可开始使用。https://t.co/aqRHavAOQg</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2089397451237036032/img/qeHLLgO7ic-M5GjF.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2089397451237036032/img/qeHLLgO7ic-M5GjF.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/cursor_ai/status/2089399057659596847" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 1</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/swyx/status/2089467492163010836" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="unitreerobotics" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1844926705389142016/nIEbH8rV_normal.jpg" alt="Unitree avatar" loading="lazy"></div>
+          <div class="identity"><strong>Unitree</strong><span>@UnitreeRobotics · 人形与四足机器人项目</span></div>
+          <div class="score">90<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>机器人领域突破</span><time>08-17 14:38 北京</time></div>
+        <p class="post-text original" lang="auto">Unitree New Robot Preview: “Superman” Breaking the Limits of Humanity🥳
+Standing high jump 2 m, top speed 12.66 m/s (0.85 m leg length)
+Surpassing the standing high jump and running speed records of all humans around the world
+This new machine has only been in development for a little over three months, with significant room for further improvement in the coming months.</p><p class="post-text translation" lang="zh-CN">宇树新机器人预告：“Superman”突破人类极限🥳
+立定跳高 2 米，最高速度 12.66 米/秒（腿长 0.85 米）
+超过全球所有人类的立定跳高和奔跑速度纪录
+这台新机器仅开发了三个多月，未来几个月仍有很大的提升空间。</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2089239436336959488/img/oz0r3EClApzcRKjC.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2089239436336959488/img/oz0r3EClApzcRKjC.jpg" alt="X post media"><span>VIDEO</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 4,185</span><span>↻ 724</span><span>↩ 272</span></div><a href="https://x.com/UnitreeRobotics/status/2089240553682809175" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">87<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>08-17 08:40 北京</time></div>
+        <p class="post-text original source-only" lang="auto">最近如果想系统补一下强化学习，尤其是 LLM post-training，这套 Berkeley CS 185/285 很值得收藏。
+
+Sergey Levine 的 Deep Reinforcement Learning 2026 春季版课程资料已经完整放出来了，昨天课程录像也开始上传到 YouTube。
+
+课程从 imitation learning、Policy Gradient、Actor-Critic、Q-Learning，一直讲到 Model-Based RL、Offline RL 和 Exploration。
+
+我比较感兴趣的是今年还专门加入了「RL with Sequences &amp; LLMs」。
+
+里面会从 RL 的视角重新讲 RLHF、Verifier Reward、GRPO、KL Regularization 这些现在做 LLM post-training 经常看到的东西。
+
+而且不只是听课，Homework 4 直接要求自己实现 GR-REINFORCE 和 GRPO，再真正跑训练实验做对比。
+
+最近 RL、Agent 和 LLM post-training 连得很紧，这套课正好可以把很多零散的概念重新串起来。
+
+课程：
+https://t.co/sWyVEo63ep
+YouTube 上搜索 RAIL 的「CS 185/285 (Spring 2026)」播放列表就能看到最新课程录像。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 636</span><span>↻ 109</span><span>↩ 21</span></div><a href="https://x.com/Xudong07452910/status/2089150214191948097" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">80<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>08-17 09:40 北京</time></div>
+        <p class="post-text original source-only" lang="auto">昨天写 DeepSeek Harness 负责人崔添翼 @tianyi 履历那条帖子后，当事人自己来评论区纠正了我一个判断。
+
+我原本把量化系统和 Agent Harness 做了一些类比，他回复说：
+
+「其实量化系统和 Agent 没啥特别相似相像的，只是同样是潜在很复杂的软件系统而已。」
+
+后来想了下，这句话确实更准确。
+
+最近看 Harness 这一层，很多关键问题其实都很「传统」：状态怎么管理、副作用怎么处理、依赖怎么维护、执行怎么追踪、失败后怎么恢复。
+
+模型可以不断变强，但要让 Agent 真正长时间、可靠地运行，最后还是绕不开这些复杂的软件系统问题。
+
+所以 DeepSeek 这次把 Harness 和 Cordis 放出来后，我现在想继续看的也有这一层：
+
+当 Agent 开始跑更长的任务，系统工程会不会重新成为最核心的竞争力之一？</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div><div><strong>Xudong Han</strong><span>@Xudong07452910</span></div></div><p class="quote-text original source-only" lang="auto">因为 DeepSeek Harness，很多人才第一次听到崔添翼 @tianyi 这个名字。
+
+我好奇继续深挖了下他的公开经历，发现这人的技术轨迹很有意思。
+
+很多程序员都看过的《背包问题九讲》，第一版是他 2007 年写的。2010 年他已经在维护 NixOS 的 Git mirror，后来 NixOS 正式迁往 GitHub，官方还专门感谢他提供了 NixOS 这个 GitHub organisation。
+
+大学期间他很痴迷函数式编程，研究过纯函数式 B-Tree，还用 OCaml 实现过《Purely Functional Data Structures》。
+
+2013 年找工作，他说自己一直想找一份真正使用 Haskell 或类似语言的工作。看到 Jane Street 全面使用 OCaml 后，他从零开始学 OCaml，写了一个 Lisp interpreter 去准备面试。
+
+最后他同时拿到 Google Mountain View 和 Jane Street 的 offer，去了 Jane Street，在香港和纽约做了接近 9 年的软件开发和量化研究。
+
+中间还有个很少被提到的细节：他 2015 年其实还署名过一篇 AAAI 的 NLP 论文。
+
+2022 年出来联合创办 TSY Capital，做的已经是另一类很硬的系统：Python/AWS 的量化研究基础设施，加上 Rust 的低延迟交易系统。
+
+今年 3 月，他加入 DeepSeek，负责 Harness 团队。现在打开他的 GitHub，两个置顶项目刚好一老一新，《背包问题九讲》和 DeepSeek Harness。
+
+这条线串起来，我大概能理解 DeepSeek 为什么会找他来做 Harness 了。
+
+量化系统和 Agent 有一个很像的地方：上层可以产生有不确定性的决策，真正落到现实世界执行时，状态、依赖、风险、失败恢复和可追踪性都不能含糊。
+
+DeepSeek Harness 这次强调「Everything is a plugin」「Every run is traceable」，底层 Cordis 甚至专门研究如何撤销组件产生的副作用。
+
+算法 → 函数式编程 → 交易系统 → Agent Harness。
+
+未来顶级 Agent 团队里，这种系统和基础设施背景的人，可能会比我们现在想象得多。</p><a class="quote-link" href="https://x.com/Xudong07452910/status/2088815256957268094" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 46</span><span>↻ 1</span><span>↩ 22</span></div><a href="https://x.com/Xudong07452910/status/2089165313531412819" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="swyx" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx avatar" loading="lazy"></div>
+          <div class="identity"><strong>swyx</strong><span>@swyx · Latent Space / AI Engineer</span></div>
+          <div class="score">75<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 工作流</span><time>08-18 00:45 北京</time></div>
+        <p class="post-text original" lang="auto">Trajectory have generally impressed me with their tasteful execution on ambitious goals. on our Continual Learning track, @rronak_ gave a very thoughtful overview on how they&#x27;re tackling the main data problems left in CL, including why GRPO isn&#x27;t enough and they had to go on-policy.... and then subsequently fix all the issues that come up with it
+
+nice overview from one of the early leaders in this field!
+
+(see the rest of the track for more, this one was quite stacked)</p><p class="post-text translation" lang="zh-CN">Trajectory 在执行宏大目标时一向很有品位，通常都让我印象深刻。在我们的 Continual Learning 专题中，@rronak_ 非常深入地概述了他们如何处理 CL 中剩下的主要数据问题，包括为什么 GRPO 还不够、他们不得不转向 on-policy……然后再逐一修复随之出现的各种问题
+
+这是该领域早期领导者之一带来的精彩概述！
+
+（更多内容见该专题的其他部分，这一期阵容相当强）</p>
+
+        <div class="media-grid media-grid--4"><a class="media-item" href="https://pbs.twimg.com/media/HP8DLRubgAITslD.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HP8DLRubgAITslD.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HP8DZymbEAAkNcg.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HP8DZymbEAAkNcg.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HP8Duu3boAAMMGx.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HP8Duu3boAAMMGx.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HP8D1u7bgAMhxZ_.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HP8D1u7bgAMhxZ_.jpg" alt="X post media"><span>IMAGE</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2059016486463893504/rmeBY8L9_normal.jpg" alt="Trajectory avatar" loading="lazy"></div><div><strong>Trajectory</strong><span>@trajectorylabs</span></div></div><p class="quote-text original" lang="auto">It&#x27;s time to rethink RL.
+
+Translating real world use into model improvements requires redesigning post-training algorithms for non-verifiable, per token rewards.
+
+At @aiDotEngineer &#x27;s World Fair, we share our insights into scaling algorithms like SDPO for continual learning. https://t.co/djZqt1LdF7</p><p class="quote-text translation" lang="zh-CN">是时候重新思考 RL 了。
+
+要把真实世界的使用转化为模型改进，需要为不可验证的、逐 token 奖励重新设计后训练算法。
+
+在 @aiDotEngineer 的 World Fair 上，我们分享了对 SDPO 等算法如何扩展到持续学习的见解。https://t.co/djZqt1LdF7</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HP77gpSacAAdmZN.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HP77gpSacAAdmZN.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/trajectorylabs/status/2089384708245540877" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 84</span><span>↻ 6</span><span>↩ 18</span></div><a href="https://x.com/swyx/status/2089393073327653344" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">71<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>08-18 03:47 北京</time></div>
+        <p class="post-text original" lang="auto">A few months ago,@sh_reya and I released eval skills plugin. We iterated on it a bunch and recently made it better
+
+The biggest change is a new error-discovery skill. Give your coding agent a file of AI outputs or traces, and it builds a custom review app w/intelligent sampling. As you annotate the sample, the agent groups your notes into failure modes and finds related examples.
+
+We also added a start skill, which looks at your situation and routes your agent to the right workflow. It can help you find errors in a set of traces or audit an eval pipeline you already have.
+
+Writeup: https://t.co/OMrjBeU7xV
+
+GitHub: https://t.co/V7ti3tydGb</p><p class="post-text translation" lang="zh-CN">几个月前，@sh_reya 和我发布了 eval skills 插件。我们反复迭代，最近又把它做得更好了。
+
+最大的变化是新增了错误发现 skill。给你的编码 agent 一个包含 AI 输出或 traces 的文件，它就会构建一个带智能抽样的自定义评审应用。当你标注样本时，agent 会把你的备注归类为失败模式，并找出相关示例。
+
+我们还新增了一个 start skill，它会根据你的情况，把 agent 路由到合适的工作流。它可以帮你在一组 traces 中找错误，或审计你已有的 eval pipeline。
+
+文章： https://t.co/OMrjBeU7xV
+
+GitHub： https://t.co/V7ti3tydGb</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 186</span><span>↻ 13</span><span>↩ 19</span></div><a href="https://x.com/HamelHusain/status/2089438973714440196" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="yoheinakajima" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
+          <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
+          <div class="score">63<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>08-18 02:10 北京</time></div>
+        <p class="post-text original" lang="auto">agent readiness check</p><p class="post-text translation" lang="zh-CN">agent 就绪检查</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2058196171298836480/hJlQQdKo_normal.jpg" alt="ora avatar" loading="lazy"></div><div><strong>ora</strong><span>@oradotai</span></div></div><p class="quote-text original" lang="auto">Want to see how a *real world* agent experiences your product?
+
+Use AgentJourney (for free!) to run any intent on any website.
+
+See its real-time journey, token usage, price - and immediate, actionable insights to make any product agent friendly.
+https://t.co/xCQO9Ww1MI https://t.co/mnq8Z0b7pe</p><p class="quote-text translation" lang="zh-CN">想看看一个真实世界的 agent 是如何体验你的产品的吗？
+
+使用 AgentJourney（免费！）在任意网站上运行任意意图。
+
+查看它的实时旅程、token 用量、价格，并立即获得可执行的洞察，让任何产品都更适合 agent 使用。
+https://t.co/xCQO9Ww1MI https://t.co/mnq8Z0b7pe</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2089283458233171968/img/LARFNaB6mosv5qv0.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2089283458233171968/img/LARFNaB6mosv5qv0.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/oradotai/status/2089283963684598223" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 29</span><span>↻ 1</span><span>↩ 0</span></div><a href="https://x.com/yoheinakajima/status/2089414531554631820" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="sh_reya" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1342529111839944705/hzr44mb5_normal.jpg" alt="Shreya Shankar avatar" loading="lazy"></div>
+          <div class="identity"><strong>Shreya Shankar</strong><span>@sh_reya · UC Berkeley / AI 工程研究员</span></div>
+          <div class="score">49<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>08-17 22:37 北京</time></div>
+        <p class="post-text original" lang="auto">@vishal_learner Skills (and mcp) feel different from generic open source code in that skills pollute context windows, so one has to be careful about the skills they add to their agents</p><p class="post-text translation" lang="zh-CN">@vishal_learner Skills（以及 mcp）和通用开源代码感觉不一样，因为 skills 会污染上下文窗口，所以给 agent 添加 skills 时必须谨慎</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 1</span><span>↻ 1</span><span>↩ 0</span></div><a href="https://x.com/sh_reya/status/2089361022620770740" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="polynoamial" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1872883170292457472/8ywVGO5M_normal.jpg" alt="Noam Brown avatar" loading="lazy"></div>
+          <div class="identity"><strong>Noam Brown</strong><span>@polynoamial · OpenAI / 推理研究</span></div>
+          <div class="score">86<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>推理模型 / OpenAI</span><time>08-17 08:55 北京</time></div>
+        <p class="post-text original" lang="auto">@eliebakouch @OpenAI We use autocompaction with the default context size</p><p class="post-text translation" lang="zh-CN">@eliebakouch @OpenAI 我们使用默认上下文大小的自动压缩</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 131</span><span>↻ 3</span><span>↩ 5</span></div><a href="https://x.com/polynoamial/status/2089154095630471638" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="polynoamial" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1872883170292457472/8ywVGO5M_normal.jpg" alt="Noam Brown avatar" loading="lazy"></div>
+          <div class="identity"><strong>Noam Brown</strong><span>@polynoamial · OpenAI / 推理研究</span></div>
+          <div class="score">84<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>推理模型 / OpenAI</span><time>08-17 14:28 北京</time></div>
+        <p class="post-text original" lang="auto">@OpenAI To be clear, I don&#x27;t recommend increasing the default context size in Codex.</p><p class="post-text translation" lang="zh-CN">@OpenAI 澄清一下，我不建议增加 Codex 的默认上下文大小。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 77</span><span>↻ 1</span><span>↩ 13</span></div><a href="https://x.com/polynoamial/status/2089237793822359748" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">71<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>08-18 00:22 北京</time></div>
+        <p class="post-text original" lang="auto">Hire John.  I worked with him personally at Airbnb and he’s top 1%</p><p class="post-text translation" lang="zh-CN">招 John。我在 Airbnb 和他共事过，他是前 1% 的顶尖人才</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1972937580296523776/0ZL9ApZa_normal.jpg" alt="John Enevoldsen avatar" loading="lazy"></div><div><strong>John Enevoldsen</strong><span>@JohnEnevoldsen</span></div></div><p class="quote-text original" lang="auto">I&#x27;m looking for my next role.
+
+I&#x27;m an AI engineer / PM, currently based in Berlin and open to relocating. Most recently Head of AI &amp; Product at an AI fintech until the startup shut down in June. Before that: data science at Trumid and Airbnb, and Head of Data at Circ.
+
+Over the past couple of months, I’ve also been getting much closer to the model side: training three LLMs from scratch in PyTorch, post-training them with SFT and GRPO, then building the inference and serving stack, including KV caching, streaming and FastAPI.
+
+Everything is open source: models, weights, code, write-ups, and a playground with all nine checkpoints: https://t.co/kGfWFkHtJH
+
+I’m looking for an AI engineering or AI PM role, ideally somewhere I can stay close to both the model work and the product. Berlin, remote, or open to relocating.
+
+If you know of something, or someone worth speaking to, I’d really appreciate a pointer or repost.</p><p class="quote-text translation" lang="zh-CN">我正在寻找下一份工作。
+
+我是一名 AI 工程师 / PM，目前在 Berlin，也愿意搬迁。最近在一家 AI fintech 担任 Head of AI &amp; Product，直到这家初创公司 6 月关闭。在那之前，我曾在 Trumid 和 Airbnb 做数据科学，也曾在 Circ 担任 Head of Data。
+
+过去几个月，我也更深入地接触了模型侧：用 PyTorch 从零训练了三个 LLM，用 SFT 和 GRPO 进行后训练，然后搭建推理和服务栈，包括 KV caching、streaming 和 FastAPI。
+
+所有内容都已开源：models、weights、code、write-ups，以及包含全部九个 checkpoints 的 playground：https://t.co/kGfWFkHtJH
+
+我正在寻找 AI engineering 或 AI PM 职位，理想情况下能同时贴近模型工作和产品。Berlin、远程，或愿意搬迁。
+
+如果你知道相关机会，或值得聊聊的人，非常感谢推荐或转发。</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HP78bd5WgAEG8yx.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HP78bd5WgAEG8yx.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/JohnEnevoldsen/status/2089386266345230548" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 189</span><span>↻ 5</span><span>↩ 4</span></div><a href="https://x.com/HamelHusain/status/2089387313029939560" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="yoheinakajima" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
+          <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
+          <div class="score">66<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>08-17 23:14 北京</time></div>
+        <p class="post-text original" lang="auto">this approach assumed github would be available...</p><p class="post-text translation" lang="zh-CN">这个方法假设 github 可用……</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei avatar" loading="lazy"></div><div><strong>Yohei</strong><span>@yoheinakajima</span></div></div><p class="quote-text original" lang="auto">Building a Repo-Centric Modular Agent Stack</p><p class="quote-text translation" lang="zh-CN">构建以仓库为中心的模块化 Agent 技术栈</p><div class="article"><strong class="original" lang="auto">Building a Repo-Centric Modular Agent Stack</strong><strong class="translation" lang="zh-CN">构建以仓库为中心的模块化 Agent 技术栈</strong><p class="article-text original" lang="auto">I have been converging on a modular architecture for agentic work in which the durable unit is the project, rather than the model, conversation, IDE session, or individual agent.
+A project is</p><p class="article-text translation" lang="zh-CN">我逐渐形成了一种用于 agentic 工作的模块化架构，其中持久单元是项目，而不是模型、对话、IDE 会话或单个 agent。
+项目是</p></div><a class="quote-link" href="https://x.com/yoheinakajima/status/2085784422339768686" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 55</span><span>↻ 0</span><span>↩ 7</span></div><a href="https://x.com/yoheinakajima/status/2089370210298155173" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="cyrilzakka" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1852064698273009670/Omj8v2DQ_normal.jpg" alt="Cyril Zakka avatar" loading="lazy"></div>
+          <div class="identity"><strong>Cyril Zakka</strong><span>@cyrilzakka · 医疗 AI 实践者</span></div>
+          <div class="score">52<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>医疗 AI 与生命科学</span><time>08-17 19:18 北京</time></div>
+        <p class="post-text original" lang="auto">@rishibedi @thsottiaux I’ve tried it a few times only to find out the model is stuck in some rabbit hole and I have to steer it back to the main task</p><p class="post-text translation" lang="zh-CN">@rishibedi @thsottiaux 我试过几次，结果发现模型卡在某个岔路里，我还得把它拉回主任务</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 0</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/cyrilzakka/status/2089310853984129470" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="swyx" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx avatar" loading="lazy"></div>
+          <div class="identity"><strong>swyx</strong><span>@swyx · Latent Space / AI Engineer</span></div>
+          <div class="score">45<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 工作流</span><time>08-18 06:54 北京</time></div>
+        <p class="post-text original" lang="auto">@random_walker meta did post hoc watermarking paper here but not sure about testing your specific prompt https://t.co/0KQWPMcOLK they apply a filter instead</p><p class="post-text translation" lang="zh-CN">@random_walker meta 这里发过一篇事后 watermarking 的论文，但不确定是否测试了你的具体 prompt https://t.co/0KQWPMcOLK 他们是应用一个 filter</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 1</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/swyx/status/2089485962229563394" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+    </main>
+    <footer>Generated 2026-08-18 07:01:31 Asia/Shanghai · Read-only X ingestion via Bird · Translation via Codex</footer>
+  </div>
+</body>
+</html>
