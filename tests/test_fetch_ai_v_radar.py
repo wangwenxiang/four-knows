@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
@@ -177,3 +178,57 @@ class AvatarCacheTests(unittest.TestCase):
         self.assertEqual((handle, url), ("primary", ""))
         self.assertTrue(radar.is_rate_limited_avatar_error(error))
         self.assertEqual(run.call_count, 1)
+
+
+class EditorialBlockGuardTests(unittest.TestCase):
+    """A Codex editorial-backend blocker must leave auditable evidence and never
+    render or publish anything, mirroring the incomplete-acquisition guard."""
+
+    def test_editorial_auth_failure_persists_evidence_without_rendering(self) -> None:
+        now = datetime(2026, 8, 20, 7, 1, 0, tzinfo=timezone.utc)
+        cutoff = now - timedelta(hours=23)
+        results = [
+            {"ok": True, "experts": [expert(f"alice{index}") for index in range(62)], "tweets": [], "label": "core"},
+        ]
+        hotspot_directions = [{"id": f"direction-{index}"} for index in range(5)]
+        hotspot_results = [
+            {"ok": True, "hotspotDirection": f"direction-{index}", "label": f"direction-{index}", "tweets": []}
+            for index in range(5)
+        ]
+        candidates = [{"id": "1", "text": "AI model release", "expert": expert("alice0")}]
+        error = (
+            "Editorial review incomplete: unexpected status 401 Unauthorized: "
+            "Incorrect API key provided: agt_code******************************JHXt"
+        )
+
+        with TemporaryDirectory() as directory:
+            output_dir = Path(directory) / "20260820"
+            with self.assertRaisesRegex(RuntimeError, "Editorial review blocked"):
+                radar.abort_blocked_editorial(
+                    output_dir,
+                    now,
+                    cutoff,
+                    23,
+                    [radar.Expert(**expert(f"alice{index}")) for index in range(62)],
+                    results,
+                    hotspot_directions,
+                    hotspot_results,
+                    candidates,
+                    error,
+                )
+
+            report = json.loads((output_dir / "data" / "failed-run-report.json").read_text(encoding="utf-8"))
+            self.assertEqual(report["status"], "blocked")
+            self.assertEqual(report["blockedStage"], "editorial")
+            self.assertEqual(report["accountsRequested"], 62)
+            self.assertEqual(report["accountsSucceeded"], 62)
+            self.assertEqual(report["accountsFailed"], 0)
+            self.assertEqual(report["xHotspotSearch"]["directionsRequested"], 5)
+            self.assertEqual(report["xHotspotSearch"]["directionsSucceeded"], 5)
+            self.assertEqual(report["editorial"]["enabled"], False)
+            self.assertTrue(report["editorial"]["blocked"])
+            self.assertIn("401", report["editorial"]["error"])
+            self.assertIn("Incorrect API key", report["editorial"]["error"])
+            self.assertFalse((output_dir / "data" / "posts.json").exists())
+            self.assertFalse((output_dir / "index.html").exists())
+            self.assertFalse((output_dir / "screenshots.png").exists())

@@ -111,6 +111,16 @@ def main() -> int:
     if not report_dirs:
         raise SystemExit("No dated AI V-Radar output directory found")
     output_dir = output_root / args.date if args.date else report_dirs[-1]
+    failed_report_path = output_dir / "data" / "failed-run-report.json"
+    if not (output_dir / "data" / "posts.json").exists():
+        if failed_report_path.exists():
+            blocked = json.loads(failed_report_path.read_text(encoding="utf-8"))
+            stage = str(blocked.get("blockedStage") or "unknown")
+            detail = str((blocked.get("editorial") or {}).get("error") or blocked.get("blockedReason") or "unknown")
+            raise SystemExit(
+                f"Latest dated report {output_dir.name} is blocked at {stage}: {detail}"
+            )
+        raise SystemExit(f"No posts.json in {output_dir.name}; report is incomplete")
     posts_payload = json.loads((output_dir / "data/posts.json").read_text(encoding="utf-8"))
     report = json.loads((output_dir / "data/run-report.json").read_text(encoding="utf-8"))
     html = (output_dir / "index.html").read_text(encoding="utf-8")

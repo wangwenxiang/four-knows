@@ -2486,6 +2486,62 @@ def abort_incomplete_acquisition(output_dir: Path, report: dict[str, Any]) -> No
     )
 
 
+def abort_blocked_editorial(
+    output_dir: Path,
+    now: datetime,
+    cutoff: datetime,
+    hours: float,
+    experts: list[Expert],
+    results: list[dict[str, Any]],
+    hotspot_directions: list[dict[str, Any]],
+    hotspot_results: list[dict[str, Any]],
+    candidates: list[dict[str, Any]],
+    error: str,
+) -> None:
+    """Persist an editorial-backend blocker without rendering publish-looking artifacts.
+
+    The semantic editorial stage is a hard quality gate: when the local Codex
+    backend is unavailable (for example a 401 authentication failure), the run
+    must not fabricate editorial decisions, must not render or publish anything,
+    and must leave the same auditable evidence trail that an incomplete
+    acquisition leaves.  A later recovery reruns the fresh production entry
+    after the credential issue is repaired.
+    """
+    data_dir = output_dir / "data"
+    data_dir.mkdir(parents=True, exist_ok=True)
+    sanitized = compact_codex_error(error)
+    report = {
+        "generatedAt": now.isoformat(),
+        "fetchStartedAt": now.isoformat(),
+        "windowStart": cutoff.isoformat(),
+        "windowHours": hours,
+        "status": "blocked",
+        "blockedStage": "editorial",
+        "blockedReason": "local Codex editorial backend unavailable",
+        "accountsRequested": len(experts),
+        "accountsSucceeded": sum(len(result.get("experts", [])) for result in results if result.get("ok")),
+        "accountsFailed": sum(len(result.get("experts", [])) for result in results if not result.get("ok")),
+        "candidatesForEditorial": len(candidates),
+        "xHotspotSearch": {
+            "enabled": bool(hotspot_directions),
+            "directionsRequested": len(hotspot_directions),
+            "directionsSucceeded": sum(1 for result in hotspot_results if result.get("ok")),
+            "directionsFailed": sum(1 for result in hotspot_results if not result.get("ok")),
+        },
+        "editorial": {
+            "enabled": False,
+            "blocked": True,
+            "backend": "codex exec",
+            "promptVersion": EDITORIAL_PROMPT_VERSION,
+            "error": sanitized,
+        },
+    }
+    write_json_atomic(data_dir / "failed-run-report.json", report)
+    raise RuntimeError(
+        "Editorial review blocked; no daily report was rendered or published: " + sanitized
+    )
+
+
 def main() -> int:
     args = parse_args()
     if args.hours <= 0:
@@ -2595,9 +2651,23 @@ def main() -> int:
     editorial_audit: dict[str, Any] = {"enabled": False}
     if args.editorial_ai:
         all_candidates, dropped = collect_editorial_candidates(candidate_results, candidate_experts, cutoff, now)
-        posts, editorial_audit = review_editorial_candidates(
-            all_candidates, args.editorial_batch_size, args.editorial_retries
-        )
+        try:
+            posts, editorial_audit = review_editorial_candidates(
+                all_candidates, args.editorial_batch_size, args.editorial_retries
+            )
+        except RuntimeError as exc:
+            abort_blocked_editorial(
+                args.output_root / now.astimezone(SHANGHAI).strftime("%Y%m%d"),
+                now,
+                cutoff,
+                args.hours,
+                experts,
+                results,
+                hotspot_directions,
+                hotspot_results,
+                all_candidates,
+                str(exc),
+            )
         dropped["aiNotTechnical"] = editorial_audit["dropped"]
         for post in posts:
             post["isTopStory"] = False
