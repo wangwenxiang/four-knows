@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>硅谷 AI 原声 · 2026-08-22</title>
+  <style>
+    :root{--bg:#f4f6f8;--surface:#fff;--text:#16181c;--muted:#65717e;--line:#dfe4e9;--accent:#0066cc;--green:#117a62;--shadow:0 16px 42px rgba(18,28,38,.08);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 15% 0,#e8f2ff 0,transparent 27%),var(--bg);color:var(--text)} a{color:inherit;text-decoration:none} button{font:inherit}
+    .shell{width:min(1500px,calc(100% - 28px));margin:0 auto;padding:14px 0 40px}
+    .hero{display:grid;grid-template-columns:minmax(250px,1fr) auto;align-items:center;gap:12px;padding:15px 18px;border:1px solid rgba(255,255,255,.75);border-radius:16px;background:rgba(255,255,255,.88);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    h1{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin:0;font-size:clamp(28px,3.4vw,44px);line-height:1;letter-spacing:-.05em} .report-date{color:var(--green);font-size:clamp(10px,1vw,13px);font-weight:900;letter-spacing:.08em;white-space:nowrap}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(62px,1fr));gap:6px;align-content:start} .metric{padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fff} .metric strong{display:block;font-size:19px;line-height:1} .metric span{display:block;margin-top:3px;color:var(--muted);font-size:8px;font-weight:820;white-space:nowrap}
+    .notice{margin-top:12px;padding:11px 14px;border:1px solid #e1b866;border-radius:12px;background:#fff8e8;color:#7a5612;font-size:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px;align-items:start} .signal-card{min-width:0;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 9px 26px rgba(18,28,38,.045)}
+    .card-top{display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:10px} .avatar{display:grid;width:46px;height:46px;overflow:hidden;place-items:center;border:1px solid #d9e0e7;border-radius:999px;background:linear-gradient(135deg,#111827,#46627d);color:#fff;font-size:12px;font-weight:900} .avatar img{width:100%;height:100%;object-fit:cover;display:block} .identity{display:grid;gap:3px;min-width:0} .identity strong,.identity span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .identity strong{font-size:14px} .identity span{color:var(--muted);font-size:11px}
+    .score{display:grid;justify-items:center;min-width:40px;padding:5px 6px;border:1px solid #e3ebe8;border-radius:8px;background:#f4f8f6;color:#527267;font-size:15px;font-weight:820;line-height:1} .score small{margin-top:2px;color:#71877f;font-size:7px;letter-spacing:.06em;text-transform:uppercase}
+    .meta{display:flex;align-items:center;gap:6px;margin:11px 0 9px;color:var(--muted);font-size:10.5px;font-weight:750} .meta span:not(.priority){overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .meta time{margin-left:auto;white-space:nowrap} .priority{padding:3px 6px;border-radius:999px;background:#111827;color:#fff;font-size:9px}
+    .post-text{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.58} .post-text.original{font-size:16px;font-weight:570;color:#20252b} .post-text.translation{margin-top:8px;color:#66727f;font-size:13px;font-weight:470;line-height:1.62} .article .original+.translation{margin-top:2px;color:#65717e;font-size:11px;font-weight:650} .quote,.article{display:grid;gap:6px;margin-top:10px;padding:11px;border:1px solid var(--line);border-radius:12px;background:#f7f9fb} .quote__author{display:flex;align-items:center;gap:7px;font-size:11px} .quote__author>div:last-child{display:grid;gap:1px} .quote__author span{color:var(--muted)} .quote-avatar{display:grid;width:28px;height:28px;overflow:hidden;place-items:center;border:1px solid var(--line);border-radius:999px;background:#dfe6ed;color:#52606d;font-size:10px;font-weight:900} .quote-avatar img{width:100%;height:100%;object-fit:cover} .quote p,.article p{margin:0;color:#4f5a66;font-size:12px;line-height:1.48;white-space:pre-wrap} .article strong{font-size:13px} .article strong.original{font-size:13.5px} .quote-text.original{font-size:12.5px;color:#36414d} .quote-text.translation{font-size:11.5px;color:#6a7682} .quote-link{justify-self:start;color:var(--accent);font-size:10px;font-weight:850}
+    .media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:10px;overflow:hidden;border-radius:12px} .media-grid--1{grid-template-columns:1fr} .media-item{position:relative;min-height:150px;background:#e8edf2} .media-item img{width:100%;height:100%;max-height:330px;object-fit:cover;display:block} .media-item span{position:absolute;right:7px;bottom:7px;padding:4px 6px;border-radius:6px;background:rgba(0,0,0,.68);color:#fff;font-size:8px;font-weight:900}
+    .card-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid #edf0f3} .engagement{display:flex;gap:10px;color:var(--muted);font-size:10.5px;font-weight:750} .card-bottom>a{color:var(--accent);font-size:11px;font-weight:850} .empty{grid-column:1/-1;padding:70px;text-align:center;border:1px dashed #cdd5dd;border-radius:16px;background:#fff;color:var(--muted)}
+    footer{padding:26px 4px 0;color:var(--muted);font-size:11px;text-align:center}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}} @media(max-width:560px){.shell{width:min(100% - 16px,1500px);padding-top:7px}.hero{gap:10px;padding:13px 14px;border-radius:15px}h1{font-size:28px}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.metric{padding:7px 9px}.metric strong{font-size:18px}.signal-card{padding:13px}.post-text.original{font-size:15px}.post-text.translation{font-size:12.5px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <h1>硅谷 AI 原声 <span class="report-date">· 2026-08-22</span></h1>
+      <div class="metrics"><div class="metric"><strong>62</strong><span>监控专家</span></div><div class="metric"><strong>14</strong><span>活跃专家</span></div><div class="metric"><strong>22</strong><span>精选原文</span></div></div>
+    </header>
+
+    <main class="grid">
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="istoica05" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1889424820821172228/OKFe0cdL_normal.jpg" alt="Ion Stoica avatar" loading="lazy"></div>
+          <div class="identity"><strong>Ion Stoica</strong><span>@istoica05 · Berkeley；Anyscale 联合创始人</span></div>
+          <div class="score">70<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 基础设施 / 分布式系统</span><time>08-22 02:21 北京</time></div>
+        <p class="post-text original" lang="auto">The ability to serve frontier-scale models locally fundamentally shifts the economics of AI. By optimizing memory and compute to fit these models on consumer GPUs, the barrier to entry for building and deploying robust agentic workflows is significantly lowered.</p><p class="post-text translation" lang="zh-CN">在本地服务前沿规模模型的能力，从根本上改变了 AI 的经济性。通过优化内存和计算，让这些模型能在消费级 GPU 上运行，构建和部署稳健智能体工作流的门槛被显著降低。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1629407935326732288/5I-3J0Ai_normal.jpg" alt="Shuo Yang avatar" loading="lazy"></div><div><strong>Shuo Yang</strong><span>@Andy_ShuoYang</span></div></div><p class="quote-text original" lang="auto">Your gaming PC can now serve frontier models at interactive speed using official checkpoints without extreme quantization!
+
+Qwen3.6 35B → 8GB RTX 4060 laptop @ 39 tok/s
+
+DeepSeek-V4-Flash 284B → RTX 5090 desktop @ 22-25 tok/s
+
+GLM-5.2 753B → RTX PRO 6000 workstation @ 15 tok/s
+
+Run your claude code or codex now with frontier model for $0
+
+Meet FreeToken 🧵</p><p class="quote-text translation" lang="zh-CN">你的游戏 PC 现在可以用官方 checkpoint，以交互式速度运行前沿模型，而且不需要极端量化！
+
+Qwen3.6 35B → 8GB RTX 4060 笔记本 @ 39 tok/s
+
+DeepSeek-V4-Flash 284B → RTX 5090 台式机 @ 22-25 tok/s
+
+GLM-5.2 753B → RTX PRO 6000 工作站 @ 15 tok/s
+
+现在就用前沿模型运行你的 claude code 或 codex，成本 $0
+
+认识一下 FreeToken 🧵</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2090850214622253056/img/_SeACnM5QW4gluXr.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2090850214622253056/img/_SeACnM5QW4gluXr.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/Andy_ShuoYang/status/2090856976880472439" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 68</span><span>↻ 7</span><span>↩ 2</span></div><a href="https://x.com/istoica05/status/2090866848439140560" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">69<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>08-21 17:35 北京</time></div>
+        <p class="post-text original source-only" lang="auto">多模态的需求还是太大了，再怎么嘴硬还是要搞的，kimi k3 还是有点贵的，这样可以多一个选择。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1717417613775757312/Uk1zNOj4_normal.jpg" alt="DeepSeek avatar" loading="lazy"></div><div><strong>DeepSeek</strong><span>@deepseek_ai</span></div></div><p class="quote-text original" lang="auto">DeepSeek-V4-Flash-Vision-Exp is now live on the DeepSeek API Platform! 🚀
+
+🔹 This experimental multimodal model matches DeepSeek-V4-Flash on text capabilities—including agents, reasoning, and world knowledge.
+🔹 On multimodal agent benchmarks, V4-Flash-Vision-Exp makes a major leap over V4-Flash, bringing multimodal agent performance close to Opus-4.8.
+
+Try it with model=&#x27;deepseek-v4-flash-vision-exp&#x27;. DeepSeek Harness 0.1.1 was released today with out-of-the-box support for the new model.
+
+1/n</p><p class="quote-text translation" lang="zh-CN">DeepSeek-V4-Flash-Vision-Exp 现已上线 DeepSeek API Platform！🚀
+
+🔹 这个实验性多模态模型在文本能力上与 DeepSeek-V4-Flash 持平，包括智能体、推理和世界知识。
+🔹 在多模态智能体基准上，V4-Flash-Vision-Exp 相比 V4-Flash 实现了重大跃升，使多模态智能体性能接近 Opus-4.8。
+
+使用 model=&#x27;deepseek-v4-flash-vision-exp&#x27; 试试看。DeepSeek Harness 0.1.1 今天发布，已开箱支持新模型。
+
+1/n</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HQPAu99aoAALC1F.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HQPAu99aoAALC1F.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/deepseek_ai/status/2090730032574631962" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 7</span><span>↻ 0</span><span>↩ 4</span></div><a href="https://x.com/Xudong07452910/status/2090734613026996337" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="fchollet" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2006806326140350470/Kd5oZv-f_normal.jpg" alt="Francois Chollet avatar" loading="lazy"></div>
+          <div class="identity"><strong>Francois Chollet</strong><span>@fchollet · ARC Prize；Keras 作者</span></div>
+          <div class="score">80<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 研究 / 评测</span><time>08-22 00:26 北京</time></div>
+        <p class="post-text original" lang="auto">This is very nice work from NVIDIA. Like all high-performing approaches on ARC-AGI-3, it uses deep learning-guided on-the-fly synthesis of symbolic world models, i.e. navigating the world by generating programs to represent what you know.
+
+To be clear, like with several other recent claims, scoring 100% on the public demonstration set is not the same as &quot;scoring 100% on the ARC-AGI-3 benchmark&quot;. It would be like saying you beat a videogame because you cleared the tutorial level.</p><p class="post-text translation" lang="zh-CN">这是 NVIDIA 非常出色的工作。和 ARC-AGI-3 上所有高性能方法一样，它使用深度学习引导的即时符号世界模型合成，也就是通过生成程序来表示你所知道的内容，从而在世界中导航。
+
+需要说明的是，和最近其他一些说法一样，在公开演示集上得分 100%，并不等于“在 ARC-AGI-3 基准上得分 100%”。这就像说你通关了教程关，就等于打通了一款电子游戏。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2055340743552831488/me-KUIug_normal.png" alt="NVIDIA AI avatar" loading="lazy"></div><div><strong>NVIDIA AI</strong><span>@NVIDIAAI</span></div></div><p class="quote-text original" lang="auto">NVIDIA AVO continuously inspects, plans, implements, and evaluates, using memory, tools, and execution feedback to build on what it learns along the way. This allows the system to sustain progress across long-running tasks rather than starting over with each model context.
+
+Read about AVO and how we built it for long-horizon autonomous agents: https://t.co/XF3Ng8zvTu</p><p class="quote-text translation" lang="zh-CN">NVIDIA AVO 会持续检查、规划、实现和评估，并利用记忆、工具和执行反馈，把一路学到的东西不断累积起来。这使系统能够在长时间运行的任务中持续推进，而不是每次模型上下文变化都从头开始。
+
+阅读 AVO 以及我们如何为长周期自主智能体构建它：https://t.co/XF3Ng8zvTu</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HQP36bJbUAARrRm.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HQP36bJbUAARrRm.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/NVIDIAAI/status/2090787290306228541" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 553</span><span>↻ 45</span><span>↩ 34</span></div><a href="https://x.com/fchollet/status/2090838046937645398" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="drjimfan" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1554922493101559808/SYSZhbcd_normal.jpg" alt="Jim Fan avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jim Fan</strong><span>@DrJimFan · NVIDIA / 研究员</span></div>
+          <div class="score">88<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>多模态 / Agent</span><time>08-22 00:06 北京</time></div>
+        <p class="post-text original" lang="auto">The sense of touch is the most criminally under-explored modality in robotics. Imagine doing sleight of hand wearing thick oven mitts. That&#x27;s exactly how a robot feels today if it were alive. A magnetic piece snapping into place, a paper cup peeling out of a stack, a USB negotiating its way into the port - all invisible to the camera.
+
+Learning how to feel must be a full-stack co-designed effort. We are open-sourcing a principled methodology called &quot;T-Rex&quot;:
+
+1. Tactile as first-class citizen of the model. Our mixture-of-transformer runs two clocks asynchronously: a slow visuomotor expert plans the motion, and a fast tactile expert refines it in real time with high-frequency corrections at 4 &quot;touch ticks&quot; per vision tick. Forces change faster than frames arrive, so the architecture had to as well.
+
+2. Open data. The largest tactile dataset ever released to our knowledge: a 50-hour (~5,500 episodes) high-quality, carefully synchronized robot play corpus, collected on SOTA tactile hand hardware with 22 degrees of freedom. Available today on HuggingFace!
+
+3. Training recipe: T-Rex extends our prior work, EgoScale. Human egocentric videos for pretraining, a diverse dose of tactile robot play for mid-training. Our experiments show this bridges contact-free pretraining to contact-rich manipulation remarkably well.
+
+Pixels are cheap and everywhere, but they run out of steam at the moment of contact. Tactile will carry the last mile. The next scaling curve will be measured in hours of touch.
+
+T-Rex is a great collaboration between NVIDIA and Berkeley: 🧵</p><p class="post-text translation" lang="zh-CN">触觉是机器人学中最被严重低估、探索最少的模态。想象一下戴着厚烤箱手套表演手法戏法。如果机器人有生命，它今天的感受大概就是这样。磁性零件啪地吸合到位、纸杯从一摞杯子中剥离出来、USB 摸索着插进接口，这些对摄像头来说全都不可见。
+
+学会“感受”必须是一次全栈协同设计的努力。我们正在开源一种原则化方法，名为“T-Rex”：
+
+1. 将触觉作为模型的一等公民。我们的 mixture-of-transformer 异步运行两个时钟：较慢的视觉运动专家负责规划动作，较快的触觉专家则以每个视觉 tick 对应 4 个“触觉 tick”的高频校正，实时细化动作。力的变化比帧到达更快，所以架构也必须随之改变。
+
+2. 开放数据。据我们所知，这是迄今发布的最大触觉数据集：50 小时（约 5,500 个 episode）高质量、精确同步的机器人 play 语料，采集自拥有 22 个自由度的 SOTA 触觉手硬件。今天已在 HuggingFace 上发布！
+
+3. 训练配方：T-Rex 扩展了我们此前的工作 EgoScale。用人类第一视角视频进行预训练，再用多样化的触觉机器人 play 进行中期训练。我们的实验表明，这能非常好地弥合无接触预训练与高接触操作之间的差距。
+
+像素便宜且无处不在，但一到接触瞬间就力不从心。触觉将完成最后一公里。下一条 scaling curve 将以触摸小时数来衡量。
+
+T-Rex 是 NVIDIA 与 Berkeley 的出色合作：🧵</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2090815358697713664/img/vis50ZiQNt9Q3B-0.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2090815358697713664/img/vis50ZiQNt9Q3B-0.jpg" alt="X post media"><span>VIDEO</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 367</span><span>↻ 58</span><span>↩ 36</span></div><a href="https://x.com/DrJimFan/status/2090832821036470626" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="russtedrake" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2077209590031073280/q0QIk8vq_normal.jpg" alt="Russ Tedrake avatar" loading="lazy"></div>
+          <div class="identity"><strong>Russ Tedrake</strong><span>@RussTedrake · 权威机器人研究者</span></div>
+          <div class="score">85<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>机器人控制与具身智能</span><time>08-21 16:58 北京</time></div>
+        <p class="post-text original" lang="auto">When we first started working on Diffusion Policy, which felt like an &quot;unlock&quot; for fitting human demonstration data, the explanation I gave myself was that &quot;human demonstration data was subtly much more multimodal than we thought, so we need the modeling power of denoising diffusion to fit it properly.&quot;
+
+What Michael&#x27;s paper brings to light is that some of this multimodality was probably exacerbated (more than I realized) by the fact that we&#x27;ve only been giving our models incredibly short observation context lengths.
+
+For me, this is pretty compelling evidence that we should be pushing for policies with long-context lengths and short action prediction horizons.</p><p class="post-text translation" lang="zh-CN">我们最初开始研究 Diffusion Policy 时，它像是让人类示范数据拟合得起来的一次“解锁”。我当时给自己的解释是：“人类示范数据的多模态性比我们想象的要微妙得多，所以需要去噪扩散的建模能力，才能正确拟合它。”
+
+Michael 的论文揭示的是，这种多模态性的一部分，可能被一个事实进一步放大了（比我意识到的更严重）：我们一直只给模型极短的观察上下文长度。
+
+对我来说，这是相当有说服力的证据，说明我们应该推动具备长上下文长度和短动作预测 horizon 的策略。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1781386162223136768/6EKo2MS-_normal.jpg" alt="Michael Zeng avatar" loading="lazy"></div><div><strong>Michael Zeng</strong><span>@michzeng_</span></div></div><p class="quote-text original" lang="auto">Action chunking — especially executing long action sequences open-loop — is widely used in imitation learning for robotic manipulation. Why is it so effective and do we really need it? We find a key reason:
+
+Long open-loop execution helps short-context policies imitate non-Markovian experts.
+
+With this insight, we show how to move beyond open-loop execution: extending policy context restores reactivity while achieving even higher task performance.
+
+🧵(1/5)</p><p class="quote-text translation" lang="zh-CN">动作分块，尤其是开环执行长动作序列，在机器人操作的模仿学习中被广泛使用。它为什么如此有效？我们真的需要它吗？我们发现了一个关键原因：
+
+长时间开环执行有助于短上下文策略模仿非马尔可夫专家。
+
+基于这一洞见，我们展示了如何超越开环执行：扩展策略上下文可以恢复反应性，同时实现更高的任务性能。
+
+🧵(1/5)</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2090481897499418625/img/UjQyUbv_-pXHKfZC.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2090481897499418625/img/UjQyUbv_-pXHKfZC.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/michzeng_/status/2090483222173958286" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 172</span><span>↻ 15</span><span>↩ 6</span></div><a href="https://x.com/RussTedrake/status/2090725162312139258" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="c_valenzuelab" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2070496516893229056/bm-CWE5N_normal.jpg" alt="Cristobal Valenzuela avatar" loading="lazy"></div>
+          <div class="identity"><strong>Cristobal Valenzuela</strong><span>@c_valenzuelab · Runway / 联合创始人兼 CEO</span></div>
+          <div class="score">78<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>生成式视频</span><time>08-21 22:30 北京</time></div>
+        <p class="post-text original" lang="auto">One of the most anticipated and requested features in nearly 8 years of building Runway is finally here. Sorry it took so long.
+
+16-bit HDR in ProRes and EXR sequences is here FOR ANY VIDEO MODEL IN RUNWAY.
+
+Pretty excited to get this one out, and this is just the beginning. The next few weeks are going to be packed.</p><p class="post-text translation" lang="zh-CN">在打造 Runway 近 8 年里，最受期待、呼声最高的功能之一终于来了。抱歉让大家久等了。
+
+16-bit HDR 的 ProRes 和 EXR 序列现已支持 RUNWAY 中的任何视频模型。
+
+很高兴终于把这个功能推出，而这只是开始。接下来几周会有很多新内容。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1999115192232292353/zOq5-uwB_normal.jpg" alt="Runway avatar" loading="lazy"></div><div><strong>Runway</strong><span>@runwayml</span></div></div><p class="quote-text original" lang="auto">Introducing Runway Ruby.
+
+A new model that converts SDR video up to 16-bit HDR in ProRes and EXR sequences. Compatible with any existing uploaded video or generated output up to 30s. https://t.co/UME7flY2vb</p><p class="quote-text translation" lang="zh-CN">推出 Runway Ruby。
+
+这是一个新模型，可将 SDR 视频转换为最高 16-bit HDR 的 ProRes 和 EXR 序列。兼容任何已上传视频或最长 30 秒的生成输出。https://t.co/UME7flY2vb</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2090807171781136384/img/IOF8IpJ-hkV-skG3.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2090807171781136384/img/IOF8IpJ-hkV-skG3.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/runwayml/status/2090807248402682101" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 357</span><span>↻ 22</span><span>↩ 38</span></div><a href="https://x.com/c_valenzuelab/status/2090808728098312440" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="drjimfan" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1554922493101559808/SYSZhbcd_normal.jpg" alt="Jim Fan avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jim Fan</strong><span>@DrJimFan · NVIDIA / 研究员</span></div>
+          <div class="score">74<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>多模态 / Agent</span><time>08-22 00:06 北京</time></div>
+        <p class="post-text original" lang="auto">T-Rex: Tactile-Reactive Dexterous Manipulation
+Website: https://t.co/3irVptK79y
+Open dataset: https://t.co/iKJrMVrfGm
+This work is led by @Dantong_Niu and co-advised by @trevordarrell. Congrats to the team!
+
+https://t.co/i9fpN9XkPT</p><p class="post-text translation" lang="zh-CN">T-Rex：触觉反应式灵巧操作
+网站：https://t.co/3irVptK79y
+开放数据集：https://t.co/iKJrMVrfGm
+这项工作由 @Dantong_Niu 主导，并由 @trevordarrell 共同指导。祝贺团队！
+
+https://t.co/i9fpN9XkPT</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1589871957633212417/vhANA2gY_normal.jpg" alt="Dantong Niu avatar" loading="lazy"></div><div><strong>Dantong Niu</strong><span>@Dantong_Niu</span></div></div><p class="quote-text original" lang="auto">Excited to share T-Rex: Tactile-Reactive Dexterous Manipulation 🦖🤖
+
+Touch is fundamental to human dexterity, yet most Vision-Language-Action (VLA) models either ignore tactile feedback or lack the ability to react to high-frequency contact signals.
+
+In this work, we tackle both the data and architectural challenges of tactile-reactive dexterous manipulation.
+
+🦖 A 100-hour tactile-synchronized dexterous manipulation dataset with 7,700+ trajectories, 22 motor primitives, and 200+ everyday objects.
+
+🦖 A tactile-reactive MoT architecture with spatial-temporal tactile encoding and asynchronous high-frequency tactile refinement.
+
+🦖 A scalable training recipe combining 22,889 hours of human egocentric pretraining with tactile-grounded robot mid-training.
+
+Across 12 real-world contact-rich manipulation tasks, T-Rex achieves over 30% higher average success rate than the strongest baseline.
+
+We are fully open-sourcing the dataset, models, teleoperation stack, training code, and inference pipeline.
+
+🌐 Project: https://t.co/AiHKRR8YXU
+📄 Paper: https://t.co/mXY2UNLlqc
+💻 Code: https://t.co/7skCxUtwKC
+🤗 Dataset: https://t.co/uNwW8dcRZL
+🧵 Thread ↓</p><p class="quote-text translation" lang="zh-CN">很高兴分享 T-Rex：触觉反应式灵巧操作 🦖🤖
+
+触觉是人类灵巧性的基础，但大多数视觉-语言-动作（VLA）模型要么忽视触觉反馈，要么缺乏对高频接触信号作出反应的能力。
+
+在这项工作中，我们同时解决触觉反应式灵巧操作中的数据和架构挑战。
+
+🦖 一个 100 小时触觉同步灵巧操作数据集，包含 7,700+ 条轨迹、22 个运动基元和 200+ 件日常物体。
+
+🦖 一个触觉反应式 MoT 架构，具备时空触觉编码和异步高频触觉细化能力。
+
+🦖 一个可扩展训练方案，结合 22,889 小时人类第一视角预训练与基于触觉的机器人中期训练。
+
+在 12 项真实世界、接触密集型操作任务中，T-Rex 的平均成功率比最强基线高出 30% 以上。
+
+我们将全面开源数据集、模型、遥操作栈、训练代码和推理流程。
+
+🌐 项目：https://t.co/AiHKRR8YXU
+📄 论文：https://t.co/mXY2UNLlqc
+💻 代码：https://t.co/7skCxUtwKC
+🤗 数据集：https://t.co/uNwW8dcRZL
+🧵 帖子串 ↓</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2068027397321244672/img/ivyiupGK-kwFFlQN.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2068027397321244672/img/ivyiupGK-kwFFlQN.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/Dantong_Niu/status/2068027692306550821" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 31</span><span>↻ 5</span><span>↩ 2</span></div><a href="https://x.com/DrJimFan/status/2090832822525403481" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="swyx" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx avatar" loading="lazy"></div>
+          <div class="identity"><strong>swyx</strong><span>@swyx · Latent Space / AI Engineer</span></div>
+          <div class="score">69<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 工作流</span><time>08-21 22:50 北京</time></div>
+        <p class="post-text original" lang="auto">it was a blast covering Build Fest this year - they didnt know this but I learned to code with MongoDB over 10 years ago (shoutout MERN stack) and now in the AI Engineering era seeing SF builders rediscover MDB was so gratifying - this was a *huge* step up from last year!</p><p class="post-text translation" lang="zh-CN">今年报道 Build Fest 很过瘾。他们不知道的是，10 多年前我就是用 MongoDB 学会写代码的（致敬 MERN stack）。如今在 AI Engineering 时代，看到旧金山的开发者重新发现 MDB，真的很令人欣慰。这比去年有了*巨大*提升！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1452637606559326217/GFz_P-5e_normal.png" alt="MongoDB avatar" loading="lazy"></div><div><strong>MongoDB</strong><span>@MongoDB</span></div></div><p class="quote-text original" lang="auto">ICYMI: Everything announced at #MongoDBlocal Build Fest is designed to help developers stay in flow and ship production AI, faster.
+
+From the new Atlas Managed MCP Server for Agents and native Atlas access inside @claudeai, Claude Code, @ChatGPT, Codex, @grok Build, @DevinAI, &amp; @cursor_ai, to Automated Embeddings in MongoDB Atlas and @VoyageAI&#x27;s voyage-code-4, plus a GA&#x27;d Embedding &amp; Reranking API and Vector Search for Stream Processing, it&#x27;s about less setup, fewer workarounds, and more time building.
+
+Get the latest: https://t.co/YGX7MGq0oN
+
+@swyx @BazeleyMikiko</p><p class="quote-text translation" lang="zh-CN">ICYMI：#MongoDBlocal Build Fest 上发布的一切，都是为了帮助开发者保持心流，更快交付生产级 AI。
+
+从面向 Agent 的新 Atlas Managed MCP Server，以及在 @claudeai、Claude Code、@ChatGPT、Codex、@grok Build、@DevinAI 和 @cursor_ai 中原生访问 Atlas，到 MongoDB Atlas 中的 Automated Embeddings 和 @VoyageAI 的 voyage-code-4，再到已 GA 的 Embedding &amp; Reranking API 和面向流处理的 Vector Search，核心都是减少配置、减少变通方案，把更多时间留给构建。
+
+获取最新信息：https://t.co/YGX7MGq0oN
+
+@swyx @BazeleyMikiko</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HQLXPqoXcAAuQE2.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HQLXPqoXcAAuQE2.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/MongoDB/status/2090469849088553006" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 41</span><span>↻ 0</span><span>↩ 13</span></div><a href="https://x.com/swyx/status/2090813719018176904" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="istoica05" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1889424820821172228/OKFe0cdL_normal.jpg" alt="Ion Stoica avatar" loading="lazy"></div>
+          <div class="identity"><strong>Ion Stoica</strong><span>@istoica05 · Berkeley；Anyscale 联合创始人</span></div>
+          <div class="score">63<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 基础设施 / 分布式系统</span><time>08-22 02:03 北京</time></div>
+        <p class="post-text original" lang="auto">Ensuring numerical consistency between policy execution and optimization is key to RL. The IsoExec work resolves this challenge, enabling reproducibility at scale.</p><p class="post-text translation" lang="zh-CN">确保策略执行与优化之间的数值一致性，是 RL 的关键。IsoExec 这项工作解决了这一挑战，使大规模可复现成为可能。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1774187681746182144/N_5NJ8B1_normal.jpg" alt="vLLM avatar" loading="lazy"></div><div><strong>vLLM</strong><span>@vllm_project</span></div></div><p class="quote-text original" lang="auto">In RL training, a vLLM rollout engine and a Megatron trainer can run the same policy yet disagree on a token&#x27;s logprob due to floating-point non-associativity.
+
+SkyRL&#x27;s IsoExec combines an execution contract with a unified model, aligning rounding-sensitive execution choices across rollout and training.
+
+Bitwise parity holds across different TP, EP, and SP layouts. For Gated DeltaNet, the chunkwise-parallel recurrent algorithm makes parallel training and prefill bitwise identical to recurrent decode.
+
+Qwen3.5-35B-A3B, DAPO, 8xH100, 50 steps: logprob diff 1.6e-2 to 6.7e-7, full-step overhead 25.3% ✅ vLLM&#x27;s scheduler and CUDA graphs still apply.
+
+Thanks to @JiangAlexander1 and the SkyRL team at @NovaSkyAI.
+
+🔗 https://t.co/Y8SIIgHqAr</p><p class="quote-text translation" lang="zh-CN">在 RL 训练中，vLLM rollout engine 和 Megatron trainer 可以运行同一个策略，却因浮点非结合性而对某个 token 的 logprob 得出不同结果。
+
+SkyRL 的 IsoExec 将执行契约与统一模型结合，对齐 rollout 与训练中对舍入敏感的执行选择。
+
+在不同 TP、EP 和 SP 布局下都能保持逐位一致。对于 Gated DeltaNet，chunkwise-parallel 循环算法让并行训练和 prefill 与循环 decode 达到逐位相同。
+
+Qwen3.5-35B-A3B、DAPO、8xH100、50 步：logprob diff 从 1.6e-2 降至 6.7e-7，完整步骤开销 25.3% ✅ vLLM 的 scheduler 和 CUDA graphs 仍然适用。
+
+感谢 @JiangAlexander1 以及 @NovaSkyAI 的 SkyRL 团队。
+
+🔗 https://t.co/Y8SIIgHqAr</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HQQQiDJakAAi09B.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HQQQiDJakAAi09B.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/vllm_project/status/2090815806297063661" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 32</span><span>↻ 1</span><span>↩ 0</span></div><a href="https://x.com/istoica05/status/2090862382507847874" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="c_valenzuelab" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2070496516893229056/bm-CWE5N_normal.jpg" alt="Cristobal Valenzuela avatar" loading="lazy"></div>
+          <div class="identity"><strong>Cristobal Valenzuela</strong><span>@c_valenzuelab · Runway / 联合创始人兼 CEO</span></div>
+          <div class="score">56<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>生成式视频</span><time>08-21 20:37 北京</time></div>
+        <p class="post-text original" lang="auto">@blade_nd a great partnership</p><p class="post-text translation" lang="zh-CN">@blade_nd 一次很棒的合作</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2070496516893229056/bm-CWE5N_normal.jpg" alt="Cristóbal Valenzuela avatar" loading="lazy"></div><div><strong>Cristóbal Valenzuela</strong><span>@c_valenzuelab</span></div></div><p class="quote-text original" lang="auto">We&#x27;ve been working closely with NVIDIA to build the next generation of frontier models, which we debut today: our family of General World Models. We are thrilled to deepen our partnership with Jensen and his team.
+
+To celebrate, Jensen sent us a special holiday message. Hope you enjoy 🐶🎄</p><p class="quote-text translation" lang="zh-CN">我们一直与 NVIDIA 密切合作，打造下一代前沿模型，并在今天首次推出：我们的 General World Models 系列。很高兴能与 Jensen 及其团队进一步深化合作。
+
+为庆祝这一时刻，Jensen 给我们发来了一条特别的节日祝福。希望你喜欢 🐶🎄</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/1999237364875493376/img/USSp9BSdPEiaJypM.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/1999237364875493376/img/USSp9BSdPEiaJypM.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/c_valenzuelab/status/1999240966885003295" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 8</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/c_valenzuelab/status/2090780372036448269" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">83<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>08-21 18:11 北京</time></div>
+        <p class="post-text original source-only" lang="auto">晚点这篇文章是真敢说啊。
+
+去年因为在 AI 赛道创业，年底的时候受深圳南山区那边邀请，去看了一圈当地的 AI 产业和创业扶持政策。
+
+当时也在考虑新公司先入驻孵化基地，所以顺便参观了南山区几个比较知名的园区。
+
+看完以后我最大的感受就是，具身智能创业公司是真的多😂
+
+但说实话，公司看到了不少，真正的产品倒没看到几个。
+
+我当时就在想，这个泡沫是不是已经有点大了？
+
+所以看到文章最后，一位具身智能投资人把自己这几年的心态总结成一句话：
+
+「质疑泡沫，理解泡沫，拥抱泡沫，享受泡沫。」
+
+就是他没说第五步是什么。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1988876346496565248/A_UR6LFZ_normal.jpg" alt="晚点 LatePost avatar" loading="lazy"></div><div><strong>晚点 LatePost</strong><span>@latepostnews</span></div></div><p class="quote-text original source-only" lang="auto">《具身智能金钱游戏》
+
+- 具身智能行业最强烈的反差是，机器人的实际能力尚且无法进入工厂，背后的公司却已经进入了百亿估值俱乐部：人类 2 秒完成的轴承分拣，机器人要用 70 秒，再快十倍也进不了厂；一台机器人搬运箱子耗时 90 秒，效率只有人类的 30%，但制造它们的公司，一个估值接近 400 亿元，另一个成立不到一年、连续融资 5 轮，估值超过 10 亿美元。
+
+- 机器人也远没有达到比人便宜的程度，一台全尺寸通用人形机器人售价约 20 万元，相当于比亚迪工人 40 个月的工资，折旧时间却不到 10 个月；一双高自由度灵巧手造价超过 15 万元，每天工作 8 小时，10 天就得返修，而中国工厂仍能用 5000 元月薪招到工人，但头部灵巧手公司的估值已经涨到 200 亿元。
+
+- 根据摩根士丹利研报，去年中国实际出货的具身机器人超过万台，宇树卖了 5215 台。8 月 19 日上市后，宇树市值一度超过 4000 亿。目前，理想、蔚来、小鹏、零跑四家新势力车企的市值加起来也只有 3000 亿，去年它们卖掉了 175 万辆车。
+
+- 2026 年上半年，国内具身智能融资超过 900 亿元，估值超过百亿的企业多达 22 家，资金从机器人本体涌向灵巧手、数据、关节模组和触觉传感器，部分公司成立不到三年估值就超过 200 亿元，甚至出现有公司尚未注册，就已经谈好第二轮融资。
+
+- 200 亿元正在成为头部具身公司的新门槛，7 月，机器人本体公司的融资变慢，估值热潮继续涌到灵巧手和数据，我们跟踪的三家灵巧手公司估值也超过 200 亿，一家才成立一年多，其余两家去年初估值不到 10 亿，20 个月涨了 20 倍。
+
+- 这轮估值上涨没有一套可验证的计算方法，6 月，一位具身投资人决定离职。他形容这个市场：“一个还在萌芽期的领域，如果很多人都说公司融不到多少钱、到不了多少估值，就失去了上桌机会，听起来不像创业，而是打德州扑克。”
+
+- 一些具身公司高管私下吃饭时会互相分享融资的窍门：十个投资人加你，晾几天再通过，就挑一两个见一下，也不告诉他们团队里都有谁，制造神秘感。越是见不着越要见，越神秘越好。
+
+- 具身创业也形成了一种通用模板：一位有跨领域连续创业经历的老手在幕后做操盘人，搭配一位曾在海外师从计算机或人工智能领域泰斗的博士回国担任 CEO，站在台前，沿着他的学术经历给出一套逻辑上可行的框架，打造独特的技术叙事，并不断强化公司的技术形象。
+
+- 把估值做高的办法之一是，投这一轮时就承诺下一轮还领投，几个月内估值就会翻倍。这甚至会出现 “同期不同价” 的情况。“圈子里挣得是圈子外的人的钱。” 投资机构本身就成了估值的一部分。红杉、高瓴等过去相互竞争的基金开始频繁出现在同一个 club deal 里，有投资人解释，“一起赚钱有什么好排斥的？”
+
+- 机器人卖出去了，但真实且可持续的需求仍然很少。宇树2025 年收入 16.99 亿元，卖出 5215 台人形机器人。超过七成收入来自科研教育，只有不到 10% 来自行业应用，能够明确用于制造、巡检和物流的收入只有 1570 万元，目前仍没有工业客户进行大规模采购。
+
+- 各地数采工厂成为新的大买家：数采厂购买机器人，让采集员穿戴设备，操控机器人叠被子、擦桌子和分拣物品等动作，将视觉画面和轨迹数据卖给机器人公司，部分公司还会承诺通过采购数据，把机器人的货款返还给数采厂，收入和需求由此在体系内部循环。
+
+- 有数采创业者和我们透露，目前真机数据售价超过 700 元/小时，一个拥有 100 台机器人的数采厂，每月可以生产约 1 万小时数据，理论上 8 个月就能收回设备成本；实际上，不少机器人长期闲置，数据找不到买家，一座采购了约 8000 万元机器人的数采工厂，因为回本速度不及预期，最后把部分机器人转卖给了学校。
+
+- 产业链公司也在这套循环中获得收益，它们入股、送样、购买机器人，积极参与到这一新的万亿行业中，机器人业务成为他们向投资者解释未来增长的新依据。有锂电材料公司宣布机器人合作后股价上涨 20%，均胜电子与智元合作并召开零部件发布会后，一个月内股价上涨 95%，机器人既是产品，也是估值叙事。
+
+- 智元把这套生态做成了分级经销体系，合作伙伴先购买机器人，再寻找客户和应用场景，年度销售门槛从 200 万元到 2000 万元不等。2025 年，合作伙伴贡献了智元 25% 的销售额，2026 年计划提高到至少 60%，但判断这些收入能否持续，仍要看机器人最终卖给了多少没有股权和供应链关系的客户、库存由谁承担、是否真正验收以及有没有复购。这只取决于机器人的真实能力。
+
+- 资本投入也没有明显转化为技术优势，一家估值超过 200 亿元的公司展示机器人叠毛巾，15 分钟还没叠好；搬箱子则必须使用底部带有固定卡槽的特制箱子，稍微挪动位置就无法工作。过去一年，头部机器人公司的本体和小脑运控算法明显成熟，但机器人大脑的发展还处于非常初级的阶段，泛化能力、稳定性和人工介入频率都没有得到解决。
+
+- 更荒诞的是，估值和研发投入严重脱节，优必选、智元一年的研发投入约 5 亿元，宇树为 1.45 亿元，而一家上半年估值就超过 200 亿元、累计融资约 50 亿元的公司，全年研发投入不到 4000 万元；宇树、松延动力、魔法原子和银河通用上一次春晚，各自花费接近 1 亿元，甚至高于许多公司一整年的研发费用，钱不断融进来，却因为技术路线没有收敛，只能暂时放在账上。
+
+- 算力和数据将成为下一阶段的主要投入方向，但创业公司中拥有千卡以上算力储备的只有 8 家，行业数据产量最高的公司也只有数万小时，单笔最大采购订单不过数百万元；第一人称数据能否替代真机数据、VLA 还是世界模型更有效，技术名词趋于一致，路线本身却并没有因此收敛。机器人行业甚至缺少统一的评价体系和公认的里程碑，技术假设很难在短期内被证伪。
+
+- 具身智能热潮最初由特斯拉的 Optimus 项目点燃。马斯克预计全球人形机器人的长期保有量可能达到 100 亿台，会改变人类社会经济结构。市场将其简化为：汽车的价格、手机的保有量。市场热情最高的时候，数百家供应链公司持续给特斯拉送样，接触 Optimus 工程师的咨询费用一度达到 9600 元/小时。但随着量产时间一再推迟，已有供应商承认过去三年几乎白干，机器人业务的估值也已经跌没了。
+
+- 宇树上市为行业提供了新的价格锚点，但它和大多数具身公司并不相同，它不用靠融资生存，已经证明了自己能量产机器人、获得真实收入并保持较高毛利率。多位机器人创业者和投资人认为，宇树当下真正的核心竞争力是 PCB 走线设计、电机参数调优以及供应链管理。从现有收入和产品能力看，宇树更像一家工程和制造能力很强的智能硬件公司，但它能否进一步成为具身模型公司，仍有待验证。
+
+- 如果二级市场愿意为宇树尚未兑现的“大脑”能力支付高额溢价，一级市场里的具身公司就能继续获得估值空间。如果市场只愿意按照硬件公司的收入和利润给宇树定价，许多仍没有收入、利润和量产能力的创业公司将很难解释，自己凭什么值那么多钱。
+
+- 一位具身投资人把过去几年的心态变化总结成一句顺口溜：质疑泡沫，理解泡沫，拥抱泡沫，享受泡沫，但他没有说第五步是什么。</p><div class="media-grid media-grid--4"><a class="media-item" href="https://pbs.twimg.com/media/HQPBjoLbkAABVtc.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HQPBjoLbkAABVtc.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HQPBrAHawAAL3b-.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HQPBrAHawAAL3b-.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HQPBs64akAAkJrO.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HQPBs64akAAkJrO.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HQPBvJpasAA36M0.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HQPBvJpasAA36M0.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/latepostnews/status/2090730420182900829" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 89</span><span>↻ 9</span><span>↩ 34</span></div><a href="https://x.com/Xudong07452910/status/2090743601319772500" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="matei_zaharia" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/787317891867693061/isUFxFC1_normal.jpg" alt="Matei Zaharia avatar" loading="lazy"></div>
+          <div class="identity"><strong>Matei Zaharia</strong><span>@matei_zaharia · Databricks 联合创始人；Berkeley</span></div>
+          <div class="score">74<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 基础设施 / 数据与 ML 平台</span><time>08-22 02:15 北京</time></div>
+        <p class="post-text original" lang="auto">Really cool results from Sky Lab’s @Andy_ShuoYang to run massive LLMs on local GPUs!</p><p class="post-text translation" lang="zh-CN">Sky Lab 的 @Andy_ShuoYang 在本地 GPU 上运行超大规模 LLM，成果非常酷！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1629407935326732288/5I-3J0Ai_normal.jpg" alt="Shuo Yang avatar" loading="lazy"></div><div><strong>Shuo Yang</strong><span>@Andy_ShuoYang</span></div></div><p class="quote-text original" lang="auto">Your gaming PC can now serve frontier models at interactive speed using official checkpoints without extreme quantization!
+
+Qwen3.6 35B → 8GB RTX 4060 laptop @ 39 tok/s
+
+DeepSeek-V4-Flash 284B → RTX 5090 desktop @ 22-25 tok/s
+
+GLM-5.2 753B → RTX PRO 6000 workstation @ 15 tok/s
+
+Run your claude code or codex now with frontier model for $0
+
+Meet FreeToken 🧵</p><p class="quote-text translation" lang="zh-CN">你的游戏 PC 现在可以用官方 checkpoint，以交互式速度运行前沿模型，而且不需要极端量化！
+
+Qwen3.6 35B → 8GB RTX 4060 笔记本 @ 39 tok/s
+
+DeepSeek-V4-Flash 284B → RTX 5090 台式机 @ 22-25 tok/s
+
+GLM-5.2 753B → RTX PRO 6000 工作站 @ 15 tok/s
+
+现在就用前沿模型运行你的 claude code 或 codex，成本 $0
+
+认识一下 FreeToken 🧵</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2090850214622253056/img/_SeACnM5QW4gluXr.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2090850214622253056/img/_SeACnM5QW4gluXr.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/Andy_ShuoYang/status/2090856976880472439" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 31</span><span>↻ 3</span><span>↩ 1</span></div><a href="https://x.com/matei_zaharia/status/2090865480634716200" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="tim_dettmers" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1998431471304876032/BhUl3uX9_normal.jpg" alt="Tim Dettmers avatar" loading="lazy"></div>
+          <div class="identity"><strong>Tim Dettmers</strong><span>@Tim_Dettmers · AI2 / 研究员</span></div>
+          <div class="score">69<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 基础设施 / 量化</span><time>08-22 02:19 北京</time></div>
+        <p class="post-text original" lang="auto">One dead giveaway is also that Zhipu is one of the only labs that serves models with pretty poor partial prefill tok/s while output tok/s are fast. This model is ~30% faster than GLM 5.3. If the infras is the same, likely ~300-500B or fewer params vs activated params.</p><p class="post-text translation" lang="zh-CN">一个明显的破绽是，Zhipu 是少数几家提供模型服务时部分预填充 tok/s 相当差、但输出 tok/s 很快的实验室之一。这个模型比 GLM 5.3 快约 30%。如果基础设施相同，那么相较于激活参数量，它很可能是约 300-500B 或更少参数。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2070520587659657216/novnWEZQ_normal.jpg" alt="leo 🐾 avatar" loading="lazy"></div><div><strong>leo 🐾</strong><span>@synthwavedd</span></div></div><p class="quote-text original" lang="auto">A new Kimi model, likely K3.1, is now being tested on the Code @arena under the name &quot;korrine&quot;
+
+K3 was tested on the Arena as &quot;kivine&quot; prior to its launch
+
+If anyone&#x27;s wondering, &quot;Ox Alpha&quot; on OpenRouter is the upcoming GLM 5.3 Flash from fellow Chinese lab Zhipu</p><p class="quote-text translation" lang="zh-CN">一款新的 Kimi 模型，可能是 K3.1，正在 Code @arena 上以“korrine”的名称测试。
+
+K3 发布前曾在 Arena 上以“kivine”的名称测试。
+
+如果有人好奇，OpenRouter 上的“Ox Alpha”是另一家中国实验室 Zhipu 即将推出的 GLM 5.3 Flash。</p><a class="quote-link" href="https://x.com/synthwavedd/status/2090814710396387700" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 63</span><span>↻ 3</span><span>↩ 2</span></div><a href="https://x.com/Tim_Dettmers/status/2090866380484608066" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="sh_reya" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1342529111839944705/hzr44mb5_normal.jpg" alt="Shreya Shankar avatar" loading="lazy"></div>
+          <div class="identity"><strong>Shreya Shankar</strong><span>@sh_reya · UC Berkeley / AI 工程研究员</span></div>
+          <div class="score">52<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>08-22 03:30 北京</time></div>
+        <p class="post-text original" lang="auto">Yeah I’d be really curious to exchange notes in a few months. We don’t have custom skills yet but we just added agents.md files that standardize on language, plotting guidelines, repo layout for agent-created PRs, etc. my current rule is that everyone’s agents should be able to make high quality PRs to any of our repos, and that humans gate all PRs. Let’s see how well it works lol</p><p class="post-text translation" lang="zh-CN">是的，我也很想几个月后交流一下经验。我们还没有自定义 skills，但刚刚添加了 agents.md 文件，用来统一语言、绘图规范、agent 创建 PR 的仓库布局等。我目前的规则是，所有人的 agents 都应该能为我们的任意仓库提交高质量 PR，并且所有 PR 都由人来把关。看看效果如何吧 lol</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 3</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/sh_reya/status/2090884297897148528" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="amasad" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div>
+          <div class="identity"><strong>Amjad Masad</strong><span>@amasad · Replit / CEO</span></div>
+          <div class="score">77<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 / 开发者平台</span><time>08-21 22:33 北京</time></div>
+        <p class="post-text original" lang="auto">Not bad!</p><p class="post-text translation" lang="zh-CN">还不错！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1534492626765742080/_v1s7cVA_normal.jpg" alt="Poonam Soni avatar" loading="lazy"></div><div><strong>Poonam Soni</strong><span>@CodeByPoonam</span></div></div><p class="quote-text original" lang="auto">Replit Free Mode vs Gemini 3.7 Flash vs Grok 4.6 vs Claude Opus 5
+
+I asked each of them to create a Subway Surfer clone.
+
+Which one wins for you? https://t.co/kp7MmtcgNj</p><p class="quote-text translation" lang="zh-CN">Replit Free Mode vs Gemini 3.7 Flash vs Grok 4.6 vs Claude Opus 5
+
+我让它们各自创建一个 Subway Surfer 克隆版。
+
+你觉得哪个赢了？https://t.co/kp7MmtcgNj</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2090808739872075776/img/9oINbP9jbIU8QWVR.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2090808739872075776/img/9oINbP9jbIU8QWVR.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/CodeByPoonam/status/2090808854594646106" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 58</span><span>↻ 3</span><span>↩ 8</span></div><a href="https://x.com/amasad/status/2090809505819017412" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="swyx" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx avatar" loading="lazy"></div>
+          <div class="identity"><strong>swyx</strong><span>@swyx · Latent Space / AI Engineer</span></div>
+          <div class="score">69<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 工作流</span><time>08-22 05:08 北京</time></div>
+        <p class="post-text original" lang="auto">i have another saas to kill
+
+(will share results of Kill My SaaS 1 next week!!) https://t.co/zS59XXgYDG</p><p class="post-text translation" lang="zh-CN">我又有一个 SaaS 要干掉
+
+（下周会分享 Kill My SaaS 1 的结果！！）https://t.co/zS59XXgYDG</p>
+
+        <div class="media-grid media-grid--3"><a class="media-item" href="https://pbs.twimg.com/media/HQReaKZWYAAXW40.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HQReaKZWYAAXW40.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HQRmmg4WoAAWmAR.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HQRmmg4WoAAWmAR.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HQRmnW2WwAE2kJA.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HQRmnW2WwAE2kJA.jpg" alt="X post media"><span>IMAGE</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx avatar" loading="lazy"></div><div><strong>swyx</strong><span>@swyx</span></div></div><p class="quote-text original" lang="auto">btw if you havent set your {codex | claude | gemini | devin} automations to autoresearch how to improve your seo/aeo every week you are really truly missing out on free, should-be-commoditizing-but-weirdly-untapped alpha</p><p class="quote-text translation" lang="zh-CN">顺便说一句，如果你还没有把 {codex | claude | gemini | devin} 自动化设置成每周自动研究如何提升你的 seo/aeo，那你真的错过了免费、理应商品化但奇怪地还没被充分挖掘的 alpha</p><a class="quote-link" href="https://x.com/swyx/status/2078244735794413786" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 49</span><span>↻ 3</span><span>↩ 10</span></div><a href="https://x.com/swyx/status/2090908959590740033" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="sh_reya" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1342529111839944705/hzr44mb5_normal.jpg" alt="Shreya Shankar avatar" loading="lazy"></div>
+          <div class="identity"><strong>Shreya Shankar</strong><span>@sh_reya · UC Berkeley / AI 工程研究员</span></div>
+          <div class="score">65<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>08-22 03:06 北京</time></div>
+        <p class="post-text original" lang="auto">It’s really fun to be setting up a lab from scratch in this time of AI agents. Really forces one to think carefully about how to set up slack, GitHub, docs, and other layers of context for AI agents. How to divvy up what context is for humans and what is for agents. How to create standards for open source projects, sharing insights and findings for experiments, given that AI agents are doing all the coding. And all of this is so experimental!!</p><p class="post-text translation" lang="zh-CN">在 AI 智能体时代从零开始搭建实验室真的很有意思。这会迫使人认真思考如何为 AI 智能体搭建 slack、GitHub、文档和其他上下文层；如何划分哪些上下文给人用，哪些给智能体用；在 AI 智能体承担全部编码工作的情况下，如何为开源项目、实验洞察和发现的分享制定标准。而这一切都还非常实验性！！</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 59</span><span>↻ 0</span><span>↩ 5</span></div><a href="https://x.com/sh_reya/status/2090878344388854170" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="simonw" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
+          <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
+          <div class="score">61<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>08-21 17:07 北京</time></div>
+        <p class="post-text original" lang="auto">@ksredelinghuys The only thing I trust is an environment that controls what they can do - that&#x27;s why I use Claude Code for web so much, but I&#x27;ve been experimenting with Apple Containers too</p><p class="post-text translation" lang="zh-CN">@ksredelinghuys 我唯一信任的是能控制它们可做事项的环境——这就是为什么我经常用 Claude Code 做网页，但我最近也在试 Apple Containers</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 3</span><span>↻ 0</span><span>↩ 2</span></div><a href="https://x.com/simonw/status/2090727511751639185" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="fchollet" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2006806326140350470/Kd5oZv-f_normal.jpg" alt="Francois Chollet avatar" loading="lazy"></div>
+          <div class="identity"><strong>Francois Chollet</strong><span>@fchollet · ARC Prize；Keras 作者</span></div>
+          <div class="score">57<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 研究 / 评测</span><time>08-22 01:25 北京</time></div>
+        <p class="post-text original" lang="auto">@MLaurusevicius This was explained upfront at launch; it&#x27;s detailed in the paper.
+
+https://t.co/81kvsxQqnw https://t.co/yE1vIe4zIU</p><p class="post-text translation" lang="zh-CN">@MLaurusevicius 这在发布时就已经提前说明了；论文里有详细说明。
+
+https://t.co/81kvsxQqnw https://t.co/yE1vIe4zIU</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HQQzhvobUAAWqkn.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HQQzhvobUAAWqkn.png" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 10</span><span>↻ 1</span><span>↩ 0</span></div><a href="https://x.com/fchollet/status/2090852808392400976" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">56<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>08-21 14:38 北京</time></div>
+        <p class="post-text original source-only" lang="auto">@qinhaochen1 也没有说它是长期记忆，说是Files API 让 Agent 有一个长期工作的文件空间，</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 0</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/Xudong07452910/status/2090690026921177329" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">54<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>08-22 00:45 北京</time></div>
+        <p class="post-text original" lang="auto">@jaredpalmer Did you see this
+https://t.co/OrqcCpcHrj</p><p class="post-text translation" lang="zh-CN">@jaredpalmer 你看到这个了吗
+https://t.co/OrqcCpcHrj</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div><div><strong>Hamel Husain</strong><span>@HamelHusain</span></div></div><p class="quote-text original" lang="auto">This post is completely outdated FWIW.  Devin is really good now.  One of my favorite tools.
+
+What&#x27;s good about it:
+
+1. UX is really great and super polished
+2. Love how it gives me a video and visual proof of work
+3. It actually works now
+
+Some of it is models are better but the UX/harness is also better.   I suspect this blog post would not be written today.</p><p class="quote-text translation" lang="zh-CN">顺便说一句，这篇文章已经完全过时了。Devin 现在真的很好用，是我最喜欢的工具之一。
+
+它的优点：
+
+1. UX 真的很棒，而且非常精致
+2. 我很喜欢它会给我视频和可视化的工作证明
+3. 它现在真的能用了
+
+其中一部分原因是模型变好了，但 UX/运行框架也变好了。我怀疑现在不会再有人写出这篇博客文章了。</p><a class="quote-link" href="https://x.com/HamelHusain/status/2050363550020055290" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 4</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/HamelHusain/status/2090842669023178821" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="yoheinakajima" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
+          <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
+          <div class="score">45<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>08-22 01:29 北京</time></div>
+        <p class="post-text original" lang="auto">@LeoKoesters @UntappedVC i haven&#x27;t really publicized this yet as it&#x27;s in testing, but if you call +14154198150, my AI assistant should send me a summary email of what you&#x27;re working on</p><p class="post-text translation" lang="zh-CN">@LeoKoesters @UntappedVC 我还没怎么公开宣传这个，因为它还在测试中，但如果你拨打 +14154198150，我的 AI 助手应该会给我发一封邮件，总结你正在做的事情</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 1</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/yoheinakajima/status/2090853817583796539" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+    </main>
+    <footer>Generated 2026-08-22 07:01:14 Asia/Shanghai · Read-only X ingestion via Bird · Translation via Codex</footer>
+  </div>
+</body>
+</html>
