@@ -1,0 +1,819 @@
+{
+  "enabled": true,
+  "backend": "codex exec",
+  "promptVersion": "codex-editorial-v2",
+  "candidates": 49,
+  "retained": 16,
+  "dropped": 33,
+  "droppedPosts": [
+    {
+      "id": "2091251115103002798",
+      "author": "JeffDean",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "社交寒暄",
+      "evidence": "见面寒暄",
+      "rationale": "无技术事实或工程经验"
+    },
+    {
+      "id": "2090957143545450991",
+      "author": "demishassabis",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "祝贺消息",
+      "evidence": "祝贺AISI消息",
+      "rationale": "只有祝贺无技术内容"
+    },
+    {
+      "id": "2091217945661788347",
+      "author": "anilkseth",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "意识哲学讨论",
+      "evidence": "意识是否观察者依赖",
+      "rationale": "哲学观点无AI技术事实"
+    },
+    {
+      "id": "2091215858160779699",
+      "author": "anilkseth",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "意识哲学讨论",
+      "evidence": "颜色与意识观察依赖",
+      "rationale": "概念讨论非工程技术"
+    },
+    {
+      "id": "2091120809284628685",
+      "author": "anilkseth",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "个人纪念",
+      "evidence": "纪念母亲离世",
+      "rationale": "个人内容无技术事实"
+    },
+    {
+      "id": "2091072936262144246",
+      "author": "anilkseth",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "意识能力观点",
+      "evidence": "意识能力非观察依赖",
+      "rationale": "观点讨论非AI技术事实"
+    },
+    {
+      "id": "2091044209293762698",
+      "author": "anilkseth",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "简短回应",
+      "evidence": "仅表情回应",
+      "rationale": "无可判断技术信息"
+    },
+    {
+      "id": "2091298520406127041",
+      "author": "bcherny",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "生活闲聊",
+      "evidence": "咖啡和食物闲聊",
+      "rationale": "无技术事实或经验"
+    },
+    {
+      "id": "2091297823585444254",
+      "author": "bcherny",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "调试询问",
+      "evidence": "询问如何复现",
+      "rationale": "无具体技术事实"
+    },
+    {
+      "id": "2091297743587463595",
+      "author": "bcherny",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "截图请求",
+      "evidence": "只要求截图",
+      "rationale": "无技术内容"
+    },
+    {
+      "id": "2091258355042206148",
+      "author": "bcherny",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "个人状态",
+      "evidence": "每天写代码最开心",
+      "rationale": "个人感受非技术事实"
+    },
+    {
+      "id": "2091258058949484917",
+      "author": "bcherny",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "简短预告",
+      "evidence": "只说Soon",
+      "rationale": "无事实细节"
+    },
+    {
+      "id": "2091240932670886374",
+      "author": "bcherny",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Claude Code UX修复",
+      "evidence": "非bug而是UX问题",
+      "rationale": "仅有修复状态信息"
+    },
+    {
+      "id": "2091218706097660271",
+      "author": "amasad",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "政治评论",
+      "evidence": "评论中东定居者",
+      "rationale": "与AI技术无关"
+    },
+    {
+      "id": "2091217410615644349",
+      "author": "amasad",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "时间吐槽",
+      "evidence": "Pretty soon为3个月",
+      "rationale": "缺少技术事实"
+    },
+    {
+      "id": "2091189918420849059",
+      "author": "amasad",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "账单频率",
+      "evidence": "每200美元开票",
+      "rationale": "计费说明非技术"
+    },
+    {
+      "id": "2091034279924928803",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "OpenRouter数据评价",
+      "evidence": "称数据有参考价值",
+      "rationale": "只有观点无技术事实"
+    },
+    {
+      "id": "2091280994896675027",
+      "author": "c_valenzuelab",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "链接转发",
+      "evidence": "仅有一个链接",
+      "rationale": "无可审读技术事实"
+    },
+    {
+      "id": "2091280685071794429",
+      "author": "c_valenzuelab",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Runway收入增长",
+      "evidence": "NRR超过300%",
+      "rationale": "商业指标非技术事实"
+    },
+    {
+      "id": "2091238438439682310",
+      "author": "c_valenzuelab",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "社交回复",
+      "evidence": "只有表情回复",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2091205992952262907",
+      "author": "c_valenzuelab",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "社交邀请",
+      "evidence": "invite me",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2091202434026639583",
+      "author": "c_valenzuelab",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "行程回复",
+      "evidence": "Yes, coming",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2091201935634317458",
+      "author": "c_valenzuelab",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Runway市场扩张",
+      "evidence": "Runway进入LATAM",
+      "rationale": "市场动态，无技术事实"
+    },
+    {
+      "id": "2091165831421923519",
+      "author": "c_valenzuelab",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "简短回复",
+      "evidence": "仅回复Yes",
+      "rationale": "无技术事实或经验"
+    },
+    {
+      "id": "2091285944490131947",
+      "author": "HamelHusain",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "安装回复",
+      "evidence": "仅说Install it",
+      "rationale": "无可用技术信息"
+    },
+    {
+      "id": "2091241919645171958",
+      "author": "HamelHusain",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "故障追问",
+      "evidence": "询问bricking原因",
+      "rationale": "只有问题，无事实"
+    },
+    {
+      "id": "2091237144971092038",
+      "author": "HamelHusain",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Codex集成故障",
+      "evidence": "codex+twitter集成异常",
+      "rationale": "提到集成故障但缺细节"
+    },
+    {
+      "id": "2091236943875260814",
+      "author": "HamelHusain",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Omarchy评价",
+      "evidence": "只说Looks amazing",
+      "rationale": "纯评价无技术事实"
+    },
+    {
+      "id": "2091161486899249387",
+      "author": "HamelHusain",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回应",
+      "evidence": "只说会是好内容",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2091039869221183816",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "表情回复",
+      "evidence": "仅有表情回复",
+      "rationale": "无技术信息"
+    },
+    {
+      "id": "2091010891324264561",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "社交回应",
+      "evidence": "仅表示喜欢",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2091186802367549945",
+      "author": "jackclarkSF",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI进展观点",
+      "evidence": "讨论AI进展问题",
+      "rationale": "观点表达无技术事实"
+    },
+    {
+      "id": "2091263662854205596",
+      "author": "DrJimFan",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "应用闲聊",
+      "evidence": "说不删除应用",
+      "rationale": "无技术事实"
+    }
+  ],
+  "topStories": [
+    {
+      "id": "2091016260217884796",
+      "author": "Xudong07452910",
+      "category": "AI 技术前沿",
+      "rationale": "EnvHarness五基准最高提升9点"
+    },
+    {
+      "id": "2090969732568772909",
+      "author": "gdb",
+      "category": "AI 技术应用",
+      "rationale": "GPT-5.6 Sol API降价超20%"
+    },
+    {
+      "id": "2091231519293751458",
+      "author": "jerryjliu0",
+      "category": "AI 技术前沿",
+      "rationale": "ParseBench比较抽取成本准确率"
+    }
+  ],
+  "reviewedPosts": [
+    {
+      "id": "2091251115103002798",
+      "author": "JeffDean",
+      "text": "@earandasaez @DiscoLoopAI Great meeting you and your little one!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "社交寒暄",
+      "evidence": "见面寒暄",
+      "rationale": "无技术事实或工程经验"
+    },
+    {
+      "id": "2090957143545450991",
+      "author": "demishassabis",
+      "text": "@HZoete Congrats @HZoete ! Great news for the AISI!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "祝贺消息",
+      "evidence": "祝贺AISI消息",
+      "rationale": "只有祝贺无技术内容"
+    },
+    {
+      "id": "2091217945661788347",
+      "author": "anilkseth",
+      "text": "Thanks. And I agree. If @blaiseaguera is saying (A) that consciousness is constituvely relational, that’s fine. But I then struggle to understand his claim (B) that consciousness is observer dependent, which comes in via the phrase “to be conscious is to be an observer”.  B does not follow from A without additional support (the phrase).",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "意识哲学讨论",
+      "evidence": "意识是否观察者依赖",
+      "rationale": "哲学观点无AI技术事实"
+    },
+    {
+      "id": "2091215858160779699",
+      "author": "anilkseth",
+      "text": "🎹🎹😎Defined your way, it is. But I think we’re using observer dependency in two different ways.  I’m using it in contrast with inherentness.  In this sense, surface spectral reflectance properties are observer independent but colour is observer dependent.  You seem to be using it in a more ontological way (“to ‘be’ conscious *is* to be an observer”) while still contrasting with inherentness.  (“Consciousness is not an inherent, objective property but something relational between entities”). To me this begs the question of what you mean by “entity”?",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "意识哲学讨论",
+      "evidence": "颜色与意识观察依赖",
+      "rationale": "概念讨论非工程技术"
+    },
+    {
+      "id": "2091120809284628685",
+      "author": "anilkseth",
+      "text": "A year ago today we said final goodbyes to my mother.  She lived a full life. Time passes so quickly.  Love you, mum. https://t.co/aSWkmcPWVn",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "个人纪念",
+      "evidence": "纪念母亲离世",
+      "rationale": "个人内容无技术事实"
+    },
+    {
+      "id": "2091072936262144246",
+      "author": "anilkseth",
+      "text": "@blaiseaguera @TheEconomist Hmm you won’t be surprised that I think this entirely the wrong way to approach the question.  Some things have the capacity for consciousness.  Others don’t. This capacity is neither observer dependent nor is it dependent on (a history of) social interaction.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "意识能力观点",
+      "evidence": "意识能力非观察依赖",
+      "rationale": "观点讨论非AI技术事实"
+    },
+    {
+      "id": "2091044209293762698",
+      "author": "anilkseth",
+      "text": "@ThosVarley 💯",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "简短回应",
+      "evidence": "仅表情回应",
+      "rationale": "无可判断技术信息"
+    },
+    {
+      "id": "2090957747080790110",
+      "author": "Ken_Goldberg",
+      "text": "I agree w/ most of this with one addition: Agentic Robotics: https://t.co/LY5cMlNFtS",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "机器人智能体",
+      "evidence": "提到Agentic Robotics",
+      "rationale": "技术相关但缺少细节证据"
+    },
+    {
+      "id": "2091299496454135980",
+      "author": "bcherny",
+      "text": "We have been working on it since we released remote control earlier this year. It’s really hard to make starting sessions on your laptop from your phone secure by default, and we would not ship this until we could stand behind the security. Lots of pieces to make this safe: device trust and verification, prompt injection protection, much more. Expect more updates soon.",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "Claude Code远程会话安全",
+      "evidence": "设备信任与提示注入防护",
+      "rationale": "有具体安全工程要点"
+    },
+    {
+      "id": "2091298520406127041",
+      "author": "bcherny",
+      "text": "@NaderLikeLadder I used to hang out there all the time when I lived in the peninsula! Great coffee+food",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "生活闲聊",
+      "evidence": "咖啡和食物闲聊",
+      "rationale": "无技术事实或经验"
+    },
+    {
+      "id": "2091297823585444254",
+      "author": "bcherny",
+      "text": "@VictorWilsonDev @dedene How can I repro? That definitely shouldn’t be happening",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "调试询问",
+      "evidence": "询问如何复现",
+      "rationale": "无具体技术事实"
+    },
+    {
+      "id": "2091297743587463595",
+      "author": "bcherny",
+      "text": "@fabriciocarraro @dedene Screenshot?",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "截图请求",
+      "evidence": "只要求截图",
+      "rationale": "无技术内容"
+    },
+    {
+      "id": "2091258355042206148",
+      "author": "bcherny",
+      "text": "@dedene I am happiest when I code every day",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "个人状态",
+      "evidence": "每天写代码最开心",
+      "rationale": "个人感受非技术事实"
+    },
+    {
+      "id": "2091258058949484917",
+      "author": "bcherny",
+      "text": "@viticci Soon",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "简短预告",
+      "evidence": "只说Soon",
+      "rationale": "无事实细节"
+    },
+    {
+      "id": "2091240932670886374",
+      "author": "bcherny",
+      "text": "@dedene Update: this was not a bug, but it is a ux issue that we have a fix for. Going out in a bit.",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Claude Code UX修复",
+      "evidence": "非bug而是UX问题",
+      "rationale": "仅有修复状态信息"
+    },
+    {
+      "id": "2091231519293751458",
+      "author": "jerryjliu0",
+      "text": "One of the interesting properties we’ve observed around schema-guided, complex document extraction tasks 📑 is that coding agent harnesses are good baselines (in terms of cost/accuracy) for longer documents.\n\nWe tested Claude Code and Codex, along with specialized OCR tools (including LlamaParse) and raw VLMs.\n\n* On short documents, specialized OCR tools are generally a fraction of the cost of coding agents, with equivalent or higher accuracy\n* On longer documents, coding agents are a bit closer to the cost/accuracy Pareto curve (see bottom graph)\n\nIt’s an interesting result, though ultimately not surprising. Complex document extraction is a specialized reasoning task, and coding agents are effectively generalized reasoning harnesses. Over long documents, coding agents have more room to use a variety of tools to search snippets of the document instead of loading the entire document into context. They can also make use of prompt caching to reduce total token cost even as it expands multi-step reasoning. On the flip side, they do generate a baseline degree of token usage that proves to be wasteful for shorter docs compared to specialized extractors.\n\nThis specific graph is in our Appendix D in the ParseBench paper, come check it out!\n\nArXiv: https://t.co/s5azzQVGoZ\nExtractBench: https://t.co/VapjcfLa1B",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "文档抽取基准",
+      "evidence": "测Claude Code和Codex",
+      "rationale": "有成本准确率工程结论"
+    },
+    {
+      "id": "2091218706097660271",
+      "author": "amasad",
+      "text": "@MarioNawfal Imagine how evil &amp; sadistic you have to be to go from a comfortable life in the west to move to be a “settler” in rural Middle East to abuse animals, children, and the elderly.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "政治评论",
+      "evidence": "评论中东定居者",
+      "rationale": "与AI技术无关"
+    },
+    {
+      "id": "2091217410615644349",
+      "author": "amasad",
+      "text": "“Pretty soon” turned out to be 3 months. https://t.co/LC19TuXUuP",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "时间吐槽",
+      "evidence": "Pretty soon为3个月",
+      "rationale": "缺少技术事实"
+    },
+    {
+      "id": "2091189918420849059",
+      "author": "amasad",
+      "text": "@NoorHKJ @Replit This is not a limit change. It’s just that we don’t invoice you every $50 you spend but we invoice you instead every $200. Frequency change. Basically we trust you ;)",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "账单频率",
+      "evidence": "每200美元开票",
+      "rationale": "计费说明非技术"
+    },
+    {
+      "id": "2091118186854822355",
+      "author": "Xudong07452910",
+      "text": "如果你的初创团队经常用 Claude Code 做真实项目，那就推荐看 Anthropic 这篇创业公司使用指南。\n\n他们采访了十多家高增长创业公司，感受是这些团队已经开始重新设计整个产品研发流程了。\n\n很多机械性的工作会直接交给 Agent。写测试、修小 bug、处理重复任务，甚至部分 bug triage 都开始自动跑。\n\n同时，非工程岗位也开始直接参与 Build。产品、设计、运营可以先用 Claude Code 做出原型，再让工程师接手真正需要工程判断的部分。\n\n但 Agent 用得越深入，这些团队反而越重视验证环节。\n\nCLAUDE.md、测试、Eval、Hooks、golden set 都要提前搭好。因为只有验收标准足够清楚，Agent 才能真的把一段工作完整接过去，而不是每一步都等人检查。\n\n还有一点我很喜欢。\n\n一些团队已经默认现在写的系统以后还会被重构，甚至直接重写。模型能力变化太快，与其把架构一次设计到「完美」，不如让系统保持容易修改。\n\nAgent 把重构、迁移和重新实现的成本压低以后，「敢不敢快速推翻上一版」也开始变成一种工程能力。\n\n有了 AI Coding ，从谁可以参与 Build，到任务怎么拆、怎么验证、怎么重构，整个产品开发流程都在被重新设计。\n\n文章\nhttps://t.co/peibKS1LgP",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "Claude Code创业团队实践",
+      "evidence": "测试EvalHooks预搭",
+      "rationale": "可复用Agent工程流程"
+    },
+    {
+      "id": "2091084459533574642",
+      "author": "Xudong07452910",
+      "text": "Pew Research 最近测了近 49 万个英文网页，总结出有意思的发现。\n\n到 2026 年 7 月，整个互联网样本里大约 10% 的页面已经有明显 AI 写作或编辑痕迹。\n\n不过这个数字被大量旧网页稀释了。\n\n如果只看 ChatGPT 发布之后的新页面，比例已经超过三分之一。\n\n而且 AI 对互联网语言本身也开始产生影响。和 2023 年相比，破折号出现频率翻倍，一些 AI 常用词明显增加，连「不是，而是」这种句式都快变成 AI 文风了。\n\n还有就是商业网站里的 AI 痕迹更多，.com 接近 10%，.edu 和 .gov 只有约 1%。\n\n以后网上AI 写的东西也会越来越多吧，也也很难辨别了。\n\n现在 AI 不只是在生产新内容，人类写作本身也开始被 AI 的表达方式反过来影响。\n\n文章\nhttps://t.co/rCWH6rpAvn",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "AI生成网页研究",
+      "evidence": "10%网页有AI写作痕迹",
+      "rationale": "有研究数据但工程价值有限"
+    },
+    {
+      "id": "2091034279924928803",
+      "author": "Xudong07452910",
+      "text": "@Tz_2022 有道理的! openrouter数据还是非常有参考价值的",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "OpenRouter数据评价",
+      "evidence": "称数据有参考价值",
+      "rationale": "只有观点无技术事实"
+    },
+    {
+      "id": "2091016260217884796",
+      "author": "Xudong07452910",
+      "text": "Agent 在不断进化，但训练它的环境，很多时候还停在原地。\n\nGoogle Cloud AI Research 等团队这篇 EnvHarness，开始把「Harness」放到环境这一侧。\n\n传统 benchmark 的任务和规则通常是固定的。Agent 变强以后，原来的环境很快失去训练价值，也很难针对它当前最薄弱的能力继续出题。\n\nEnvHarness 会在现有环境外加一层可编程组件，通过改变初始状态、交互规则，或者组合多个任务，动态生成更适合当前 Agent 的训练环境。\n\n更关键的是，它保留原来的环境逻辑和 verifier，所以不用重新解决「新生成任务到底有没有正确答案」这个麻烦。\n\n配套的 EnvRigger 会观察 Agent 的成功和失败轨迹，找到具体弱点，再自动生成针对性的环境，跑新的 rollout 验证效果。\n\n实验覆盖 ALFWorld、WebArena、SWE-bench Verified、OfficeQA 和 SpreadsheetBench 五个 benchmark。使用 EnvHarness 生成的环境学习后，held-out 任务最高提升 9 个点，同时执行步骤减少 9.8%；用于 RL 时，提升最高达到 6.5 个点。\n\n这篇最有价值的地方在于，它把 Agent 自进化又扩了一层：\n\nAgent 可以根据环境学习，环境也可以根据 Agent 暴露出的弱点继续变化。\n\n以后持续进化的系统会同时维护两个循环，Agent 在变强，训练它的世界也跟着一起变。\n\n📎 arxiv: https://t.co/Om5FmkL5DG",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "Agent训练环境EnvHarness",
+      "evidence": "held-out最高提升9点",
+      "rationale": "新研究含方法与实验效果"
+    },
+    {
+      "id": "2090987319440343458",
+      "author": "Xudong07452910",
+      "text": "我们一直在追最强模型又变强了多少，但这篇文章让我开始更关注另一条曲线。\n\n同样水平的智能，到底在以多快的速度变便宜。\n\n作者统计发现，今年 2 月还要大约 1.22 美元完成的任务，现在同等能力只需要 0.022 美元。\n\n不到半年，便宜了约 56 倍。\n\n这件事带来的变化会比模型在 Benchmark 再涨几分更大。\n\n当一次调用便宜到几分钱，很多以前舍不得做的事情都可以直接暴力规模化。\n\n不是抽样读 100 篇论文，而是把 1 万篇全部读完。\n\n一个任务也不用只跑一次，可以跑三遍、五遍，再互相验证。\n\n不过有意思的是，智能变便宜以后，我们花在 AI 上的钱可能反而更多。\n\n因为真正爆发的，会是以前「太贵所以根本没人做」的那些任务。\n\n如果智能真的以这个速度商品化，以后最稀缺的会是知道该让 AI 做什么，有可靠的 Ground Truth，以及能把大量智能组织起来的系统。\n\n文章\nhttps://t.co/FhjKZY2H26",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "AI任务成本下降",
+      "evidence": "同等任务成本降至0.022美元",
+      "rationale": "有成本数据和系统启发"
+    },
+    {
+      "id": "2090968445378814364",
+      "author": "Xudong07452910",
+      "text": "吴恩达这次把 AI Engineer 到底该学什么，拆得越来越细了。\n\n最新这一篇专门讲「怎么构建和部署 AI 应用」，一共分成 6 块能力。\n\nLLM 基础、数据 Grounding、Agentic Systems、Eval 驱动开发、生产环境运行，还有 ML 基础。\n\n我看完最有感触的是 Eval 部分。\n\n吴恩达直接说，他观察下来，真正擅长做 AI 系统的人，一个很明显的区别就是能不能持续跑好「Eval → Error Analysis → 下一轮改进」这个循环。\n\n因为 AI 系统的输出本身就不稳定，很多时候没办法像传统软件一样，提前把整个开发路径规划清楚。\n\nAgent 这块也已经讲得很完整了。\n\nTools、MCP、Memory、Context、Harness、Multi-Agent、Sandbox、安全和 Guardrails，基本都进了能力地图。\n\n看这张图会发现，现在所谓 AI Engineering，已经远远超过「会写 Prompt、会调 API」这一层了。\n\n现在难得是怎么把一个输出不稳定的模型，工程化成一个可以长期稳定工作的系统。\n\n这张技能地图很适合收藏下来，看看自己还缺哪一块。",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "AI工程能力地图",
+      "evidence": "覆盖Eval和Agent系统",
+      "rationale": "可复用工程能力框架"
+    },
+    {
+      "id": "2091280994896675027",
+      "author": "c_valenzuelab",
+      "text": "https://t.co/alIy9fO5tC",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "链接转发",
+      "evidence": "仅有一个链接",
+      "rationale": "无可审读技术事实"
+    },
+    {
+      "id": "2091280685071794429",
+      "author": "c_valenzuelab",
+      "text": "we’ve grown our NRR to over 300%, and revenue has more than doubled in just a few months.\n\nA snapshot and some reflections from Sean, our CRO, after a few months at Runway. https://t.co/0zc06uTVSh",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Runway收入增长",
+      "evidence": "NRR超过300%",
+      "rationale": "商业指标非技术事实"
+    },
+    {
+      "id": "2091238438439682310",
+      "author": "c_valenzuelab",
+      "text": "@jongranskog 🐐",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "社交回复",
+      "evidence": "只有表情回复",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2091205992952262907",
+      "author": "c_valenzuelab",
+      "text": "@Inspirational2m @GobiernodeChile invite me",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "社交邀请",
+      "evidence": "invite me",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2091202434026639583",
+      "author": "c_valenzuelab",
+      "text": "@SikVicisLuv @GobiernodeChile Yes, coming",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "行程回复",
+      "evidence": "Yes, coming",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2091201935634317458",
+      "author": "c_valenzuelab",
+      "text": "Runway is officially coming to LATAM. Last month, we visited our customers in Brazil, and now it’s Chile 🇨🇱 We’re meeting with some of the most important companies and customers in Chile and also with @GobiernodeChile. We also have a few community events, so if you’re there, make sure to join us.\n\nLATAM is becoming an incredibly important user base for Runway. We’re already in Japan, France, and the UK, and we’ll continue our global expansion to make sure Runway reaches every corner of the world.\n\nDos chilenos de vuelta a su país @matamalaortiz",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Runway市场扩张",
+      "evidence": "Runway进入LATAM",
+      "rationale": "市场动态，无技术事实"
+    },
+    {
+      "id": "2091165831421923519",
+      "author": "c_valenzuelab",
+      "text": "@Narcisse4Real Yes",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "简短回复",
+      "evidence": "仅回复Yes",
+      "rationale": "无技术事实或经验"
+    },
+    {
+      "id": "2091286499488935948",
+      "author": "HamelHusain",
+      "text": "@smart @ScottWu46 I don’t know why everyone is commenting on an 18 month old post all of a sudden but I posted this a long time ago",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "Devin工程体验",
+      "evidence": "UX和harness更好",
+      "rationale": "含工具改进和使用反馈"
+    },
+    {
+      "id": "2091285944490131947",
+      "author": "HamelHusain",
+      "text": "@aronchick Install it?",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "安装回复",
+      "evidence": "仅说Install it",
+      "rationale": "无可用技术信息"
+    },
+    {
+      "id": "2091273234851549617",
+      "author": "sh_reya",
+      "text": "we've been iterating a lot on how DocWriter internally represents a user's writing style!\n\nthe naive approach is to dump all a user's prior writing in context and pray the AI figures out how to sound like them. this doesn't really work. and the user can't just manually specify their style either, because nobody knows what their meaningful writing preferences  (for an AI agent) actually are.\n\nso we've built a multi-agent pipeline that runs lexical, grammatical, and discourse analyses on the user's writing, extracts specific patterns with evidence, and then surfaces them in a UI where the user can confirm or reject each pattern by comparing two passages side by side\n\nTBD on how well it performs in our next round of user studies 😆 it feels like we are really trying to do anything possible to avoid fine-tuning, but perhaps we need to bite the bullet eventually",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "写作风格AI代理",
+      "evidence": "多代理分析写作模式",
+      "rationale": "具体代理管线与验证UI"
+    },
+    {
+      "id": "2091241919645171958",
+      "author": "HamelHusain",
+      "text": "@skylar_b_payne oh wow what kinds of things led to the bricking",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "故障追问",
+      "evidence": "询问bricking原因",
+      "rationale": "只有问题，无事实"
+    },
+    {
+      "id": "2091240936089194978",
+      "author": "HamelHusain",
+      "text": "@gabriel1 yeah!  @raindrop_ai  is focused on deriving errors from your traces.  I like it\n\nYou can avoid generic metrics in any eval framework, but that they really focus on this",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "AI评测错误提取",
+      "evidence": "从traces导出错误",
+      "rationale": "技术相关但信息较窄"
+    },
+    {
+      "id": "2091237144971092038",
+      "author": "HamelHusain",
+      "text": "@jxnlco Hey jason your codex + twitter integration is going off the rails again",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Codex集成故障",
+      "evidence": "codex+twitter集成异常",
+      "rationale": "提到集成故障但缺细节"
+    },
+    {
+      "id": "2091236943875260814",
+      "author": "HamelHusain",
+      "text": "It's incredibly hard not to get nerdsniped by Omarchy \n\nLooks amazing",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Omarchy评价",
+      "evidence": "只说Looks amazing",
+      "rationale": "纯评价无技术事实"
+    },
+    {
+      "id": "2091228435142283376",
+      "author": "HamelHusain",
+      "text": "BTW I was previously more hostile towards watermarks than I should have been.   \n\nI was confused by the communication from Ant and should have dug into the technical details more 😞",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "水印技术沟通",
+      "evidence": "应深挖水印技术细节",
+      "rationale": "相关但未给具体细节"
+    },
+    {
+      "id": "2091227315279896812",
+      "author": "HamelHusain",
+      "text": "@rasbt @Pakgowithai I think people add that on X as a joke btw, in the composer you click the flag icon and toggle the \"made with AI\" disclosure.  \n\nI'll even do it with this reply https://t.co/btYudiuePh",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "AI内容披露",
+      "evidence": "X可切换AI披露",
+      "rationale": "产品功能事实但很窄"
+    },
+    {
+      "id": "2091225308771098789",
+      "author": "HamelHusain",
+      "text": "Nice explainer of watermarking from @rasbt.  I agree that a likely outcome of watermarking will be people using tools (i.e. small local LLMs) to remove watermarks, which might result in worse writing.\n\nMaybe? it will force people to edit their writing and they won't blindly launder it, but maybe that's too much hopeful thinking.",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "LLM水印",
+      "evidence": "讲解采样与水印检测",
+      "rationale": "包含可复用技术机制"
+    },
+    {
+      "id": "2091161486899249387",
+      "author": "HamelHusain",
+      "text": "@petergyang @sh_reya 🙌 this will be a good one!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回应",
+      "evidence": "只说会是好内容",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2091039869221183816",
+      "author": "yoheinakajima",
+      "text": "@MikeKhristo 😵‍💫",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "表情回复",
+      "evidence": "仅有表情回复",
+      "rationale": "无技术信息"
+    },
+    {
+      "id": "2091010891324264561",
+      "author": "yoheinakajima",
+      "text": "@alexisohanian love this :)",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "社交回应",
+      "evidence": "仅表示喜欢",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2091233235355496810",
+      "author": "gdb",
+      "text": "agentic adoption has been super fast, easy to forget how far the field has come",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Agent采用量",
+      "evidence": "每周超10B tokens",
+      "rationale": "有用量事实但缺实现细节"
+    },
+    {
+      "id": "2091186802367549945",
+      "author": "jackclarkSF",
+      "text": "@togelius Thanks for your courage in publishing this! Many people feel this way. How could we not? The questions invited by continued AI progress are vast and uncomfortable and it's crucial that we create a better body of work in public to help the world think about this.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI进展观点",
+      "evidence": "讨论AI进展问题",
+      "rationale": "观点表达无技术事实"
+    },
+    {
+      "id": "2090969732568772909",
+      "author": "gdb",
+      "text": "towards giving our customers the lowest price on the market for any task, as well as the highest ceiling on capability",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "GPT-5.6 Sol定价",
+      "evidence": "API价格降超20%",
+      "rationale": "正式价格变更影响开发"
+    },
+    {
+      "id": "2091263662854205596",
+      "author": "DrJimFan",
+      "text": "@ericjang11 @maganjot79705 @chelseabfinn @svlevine @hausman_k @peteflorence @tonyzzhao @chichengcc @LerrelPinto @animesh_garg @xiao_ted @chris_j_paxton never deleting this app",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "应用闲聊",
+      "evidence": "说不删除应用",
+      "rationale": "无技术事实"
+    }
+  ]
+}

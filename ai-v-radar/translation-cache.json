@@ -6308,7 +6308,82 @@
       "source": "@LeoKoesters @UntappedVC i haven't really publicized this yet as it's in testing, but if you call +14154198150, my AI assistant should send me a summary email of what you're working on",
       "zh": "@LeoKoesters @UntappedVC 我还没怎么公开宣传这个，因为它还在测试中，但如果你拨打 +14154198150，我的 AI 助手应该会给我发一封邮件，总结你正在做的事情",
       "promptVersion": "codex-v1"
+    },
+    "5439b10465a4e685aa7327716acd17eb09d126cffe3085fd03fd09229db03e92": {
+      "source": "We have been working on it since we released remote control earlier this year. It’s really hard to make starting sessions on your laptop from your phone secure by default, and we would not ship this until we could stand behind the security. Lots of pieces to make this safe: device trust and verification, prompt injection protection, much more. Expect more updates soon.",
+      "zh": "自今年早些时候发布远程控制以来，我们一直在做这件事。要让你能从手机安全地默认启动笔记本上的会话，真的很难；在我们能够为其安全性背书之前，不会发布。要确保安全涉及很多环节：设备信任与验证、提示注入防护等等。很快会有更多更新。",
+      "promptVersion": "codex-v1"
+    },
+    "d0fd9e32264a1f18315d1de9bd4b8afd00c54258d0e085d90aa1db358def0fed": {
+      "source": "@smart @ScottWu46 I don’t know why everyone is commenting on an 18 month old post all of a sudden but I posted this a long time ago",
+      "zh": "@smart @ScottWu46 我不知道为什么大家突然都在评论一条 18 个月前的帖子，但这是我很久以前发的",
+      "promptVersion": "codex-v1"
+    },
+    "cbf069efeaa47855587746a17cb950719ecd572c4871d6b0e31c0ef2c41ed9fd": {
+      "source": "agentic adoption has been super fast, easy to forget how far the field has come",
+      "zh": "agentic 的采用速度非常快，很容易忘记这个领域已经走了多远",
+      "promptVersion": "codex-v1"
+    },
+    "c5b6d51a30f9c7ea836190f9724a801d8a87fc7ce4a85a80476ce961ec750a7d": {
+      "source": "Not even a year ago, 10B tokens in a year was a big achievement and got you a plaque\n\nNow I do &gt;10B tokens a week",
+      "zh": "不到一年前，一年 100 亿 tokens 还是一项很大的成就，还能拿到一块纪念牌\n\n现在我一周就用掉 &gt;100 亿 tokens",
+      "promptVersion": "codex-v1"
+    },
+    "084171f99a7f26b614e98be45a84322c86ea10fd27b0834df4638901485d20e9": {
+      "source": "I agree w/ most of this with one addition: Agentic Robotics: https://t.co/LY5cMlNFtS",
+      "zh": "我基本同意这些，只补充一点：Agentic Robotics：https://t.co/LY5cMlNFtS",
+      "promptVersion": "codex-v1"
+    },
+    "2027324583fa2051a1d3276716b80d6974a3c91458bab5e175df8b5cbe6d2f4e": {
+      "source": "“The consequence is that there is likely no singular ChatGPT moment coming for robotics, and that is not a bearish take.”\n\nInteresting read.",
+      "zh": "“结果是，机器人领域可能不会出现一个单一的 ChatGPT 时刻，而这并不是看空的观点。”\n\n挺有意思的一篇。",
+      "promptVersion": "codex-v1"
+    },
+    "6272320065b5b3940d754b33388657e845775dd0c9253bb20cb4e93e34f3deb0": {
+      "source": "@gabriel1 yeah!  @raindrop_ai  is focused on deriving errors from your traces.  I like it\n\nYou can avoid generic metrics in any eval framework, but that they really focus on this",
+      "zh": "@gabriel1 是的！@raindrop_ai 专注于从你的 traces 中推导错误。我挺喜欢\n\n在任何 eval 框架里你都可以避免泛泛的指标，但他们真的很专注这一点",
+      "promptVersion": "codex-v1"
+    },
+    "f9f6a701f25b389da44153ec7434b3bcc57213eabfa00f7bd4dccb13f719c48a": {
+      "source": "towards giving our customers the lowest price on the market for any task, as well as the highest ceiling on capability",
+      "zh": "努力为客户在任何任务上提供市场最低价格，同时提供能力上限最高的服务",
+      "promptVersion": "codex-v1"
+    },
+    "20a141b2f10d89570dfbe88a4c9a5f867e1e40934f0361506acf84dc2f3d74a3": {
+      "source": "As we continue to push the frontier of capabilities while improving efficiency, we're dropping API and credit pricing of GPT-5.6 Sol by over 20% for the next 3 months. https://t.co/UoTb3hcB2t",
+      "zh": "随着我们持续推进能力前沿并提升效率，未来 3 个月内，GPT-5.6 Sol 的 API 和积分价格将下调 20% 以上。https://t.co/UoTb3hcB2t",
+      "promptVersion": "codex-v1"
+    },
+    "bc400480011c0dcef5a6a6fb02ecb07f076ab78b58d9ea0946c2d777ae0e6cac": {
+      "source": "One of the interesting properties we’ve observed around schema-guided, complex document extraction tasks 📑 is that coding agent harnesses are good baselines (in terms of cost/accuracy) for longer documents.\n\nWe tested Claude Code and Codex, along with specialized OCR tools (including LlamaParse) and raw VLMs.\n\n* On short documents, specialized OCR tools are generally a fraction of the cost of coding agents, with equivalent or higher accuracy\n* On longer documents, coding agents are a bit closer to the cost/accuracy Pareto curve (see bottom graph)\n\nIt’s an interesting result, though ultimately not surprising. Complex document extraction is a specialized reasoning task, and coding agents are effectively generalized reasoning harnesses. Over long documents, coding agents have more room to use a variety of tools to search snippets of the document instead of loading the entire document into context. They can also make use of prompt caching to reduce total token cost even as it expands multi-step reasoning. On the flip side, they do generate a baseline degree of token usage that proves to be wasteful for shorter docs compared to specialized extractors.\n\nThis specific graph is in our Appendix D in the ParseBench paper, come check it out!\n\nArXiv: https://t.co/s5azzQVGoZ\nExtractBench: https://t.co/VapjcfLa1B",
+      "zh": "我们在围绕 schema 引导的复杂文档抽取任务 📑 中观察到一个有趣特性：对于较长文档，编码智能体框架在成本/准确率方面是不错的基线。\n\n我们测试了 Claude Code 和 Codex，以及专门的 OCR 工具（包括 LlamaParse）和原始 VLM。\n\n* 对于短文档，专门的 OCR 工具通常只需编码智能体几分之一的成本，准确率相当或更高\n* 对于较长文档，编码智能体在成本/准确率帕累托曲线上更接近一些（见底部图表）\n\n这是个有趣的结果，不过最终并不意外。复杂文档抽取是一种专门的推理任务，而编码智能体本质上是通用推理框架。面对长文档时，编码智能体有更多空间使用多种工具来搜索文档片段，而不是把整篇文档加载进上下文。它们还可以利用 prompt 缓存来降低总 token 成本，即便多步推理规模扩大。另一方面，相比专门抽取器，它们会产生一定的基线 token 用量，对短文档来说显得浪费。\n\n这张具体图表位于 ParseBench 论文的附录 D，欢迎查看！\n\nArXiv: https://t.co/s5azzQVGoZ\nExtractBench: https://t.co/VapjcfLa1B",
+      "promptVersion": "codex-v1"
+    },
+    "de606781fd9b356bbaffd4769c7f313d5510d1d7de93aca7cae16e517ed7914f": {
+      "source": "AI Engineering Skills Map: Building and Deploying AI Applications",
+      "zh": "AI 工程技能图谱：构建和部署 AI 应用",
+      "promptVersion": "codex-v1"
+    },
+    "f880e2a90535f63559b6d7c8b234130a9f449b87413441cbd9b4194ad21b6d3b": {
+      "source": "I previously wrote about our AI Engineering Skills Map, with the highest level skills being (i) Building and deploying AI applications, (ii) Software engineering fundamentals, (iii) Using coding",
+      "zh": "我之前写过我们的 AI 工程技能图谱，其中最高层级的技能包括：（i）构建和部署 AI 应用，（ii）软件工程基础，（iii）使用编码",
+      "promptVersion": "codex-v1"
+    },
+    "add779c92ddfe6365f7a756be35d468615ffc843fa11340809dddb910f6b56b9": {
+      "source": "we've been iterating a lot on how DocWriter internally represents a user's writing style!\n\nthe naive approach is to dump all a user's prior writing in context and pray the AI figures out how to sound like them. this doesn't really work. and the user can't just manually specify their style either, because nobody knows what their meaningful writing preferences  (for an AI agent) actually are.\n\nso we've built a multi-agent pipeline that runs lexical, grammatical, and discourse analyses on the user's writing, extracts specific patterns with evidence, and then surfaces them in a UI where the user can confirm or reject each pattern by comparing two passages side by side\n\nTBD on how well it performs in our next round of user studies 😆 it feels like we are really trying to do anything possible to avoid fine-tuning, but perhaps we need to bite the bullet eventually",
+      "zh": "我们一直在反复迭代 DocWriter 内部表示用户写作风格的方式！\n\n最朴素的做法是把用户过去所有写作都塞进上下文，然后祈祷 AI 能自己琢磨出怎么写得像他们。但这其实行不通。用户也不能手动指定自己的风格，因为没人真正知道自己对 AI agent 来说有意义的写作偏好到底是什么。\n\n所以我们构建了一条多智能体流水线，对用户写作进行词汇、语法和篇章分析，提取带证据的具体模式，然后在 UI 中展示给用户，让他们通过并排比较两段文字来确认或拒绝每个模式。\n\n下一轮用户研究中表现如何还有待观察 😆 感觉我们真的在竭尽所能避免微调，但也许最终还是得硬着头皮上",
+      "promptVersion": "codex-v1"
+    },
+    "cae5c23ff679242f54d7aba806b14c7d7cb6dea15dd33811a5ad9309eee2048f": {
+      "source": "Nice explainer of watermarking from @rasbt.  I agree that a likely outcome of watermarking will be people using tools (i.e. small local LLMs) to remove watermarks, which might result in worse writing.\n\nMaybe? it will force people to edit their writing and they won't blindly launder it, but maybe that's too much hopeful thinking.",
+      "zh": "@rasbt 对水印的解释很不错。我同意，水印的一个可能结果是人们会使用工具（比如小型本地 LLM）去除水印，这可能会让写作质量变差。\n\n也许吧？它会迫使人们编辑自己的文字，而不是盲目“洗稿”，但也许这想法太乐观了。",
+      "promptVersion": "codex-v1"
+    },
+    "bbe1349b9271914851f81cd0ab3a556ec654005f7ad053d00860ad56b2140e97": {
+      "source": "A couple of days ago, I did a quick explainer on Claude’s new watermarking process and implementation. Since it’s such a popular topic and sparked such a lively discussion, I thought it might be interesting to go into a bit more detail when explaining how it works.\n\nSo, instead of the usual text article, I recorded a little lecture on the topic (to change it up a bit from my usual articles). \n\nIt ended up a bit longer than intended, but I hope it clarifies a lot of things:\n\n- Sampling the next token in an LLM and pseudorandom number generators\n- How watermarking relates to the regular LLM sampling process\n- Whether watermarking makes text \"worse\"\n- How to remove watermarks\n- Tournament sampling\n- How new text is checked for watermarks without rerunning the LLM\n\nI ended up with ~50 slides, but I hope that these explain it well, though! Happy watching!",
+      "zh": "几天前，我快速解释了 Claude 新的水印流程和实现。由于这是个非常热门的话题，也引发了热烈讨论，我觉得更详细地解释它的工作原理可能会很有意思。\n\n所以我没有写通常的文字文章，而是录了一小段关于这个主题的讲座（也算换换口味，区别于我平时的文章）。\n\n结果比预想的长了一点，但我希望它能澄清很多问题：\n\n- LLM 中下一个 token 的采样和伪随机数生成器\n- 水印与常规 LLM 采样流程的关系\n- 水印是否会让文本“变差”\n- 如何去除水印\n- 锦标赛采样\n- 如何在不重新运行 LLM 的情况下检查新文本是否带有水印\n\n最后做了大约 50 张幻灯片，不过我希望这些内容能解释清楚。祝观看愉快！",
+      "promptVersion": "codex-v1"
     }
   },
-  "updatedAt": "2026-08-21T23:06:27.093169+00:00"
+  "updatedAt": "2026-08-22T23:04:33.782978+00:00"
 }
