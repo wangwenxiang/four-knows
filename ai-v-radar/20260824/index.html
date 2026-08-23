@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>硅谷 AI 原声 · 2026-08-24</title>
+  <style>
+    :root{--bg:#f4f6f8;--surface:#fff;--text:#16181c;--muted:#65717e;--line:#dfe4e9;--accent:#0066cc;--green:#117a62;--shadow:0 16px 42px rgba(18,28,38,.08);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 15% 0,#e8f2ff 0,transparent 27%),var(--bg);color:var(--text)} a{color:inherit;text-decoration:none} button{font:inherit}
+    .shell{width:min(1500px,calc(100% - 28px));margin:0 auto;padding:14px 0 40px}
+    .hero{display:grid;grid-template-columns:minmax(250px,1fr) auto;align-items:center;gap:12px;padding:15px 18px;border:1px solid rgba(255,255,255,.75);border-radius:16px;background:rgba(255,255,255,.88);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    h1{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin:0;font-size:clamp(28px,3.4vw,44px);line-height:1;letter-spacing:-.05em} .report-date{color:var(--green);font-size:clamp(10px,1vw,13px);font-weight:900;letter-spacing:.08em;white-space:nowrap}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(62px,1fr));gap:6px;align-content:start} .metric{padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fff} .metric strong{display:block;font-size:19px;line-height:1} .metric span{display:block;margin-top:3px;color:var(--muted);font-size:8px;font-weight:820;white-space:nowrap}
+    .notice{margin-top:12px;padding:11px 14px;border:1px solid #e1b866;border-radius:12px;background:#fff8e8;color:#7a5612;font-size:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px;align-items:start} .signal-card{min-width:0;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 9px 26px rgba(18,28,38,.045)}
+    .card-top{display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:10px} .avatar{display:grid;width:46px;height:46px;overflow:hidden;place-items:center;border:1px solid #d9e0e7;border-radius:999px;background:linear-gradient(135deg,#111827,#46627d);color:#fff;font-size:12px;font-weight:900} .avatar img{width:100%;height:100%;object-fit:cover;display:block} .identity{display:grid;gap:3px;min-width:0} .identity strong,.identity span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .identity strong{font-size:14px} .identity span{color:var(--muted);font-size:11px}
+    .score{display:grid;justify-items:center;min-width:40px;padding:5px 6px;border:1px solid #e3ebe8;border-radius:8px;background:#f4f8f6;color:#527267;font-size:15px;font-weight:820;line-height:1} .score small{margin-top:2px;color:#71877f;font-size:7px;letter-spacing:.06em;text-transform:uppercase}
+    .meta{display:flex;align-items:center;gap:6px;margin:11px 0 9px;color:var(--muted);font-size:10.5px;font-weight:750} .meta span:not(.priority){overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .meta time{margin-left:auto;white-space:nowrap} .priority{padding:3px 6px;border-radius:999px;background:#111827;color:#fff;font-size:9px}
+    .post-text{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.58} .post-text.original{font-size:16px;font-weight:570;color:#20252b} .post-text.translation{margin-top:8px;color:#66727f;font-size:13px;font-weight:470;line-height:1.62} .article .original+.translation{margin-top:2px;color:#65717e;font-size:11px;font-weight:650} .quote,.article{display:grid;gap:6px;margin-top:10px;padding:11px;border:1px solid var(--line);border-radius:12px;background:#f7f9fb} .quote__author{display:flex;align-items:center;gap:7px;font-size:11px} .quote__author>div:last-child{display:grid;gap:1px} .quote__author span{color:var(--muted)} .quote-avatar{display:grid;width:28px;height:28px;overflow:hidden;place-items:center;border:1px solid var(--line);border-radius:999px;background:#dfe6ed;color:#52606d;font-size:10px;font-weight:900} .quote-avatar img{width:100%;height:100%;object-fit:cover} .quote p,.article p{margin:0;color:#4f5a66;font-size:12px;line-height:1.48;white-space:pre-wrap} .article strong{font-size:13px} .article strong.original{font-size:13.5px} .quote-text.original{font-size:12.5px;color:#36414d} .quote-text.translation{font-size:11.5px;color:#6a7682} .quote-link{justify-self:start;color:var(--accent);font-size:10px;font-weight:850}
+    .media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:10px;overflow:hidden;border-radius:12px} .media-grid--1{grid-template-columns:1fr} .media-item{position:relative;min-height:150px;background:#e8edf2} .media-item img{width:100%;height:100%;max-height:330px;object-fit:cover;display:block} .media-item span{position:absolute;right:7px;bottom:7px;padding:4px 6px;border-radius:6px;background:rgba(0,0,0,.68);color:#fff;font-size:8px;font-weight:900}
+    .card-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid #edf0f3} .engagement{display:flex;gap:10px;color:var(--muted);font-size:10.5px;font-weight:750} .card-bottom>a{color:var(--accent);font-size:11px;font-weight:850} .empty{grid-column:1/-1;padding:70px;text-align:center;border:1px dashed #cdd5dd;border-radius:16px;background:#fff;color:var(--muted)}
+    footer{padding:26px 4px 0;color:var(--muted);font-size:11px;text-align:center}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}} @media(max-width:560px){.shell{width:min(100% - 16px,1500px);padding-top:7px}.hero{gap:10px;padding:13px 14px;border-radius:15px}h1{font-size:28px}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.metric{padding:7px 9px}.metric strong{font-size:18px}.signal-card{padding:13px}.post-text.original{font-size:15px}.post-text.translation{font-size:12.5px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <h1>硅谷 AI 原声 <span class="report-date">· 2026-08-24</span></h1>
+      <div class="metrics"><div class="metric"><strong>62</strong><span>监控专家</span></div><div class="metric"><strong>7</strong><span>活跃专家</span></div><div class="metric"><strong>14</strong><span>精选原文</span></div></div>
+    </header>
+
+    <main class="grid">
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">82<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>08-23 12:11 北京</time></div>
+        <p class="post-text original source-only" lang="auto">Self-improving Agent 真的会越用越强吗？
+
+Salesforce AI Research 这篇论文给这个问题降了一点温。
+
+作者重新评估了两种 Memory-based 自进化方法，发现加入自我改进循环后，Agent 的表现反而更不稳定。
+
+在 71% 的实验中，不同运行之间的方差变大。同一套配置，最好和最差的一次结果甚至能相差 10 个百分点。
+
+更关键的是「任务顺序」。
+
+很多 benchmark 默认把任务按固定顺序运行，无意中形成了一个从简单到困难的课程。沿着这个顺序，ReasoningBank 平均提升 1.5%；把任务随机打乱后，表现反而下降 4.5%。
+
+作者进一步检查 Memory，发现 Agent 很容易从模糊任务里总结出「看起来合理、实际不可用」的经验。
+
+比如环境只能操作浏览器，它却把「调用 API」写进长期记忆；一旦这种错误经验被反复检索，还可能继续影响后面的任务。
+
+这也提醒我们看到一次 evolution 后分数上涨，还不能急着说 Agent 学会了。
+
+至少要多跑几次、打乱任务顺序，也要检查它到底把什么东西写进了长期记忆。
+
+真正可靠的自进化，需要经得起随机性和任务顺序的扰动。
+
+📎 arxiv: https://t.co/dCBCxLXhNO</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HQXIsLWWoAA6XgR.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HQXIsLWWoAA6XgR.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 89</span><span>↻ 16</span><span>↩ 26</span></div><a href="https://x.com/Xudong07452910/status/2091377641274429782" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="chelseabfinn" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1531702062487965698/a6iO2pRx_normal.jpg" alt="Chelsea Finn avatar" loading="lazy"></div>
+          <div class="identity"><strong>Chelsea Finn</strong><span>@chelseabfinn · Stanford</span></div>
+          <div class="score">76<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>机器人 / AI</span><time>08-23 08:23 北京</time></div>
+        <p class="post-text original" lang="auto">One of the most important aspects of scientific discovery is deciding where to draw insights from.
+
+While LLMs are promising tools for science, we lack datasets &amp;amp; evaluations for this step.
+
+Help contribute to a public dataset for exactly this: https://t.co/X8NPVnVIwm</p><p class="post-text translation" lang="zh-CN">科学发现中最重要的环节之一，是决定从哪里获取洞见。
+
+虽然 LLM 是很有前景的科学工具，但我们在这一步仍缺少数据集和评估。
+
+欢迎为这个公共数据集贡献力量：https://t.co/X8NPVnVIwm</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2042988012326522883/aCPQzDBA_normal.jpg" alt="Sohyeon Kim avatar" loading="lazy"></div><div><strong>Sohyeon Kim</strong><span>@ohmyksh</span></div></div><p class="quote-text original" lang="auto">We’re asking the research community to help us build a benchmark for research taste.
+
+Scientific discovery starts with a fundamental step: which prior work is worth building on? We want to capture this undocumented layer through our collective knowledge.
+
+Please sign up: https://t.co/T4vfwQnHUY ↓</p><p class="quote-text translation" lang="zh-CN">我们正在邀请研究社区帮助我们构建一个用于评估研究品味的基准。
+
+科学发现始于一个基础问题：哪些前人的工作值得继续推进？我们希望通过集体知识，捕捉这一尚未被记录的层面。
+
+请报名：https://t.co/T4vfwQnHUY ↓</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HP7345nbQAAt_Kx.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HP7345nbQAAt_Kx.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/ohmyksh/status/2089379839228915984" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 227</span><span>↻ 19</span><span>↩ 3</span></div><a href="https://x.com/chelseabfinn/status/2091320499498553656" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">73<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>08-24 00:32 北京</time></div>
+        <p class="post-text original" lang="auto">The latest RAG trend for the current agent harnesses (Codex, Cowork) is to do two passes of document processing to solve a knowledge work task over a data room of documents:
+1️⃣ A fast and light pass, oftentimes using a free/OSS doc parsing tool. This can be cheaply run across 10-100-1k’s of files, and enables the agent to then do retrieval (e.g. grep, semantic) to find relevant subsets of context.
+2️⃣ A “just-in-time” VLM-based pass. Once the agent finds the relevant pages of context, it will screenshot the documents can call its own VLM (or write code) to dissect the pages.
+
+The issue with only using VLM-based OCR tools over massive ad-hoc customer file dumps is that it’s slow and expensive. Doing JIT VLM OCR allows the agent to filter through the data cheaply, but still preserve accuracy for the context that’s needed for the task.
+
+The agent harnesses do two-pass document processing by default using off the shelf-tools: pdf2text as the first pass, and using itself (Opus 5) as the second pass. See the below video where Cowork runs over a bunch of PDFs to answer a question about a benchmark graph in the Kimi k3 paper.
+
+The main issues here with the “out of the box” doc processing these agents offer are:
+* Opus 5 is not the best VLM for OCR. It is also way too expensive at scale and lacks grounding
+* The OSS tools like pypdf, pdf2text, may not be versatile enough as the first pass.
+* The agent will write a lot of throwaway code to rewrite things an OCR tool would’ve provided out of the box, like chart processing, bounding boxes, confidence scores, leading to increased cost and speed.
+
+We have all the tools within @llama_index to help any agent do two-pass document processing with higher accuracy and lower cost.
+1️⃣ We have liteparse for the first pass - a free/OSS parser written in Rust that’s faster/more accurate than other OSS parsers, and supports 50+ document types
+2️⃣ We have LlamaParse for the second pass - an agentic document engine that uses VLMs+harnesses to achieve SOTA in accuracy and cost across various doc parsing and extraction tasks. It can be called from any agent harness as an MCP or skill. It takes in page numbers as input, so that the agent can choose to run LlamaParse over a subset of the doc instead of the full doc as a “zoom-in” pass.
+
+Come check it out!
+LiteParse: https://t.co/JNER0mVcB8
+LlamaParse: https://t.co/XYZmx5TFz8
+All the relevant docs, including MCP, are here: https://t.co/qc9Q5NT3Jr</p><p class="post-text translation" lang="zh-CN">当前 agent harness（Codex、Cowork）里最新的 RAG 趋势，是对数据室中的文档进行两轮处理，以完成知识工作任务：
+1️⃣ 快速轻量的一轮，通常使用免费的/OSS 文档解析工具。它可以低成本地跑过 10、100 乃至上千个文件，让 agent 随后通过检索（如 grep、语义检索）找到相关上下文子集。
+2️⃣ 基于 VLM 的“即时”处理。当 agent 找到相关页面后，会对文档截图，并调用自己的 VLM（或编写代码）来解析这些页面。
+
+如果只对海量临时客户文件包使用基于 VLM 的 OCR 工具，问题在于速度慢且成本高。JIT VLM OCR 让 agent 能低成本筛选数据，同时仍能为任务所需上下文保留准确性。
+
+这些 agent harness 默认使用现成工具进行两轮文档处理：第一轮用 pdf2text，第二轮用自身（Opus 5）。下面的视频展示了 Cowork 如何遍历一批 PDF，回答关于 Kimi k3 论文中某个基准图表的问题。
+
+这些 agent 提供的“开箱即用”文档处理主要问题是：
+* Opus 5 并不是最适合 OCR 的 VLM。它在规模化使用时也过于昂贵，并且缺少 grounding
+* pypdf、pdf2text 等 OSS 工具作为第一轮处理可能不够通用
+* agent 会写大量一次性代码，去重写 OCR 工具本可开箱提供的能力，比如图表处理、边界框、置信度分数等，从而增加成本并拖慢速度
+
+我们在 @llama_index 中已经有完整工具，能帮助任何 agent 以更高准确率、更低成本进行两轮文档处理。
+1️⃣ 第一轮有 liteparse，这是一个用 Rust 编写的免费/OSS 解析器，比其他 OSS 解析器更快、更准确，并支持 50 多种文档类型
+2️⃣ 第二轮有 LlamaParse，这是一个 agentic 文档引擎，使用 VLM+harness 在各种文档解析和抽取任务中实现 SOTA 的准确率和成本表现。它可以作为 MCP 或 skill 被任何 agent harness 调用。它接受页码作为输入，因此 agent 可以选择只在文档子集上运行 LlamaParse，而不是对整篇文档运行，相当于一次“放大查看”处理。
+
+欢迎来看看！
+LiteParse：https://t.co/JNER0mVcB8
+LlamaParse：https://t.co/XYZmx5TFz8
+包括 MCP 在内的所有相关文档都在这里：https://t.co/qc9Q5NT3Jr</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2091564028007157760/img/Ib0Yc0RUiUmeeLWm.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2091564028007157760/img/Ib0Yc0RUiUmeeLWm.jpg" alt="X post media"><span>VIDEO</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 126</span><span>↻ 19</span><span>↩ 21</span></div><a href="https://x.com/jerryjliu0/status/2091564183922077885" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">74<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>08-23 09:41 北京</time></div>
+        <p class="post-text original source-only" lang="auto">这两天 X 上很多人都在刷这个项目，我看完大概知道为什么了。
+
+DeepSeek V4 Flash 0731，一个 284B 的 MoE 模型，现在可以塞进 一台 DGX Spark 本地跑了。
+
+MiaAI-Lab 这套方案用了 EXL3 量化、SparkInfer 和 DSpark speculative decoding。
+
+目前项目给出的成绩是单路大约 44–47 tok/s，默认 384K Context，还实际跑过 37 万 token 的长上下文 needle test。
+
+而且直接提供 OpenAI-compatible API，后面接 Coding Agent 或自己的 Harness 都比较方便。
+
+当然这里跑的是高度优化后的量化版本，不是完整精度模型。原生 1M context 也变成了这里默认更保守的 384K。
+
+所以它真正厉害的是「本地可用性和工程优化」，不过也不能理解成一台 Spark 已经等价于云端完整部署。
+
+希望以后有更多这种项目吧，大模型本地推理这条线还得加快一点。
+
+项目
+https://t.co/FXWLOda6UO</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 43</span><span>↻ 3</span><span>↩ 5</span></div><a href="https://x.com/Xudong07452910/status/2091339892622078009" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">69<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>08-23 17:30 北京</time></div>
+        <p class="post-text original source-only" lang="auto">本地模型，真的快要替代云端了吗？
+
+这篇研究测了 20 多个可以本地运行的模型，包括 Qwen3、GPT-OSS、Gemma 3 等，还拿了超过 100 万条真实 Chat 和 Reasoning 请求来测试。
+
+结果是单看最强的一个本地模型，大约能处理其中 70% 多的请求。
+
+如果再加一个 Router，根据不同任务自动选择最合适的本地模型，这个覆盖率可以做到接近 89%。
+
+当然，这里的 89% 主要是单轮聊天和推理任务，长时 Agent、复杂 Coding、工具调用这些还远没到这个程度。
+
+但对普通用户来说，这个趋势已经很值得关注了。
+
+如果以后日常聊天、总结、翻译、简单 Coding，大部分都能直接在自己的电脑上跑，还更私密，也不用每次付 API 成本，那很多请求可能真的没必要再上云。
+
+难题再交给 GPT、Claude、Grok这些 frontier model。
+
+本地模型真正要跨过的门槛，也不用是打败最强云端模型。
+
+只要对大多数日常需求已经足够好，它就有理由留在你的设备上。
+
+文章
+https://t.co/mUFCEOc7Aj</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 11</span><span>↻ 1</span><span>↩ 4</span></div><a href="https://x.com/Xudong07452910/status/2091457920252690568" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="bcherny" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1902044548936953856/J2jeik0t_normal.jpg" alt="Boris Cherny avatar" loading="lazy"></div>
+          <div class="identity"><strong>Boris Cherny</strong><span>@bcherny · Anthropic / Claude Code</span></div>
+          <div class="score">96<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Claude / Anthropic</span><time>08-24 02:11 北京</time></div>
+        <p class="post-text original" lang="auto">tbh this is a good debate to have.
+
+Here is what the timeline of the near past/future looks like to me:
+
+1. Models are able to code better than I can
+2. Models are able to do coding-adjacent engineering work better than I can: debugging, profiling, optimizing, bug fixing, system design, abstraction design, ui design, idea generation, etc.
+3. Models are able to do most things that can be done on a computer better than most people
+
+For the kinds of coding that I do, Claude has achieved 1 and some (but not all) of 2. It is showing early-ish signs of 3.
+
+This is not the case for all coding yet. If you are Anders Hejlsberg and are a world class expert in compilers and type systems, Claude might not be at 1 yet. My bet would be that it gets there quite soon, while at the same time pushing further into 2-3 territory for the rest of us.
+
+You can think of model capabilities as capturing the distribution of human ability. I consider myself an average programmer so Claude has already surpassed me, but the same is not yet true for everyone.
+
+Back in Nov 2025 I fully stopped writing code by hand, though I continue to code (using agents) every day. That is the point where for me and many others around me, it felt fair to say that coding is solved. But engineering is more than coding. Claude’s code is not perfect. It has bugs and inefficiencies. Claude can code, but it cannot yet do everything that goes into engineering.
+
+Opus 4.8 is the first model that felt like it could code better than me. Fable now routinely finds optimizations and debugs issues that I would not have been able to fix myself. And with each generation, the code the model produces continues to improve, and the model is able to do more of the non-coding parts of engineering.</p><p class="post-text translation" lang="zh-CN">说实话，这是个值得讨论的好问题。
+
+在我看来，近过去/近未来的时间线大致是这样：
+
+1. 模型写代码比我更强
+2. 模型在与编码相邻的工程工作上比我更强：调试、性能分析、优化、修 bug、系统设计、抽象设计、UI 设计、生成想法等等
+3. 模型在大多数可以在电脑上完成的事情上，比大多数人做得更好
+
+就我做的那类编码而言，Claude 已经达到了 1，也达到了 2 的一部分（但不是全部）。它也开始显现出 3 的早期迹象。
+
+但这还不适用于所有编程。如果你是 Anders Hejlsberg，是编译器和类型系统方面的世界级专家，Claude 可能还没达到 1。我的判断是它很快会达到，同时对我们其他人来说，也会继续向 2-3 的范围推进。
+
+你可以把模型能力理解为捕捉人类能力分布。我认为自己是一个普通程序员，所以 Claude 已经超过了我，但对所有人来说还不是这样。
+
+早在 2025 年 11 月，我就完全停止了手写代码，不过我每天仍在编码（用 agents）。对我和身边很多人来说，那一刻可以说编码已经被解决了。但工程不只是编码。Claude 写的代码并不完美。它有 bug，也有低效之处。Claude 会写代码，但还不能完成工程所包含的一切。
+
+Opus 4.8 是第一个让我感觉写代码比我更强的模型。Fable 现在经常能找到优化点并调试出我自己无法修复的问题。随着每一代模型迭代，模型生成的代码都在持续改进，也能承担更多非编码部分的工程工作。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 705</span><span>↻ 35</span><span>↩ 60</span></div><a href="https://x.com/bcherny/status/2091589188298891264" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="bcherny" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1902044548936953856/J2jeik0t_normal.jpg" alt="Boris Cherny avatar" loading="lazy"></div>
+          <div class="identity"><strong>Boris Cherny</strong><span>@bcherny · Anthropic / Claude Code</span></div>
+          <div class="score">95<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Claude / Anthropic</span><time>08-24 02:21 北京</time></div>
+        <p class="post-text original" lang="auto">Hey, hope it didn’t sound dismissive. I really do use Opus for a lot of work, and was sharing an example of a kind of task where it excels.
+
+Every model has different strengths and quirks — eg. Opus excels at long running work and coding, but it has quirks. Verbosity in particular has been top of mind, in addition to other issues you listed. We know Opus is not perfect, and it is a big priority for the team to fix it.
+
+For verbosity, we shipped a quick band aid so you don’t have to wait for the longer term fix. Run: claude /config outputStyle=concise</p><p class="post-text translation" lang="zh-CN">嘿，希望听起来没有轻视的意思。我确实在大量工作中使用 Opus，只是在分享一种它很擅长的任务示例。
+
+每个模型都有不同的优势和特点，例如 Opus 擅长长时间运行的工作和编码，但它也有自己的问题。除了你列出的其他问题，冗长尤其是我们最近非常关注的一点。我们知道 Opus 并不完美，团队也把修复这些问题列为很高优先级。
+
+针对冗长问题，我们先发布了一个快速临时修复，这样你不用等长期方案。运行：claude /config outputStyle=concise</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 531</span><span>↻ 16</span><span>↩ 61</span></div><a href="https://x.com/bcherny/status/2091591570982371454" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="amasad" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div>
+          <div class="identity"><strong>Amjad Masad</strong><span>@amasad · Replit / CEO</span></div>
+          <div class="score">81<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 / 开发者平台</span><time>08-23 10:08 北京</time></div>
+        <p class="post-text original" lang="auto">A week has 7 days
+
+That means 7 ships</p><p class="post-text translation" lang="zh-CN">一周有 7 天
+
+也就是说要发 7 个版本</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2032788971227340800/RFEbanud_normal.jpg" alt="Raouf Chebri avatar" loading="lazy"></div><div><strong>Raouf Chebri</strong><span>@raoufcode</span></div></div><p class="quote-text original" lang="auto">The team has been busy lately. This is what shipped on Replit this week:
+- Free Mode
+- Conversations
+- Routines
+- Steer conversations
+- Import Skills from GitHub
+- Control models across Workspaces
+- Black-box pen tests https://t.co/heoEPR7j1P</p><p class="quote-text translation" lang="zh-CN">团队最近很忙。这是 Replit 本周发布的内容：
+- Free Mode
+- Conversations
+- Routines
+- Steer conversations
+- Import Skills from GitHub
+- Control models across Workspaces
+- Black-box pen tests https://t.co/heoEPR7j1P</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2091309327684456448/img/dhN4miPZeYvHUhq7.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2091309327684456448/img/dhN4miPZeYvHUhq7.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/raoufcode/status/2091311652494803424" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 153</span><span>↻ 7</span><span>↩ 23</span></div><a href="https://x.com/amasad/status/2091346778746757204" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">66<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>08-23 09:06 北京</time></div>
+        <p class="post-text original" lang="auto">i think there&#x27;s a real opportunity for labs to bake in even higher switching costs between claude code/codex/grok bot etc.
+
+whenever a new model release comes out, i already feel an inertia to switch between apps because of my existing skills, routines, system instructions, project setup, and more.
+
+i do maintain an externally generated wiki / artifacts for each project, so technically i could point any app at the same wiki and get similar results, but this loses the nuances of conversation history.
+
+if memory is turned on, then these apps index and remember your context for subsequent sessions, alleviating the need to retype massive amounts of context for new sessions
+
+the biggest pain point for any of these tools is figuring out how to efficiently feed it the right context every time. maybe the answer really is around building a good, self-improving context graph</p><p class="post-text translation" lang="zh-CN">我认为各大实验室确实有机会在 claude code/codex/grok bot 等工具之间嵌入更高的切换成本。
+
+每当新模型发布时，我已经会因为现有的 skills、routines、system instructions、项目设置等因素，在不同应用之间切换时感到惯性。
+
+我确实会为每个项目维护一个外部生成的 wiki/artifacts，所以理论上我可以让任何应用指向同一个 wiki，并获得类似结果，但这样会丢失对话历史中的细微差别。
+
+如果开启 memory，这些应用会索引并记住你的上下文，用于后续会话，从而减少在新会话中重新输入大量上下文的需要。
+
+这些工具最大的痛点，是弄清楚如何每次都高效地喂给它正确的上下文。也许答案真的在于构建一个优秀的、能自我改进的上下文图谱</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 43</span><span>↻ 4</span><span>↩ 16</span></div><a href="https://x.com/jerryjliu0/status/2091331143761326503" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">66<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>08-23 22:42 北京</time></div>
+        <p class="post-text original" lang="auto">Sneak peek of segments of the new evals course ✨😃</p><p class="post-text translation" lang="zh-CN">新版 evals 课程片段抢先看 ✨😃</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1342529111839944705/hzr44mb5_normal.jpg" alt="Shreya Shankar avatar" loading="lazy"></div><div><strong>Shreya Shankar</strong><span>@sh_reya</span></div></div><p class="quote-text original" lang="auto">we&#x27;ve been iterating a lot on how DocWriter internally represents a user&#x27;s writing style!
+
+the naive approach is to dump all a user&#x27;s prior writing in context and pray the AI figures out how to sound like them. this doesn&#x27;t really work. and the user can&#x27;t just manually specify their style either, because nobody knows what their meaningful writing preferences  (for an AI agent) actually are.
+
+so we&#x27;ve built a multi-agent pipeline that runs lexical, grammatical, and discourse analyses on the user&#x27;s writing, extracts specific patterns with evidence, and then surfaces them in a UI where the user can confirm or reject each pattern by comparing two passages side by side
+
+TBD on how well it performs in our next round of user studies 😆 it feels like we are really trying to do anything possible to avoid fine-tuning, but perhaps we need to bite the bullet eventually</p><p class="quote-text translation" lang="zh-CN">我们一直在反复迭代 DocWriter 内部表示用户写作风格的方式！
+
+最朴素的做法是把用户过去所有写作都塞进上下文，然后祈祷 AI 能自己琢磨出怎么写得像他们。但这其实行不通。用户也不能手动指定自己的风格，因为没人真正知道自己对 AI agent 来说有意义的写作偏好到底是什么。
+
+所以我们构建了一条多智能体流水线，对用户写作进行词汇、语法和篇章分析，提取带证据的具体模式，然后在 UI 中展示给用户，让他们通过并排比较两段文字来确认或拒绝每个模式。
+
+下一轮用户研究中表现如何还有待观察 😆 感觉我们真的在竭尽所能避免微调，但也许最终还是得硬着头皮上</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HQWuj6nakAACJnY.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HQWuj6nakAACJnY.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/sh_reya/status/2091273234851549617" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 51</span><span>↻ 2</span><span>↩ 8</span></div><a href="https://x.com/HamelHusain/status/2091536641831944338" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">46<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>08-24 05:05 北京</time></div>
+        <p class="post-text original" lang="auto">@stumptowndoug It’s a great model it’s just very expensive after the promo ends it tends to also use more tok per task even though impressive TPS
+
+I’m a heavy user of it and I already feel it</p><p class="post-text translation" lang="zh-CN">@stumptowndoug 这是个很棒的模型，只是促销结束后会非常贵，而且它每个任务往往会用更多 tok，尽管 TPS 很亮眼
+
+我是重度用户，已经明显感觉到了</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 0</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/HamelHusain/status/2091632925406265579" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="bcherny" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1902044548936953856/J2jeik0t_normal.jpg" alt="Boris Cherny avatar" loading="lazy"></div>
+          <div class="identity"><strong>Boris Cherny</strong><span>@bcherny · Anthropic / Claude Code</span></div>
+          <div class="score">82<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Claude / Anthropic</span><time>08-24 05:20 北京</time></div>
+        <p class="post-text original" lang="auto">That an interesting framing. My definitions are:
+
+- Coding/programming: the act of writing code
+- Engineering: everything else in addition to that
+
+Tactical/strategic is another reasonable split. I do see some parts of strategic coding being automated, eg. we are starting to automatically maintain our apps at Anthropic, as are a quickly increasing number of customers.</p><p class="post-text translation" lang="zh-CN">这是个有意思的表述。我的定义是：
+
+- Coding/programming：写代码这件事
+- Engineering：除此之外的一切
+
+战术/战略也是一种合理的划分。我确实看到部分战略性编码正在被自动化，例如我们已经开始在 Anthropic 自动维护应用，越来越多的客户也在这样做。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 36</span><span>↻ 0</span><span>↩ 5</span></div><a href="https://x.com/bcherny/status/2091636827727986748" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="c_valenzuelab" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2070496516893229056/bm-CWE5N_normal.jpg" alt="Cristobal Valenzuela avatar" loading="lazy"></div>
+          <div class="identity"><strong>Cristobal Valenzuela</strong><span>@c_valenzuelab · Runway / 联合创始人兼 CEO</span></div>
+          <div class="score">76<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>生成式视频</span><time>08-24 01:53 北京</time></div>
+        <p class="post-text original" lang="auto">Heard a crazy stat the other day. Video generation represents around 70% of the share of AI token consumption in China. A combination of short form content and robotics. In China, video models are growing much faster than Claude Code grew in the America.
+
+America is LLM-pilled. China is World-Model-Pilled.</p><p class="post-text translation" lang="zh-CN">前几天听到一个惊人的数据。视频生成约占中国 AI token 消耗的 70%。这背后是短内容和机器人技术的结合。在中国，视频模型的增长速度远快于 Claude Code 在美国的增长。
+
+美国沉迷 LLM。中国沉迷世界模型。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1942940317784719360/47aIqszK_normal.jpg" alt="Shaun Maguire avatar" loading="lazy"></div><div><strong>Shaun Maguire</strong><span>@shaunmmaguire</span></div></div><p class="quote-text original" lang="auto">America is incredibly far behind in robotics
+
+This is existential</p><p class="quote-text translation" lang="zh-CN">美国在机器人领域落后得非常远
+
+这是生死攸关的问题</p><a class="quote-link" href="https://x.com/shaunmmaguire/status/2091363471191634040" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 188</span><span>↻ 16</span><span>↩ 27</span></div><a href="https://x.com/c_valenzuelab/status/2091584754386714846" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">64<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>08-23 23:26 北京</time></div>
+        <p class="post-text original" lang="auto">I was wondering why Google is in its own special toilet tier in this video 🤣
+
+Summary: it’s expensive as hell compared to everything else</p><p class="post-text translation" lang="zh-CN">我还在想为什么 Google 在这个视频里被单独放进了特殊的厕所档 🤣
+
+总结：和其他所有模型相比，它贵得离谱</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1909353910130950147/EeSGdgA5_normal.jpg" alt="Theo - t3.gg avatar" loading="lazy"></div><div><strong>Theo - t3.gg</strong><span>@theo</span></div></div><p class="quote-text original" lang="auto">Rough tier list of where I&#x27;d put every major model right now https://t.co/gFDFZfECaR</p><p class="quote-text translation" lang="zh-CN">我目前对各大主流模型的大致分档 https://t.co/gFDFZfECaR</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HQW1x4HaoAAFnXM.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HQW1x4HaoAAFnXM.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/theo/status/2091277536600969276" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 27</span><span>↻ 0</span><span>↩ 8</span></div><a href="https://x.com/HamelHusain/status/2091547602206810262" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+    </main>
+    <footer>Generated 2026-08-24 07:01:56 Asia/Shanghai · Read-only X ingestion via Bird · Translation via Codex</footer>
+  </div>
+</body>
+</html>
