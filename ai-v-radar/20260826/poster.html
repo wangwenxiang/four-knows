@@ -16,41 +16,35 @@
   h2{display:-webkit-box;max-height:2.12em;margin:0;overflow:hidden;overflow-wrap:anywhere;font-size:var(--headline-size,56px);line-height:1.06;font-weight:950;letter-spacing:-1.8px;-webkit-box-orient:vertical;-webkit-line-clamp:2} .story p{margin:8px 0 0;overflow-wrap:anywhere;color:#5d626b;font-size:30px;line-height:1.25;font-weight:750;white-space:normal}
   .story--sparse p{font-size:34px;line-height:1.22} .story--dense p{font-size:27px;line-height:1.23}
   .story--quote p{display:-webkit-box;max-height:3.75em;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:3}
-</style></head><body><div class="poster"><header><div><h1>硅谷 AI 原声 <span>| 8/19</span></h1><div class="subtitle">全球核心专家动态精选 · 最近 23 小时</div></div><div class="stats"><div class="stat"><strong>62</strong><small>人监控</small></div><div class="stat"><strong>23</strong><small>条精选</small></div></div></header><main><article class="story story--dense story--quote" style="--headline-size:56px">
+</style></head><body><div class="poster"><header><div><h1>硅谷 AI 原声 <span>| 8/26</span></h1><div class="subtitle">全球核心专家动态精选 · 最近 23 小时</div></div><div class="stats"><div class="stat"><strong>62</strong><small>人监控</small></div><div class="stat"><strong>23</strong><small>条精选</small></div></div></header><main><article class="story story--dense story--quote" style="--headline-size:63px">
         <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_normal.jpg" alt="Greg Brockman"></div><b>1</b></div>
         <div class="story-body">
-          <div class="byline"><strong>Greg Brockman</strong><em>AI 技术前沿</em><span>@gdb · OpenAI / 联合创始人</span></div>
-          <h2>前沿训练扩展放缓，最大规模RL计划暂停以强化安全监控</h2>
-          <p>引用｜随着模型能力越来越强，内部开发和测试这些模型所伴随的风险也在增加。
+          <div class="byline"><strong>Greg Brockman</strong><em>AI 技术进步</em><span>@gdb · OpenAI / 联合创始人</span></div>
+          <h2>OpenAI发布自研推理芯片Jalapeño首批实测数据</h2>
+          <p>引用｜OpenAI：“今天，我们分享了 Jalapeño 的首批实测性能结果。Jalapeño 是 OpenAI 首款自研推理芯片。在使用 GPT‑OSS 120B 的公开基准 InferenceX 上，Jalapeño 的每千瓦峰值吞吐量高于对比中的商用系统，token 延迟也更低。它在 DeepSeek R1 和 Kimi K2 上同样表现强劲，说明其性能提升可扩展到不同模型家族。”
 
-我们暂时暂停了面向部署的最新模型的强化学习（RL）训练两周，用于加固研究环境、进行红队测试，并扩大监控覆盖范围。
+“这就是杰文斯悖论：效率提升会让更多用途变得值得尝试，从而扩大消费，并通过完成更多工作、做出更好决策、推出更多产品和创造更多收入，催生新的经济活动。”
 
-我们计划中规模最大的前沿 RL 训练仍处于暂停状态，同时通过较小规模的训练和评估来验证这些防护措施，并积累更多对齐证据。
-https://t.co/ecbMMmVoox</p>
+“AI 直接参与了 Jalapeño 的开发，使团队能够通过探索实现方案、缩短设计、测量和验证循环，并围绕模型工作负载持续迭代，在九个月内从初始设计推进到流片。AI 还帮助优化了芯片的算术电路，让团队按计划在芯片中容纳更多计算性能。”
+
+“我们计划在今年年底前开始将 Jalapeño 部署到 OpenAI 的计算基础设施中。它是多代路线图的第一代：Gen 2 正在深入开发，Gen 3 也已初具雏形。每一代都将基于我们的经验，进一步提升效率和速度。”
+
+“在准备部署的过程中，我们正在继续进行生产认证、完善软件、准备大规模运行 Jalapeño，并在更多模型上验证性能。”</p>
         </div>
-      </article><article class="story story--dense story--quote" style="--headline-size:61px">
-        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu"></div><b>2</b></div>
+      </article><article class="story story--dense story--quote" style="--headline-size:55px">
+        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/2028729526822588416/WhtMUI-P_normal.jpg" alt="Aravind Srinivas"></div><b>2</b></div>
         <div class="story-body">
-          <div class="byline"><strong>Jerry Liu</strong><em>AI 技术前沿</em><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
-          <h2>PDF Agent需精确溯源，文档抽取评测聚焦原文依据</h2>
-          <p>引用｜大多数文档提取 API 无法告诉你某个值来自哪里。
+          <div class="byline"><strong>Aravind Srinivas</strong><em>AI 技术应用</em><span>@AravSrinivas · Perplexity / CEO</span></div>
+          <h2>Portable Computer用端侧27B模型提升本地Agent表现</h2>
+          <p>引用｜新研究：Portable Computer 是一个本地优先的 agent，面向私密且高性价比的工作场景。
 
-在 ExtractBench 中，我们严格评估依据定位：只有当字段值和引用都正确时才计分，词级框需达到 IoU 0.5。即使框完美圈住了错误的值，也不得分。
-
-结果：VLM 和编码智能体完全不返回证据，在两个层级上都是零。在会返回框的系统中，最佳词级 F1 仍低于 50%。而且依据定位会随文档长度急剧下降：某个专用 API 在短文档上的页级得分为 61.7%，到长文档上降至 0.0%。
-
-LlamaExtract Agentic Plus 在两个层级都领先，页级 84.9%，词级 46.4%；在其他系统归零的长文档上，它仍保持 87.1%。
-
-每个提取值都应该有凭据。ExtractBench 现在为这个领域提供了一个可跟踪的基准 👇
-
-博客：https://t.co/fuAPtCceB6
-论文：https://t.co/Aw4uOgkQpF</p>
+借助端侧 27B 模型，我们的 harness 在真实知识工作中得分 82.6%，超过开源 harness Pi 和 Hermes。经过后训练的 PPLX 27B 达到 85.4%。https://t.co/Rb6d47clCI</p>
         </div>
       </article><article class="story story--sparse" style="--headline-size:67px">
-        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/1569345624935485442/R67C4wCQ_normal.jpg" alt="Harrison Chase"></div><b>3</b></div>
+        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/1967920417760251904/0ytfduMQ_normal.png" alt="LlamaIndex"></div><b>3</b></div>
         <div class="story-body">
-          <div class="byline"><strong>Harrison Chase</strong><em>AI 技术进步</em><span>@hwchase17 · LangChain / CEO</span></div>
-          <h2>LangSmith推出调优评估器，首项检测感知错误</h2>
-          <p>Tuned Evaluators在生产轨迹中捕捉不理想agent行为，基准显示成本低82%且超过前沿模型。</p>
+          <div class="byline"><strong>LlamaIndex</strong><em>AI 技术应用</em><span>@llama_index · Agent 数据框架</span></div>
+          <h2>ExtractBench用370份企业文档评测提取系统</h2>
+          <p>覆盖67类文档和4800多页内容，比较VLM、coding agents与专用API的成本和准确率。</p>
         </div>
       </article></main></div></body></html>
