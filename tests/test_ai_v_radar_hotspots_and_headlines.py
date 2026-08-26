@@ -223,6 +223,38 @@ class HeadlineEventDedupeTest(unittest.TestCase):
 
         self.assertEqual([post["id"] for post in selected], ["bench", "tools", "safety"])
 
+    def test_greg_priority_replacement_accepts_full_candidate_profile(self):
+        def editorial_post(post_id: str, handle: str, text: str) -> dict:
+            return {
+                "id": post_id,
+                "text": text,
+                "expert": {"handle": handle, "name": handle, "priority": "P0", "domain": "AI", "role": "Researcher", "why": "test"},
+                "author": {"username": handle},
+                "signalScore": 70,
+                "editorial": {"dailyGrade": "A", "technicalRelevant": True},
+            }
+
+        posts = [
+            editorial_post("gdb", "gdb", "OpenAI reports a new model evaluation with measurable inference improvements."),
+            editorial_post("jerry", "jerryjliu0", "An agent framework now supports production workflow tracing and tool routing."),
+            editorial_post("research", "fchollet", "A reasoning benchmark publishes a new evaluation method and result."),
+            editorial_post("robot", "robotlab", "A robotics system improves manipulation accuracy on a controlled benchmark."),
+        ]
+        completed = type("Completed", (), {
+            "returncode": 0,
+            "stdout": json.dumps({"topStories": [
+                {"id": "jerry", "category": "AI 技术应用", "rationale": "生产系统"},
+                {"id": "research", "category": "AI 技术前沿", "rationale": "评测方法"},
+                {"id": "robot", "category": "AI 技术进步", "rationale": "机器人结果"},
+            ]}),
+            "stderr": "",
+        })()
+        with patch("scripts.fetch_ai_v_radar.subprocess.run", return_value=completed):
+            selected = select_editorial_top_stories(posts, retries=0)
+
+        self.assertIn("gdb", [post["id"] for post in selected])
+        self.assertNotIn("jerry", [post["id"] for post in selected])
+
 
 if __name__ == "__main__":
     unittest.main()

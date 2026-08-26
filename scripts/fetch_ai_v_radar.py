@@ -1761,7 +1761,7 @@ INPUT:
         if not any(same_top_story_event(greg, selected_post) for selected_post in remaining_selected):
             replaced["isTopStory"] = False
             replaced["topStoryEligible"] = False
-            greg_score, greg_category = candidate_profiles[str(greg["id"])]
+            greg_score, greg_category, _greg_evidence_score = candidate_profiles[str(greg["id"])]
             greg["isTopStory"] = True
             greg["topStoryEligible"] = True
             greg["topStoryCategory"] = greg_category
