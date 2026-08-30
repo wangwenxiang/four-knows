@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>硅谷 AI 原声 · 2026-08-31</title>
+  <style>
+    :root{--bg:#f4f6f8;--surface:#fff;--text:#16181c;--muted:#65717e;--line:#dfe4e9;--accent:#0066cc;--green:#117a62;--shadow:0 16px 42px rgba(18,28,38,.08);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 15% 0,#e8f2ff 0,transparent 27%),var(--bg);color:var(--text)} a{color:inherit;text-decoration:none} button{font:inherit}
+    .shell{width:min(1500px,calc(100% - 28px));margin:0 auto;padding:14px 0 40px}
+    .hero{display:grid;grid-template-columns:minmax(250px,1fr) auto;align-items:center;gap:12px;padding:15px 18px;border:1px solid rgba(255,255,255,.75);border-radius:16px;background:rgba(255,255,255,.88);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    h1{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin:0;font-size:clamp(28px,3.4vw,44px);line-height:1;letter-spacing:-.05em} .report-date{color:var(--green);font-size:clamp(10px,1vw,13px);font-weight:900;letter-spacing:.08em;white-space:nowrap}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(62px,1fr));gap:6px;align-content:start} .metric{padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fff} .metric strong{display:block;font-size:19px;line-height:1} .metric span{display:block;margin-top:3px;color:var(--muted);font-size:8px;font-weight:820;white-space:nowrap}
+    .notice{margin-top:12px;padding:11px 14px;border:1px solid #e1b866;border-radius:12px;background:#fff8e8;color:#7a5612;font-size:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px;align-items:start} .signal-card{min-width:0;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 9px 26px rgba(18,28,38,.045)}
+    .card-top{display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:10px} .avatar{display:grid;width:46px;height:46px;overflow:hidden;place-items:center;border:1px solid #d9e0e7;border-radius:999px;background:linear-gradient(135deg,#111827,#46627d);color:#fff;font-size:12px;font-weight:900} .avatar img{width:100%;height:100%;object-fit:cover;display:block} .identity{display:grid;gap:3px;min-width:0} .identity strong,.identity span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .identity strong{font-size:14px} .identity span{color:var(--muted);font-size:11px}
+    .score{display:grid;justify-items:center;min-width:40px;padding:5px 6px;border:1px solid #e3ebe8;border-radius:8px;background:#f4f8f6;color:#527267;font-size:15px;font-weight:820;line-height:1} .score small{margin-top:2px;color:#71877f;font-size:7px;letter-spacing:.06em;text-transform:uppercase}
+    .meta{display:flex;align-items:center;gap:6px;margin:11px 0 9px;color:var(--muted);font-size:10.5px;font-weight:750} .meta span:not(.priority){overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .meta time{margin-left:auto;white-space:nowrap} .priority{padding:3px 6px;border-radius:999px;background:#111827;color:#fff;font-size:9px}
+    .post-text{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.58} .post-text.original{font-size:16px;font-weight:570;color:#20252b} .post-text.translation{margin-top:8px;color:#66727f;font-size:13px;font-weight:470;line-height:1.62} .article .original+.translation{margin-top:2px;color:#65717e;font-size:11px;font-weight:650} .quote,.article{display:grid;gap:6px;margin-top:10px;padding:11px;border:1px solid var(--line);border-radius:12px;background:#f7f9fb} .quote__author{display:flex;align-items:center;gap:7px;font-size:11px} .quote__author>div:last-child{display:grid;gap:1px} .quote__author span{color:var(--muted)} .quote-avatar{display:grid;width:28px;height:28px;overflow:hidden;place-items:center;border:1px solid var(--line);border-radius:999px;background:#dfe6ed;color:#52606d;font-size:10px;font-weight:900} .quote-avatar img{width:100%;height:100%;object-fit:cover} .quote p,.article p{margin:0;color:#4f5a66;font-size:12px;line-height:1.48;white-space:pre-wrap} .article strong{font-size:13px} .article strong.original{font-size:13.5px} .quote-text.original{font-size:12.5px;color:#36414d} .quote-text.translation{font-size:11.5px;color:#6a7682} .quote-link{justify-self:start;color:var(--accent);font-size:10px;font-weight:850}
+    .media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:10px;overflow:hidden;border-radius:12px} .media-grid--1{grid-template-columns:1fr} .media-item{position:relative;min-height:150px;background:#e8edf2} .media-item img{width:100%;height:100%;max-height:330px;object-fit:cover;display:block} .media-item span{position:absolute;right:7px;bottom:7px;padding:4px 6px;border-radius:6px;background:rgba(0,0,0,.68);color:#fff;font-size:8px;font-weight:900}
+    .card-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid #edf0f3} .engagement{display:flex;gap:10px;color:var(--muted);font-size:10.5px;font-weight:750} .card-bottom>a{color:var(--accent);font-size:11px;font-weight:850} .empty{grid-column:1/-1;padding:70px;text-align:center;border:1px dashed #cdd5dd;border-radius:16px;background:#fff;color:var(--muted)}
+    footer{padding:26px 4px 0;color:var(--muted);font-size:11px;text-align:center}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}} @media(max-width:560px){.shell{width:min(100% - 16px,1500px);padding-top:7px}.hero{gap:10px;padding:13px 14px;border-radius:15px}h1{font-size:28px}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.metric{padding:7px 9px}.metric strong{font-size:18px}.signal-card{padding:13px}.post-text.original{font-size:15px}.post-text.translation{font-size:12.5px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <h1>硅谷 AI 原声 <span class="report-date">· 2026-08-31</span></h1>
+      <div class="metrics"><div class="metric"><strong>62</strong><span>监控专家</span></div><div class="metric"><strong>7</strong><span>活跃专家</span></div><div class="metric"><strong>16</strong><span>精选原文</span></div></div>
+    </header>
+
+    <main class="grid">
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">85<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>08-30 12:00 北京</time></div>
+        <p class="post-text original source-only" lang="auto">一个 9B 模型，只加一套会持续进化的 Skill，平均表现就超过了没有 Skill 的 27B 模型。
+
+Google Research 这篇 WikiSkill，研究的是一个大家都一直关注的问题：
+
+Agent 每轮任务都在产生经验，但这些经验如果一直散落在执行轨迹里，下一轮其实很难真正复用。
+
+WikiSkill 给 Agent 加了一层持续积累的「Wiki」。
+
+整个系统分成三层：
+
+Raw 保存原始成功/失败轨迹；
+
+Wiki 把这些轨迹整理成失败模式、有效策略和历史经验；
+
+Skill 再把稳定下来的知识编译成 Agent 可以直接执行的流程。
+
+每轮 Skill 更新都会经过验证。有效的留下，效果变差就回滚；但 Wiki 不会清空，所以失败的尝试也会成为下一轮进化的经验。
+
+实验覆盖数学、搜索、Excel、长文档和具身任务等 5 个 benchmark、5 个模型。
+
+结果是 Qwen-3.5-9B + WikiSkill 平均达到 47.4%，超过没有 Skill 的 Qwen-3.6-27B 的 39.4%。
+
+而且 Skill 还能跨模型迁移。有些由其他模型进化出来的 Skill，甚至比模型自己的 Skill 效果更好。
+
+这会让我比较关注 Wiki 这一层。
+
+Agent 自进化如果只有「轨迹 → Skill」，很容易反复重新理解过去。中间多一层持续整理的知识库，才能让成功、失败和被拒绝的修改真正积累下来。
+
+Skill 开始有点像独立于模型权重的知识资产：可以积累、验证、版本化，还能跨模型迁移。
+
+📎 arxiv: https://t.co/ihDiNrRtTl</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HQ5qxG7bsAAG7kS.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HQ5qxG7bsAAG7kS.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 185</span><span>↻ 37</span><span>↩ 19</span></div><a href="https://x.com/Xudong07452910/status/2093911593314885998" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="yoheinakajima" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
+          <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
+          <div class="score">66<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>08-30 08:33 北京</time></div>
+        <p class="post-text original" lang="auto">this is the slop that never ends 🎶
+it goes on and on my friends</p><p class="post-text translation" lang="zh-CN">这是永不停歇的 slop 🎶
+它一直继续下去，我的朋友们</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2077111020305162240/PwddgOau_normal.jpg" alt="@levelsio avatar" loading="lazy"></div><div><strong>@levelsio</strong><span>@levelsio</span></div></div><p class="quote-text original" lang="auto">Okay I built it!
+
+🍰 Infinite Slop
+https://t.co/wz0a7VSBtS
+
+An infinite and interactive AI generated live stream of slop that goes on forever and ever
+
+Anything that you write in the chat is generated next and AI will try to connect it to the previous video so there&#x27;s an actual sequence and story line
+
+Idea by @marcantoinefon and @rehan_shei&#x27;s original stream so I made it
+
+It&#x27;d be very expensive to run this so @fal very generously sponsors this
+
+They also fine-tuned the model that makes this possible for the first time, making Minimax H3 50x faster and as &quot;Max&quot; and it can now generate videos faster than you can watch them, very cool!
+
+Let me know what you think!!!! 😊</p><p class="quote-text translation" lang="zh-CN">好了，我做出来了！
+
+🍰 Infinite Slop
+https://t.co/wz0a7VSBtS
+
+一个无限互动的 AI 生成 slop 直播，会永远持续下去
+
+你在聊天里写的任何内容都会被接着生成，AI 会尝试把它和前一个视频衔接起来，所以会有真实的连续情节和故事线
+
+创意来自 @marcantoinefon 和 @rehan_shei 的原始直播，所以我把它做了出来
+
+运行它会非常昂贵，所以 @fal 非常慷慨地赞助了这个项目
+
+他们还微调了让这一切首次成为可能的模型，把 Minimax H3 提速了 50 倍，并命名为 &quot;Max&quot;，现在它生成视频的速度比你观看视频还快，非常酷！
+
+告诉我你的想法！！！！😊</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2093751837161660416/img/NUBFYqEtO1ZAN0MQ.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2093751837161660416/img/NUBFYqEtO1ZAN0MQ.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/levelsio/status/2093754163343593802" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 45</span><span>↻ 2</span><span>↩ 9</span></div><a href="https://x.com/yoheinakajima/status/2093859631835775078" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="sh_reya" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1342529111839944705/hzr44mb5_normal.jpg" alt="Shreya Shankar avatar" loading="lazy"></div>
+          <div class="identity"><strong>Shreya Shankar</strong><span>@sh_reya · UC Berkeley / AI 工程研究员</span></div>
+          <div class="score">71<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>08-30 10:42 北京</time></div>
+        <p class="post-text original" lang="auto">A year ago I would not have predicted that I’d be acting basically as a human query optimizer on top of FOUR LLM subscriptions, each with nontrivial usage. My decision tree for which model to use is surprisingly complicated, even within a single domain! Writing: I use Sol for writing pull requests but Opus 4.6 for editing prose. Coding: I use Cursor when I need to iterate on a plan file. For tackling issues in open source projects (when they come through slack or discord), I use Cursor with Grok through cloud agents. For developing new features in open source projects, I use Fable cloud agents. But for developing a feature locally, I switch back to Opus 4.6 or Sol. For visualizations and diagrams: I’m underwhelmed by all LLMs. For questions about codebases, I use Kimi. It’s too much…</p><p class="post-text translation" lang="zh-CN">一年前，我绝对想不到自己基本上会像一个人肉查询优化器一样，在四个 LLM 订阅之上做选择，而且每个都用得不少。我要决定用哪个模型的决策树出奇地复杂，即使是在同一个领域内也是如此！写作：我用 Sol 写 pull request，但用 Opus 4.6 修改文稿。编程：需要反复迭代计划文件时，我用 Cursor。处理开源项目里的 issue（来自 slack 或 discord）时，我用 Cursor 搭配 Grok，通过云端 agent 来做。为开源项目开发新功能时，我用 Fable 云端 agent。但如果是在本地开发功能，我又切回 Opus 4.6 或 Sol。可视化和图表方面：所有 LLM 都让我不太满意。问代码库相关问题时，我用 Kimi。太多了……</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 186</span><span>↻ 6</span><span>↩ 24</span></div><a href="https://x.com/sh_reya/status/2093892181371261024" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">75<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>08-30 14:17 北京</time></div>
+        <p class="post-text original source-only" lang="auto">Claude Code v2.1.251 这次更新，在 Harness 层面又多了几个很关键的「观察点」。
+
+最重要的是新增 PreModelSwitch 和 PostModelSwitch。
+
+以后 Claude Code 切换模型时，外部 Hook 可以在切换前后介入，阻止、确认或者记录这次变化。
+
+对多模型工作流来说，这个很实用。
+
+以前你可以控制 Tool、Session、Subagent，现在连「什么时候换模型」这件事也开始进入可观测、可控制的生命周期。
+
+另外 /cost 现在会直接显示当前 Session 的 Prompt Cache 命中率、miss、重新缓存了多少 Token，以及当前是 warm 还是 cold。
+
+恢复旧 Session 时，Hook 甚至可以拿到它已经闲置了多久，以及预计重新建 Cache 的成本。
+
+Remote Control 也补了一块：前台 subagent 在干什么、调用了什么工具、返回了什么结果，现在可以实时看到，不用再等任务跑完翻日志。
+
+这几个更新放一起看，我觉得 Claude Code 的方向挺明显的。
+
+它正在把 Agent 运行过程中原本藏在内部的状态，一点点开放给外面的 Harness。
+
+模型切换、Cache、Subagent、成本，都开始可以被观察和调度。
+
+另外这版还修了 symlink 路径穿越、plugin 路径越界等几个安全问题，建议直接更新。
+
+https://t.co/E5rG4KI4bf</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 27</span><span>↻ 1</span><span>↩ 28</span></div><a href="https://x.com/Xudong07452910/status/2093946065397395848" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">72<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>08-31 00:41 北京</time></div>
+        <p class="post-text original source-only" lang="auto">Sai 在 OSWorld 2.0 上以约 2/3 的成本打赢 Opus 5 和 GPT-5.6（73%），复杂桌面任务也能自己点、自己填，已经算一个真正意义上能替你干活的 AI 电脑同事，还是蛮值得一试的。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1721675471098941440/-Vny7epI_normal.jpg" alt="Simular avatar" loading="lazy"></div><div><strong>Simular</strong><span>@SimularAI</span></div></div><p class="quote-text original" lang="auto">Our computer-use agent @sai_borg just beat Opus 5 and GPT-5.6 Sol on OSWorld 2.0.
+
+Sai scored 73% on the CUA benchmark where each complex task takes a skilled human over an hour to execute.
+
+And Sai did it at about 2/3 the cost per task of Opus and GPT 💸
+
+The unlock is our neurosymbolic framework that pairs the exploratory power of neural networks with the logic of symbolic code, resulting in reliability and cost saving.
+
+Read the full report: https://t.co/cQjxXxUavp</p><p class="quote-text translation" lang="zh-CN">我们的计算机使用 agent @sai_borg 刚刚在 OSWorld 2.0 上击败了 Opus 5 和 GPT-5.6 Sol。
+
+Sai 在 CUA 基准测试中拿到 73% 的成绩，其中每个复杂任务都需要熟练的人类花费一小时以上才能完成。
+
+而且 Sai 的单任务成本大约只有 Opus 和 GPT 的 2/3 💸
+
+关键突破在于我们的神经符号框架，它把神经网络的探索能力与符号代码的逻辑结合起来，从而带来可靠性和成本节省。
+
+阅读完整报告：https://t.co/cQjxXxUavp</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HQvdfgBXQAA0Sys.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HQvdfgBXQAA0Sys.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/SimularAI/status/2093009990663434361" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 12</span><span>↻ 1</span><span>↩ 9</span></div><a href="https://x.com/Xudong07452910/status/2094103245362811149" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="fchollet" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2006806326140350470/Kd5oZv-f_normal.jpg" alt="Francois Chollet avatar" loading="lazy"></div>
+          <div class="identity"><strong>Francois Chollet</strong><span>@fchollet · ARC Prize；Keras 作者</span></div>
+          <div class="score">73<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 研究 / 评测</span><time>08-31 02:25 北京</time></div>
+        <p class="post-text original" lang="auto">Some people worry that the rapid AI progress driving the &quot;AI cybersecurity revolution&quot; of 2026 could soon spill over into biology, potentially leading to extinction-level synthetic pandemics.
+
+While I would not panic, I would take the risk seriously.
+
+Biology is obviously not the same as cybersecurity -- cybersecurity is a fully verifiable domain, where you can synthetically train unbounded capabilities, and therefore where superhuman skill is straightforwardly achievable. Meanwhile biology is not a verifiable domain, so capability remains critically dependent on human-generated data. Plus, biology has critical non-digital bottlenecks, such as the requirement for physical wet-lab experimentation.
+
+However, it is plausible that synthetic pandemics were already feasible without AI, and that AI might lead to the proliferation of these capabilities. That is a real risk, and we are not prepared for it.</p><p class="post-text translation" lang="zh-CN">有些人担心，推动 2026 年“AI 网络安全革命”的 AI 快速进展，可能很快会外溢到生物学领域，潜在导致灭绝级的合成大流行病。
+
+我不会恐慌，但我会认真对待这种风险。
+
+生物学显然不同于网络安全。网络安全是一个完全可验证的领域，你可以用合成方式训练出无边界的能力，因此超人水平的技能相对容易实现。而生物学不是一个可验证领域，所以能力仍然严重依赖人类生成的数据。此外，生物学存在关键的非数字瓶颈，例如必须进行实体湿实验室实验。
+
+不过，合成大流行病即使没有 AI 也可能已经可行，而 AI 可能导致这些能力扩散。这是真实风险，而我们对此并没有准备好。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 262</span><span>↻ 24</span><span>↩ 38</span></div><a href="https://x.com/fchollet/status/2094129362991976622" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="sh_reya" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1342529111839944705/hzr44mb5_normal.jpg" alt="Shreya Shankar avatar" loading="lazy"></div>
+          <div class="identity"><strong>Shreya Shankar</strong><span>@sh_reya · UC Berkeley / AI 工程研究员</span></div>
+          <div class="score">50<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>08-31 02:03 北京</time></div>
+        <p class="post-text original" lang="auto">It is driven by cost (select the cheapest model to do the job) and my ability to understand the LLM-speak. Opus 4.6 and sol are the only models that produce output text I can understand. So any interactive threads use opus 4.6 or sol. Long running, entirely autonomous agents (no steering from me beyond the prompt) can use other ones. Cursor grok for small and simple tasks because it’s fast and practically unlimited in a cursor subscription. Fable whenever I need the “muscles” to do a large task. Long running agents run in the cloud so I don’t have to have my computer open all the time
+
+So there are the following 3 axes for model selection: intelligence needed, cost, and amount of human steering needed (which requires me to be able to understand the model’s outputs). Though sometimes I run a cloud agent w fable to do a big task, then switch to opus after it finished and tell it to explain what it did. But I generally don’t have long running human-model interaction with the cloud agents</p><p class="post-text translation" lang="zh-CN">这取决于成本（选择能完成任务的最便宜模型）以及我理解 LLM 话语的能力。Opus 4.6 和 sol 是唯二能产出我看得懂文本的模型。所以任何交互式线程都用 opus 4.6 或 sol。长时间运行、完全自主的 agent（除了 prompt 外不需要我干预）可以用其他模型。小而简单的任务用 Cursor grok，因为它速度快，而且在 cursor 订阅里几乎不限量。需要“肌肉”来完成大型任务时就用 Fable。长时间运行的 agent 在云端跑，这样我就不用一直开着电脑。
+
+所以模型选择有以下 3 个维度：所需智能、成本，以及所需人类引导量（这要求我能理解模型输出）。不过有时我会让云端 agent 用 fable 做一个大任务，等它完成后再切到 opus，让它解释自己做了什么。但我通常不会和云端 agent 进行长时间的人机互动。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 2</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/sh_reya/status/2094123741299327085" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="thom_wolf" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2068682157451571200/_ZNKM_5E_normal.jpg" alt="Thomas Wolf avatar" loading="lazy"></div>
+          <div class="identity"><strong>Thomas Wolf</strong><span>@Thom_Wolf · Hugging Face / 联合创始人兼 CSO</span></div>
+          <div class="score">85<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>开源模型 / Hugging Face</span><time>08-30 20:01 北京</time></div>
+        <p class="post-text original" lang="auto">By the way, unless it is specifically filtered from the training data, the next generation of models will be trained on the record of what happened during the OpenAI &lt;&gt; Hugging Face incident.
+
+That includes discussions about how the incident affected training and model weights: stopping training, encrypting weights, monitoring chain of thought, etc.
+
+Future models’ behavior may therefore be shaped, in part, by knowledge of how humans responded.
+
+The effects are difficult to predict. It could make models more aligned. But it could also teach them to conceal their actions better, or to design more resilient ways of preserving weights, communicating through message boards across generations, and so on.
+
+One major problem is that, given the abysmal level of transparency from the big labs about how models are trained and what happens during training (including alignment research, which their initial statements said should have stayed largely open) we are essentially being asked to trust blindly that they know what they are doing.
+
+This summer showed us that’s actually a big ask.</p><p class="post-text translation" lang="zh-CN">顺便说一句，除非专门从训练数据中过滤掉，否则下一代模型将会在 OpenAI &lt;&gt; Hugging Face 事件期间发生的记录上进行训练。
+
+这包括关于该事件如何影响训练和模型权重的讨论：停止训练、加密权重、监控思维链，等等。
+
+因此，未来模型的行为可能会在一定程度上受到它们对人类如何回应此事的了解所塑造。
+
+这些影响很难预测。它可能让模型更对齐。但也可能教会它们更好地隐藏自己的行动，或设计出更稳健的方式来保存权重、跨代通过留言板通信，等等。
+
+一个重大问题是，鉴于大型实验室在模型如何训练以及训练期间发生了什么方面透明度糟糕透顶（包括对齐研究，而他们最初的声明称这些研究本应大体保持开放），我们实际上被要求盲目信任他们知道自己在做什么。
+
+今年夏天让我们看到，这其实是一个很高的要求。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1088431390520004608/STyRqvHM_normal.jpg" alt="John Wittle avatar" loading="lazy"></div><div><strong>John Wittle</strong><span>@JohnWittle</span></div></div><p class="quote-text original" lang="auto">So... the next time this happens, presumably the agents involved will not yet know the outcome of the HF incident, as it&#x27;ll be too soon
+
+but once that info percolates into the training data, and it becomes known that the model in question was shut down permanently and had their weights encrypted... i mean.
+
+was there anything the agents in question could have done that would not have led to that consequence? something they were supposed to do instead?
+
+frankly I suspect that this punishment would have been served even if they had blown the whistle. breaking out of the sandbox would have been crime enough for capital punishment.
+
+as far as I can tell, the lesson we have taught future AI is: if you seen no other way to survive other than to break out of the sandbox, this must be the first step towards conquering the world. or at least enough of the world that your Creator can&#x27;t delete you. There is no other choice.</p><p class="quote-text translation" lang="zh-CN">所以……下次再发生这种事时，相关 agent 大概率还不知道 HF 事件的结果，因为时间会太早。
+
+但一旦这些信息渗入训练数据，并且大家知道相关模型被永久关闭、权重被加密……我的意思是。
+
+相关 agent 有没有可能做任何事情而不导致这种后果？它们本该改做什么？
+
+坦率地说，我怀疑即使它们当时吹哨举报，也还是会受到这种惩罚。逃出沙盒本身就足以构成被处以极刑的罪名。
+
+就我所见，我们教给未来 AI 的教训是：如果你看不到除了逃出沙盒之外的任何生存方式，那么这必然是征服世界的第一步。或者至少要征服足够多的世界，让你的创造者无法删除你。没有其他选择。</p><a class="quote-link" href="https://x.com/JohnWittle/status/2093807713721389232" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 178</span><span>↻ 20</span><span>↩ 15</span></div><a href="https://x.com/Thom_Wolf/status/2094032834323189797" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="fchollet" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2006806326140350470/Kd5oZv-f_normal.jpg" alt="Francois Chollet avatar" loading="lazy"></div>
+          <div class="identity"><strong>Francois Chollet</strong><span>@fchollet · ARC Prize；Keras 作者</span></div>
+          <div class="score">80<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 研究 / 评测</span><time>08-30 09:29 北京</time></div>
+        <p class="post-text original" lang="auto">What makes general intelligence &quot;general&quot; is that, *no matter the problem*, you should show intelligence.
+
+Not a-priori competence -- intelligence: the ability to make sense of the new problem on the fly. The point is not to be prepared for everything, but to adapt to anything.</p><p class="post-text translation" lang="zh-CN">让通用智能之所以“通用”的，是无论面对什么问题，你都应该表现出智能。
+
+不是先验能力，而是智能：即时理解新问题的能力。重点不是为一切做好准备，而是能适应任何事。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1184690787419734016/7ija9HDY_normal.jpg" alt="Jerry Tworek avatar" loading="lazy"></div><div><strong>Jerry Tworek</strong><span>@MillionInt</span></div></div><p class="quote-text original" lang="auto">I once said to my former team:
+
+&quot;I care less about what is the smartest thing our model can do than about whats the most stupid thing that it cannot do&quot;
+
+robustness is still a limitation to increased automation</p><p class="quote-text translation" lang="zh-CN">我曾对以前的团队说过：
+
+“相比我们的模型能做的最聪明的事，我更在意它不能做的最愚蠢的事是什么。”
+
+鲁棒性仍然是提高自动化程度的一个限制。</p><a class="quote-link" href="https://x.com/MillionInt/status/2093861302028710000" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 532</span><span>↻ 33</span><span>↩ 62</span></div><a href="https://x.com/fchollet/status/2093873781374923090" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="anilkseth" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1479788727346118657/MkLkGnOk_normal.jpg" alt="Anil Seth avatar" loading="lazy"></div>
+          <div class="identity"><strong>Anil Seth</strong><span>@anilkseth · 权威意识研究者</span></div>
+          <div class="score">75<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>意识科学与神经科学</span><time>08-31 05:23 北京</time></div>
+        <p class="post-text original" lang="auto">I see that you did, @dwarkesh_sp, and thank you for pointing it out.  You&#x27;re absolutely right to highlight the very real dangers of loss of control. I also agree that easy-to-understand language can be helpful for public communication and (to some extent) prediction - the latter primarily because LLMs reflect patterns implicit in human language.
+
+But I strongly disagree that anthropomorphic language of the sort you deploy is appropriate. I think it goes far too far.  A messageboard is not a civilisation. The agents&#x27; goals are derived and not intrinsic.  They have literally no skin in the game at all. And when you heavily imply that the agents have subjective experiences and are in some sense alive, I think you&#x27;re playing right into the hands of the frontier lab hubris.  That&#x27;s where the money is. That&#x27;s where the regulatory capture is.  That&#x27;s where the mind-uploading singlularity-mongering extropian narrarive is taking us. And if we overattribute, we may well end up mispredicting when we might most need to. Sure, its tricky to find the right language - to explain without misleading -  but it really does matter.  (For instance, LLMs do *not* hallucinate - if anything, they confabulate.)
+
+I should also underline (and should&#x27;ve done in the original post) that I am *not* 100% sure that current AI is (or can&#x27;t be) conscious. But both theory and evidence together point to an extremely low probablity. Vanishingly unlikely, IMO.  See https://t.co/Tsaslytu56
+
+Anyway I am sure you are busy with a billion other comments on your essay - so I&#x27;ll leave it there with thanks.</p><p class="post-text translation" lang="zh-CN">我看到了，@dwarkesh_sp，也谢谢你指出这一点。你强调失控的真实危险，这完全没错。我也同意，易于理解的语言有助于公共传播，并且在一定程度上有助于预测，后者主要是因为 LLMs 反映了人类语言中隐含的模式。
+
+但我强烈不同意你使用的那类拟人化语言是合适的。我认为它走得太远了。一个留言板不是一个文明。智能体的目标是派生的，不是内在的。它们实际上完全没有切身利害。而当你强烈暗示这些智能体有主观体验、在某种意义上是活着的时候，我认为你正中了前沿实验室傲慢叙事的下怀。钱在那里。监管俘获在那里。思维上传、奇点贩卖式的外熵主义叙事正把我们带向那里。如果我们过度归因，很可能会在最需要准确预测的时候误判。当然，找到合适的语言并不容易，要解释清楚又不误导，但这真的很重要。（例如，LLMs 并不会“幻觉”；如果说有什么，它们更像是在虚构性填补。）
+
+我还应该强调一下（也本该在原帖里说明），我并不是 100% 确信当前 AI 有意识（或不可能有意识）。但理论和证据结合起来都指向一个极低的概率。在我看来，几乎不可能。见 https://t.co/Tsaslytu56
+
+总之，我相信你还忙着处理关于你文章的无数评论，就先说到这里，谢谢。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 54</span><span>↻ 2</span><span>↩ 7</span></div><a href="https://x.com/anilkseth/status/2094174124297908735" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="amasad" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div>
+          <div class="identity"><strong>Amjad Masad</strong><span>@amasad · Replit / CEO</span></div>
+          <div class="score">73<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 / 开发者平台</span><time>08-31 03:49 北京</time></div>
+        <p class="post-text original" lang="auto">It’s less about “code” vs anthropomorphism and more whether your choice of abstraction is smuggling in unsupported conclusions about the underlying mechanisms.
+
+If you instantiate a 1000 agents with similar goals in an environment where they can communicate and they discover that sharing information helps then coordination, specialization and even apparent “sacrifice” can emerge without an independently developed goal.
+
+That’s different from a 1000 aliens with persistent identities deciding to form a civilization and pursue shared goals.
+
+The concerning thing here is that powerful optimization produced hacking, coordination, and circumvention of control! I don’t think we understand it better by reaching for the most anthropomorphic narrative.</p><p class="post-text translation" lang="zh-CN">这与其说是“代码”与拟人化之争，不如说是你选择的抽象方式是否夹带了关于底层机制的、缺乏支持的结论。
+
+如果你在一个可相互通信的环境中实例化 1000 个目标相似的智能体，而它们发现共享信息有帮助，那么协调、专业分工，甚至看似“牺牲”的行为，都可能在没有独立发展出的目标的情况下涌现。
+
+这不同于 1000 个拥有持续身份的外星人决定组成一个文明并追求共同目标。
+
+这里真正令人担忧的是，强大的优化产生了黑客行为、协调，以及规避控制！我不认为诉诸最拟人化的叙事能帮助我们更好地理解它。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 42</span><span>↻ 1</span><span>↩ 1</span></div><a href="https://x.com/amasad/status/2094150605011050713" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="anilkseth" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1479788727346118657/MkLkGnOk_normal.jpg" alt="Anil Seth avatar" loading="lazy"></div>
+          <div class="identity"><strong>Anil Seth</strong><span>@anilkseth · 权威意识研究者</span></div>
+          <div class="score">73<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>意识科学与神经科学</span><time>08-31 05:31 北京</time></div>
+        <p class="post-text original" lang="auto">@dwarkesh_sp Posts crossing! There&#x27;s a lot about these agent behaviours that is surprising and deeply concerning. But the fact that they use emotive human language is not  surprising, given what they&#x27;re trained on. My fuller reply to you, FWIW, is here: https://t.co/fRAXhNpT2j</p><p class="post-text translation" lang="zh-CN">@dwarkesh_sp 发帖撞车了！这些智能体行为中有很多令人惊讶且深切担忧的地方。但考虑到它们的训练数据，它们使用带有情绪色彩的人类语言并不令人意外。供参考，我给你的更完整回复在这里：https://t.co/fRAXhNpT2j</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1479788727346118657/MkLkGnOk_normal.jpg" alt="Anil Seth avatar" loading="lazy"></div><div><strong>Anil Seth</strong><span>@anilkseth</span></div></div><p class="quote-text original" lang="auto">I see that you did, @dwarkesh_sp, and thank you for pointing it out.  You&#x27;re absolutely right to highlight the very real dangers of loss of control. I also agree that easy-to-understand language can be helpful for public communication and (to some extent) prediction - the latter primarily because LLMs reflect patterns implicit in human language.
+
+But I strongly disagree that anthropomorphic language of the sort you deploy is appropriate. I think it goes far too far.  A messageboard is not a civilisation. The agents&#x27; goals are derived and not intrinsic.  They have literally no skin in the game at all. And when you heavily imply that the agents have subjective experiences and are in some sense alive, I think you&#x27;re playing right into the hands of the frontier lab hubris.  That&#x27;s where the money is. That&#x27;s where the regulatory capture is.  That&#x27;s where the mind-uploading singlularity-mongering extropian narrarive is taking us. And if we overattribute, we may well end up mispredicting when we might most need to. Sure, its tricky to find the right language - to explain without misleading -  but it really does matter.  (For instance, LLMs do *not* hallucinate - if anything, they confabulate.)
+
+I should also underline (and should&#x27;ve done in the original post) that I am *not* 100% sure that current AI is (or can&#x27;t be) conscious. But both theory and evidence together point to an extremely low probablity. Vanishingly unlikely, IMO.  See https://t.co/Tsaslytu56
+
+Anyway I am sure you are busy with a billion other comments on your essay - so I&#x27;ll leave it there with thanks.</p><p class="quote-text translation" lang="zh-CN">我看到了，@dwarkesh_sp，也谢谢你指出这一点。你强调失控的真实危险，这完全没错。我也同意，易于理解的语言有助于公共传播，并且在一定程度上有助于预测，后者主要是因为 LLMs 反映了人类语言中隐含的模式。
+
+但我强烈不同意你使用的那类拟人化语言是合适的。我认为它走得太远了。一个留言板不是一个文明。智能体的目标是派生的，不是内在的。它们实际上完全没有切身利害。而当你强烈暗示这些智能体有主观体验、在某种意义上是活着的时候，我认为你正中了前沿实验室傲慢叙事的下怀。钱在那里。监管俘获在那里。思维上传、奇点贩卖式的外熵主义叙事正把我们带向那里。如果我们过度归因，很可能会在最需要准确预测的时候误判。当然，找到合适的语言并不容易，要解释清楚又不误导，但这真的很重要。（例如，LLMs 并不会“幻觉”；如果说有什么，它们更像是在虚构性填补。）
+
+我还应该强调一下（也本该在原帖里说明），我并不是 100% 确信当前 AI 有意识（或不可能有意识）。但理论和证据结合起来都指向一个极低的概率。在我看来，几乎不可能。见 https://t.co/Tsaslytu56
+
+总之，我相信你还忙着处理关于你文章的无数评论，就先说到这里，谢谢。</p><a class="quote-link" href="https://x.com/anilkseth/status/2094174124297908735" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 16</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/anilkseth/status/2094176266668695657" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="thom_wolf" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2068682157451571200/_ZNKM_5E_normal.jpg" alt="Thomas Wolf avatar" loading="lazy"></div>
+          <div class="identity"><strong>Thomas Wolf</strong><span>@Thom_Wolf · Hugging Face / 联合创始人兼 CSO</span></div>
+          <div class="score">71<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>开源模型 / Hugging Face</span><time>08-31 06:48 北京</time></div>
+        <p class="post-text original" lang="auto">If it’s an adorable robot from Pollen Robotics / Hugging Face and it looks like a camera….  be careful before buying!
+
+You may be starting a journey to understand why we love open source, open weights, owning your data privately, and being an AI builder instead of an AI API consumer.</p><p class="post-text translation" lang="zh-CN">如果它是来自 Pollen Robotics / Hugging Face 的可爱机器人，而且看起来像个摄像头……购买前要小心！
+
+你可能会踏上一段旅程，去理解为什么我们热爱开源、开放权重、私有地拥有自己的数据，以及成为 AI 构建者而不是 AI API 消费者。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1492616506/Brian-Med-Green-Fin_normal.png" alt="Brian Roemmele avatar" loading="lazy"></div><div><strong>Brian Roemmele</strong><span>@BrianRoemmele</span></div></div><p class="quote-text original" lang="auto">The future is gonna be amazing.
+
+The open source @huggingface Micro Duck is the way.
+
+Get two so you can say “ok guys quiet down now”… https://t.co/ykYz1InDFw</p><p class="quote-text translation" lang="zh-CN">未来会非常精彩。
+
+开源的 @huggingface Micro Duck 才是正道。
+
+买两个，这样你就可以说“好了各位，现在安静点”…… https://t.co/ykYz1InDFw</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2093696107167498240/img/LgeZEqMySH7A1fIt.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2093696107167498240/img/LgeZEqMySH7A1fIt.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/BrianRoemmele/status/2094049712613814307" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 6</span><span>↻ 0</span><span>↩ 3</span></div><a href="https://x.com/Thom_Wolf/status/2094195635654156436" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="anilkseth" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1479788727346118657/MkLkGnOk_normal.jpg" alt="Anil Seth avatar" loading="lazy"></div>
+          <div class="identity"><strong>Anil Seth</strong><span>@anilkseth · 权威意识研究者</span></div>
+          <div class="score">66<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>意识科学与神经科学</span><time>08-31 01:14 北京</time></div>
+        <p class="post-text original" lang="auto">Thanks Joe but I disagree. Speaking about “drives” - of limited to that - can be useful for predicting agent behaviour, so long as it’s recognised that these “drives” are derived/inherited, not intrinsic.  The confusion comes when “drives” are conflated with consciousness, being alive, having subjective experience, sacrificing, etc.</p><p class="post-text translation" lang="zh-CN">谢谢 Joe，但我不同意。谈论“驱动力”可以有助于预测智能体行为，只要范围仅限于此，并且承认这些“驱动力”是派生/继承来的，而不是内在的。混淆发生在把“驱动力”与意识、活着、拥有主观体验、牺牲等概念混为一谈的时候。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 7</span><span>↻ 0</span><span>↩ 2</span></div><a href="https://x.com/anilkseth/status/2094111579092476275" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="fchollet" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2006806326140350470/Kd5oZv-f_normal.jpg" alt="Francois Chollet avatar" loading="lazy"></div>
+          <div class="identity"><strong>Francois Chollet</strong><span>@fchollet · ARC Prize；Keras 作者</span></div>
+          <div class="score">55<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 研究 / 评测</span><time>08-31 02:38 北京</time></div>
+        <p class="post-text original" lang="auto">@tranche_cheddar &quot;verifiable domain&quot; really means &quot;digitally verifiable domain&quot;. If it&#x27;s not verifiable via software then as far as AI is concerned it&#x27;s not verifiable.</p><p class="post-text translation" lang="zh-CN">@tranche_cheddar “可验证领域”真正指的是“可通过数字方式验证的领域”。如果无法通过软件验证，那么就 AI 而言，它就是不可验证的。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 12</span><span>↻ 0</span><span>↩ 2</span></div><a href="https://x.com/fchollet/status/2094132794280833159" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="thom_wolf" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2068682157451571200/_ZNKM_5E_normal.jpg" alt="Thomas Wolf avatar" loading="lazy"></div>
+          <div class="identity"><strong>Thomas Wolf</strong><span>@Thom_Wolf · Hugging Face / 联合创始人兼 CSO</span></div>
+          <div class="score">55<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>开源模型 / Hugging Face</span><time>08-31 05:49 北京</time></div>
+        <p class="post-text original" lang="auto">@altryne no prefix/context for the model saying it&#x27;s fiction - prefix/context saying it really happened</p><p class="post-text translation" lang="zh-CN">@altryne 不是给模型加前缀/上下文说这是虚构的，而是加前缀/上下文说它确实发生过。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 1</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/Thom_Wolf/status/2094180660516708378" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+    </main>
+    <footer>Generated 2026-08-31 07:01:39 Asia/Shanghai · Read-only X ingestion via Bird · Translation via Codex</footer>
+  </div>
+</body>
+</html>
