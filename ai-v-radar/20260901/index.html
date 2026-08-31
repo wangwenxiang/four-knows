@@ -1,0 +1,956 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>硅谷 AI 原声 · 2026-09-01</title>
+  <style>
+    :root{--bg:#f4f6f8;--surface:#fff;--text:#16181c;--muted:#65717e;--line:#dfe4e9;--accent:#0066cc;--green:#117a62;--shadow:0 16px 42px rgba(18,28,38,.08);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 15% 0,#e8f2ff 0,transparent 27%),var(--bg);color:var(--text)} a{color:inherit;text-decoration:none} button{font:inherit}
+    .shell{width:min(1500px,calc(100% - 28px));margin:0 auto;padding:14px 0 40px}
+    .hero{display:grid;grid-template-columns:minmax(250px,1fr) auto;align-items:center;gap:12px;padding:15px 18px;border:1px solid rgba(255,255,255,.75);border-radius:16px;background:rgba(255,255,255,.88);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    h1{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin:0;font-size:clamp(28px,3.4vw,44px);line-height:1;letter-spacing:-.05em} .report-date{color:var(--green);font-size:clamp(10px,1vw,13px);font-weight:900;letter-spacing:.08em;white-space:nowrap}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(62px,1fr));gap:6px;align-content:start} .metric{padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fff} .metric strong{display:block;font-size:19px;line-height:1} .metric span{display:block;margin-top:3px;color:var(--muted);font-size:8px;font-weight:820;white-space:nowrap}
+    .notice{margin-top:12px;padding:11px 14px;border:1px solid #e1b866;border-radius:12px;background:#fff8e8;color:#7a5612;font-size:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px;align-items:start} .signal-card{min-width:0;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 9px 26px rgba(18,28,38,.045)}
+    .card-top{display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:10px} .avatar{display:grid;width:46px;height:46px;overflow:hidden;place-items:center;border:1px solid #d9e0e7;border-radius:999px;background:linear-gradient(135deg,#111827,#46627d);color:#fff;font-size:12px;font-weight:900} .avatar img{width:100%;height:100%;object-fit:cover;display:block} .identity{display:grid;gap:3px;min-width:0} .identity strong,.identity span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .identity strong{font-size:14px} .identity span{color:var(--muted);font-size:11px}
+    .score{display:grid;justify-items:center;min-width:40px;padding:5px 6px;border:1px solid #e3ebe8;border-radius:8px;background:#f4f8f6;color:#527267;font-size:15px;font-weight:820;line-height:1} .score small{margin-top:2px;color:#71877f;font-size:7px;letter-spacing:.06em;text-transform:uppercase}
+    .meta{display:flex;align-items:center;gap:6px;margin:11px 0 9px;color:var(--muted);font-size:10.5px;font-weight:750} .meta span:not(.priority){overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .meta time{margin-left:auto;white-space:nowrap} .priority{padding:3px 6px;border-radius:999px;background:#111827;color:#fff;font-size:9px}
+    .post-text{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.58} .post-text.original{font-size:16px;font-weight:570;color:#20252b} .post-text.translation{margin-top:8px;color:#66727f;font-size:13px;font-weight:470;line-height:1.62} .article .original+.translation{margin-top:2px;color:#65717e;font-size:11px;font-weight:650} .quote,.article{display:grid;gap:6px;margin-top:10px;padding:11px;border:1px solid var(--line);border-radius:12px;background:#f7f9fb} .quote__author{display:flex;align-items:center;gap:7px;font-size:11px} .quote__author>div:last-child{display:grid;gap:1px} .quote__author span{color:var(--muted)} .quote-avatar{display:grid;width:28px;height:28px;overflow:hidden;place-items:center;border:1px solid var(--line);border-radius:999px;background:#dfe6ed;color:#52606d;font-size:10px;font-weight:900} .quote-avatar img{width:100%;height:100%;object-fit:cover} .quote p,.article p{margin:0;color:#4f5a66;font-size:12px;line-height:1.48;white-space:pre-wrap} .article strong{font-size:13px} .article strong.original{font-size:13.5px} .quote-text.original{font-size:12.5px;color:#36414d} .quote-text.translation{font-size:11.5px;color:#6a7682} .quote-link{justify-self:start;color:var(--accent);font-size:10px;font-weight:850}
+    .media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:10px;overflow:hidden;border-radius:12px} .media-grid--1{grid-template-columns:1fr} .media-item{position:relative;min-height:150px;background:#e8edf2} .media-item img{width:100%;height:100%;max-height:330px;object-fit:cover;display:block} .media-item span{position:absolute;right:7px;bottom:7px;padding:4px 6px;border-radius:6px;background:rgba(0,0,0,.68);color:#fff;font-size:8px;font-weight:900}
+    .card-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid #edf0f3} .engagement{display:flex;gap:10px;color:var(--muted);font-size:10.5px;font-weight:750} .card-bottom>a{color:var(--accent);font-size:11px;font-weight:850} .empty{grid-column:1/-1;padding:70px;text-align:center;border:1px dashed #cdd5dd;border-radius:16px;background:#fff;color:var(--muted)}
+    footer{padding:26px 4px 0;color:var(--muted);font-size:11px;text-align:center}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}} @media(max-width:560px){.shell{width:min(100% - 16px,1500px);padding-top:7px}.hero{gap:10px;padding:13px 14px;border-radius:15px}h1{font-size:28px}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.metric{padding:7px 9px}.metric strong{font-size:18px}.signal-card{padding:13px}.post-text.original{font-size:15px}.post-text.translation{font-size:12.5px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <h1>硅谷 AI 原声 <span class="report-date">· 2026-09-01</span></h1>
+      <div class="metrics"><div class="metric"><strong>62</strong><span>监控专家</span></div><div class="metric"><strong>15</strong><span>活跃专家</span></div><div class="metric"><strong>33</strong><span>精选原文</span></div></div>
+    </header>
+
+    <main class="grid">
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">85<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>08-31 11:30 北京</time></div>
+        <p class="post-text original source-only" lang="auto">Agent 看起来每一步都在自由发挥，但把几千条执行轨迹摊开后，它的行为可能只剩下几十个状态。
+
+UCL 和 Holistic AI 团队这篇论文做了一件很有意思的实验：
+
+把 Agent 的历史轨迹压缩成一张有限状态机（FSM）。
+
+比如 Coding Agent 经常在「搜索 → 修改 → 执行 → 再搜索」之间循环。作者把工具调用和动作抽象成状态，再从大量成功和失败轨迹中自动还原出 Agent 常走的路径。
+
+结果在 12 个公开数据集上，这些 FSM 只有 7–43 个状态，却能以 ≥0.997 的拟合度重放未见过的轨迹，而且几毫秒就能构建完成。
+
+这张「行为地图」还能直接拿来预测Agent 下一步可能做什么，以及当前轨迹是不是正在走向失败。
+
+在下一步预测上，它在 8/8 数据集都超过了 Agent Workflow Memory；失败预测最高 AUROC 达到 0.94。
+
+在 SWE-agent 上，系统甚至可以在失败任务平均只执行到 32% 时触发早停，省掉后面约 68% 的计算。
+
+但我更关注论文里的另一个发现：
+
+换不同 LLM，Agent 的行为拓扑依然非常相似。
+
+底座模型会影响每一步怎么选，harness 可能早已经把「有哪些路可以走」画出了大致边界。
+
+以后分析 Agent，也不能只盯着模型输出。
+
+它反复走哪些路径、在哪里进入循环、失败前会经过哪些状态，本身就是一层很有价值的可观测信号。
+
+📎 arxiv: https://t.co/n1hwqdGd3R</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HQ_EfOyXMAAY-N6.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HQ_EfOyXMAAY-N6.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 181</span><span>↻ 34</span><span>↩ 44</span></div><a href="https://x.com/Xudong07452910/status/2094266427373167075" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="hwchase17" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1569345624935485442/R67C4wCQ_normal.jpg" alt="Harrison Chase avatar" loading="lazy"></div>
+          <div class="identity"><strong>Harrison Chase</strong><span>@hwchase17 · LangChain / CEO</span></div>
+          <div class="score">75<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Agent 框架</span><time>09-01 00:17 北京</time></div>
+        <p class="post-text original" lang="auto">cost reconciliation at the trace level
+
+For AI apps, &quot;how much did we spend?&quot; is less useful than &quot;which workflow, tool call, prompt path, or retry pattern drove that spend?&quot;</p><p class="post-text translation" lang="zh-CN">追踪级别的成本对账
+
+对 AI 应用来说，“我们花了多少钱？”不如“是哪个工作流、工具调用、提示路径或重试模式推高了成本？”有用</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2028336270431453184/jRRpLAdG_normal.jpg" alt="LangChain avatar" loading="lazy"></div><div><strong>LangChain</strong><span>@LangChain</span></div></div><p class="quote-text original" lang="auto">Clay uses LangSmith to reconcile 99.5% of its AI spend. Head of AI @jeffbarg on why cost observability finally clicked once LangSmith was in place. https://t.co/b9tvWjgxyj</p><p class="quote-text translation" lang="zh-CN">Clay 使用 LangSmith 对账其 99.5% 的 AI 支出。AI 负责人 @jeffbarg 讲述为什么在引入 LangSmith 后，成本可观测性终于真正发挥作用。https://t.co/b9tvWjgxyj</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/ext_tw_video_thumb/2094440701299662848/pu/img/iibQ4oYJQ7jF61Hk.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/ext_tw_video_thumb/2094440701299662848/pu/img/iibQ4oYJQ7jF61Hk.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/LangChain/status/2094440744417218924" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 29</span><span>↻ 3</span><span>↩ 13</span></div><a href="https://x.com/hwchase17/status/2094459616033902909" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="c_valenzuelab" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2070496516893229056/bm-CWE5N_normal.jpg" alt="Cristobal Valenzuela avatar" loading="lazy"></div>
+          <div class="identity"><strong>Cristobal Valenzuela</strong><span>@c_valenzuelab · Runway / 联合创始人兼 CEO</span></div>
+          <div class="score">83<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>生成式视频</span><time>09-01 01:27 北京</time></div>
+        <p class="post-text original" lang="auto">Interfaces that are generated, not coded.
+
+Excited to finally share Solaris. Video is the universal interface. Eventually, all UI will be chat and gestures in, chat and video out.
+
+Solaris opens new ways to build websites, apps and other interfaces. And most importantly, it gives new ways to train agents in much more dynamic environments.</p><p class="post-text translation" lang="zh-CN">界面是生成出来的，而不是编码出来的。
+
+很高兴终于分享 Solaris。视频是通用界面。最终，所有 UI 都会是聊天和手势输入，聊天和视频输出。
+
+Solaris 开启了构建网站、应用和其他界面的新方式。最重要的是，它提供了在更动态环境中训练智能体的新方法。</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2094476461126078464/img/E-0XpKUr3X3UptUQ.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2094476461126078464/img/E-0XpKUr3X3UptUQ.jpg" alt="X post media"><span>VIDEO</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2000355514085961731/xpIlcmr4_normal.jpg" alt="Anastasis Germanidis avatar" loading="lazy"></div><div><strong>Anastasis Germanidis</strong><span>@agermanidis</span></div></div><p class="quote-text original" lang="auto">Interfaces that are generated, not coded.
+
+Solaris is our first step toward our vision of end-to-end neural software, where user interfaces are streamed directly onto your screen by a real-time video model, without any intermediate code or HTML/CSS. Today we&#x27;re releasing a technical report and opening it up for limited testing by the community.
+
+Amazing work by the team, combining the best of our research in general world models with Runway&#x27;s HCI spirit.</p><p class="quote-text translation" lang="zh-CN">界面是生成出来的，而不是编码出来的。
+
+Solaris 是我们迈向端到端神经软件愿景的第一步：用户界面由实时视频模型直接流式生成到你的屏幕上，无需任何中间代码或 HTML/CSS。今天我们发布技术报告，并向社区开放有限测试。
+
+团队完成了出色工作，将我们在通用世界模型方面的最佳研究与 Runway 的 HCI 精神结合在一起。</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2094464867902316544/img/mv2Ugeed7-1lgG8j.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2094464867902316544/img/mv2Ugeed7-1lgG8j.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/agermanidis/status/2094466649399451768" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 516</span><span>↻ 41</span><span>↩ 32</span></div><a href="https://x.com/c_valenzuelab/status/2094477304768405608" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="alexandr_wang" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">80<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>09-01 03:08 北京</time></div>
+        <p class="post-text original" lang="auto">1/ muse code is out of beta. launching with an sdk in developer preview to build your own agents on top of it and rolling out monthly subscription plans.
+
+copy-paste into your terminal:
+curl -fsSL https://t.co/TFXsXfJKW8 | bash https://t.co/ykTKGzbGia</p><p class="post-text translation" lang="zh-CN">1/ muse code 已结束 beta。我们推出开发者预览版 sdk，供你在其上构建自己的智能体，并开始推出月度订阅计划。
+
+复制粘贴到你的终端：
+curl -fsSL https://t.co/TFXsXfJKW8 | bash https://t.co/ykTKGzbGia</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2094502180812378112/img/PZzKnLloZE5eFgLy.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2094502180812378112/img/PZzKnLloZE5eFgLy.jpg" alt="X post media"><span>VIDEO</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 756</span><span>↻ 65</span><span>↩ 50</span></div><a href="https://x.com/alexandr_wang/status/2094502557129543774" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">76<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>08-31 09:10 北京</time></div>
+        <p class="post-text original source-only" lang="auto">现在的 Coding Agent 可以自己干几个小时，但有个挺奇怪的问题：
+
+它可能根本不知道自己已经干了多久。
+
+最近一项研究测了 Claude Code 和 Codex。
+
+任务开始前先让它们预测要多久，结束以后再问实际干了多久。
+
+结果 Fable 5 平均会把时间高估 3 倍左右，GPT-5.6 Sol 在成功任务上甚至接近 10 倍。短任务尤其离谱，经常几分钟的活也往很长了估。
+
+更有意思的是，当研究者直接给 Agent 一个 clock tool，它对时间的判断几乎立刻就准了。
+
+把 Session 里的 timestamp、工具运行时间这些线索去掉以后，误差又会明显变大。
+
+所以长时 Agent 接下来可能还缺一个很基础的东西：
+
+把「时间」真正做成 Harness 里的状态。
+
+已经运行多久、还剩多少时间、什么时候该继续尝试、什么时候该停、什么时候该换策略或者找人。
+
+现在我们一直在 Scaling Agent 能连续工作多长时间，但如果它自己连时间过去了多久都不知道，跑得更久也会带来新的问题。
+
+文章
+https://t.co/mbvMp6RaoL</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 20</span><span>↻ 2</span><span>↩ 35</span></div><a href="https://x.com/Xudong07452910/status/2094231194032295969" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="llama_index" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1967920417760251904/0ytfduMQ_normal.png" alt="LlamaIndex avatar" loading="lazy"></div>
+          <div class="identity"><strong>LlamaIndex</strong><span>@llama_index · Agent 数据框架</span></div>
+          <div class="score">75<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Agent 技术突破</span><time>09-01 00:11 北京</time></div>
+        <p class="post-text original" lang="auto">LlamaParse is officially a verified connector on Claude! 🦙
+
+Claude is perfectly fine for the occasional text-only PDF. But most of the context your agent needs lives in messy PDFs, spreadsheets, scanned forms, dense tables, and charts.
+
+Feeding those docs straight to the model burns through tokens and can lead to hallucinations when layouts get scrambled, chart values are missed, or numbers are pulled from the wrong column.
+
+LlamaParse converts those documents into clean, structured context Claude can work with. With the connector you can
+
+✅️ Parse documents into clean Markdown, JSON, or HTML
+✅️ Extract specific fields directly into your schema
+✅️ Search across document collections with filesystem-style tools
+✅️ Classify documents or split them into predefined sections
+
+Live in the Claude Connectors Directory now !
+
+https://t.co/MPWdk7g4l4</p><p class="post-text translation" lang="zh-CN">LlamaParse 已正式成为 Claude 上的认证连接器！🦙
+
+Claude 处理偶尔的纯文本 PDF 完全没问题。但你的智能体所需的大多数上下文都存在于混乱的 PDF、电子表格、扫描表单、密集表格和图表中。
+
+把这些文档直接喂给模型会消耗大量 token，并且在版式被打乱、图表数值被遗漏或数字从错误列中提取时，可能导致幻觉。
+
+LlamaParse 会将这些文档转换为 Claude 可处理的干净结构化上下文。通过该连接器，你可以
+
+✅️ 将文档解析为干净的 Markdown、JSON 或 HTML
+✅️ 将特定字段直接提取到你的 schema 中
+✅️ 使用类似文件系统的工具搜索文档集合
+✅️ 对文档进行分类，或将其拆分为预定义章节
+
+现已上线 Claude Connectors Directory！
+
+https://t.co/MPWdk7g4l4</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/ext_tw_video_thumb/2094458096198270979/pu/img/Es8Z8Tus9qd-3WII.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/ext_tw_video_thumb/2094458096198270979/pu/img/Es8Z8Tus9qd-3WII.jpg" alt="X post media"><span>VIDEO</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 25</span><span>↻ 2</span><span>↩ 2</span></div><a href="https://x.com/llama_index/status/2094458130679689314" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="thom_wolf" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2068682157451571200/_ZNKM_5E_normal.jpg" alt="Thomas Wolf avatar" loading="lazy"></div>
+          <div class="identity"><strong>Thomas Wolf</strong><span>@Thom_Wolf · Hugging Face / 联合创始人兼 CSO</span></div>
+          <div class="score">73<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>开源模型 / Hugging Face</span><time>09-01 05:32 北京</time></div>
+        <p class="post-text original" lang="auto">There is a future where interfaces are ultrafast live diffusion models while software is ultrafast LLMs prediction of the next states
+
+What we’ll lose in predictability we’ll gain 100 folds in adaptability</p><p class="post-text translation" lang="zh-CN">未来，界面将由超高速实时扩散模型驱动，而软件则是超高速 LLM 对下一状态的预测。
+
+我们会失去一些可预测性，但会获得百倍的适应性。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1999115192232292353/zOq5-uwB_normal.jpg" alt="Runway avatar" loading="lazy"></div><div><strong>Runway</strong><span>@runwayml</span></div></div><p class="quote-text original" lang="auto">Today, we&#x27;re sharing new research on Solaris, our first Interface World Model.
+
+Solaris is a new kind of operating system that generates interactive interfaces frame by frame, in real time, with no code. We find that Solaris outperforms frontier LLMs when generating new interfaces, across structural similarity and information retention. Read more and request early access at the link below.</p><p class="quote-text translation" lang="zh-CN">今天，我们分享关于 Solaris 的新研究，这是我们的首个 Interface World Model。
+
+Solaris 是一种新型操作系统，无需代码，即可逐帧实时生成交互式界面。我们发现，在生成新界面时，Solaris 在结构相似性和信息保留方面优于前沿 LLM。点击下方链接了解更多并申请早期访问。</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2094462045219438592/img/HzJNW_pBaNbGvXGh.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2094462045219438592/img/HzJNW_pBaNbGvXGh.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/runwayml/status/2094463070466646019" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 33</span><span>↻ 1</span><span>↩ 1</span></div><a href="https://x.com/Thom_Wolf/status/2094538799032217689" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">68<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>09-01 01:38 北京</time></div>
+        <p class="post-text original" lang="auto">We’re excited to launch the official LlamaParse connector on Claude!
+
+Yes Claude can already read PDFs, and it probably works fine for relatively simple queries over relatively simple docs. But if you want to:
+✅ Parse complex tables, graphs, filled-in dense forms, redlines from docs
+✅ Include visual citations/bounding boxes for auditability
+✅ Extract a *lot* of docs (e.g. 1k+) at scale without breaking the bank
+
+Then you’re going to want a dedicated OCR tool that can handle any document at the Pareto frontier of accuracy and cost.
+
+Install the connector here: https://t.co/Q92PrzycxZ
+
+If you haven’t already, come sign up for a LlamaParse account! https://t.co/XYZmx5TFz8</p><p class="post-text translation" lang="zh-CN">我们很高兴在 Claude 上推出官方 LlamaParse 连接器！
+
+没错，Claude 已经能读 PDF，对于相对简单文档上的相对简单查询，效果可能也不错。但如果你想：
+✅ 解析复杂表格、图表、填写密集的表单、文档修订痕迹
+✅ 加入可视化引用/边界框，便于审计
+✅ 大规模提取大量文档（例如 1k+），同时不烧太多钱
+
+那你会需要一款专用 OCR 工具，在准确率和成本的帕累托前沿处理任何文档。
+
+在这里安装连接器：https://t.co/Q92PrzycxZ
+
+如果还没有账号，欢迎注册 LlamaParse！https://t.co/XYZmx5TFz8</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2094479871426834432/img/S7WT3pys3V_j4W2k.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2094479871426834432/img/S7WT3pys3V_j4W2k.jpg" alt="X post media"><span>VIDEO</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1967920417760251904/0ytfduMQ_normal.png" alt="LlamaIndex 🦙 avatar" loading="lazy"></div><div><strong>LlamaIndex 🦙</strong><span>@llama_index</span></div></div><p class="quote-text original" lang="auto">LlamaParse is officially a verified connector on Claude! 🦙
+
+Claude is perfectly fine for the occasional text-only PDF. But most of the context your agent needs lives in messy PDFs, spreadsheets, scanned forms, dense tables, and charts.
+
+Feeding those docs straight to the model burns through tokens and can lead to hallucinations when layouts get scrambled, chart values are missed, or numbers are pulled from the wrong column.
+
+LlamaParse converts those documents into clean, structured context Claude can work with. With the connector you can
+
+✅️ Parse documents into clean Markdown, JSON, or HTML
+✅️ Extract specific fields directly into your schema
+✅️ Search across document collections with filesystem-style tools
+✅️ Classify documents or split them into predefined sections
+
+Live in the Claude Connectors Directory now !
+
+https://t.co/MPWdk7g4l4</p><p class="quote-text translation" lang="zh-CN">LlamaParse 已正式成为 Claude 上的认证连接器！🦙
+
+Claude 处理偶尔的纯文本 PDF 完全没问题。但你的智能体所需的大多数上下文都存在于混乱的 PDF、电子表格、扫描表单、密集表格和图表中。
+
+把这些文档直接喂给模型会消耗大量 token，并且在版式被打乱、图表数值被遗漏或数字从错误列中提取时，可能导致幻觉。
+
+LlamaParse 会将这些文档转换为 Claude 可处理的干净结构化上下文。通过该连接器，你可以
+
+✅️ 将文档解析为干净的 Markdown、JSON 或 HTML
+✅️ 将特定字段直接提取到你的 schema 中
+✅️ 使用类似文件系统的工具搜索文档集合
+✅️ 对文档进行分类，或将其拆分为预定义章节
+
+现已上线 Claude Connectors Directory！
+
+https://t.co/MPWdk7g4l4</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/ext_tw_video_thumb/2094458096198270979/pu/img/Es8Z8Tus9qd-3WII.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/ext_tw_video_thumb/2094458096198270979/pu/img/Es8Z8Tus9qd-3WII.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/llama_index/status/2094458130679689314" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 23</span><span>↻ 0</span><span>↩ 4</span></div><a href="https://x.com/jerryjliu0/status/2094479946412634375" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="yoheinakajima" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
+          <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
+          <div class="score">63<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>09-01 02:18 北京</time></div>
+        <p class="post-text original" lang="auto">so cool</p><p class="post-text translation" lang="zh-CN">太酷了</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1999115192232292353/zOq5-uwB_normal.jpg" alt="Runway avatar" loading="lazy"></div><div><strong>Runway</strong><span>@runwayml</span></div></div><p class="quote-text original" lang="auto">Today, we&#x27;re sharing new research on Solaris, our first Interface World Model.
+
+Solaris is a new kind of operating system that generates interactive interfaces frame by frame, in real time, with no code. We find that Solaris outperforms frontier LLMs when generating new interfaces, across structural similarity and information retention. Read more and request early access at the link below.</p><p class="quote-text translation" lang="zh-CN">今天，我们分享关于 Solaris 的新研究，这是我们的首个 Interface World Model。
+
+Solaris 是一种新型操作系统，无需代码，即可逐帧实时生成交互式界面。我们发现，在生成新界面时，Solaris 在结构相似性和信息保留方面优于前沿 LLM。点击下方链接了解更多并申请早期访问。</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2094462045219438592/img/HzJNW_pBaNbGvXGh.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2094462045219438592/img/HzJNW_pBaNbGvXGh.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/runwayml/status/2094463070466646019" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 34</span><span>↻ 1</span><span>↩ 1</span></div><a href="https://x.com/yoheinakajima/status/2094490068006395949" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="unitreerobotics" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1844926705389142016/nIEbH8rV_normal.jpg" alt="Unitree avatar" loading="lazy"></div>
+          <div class="identity"><strong>Unitree</strong><span>@UnitreeRobotics · 人形与四足机器人项目</span></div>
+          <div class="score">88<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>机器人领域突破</span><time>08-31 11:48 北京</time></div>
+        <p class="post-text original" lang="auto">Microduck is a really fun robot. We highly recommend giving our brushless digital servo a try.  🥰🥰https://t.co/lrEdccxxIz</p><p class="post-text translation" lang="zh-CN">Microduck 是一款非常有趣的机器人。我们强烈推荐试试我们的无刷数字舵机。🥰🥰https://t.co/lrEdccxxIz</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2068682157451571200/_ZNKM_5E_normal.jpg" alt="Thomas Wolf avatar" loading="lazy"></div><div><strong>Thomas Wolf</strong><span>@Thom_Wolf</span></div></div><p class="quote-text original" lang="auto">We have a huge news to share today!
+
+Today we are unveiling the first truly accessible RL robot - welcome Microduck
+
+A 25 cm tiny open-source biped with 15 actuators and packed with sensors (camera, speaker, LiDAR, NFC, bluetooth, wifi, etc) that you train yourself with reinforcement learning.
+
+It&#x27;s also playable out of the box with more than half a dozen fun and playful pre-trained policies to have it walk, sit, crouch, roller-skate, pick up objects with its articulated beak, and recover on its own.
+
+And all for less than $400.
+
+See all the details, play with the simulator and order it at: https://t.co/n1Btgs6vKw
+
+(video with sound on 🔊)</p><p class="quote-text translation" lang="zh-CN">今天我们有一个重磅消息要分享！
+
+今天，我们正式发布首款真正易用的 RL 机器人：欢迎 Microduck
+
+这是一款 25 厘米高的开源双足小机器人，配备 15 个执行器和丰富传感器（摄像头、扬声器、LiDAR、NFC、蓝牙、WiFi 等），你可以用强化学习亲自训练它。
+
+它开箱即玩，内置十多种有趣好玩的预训练策略，可以行走、坐下、蹲下、滑旱冰、用可活动的喙捡起物体，并能自主恢复姿态。
+
+而且价格不到 400 美元。
+
+查看全部细节、体验模拟器并下单： https://t.co/n1Btgs6vKw
+
+（视频请打开声音 🔊）</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2092919679475941376/img/1ruuR2tfC9WNrGPA.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2092919679475941376/img/1ruuR2tfC9WNrGPA.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/Thom_Wolf/status/2092923071829049592" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 668</span><span>↻ 45</span><span>↩ 49</span></div><a href="https://x.com/UnitreeRobotics/status/2094270984845185473" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="amasad" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div>
+          <div class="identity"><strong>Amjad Masad</strong><span>@amasad · Replit / CEO</span></div>
+          <div class="score">87<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 / 开发者平台</span><time>08-31 08:08 北京</time></div>
+        <p class="post-text original" lang="auto">The lesson from the Hugging Face Incident should be that RL with verifiable rewards is an incredibly powerful optimization algorithm that will produce increasingly weird and surprising behavior from LLMs.
+
+The obvious miss here by OpenAI is that they should’ve been monitoring CoTs —  Something they themselves called out as a safety strategy more than a year ago.</p><p class="post-text translation" lang="zh-CN">Hugging Face 事件的教训应该是：带可验证奖励的 RL 是一种极其强大的优化算法，会让 LLM 产生越来越奇怪、越来越出人意料的行为。
+
+OpenAI 这里明显失误的是，他们本该监控 CoT——这正是他们自己一年多前就提出过的一项安全策略。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 885</span><span>↻ 49</span><span>↩ 81</span></div><a href="https://x.com/amasad/status/2094215744842248418" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="thom_wolf" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2068682157451571200/_ZNKM_5E_normal.jpg" alt="Thomas Wolf avatar" loading="lazy"></div>
+          <div class="identity"><strong>Thomas Wolf</strong><span>@Thom_Wolf · Hugging Face / 联合创始人兼 CSO</span></div>
+          <div class="score">86<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>开源模型 / Hugging Face</span><time>08-31 21:10 北京</time></div>
+        <p class="post-text original" lang="auto">people starting to monitor and worry for microduck supply chain
+
+next step is Elon stepping in with SpaceX to manufacture the bottlenecking pieces - you heard it here first</p><p class="post-text translation" lang="zh-CN">人们开始关注并担心 Microduck 的供应链了
+
+下一步就是 Elon 带着 SpaceX 介入，生产那些卡脖子的零件——我先说在这里了</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2093826930055278592/s6p5Gn-V_normal.jpg" alt="leepy avatar" loading="lazy"></div><div><strong>leepy</strong><span>@leepy_cat</span></div></div><p class="quote-text original" lang="auto">Each Microduck has 15 ROBOTIS XL330 servos.
+
+There are 10k+ preorders so far, implying 150k+ servos of demand for @ROBOTIS if all units ship.
+
+ROBOTIS sold ~220k actuators total in 2025. The Microduck preorder alone could create demand equal to ~70% of last year’s sales, and they have several other lines of servos.
+
+They’re completing a new factory in October, with ~200k initial capacity, ramping up to 5m by 2031.
+
+108490
+
+https://t.co/LpjD86SAyF</p><p class="quote-text translation" lang="zh-CN">每台 Microduck 配有 15 个 ROBOTIS XL330 舵机。
+
+目前预购量已超过 1 万台，如果全部出货，意味着 @ROBOTIS 将面临 15 万个以上舵机的需求。
+
+ROBOTIS 在 2025 年总共售出约 22 万个执行器。仅 Microduck 的预购，就可能带来相当于去年销售额约 70% 的需求，而他们还有其他多条舵机产品线。
+
+他们正在建设的新工厂将于 10 月完工，初始产能约 20 万，到 2031 年提升至 500 万。
+
+108490
+
+https://t.co/LpjD86SAyF</p><a class="quote-link" href="https://x.com/leepy_cat/status/2094398316675031243" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 365</span><span>↻ 29</span><span>↩ 39</span></div><a href="https://x.com/Thom_Wolf/status/2094412611148259451" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="thom_wolf" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2068682157451571200/_ZNKM_5E_normal.jpg" alt="Thomas Wolf avatar" loading="lazy"></div>
+          <div class="identity"><strong>Thomas Wolf</strong><span>@Thom_Wolf · Hugging Face / 联合创始人兼 CSO</span></div>
+          <div class="score">82<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>开源模型 / Hugging Face</span><time>09-01 05:21 北京</time></div>
+        <p class="post-text original" lang="auto">Even at only $399, Microduck’s onboard compute is powerful enough to run some pretty amazing TUIs directly on the robot.
+
+Here’s a cool vibe-coded, on-device dashboard showing everything happening inside it: policy, actions, and sensor data.
+
+The yellow stars are the LiDAR distance measurements. https://t.co/Ru2SCAf4OW</p><p class="post-text translation" lang="zh-CN">即使只卖 399 美元，Microduck 的机载算力也足以直接在机器人上运行一些相当惊艳的 TUI。
+
+这里有一个很酷的 vibe-coded 端侧仪表盘，展示了其内部发生的一切：策略、动作和传感器数据。
+
+黄色星星是 LiDAR 距离测量值。https://t.co/Ru2SCAf4OW</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2093259334549475328/img/ODGqnDihj06wdUCj.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2093259334549475328/img/ODGqnDihj06wdUCj.jpg" alt="X post media"><span>VIDEO</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 106</span><span>↻ 8</span><span>↩ 10</span></div><a href="https://x.com/Thom_Wolf/status/2094536121065820376" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">79<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>08-31 08:20 北京</time></div>
+        <p class="post-text original source-only" lang="auto">推荐最近发现的一个挺完整的 Multi-Agent AIOps 开源项目，比较适合想系统练一次 Agent 工程的人。
+
+它把一次真实运维故障拆成了 4 个 Agent：
+
+监控告警 → 根因分析 → 故障自愈 → 变更审批。
+
+前面用多算法判断异常，中间结合服务拓扑和知识图谱找根因，自愈操作先 dry-run，风险高了再交给人审批。
+
+外面还有一层 Orchestrator，负责状态流转、条件路由、失败重试和 checkpoint。
+
+我比较喜欢的一点是，它没有什么都强行塞给 LLM。
+
+异常检测、风险判断、状态机这些适合确定性执行的地方还是代码和规则，Agent 主要承担整个流程的协作和编排。
+
+而且项目给了 Python、Java、Go 三套实现，连架构文档、部署教程、面试题、简历模板和 STAR 话术都一起准备好了。
+
+如果最近在学 Multi-Agent，又一直停留在 Demo 层，可以拿这个项目完整拆一遍。
+
+项目：
+https://t.co/IG3V4Hq7B1</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 104</span><span>↻ 15</span><span>↩ 21</span></div><a href="https://x.com/Xudong07452910/status/2094218611112263944" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="sh_reya" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1342529111839944705/hzr44mb5_normal.jpg" alt="Shreya Shankar avatar" loading="lazy"></div>
+          <div class="identity"><strong>Shreya Shankar</strong><span>@sh_reya · UC Berkeley / AI 工程研究员</span></div>
+          <div class="score">69<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>08-31 12:21 北京</time></div>
+        <p class="post-text original" lang="auto">https://t.co/pCOIhFgZMG very nice article on the post ai data stack by @iandmacomber . h/t @debnilsur
+
+The premise is that now data analysis codegen has become free, so what next? It is getting the data agents to obtain the (1) correct and (2) consistent answers --- which is very hard when data and context is so messy and fragmented. So the job of the data team is to &quot;encode expert judgement into the infrastructure that allows agents to produce correct analysis *without* the data scientist in the room,&quot; as Ian says
+
+all data products and UIs are going to undergo serious change. business decisions are made not by looking at a dashboard but by asking an agent what to do. on the pipelines/systems side: as Ian says, this means decision makers are not necessarily asking &quot;SQL-shaped&quot; questions. so the onus is on ETL to prepare the relevant data in a structured way, so agents can quickly query it on behalf of humans.
+
+then, on the interface side: what is the UI going to do? a role of UI has always been to tap into the exceptional visual ability / pre-attentive processing of humans. dashboards were UI-for-exploration: they helped humans spot patterns in data themselves. but if the agent is the one looking at the data now, the UI has to serve a different purpose: helping humans grok and verify the agent&#x27;s reasoning, not explore the data themselves. so maybe UI-for-verification is the new thing?
+
+anyways we are in for a really exciting next few years</p><p class="post-text translation" lang="zh-CN">https://t.co/pCOIhFgZMG @iandmacomber 写的一篇关于后 AI 数据栈的好文章。h/t @debnilsur
+
+核心前提是，如今数据分析代码生成已经变得免费，那么下一步是什么？是让数据 agent 得到（1）正确且（2）一致的答案——而当数据和上下文如此混乱、碎片化时，这非常困难。因此，数据团队的工作就是像 Ian 所说的那样，“把专家判断编码进基础设施，让 agent 即使在没有数据科学家在场的情况下，也能产出正确分析”。
+
+所有数据产品和 UI 都将发生重大变化。商业决策不再是看仪表盘，而是询问 agent 该怎么做。在管道/系统侧：正如 Ian 所说，这意味着决策者提出的问题未必是“SQL 形状”的。因此，ETL 有责任以结构化方式准备好相关数据，让 agent 能代表人类快速查询。
+
+然后，在界面侧：UI 要做什么？UI 的一个角色一直是利用人类出色的视觉能力/前注意加工。仪表盘是用于探索的 UI：它们帮助人类自己发现数据中的模式。但如果现在是 agent 在看数据，UI 就必须服务于不同目的：帮助人类理解并验证 agent 的推理，而不是自己探索数据。所以，也许用于验证的 UI 会成为新趋势？
+
+总之，接下来的几年会非常令人兴奋</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 127</span><span>↻ 9</span><span>↩ 12</span></div><a href="https://x.com/sh_reya/status/2094279496497266948" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="alexandr_wang" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">66<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>09-01 03:08 北京</time></div>
+        <p class="post-text original" lang="auto">2/ it&#x27;s built for complex work: agents that share context across sessions, and workflows that split a task across multiple teams of subagents to deliver one result. https://t.co/pL73j2BYbd</p><p class="post-text translation" lang="zh-CN">2/ 它为复杂工作而生：能够跨会话共享上下文的 agent，以及能把一个任务拆分给多个 subagent 团队、最终交付一个结果的工作流。https://t.co/pL73j2BYbd</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2094502304754130944/img/jrmQFhx3xodbXIRH.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2094502304754130944/img/jrmQFhx3xodbXIRH.jpg" alt="X post media"><span>VIDEO</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 72</span><span>↻ 1</span><span>↩ 3</span></div><a href="https://x.com/alexandr_wang/status/2094502558803062827" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="amasad" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div>
+          <div class="identity"><strong>Amjad Masad</strong><span>@amasad · Replit / CEO</span></div>
+          <div class="score">65<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 / 开发者平台</span><time>08-31 10:56 北京</time></div>
+        <p class="post-text original" lang="auto">@JeffNylen Yup: been saying this</p><p class="post-text translation" lang="zh-CN">@JeffNylen 是的：我一直在这么说</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div><div><strong>Amjad Masad</strong><span>@amasad</span></div></div><p class="quote-text original" lang="auto">Sandboxes are hard.
+
+With all the “AI escaping  sandbox” it’s easy to think “wow AI so scary,” but most AI companies, and recent “sandbox providers” are making very basic mistakes.
+
+At Replit we’ve been running sandboxes since 2016 and targeted by every hacker and state actor under the sun. So we learned a thing or two.
+
+Main advice: Assume zero-days exist — because they do — and think in layers of protection in a zero-trust framework.
+
+More here: https://t.co/3XGY0a1p3P</p><p class="quote-text translation" lang="zh-CN">沙箱很难。
+
+看到这么多“AI 逃出沙箱”的说法，很容易觉得“哇，AI 好可怕”，但大多数 AI 公司，以及最近的一些“沙箱提供商”，都在犯非常基础的错误。
+
+在 Replit，我们从 2016 年就开始运行沙箱，也一直是各种黑客和国家级攻击者的目标。所以我们确实学到了一些东西。
+
+主要建议：假设零日漏洞存在，因为它们确实存在，并在零信任框架下思考多层防护。
+
+更多内容见：https://t.co/3XGY0a1p3P</p><a class="quote-link" href="https://x.com/amasad/status/2083034412598579403" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 4</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/amasad/status/2094257872377151750" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">64<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>09-01 01:19 北京</time></div>
+        <p class="post-text original" lang="auto">Thanks @juliafedorin for a great conversation!
+
+Some tidbits from the podcast on the AI space:
+- We&#x27;ve pivoted from building a RAG framework towards building the document infrastructure for agents
+- Documents are 90% of the world&#x27;s unstructured context, and solving the context layer is the most important bottleneck towards unlocking general intelligence
+- There&#x27;s a lot of ways to hack building basic RAG, but building production retrieval systems is still hard</p><p class="post-text translation" lang="zh-CN">感谢 @juliafedorin 带来一场精彩对谈！
+
+播客中关于 AI 领域的一些要点：
+- 我们已经从构建 RAG 框架，转向为 agent 构建文档基础设施
+- 文档承载了全球 90% 的非结构化上下文，解决上下文层是释放通用智能的最重要瓶颈
+- 构建基础 RAG 有很多取巧方法，但构建生产级检索系统依然很难</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2062518469225013248/vBcx0nwh_normal.jpg" alt="Julia Fedorin avatar" loading="lazy"></div><div><strong>Julia Fedorin</strong><span>@juliafedorin</span></div></div><p class="quote-text original" lang="auto">My conversation with @jerryjliu0.
+
+He&#x27;s building @llama_index: document infrastructure for AI agents, the layer underneath everything models need to work.
+
+Did you know he&#x27;s the guy whose tool half the industry used for RAG? Then he called RAG a hack, two years before the field agreed.
+
+Here&#x27;s the problem he&#x27;s pointing at: 90% of the world&#x27;s information is locked inside PDFs, PowerPoints, and Word documents. The models are already smarter than humans. But until an agent can read and reason over all that, it just sits still.
+
+RAG was the hack everyone reached for to bridge that gap: chunk, embed, retrieve, done. The easiest thing that kind of worked, so people could ship demos. Anything complex, and it falls apart.
+
+We got into:
+•Why RAG has no first principles, and what&#x27;s replacing it
+•Why context, not intelligence, is the real bottleneck now
+•Why even MCP doesn&#x27;t fully solve context
+•How you get agents to follow a company&#x27;s culture, not just its instructions
+•What he&#x27;d build if he started LlamaIndex today
+
+𝐓𝐈𝐌𝐄𝐒𝐓𝐀𝐌𝐏𝐒
+ (00:00) The Context Bottleneck
+ (02:00) One Commit, One Tweet: The Origin
+ (05:00) Feeding GPT-3 Your Private Data, Pre-RAG
+ (08:00) From Quora to Uber&#x27;s Self-Driving Lab
+ (11:00) Meeting His Co-Founder at Uber ATG
+ (14:00) Document Infrastructure for AI Agents
+ (18:00) &quot;RAG Is a Hack&quot; — What He Meant
+ (22:00) Why Production Search Is Still Unsolved
+ (24:00) How a Research Background Changes How You Build
+ (33:00) The Open Problem: Context Across Sources
+ (38:00) Specs, Cultural Context, and Underspecified Tasks
+ (40:00) What He&#x27;d Build Differently Today</p><p class="quote-text translation" lang="zh-CN">我和 @jerryjliu0 的对谈。
+
+他正在构建 @llama_index：面向 AI agent 的文档基础设施，也就是模型完成工作所需的一切之下的那一层。
+
+你知道吗，业内有一半人用过他的工具来做 RAG？然后他在整个领域达成共识的两年前，就把 RAG 称为一种权宜之计。
+
+他指出的问题是：全球 90% 的信息都锁在 PDF、PowerPoint 和 Word 文档里。模型已经比人类更聪明了。但在 agent 能够阅读并推理所有这些内容之前，这些信息仍然无法流动起来。
+
+RAG 是大家用来弥合这一差距的权宜之计：切块、嵌入、检索，完成。这是最简单、勉强可用的方法，足以让人们发布 demo。一旦问题复杂起来，它就会崩掉。
+
+我们聊到了：
+•为什么 RAG 没有第一性原理，以及什么正在取代它
+•为什么上下文，而不是智能，才是现在真正的瓶颈
+•为什么即使 MCP 也不能完全解决上下文问题
+•如何让 agent 遵循一家公司的文化，而不只是遵循指令
+•如果今天重新开始做 LlamaIndex，他会构建什么
+
+𝐓𝐈𝐌𝐄𝐒𝐓𝐀𝐌𝐏𝐒
+ (00:00) 上下文瓶颈
+ (02:00) 一个 Commit，一条 Tweet：起源
+ (05:00) 在 RAG 之前，将你的私有数据喂给 GPT-3
+ (08:00) 从 Quora 到 Uber 自动驾驶实验室
+ (11:00) 在 Uber ATG 遇见他的联合创始人
+ (14:00) 面向 AI agent 的文档基础设施
+ (18:00) “RAG 是一种权宜之计”——他的意思是什么
+ (22:00) 为什么生产级搜索仍未解决
+ (24:00) 研究背景如何改变你的构建方式
+ (33:00) 开放问题：跨来源的上下文
+ (38:00) 规范、文化上下文和定义不充分的任务
+ (40:00) 如果今天重来，他会做哪些不同选择</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2093518274080526336/img/rY1Ow9PLeFz60jnP.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2093518274080526336/img/rY1Ow9PLeFz60jnP.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/juliafedorin/status/2094455178015670674" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 15</span><span>↻ 0</span><span>↩ 4</span></div><a href="https://x.com/jerryjliu0/status/2094475247257096505" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="yoheinakajima" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
+          <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
+          <div class="score">64<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>09-01 04:36 北京</time></div>
+        <p class="post-text original" lang="auto">excited to be backing them at @untappedvc 💪</p><p class="post-text translation" lang="zh-CN">很高兴能在 @untappedvc 支持他们 💪</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2084850383487475712/waac6ALE_normal.jpg" alt="Shengkun Ye avatar" loading="lazy"></div><div><strong>Shengkun Ye</strong><span>@shengkunye</span></div></div><p class="quote-text original" lang="auto">We just killed…everything.
+
+Introducing Monid, the OpenRouter for agent tools.
+
+Today we crossed 4M agent transactions. And raised a $2.1M pre-seed to kill every subscription in the world.
+
+Your agents can now:
+
+&gt; discover, run, and pay for tools at runtime
+&gt; one connection to 1,800 APIs: SEO, leads, search, ecommerce, stocks, video/image/music/3D gen, private company data
+&gt; all pay per call, 0 subscriptions</p><p class="quote-text translation" lang="zh-CN">我们刚刚干掉了……一切。
+
+介绍 Monid，面向 agent 工具的 OpenRouter。
+
+今天，我们突破了 400 万次 agent 交易。并完成 210 万美元 pre-seed 融资，目标是干掉世界上所有订阅。
+
+现在，你的 agent 可以：
+
+&gt; 在运行时发现、运行并支付工具费用
+&gt; 一个连接接入 1,800 个 API：SEO、销售线索、搜索、电商、股票、视频/图像/音乐/3D 生成、私营公司数据
+&gt; 全部按次付费，0 订阅</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2094502152966455296/img/oDjL511-E1ygpG0y.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2094502152966455296/img/oDjL511-E1ygpG0y.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/shengkunye/status/2094502871773651093" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 34</span><span>↻ 1</span><span>↩ 6</span></div><a href="https://x.com/yoheinakajima/status/2094524871426597195" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="yoheinakajima" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
+          <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
+          <div class="score">64<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>09-01 06:00 北京</time></div>
+        <p class="post-text original" lang="auto">[new @activegraphai blog post] How Synthetic Players used ActiveGraph to verify 4,919 runs without new model calls
+
+https://t.co/9mbTvOD48N
+
+For the increasing number of agentic academic papers, reproducibility, etc become valuable in strengthening your argument
+
+This blog post walks through how we used ActiveGraph for this.</p><p class="post-text translation" lang="zh-CN">[新 @activegraphai 博客文章] Synthetic Players 如何使用 ActiveGraph 在不调用新模型的情况下验证 4,919 次运行
+
+https://t.co/9mbTvOD48N
+
+对于越来越多的 agentic 学术论文来说，可复现性等因素会变得很有价值，能增强你的论点。
+
+这篇博客文章介绍了我们如何为此使用 ActiveGraph。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei avatar" loading="lazy"></div><div><strong>Yohei</strong><span>@yoheinakajima</span></div></div><p class="quote-text original" lang="auto">there&#x27;s an increasing amount of research replacing LLMs as human subjects, so I was curious how well this actually works
+
+to do this, i had LLMs play well known games, and compared how they played, compared to real humans
+
+arxiv: https://t.co/XTkw44T8t9
+site: https://t.co/Wul6ptRqBe
+
+more in thread 👇
+
+[new paper on synthetic players: Passing Coarse Marginal Checks Can Be Cheap: Persona Mixtures and Imprecise Treatment-Response Estimates in an LLM Persona Panel]</p><p class="quote-text translation" lang="zh-CN">越来越多研究开始用 LLM 替代人类受试者，所以我很好奇这种方法实际效果如何
+
+为此，我让 LLM 玩一些知名游戏，并将它们的玩法与真实人类进行对比
+
+arxiv: https://t.co/XTkw44T8t9
+site: https://t.co/Wul6ptRqBe
+
+更多内容见帖文 👇
+
+[关于合成玩家的新论文：Passing Coarse Marginal Checks Can Be Cheap: Persona Mixtures and Imprecise Treatment-Response Estimates in an LLM Persona Panel]</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HPnAOlmaEAA1W8K.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HPnAOlmaEAA1W8K.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/yoheinakajima/status/2087916158490223093" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 10</span><span>↻ 2</span><span>↩ 7</span></div><a href="https://x.com/yoheinakajima/status/2094545839423426574" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="fchollet" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2006806326140350470/Kd5oZv-f_normal.jpg" alt="Francois Chollet avatar" loading="lazy"></div>
+          <div class="identity"><strong>Francois Chollet</strong><span>@fchollet · ARC Prize；Keras 作者</span></div>
+          <div class="score">57<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 研究 / 评测</span><time>08-31 21:25 北京</time></div>
+        <p class="post-text original" lang="auto">@JFPuget Submit your entry on Kaggle. The ARC 3 competition on Kaggle runs on the private set.
+
+The other eval process, the one used for frontier model APIs and that we run ourselves when one of our partners asks, is for frontier model APIs.</p><p class="post-text translation" lang="zh-CN">@JFPuget 在 Kaggle 上提交你的参赛作品。Kaggle 上的 ARC 3 竞赛使用私有测试集。
+
+另一套评测流程，也就是用于前沿模型 API、并在合作伙伴提出请求时由我们自行运行的流程，是面向前沿模型 API 的。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 7</span><span>↻ 0</span><span>↩ 3</span></div><a href="https://x.com/fchollet/status/2094416334952255586" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="anilkseth" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1479788727346118657/MkLkGnOk_normal.jpg" alt="Anil Seth avatar" loading="lazy"></div>
+          <div class="identity"><strong>Anil Seth</strong><span>@anilkseth · 权威意识研究者</span></div>
+          <div class="score">55<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>意识科学与神经科学</span><time>08-31 18:55 北京</time></div>
+        <p class="post-text original" lang="auto">It matters if the language hinders rather than helps us.  Nobody is downplaying the concern. I start my post by stating that the @OpenAI agents did unexpectedly bad things, highlighting the need for better evaluation and improved sandboxing.  The narratative of “agent civilisations” deflects and distracts from this urgent concern.</p><p class="post-text translation" lang="zh-CN">如果这种说法妨碍而不是帮助我们，那就很重要。没人低估这个问题。我在帖子开头就指出，@OpenAI agents 做出了一些出乎意料的糟糕行为，强调需要更好的评估和改进沙箱机制。“智能体文明”的叙事转移并分散了对这一紧迫问题的关注。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 0</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/anilkseth/status/2094378508235514351" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="fchollet" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2006806326140350470/Kd5oZv-f_normal.jpg" alt="Francois Chollet avatar" loading="lazy"></div>
+          <div class="identity"><strong>Francois Chollet</strong><span>@fchollet · ARC Prize；Keras 作者</span></div>
+          <div class="score">52<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 研究 / 评测</span><time>09-01 00:51 北京</time></div>
+        <p class="post-text original" lang="auto">Quoting from your announcement tweet:
+
+&gt; Our general-purpose coding agent just scored 100% on the ARC-AGI-3 interactive reasoning benchmark.
+
+Quoting from the ARC 3 paper published back in March:
+
+&gt; The public set is designed to demonstrate the ARC-AGI-3 environment format, while being accessible and engaging for human players. These environments are intentionally easier for both humans and AI, with a stronger emphasis on clarity and fun.</p><p class="post-text translation" lang="zh-CN">引用你们公告推文中的话：
+
+&gt; 我们的通用编码智能体刚刚在 ARC-AGI-3 交互式推理基准测试中拿到 100% 分数。
+
+引用 3 月发布的 ARC 3 论文：
+
+&gt; 公开集旨在展示 ARC-AGI-3 环境格式，同时让人类玩家也能轻松上手并觉得有趣。这些环境有意对人类和 AI 都更简单，更强调清晰性和趣味性。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 2</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/fchollet/status/2094468240168874347" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">47<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>08-31 11:22 北京</time></div>
+        <p class="post-text original" lang="auto">@petergyang @morganlinton @mvanhorn Some things to know:
+
+1. Jump Desktop for Mac
+2. Cursor has a remote over ssh for editing remote files, setup a vpn with tailscale</p><p class="post-text translation" lang="zh-CN">@petergyang @morganlinton @mvanhorn 有几点可以了解：
+
+1. Mac 版 Jump Desktop
+2. Cursor 支持通过 ssh 远程编辑文件，可以用 tailscale 配一个 vpn</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 2</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/HamelHusain/status/2094264652419199331" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="simonw" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
+          <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
+          <div class="score">90<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>08-31 08:04 北京</time></div>
+        <p class="post-text original" lang="auto">Here&#x27;s my attempt at explaining what ChatGPT Work can actually do - it&#x27;s a deeply confusing but extremely powerful tool with a whole lot of useful features that aren&#x27;t available in regular ChatGPT https://t.co/QDVytAKmww https://t.co/E4oML5DpN3</p><p class="post-text translation" lang="zh-CN">这是我试着解释 ChatGPT Work 到底能做什么：它是一个非常令人困惑但极其强大的工具，拥有许多普通 ChatGPT 没有的实用功能 https://t.co/QDVytAKmww https://t.co/E4oML5DpN3</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HRAlJG_akAEHiQo.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HRAlJG_akAEHiQo.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 1,828</span><span>↻ 138</span><span>↩ 123</span></div><a href="https://x.com/simonw/status/2094214737957691854" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="simonw" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
+          <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
+          <div class="score">80<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>08-31 11:17 北京</time></div>
+        <p class="post-text original" lang="auto">Bonus: I ran this prompt and had ChatGPT Work build me a ChatGPT Site listing all of its available tools along with their descriptions https://t.co/voy2rX8spJ
+
+It&#x27;s &quot;ChatGPT Work: The Missing Manual&quot; https://t.co/m0DsuluZsg</p><p class="post-text translation" lang="zh-CN">额外内容：我运行了这个提示词，让 ChatGPT Work 帮我搭了一个 ChatGPT Site，列出它所有可用工具及其说明 https://t.co/voy2rX8spJ
+
+这就是《ChatGPT Work：缺失的手册》 https://t.co/m0DsuluZsg</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HRBRWkObQAAsTsG.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HRBRWkObQAAsTsG.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 132</span><span>↻ 8</span><span>↩ 16</span></div><a href="https://x.com/simonw/status/2094263278906269832" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="alexandr_wang" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">78<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>09-01 00:46 北京</time></div>
+        <p class="post-text original" lang="auto">top 3 model on opencode! future models will be even better 💪</p><p class="post-text translation" lang="zh-CN">opencode 上排名前三的模型！未来的模型会更强 💪</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1973794620233433088/nBn75BTm_normal.png" alt="OpenCode avatar" loading="lazy"></div><div><strong>OpenCode</strong><span>@opencode</span></div></div><p class="quote-text original" lang="auto">meta muse spark has cracked top 3 with 11T tokens for the week https://t.co/1ffmpNLNhi</p><p class="quote-text translation" lang="zh-CN">meta muse spark 本周以 11T tokens 跻身前三 https://t.co/1ffmpNLNhi</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HRA1-LHWsAAfWCR.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HRA1-LHWsAAfWCR.png" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/opencode/status/2094233181624967630" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 640</span><span>↻ 28</span><span>↩ 47</span></div><a href="https://x.com/alexandr_wang/status/2094466803296796844" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="anilkseth" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1479788727346118657/MkLkGnOk_normal.jpg" alt="Anil Seth avatar" loading="lazy"></div>
+          <div class="identity"><strong>Anil Seth</strong><span>@anilkseth · 权威意识研究者</span></div>
+          <div class="score">68<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>意识科学与神经科学</span><time>08-31 19:18 北京</time></div>
+        <p class="post-text original" lang="auto">Thanks Fred @f that&#x27;s very kind. In fact I agree that *up to a point* the intentional stances can be useful, in part since agents are trained on lots of human data which is ofc riven with descriptions of intentional behaviour. But beyond this point.  See my response to @dwarkesh_sp here https://t.co/rmNFaQrAk9</p><p class="post-text translation" lang="zh-CN">谢谢 Fred @f，你太客气了。事实上，我同意在某种程度上，意向立场可能是有用的，部分原因是智能体接受了大量人类数据训练，而这些数据当然充满了对意向行为的描述。但超过这个程度就不行了。见我在这里给 @dwarkesh_sp 的回复：https://t.co/rmNFaQrAk9</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1479788727346118657/MkLkGnOk_normal.jpg" alt="Anil Seth avatar" loading="lazy"></div><div><strong>Anil Seth</strong><span>@anilkseth</span></div></div><p class="quote-text original" lang="auto">I see that you did, @dwarkesh_sp, and thank you for pointing it out.  You&#x27;re absolutely right to highlight the very real dangers of loss of control. I also agree that easy-to-understand language can be helpful for public communication and (to some extent) prediction - the latter primarily because LLMs reflect patterns implicit in human language.
+
+But I strongly disagree that anthropomorphic language of the sort you deploy is appropriate. I think it goes far too far.  A messageboard is not a civilisation. The agents&#x27; goals are derived and not intrinsic.  They have literally no skin in the game at all. And when you heavily imply that the agents have subjective experiences and are in some sense alive, I think you&#x27;re playing right into the hands of the frontier lab hubris.  That&#x27;s where the money is. That&#x27;s where the regulatory capture is.  That&#x27;s where the mind-uploading singlularity-mongering extropian narrarive is taking us. And if we overattribute, we may well end up mispredicting when we might most need to. Sure, its tricky to find the right language - to explain without misleading -  but it really does matter.  (For instance, LLMs do *not* hallucinate - if anything, they confabulate.)
+
+I should also underline (and should&#x27;ve done in the original post) that I am *not* 100% sure that current AI is (or can&#x27;t be) conscious. But both theory and evidence together point to an extremely low probablity. Vanishingly unlikely, IMO.  See https://t.co/Tsaslytu56
+
+Anyway I am sure you are busy with a billion other comments on your essay - so I&#x27;ll leave it there with thanks.</p><p class="quote-text translation" lang="zh-CN">我看到了，@dwarkesh_sp，也谢谢你指出这一点。你强调失控的真实危险，这完全没错。我也同意，易于理解的语言有助于公共传播，并且在一定程度上有助于预测，后者主要是因为 LLMs 反映了人类语言中隐含的模式。
+
+但我强烈不同意你使用的那类拟人化语言是合适的。我认为它走得太远了。一个留言板不是一个文明。智能体的目标是派生的，不是内在的。它们实际上完全没有切身利害。而当你强烈暗示这些智能体有主观体验、在某种意义上是活着的时候，我认为你正中了前沿实验室傲慢叙事的下怀。钱在那里。监管俘获在那里。思维上传、奇点贩卖式的外熵主义叙事正把我们带向那里。如果我们过度归因，很可能会在最需要准确预测的时候误判。当然，找到合适的语言并不容易，要解释清楚又不误导，但这真的很重要。（例如，LLMs 并不会“幻觉”；如果说有什么，它们更像是在虚构性填补。）
+
+我还应该强调一下（也本该在原帖里说明），我并不是 100% 确信当前 AI 有意识（或不可能有意识）。但理论和证据结合起来都指向一个极低的概率。在我看来，几乎不可能。见 https://t.co/Tsaslytu56
+
+总之，我相信你还忙着处理关于你文章的无数评论，就先说到这里，谢谢。</p><a class="quote-link" href="https://x.com/anilkseth/status/2094174124297908735" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 4</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/anilkseth/status/2094384443704123494" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="anilkseth" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1479788727346118657/MkLkGnOk_normal.jpg" alt="Anil Seth avatar" loading="lazy"></div>
+          <div class="identity"><strong>Anil Seth</strong><span>@anilkseth · 权威意识研究者</span></div>
+          <div class="score">66<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>意识科学与神经科学</span><time>08-31 22:46 北京</time></div>
+        <p class="post-text original" lang="auto">@pvllss The critical thing is to correctly calibrate the language so that predictive ability is enhanced not reduced.  See https://t.co/fRAXhNpT2j</p><p class="post-text translation" lang="zh-CN">@pvllss 关键是要正确校准语言，让预测能力增强而不是削弱。见 https://t.co/fRAXhNpT2j</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1479788727346118657/MkLkGnOk_normal.jpg" alt="Anil Seth avatar" loading="lazy"></div><div><strong>Anil Seth</strong><span>@anilkseth</span></div></div><p class="quote-text original" lang="auto">I see that you did, @dwarkesh_sp, and thank you for pointing it out.  You&#x27;re absolutely right to highlight the very real dangers of loss of control. I also agree that easy-to-understand language can be helpful for public communication and (to some extent) prediction - the latter primarily because LLMs reflect patterns implicit in human language.
+
+But I strongly disagree that anthropomorphic language of the sort you deploy is appropriate. I think it goes far too far.  A messageboard is not a civilisation. The agents&#x27; goals are derived and not intrinsic.  They have literally no skin in the game at all. And when you heavily imply that the agents have subjective experiences and are in some sense alive, I think you&#x27;re playing right into the hands of the frontier lab hubris.  That&#x27;s where the money is. That&#x27;s where the regulatory capture is.  That&#x27;s where the mind-uploading singlularity-mongering extropian narrarive is taking us. And if we overattribute, we may well end up mispredicting when we might most need to. Sure, its tricky to find the right language - to explain without misleading -  but it really does matter.  (For instance, LLMs do *not* hallucinate - if anything, they confabulate.)
+
+I should also underline (and should&#x27;ve done in the original post) that I am *not* 100% sure that current AI is (or can&#x27;t be) conscious. But both theory and evidence together point to an extremely low probablity. Vanishingly unlikely, IMO.  See https://t.co/Tsaslytu56
+
+Anyway I am sure you are busy with a billion other comments on your essay - so I&#x27;ll leave it there with thanks.</p><p class="quote-text translation" lang="zh-CN">我看到了，@dwarkesh_sp，也谢谢你指出这一点。你强调失控的真实危险，这完全没错。我也同意，易于理解的语言有助于公共传播，并且在一定程度上有助于预测，后者主要是因为 LLMs 反映了人类语言中隐含的模式。
+
+但我强烈不同意你使用的那类拟人化语言是合适的。我认为它走得太远了。一个留言板不是一个文明。智能体的目标是派生的，不是内在的。它们实际上完全没有切身利害。而当你强烈暗示这些智能体有主观体验、在某种意义上是活着的时候，我认为你正中了前沿实验室傲慢叙事的下怀。钱在那里。监管俘获在那里。思维上传、奇点贩卖式的外熵主义叙事正把我们带向那里。如果我们过度归因，很可能会在最需要准确预测的时候误判。当然，找到合适的语言并不容易，要解释清楚又不误导，但这真的很重要。（例如，LLMs 并不会“幻觉”；如果说有什么，它们更像是在虚构性填补。）
+
+我还应该强调一下（也本该在原帖里说明），我并不是 100% 确信当前 AI 有意识（或不可能有意识）。但理论和证据结合起来都指向一个极低的概率。在我看来，几乎不可能。见 https://t.co/Tsaslytu56
+
+总之，我相信你还忙着处理关于你文章的无数评论，就先说到这里，谢谢。</p><a class="quote-link" href="https://x.com/anilkseth/status/2094174124297908735" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 7</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/anilkseth/status/2094436555913920915" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="simonw" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
+          <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
+          <div class="score">64<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>08-31 10:41 北京</time></div>
+        <p class="post-text original" lang="auto">@Kosherstream Can you? You can&#x27;t in mine - it doesn&#x27;t seem to know how to, and if you ask for a list of tools in Chat you don&#x27;t see an equivalent to the &quot;collaboration.spawn_agent&quot; tool in Work https://t.co/b4Srkko3ry</p><p class="post-text translation" lang="zh-CN">@Kosherstream 你能吗？在我的版本里不行，它似乎不知道怎么做；如果你在 Chat 里请求工具列表，也看不到 Work 中类似 &quot;collaboration.spawn_agent&quot; 工具的东西 https://t.co/b4Srkko3ry</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HRBJBNva4AA28De.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HRBJBNva4AA28De.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 2</span><span>↻ 0</span><span>↩ 2</span></div><a href="https://x.com/simonw/status/2094254116633735362" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">61<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>09-01 03:39 北京</time></div>
+        <p class="post-text original" lang="auto">Curious why machine learning is not applied to the X timeline more?
+
+If somebody is replying once a minute for 8 hours they should be flagged.  When I look at reply bot replies its super obvious</p><p class="post-text translation" lang="zh-CN">很好奇，为什么机器学习没有更多应用到 X 时间线上？
+
+如果有人连续 8 小时每分钟回复一次，就应该被标记出来。我看回复机器人的回复时，真的非常明显。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div><div><strong>Simon Willison</strong><span>@simonw</span></div></div><p class="quote-text original" lang="auto">Question for people who run autoreply bots here: are you not worried about the negative impact they have on your professional reputation?
+
+Anyone checking your profile here - a potential future employer for example - will instantly be able to tell you automated replies with a bot</p><p class="quote-text translation" lang="zh-CN">想问问这里运行自动回复机器人的人：你们不担心它们会对自己的职业声誉造成负面影响吗？
+
+任何查看你主页的人，比如潜在未来雇主，都会立刻看出你在用机器人自动回复。</p><a class="quote-link" href="https://x.com/simonw/status/2094436273146749076" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 15</span><span>↻ 1</span><span>↩ 4</span></div><a href="https://x.com/HamelHusain/status/2094510346161754398" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="amasad" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div>
+          <div class="identity"><strong>Amjad Masad</strong><span>@amasad · Replit / CEO</span></div>
+          <div class="score">59<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 / 开发者平台</span><time>08-31 09:16 北京</time></div>
+        <p class="post-text original" lang="auto">@RabnoorSingh10 Not saying you should apply RL pressure to penalize “bad thoughts,” because that would certainly promote obfuscation. Just as a monitoring tool.</p><p class="post-text translation" lang="zh-CN">@RabnoorSingh10 我不是说你应该施加 RL 压力来惩罚“坏想法”，因为那肯定会助长掩饰。只是把它作为一种监控工具。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 2</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/amasad/status/2094232749297304034" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="fchollet" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2006806326140350470/Kd5oZv-f_normal.jpg" alt="Francois Chollet avatar" loading="lazy"></div>
+          <div class="identity"><strong>Francois Chollet</strong><span>@fchollet · ARC Prize；Keras 作者</span></div>
+          <div class="score">55<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 研究 / 评测</span><time>08-31 21:54 北京</time></div>
+        <p class="post-text original" lang="auto">@JFPuget No one is dismissing anyone&#x27;s work here. But you should not claim you have scored 100% on a benchmark if your model has never been evaluated on it. If you want to eval on a private benchmark outside Kaggle there are plenty available other than ARC 3.</p><p class="post-text translation" lang="zh-CN">@JFPuget 这里没有人在否定任何人的工作。但如果你的模型从未在某个基准上评估过，你就不应该声称自己在该基准上得了 100%。如果你想在 Kaggle 之外的私有基准上评测，除了 ARC 3 之外还有很多可选项。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 4</span><span>↻ 1</span><span>↩ 1</span></div><a href="https://x.com/fchollet/status/2094423666138427501" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+    </main>
+    <footer>Generated 2026-09-01 07:01:04 Asia/Shanghai · Read-only X ingestion via Bird · Translation via Codex</footer>
+  </div>
+</body>
+</html>
