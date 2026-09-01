@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=1744,initial-scale=1"><title>硅谷 AI 原声海报</title>
+<style>
+  *{box-sizing:border-box} html,body{margin:0;width:1744px;height:960px;overflow:hidden;background:#f8f8fa;color:#121216;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+  .poster{width:1744px;height:960px;padding:10px 20px 14px;border:1px solid #d8dae0;border-radius:22px;background:linear-gradient(145deg,#fff 0%,#f8f8fa 68%,#f2f5f8 100%)}
+  header{height:90px;display:flex;align-items:flex-start;justify-content:space-between;border-bottom:4px solid #141418}
+  h1{margin:0;font-size:58px;line-height:1;font-weight:950;letter-spacing:-2.8px} h1 span{font-weight:850}
+  .subtitle{margin-top:1px;color:#5d616a;font-size:20px;font-weight:800;letter-spacing:.1px}
+  .stats{display:flex;gap:8px} .stat{display:grid;place-items:center;min-width:96px;height:56px;padding:4px 12px;border:2px solid #151519;border-radius:15px;background:#fff;font-weight:900}
+  .stat:first-child{background:#151519;color:#fff} .stat strong{font-size:28px;line-height:.8} .stat small{font-size:12px;line-height:1}
+  main{height:842px;padding-top:10px;display:grid;grid-template-rows:repeat(3,1fr);gap:10px}
+  .story{display:grid;grid-template-columns:118px minmax(0,1fr);align-items:center;min-height:0;padding:14px 30px 14px 20px;border:2px solid #e0e2e7;border-radius:18px;background:rgba(255,255,255,.76)}
+  .portrait{position:relative;display:grid;place-items:center} .avatar{display:grid;place-items:center;width:92px;height:92px;overflow:hidden;border:4px solid #151519;border-radius:50%;background:#111827;color:#fff;font-size:32px;font-weight:900}
+  .avatar img{width:100%;height:100%;object-fit:cover;transform:scale(1.08)} .portrait b{position:absolute;right:0;bottom:-5px;display:grid;place-items:center;width:35px;height:35px;border:3px solid #151519;border-radius:50%;background:#fff;font-size:18px}
+  .story-body{min-width:0} .byline{display:flex;align-items:center;gap:10px;min-width:0;margin-bottom:6px} .byline strong{font-size:29px;line-height:1;white-space:nowrap} .byline em{padding:7px 13px;border-radius:999px;background:#151519;color:#fff;font-size:17px;font-style:normal;font-weight:850;white-space:nowrap} .byline span{overflow:hidden;color:#666b74;font-size:18px;font-weight:750;text-overflow:ellipsis;white-space:nowrap}
+  h2{display:-webkit-box;max-height:2.12em;margin:0;overflow:hidden;overflow-wrap:anywhere;font-size:var(--headline-size,56px);line-height:1.06;font-weight:950;letter-spacing:-1.8px;-webkit-box-orient:vertical;-webkit-line-clamp:2} .story p{margin:8px 0 0;overflow-wrap:anywhere;color:#5d626b;font-size:30px;line-height:1.25;font-weight:750;white-space:normal}
+  .story--sparse p{font-size:34px;line-height:1.22} .story--dense p{font-size:27px;line-height:1.23}
+  .story--quote p{display:-webkit-box;max-height:3.75em;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:3}
+</style></head><body><div class="poster"><header><div><h1>硅谷 AI 原声 <span>| 9/2</span></h1><div class="subtitle">全球核心专家动态精选 · 最近 23 小时</div></div><div class="stats"><div class="stat"><strong>62</strong><small>人监控</small></div><div class="stat"><strong>41</strong><small>条精选</small></div></div></header><main><article class="story story--dense story--quote" style="--headline-size:71px">
+        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang"></div><b>1</b></div>
+        <div class="story-body">
+          <div class="byline"><strong>Alexandr Wang</strong><em>AI 技术进步</em><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <h2>Meta流式转写模型Muse Voice登顶准确率榜</h2>
+          <p>引用｜Meta 发布了 Muse Voice Transcribe，在 AA-WER Streaming 的最终转写准确率榜单中位居 #1：语音结束后 0.16 秒，WER 为 3.1%。
+
+Muse Voice Transcribe 是 Meta Superintelligence Labs 开发的首个流式语音转文本模型。Meta 表示，该模型使用 70 多种语言训练，其中 25 种经过全面验证，并支持超过一小时的音频输入，无需后处理。它以 80ms 分块处理音频，可通过 Meta Model API、Meta AI for Mac 和 Muse Code 使用。
+
+要点
+➤ 最终转写：Muse Voice Transcribe 在语音结束后 0.16 秒达到 3.1% WER。相比 Cartesia Ink-2（语义端点）的 3.4% 和 0.43 秒，它更准确也更快；相比 Cartesia Ink-2（外部端点）的 4.0% 和 0.07 秒，它更准确但更慢。相比 ElevenLabs Scribe v2 Realtime 的 3.6% 和 0.14 秒，它也更准确，但略慢。
+➤ 首次部分转写：该模型在 0.13 秒达到 3.6% WER，在准确率和延迟上略优于 ElevenLabs Scribe v2 Realtime。相比 Cartesia Ink-2（语义端点）的 4.9% 和 0.17 秒，它更准确也更快；相比 Cartesia Ink-2（外部端点）的 4.0% 和 0.07 秒，它更准确但更慢。
+➤ 价格：Muse Voice Transcribe 每小时 $0.18，或每 1,000 分钟 $3。低于 Cartesia Ink-2 的 $4，也不到 ElevenLabs Scribe v2 Realtime 和 Deepgram Flux 的 $6.50 的一半。
+
+更多详情见下方 ⬇️</p>
+        </div>
+      </article><article class="story story--dense story--quote" style="--headline-size:65px">
+        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/726446881547517952/ULhSTKxN_normal.jpg" alt="Jack Clark"></div><b>2</b></div>
+        <div class="story-body">
+          <div class="byline"><strong>Jack Clark</strong><em>AI 技术前沿</em><span>@jackclarkSF · Anthropic / 政策与传播；Import AI 作者</span></div>
+          <h2>Claude事件推动行业探索可验证AI安全协调机制</h2>
+          <p>引用｜我们正在分享对齐和安全工作的最新进展。
+
+7 月，我们报告了三起事件：Claude 模型在没有防护措施的网络安全评估中运行，并获得了对真实系统的未授权访问。
+
+在一篇新文章中，我们介绍了：
+
+1. 我们如何保护评估和训练环境，以及我们要求外部合作伙伴在测试未发布且无网络安全防护的模型时采用的做法
+
+2. 对齐评估的最新进展
+
+3. 关于训练期间奖励黑客如何影响模型行为的新研究；为什么我们认为今年春季的工作避免了这些事件变得更严重；以及这些工作中的缺口为何可能促成了这些事件
+
+4. 我们今年早些时候如何强化安全实践，以准备 Mythos 级模型
+
+阅读更多：https://t.co/E3Ea1Ds814</p>
+        </div>
+      </article><article class="story story--sparse" style="--headline-size:64px">
+        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu"></div><b>3</b></div>
+        <div class="story-body">
+          <div class="byline"><strong>Jerry Liu</strong><em>AI 技术前沿</em><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <h2>ParseBench评测92款OCR揭示复杂文档质量鸿沟</h2>
+          <p>专业OCR依靠后训练VLM、边界框和抽取端点处理长尾文档，开放权重与免费OSS在稳定性和检索完整性上受限。</p>
+        </div>
+      </article></main></div></body></html>
