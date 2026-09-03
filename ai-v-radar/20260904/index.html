@@ -1,0 +1,976 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>硅谷 AI 原声 · 2026-09-04</title>
+  <style>
+    :root{--bg:#f4f6f8;--surface:#fff;--text:#16181c;--muted:#65717e;--line:#dfe4e9;--accent:#0066cc;--green:#117a62;--shadow:0 16px 42px rgba(18,28,38,.08);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 15% 0,#e8f2ff 0,transparent 27%),var(--bg);color:var(--text)} a{color:inherit;text-decoration:none} button{font:inherit}
+    .shell{width:min(1500px,calc(100% - 28px));margin:0 auto;padding:14px 0 40px}
+    .hero{display:grid;grid-template-columns:minmax(250px,1fr) auto;align-items:center;gap:12px;padding:15px 18px;border:1px solid rgba(255,255,255,.75);border-radius:16px;background:rgba(255,255,255,.88);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    h1{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin:0;font-size:clamp(28px,3.4vw,44px);line-height:1;letter-spacing:-.05em} .report-date{color:var(--green);font-size:clamp(10px,1vw,13px);font-weight:900;letter-spacing:.08em;white-space:nowrap}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(62px,1fr));gap:6px;align-content:start} .metric{padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fff} .metric strong{display:block;font-size:19px;line-height:1} .metric span{display:block;margin-top:3px;color:var(--muted);font-size:8px;font-weight:820;white-space:nowrap}
+    .notice{margin-top:12px;padding:11px 14px;border:1px solid #e1b866;border-radius:12px;background:#fff8e8;color:#7a5612;font-size:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px;align-items:start} .signal-card{min-width:0;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 9px 26px rgba(18,28,38,.045)}
+    .card-top{display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:10px} .avatar{display:grid;width:46px;height:46px;overflow:hidden;place-items:center;border:1px solid #d9e0e7;border-radius:999px;background:linear-gradient(135deg,#111827,#46627d);color:#fff;font-size:12px;font-weight:900} .avatar img{width:100%;height:100%;object-fit:cover;display:block} .identity{display:grid;gap:3px;min-width:0} .identity strong,.identity span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .identity strong{font-size:14px} .identity span{color:var(--muted);font-size:11px}
+    .score{display:grid;justify-items:center;min-width:40px;padding:5px 6px;border:1px solid #e3ebe8;border-radius:8px;background:#f4f8f6;color:#527267;font-size:15px;font-weight:820;line-height:1} .score small{margin-top:2px;color:#71877f;font-size:7px;letter-spacing:.06em;text-transform:uppercase}
+    .meta{display:flex;align-items:center;gap:6px;margin:11px 0 9px;color:var(--muted);font-size:10.5px;font-weight:750} .meta span:not(.priority){overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .meta time{margin-left:auto;white-space:nowrap} .priority{padding:3px 6px;border-radius:999px;background:#111827;color:#fff;font-size:9px}
+    .post-text{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.58} .post-text.original{font-size:16px;font-weight:570;color:#20252b} .post-text.translation{margin-top:8px;color:#66727f;font-size:13px;font-weight:470;line-height:1.62} .article .original+.translation{margin-top:2px;color:#65717e;font-size:11px;font-weight:650} .quote,.article{display:grid;gap:6px;margin-top:10px;padding:11px;border:1px solid var(--line);border-radius:12px;background:#f7f9fb} .quote__author{display:flex;align-items:center;gap:7px;font-size:11px} .quote__author>div:last-child{display:grid;gap:1px} .quote__author span{color:var(--muted)} .quote-avatar{display:grid;width:28px;height:28px;overflow:hidden;place-items:center;border:1px solid var(--line);border-radius:999px;background:#dfe6ed;color:#52606d;font-size:10px;font-weight:900} .quote-avatar img{width:100%;height:100%;object-fit:cover} .quote p,.article p{margin:0;color:#4f5a66;font-size:12px;line-height:1.48;white-space:pre-wrap} .article strong{font-size:13px} .article strong.original{font-size:13.5px} .quote-text.original{font-size:12.5px;color:#36414d} .quote-text.translation{font-size:11.5px;color:#6a7682} .quote-link{justify-self:start;color:var(--accent);font-size:10px;font-weight:850}
+    .media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:10px;overflow:hidden;border-radius:12px} .media-grid--1{grid-template-columns:1fr} .media-item{position:relative;min-height:150px;background:#e8edf2} .media-item img{width:100%;height:100%;max-height:330px;object-fit:cover;display:block} .media-item span{position:absolute;right:7px;bottom:7px;padding:4px 6px;border-radius:6px;background:rgba(0,0,0,.68);color:#fff;font-size:8px;font-weight:900}
+    .card-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid #edf0f3} .engagement{display:flex;gap:10px;color:var(--muted);font-size:10.5px;font-weight:750} .card-bottom>a{color:var(--accent);font-size:11px;font-weight:850} .empty{grid-column:1/-1;padding:70px;text-align:center;border:1px dashed #cdd5dd;border-radius:16px;background:#fff;color:var(--muted)}
+    footer{padding:26px 4px 0;color:var(--muted);font-size:11px;text-align:center}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}} @media(max-width:560px){.shell{width:min(100% - 16px,1500px);padding-top:7px}.hero{gap:10px;padding:13px 14px;border-radius:15px}h1{font-size:28px}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.metric{padding:7px 9px}.metric strong{font-size:18px}.signal-card{padding:13px}.post-text.original{font-size:15px}.post-text.translation{font-size:12.5px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <h1>硅谷 AI 原声 <span class="report-date">· 2026-09-04</span></h1>
+      <div class="metrics"><div class="metric"><strong>62</strong><span>监控专家</span></div><div class="metric"><strong>23</strong><span>活跃专家</span></div><div class="metric"><strong>42</strong><span>精选原文</span></div></div>
+    </header>
+
+    <main class="grid">
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="fchollet" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2006806326140350470/Kd5oZv-f_normal.jpg" alt="Francois Chollet avatar" loading="lazy"></div>
+          <div class="identity"><strong>Francois Chollet</strong><span>@fchollet · ARC Prize；Keras 作者</span></div>
+          <div class="score">77<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 研究 / 评测</span><time>09-04 03:42 北京</time></div>
+        <p class="post-text original" lang="auto">GPT-6 Astra represents a step-function change in model capability for interactive reasoning problems. It scores 66% on ARC-AGI-3 using our standard harness, and nearly 100% with a continuous conversation harness and custom compaction, at a cost of roughly $360 per game.
+
+In fact, the continuous harness version significantly outperforms our human baseline in action efficiency across almost all levels. When we examined the reasoning chains to understand how the model operates, we found it performing highly efficient, on-the-fly symbolic world modeling for each game and level. It goes as far as developing its own shorthand DSL to represent in-game situations -- essentially a game-specific algebraic notation.
+
+Overall, Astra exhibits symbolic modeling behaviors we had previously only seen with sophisticated harnesses -- so harness capabilities are increasingly shifting into the model itself.
+
+We see Astra as a major breakthrough in model intelligence.
+
+Read our post on Astra and what these results mean: https://t.co/wJnYxEqYNI</p><p class="post-text translation" lang="zh-CN">GPT-6 Astra 代表着交互式推理问题模型能力的一次阶跃式提升。它在我们的标准评测框架下 ARC-AGI-3 得分 66%，而在连续对话评测框架和自定义压缩下接近 100%，每局成本约 360 美元。
+
+事实上，连续评测框架版本在几乎所有关卡的动作效率上都显著超过了我们的人类基线。当我们检查推理链以了解模型如何运作时，发现它会针对每个游戏和关卡进行高效的即时符号世界建模。它甚至会开发自己的速记 DSL 来表示游戏内情境，本质上是一种面向特定游戏的代数记法。
+
+总体而言，Astra 展现出的符号建模行为，此前我们只在复杂评测框架中见过，因此评测框架的能力正越来越多地转移到模型自身之中。
+
+我们认为 Astra 是模型智能的一项重大突破。
+
+阅读我们关于 Astra 及这些结果意义的文章：https://t.co/wJnYxEqYNI</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 3,551</span><span>↻ 443</span><span>↩ 85</span></div><a href="https://x.com/fchollet/status/2095598451115614371" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="alibaba_qwen" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2064231947149377536/Ab70PxT5_normal.jpg" alt="Qwen avatar" loading="lazy"></div>
+          <div class="identity"><strong>Qwen</strong><span>@Alibaba_Qwen · 基础模型项目</span></div>
+          <div class="score">89<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>基础模型突破</span><time>09-03 19:37 北京</time></div>
+        <p class="post-text original" lang="auto">Meet E-Commerce Bench, a new benchmark for long-horizon autonomous business operations. 🚀
+
+Agents start with ¥100,000 to run online stores for 365 days, handling sourcing, negotiation, pricing, promotions, inventory and cash flow, in a market driven by real e-commerce data.
+
+What&#x27;s inside: 👀
+- Real economics: 6886 products, 576 suppliers (152 fraudsters), 600-minute workdays, storage fees, returns and reputation.
+- Long-horizon learning: almost no model learns to buy cheaper or improve its strategies over a full year of operation.
+- Seven-axis evaluation: beyond year-end assets, we score six more dimensions, revealing that no single model dominates across the board.
+
+Learn more about E-Commerce Bench: 👇
+- Blog: https://t.co/fpdO9jwwiV
+- Paper: https://t.co/EYIGlMPFUn
+- Project: https://t.co/ss2kuThRin
+- Code: https://t.co/xZOURdp7zE</p><p class="post-text translation" lang="zh-CN">认识一下 E-Commerce Bench，这是一个面向长周期自主商业运营的新基准。🚀
+
+智能体以 100,000 日元起步，运营线上商店 365 天，处理采购、谈判、定价、促销、库存和现金流，市场由真实电商数据驱动。
+
+内容包括：👀
+- 真实经济环境：6886 种商品、576 家供应商（其中 152 家欺诈者）、600 分钟工作日、仓储费、退货和声誉。
+- 长周期学习：几乎没有模型能在完整一年的运营中学会更便宜地进货或改进策略。
+- 七轴评估：除年末资产外，我们还评估另外六个维度，结果显示没有任何单一模型能全面占优。
+
+了解更多 E-Commerce Bench：👇
+- Blog：https://t.co/fpdO9jwwiV
+- Paper：https://t.co/EYIGlMPFUn
+- Project：https://t.co/ss2kuThRin
+- Code：https://t.co/xZOURdp7zE</p>
+
+        <div class="media-grid media-grid--3"><a class="media-item" href="https://pbs.twimg.com/media/HRSfX0lbIAAeNgT.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HRSfX0lbIAAeNgT.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HRSfiTBagAA8udg.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HRSfiTBagAA8udg.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HRSfknhaoAAHwi6.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HRSfknhaoAAHwi6.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 530</span><span>↻ 44</span><span>↩ 59</span></div><a href="https://x.com/Alibaba_Qwen/status/2095476249556853100" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="figure_robot" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1976273310431444992/k9xGabdN_normal.jpg" alt="Figure avatar" loading="lazy"></div>
+          <div class="identity"><strong>Figure</strong><span>@Figure_robot · 人形机器人项目</span></div>
+          <div class="score">90<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>机器人领域突破</span><time>09-03 21:09 北京</time></div>
+        <p class="post-text original" lang="auto">Today, we’re partnering with Nscale to deploy up to 100,000 GPUs on the NVIDIA Vera Rubin Platform
+
+We&#x27;re committing $3.5 billion initially, with plans to scale beyond $6 billion
+
+Bringing a robot into every home demands compute at an unprecedented scale https://t.co/2MsCfuAqiz</p><p class="post-text translation" lang="zh-CN">今天，我们正与 Nscale 合作，在 NVIDIA Vera Rubin Platform 上部署最多 100,000 块 GPU
+
+我们初始承诺投入 35 亿美元，并计划扩展至超过 60 亿美元
+
+把机器人带入每个家庭，需要前所未有规模的算力 https://t.co/2MsCfuAqiz</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2095499366857584641/img/xWS7bWg_kjEGHgKc.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2095499366857584641/img/xWS7bWg_kjEGHgKc.jpg" alt="X post media"><span>VIDEO</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 2,733</span><span>↻ 269</span><span>↩ 106</span></div><a href="https://x.com/Figure_robot/status/2095499507991744723" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="polynoamial" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1872883170292457472/8ywVGO5M_normal.jpg" alt="Noam Brown avatar" loading="lazy"></div>
+          <div class="identity"><strong>Noam Brown</strong><span>@polynoamial · OpenAI / 推理研究</span></div>
+          <div class="score">99<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>推理模型 / OpenAI</span><time>09-04 02:42 北京</time></div>
+        <p class="post-text original" lang="auto">Of all the use cases for GPT-6 Astra, I&#x27;m most excited for scientific discovery. We at @OpenAI have not pushed it to its limits on math and science.
+
+I look forward to waking up every morning and seeing what new scientific breakthrough someone has made with this model!</p><p class="post-text translation" lang="zh-CN">在 GPT-6 Astra 的所有用例中，我最期待的是科学发现。我们 @OpenAI 还没有把它在数学和科学上的能力推到极限。
+
+我期待每天早上醒来，都能看到有人用这个模型取得新的科学突破！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1831493788679761920/-q9w6dzd_normal.jpg" alt="Lisan al Gaib avatar" loading="lazy"></div><div><strong>Lisan al Gaib</strong><span>@scaling01</span></div></div><p class="quote-text original" lang="auto">New OpenAI repo with a Lean formalization by GPT-6-Astra proves that there are infinitely many pairs of consecutive primes whose distance is at most 186
+
+https://t.co/kegFNJKQrq https://t.co/bc8k6H1OdX</p><p class="quote-text translation" lang="zh-CN">OpenAI 新仓库中由 GPT-6-Astra 完成的 Lean 形式化证明表明：存在无穷多对连续素数，其间距最多为 186
+
+https://t.co/kegFNJKQrq https://t.co/bc8k6H1OdX</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HRTrihPa4AEQwYW.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HRTrihPa4AEQwYW.png" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/scaling01/status/2095558841509318673" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 1,612</span><span>↻ 104</span><span>↩ 66</span></div><a href="https://x.com/polynoamial/status/2095583211950833768" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="gdb" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_normal.jpg" alt="Greg Brockman avatar" loading="lazy"></div>
+          <div class="identity"><strong>Greg Brockman</strong><span>@gdb · OpenAI / 联合创始人</span></div>
+          <div class="score">98<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>基座模型 / OpenAI</span><time>09-04 04:20 北京</time></div>
+        <p class="post-text original" lang="auto">Astra is useful for so many things, but I&#x27;m particularly excited to see how it transforms areas like entrepreneurship, scientific discovery, and how small teams tackle big problems.</p><p class="post-text translation" lang="zh-CN">Astra 可用于很多事情，但我尤其期待看到它如何改变创业、科学发现，以及小团队攻克大问题的方式。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1885410181409820672/ztsaR0JW_normal.jpg" alt="OpenAI avatar" loading="lazy"></div><div><strong>OpenAI</strong><span>@OpenAI</span></div></div><p class="quote-text original" lang="auto">GPT-6 Astra is state-of-the-art on FrontierMath Tier 4, ARC-AGI 3, and TerminalBench-4.0.
+
+GPT‑6 Astra is also a major advance for scientific discovery, with state-of-the-art performance on Terminal-Bench Science 0.1 and HealthBench Pro. https://t.co/7hEFadVAN9</p><p class="quote-text translation" lang="zh-CN">GPT-6 Astra 在 FrontierMath Tier 4、ARC-AGI 3 和 TerminalBench-4.0 上达到最先进水平。
+
+GPT‑6 Astra 也是科学发现领域的一项重大进展，在 Terminal-Bench Science 0.1 和 HealthBench Pro 上取得了最先进表现。https://t.co/7hEFadVAN9</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HRUNO2ZbIAELO7g.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HRUNO2ZbIAELO7g.png" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/OpenAI/status/2095595752815030713" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 2,388</span><span>↻ 121</span><span>↩ 157</span></div><a href="https://x.com/gdb/status/2095607826471334089" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="gdb" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_normal.jpg" alt="Greg Brockman avatar" loading="lazy"></div>
+          <div class="identity"><strong>Greg Brockman</strong><span>@gdb · OpenAI / 联合创始人</span></div>
+          <div class="score">98<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>基座模型 / OpenAI</span><time>09-04 05:46 北京</time></div>
+        <p class="post-text original" lang="auto">arc-agi-3 is now saturated</p><p class="post-text translation" lang="zh-CN">arc-agi-3 现在已经被刷满了</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1800565057493078016/XigYRdTo_normal.jpg" alt="ARC Prize avatar" loading="lazy"></div><div><strong>ARC Prize</strong><span>@arcprize</span></div></div><p class="quote-text original" lang="auto">GPT-6 Astra by @OpenAI achieves SOTA on ARC-AGI:
+
+- Astra scores 63% on ARC-AGI-3, 99% via a new provider adapter harness
+- It surpasses human performance on 96% of ARC-AGI-3 levels
+- It builds the most precise symbolic model of novel environments we&#x27;ve seen
+
+Our analysis: https://t.co/GX77KsRNer</p><p class="quote-text translation" lang="zh-CN">@OpenAI 的 GPT-6 Astra 在 ARC-AGI 上达到 SOTA：
+
+- Astra 在 ARC-AGI-3 上得分 63%，通过新的提供商适配器评测框架可达 99%
+- 它在 ARC-AGI-3 96% 的关卡上超越人类表现
+- 它构建了我们见过的对新环境最精确的符号模型
+
+我们的分析：https://t.co/GX77KsRNer</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HRUN5czbMAASQkl.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HRUN5czbMAASQkl.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/arcprize/status/2095597602545025138" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 975</span><span>↻ 53</span><span>↩ 58</span></div><a href="https://x.com/gdb/status/2095629409017614390" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="gdb" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_normal.jpg" alt="Greg Brockman avatar" loading="lazy"></div>
+          <div class="identity"><strong>Greg Brockman</strong><span>@gdb · OpenAI / 联合创始人</span></div>
+          <div class="score">94<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>基座模型 / OpenAI</span><time>09-04 03:44 北京</time></div>
+        <p class="post-text original" lang="auto">Introducing GPT-6 Astra: https://t.co/0eb3Ek6Gl8</p><p class="post-text translation" lang="zh-CN">推出 GPT-6 Astra：https://t.co/0eb3Ek6Gl8</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 3,545</span><span>↻ 271</span><span>↩ 185</span></div><a href="https://x.com/gdb/status/2095598855073255644" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="thom_wolf" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2068682157451571200/_ZNKM_5E_normal.jpg" alt="Thomas Wolf avatar" loading="lazy"></div>
+          <div class="identity"><strong>Thomas Wolf</strong><span>@Thom_Wolf · Hugging Face / 联合创始人兼 CSO</span></div>
+          <div class="score">90<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>开源模型 / Hugging Face</span><time>09-03 20:10 北京</time></div>
+        <p class="post-text original" lang="auto">So happy to finally share the news in person
+
+It’s been a wild ride for Hugging Face. We certainly did not anticipate, back in 2016, as a tiny team of scrappy underdogs, that the field would grow so much or that the impact we could have on it would become so massive.
+
+I remember @julien_c joking that « code will be a subset of ML » several years ago. The joke turned out to be true, and the pleasure we’ve had being part of this transformation and pushing an alternative vision of AI as open, collaborative and distributed has been and still is immense.
+
+We’ve always built things seriously while not taking ourselves too seriously at Hugging Face (special congrats if you find the Hugging Face and Nvidia references hidden in our $12,930,300,000 acquisition price), and we plan to keep doing what we&#x27;ve been doing, just at a much bigger scale, backed by the resources, expertise and drive of Nvidia. And to be clear, nothing changes for our users today.
+
+No company in the world has been a more natural fit with our mission than Nvidia. From open-source, open-weights and open science to robotics and AI for science, they have been close partners across everything we care about. So when Jensen offered @ClementDelangue the opportunity to double down on building the Hub as an open, independent and compute agnostic platform, we decided the time was right to start the next 10 years of our journey together.
+
+We’re at an important inflection point for open-source AI, where scale and compute are becoming increasingly essential. We’re excited to have the resources to push further, build more ambitiously, and bring you even more projects and news in the coming months.</p><p class="post-text translation" lang="zh-CN">很高兴终于能当面分享这个消息。
+
+对 Hugging Face 来说，这一路非常疯狂。回到 2016 年，我们还只是一个小小的、草根的逆袭团队，当时当然没有预料到这个领域会发展到如此规模，也没想到我们能对它产生如此巨大的影响。
+
+我记得几年前 @julien_c 开玩笑说“代码会成为 ML 的一个子集”。这个玩笑后来成了现实。能参与这场变革，并推动一种开放、协作、分布式的 AI 替代愿景，我们一直并且仍然感到无比兴奋。
+
+在 Hugging Face，我们一直认真做事，但不把自己看得太严肃（如果你能在我们 12,930,300,000 美元的收购价里找到 Hugging Face 和 Nvidia 的隐藏彩蛋，特别恭喜你）。我们计划继续做一直在做的事，只是在 Nvidia 的资源、专业能力和驱动力支持下，以更大规模推进。需要明确的是，今天对我们的用户来说没有任何变化。
+
+世界上没有哪家公司比 Nvidia 更契合我们的使命。从开源、开放权重和开放科学，到机器人和科学 AI，他们一直是我们在所有关心领域的紧密合作伙伴。因此，当 Jensen 向 @ClementDelangue 提出机会，希望加倍投入，把 Hub 建成一个开放、独立且计算无关的平台时，我们认为，是时候共同开启未来 10 年的新旅程了。
+
+开源 AI 正处在一个重要拐点，规模和算力正变得越来越关键。我们很高兴拥有更多资源，能进一步推进、更大胆地建设，并在未来几个月为大家带来更多项目和消息。</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HRSoBRLWUAEVqSE.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HRSoBRLWUAEVqSE.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 1,326</span><span>↻ 99</span><span>↩ 177</span></div><a href="https://x.com/Thom_Wolf/status/2095484543541068005" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="aravsrinivas" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2028729526822588416/WhtMUI-P_normal.jpg" alt="Aravind Srinivas avatar" loading="lazy"></div>
+          <div class="identity"><strong>Aravind Srinivas</strong><span>@AravSrinivas · Perplexity / CEO</span></div>
+          <div class="score">90<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 搜索 / 产品</span><time>09-04 05:13 北京</time></div>
+        <p class="post-text original" lang="auto">Congrats to @OpenAI on building the industry&#x27;s frontier model: GPT-6 Astra. It&#x27;s far ahead of every other model on wide and deep research tasks, while also being more cost-effective. We&#x27;ll be bringing this model up on Perplexity Computer for all Pro and Max users soon!</p><p class="post-text translation" lang="zh-CN">祝贺 @OpenAI 打造出行业前沿模型：GPT-6 Astra。它在广度和深度研究任务上远远领先其他所有模型，同时也更具成本效益。我们很快会把这个模型接入 Perplexity Computer，面向所有 Pro 和 Max 用户开放！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2009310641165660160/XArF3_Ib_normal.jpg" alt="Perplexity avatar" loading="lazy"></div><div><strong>Perplexity</strong><span>@perplexity_ai</span></div></div><p class="quote-text original" lang="auto">We evaluated GPT-6 Astra on WANDR. It scored 0.682 at $11.98 per task, the highest score of any model we tested.
+
+GPT-6-Astra scored 13.5% higher than Fable 5.1 at 6.1% lower cost, and 27.0% higher than Opus 5 at 3.3% higher cost. https://t.co/SyYmD38qvq</p><p class="quote-text translation" lang="zh-CN">我们在 WANDR 上评测了 GPT-6 Astra。它得分 0.682，每项任务成本 11.98 美元，是我们测试过的所有模型中最高分。
+
+GPT-6-Astra 比 Fable 5.1 高 13.5%，成本低 6.1%；比 Opus 5 高 27.0%，成本高 3.3%。https://t.co/SyYmD38qvq</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HRUjqpCaUAEHZdF.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HRUjqpCaUAEHZdF.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/perplexity_ai/status/2095620419906830788" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 527</span><span>↻ 20</span><span>↩ 19</span></div><a href="https://x.com/AravSrinivas/status/2095621195131695352" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="c_valenzuelab" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2070496516893229056/bm-CWE5N_normal.jpg" alt="Cristobal Valenzuela avatar" loading="lazy"></div>
+          <div class="identity"><strong>Cristobal Valenzuela</strong><span>@c_valenzuelab · Runway / 联合创始人兼 CEO</span></div>
+          <div class="score">84<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>生成式视频</span><time>09-04 00:26 北京</time></div>
+        <p class="post-text original" lang="auto">We are sharing a major update to our General World Models efforts. GWM Worlds 2 can generate full, interactive, real-time video simulations in one continuous 720p stream at 24 fps and audio at 48000 Hz, responding to your inputs as you explore.
+
+It is the first world model that generalizes to arbitrary actions rather than a fixed set of actions or just navigation. Dynamic actions are what actually matter for building gaming and interactive experiences, and for training agents in these simulations.
+
+We also introduced WorldPrompt, a way to tell GWM-2 that a world can be split into two kinds of state: what persists and what changes over time. For example: persistent gravity, physics, and light, alongside actions that describe movement, gestures, object interactions, speech, and sound.</p><p class="post-text translation" lang="zh-CN">我们正在分享 General World Models 工作的一项重大更新。GWM Worlds 2 可以生成完整、交互式、实时的视频模拟，以连续 720p、24 fps 视频流和 48000 Hz 音频呈现，并在你探索时响应你的输入。
+
+它是首个能泛化到任意动作的世界模型，而不是局限于固定动作集或仅支持导航。动态动作对于构建游戏和交互体验，以及在这些模拟中训练智能体，才是真正重要的能力。
+
+我们还推出了 WorldPrompt，这是一种告诉 GWM-2 世界状态可分为两类的方法：持续存在的状态，以及随时间变化的状态。例如：持续的重力、物理和光照，以及描述移动、手势、物体交互、语音和声音的动作。</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2095547675772895235/img/fWdZaVxnZE-XYpRK.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2095547675772895235/img/fWdZaVxnZE-XYpRK.jpg" alt="X post media"><span>VIDEO</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1999115192232292353/zOq5-uwB_normal.jpg" alt="Runway avatar" loading="lazy"></div><div><strong>Runway</strong><span>@runwayml</span></div></div><p class="quote-text original" lang="auto">Today, we&#x27;re sharing new research on GWM Worlds 2. Our latest General World Model that generates interactive real-time simulations in continuous 720p video at 24 fps with 48000 Hz audio.
+
+Built on top of our foundational audio-visual generation model, GWM Worlds 2 allows you to define the environment, subjects, visual style, physical rules and ambience of any world. Once inside, you steer it with text actions addressed to any subject or to the scene itself, alongside continuous camera motion.
+
+The world continues from each new input instead of following a fixed clip or script so sessions have no preset length. GWM Worlds 2 creates a new foundation for interactive entertainment, virtual characters, robotics and embodied-agent simulation.
+
+Learn more about GWM Worlds 2 at the link below.</p><p class="quote-text translation" lang="zh-CN">今天，我们分享关于 GWM Worlds 2 的新研究。这是我们最新的 General World Model，可生成连续 720p、24 fps 视频和 48000 Hz 音频的交互式实时模拟。
+
+GWM Worlds 2 构建在我们的基础音视频生成模型之上，允许你定义任意世界的环境、主体、视觉风格、物理规则和氛围。进入世界后，你可以用文本动作控制任意主体或场景本身，同时配合连续的镜头运动。
+
+这个世界会从每次新输入继续推进，而不是遵循固定片段或脚本，因此会话没有预设长度。GWM Worlds 2 为互动娱乐、虚拟角色、机器人和具身智能体模拟奠定了新的基础。
+
+通过下方链接了解更多 GWM Worlds 2 信息。</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2095539077462237187/img/lbOgPMCmIkfJUMSK.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2095539077462237187/img/lbOgPMCmIkfJUMSK.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/runwayml/status/2095540014645920040" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 1,173</span><span>↻ 115</span><span>↩ 40</span></div><a href="https://x.com/c_valenzuelab/status/2095548906281042144" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="fchollet" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2006806326140350470/Kd5oZv-f_normal.jpg" alt="Francois Chollet avatar" loading="lazy"></div>
+          <div class="identity"><strong>Francois Chollet</strong><span>@fchollet · ARC Prize；Keras 作者</span></div>
+          <div class="score">81<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 研究 / 评测</span><time>09-04 04:09 北京</time></div>
+        <p class="post-text original" lang="auto">Side note: when we released ARC-AGI-3 in March, and frontier models scored &lt;1% on it, a few Singularitarian poasters took it as a personal insult, and got very worked up about it. They argued the benchmark was fundamentally broken, that it could not even be solved by the smartest humans, that the max reachable score was actually 40%, etc.
+
+We had to deal with a torrent of insults and hate poasts since because we had released an unsaturated benchmark.
+
+As it turns out, the benchmark is perfectly calibrated. It is straightforward for a human to score 100% if they do better than average people – all you need is to use fewer actions than our human baseline (which is not a strong baseline, as we used unfiltered human testers).
+
+And naturally as a result it&#x27;s also very feasible for AI to score 100% once real progress towards agentic general intelligence has been made. The trajectory of AI from &lt;1% to 100% over the course of 6 months shows that the benchmark was able to snapshot the recent rise of agentic capabilities. And that rise has happened faster than most people expected, including us.</p><p class="post-text translation" lang="zh-CN">顺带一提：我们在 3 月发布 ARC-AGI-3 时，前沿模型在其上的得分低于 1%，一些奇点派发帖者把这当成了人身冒犯，并对此非常激动。他们声称这个基准从根本上就是坏的，连最聪明的人类都无法解决，最高可达分数其实只有 40% 等等。
+
+因为我们发布了一个尚未饱和的基准，此后不得不面对大量辱骂和仇恨帖。
+
+事实证明，这个基准校准得非常好。只要人类表现优于普通人，就很容易拿到 100% 分数，只需要比我们的人类基线使用更少动作即可（这并不是一个很强的基线，因为我们使用的是未筛选的人类测试者）。
+
+自然地，一旦在智能体通用智能方面取得真正进展，AI 拿到 100% 也完全可行。AI 在 6 个月内从低于 1% 到 100% 的轨迹表明，这个基准成功捕捉到了近期智能体能力的崛起。而这种崛起发生得比大多数人预期的更快，也包括我们自己。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2006806326140350470/Kd5oZv-f_normal.jpg" alt="François Chollet avatar" loading="lazy"></div><div><strong>François Chollet</strong><span>@fchollet</span></div></div><p class="quote-text original" lang="auto">Any smart human giving it real effort should score &amp;gt;90%  on ARC-AGI-3</p><p class="quote-text translation" lang="zh-CN">任何聪明人只要认真投入，在 ARC-AGI-3 上都应该得分 &gt;90%</p><a class="quote-link" href="https://x.com/fchollet/status/2044344567458066554" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 1,664</span><span>↻ 110</span><span>↩ 56</span></div><a href="https://x.com/fchollet/status/2095605239269519771" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="hwchase17" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1569345624935485442/R67C4wCQ_normal.jpg" alt="Harrison Chase avatar" loading="lazy"></div>
+          <div class="identity"><strong>Harrison Chase</strong><span>@hwchase17 · LangChain / CEO</span></div>
+          <div class="score">80<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Agent 框架</span><time>09-04 00:17 北京</time></div>
+        <p class="post-text original" lang="auto">Agent workspaces should be durable, inspectable, and swappable
+
+Deep Agents’ virtual file system is intentionally behind a BackendProtocol, so the agent code can keep using read/write/glob/grep while teams choose the storage layer that fits production
+
+Nice to see MongoDB support this!</p><p class="post-text translation" lang="zh-CN">Agent 工作空间应当持久、可检查、可替换
+
+Deep Agents 的虚拟文件系统有意置于 BackendProtocol 之后，因此 agent 代码可以继续使用 read/write/glob/grep，而团队可选择适合生产环境的存储层
+
+很高兴看到 MongoDB 支持这一点！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1452637606559326217/GFz_P-5e_normal.png" alt="MongoDB avatar" loading="lazy"></div><div><strong>MongoDB</strong><span>@MongoDB</span></div></div><p class="quote-text original" lang="auto">MongoDB now powers the virtual file system behind @LangChain&#x27;s Deep Agents. 🚀
+
+This new integration lets you implement Deep Agents&#x27; BackendProtocol against MongoDB Atlas instead of building your own storage layer. And agent code calling read_file, write, glob, and grep don’t have to change.
+
+Your retrieval and storage run through one backend instead of a maze of stitched-together tools. Vector, full-text, and hybrid search (via $rankFusion) route through Atlas; file reads and writes forward directly to S3.
+
+For builders of long-running or multi-agent workflows: Plans, intermediate outputs, and knowledge artifacts persist across sessions, deployments, and sub-agent handoffs, so file-based context survives between runs instead of resetting each time.</p><p class="quote-text translation" lang="zh-CN">MongoDB 现在为 @LangChain 的 Deep Agents 背后的虚拟文件系统提供支持。🚀
+
+这项新集成让你可以基于 MongoDB Atlas 实现 Deep Agents 的 BackendProtocol，而无需自建存储层。调用 read_file、write、glob 和 grep 的 agent 代码也无需改动。
+
+你的检索和存储通过同一个后端运行，而不是一堆拼接工具。向量、全文和混合搜索（通过 $rankFusion）经由 Atlas 路由；文件读写则直接转发到 S3。
+
+对于构建长时间运行或多 agent 工作流的人来说：计划、中间输出和知识产物可跨会话、部署和子 agent 交接持久保存，因此基于文件的上下文能在多次运行之间保留下来，而不是每次都重置。</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HRQ2GMJXcAElu_7.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HRQ2GMJXcAElu_7.png" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/MongoDB/status/2095519687744332228" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 42</span><span>↻ 4</span><span>↩ 16</span></div><a href="https://x.com/hwchase17/status/2095546785234321600" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="mustafasuleyman" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1927407622602276864/c_5uOZij_normal.jpg" alt="Mustafa Suleyman avatar" loading="lazy"></div>
+          <div class="identity"><strong>Mustafa Suleyman</strong><span>@mustafasuleyman · Microsoft AI / CEO</span></div>
+          <div class="score">77<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 产品 / 消费级 AI</span><time>09-03 22:36 北京</time></div>
+        <p class="post-text original" lang="auto">Fastest. Cheapest. Best. ... MAI-Transcribe-2
+10x faster than GPT-Transcribe. 5x faster than Gemini 3.5
+#1 on the Artificial Analysis accuracy-latency Pareto frontier
+Priced at the lowest on the market.
+Truly fantastic work from the team! Try it out below. https://t.co/0W6NgJY33Y</p><p class="post-text translation" lang="zh-CN">最快。最便宜。最好。... MAI-Transcribe-2
+比 GPT-Transcribe 快 10 倍。比 Gemini 3.5 快 5 倍
+在 Artificial Analysis 准确率-延迟帕累托前沿排名 #1
+定价为市场最低。
+团队的工作真的太出色了！在下方试用。https://t.co/0W6NgJY33Y</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HRTJdSJXYAEe63M.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HRTJdSJXYAEe63M.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 349</span><span>↻ 30</span><span>↩ 26</span></div><a href="https://x.com/mustafasuleyman/status/2095521337670312056" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="alexandr_wang" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">76<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>09-03 09:10 北京</time></div>
+        <p class="post-text original" lang="auto">muse spark 1.3 + muse code evals competitively with Claude code + opus 5 and Claude code + fable 5</p><p class="post-text translation" lang="zh-CN">muse spark 1.3 + muse code 的评测表现可与 Claude code + opus 5 和 Claude code + fable 5 竞争</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2042402069320290304/A8C1lP07_normal.jpg" alt="Artificial Analysis avatar" loading="lazy"></div><div><strong>Artificial Analysis</strong><span>@ArtificialAnlys</span></div></div><p class="quote-text original" lang="auto">Meta&#x27;s Muse Spark 1.3 (max), which is in limited preview for Meta&#x27;s partners, scores 68 on the Artificial Analysis Coding Agent Index in the Muse Code harness, #2 behind only Claude Opus 5 (xhigh) in Claude Code. The variant available now, Muse Spark 1.3 (xhigh), scores 64 and costs the least per task of any agent above a 60 index score
+
+Muse Spark 1.3 (xhigh) enters the Artificial Analysis Coding Agent Index at 64 in Muse Code, up 2 points from Muse Spark 1.2 (62, August). It enters level with Grok 4.5 (high) in Grok Build (64) and behind GPT-5.6 Sol (max) in Codex (65). At $1.72 per task, it costs the least of any agent above a 60 index score, around a fifth of the cost of Claude Opus 5 (xhigh) in Claude Code ($8.17)
+
+Muse Spark 1.3 (max), which is in a limited preview stage, lands at 68 in Muse Code. It enters behind only Claude Opus 5 (xhigh) in Claude Code (68), and ahead of Claude Fable 5 (max) in Claude Code (67) and GPT-5.6 Sol (max) in Codex (65). Muse Spark 1.3 (max) is excluded from cost comparisons as Meta has not announced pricing for the limited release
+
+Claude Fable 5.1 results are in progress and will be added when complete.
+
+Congratulations @AIatMeta, @finkd, and @alexandr_wang on this result!</p><p class="quote-text translation" lang="zh-CN">Meta 的 Muse Spark 1.3 (max) 目前向 Meta 合作伙伴限量预览，在 Muse Code 测试框架下的 Artificial Analysis Coding Agent Index 得分为 68，仅次于 Claude Code 中的 Claude Opus 5 (xhigh)，排名 #2。目前可用的版本 Muse Spark 1.3 (xhigh) 得分 64，并且在所有指数分超过 60 的 agent 中单任务成本最低
+
+Muse Spark 1.3 (xhigh) 在 Muse Code 中以 64 分进入 Artificial Analysis Coding Agent Index，比 Muse Spark 1.2（62 分，8 月）高 2 分。它与 Grok Build 中的 Grok 4.5 (high)（64 分）持平，落后于 Codex 中的 GPT-5.6 Sol (max)（65 分）。其单任务成本为 1.72 美元，是所有指数分超过 60 的 agent 中最低的，约为 Claude Code 中 Claude Opus 5 (xhigh)（8.17 美元）成本的五分之一
+
+Muse Spark 1.3 (max) 目前处于限量预览阶段，在 Muse Code 中达到 68 分。它仅落后于 Claude Code 中的 Claude Opus 5 (xhigh)（68 分），领先于 Claude Code 中的 Claude Fable 5 (max)（67 分）和 Codex 中的 GPT-5.6 Sol (max)（65 分）。由于 Meta 尚未公布该限量发布版本的价格，Muse Spark 1.3 (max) 未纳入成本比较
+
+Claude Fable 5.1 的结果仍在进行中，完成后将加入。
+
+祝贺 @AIatMeta、@finkd 和 @alexandr_wang 取得这一成绩！</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HRQMpkRboAExE3Q.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HRQMpkRboAExE3Q.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/ArtificialAnlys/status/2095317750839476393" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 412</span><span>↻ 16</span><span>↩ 41</span></div><a href="https://x.com/alexandr_wang/status/2095318449602138577" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="matei_zaharia" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/787317891867693061/isUFxFC1_normal.jpg" alt="Matei Zaharia avatar" loading="lazy"></div>
+          <div class="identity"><strong>Matei Zaharia</strong><span>@matei_zaharia · Databricks 联合创始人；Berkeley</span></div>
+          <div class="score">74<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 基础设施 / 数据与 ML 平台</span><time>09-04 03:00 北京</time></div>
+        <p class="post-text original" lang="auto">Really cool example of using tracing data to get insights into AI workloads with Unity AI Gateway. We think this will be a new form of operational data analysis that all companies do, a lot like finance and security.</p><p class="post-text translation" lang="zh-CN">这是一个非常酷的例子，展示了如何用 Unity AI Gateway 的追踪数据洞察 AI 工作负载。我们认为，这会成为所有公司都会进行的一种新型运营数据分析，很像财务和安全分析。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2070268421615333376/SZUvhQiQ_normal.jpg" alt="Databricks avatar" loading="lazy"></div><div><strong>Databricks</strong><span>@databricks</span></div></div><p class="quote-text original" lang="auto">We found and eliminated an estimated $1.2M a year in wasted AI spend and lost productivity in one hour.
+
+Here&#x27;s how 👇
+
+Using Unity Gateway tracing and Genie One, we identified seven small MCP-server bugs that were quietly driving:
+
+• ~$499K/year in wasted tokens
+• ~12,000 engineering hours/year in agent wait time
+• 1,409 tool errors in a single 24-hour window
+
+Genie One turned the trace data into a ranked list of what to fix, and a coding agent helped close the loop in an hour. https://t.co/e5BhUWGsin</p><p class="quote-text translation" lang="zh-CN">我们在一小时内发现并消除了一年约 120 万美元的 AI 浪费支出和生产力损失。
+
+方法如下 👇
+
+通过 Unity Gateway tracing 和 Genie One，我们发现了 7 个不起眼的 MCP-server bug，它们悄悄造成了：
+
+• 每年约 49.9 万美元的 token 浪费
+• 每年约 12,000 个工程师小时的 agent 等待时间
+• 单个 24 小时窗口内 1,409 次工具错误
+
+Genie One 将 trace data 转化为按优先级排序的修复清单，coding agent 则帮助在一小时内完成闭环。https://t.co/e5BhUWGsin</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HRTCLC-W4AIEIWS.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HRTCLC-W4AIEIWS.png" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/databricks/status/2095513242722259038" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 31</span><span>↻ 2</span><span>↩ 3</span></div><a href="https://x.com/matei_zaharia/status/2095587849953501620" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="anilkseth" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1479788727346118657/MkLkGnOk_normal.jpg" alt="Anil Seth avatar" loading="lazy"></div>
+          <div class="identity"><strong>Anil Seth</strong><span>@anilkseth · 权威意识研究者</span></div>
+          <div class="score">68<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>意识科学与神经科学</span><time>09-04 04:38 北京</time></div>
+        <p class="post-text original" lang="auto">Admirably open assessment by @tomekkorbak of some important safety / interpretability challenges raised by @OpenAI #astra  👇🏽</p><p class="post-text translation" lang="zh-CN">@tomekkorbak 对 @OpenAI #astra 提出的一些重要安全/可解释性挑战进行了非常坦诚的评估 👇🏽</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2078639764631388160/Tv___f9J_normal.jpg" alt="Tomek Korbak avatar" loading="lazy"></div><div><strong>Tomek Korbak</strong><span>@tomekkorbak</span></div></div><p class="quote-text original" lang="auto">GPT-6 Astra is more aligned than our previous models. But it’s also less monitorable, which is a concerning trend that we take very seriously. We believe monitorability drop comes from a jump in intelligence and not direct optimization pressure on CoT or architecture changes. More thoughts in the thread.</p><p class="quote-text translation" lang="zh-CN">GPT-6 Astra 比我们之前的模型更对齐。但它也更难监控，这是一个令人担忧的趋势，我们非常重视。我们认为可监控性的下降来自智能水平的跃升，而不是对 CoT 的直接优化压力或架构变化。更多想法见串文。</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HRUCiEpa8AA0pti.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HRUCiEpa8AA0pti.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/tomekkorbak/status/2095596839886274689" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 11</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/anilkseth/status/2095612502507696276" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">68<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>09-04 05:19 北京</time></div>
+        <p class="post-text original" lang="auto">Today, we&#x27;re excited to launch Extract Turbo ⚡️ - the fastest VLM-powered document extraction solution.
+
+It is 3-5x faster than all other comparable OCR solutions, including our other LlamaParse tiers, at equivalent or higher accuracy. https://t.co/VnosXou7Tq</p><p class="post-text translation" lang="zh-CN">今天，我们很高兴推出 Extract Turbo ⚡️ - 最快的 VLM 驱动文档提取解决方案。
+
+在同等或更高准确率下，它比所有其他同类 OCR 解决方案快 3-5 倍，包括我们的其他 LlamaParse 档位。https://t.co/VnosXou7Tq</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HRUkZU7bIAAXhPz.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HRUkZU7bIAAXhPz.jpg" alt="X post media"><span>IMAGE</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1967920417760251904/0ytfduMQ_normal.png" alt="LlamaIndex 🦙 avatar" loading="lazy"></div><div><strong>LlamaIndex 🦙</strong><span>@llama_index</span></div></div><p class="quote-text original" lang="auto">Document extraction just got a new gear. ⚡️
+
+Introducing Turbo mode for Extract, our fastest way yet to pull structured data from documents.
+
+It runs roughly 4× faster than our Cost Effective Tier at comparable accuracy, with a median latency of 3.7 seconds a page. Turbo processes pages in parallel, so latency stays nearly flat as document size grows.
+
+Available in beta today.
+
+Read the full breakdown → https://t.co/6kErWWqXGG</p><p class="quote-text translation" lang="zh-CN">文档提取进入新档位。⚡️
+
+推出 Extract 的 Turbo 模式，这是我们迄今从文档中提取结构化数据最快的方式。
+
+在准确率相当的情况下，它比我们的 Cost Effective Tier 快约 4 倍，单页中位延迟为 3.7 秒。Turbo 会并行处理页面，因此随着文档大小增长，延迟几乎保持平稳。
+
+今天开始提供 beta 版。
+
+阅读完整解析 → https://t.co/6kErWWqXGG</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HRToAzNW0AUfE_c.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HRToAzNW0AUfE_c.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/llama_index/status/2095554829556776977" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 20</span><span>↻ 2</span><span>↩ 1</span></div><a href="https://x.com/jerryjliu0/status/2095622647375651100" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="aravsrinivas" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2028729526822588416/WhtMUI-P_normal.jpg" alt="Aravind Srinivas avatar" loading="lazy"></div>
+          <div class="identity"><strong>Aravind Srinivas</strong><span>@AravSrinivas · Perplexity / CEO</span></div>
+          <div class="score">64<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 搜索 / 产品</span><time>09-04 00:48 北京</time></div>
+        <p class="post-text original" lang="auto">@DrPaulyDeSantis Check this thread</p><p class="post-text translation" lang="zh-CN">@DrPaulyDeSantis 看看这条串文</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2009310641165660160/XArF3_Ib_normal.jpg" alt="Perplexity avatar" loading="lazy"></div><div><strong>Perplexity</strong><span>@perplexity_ai</span></div></div><p class="quote-text original" lang="auto">Today we’re launching Portable Computer on @NVIDIA DGX Spark.
+
+Portable Computer is a fully local version of Perplexity Computer, where the entire runtime: orchestrator LLM, subagent LLM, agent harness all run on your local hardware. No cloud dependency. https://t.co/plVWz5PaAw</p><p class="quote-text translation" lang="zh-CN">今天我们在 @NVIDIA DGX Spark 上发布 Portable Computer。
+
+Portable Computer 是 Perplexity Computer 的完全本地版本，整个运行时：编排器 LLM、子智能体 LLM、智能体执行框架，都在你的本地硬件上运行。无需依赖云端。https://t.co/plVWz5PaAw</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2092268294791393281/img/6XoQIgKV2-kSgEmw.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2092268294791393281/img/6XoQIgKV2-kSgEmw.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/perplexity_ai/status/2092268362386780270" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 1</span><span>↻ 0</span><span>↩ 2</span></div><a href="https://x.com/AravSrinivas/status/2095554633024565552" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="bcherny" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1902044548936953856/J2jeik0t_normal.jpg" alt="Boris Cherny avatar" loading="lazy"></div>
+          <div class="identity"><strong>Boris Cherny</strong><span>@bcherny · Anthropic / Claude Code</span></div>
+          <div class="score">97<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Claude / Anthropic</span><time>09-04 03:11 北京</time></div>
+        <p class="post-text original" lang="auto">Your input needed: would you use this?
+
+This is an early look at how we&#x27;re thinking about making Claude Code way more extensible. It&#x27;s a little crazy, and very exciting.
+
+More details here: https://t.co/X2SbdZYxvi</p><p class="post-text translation" lang="zh-CN">需要你的意见：你会用这个吗？
+
+这是我们关于如何让 Claude Code 变得更可扩展的一次早期预览。它有点疯狂，也非常令人兴奋。
+
+更多详情见：https://t.co/X2SbdZYxvi</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2044472418815893504/xf14RxM8_normal.png" alt="ClaudeDevs avatar" loading="lazy"></div><div><strong>ClaudeDevs</strong><span>@ClaudeDevs</span></div></div><p class="quote-text original" lang="auto">We&#x27;re exploring a new way to let you extend and customize Claude Code: Function Hooks.
+
+Here&#x27;s a couple videos showing what you&#x27;d be able to do. It hasn&#x27;t shipped yet, we&#x27;d love feedback on this on our GitHub issue. https://t.co/0F3kBO3kjl</p><p class="quote-text translation" lang="zh-CN">我们正在探索一种让你扩展和自定义 Claude Code 的新方式：Function Hooks。
+
+这里有几个视频展示你将能做什么。它还没有发布，我们希望在 GitHub issue 上收到反馈。https://t.co/0F3kBO3kjl</p><div class="media-grid media-grid--2"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2095570595035668480/img/k5ScBy5G1_gQ6AON.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2095570595035668480/img/k5ScBy5G1_gQ6AON.jpg" alt="X post media"><span>VIDEO</span></a><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2095570768897982464/img/jDDon28VWlDJXFtk.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2095570768897982464/img/jDDon28VWlDJXFtk.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/ClaudeDevs/status/2095572891941351550" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 537</span><span>↻ 30</span><span>↩ 119</span></div><a href="https://x.com/bcherny/status/2095590515765060076" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="aravsrinivas" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2028729526822588416/WhtMUI-P_normal.jpg" alt="Aravind Srinivas avatar" loading="lazy"></div>
+          <div class="identity"><strong>Aravind Srinivas</strong><span>@AravSrinivas · Perplexity / CEO</span></div>
+          <div class="score">83<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 搜索 / 产品</span><time>09-04 00:32 北京</time></div>
+        <p class="post-text original" lang="auto">Portable Computer (fully local runtime of Perplexity Computer) is now compatible with RTX (Linux). Windows coming next!</p><p class="post-text translation" lang="zh-CN">Portable Computer（Perplexity Computer 的完全本地运行时）现在已兼容 RTX（Linux）。Windows 即将推出！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2009310641165660160/XArF3_Ib_normal.jpg" alt="Perplexity avatar" loading="lazy"></div><div><strong>Perplexity</strong><span>@perplexity_ai</span></div></div><p class="quote-text original" lang="auto">Portable Computer is now available on Linux for @NVIDIA RTX GPUs with 24GB of VRAM or higher.</p><p class="quote-text translation" lang="zh-CN">Portable Computer 现已支持在配备 24GB 及以上 VRAM 的 @NVIDIA RTX GPU 的 Linux 上运行。</p><a class="quote-link" href="https://x.com/perplexity_ai/status/2095546427384709366" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 230</span><span>↻ 16</span><span>↩ 22</span></div><a href="https://x.com/AravSrinivas/status/2095550497314963788" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="fchollet" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2006806326140350470/Kd5oZv-f_normal.jpg" alt="Francois Chollet avatar" loading="lazy"></div>
+          <div class="identity"><strong>Francois Chollet</strong><span>@fchollet · ARC Prize；Keras 作者</span></div>
+          <div class="score">81<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 研究 / 评测</span><time>09-03 10:46 北京</time></div>
+        <p class="post-text original" lang="auto">It is inevitable that all AI will converge towards symbolic learning (i.e. modeling data by finding the shortest symbolic program that explains it), since that is the optimally efficient form of AI. But there can be more than one evolutionary path to this destination.</p><p class="post-text translation" lang="zh-CN">所有 AI 最终都会收敛到符号学习（即通过寻找能解释数据的最短符号程序来建模数据），这是不可避免的，因为这是 AI 的最优高效形式。但通往这一目标的演化路径可能不止一条。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1894623535634472960/BoEMbIjf_normal.jpg" alt="Tom McCoy avatar" loading="lazy"></div><div><strong>Tom McCoy</strong><span>@RTomMcCoy</span></div></div><p class="quote-text original" lang="auto">🤖🧠NEW PAPER🧠🤖
+(The result of an 8-year project!)
+
+LLMs seem very different from symbolic systems. Yet LLMs excel in symbolic domains (e.g., language/code/math). How do they do it?
+
+Our finding: LLM representations have implicit symbolic structure!
+
+Link in thread ⬇️
+1/n https://t.co/DzubOMssAN</p><p class="quote-text translation" lang="zh-CN">🤖🧠新论文🧠🤖
+（一个历时 8 年项目的成果！）
+
+LLM 看起来与符号系统非常不同。但 LLM 在符号领域（如语言/代码/数学）表现出色。它们是如何做到的？
+
+我们的发现：LLM 表征中存在隐式符号结构！
+
+链接见线程 ⬇️
+1/n https://t.co/DzubOMssAN</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HRJ5Jr5W0AAQ-sN.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HRJ5Jr5W0AAQ-sN.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/RTomMcCoy/status/2094870131939684488" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 997</span><span>↻ 109</span><span>↩ 54</span></div><a href="https://x.com/fchollet/status/2095342611754360875" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="amasad" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div>
+          <div class="identity"><strong>Amjad Masad</strong><span>@amasad · Replit / CEO</span></div>
+          <div class="score">81<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 / 开发者平台</span><time>09-04 02:38 北京</time></div>
+        <p class="post-text original" lang="auto">Many AI’s are down but not all of them. Replit will route you to the available model!</p><p class="post-text translation" lang="zh-CN">很多 AI 都宕了，但不是全部。Replit 会把你路由到可用模型！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2087799626648707072/Fm4jPLhY_normal.jpg" alt="Khaled avatar" loading="lazy"></div><div><strong>Khaled</strong><span>@KhaledAtieh_</span></div></div><p class="quote-text original" lang="auto">Not to brag but i did not notice a single hiccup while using Replit today.
+Yo @amasad Auto mode is underrated.</p><p class="quote-text translation" lang="zh-CN">不是想炫耀，但我今天用 Replit 时完全没遇到任何卡顿。
+Yo @amasad Auto mode 被低估了。</p><a class="quote-link" href="https://x.com/KhaledAtieh_/status/2095563534243389608" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 134</span><span>↻ 7</span><span>↩ 16</span></div><a href="https://x.com/amasad/status/2095582330152992838" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="swyx" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx avatar" loading="lazy"></div>
+          <div class="identity"><strong>swyx</strong><span>@swyx · Latent Space / AI Engineer</span></div>
+          <div class="score">80<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 工作流</span><time>09-04 05:15 北京</time></div>
+        <p class="post-text original" lang="auto">sorry for the radio silence folks - got sucked into extreme LLM psychosis. but i can confidently say we have crossed over into a new age of AI Engineering and we are never, ever, looking back.
+
+this isnt even EVERYTHING i did with Astra but i&#x27;ll append more reports as I publish them on LS!</p><p class="post-text translation" lang="zh-CN">抱歉各位，之前一直没动静，被极端 LLM 精神错乱卷进去了。但我可以自信地说，我们已经跨入 AI Engineering 的新时代，而且再也不会回头。
+
+这甚至还不是我用 Astra 做过的全部内容，我会在 LS 发布更多报告时继续补充！</p>
+
+        <div class="media-grid media-grid--3"><a class="media-item" href="https://pbs.twimg.com/media/HRUk3tUaAAAMfDp.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HRUk3tUaAAAMfDp.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HRUk4E5aoAA4r2g.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HRUk4E5aoAA4r2g.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HRUk40LaMAAEOzc.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HRUk40LaMAAEOzc.jpg" alt="X post media"><span>IMAGE</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1888346877428641792/rMxtG84Z_normal.jpg" alt="Latent.Space avatar" loading="lazy"></div><div><strong>Latent.Space</strong><span>@latentspacepod</span></div></div><p class="quote-text original" lang="auto">We spent &gt;20B tokens throwing @openai&#x27;s Astra at every AI Engineering task we could think of, beyond cute Blender demos and fun games.
+
+https://t.co/QoW6YBybA4
+
+Here&#x27;s everything Astra can do, and do so at &lt;$6 an hour (serious):
+
+- choose and train models
+- label data (both helping you label and then using your labels for active learning)
+- keep pipelines saturated
+- instrument and read logs
+- deploy and debug entire systems in one shot
+- fan out and command and eval subagents (including agents running other models)
+- keep coherence over billions of tokens of a single agent thread.
+
+more to come on @swyx&#x27;s coverage of the Fable- and Astra-class of 2026!</p><p class="quote-text translation" lang="zh-CN">我们花了 &gt;20B tokens，把 @openai 的 Astra 用在了所有能想到的 AI Engineering 任务上，远不止可爱的 Blender 演示和有趣游戏。
+
+https://t.co/QoW6YBybA4
+
+以下是 Astra 能做的所有事情，而且成本低于每小时 $6（认真的）：
+
+- 选择并训练模型
+- 标注数据（既帮助你标注，也用你的标注进行主动学习）
+- 让流水线保持满负荷运行
+- 接入并读取日志
+- 一次性部署和调试整个系统
+- 扇出、指挥并评估子智能体（包括运行其他模型的智能体）
+- 在单个智能体线程的数十亿 tokens 中保持连贯性。
+
+关于 2026 年 Fable 和 Astra 级别系统，后续会有更多来自 @swyx 的报道！</p><a class="quote-link" href="https://x.com/latentspacepod/status/2095621025887396217" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 258</span><span>↻ 14</span><span>↩ 25</span></div><a href="https://x.com/swyx/status/2095621785953984782" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="alexandr_wang" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">73<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>09-03 08:30 北京</time></div>
+        <p class="post-text original" lang="auto">very cool!</p><p class="post-text translation" lang="zh-CN">非常酷！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2075480978852597760/7qNcruws_normal.jpg" alt="Iam_ avatar" loading="lazy"></div><div><strong>Iam_</strong><span>@SPAC89</span></div></div><p class="quote-text original" lang="auto">Muse Spark 1.3 Ultra Contributor vs Fable 5.1 xHigh Same prompt, both ran for roughly 2 hours
+The prompt had a self improvement rule: if the independent judges scored the result below 9.5/10, it had to keep improving and try again,
+What shocked me most was that Muse Spark just NEVER stopped, It went through 20 self improvement loops, launching 3 agents each time  basically 60+ agent runs over 2 hours
+And the cost?, Less than $1, Yes, under $1… in Ultra mode ,This completely exceeded my expectations Huge credit to Meta, this thing is a work of art</p><p class="quote-text translation" lang="zh-CN">Muse Spark 1.3 Ultra Contributor 对比 Fable 5.1 xHigh。同一个提示词，二者都运行了大约 2 小时
+提示词里有一条自我改进规则：如果独立评审给结果打分低于 9.5/10，就必须继续改进并重试。
+最让我震惊的是 Muse Spark 根本停不下来。它跑了 20 轮自我改进循环，每轮启动 3 个 agent，基本上就是 2 小时内跑了 60 多次 agent。
+成本呢？不到 1 美元。没错，Ultra 模式下不到 1 美元。这完全超出了我的预期。必须给 Meta 大大点赞，这东西就是一件艺术品。</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2095284816832798723/img/3onkY1PdXSfJ2yk5.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2095284816832798723/img/3onkY1PdXSfJ2yk5.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/SPAC89/status/2095284969614475744" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 218</span><span>↻ 15</span><span>↩ 8</span></div><a href="https://x.com/alexandr_wang/status/2095308526575100127" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="alexandr_wang" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">73<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>09-03 09:06 北京</time></div>
+        <p class="post-text original" lang="auto">try on vercel ai gateway!</p><p class="post-text translation" lang="zh-CN">去 vercel ai gateway 试试！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1978602411490205696/oLOuP7a2_normal.png" alt="Vercel Developers avatar" loading="lazy"></div><div><strong>Vercel Developers</strong><span>@vercel_dev</span></div></div><p class="quote-text original" lang="auto">Muse Spark 1.3 is live on AI Gateway. Run it at standard rates, or 90% cheaper if you contribute training data back to Meta.
+
+• 𝚖𝚎𝚝𝚊/𝚖𝚞𝚜𝚎-𝚜𝚙𝚊𝚛𝚔-𝟷.𝟹
+• 𝚖𝚎𝚝𝚊/𝚖𝚞𝚜𝚎-𝚜𝚙𝚊𝚛𝚔-𝟷.𝟹-𝚌𝚘𝚗𝚝𝚛𝚒𝚋𝚞𝚝𝚘𝚛
+
+https://t.co/FnSUSo7sv9</p><p class="quote-text translation" lang="zh-CN">Muse Spark 1.3 已上线 AI Gateway。可按标准价格运行；如果你向 Meta 回传训练数据，价格可便宜 90%。
+
+• 𝚖𝚎𝚝𝚊/𝚖𝚞𝚜𝚎-𝚜𝚙𝚊𝚛𝚔-𝟷.𝟹
+• 𝚖𝚎𝚝𝚊/𝚖𝚞𝚜𝚎-𝚜𝚙𝚊𝚛𝚔-𝟷.𝟹-𝚌𝚘𝚗𝚝𝚛𝚒𝚋𝚞𝚝𝚘𝚛
+
+https://t.co/FnSUSo7sv9</p><a class="quote-link" href="https://x.com/vercel_dev/status/2095277962144931895" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 239</span><span>↻ 13</span><span>↩ 15</span></div><a href="https://x.com/alexandr_wang/status/2095317502540787876" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">71<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>09-03 21:16 北京</time></div>
+        <p class="post-text original source-only" lang="auto">喔噢，我也有这种感觉，也一直在解决这个问题。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2018970089199112193/Ds0vM7cd_normal.jpg" alt="王赞 avatar" loading="lazy"></div><div><strong>王赞</strong><span>@wangzan101</span></div></div><p class="quote-text original source-only" lang="auto">AI的边界越来越难把控了。
+
+经常会出现这样的情况，简单的问题，AI给出大而全看起来非常全面但是非常臃肿复杂的方案；
+
+而复杂的问题，明明给了边界，他还要各种安全、成本，一堆乱七八糟的东西，不断收缩，只选择最容易回答的一部份。
+
+现在讨论几轮后，已经脱离目标本身，不断纠偏，补充上下文，强调重点。
+
+到最后的情况就是麻了，就这样吧，一把梭哈，同意，同意，开始吧，最后他给啥结果就接受啥结果。</p><a class="quote-link" href="https://x.com/wangzan101/status/2095421571628171476" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 5</span><span>↻ 0</span><span>↩ 12</span></div><a href="https://x.com/Xudong07452910/status/2095501243095384088" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="sh_reya" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1342529111839944705/hzr44mb5_normal.jpg" alt="Shreya Shankar avatar" loading="lazy"></div>
+          <div class="identity"><strong>Shreya Shankar</strong><span>@sh_reya · UC Berkeley / AI 工程研究员</span></div>
+          <div class="score">71<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>09-04 00:28 北京</time></div>
+        <p class="post-text original" lang="auto">Love that AI functions are going mainstream. Several AI folks laughed at us when we started building DocETL; saying that better models are going to “solve” unstructured data processing. But 2 years later joke is on them: AI-powered data processing is being operationalized, as AI-powered operators (AI functions) in SQL are making database vendors tons of money. I think we are only at the tip of the iceberg and there is *so* much interesting stuff to be done all across the stack, from BI/interfaces for humans and agents to figure out the right questions to ask, down to custom LLM inference/execution engines and new features and indexes for storage engines</p><p class="post-text translation" lang="zh-CN">很高兴看到 AI 函数正在走向主流。我们刚开始做 DocETL 时，好几个 AI 圈的人都笑话我们，说更强的模型会“解决”非结构化数据处理。但 2 年后，事实打了他们的脸：AI 驱动的数据处理正在被产品化，而 SQL 里的 AI 驱动算子（AI 函数）正在为数据库厂商赚大钱。我觉得这还只是冰山一角，从帮助人类和 agent 找到正确问题的 BI/界面，到定制 LLM 推理/执行引擎，再到存储引擎的新特性和索引，整个技术栈还有太多有意思的事情可做。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1250381487175860225/wJD4S8xe_normal.jpg" alt="Seth Rosen avatar" loading="lazy"></div><div><strong>Seth Rosen</strong><span>@sethrosen</span></div></div><p class="quote-text original" lang="auto">Snowflake, Databricks, ClickHouse, BigQuery, MotherDuck, etc are adding models and agents to mature systems that were never designed around LLMs
+
+so they’re being forced to solve many of the architectural problems the rest of software has as well but they may be solving them first</p><p class="quote-text translation" lang="zh-CN">Snowflake、Databricks、ClickHouse、BigQuery、MotherDuck 等正在把模型和 agent 加入那些从一开始就不是围绕 LLM 设计的成熟系统。
+
+所以它们被迫解决许多软件其他领域同样面临的架构问题，而且它们可能会率先解决这些问题。</p><a class="quote-link" href="https://x.com/sethrosen/status/2095498622791999928" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 71</span><span>↻ 9</span><span>↩ 9</span></div><a href="https://x.com/sh_reya/status/2095549447455560007" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="yoheinakajima" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
+          <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
+          <div class="score">67<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>09-04 00:14 北京</time></div>
+        <p class="post-text original" lang="auto">another framework where the agent state is projected from its immutable log (@activegraphai style), check it out:</p><p class="post-text translation" lang="zh-CN">又一个从不可变日志投射 agent 状态的框架（@activegraphai 风格），可以看看：</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2041803900513349637/BlfDkixk_normal.jpg" alt="june avatar" loading="lazy"></div><div><strong>june</strong><span>@arjunkmrm</span></div></div><p class="quote-text original" lang="auto">Introducing Tardigrade! 🐛
+
+A framework to build your agent harness as components over an immutable event log (think react for harness).
+
+Each component is a typed state machine over the event log, using @EffectTS_.
+
+Add to your effect code, run locally or self-host as durable objects with cloudflare or celld.
+
+https://t.co/vYLqMeqAty</p><p class="quote-text translation" lang="zh-CN">介绍 Tardigrade！🐛
+
+一个用于在不可变事件日志之上以组件方式构建 agent harness 的框架（可以理解为 harness 版 react）。
+
+每个组件都是基于事件日志的类型化状态机，使用 @EffectTS_。
+
+可加入你的 effect 代码，在本地运行，或通过 cloudflare 或 celld 以 durable objects 形式自托管。
+
+https://t.co/vYLqMeqAty</p><a class="quote-link" href="https://x.com/arjunkmrm/status/2095544229384925612" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 62</span><span>↻ 3</span><span>↩ 10</span></div><a href="https://x.com/yoheinakajima/status/2095545911569273266" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="c_valenzuelab" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2070496516893229056/bm-CWE5N_normal.jpg" alt="Cristobal Valenzuela avatar" loading="lazy"></div>
+          <div class="identity"><strong>Cristobal Valenzuela</strong><span>@c_valenzuelab · Runway / 联合创始人兼 CEO</span></div>
+          <div class="score">65<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>生成式视频</span><time>09-04 06:24 北京</time></div>
+        <p class="post-text original" lang="auto">It&#x27;s been so fun watching what GWM Worlds 2 can do. This model makes high-fidelity video and audio generation into real-time interactive simulation.
+
+Here are some more examples on how you can define an environment, subjects, visual style, physical rules and ambience. And the model will create an environment for you. Once inside, you steer the world with actions addressed to any subject or to the scene itself, alongside continuous camera motion.</p><p class="post-text translation" lang="zh-CN">看 GWM Worlds 2 能做到什么一直很有趣。这个模型把高保真视频和音频生成变成了实时交互式模拟。
+
+这里还有一些例子，展示你如何定义环境、主体、视觉风格、物理规则和氛围。模型会为你创建一个环境。进入其中后，你可以通过发给任意主体或场景本身的动作来操控世界，同时配合连续的相机运动。</p>
+
+        <div class="media-grid media-grid--2"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2095638908885188610/img/ntt6q8oao34R_XTf.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2095638908885188610/img/ntt6q8oao34R_XTf.jpg" alt="X post media"><span>VIDEO</span></a><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2095638908952567808/img/NQGsIdXoXouwi7FE.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2095638908952567808/img/NQGsIdXoXouwi7FE.jpg" alt="X post media"><span>VIDEO</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 28</span><span>↻ 3</span><span>↩ 1</span></div><a href="https://x.com/c_valenzuelab/status/2095639005974962554" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">54<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>09-04 05:19 北京</time></div>
+        <p class="post-text original" lang="auto">We recommend using Turbo in settings where you need real-time document extraction. For instance the user uploads a batch of invoices, purchase orders, claims, contracts, and expects the system to process it quickly. It&#x27;s important to process this as fast as possible without them churning off the product.
+
+The pricing starts at 35 credits per page, around 10 credits more expensive than our Agentic tier.
+
+We are continuing to optimize this mode as fast as possible. Volume discounts are also available to customers on enterprise contracts!</p><p class="post-text translation" lang="zh-CN">如果你需要实时文档提取，我们建议使用 Turbo。例如，用户上传一批发票、采购订单、理赔材料、合同，并期望系统快速处理。关键是尽可能快地完成处理，避免用户流失。
+
+价格从每页 35 credits 起，比我们的 Agentic 档位贵约 10 credits。
+
+我们正在尽快持续优化这一模式。企业合同客户还可享受批量折扣！</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HRUlhJKbsAACo80.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HRUlhJKbsAACo80.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 1</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/jerryjliu0/status/2095622652765597730" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">52<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>09-04 05:19 北京</time></div>
+        <p class="post-text original" lang="auto">While the latency of other document extraction tools  scale ~linearly as a function of document length, the overall latency per document for Extract Turbo grows much more slowly. Short documents run at 3.7 seconds per page; on medium/long documents (64 pages+) latency drops to ~0.5 seconds.</p><p class="post-text translation" lang="zh-CN">其他文档提取工具的延迟通常会随文档长度近似线性增长，而 Extract Turbo 的单文档整体延迟增长要慢得多。短文档每页耗时 3.7 秒；在中长文档（64 页以上）中，延迟可降至约 0.5 秒。</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HRUk5wRbgAAErf4.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HRUk5wRbgAAErf4.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 0</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/jerryjliu0/status/2095622650399748167" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="openaidevs" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2022002720971096064/l3Kyt4qt_normal.jpg" alt="OpenAI Developers avatar" loading="lazy"></div>
+          <div class="identity"><strong>OpenAI Developers</strong><span>@OpenAIDevs · Agent 平台与开发者产品</span></div>
+          <div class="score">87<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Agent 技术突破</span><time>09-04 03:33 北京</time></div>
+        <p class="post-text original" lang="auto">GPT-6 Astra is our best model yet for computer use, software engineering, and visual understanding to date.
+
+Hear from the builders putting it to work: https://t.co/xZrolWBXXU</p><p class="post-text translation" lang="zh-CN">GPT-6 Astra 是我们迄今为止在计算机使用、软件工程和视觉理解方面最强的模型。
+
+听听正在使用它的开发者怎么说：https://t.co/xZrolWBXXU</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HRUNii9aoAAQ-Ey.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HRUNii9aoAAQ-Ey.jpg" alt="X post media"><span>VIDEO</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 3,350</span><span>↻ 246</span><span>↩ 142</span></div><a href="https://x.com/OpenAIDevs/status/2095596020638036311" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="amasad" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div>
+          <div class="identity"><strong>Amjad Masad</strong><span>@amasad · Replit / CEO</span></div>
+          <div class="score">84<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 / 开发者平台</span><time>09-04 04:24 北京</time></div>
+        <p class="post-text original" lang="auto">GPT-6 is a major jump in capabilities and will unlock new use-cases. Will launch on Replit very soon for you to try it!</p><p class="post-text translation" lang="zh-CN">GPT-6 在能力上实现了重大跃升，将解锁新的用例。它很快将在 Replit 上线，供你试用！</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 668</span><span>↻ 25</span><span>↩ 21</span></div><a href="https://x.com/amasad/status/2095608811868524679" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="thom_wolf" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2068682157451571200/_ZNKM_5E_normal.jpg" alt="Thomas Wolf avatar" loading="lazy"></div>
+          <div class="identity"><strong>Thomas Wolf</strong><span>@Thom_Wolf · Hugging Face / 联合创始人兼 CSO</span></div>
+          <div class="score">81<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>开源模型 / Hugging Face</span><time>09-04 01:24 北京</time></div>
+        <p class="post-text original" lang="auto">[CORRECTION] All the *closed* AIs are down</p><p class="post-text translation" lang="zh-CN">[更正] 所有*闭源* AI 都宕机了</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1924503772094517249/DfKkH0ph_normal.jpg" alt="ThePrimeagen avatar" loading="lazy"></div><div><strong>ThePrimeagen</strong><span>@ThePrimeagen</span></div></div><p class="quote-text original" lang="auto">All the AI is down https://t.co/cJbCgyOYDW</p><p class="quote-text translation" lang="zh-CN">所有 AI 都宕机了 https://t.co/cJbCgyOYDW</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HRTP11dbQAA2z_U.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HRTP11dbQAA2z_U.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/ThePrimeagen/status/2095528411741536376" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 161</span><span>↻ 8</span><span>↩ 17</span></div><a href="https://x.com/Thom_Wolf/status/2095563500940624129" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="amasad" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div>
+          <div class="identity"><strong>Amjad Masad</strong><span>@amasad · Replit / CEO</span></div>
+          <div class="score">75<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 / 开发者平台</span><time>09-04 03:26 北京</time></div>
+        <p class="post-text original" lang="auto">Really cool to see Foster City, where Replit is HQ’d, councilwoman is building on Replit to help the community!</p><p class="post-text translation" lang="zh-CN">看到 Replit 总部所在的福斯特城，一位市议员正在用 Replit 为社区提供帮助，真的很酷！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1836102971677093888/veRNChig_normal.jpg" alt="Phoebe Shin Venkat 潘煦琦 avatar" loading="lazy"></div><div><strong>Phoebe Shin Venkat 潘煦琦</strong><span>@PhoebeSVenkat</span></div></div><p class="quote-text original" lang="auto">Over the last week, many people were asking for help/offering help due to the 815 Sea Spray fire. I was searching for resources, and copying and pasting links nonstop across all my socials. This past Friday, I had a few minutes in between work meetings, so I put a prompt in Replit to create a resources site. I passed it onto my coder squad Shawn and Uma to build upon the vision. This is a grassroots effort built on @Replit , not an official City of Foster City site, so please be patient as I continue to update it in between my council, full time, and volunteer jobs! Check it out + share: https://t.co/p62oy54tua
+Special thanks to Kyle Weitzman who let me use his photos on the site and on my socials. Please give him a follow on ig: https://t.co/Z4kKvlRdM2</p><p class="quote-text translation" lang="zh-CN">过去一周，很多人因为 815 Sea Spray 火灾寻求帮助或提供帮助。我一直在寻找资源，并不停地在各个社交平台复制粘贴链接。上周五，我在工作会议间隙有几分钟时间，于是在 Replit 中输入了一个 prompt，创建了一个资源网站。我把它交给我的 coder squad Shawn 和 Uma，让他们在这个愿景上继续完善。这是一个基于 @Replit 的草根项目，并不是福斯特城市政府的官方网站，所以请大家耐心一点，我会在市议会、全职工作和志愿工作之间继续更新！欢迎查看并分享：https://t.co/p62oy54tua
+特别感谢 Kyle Weitzman 允许我在网站和社交平台上使用他的照片。请在 ig 上关注他：https://t.co/Z4kKvlRdM2</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HPWJm5AbcAIVt5E.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HPWJm5AbcAIVt5E.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/PhoebeSVenkat/status/2086725578166849723" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 50</span><span>↻ 2</span><span>↩ 2</span></div><a href="https://x.com/amasad/status/2095594200889012593" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="anilkseth" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1479788727346118657/MkLkGnOk_normal.jpg" alt="Anil Seth avatar" loading="lazy"></div>
+          <div class="identity"><strong>Anil Seth</strong><span>@anilkseth · 权威意识研究者</span></div>
+          <div class="score">59<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>意识科学与神经科学</span><time>09-03 14:17 北京</time></div>
+        <p class="post-text original" lang="auto">@AgiDoomerAnon @jankulveit That looks like Wikipedia.  Plus it nowhere says “next token prediction”. If you look a little deeper you’ll find many differences between the FEP (which is a mathematical principle) and the transformer based architectures that underlie modern LLMs.</p><p class="post-text translation" lang="zh-CN">@AgiDoomerAnon @jankulveit 那看起来像是 Wikipedia。而且里面根本没说“next token prediction”。如果你再深入一点看，会发现 FEP（一个数学原理）和支撑现代 LLM 的基于 transformer 的架构之间有很多差异。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 0</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/anilkseth/status/2095395824238805310" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">58<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>09-03 09:03 北京</time></div>
+        <p class="post-text original" lang="auto">Amazing advertising</p><p class="post-text translation" lang="zh-CN">很棒的广告</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2016169883608997888/5-jSilF2_normal.jpg" alt="ngrok avatar" loading="lazy"></div><div><strong>ngrok</strong><span>@ngrokHQ</span></div></div><p class="quote-text original" lang="auto">GOPHRS is here. AI gateway migration is mandatory.
+
+The arch is final (as in &quot;no more feature requests&quot; final). Please watch the full architecture briefing before submitting questions. https://t.co/JlB0CgjHnb</p><p class="quote-text translation" lang="zh-CN">GOPHRS 来了。AI gateway 迁移是强制性的。
+
+架构已经最终确定（也就是“不再接受功能请求”的最终版）。提交问题前请先观看完整的架构说明。https://t.co/JlB0CgjHnb</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2095223480140910592/img/qtT3r-Dm28P_CncU.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2095223480140910592/img/qtT3r-Dm28P_CncU.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/ngrokHQ/status/2095225695098286318" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 8</span><span>↻ 0</span><span>↩ 3</span></div><a href="https://x.com/HamelHusain/status/2095316681241641154" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">58<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>09-03 22:14 北京</time></div>
+        <p class="post-text original source-only" lang="auto">@xzensh 我没怎么在意过cc开了长期记忆对我的coding有啥影响，影响大吗？</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 1</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/Xudong07452910/status/2095515867819676108" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="anilkseth" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1479788727346118657/MkLkGnOk_normal.jpg" alt="Anil Seth avatar" loading="lazy"></div>
+          <div class="identity"><strong>Anil Seth</strong><span>@anilkseth · 权威意识研究者</span></div>
+          <div class="score">55<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>意识科学与神经科学</span><time>09-03 22:50 北京</time></div>
+        <p class="post-text original" lang="auto">@AgiDoomerAnon @jankulveit That’s wrong, but whatever.  Here’s a classic intro to the FEP:   https://t.co/weUeus75j6.  One important feature is that not only is the FEP not a next-token predictor, it is not necessarily algorithmic at all.  Have a nice day.</p><p class="post-text translation" lang="zh-CN">@AgiDoomerAnon @jankulveit 那不对，不过随便吧。这里有一篇经典的 FEP 入门介绍：https://t.co/weUeus75j6。一个重要特征是，FEP 不仅不是 next-token predictor，而且根本不一定是算法性的。祝你愉快。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 0</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/anilkseth/status/2095524903738867903" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">55<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>09-03 23:26 北京</time></div>
+        <p class="post-text original source-only" lang="auto">刚才我正在用CC，它突然显示api error，我以为它也要出问题，还好过了两分钟就恢复了。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 1</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/Xudong07452910/status/2095533989926994272" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="istoica05" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1889424820821172228/OKFe0cdL_normal.jpg" alt="Ion Stoica avatar" loading="lazy"></div>
+          <div class="identity"><strong>Ion Stoica</strong><span>@istoica05 · Berkeley；Anyscale 联合创始人</span></div>
+          <div class="score">53<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 基础设施 / 分布式系统</span><time>09-04 04:33 北京</time></div>
+        <p class="post-text original" lang="auto">@Andy_ShuoYang The barrier to running the best AI models on your own computer just dropped. Significantly. Congratulations!</p><p class="post-text translation" lang="zh-CN">@Andy_ShuoYang 在你自己的电脑上运行最强 AI models 的门槛刚刚降低了，而且是大幅降低。恭喜！</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 6</span><span>↻ 1</span><span>↩ 1</span></div><a href="https://x.com/istoica05/status/2095611232879542597" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="yoheinakajima" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
+          <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
+          <div class="score">49<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>09-04 01:17 北京</time></div>
+        <p class="post-text original" lang="auto">for now i&#x27;m using activegraph myself in my projects, and sharing the use cases - while slowly updating the runtime based on feedback or as necessary
+
+i think this general approach will help us build longer running agents, and if people want to use my runtime, great. if all it does is inspire a few people to build differently, that makes me happy too</p><p class="post-text translation" lang="zh-CN">目前我自己在项目中使用 activegraph，并分享相关 use cases，同时根据反馈或需要慢慢更新 runtime。
+
+我认为这种通用方法会帮助我们构建运行时间更长的 agents。如果有人想用我的 runtime，那很好。即使它只是启发几个人用不同方式构建，我也很开心。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 0</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/yoheinakajima/status/2095561761797886008" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+    </main>
+    <footer>Generated 2026-09-04 07:02:01 Asia/Shanghai · Read-only X ingestion via Bird · Translation via Codex</footer>
+  </div>
+</body>
+</html>
