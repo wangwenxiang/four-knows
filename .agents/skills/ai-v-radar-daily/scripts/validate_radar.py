@@ -57,6 +57,9 @@ INDEPENDENT_SUBSTANTIVE_ATTACHMENT_PATTERNS = (
 # Independent publication guard for the explicit editorial exclusion. Do not
 # import the selector's constant: this must still catch a future selector bug.
 FORBIDDEN_SELECTED_HANDLES = frozenset({"sama"})
+# Vanish rejects media at 256 KiB. Reserve transport headroom so an artifact
+# that passes local validation remains deliverable by the robot.
+MAX_POSTER_BYTES = 240 * 1024
 
 
 def independently_flags_recruitment(post: dict) -> bool:
@@ -324,6 +327,10 @@ def main() -> int:
         if not poster_bytes.startswith(b"\x89PNG\r\n\x1a\n") or len(poster_bytes) < 33:
             errors.append("screenshots.png is not a valid PNG")
         else:
+            if len(poster_bytes) > MAX_POSTER_BYTES:
+                errors.append(
+                    f"screenshots.png is {len(poster_bytes)} bytes, above the {MAX_POSTER_BYTES} byte Vanish budget"
+                )
             width, height = struct.unpack(">II", poster_bytes[16:24])
             if (width, height) != (1744, 960):
                 errors.append(f"poster dimensions are {width}x{height}, expected 1744x960")

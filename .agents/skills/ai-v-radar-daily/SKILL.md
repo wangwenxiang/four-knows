@@ -110,6 +110,8 @@ python3 scripts/capture_ai_v_poster.py --project . --date YYYYMMDD
 
 The helper starts its own collision-free local HTTP port, asks Chrome to write `capture.png` natively, requires exact 1744×960 8-bit RGB PNG bytes, and replaces `screenshots.png` atomically. It uses an isolated temporary Chrome profile and never reads the user's browser session. This native PNG path is the production default; do not create JPEG first.
 
+The production `screenshots.png` must fit Vanish's 256 KiB media ceiling. The capture helper enforces a 240 KiB budget, preserving the exact canvas and 8-bit RGB PNG contract through PNG-only RGB quantization and lossless re-compression; it must fail rather than publish an oversized image. The final validator independently enforces the same 240 KiB budget.
+
 Use the Browser skill afterward for visual QA when available. Only if the native helper is unavailable may a Browser capture be used as a recovery path: save the raw Browser bytes outside the report directory and run `scripts/finalize_ai_v_poster.py` to detect and normalize the actual format. JPEG-to-PNG conversion is an exception handler for a backend that returned JPEG, never the normal production sequence.
 
 Match the established poster system:
@@ -169,6 +171,7 @@ Require all of the following:
 - primary and quoted avatar coverage both `1.0`, with `postsWithAvatar=postsSelected`;
 - density-reducing UI shortcuts and removed controls remain absent.
 - `screenshots.png` is a real 1744×960 RGB PNG and `data/poster.json` contains the actual monitored/selected counts and exactly three displayed eligible stories.
+- `screenshots.png` is no larger than the 240 KiB Vanish-safe transport budget.
 - `data/poster.json.inputSha256` exactly matches the current `data/posts.json`; a poster built from stale input is a hard failure and must be regenerated before publication.
 - each poster card uses the appropriate sparse/balanced/dense typography class, has no clipped byline, and does not leave a small text block floating in a mostly empty card.
 - no dated report directory exists on or before the current report date minus seven days; only the latest seven Beijing calendar dates may remain.

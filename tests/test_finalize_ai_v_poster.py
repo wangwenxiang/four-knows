@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import struct
+import zlib
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
@@ -14,6 +15,22 @@ from scripts import serve_ai_v_poster as poster_server
 def png_header(width: int = 1744, height: int = 960, color_type: int = 2) -> bytes:
     ihdr = struct.pack(">IIBBBBB", width, height, 8, color_type, 0, 0, 0)
     return finalizer.PNG_SIGNATURE + struct.pack(">I", len(ihdr)) + b"IHDR" + ihdr + b"\0\0\0\0"
+
+
+def rgb_png(width: int, height: int) -> bytes:
+    state = 0x13579BDF
+    pixels = bytearray()
+    for _ in range(width * height * 3):
+        state = (1103515245 * state + 12345) & 0x7FFFFFFF
+        pixels.append((state >> 8) & 0xFF)
+    scanlines = b"".join(b"\0" + pixels[row * width * 3 : (row + 1) * width * 3] for row in range(height))
+    ihdr = struct.pack(">IIBBBBB", width, height, 8, 2, 0, 0, 0)
+    return (
+        native_capture.PNG_SIGNATURE
+        + native_capture.png_chunk(b"IHDR", ihdr)
+        + native_capture.png_chunk(b"IDAT", zlib.compress(scanlines))
+        + native_capture.png_chunk(b"IEND", b"")
+    )
 
 
 class PosterFinalizerTests(unittest.TestCase):
@@ -92,6 +109,14 @@ class PosterServerTests(unittest.TestCase):
 
 
 class NativePosterCaptureTests(unittest.TestCase):
+    def test_rgb_budget_optimizer_preserves_png_contract(self) -> None:
+        source = rgb_png(128, 64)
+        optimized, bits = native_capture.optimize_poster_png(source, 128, 64, 18_000)
+
+        self.assertLessEqual(len(optimized), 18_000)
+        self.assertLess(bits, 8)
+        self.assertEqual(finalizer.validate_rgb_png(optimized, 128, 64)["colorType"], 2)
+
     def test_headless_chrome_is_requested_to_write_native_png(self) -> None:
         with TemporaryDirectory() as directory:
             root = Path(directory)
@@ -117,6 +142,7 @@ class NativePosterCaptureTests(unittest.TestCase):
             with (
                 patch.object(native_capture.subprocess, "Popen", side_effect=fake_popen) as popen,
                 patch.object(native_capture, "terminate_chrome_process_group"),
+                patch.object(native_capture, "optimize_poster_png", return_value=(png_header(), 8)),
             ):
                     result = native_capture.capture_poster(
                         root,

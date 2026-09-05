@@ -4,16 +4,19 @@
 from __future__ import annotations
 
 import argparse
+import binascii
 import json
 import os
 import re
 import signal
+import struct
 import subprocess
 import sys
 import tempfile
 import threading
 import time
 import urllib.request
+import zlib
 from pathlib import Path
 from typing import Any
 
@@ -28,6 +31,155 @@ CHROME_CANDIDATES = (
     Path("/Applications/Chromium.app/Contents/MacOS/Chromium"),
     Path("/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge"),
 )
+PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
+# Vanish accepts at most 256 KiB of media. Keep a little headroom for the
+# transport rather than publishing an image that is only theoretically valid.
+POSTER_TARGET_BYTES = 240 * 1024
+
+
+def png_chunk(kind: bytes, payload: bytes) -> bytes:
+    return (
+        struct.pack(">I", len(payload))
+        + kind
+        + payload
+        + struct.pack(">I", binascii.crc32(kind + payload) & 0xFFFFFFFF)
+    )
+
+
+def paeth(left: int, above: int, upper_left: int) -> int:
+    estimate = left + above - upper_left
+    left_delta = abs(estimate - left)
+    above_delta = abs(estimate - above)
+    upper_left_delta = abs(estimate - upper_left)
+    if left_delta <= above_delta and left_delta <= upper_left_delta:
+        return left
+    if above_delta <= upper_left_delta:
+        return above
+    return upper_left
+
+
+def decode_rgb_rows(png_data: bytes, width: int, height: int) -> tuple[bytes, list[bytearray]]:
+    """Decode the exact RGB pixels from a non-interlaced 8-bit PNG."""
+    if not png_data.startswith(PNG_SIGNATURE):
+        raise RuntimeError("poster optimizer requires a PNG")
+    position = len(PNG_SIGNATURE)
+    ihdr: bytes | None = None
+    idat: list[bytes] = []
+    while position + 12 <= len(png_data):
+        length = struct.unpack(">I", png_data[position : position + 4])[0]
+        kind = png_data[position + 4 : position + 8]
+        end = position + 12 + length
+        if end > len(png_data):
+            raise RuntimeError("poster PNG has a truncated chunk")
+        payload = png_data[position + 8 : position + 8 + length]
+        if kind == b"IHDR":
+            ihdr = payload
+        elif kind == b"IDAT":
+            idat.append(payload)
+        elif kind == b"IEND":
+            break
+        position = end
+    if ihdr is None or len(ihdr) != 13:
+        raise RuntimeError("poster PNG is missing IHDR")
+    png_width, png_height, bit_depth, color_type, compression, filter_method, interlace = struct.unpack(
+        ">IIBBBBB", ihdr
+    )
+    if (png_width, png_height) != (width, height) or (bit_depth, color_type, compression, filter_method, interlace) != (
+        8,
+        2,
+        0,
+        0,
+        0,
+    ):
+        raise RuntimeError("poster optimizer requires a non-interlaced 8-bit RGB PNG")
+    stride = width * 3
+    scanlines = zlib.decompress(b"".join(idat))
+    if len(scanlines) != height * (stride + 1):
+        raise RuntimeError("poster PNG scanline data is incomplete")
+    rows: list[bytearray] = []
+    previous = bytearray(stride)
+    offset = 0
+    for _ in range(height):
+        filter_type = scanlines[offset]
+        filtered = scanlines[offset + 1 : offset + 1 + stride]
+        current = bytearray(stride)
+        for index, value in enumerate(filtered):
+            left = current[index - 3] if index >= 3 else 0
+            above = previous[index]
+            upper_left = previous[index - 3] if index >= 3 else 0
+            if filter_type == 0:
+                predictor = 0
+            elif filter_type == 1:
+                predictor = left
+            elif filter_type == 2:
+                predictor = above
+            elif filter_type == 3:
+                predictor = (left + above) // 2
+            elif filter_type == 4:
+                predictor = paeth(left, above, upper_left)
+            else:
+                raise RuntimeError(f"poster PNG uses unsupported filter {filter_type}")
+            current[index] = (value + predictor) & 0xFF
+        rows.append(current)
+        previous = current
+        offset += stride + 1
+    return ihdr, rows
+
+
+def quantize_rows(rows: list[bytearray], bits: int) -> list[bytearray]:
+    if bits == 8:
+        return [bytearray(row) for row in rows]
+    levels = (1 << bits) - 1
+    return [
+        bytearray(((value * levels + 127) // 255 * 255 + levels // 2) // levels for value in row)
+        for row in rows
+    ]
+
+
+def filtered_scanlines(rows: list[bytearray]) -> bytes:
+    """Use the lowest-cost PNG filter for every RGB scanline."""
+    output = bytearray()
+    previous = bytearray(len(rows[0]))
+    for row in rows:
+        candidates: list[tuple[int, int, bytearray]] = []
+        for filter_type in range(5):
+            filtered = bytearray(len(row))
+            for index, value in enumerate(row):
+                left = row[index - 3] if index >= 3 else 0
+                above = previous[index]
+                upper_left = previous[index - 3] if index >= 3 else 0
+                if filter_type == 0:
+                    predictor = 0
+                elif filter_type == 1:
+                    predictor = left
+                elif filter_type == 2:
+                    predictor = above
+                elif filter_type == 3:
+                    predictor = (left + above) // 2
+                else:
+                    predictor = paeth(left, above, upper_left)
+                filtered[index] = (value - predictor) & 0xFF
+            score = sum(min(value, 256 - value) for value in filtered)
+            candidates.append((score, filter_type, filtered))
+        _, filter_type, best = min(candidates, key=lambda candidate: candidate[0])
+        output.append(filter_type)
+        output.extend(best)
+        previous = row
+    return bytes(output)
+
+
+def optimize_poster_png(png_data: bytes, width: int, height: int, max_bytes: int) -> tuple[bytes, int]:
+    """Return the highest-fidelity RGB PNG that fits the media transport budget."""
+    if len(png_data) <= max_bytes:
+        return png_data, 8
+    ihdr, rows = decode_rgb_rows(png_data, width, height)
+    for bits in range(8, 1, -1):
+        compressed = zlib.compress(filtered_scanlines(quantize_rows(rows, bits)), level=9)
+        candidate = PNG_SIGNATURE + png_chunk(b"IHDR", ihdr) + png_chunk(b"IDAT", compressed) + png_chunk(b"IEND", b"")
+        if len(candidate) <= max_bytes:
+            validate_rgb_png(candidate, width, height)
+            return candidate, bits
+    raise RuntimeError(f"poster exceeds the {max_bytes} byte media budget after RGB optimization")
 
 
 def parse_args() -> argparse.Namespace:
@@ -162,6 +314,11 @@ def capture_poster(
                 terminate_chrome_process_group(process)
             if png_data is None or info is None:
                 raise RuntimeError(f"Headless Chrome did not produce a valid PNG within {timeout} seconds")
+            source_bytes = len(png_data)
+            png_data, quantization_bits = optimize_poster_png(
+                png_data, width, height, POSTER_TARGET_BYTES
+            )
+            info = validate_rgb_png(png_data, width, height)
             write_bytes_atomic(output.resolve(), png_data)
     finally:
         server.shutdown()
@@ -173,6 +330,10 @@ def capture_poster(
         "chrome": str(chrome),
         "url": url,
         "output": str(output.resolve()),
+        "sourceBytes": source_bytes,
+        "outputBytes": len(png_data),
+        "maxBytes": POSTER_TARGET_BYTES,
+        "quantizationBits": quantization_bits,
         **info,
     }
 
