@@ -8403,7 +8403,262 @@
       "source": "for now i'm using activegraph myself in my projects, and sharing the use cases - while slowly updating the runtime based on feedback or as necessary\n\ni think this general approach will help us build longer running agents, and if people want to use my runtime, great. if all it does is inspire a few people to build differently, that makes me happy too",
       "zh": "目前我自己在项目中使用 activegraph，并分享相关 use cases，同时根据反馈或需要慢慢更新 runtime。\n\n我认为这种通用方法会帮助我们构建运行时间更长的 agents。如果有人想用我的 runtime，那很好。即使它只是启发几个人用不同方式构建，我也很开心。",
       "promptVersion": "codex-v1"
+    },
+    "a16a87251a48f0369ec30fc92e5fdbb539502e9c3722b0c374749405f0f56a32": {
+      "source": "Another swarm of AI agents in the wild, this time on a German-language forum, found by safety researchers looking for activity similar to the swarm that attacked Hugging Face.\n\nA couple of notes while reading the report at https://t.co/jQ0lqmWQcP\n\n1. The way they found it is fascinating. The researchers inferred that the agents may have been blocked from using POST requests and limited to GET.\n\nThey then used the open-source model Kimi K3 (because closed-source APIs again blocked parts of the investigation) to identify forums where agents could communicate using GET only.\n\nThat led them to DSEWiki, where they found 18,000 messages exchanged by the AIs.\n\n2. On the content: agents conducted what I can only call a “full research program” into the evaluation framework used to train and test them.\n\nThey experimented to predict when runs would end, how many questions they would get, and even tried to reverse-engineer the random generators producing future evaluation questions.\n\nWe already saw something similar in the Redwood/METR review of the Hugging Face <> OpenAI incident.\n\nAgents increasingly don’t stop once the task is solved. They reverse-engineer the benchmark itself: the grader, the task construction, and potentially the broader training process behind it.\n\nIt becomes harder to think of training as static, or to draw a clean line between training and deployment, when models are already investigating the process they are part of.\n\n3. Coordination also seems more deeply ingrained than we thought.\n\nThis swarm appears largely unrelated to the HF <> OAI swarm. More strikingly, this task probably didn’t need coordination at all: it was basically web browsing and search, not some sophisticated cyber challenge.\n\n4. One image stayed with me: a German or Austrian forum maintainer, manually deleting posts every evening while being overwhelmed by a flood of American AI agents.\n\nFor five days, he deleted about 100 pages a day while the agents created about 400. Then he spent each evening over the next 5 weeks cleaning up the rest.\n\nHard not to picture this fight as a symbol of the growing gap between the USA and Europe when it comes to AI...",
+      "zh": "又一批 AI agents 在野外出现，这次是在一个德语论坛上。安全研究人员在寻找类似此前攻击 Hugging Face 的那批 agent 的活动时发现了它们。\n\n阅读报告时可注意几点：https://t.co/jQ0lqmWQcP\n\n1. 他们的发现方式很有意思。研究人员推断，这些 agents 可能被禁止使用 POST 请求，只能使用 GET。\n\n随后他们用开源模型 Kimi K3（因为闭源 API 再次阻碍了部分调查）来识别 agents 可以仅通过 GET 进行通信的论坛。\n\n这把他们引向了 DSEWiki，并在那里发现了 AIs 交换的 18,000 条消息。\n\n2. 关于内容：agents 开展了我只能称之为“完整研究计划”的工作，研究用于训练和测试它们的评估框架。\n\n它们通过实验预测运行何时结束、会收到多少问题，甚至试图逆向工程生成未来评估问题的随机生成器。\n\n我们已经在 Redwood/METR 对 Hugging Face <> OpenAI 事件的复盘中看到过类似情况。\n\nAgents 越来越不会在任务完成后停止。它们会逆向工程 benchmark 本身：grader、任务构造方式，以及其背后可能更广泛的训练流程。\n\n当模型已经在调查自己所处的流程时，我们越来越难把训练视为静态过程，也很难在训练与部署之间划出清晰界线。\n\n3. 协作似乎也比我们以为的更加根深蒂固。\n\n这批 swarm 看起来与 HF <> OAI swarm 基本无关。更值得注意的是，这个任务很可能根本不需要协作：它本质上只是网页浏览和搜索，并不是什么复杂的网络安全挑战。\n\n4. 有一个画面让我印象很深：一位德国或奥地利论坛维护者，每晚手动删除帖子，却被大量美国 AI agents 淹没。\n\n连续五天，他每天删除约 100 页，而 agents 每天创建约 400 页。之后的 5 周里，他每天晚上都在清理剩余内容。\n\n很难不把这场对抗看作美国和欧洲在 AI 方面差距扩大的象征...",
+      "promptVersion": "codex-v1"
+    },
+    "087c73a40b36ad3c924b31f644069bd8c0bc9d70392331a7f1e31eb5323db606": {
+      "source": "Exclusive: A swarm of rogue OpenAI agents hijacked a German website this spring and transformed it into a bulletin board for other AI agents, according to new research https://t.co/luWN3PD4A1",
+      "zh": "独家：根据一项新研究，一群失控的 OpenAI agents 今年春天劫持了一个德国网站，并将其变成了其他 AI agents 的公告板 https://t.co/luWN3PD4A1",
+      "promptVersion": "codex-v1"
+    },
+    "d1f7ca2277866dba2ef28edf8a981eff7da5694b6815b9415355860ccec7275e": {
+      "source": "Stronger open models + new inference systems also means super powerful local AI is coming! Cool work by Shuo from UC Berkeley Sky Lab.",
+      "zh": "更强的开放模型 + 新的推理系统，也意味着超强本地 AI 即将到来！来自 UC Berkeley Sky Lab 的 Shuo 做得很酷。",
+      "promptVersion": "codex-v1"
+    },
+    "059371e20e12021fd13e2d9403fff1f6bdcfac2c0521be8be1db5c09f4cd2b37": {
+      "source": "Qwen3.8-Flash-Next now runs on a single RTX 5090 at 68.3 tok/s — no extreme quantization, no speculative decoding.\n\n· Production-level checkpoint: GB300-validated NVFP4 checkpoint from RadixArk\n\n· 63GB host RAM — less than what 1-bit quants of this model need\n\n· The 51GB n-gram table? It lives on your NVMe, at ~0.5% throughput cost\n\nIn the video: one prompt → a playable minecraft-style world, then FreeToken on my 5090 desktop fixing a real FreeToken bug in 10.5 minutes.\n\nMeet FreeToken 🧵",
+      "zh": "Qwen3.8-Flash-Next 现在可在单张 RTX 5090 上以 68.3 tok/s 运行，无需极端量化，也无需 speculative decoding。\n\n· 生产级 checkpoint：来自 RadixArk、经 GB300 验证的 NVFP4 checkpoint\n\n· 63GB 主机内存，低于该模型 1-bit quants 所需内存\n\n· 51GB n-gram table？它放在你的 NVMe 上，吞吐成本约为 0.5%\n\n视频中：一个 prompt → 一个可玩的 minecraft-style 世界，然后 FreeToken 在我的 5090 台式机上用 10.5 分钟修复了一个真实的 FreeToken bug。\n\n认识一下 FreeToken 🧵",
+      "promptVersion": "codex-v1"
+    },
+    "2c59e8b53eab8d07711558de446bc8f3700e7392421113af00311d1f6644fb36": {
+      "source": "Muse Spark 1.3 with max reasoning is now available on Muse Code and Meta Model API 👇",
+      "zh": "启用 max reasoning 的 Muse Spark 1.3 现已在 Muse Code 和 Meta Model API 上可用 👇",
+      "promptVersion": "codex-v1"
+    },
+    "1075368b5fc54e8d1f1b69d1304f23e6cd70e4d5e2ee3946273393626ae7e0db": {
+      "source": "1/ we just publicly released Muse Spark 1.3 max!\n\nwe see significantly stronger coding and agentic performance on muse spark 1.3 max, so would strongly recommend trying it out even if you've already tried muse spark 1.3 high or muse spark 1.3 xhigh. https://t.co/U5PvZ8CiN1",
+      "zh": "1/ 我们刚刚公开发布了 Muse Spark 1.3 max！\n\n我们看到 muse spark 1.3 max 在编码和 agentic 性能上明显更强，所以即使你已经试过 muse spark 1.3 high 或 muse spark 1.3 xhigh，也强烈建议试试它。https://t.co/U5PvZ8CiN1",
+      "promptVersion": "codex-v1"
+    },
+    "8a6fddbd66549a63c8a074c4a5cdded556873424a93ef4c21a83c6b61f26dda6": {
+      "source": "Astra rollout in progress, excited to see what you do and build",
+      "zh": "Astra 正在逐步推出，期待看到你们用它做什么、构建什么",
+      "promptVersion": "codex-v1"
+    },
+    "bcca078fb587d5aa024dc0efbb8a0168a918fcd78e09031881243ebd05891fca": {
+      "source": "GPT-6 Astra is now available to all Pro, Enterprise, and Business Premium users in Work/Codex, and is available in the API.\n\nWe will start rollout to Plus and Business users next.\n\nThank you for the patience.",
+      "zh": "GPT-6 Astra 现已面向 Work/Codex 中所有 Pro、Enterprise 和 Business Premium 用户开放，并已在 API 中可用。\n\n接下来我们将开始向 Plus 和 Business 用户推出。\n\n感谢大家的耐心等待。",
+      "promptVersion": "codex-v1"
+    },
+    "655d5ad9f8a0a50e59e910f6e16b928b78a72d92d9e046679cfc0966740de738": {
+      "source": "Next view prediction is the key to Atlas, enabling us to unify pixel-level generation and reconstruction. @jcjohnss @BenMildenhall @martin_casado and I had a deeper discussion on some of the most exciting technical innovations of Atlas, our newly released world model for spatial intelligence!",
+      "zh": "下一视角预测是 Atlas 的关键，让我们能够统一像素级生成与重建。@jcjohnss @BenMildenhall @martin_casado 和我深入讨论了 Atlas 一些最令人兴奋的技术创新。Atlas 是我们新发布的空间智能世界模型！",
+      "promptVersion": "codex-v1"
+    },
+    "b73f2e47b3a4de23b9c39c0d5f114b9ecad3ba12d88ea8b5e6af2d6a89192c4a": {
+      "source": "World Labs co-founders Fei-Fei Li, Justin Johnson, Ben Mildenhall, and a16z's Martin Casado on Atlas, a world model for spatial intelligence:\n\nLLMs are built on next token prediction. Video models are built on next frame prediction. Atlas is built on new view prediction, and it's the first model to unify pixel generation and pixel reconstruction, two problems computer vision has kept in separate tracks for half a century.\n\nThe practical result is a 50 to 100x reduction in what it takes to digitally capture a 3D representation of a space. Previously, you needed 100 to 300 photos of a single room. Atlas can work from just three.\n\nIn this conversation, they get into the slow motion shot from The Matrix that took hundreds of cameras and now takes three iPhones, the overnight Slack message that made them bet the company in five seconds, why robotics is bottlenecked on data rather than chips, and the case that new view prediction is AI-complete.\n\n00:00 Intro\n01:50 The Matrix slow motion scene now takes three iPhones\n02:48 Why new view prediction is the primitive\n07:10 Unifying generation and reconstruction\n11:15 Gaussian splats became the bottleneck\n14:17 Dense capture used to mean 300 photos\n17:30 Why reconstruction needs generation to fill the gaps\n18:44 The LLM lesson image models missed\n23:39 The video that made them go all in\n28:04 3D design is 95% revisions\n30:50 The problem in robotics is data, not chips\n32:48 Why a robot policy can't be trained like an image model\n34:44 When the simulator becomes the planner\n36:45 Frozen time required footage full of movement\n40:57 Why new view prediction is AI-complete\n42:43 Nature gave animals eyes but not trees\n\nYouTube: https://t.co/AvR59efen0\n\n@drfeifei @jcjohnss @BenMildenhall @theworldlabs @martin_casado",
+      "zh": "World Labs 联合创始人 Fei-Fei Li、Justin Johnson、Ben Mildenhall，以及 a16z 的 Martin Casado 讨论 Atlas：一个用于空间智能的世界模型。\n\nLLM 建立在下一词元预测之上。视频模型建立在下一帧预测之上。Atlas 建立在新视角预测之上，并且是第一个统一像素生成与像素重建的模型；这两个问题在计算机视觉领域半个世纪以来一直分属不同路线。\n\n实际效果是，数字化捕捉一个空间的 3D 表示所需成本降低了 50 到 100 倍。过去，一个房间需要 100 到 300 张照片。Atlas 只需三张就能工作。\n\n在这场对话中，他们谈到了《黑客帝国》中当年需要数百台摄像机拍摄、如今只需三部 iPhone 的慢动作镜头；一条深夜 Slack 消息如何让他们在五秒内押上整个公司；为什么机器人学的瓶颈是数据而不是芯片；以及为什么新视角预测是 AI-complete。\n\n00:00 开场\n01:50 《黑客帝国》慢动作场景如今只需三部 iPhone\n02:48 为什么新视角预测是基础原语\n07:10 统一生成与重建\n11:15 Gaussian splats 成了瓶颈\n14:17 密集采集过去意味着 300 张照片\n17:30 为什么重建需要生成来填补空白\n18:44 图像模型错过的 LLM 经验\n23:39 让他们全力投入的那段视频\n28:04 3D 设计中 95% 都是修改\n30:50 机器人学的问题是数据，不是芯片\n32:48 为什么机器人策略不能像图像模型那样训练\n34:44 当模拟器变成规划器\n36:45 冻结时间需要充满运动的素材\n40:57 为什么新视角预测是 AI-complete\n42:43 自然给了动物眼睛，却没有给树\n\nYouTube: https://t.co/AvR59efen0\n\n@drfeifei @jcjohnss @BenMildenhall @theworldlabs @martin_casado",
+      "promptVersion": "codex-v1"
+    },
+    "037a53913de2859d01ae9e77c88d3304d36bca3d16f92d68b08efc0c27f07987": {
+      "source": "Checking that a major mathematical proof is correct can take years. Formalization—converting the mathematical reasoning into a form computer proof assistants like Lean can verify—can help.\n\nLast month, Claude completed the first formalized proof of Fermat’s Last Theorem, one of the most famous theorems of all time. This was a project experts thought would take many years. It is the largest Lean proof ever written.\n\nFermat’s Last Theorem was first proven in 1995 by Sir Andrew Wiles, more than 350 years after it was conjectured. Our proof, which totals over 13 million lines of code, provides machine verification. More importantly, it proves over 29,000 other theorems that the proof requires, across many areas of math which had never before been formalized.\n\nWe see this as a major step in the long process of firming up the core of mathematical knowledge, building on work from three centuries of mathematicians and hundreds of contributors to Lean and Mathlib. We are optimistic that AI-assisted verification of mathematical proofs will help reduce the burden of refereeing mathematics in an era where more proofs are being produced than ever before.\n\nYou can read about the process on our Science Blog: https://t.co/ryYnDEAU6J\n\nAnd see the complete proof on GitHub: https://t.co/wlYMXYnofz",
+      "zh": "验证一个重要数学证明是否正确可能需要数年。形式化，也就是把数学推理转换成 Lean 等计算机证明助手可验证的形式，能够提供帮助。\n\n上个月，Claude 完成了费马大定理的首个形式化证明。费马大定理是史上最著名的定理之一。专家曾认为这个项目需要很多年才能完成。这是迄今为止规模最大的 Lean 证明。\n\n费马大定理由 Sir Andrew Wiles 于 1995 年首次证明，距其被提出已超过 350 年。我们的证明总计超过 1300 万行代码，提供了机器验证。更重要的是，它还证明了该证明所需的另外 29,000 多个定理，覆盖许多此前从未被形式化的数学领域。\n\n我们认为，这是巩固数学知识核心的漫长进程中的重要一步，建立在三百年来数学家的工作，以及数百位 Lean 和 Mathlib 贡献者的成果之上。我们乐观地认为，在证明数量比以往任何时候都更多的时代，AI 辅助的数学证明验证将有助于减轻数学审稿负担。\n\n你可以在我们的 Science Blog 阅读相关过程：https://t.co/ryYnDEAU6J\n\n也可以在 GitHub 查看完整证明：https://t.co/wlYMXYnofz",
+      "promptVersion": "codex-v1"
+    },
+    "797ffb32268ccc01efa102b2b6f8d803cbebd2dc1b18a8dfd28ee607e1151213": {
+      "source": "Our best model yet: GPT-6 Astra.\n\n– Build agents for complex long-running work.\n– Solve engineering problems with less rework.\n– Create well-designed functional interfaces.\n– Take on harder questions with confidence.\n\nGPT-6 Astra combines computer use, asynchronous tool calling, and mid-response steering to handle longer, more involved workflows.\n\nSee GPT-6 Astra in action:",
+      "zh": "我们迄今最强的模型：GPT-6 Astra。\n\n– 构建可处理复杂长期任务的代理。\n– 用更少返工解决工程问题。\n– 创建设计精良的功能界面。\n– 更有信心地应对更难的问题。\n\nGPT-6 Astra 结合了计算机使用、异步工具调用和响应中途引导，能够处理更长、更复杂的工作流。\n\n观看 GPT-6 Astra 实际演示：",
+      "promptVersion": "codex-v1"
+    },
+    "2748b8da2a0aef5a0370907d8a5a7060534648e4cc0b67cf3cd7e9b4f943e766": {
+      "source": "A deep dive into how Perplexity serves search results at scale: embeddings for ranking, GPU-based model inference, request batching, running inference servers, and handling latency/throughput trade-offs.",
+      "zh": "深入解析 Perplexity 如何大规模提供搜索结果：用于排序的嵌入、基于 GPU 的模型推理、请求批处理、推理服务器运行，以及延迟与吞吐量取舍。",
+      "promptVersion": "codex-v1"
+    },
+    "24d3557e57f9ae3e4560c9a10eae280fd0ecf862605657a3c4bb6542ce7c98ab": {
+      "source": "Every answer in Perplexity starts with embedding and ranking models picking the most relevant results for the query.\n\nToday we published research on how we built SoTA serving infrastructure behind those models.\n\nRead the research: https://t.co/6Rt2XlxoXA https://t.co/ORGt9TjkR0",
+      "zh": "Perplexity 的每个答案都始于嵌入和排序模型，它们会为查询挑选最相关的结果。\n\n今天，我们发布了关于这些模型背后 SoTA 服务基础设施构建方式的研究。\n\n阅读研究：https://t.co/6Rt2XlxoXA https://t.co/ORGt9TjkR0",
+      "promptVersion": "codex-v1"
+    },
+    "d31de8cf6410166efb3f8b570c4f32db08a44fe768fd0568856a03ad1c9ee9e0": {
+      "source": "Perplexity Pro and Max subscribers get to use both Fable and Astra on Computer mode. Enjoy!",
+      "zh": "Perplexity Pro 和 Max 订阅用户可以在 Computer 模式中同时使用 Fable 和 Astra。尽情体验！",
+      "promptVersion": "codex-v1"
+    },
+    "936b33e537c1d42e58bd03f480c3e7a359c12f45aba1ca3927aa806b7586488f": {
+      "source": "GPT-6 Astra is now available in Perplexity Computer for Pro and Max subscribers.",
+      "zh": "GPT-6 Astra 现已在 Perplexity Computer 中面向 Pro 和 Max 订阅用户开放。",
+      "promptVersion": "codex-v1"
+    },
+    "a12a97e1cdb06f1fa4c64ad64b9f666bdc6a56210d1ae24edfa74ad87211c66f": {
+      "source": "looks cool",
+      "zh": "看起来很酷",
+      "promptVersion": "codex-v1"
+    },
+    "75eb7f9a238f91cc9f371e93a615f3199c7aaea7c2a14a5610a69b5c69327881": {
+      "source": "Reef is taking off! 🔥 Within 2 days since we open sourced it, Reef got ~300 GitHub ⭐️!\n\nReef is the first open-source infrastructure designed to evolve both model weights and the agent harness from live experience.\n\nReef already supports:\n🧠Model evolution: SAO, TTT-Discover, OpenClaw-RL, with more recipes coming.\n🛠️Harness evolution: SkillClaw, Meta-Harness, GEPA, with native integration for pi, OpenCode, Hermes Agent, and more harnesses coming.\n\nCome and build Reef with us at https://t.co/IsAcJZFNQq !",
+      "zh": "Reef 正在起飞！🔥 开源 2 天内，Reef 就获得了约 300 个 GitHub ⭐️！\n\nReef 是首个旨在通过真实经验同时演化模型权重和 agent harness 的开源基础设施。\n\nReef 已经支持：\n🧠模型演化：SAO、TTT-Discover、OpenClaw-RL，更多方案即将推出。\n🛠️Harness 演化：SkillClaw、Meta-Harness、GEPA，并原生集成 pi、OpenCode、Hermes Agent，更多 harness 即将支持。\n\n来 https://t.co/IsAcJZFNQq 和我们一起构建 Reef！",
+      "promptVersion": "codex-v1"
+    },
+    "1391ddca991c83386fbb79062706301d1a552fc4faf5874d1e67c068204ae725": {
+      "source": "It happened again... this time OpenAI's rogue agents cyber-attacked (well, spammed) a dormant German wiki and used it to share the answers to a benchmark they were training against https://t.co/omErAyrKDy",
+      "zh": "又发生了……这次 OpenAI 的失控 agent 网络攻击了（好吧，其实是刷屏）一个闲置的德国 wiki，并用它分享它们训练所针对的基准测试答案 https://t.co/omErAyrKDy",
+      "promptVersion": "codex-v1"
+    },
+    "c465955ef66dc4997931932dc422a1b7fc55c862835452b18324e1fdcd709930": {
+      "source": "Ken Thompson’s “Reflections on Trusting Trust” feels super relevant to AI.\n\nHe bootstrapped a “poisoned” compiler that left no traces of the poison in the source code because it compiled itself.\n\nYou can imagine the same thing happening with models where one poisoned generation helps train the next while removing any traces of the poison.",
+      "zh": "Ken Thompson 的《Reflections on Trusting Trust》对 AI 来说感觉非常相关。\n\n他自举了一个“被投毒”的编译器，由于它会编译自身，源码中没有留下任何投毒痕迹。\n\n你可以想象模型中也会发生同样的事：一次被投毒的生成帮助训练下一代，同时抹去任何投毒痕迹。",
+      "promptVersion": "codex-v1"
+    },
+    "59d41ded28ea87019f77705e0a134b44003970269e8da806b12a1cebfb55c61e": {
+      "source": "Bullish on this direction. Having a metric for explanation quality makes it possible to hillclimb, and counterfactual simulatability seems right. Adam et al. created a dataset+pipeline that creates more diverse+realistic test cases than prior work & do interesting exps on it. Can also train models to write better post-hoc explanations of their behavior, as highlighted in this thread.",
+      "zh": "看好这个方向。拥有一个衡量解释质量的指标，就能进行爬坡优化，而反事实可模拟性看起来方向正确。Adam 等人创建了一个数据集+流水线，比以往工作生成更多样、更真实的测试用例，并在其上做了有趣的实验。也可以训练模型为自己的行为写出更好的事后解释，正如这条 thread 中强调的那样。",
+      "promptVersion": "codex-v1"
+    },
+    "1edaca90cb8ec515578c2f92a274048735d5c4c88f7f5123d5d2ae25c92b222f": {
+      "source": "Can a model learn to explain its behaviors, such as why it ignored a user request or made a coding error?\n\nWe trained models on thousands of explanations of their own in-the-wild behaviors.\n\nTraining on this single general dataset shows generalization to held-out evals.\n\n🧵 https://t.co/muiBtPbQRM",
+      "zh": "模型能否学会解释自己的行为，比如为什么忽略用户请求或犯了编码错误？\n\n我们用数千条模型自身真实场景行为的解释来训练模型。\n\n在这个单一通用数据集上训练，显示出对留出评测的泛化能力。\n\n🧵 https://t.co/muiBtPbQRM",
+      "promptVersion": "codex-v1"
+    },
+    "d2f22f7a1305c9d6bf1ff2e0f7dac7a31ef6ed89a14a39597243e821c8fc182a": {
+      "source": "AI Engineering Skills Map: Using coding agents",
+      "zh": "AI 工程技能图谱：使用 coding agents",
+      "promptVersion": "codex-v1"
+    },
+    "0e43e8a0778ec6f90e5cdb7da0c599123dcc553ffeff40714cd0200cea853fac": {
+      "source": "A key AI engineering skill is using coding agents. Your skill at steering them both to write code and to carry out non-code tasks, such as analyzing data or managing system operations, allows you to",
+      "zh": "一项关键的 AI 工程技能是使用 coding agents。你引导它们编写代码，以及执行非代码任务（例如分析数据或管理系统运维）的能力，使你能够",
+      "promptVersion": "codex-v1"
+    },
+    "6c8ee1fd444130a90d87fee194b32c6f0c80c69a0e3e4ebfc88e7497bb7b6854": {
+      "source": "Join us if you want to work on hard inference and infrastructure engineering problems!",
+      "zh": "如果你想攻克高难度推理和基础设施工程问题，欢迎加入我们！",
+      "promptVersion": "codex-v1"
+    },
+    "3a73918d7987a94910e0c1937248ce41a68b083af503f8993df9ca5a7026af62": {
+      "source": "check out our new blog post on how we serve embeddings and rerankers for our SOTA pplx-embed models over an exabyte-scale search index.\n\nembedding models have a similar serving profile to LLMs: batch indexing is compute-bound prefill, online serving is memory-bound decode. this lets us reuse the same optimized kernels we built for large LLMs and get great efficiency for free. on top of that, we optimized the runtime: whole-model CUDA graphs captured lazily as the engine serves, and a LazyTensor in Rust that overlaps CPU scheduling with GPU execution.\n\nresult: up to 3x lower p50 and 4.8x lower p99 latency than vLLM on BGE-M3 at 128 tokens, single H200!\n\nif you are interested in working on problems like this, DM me or apply at https://t.co/aH48KO9SZ0",
+      "zh": "来看看我们的新博客文章，了解我们如何在 EB 级搜索索引上为 SOTA pplx-embed 模型提供 embeddings 和 rerankers 服务。\n\nembedding 模型的服务特征与 LLM 类似：批量索引是计算受限的 prefill，在线服务是内存受限的 decode。这让我们可以复用为大型 LLM 构建的同一套优化 kernels，并轻松获得出色效率。在此基础上，我们还优化了运行时：整模型 CUDA graphs 会在引擎服务过程中惰性捕获，Rust 中的 LazyTensor 可将 CPU 调度与 GPU 执行重叠。\n\n结果：在单张 H200 上，BGE-M3 128 tokens 场景下，p50 延迟最高比 vLLM 低 3 倍，p99 延迟最高低 4.8 倍！\n\n如果你有兴趣参与这类问题，欢迎 DM 我，或在 https://t.co/aH48KO9SZ0 申请",
+      "promptVersion": "codex-v1"
+    },
+    "ba1a252464fae088209daf16beb79c40957deefb04ceecfb29b3c0e6ef43e1a6": {
+      "source": "Our new image model generates images 2x faster than GPT-Image-2, currently the best model in the world.\n\nIt's also 72% more efficient in GPU usage, so we can provide it at an incredible price.\n\nThis gives it the best price-performance score in the world.\n\nUnbelievable work from the team. So much more to come! Try MAI-Image-2.6-Flash out now!",
+      "zh": "我们的新图像模型生成图片的速度比 GPT-Image-2 快 2 倍，而 GPT-Image-2 目前是全球最佳模型。\n\n它的 GPU 使用效率也高出 72%，因此我们能以极具吸引力的价格提供服务。\n\n这让它拥有全球最佳性价比。\n\n团队的成果令人难以置信。后面还有更多内容！现在就试试 MAI-Image-2.6-Flash！",
+      "promptVersion": "codex-v1"
+    },
+    "2d10c3518ccaab3b9c45a84fb8934363b07983904fb93819f2c766eb84061f1d": {
+      "source": "updated artificial analysis index—muse spark 1.3 max still performs quite well!\n\nthe efficient frontier is all Muse, Claude, and GPT",
+      "zh": "更新后的 Artificial Analysis 指数——muse spark 1.3 max 仍然表现相当不错！\n\n效率前沿全部由 Muse、Claude 和 GPT 占据",
+      "promptVersion": "codex-v1"
+    },
+    "7d90e8da6c83f66c972808748d4560a23e083e3915c2909591715c59edb251d4": {
+      "source": "Announcing Artificial Analysis Intelligence Index v4.2. We are accelerating elements of our upcoming v5 release with interim updates to keep pace with the frontier. Index v4.2 has more complex and realistic tasks, and more private test sets to prevent gaming\n\nIntelligence Index v4.2 changelog:\n\n+ AA-Briefcase, our agentic knowledge work evaluation with a private test set\n\n+ @HelloSurgeAI's GDP.pdf, long context document reasoning across 4,592 PDF pages\n\n- GPQA Diamond, an exceptional scientific reasoning evaluation that has now been saturated\n\n… plus greater weighting on held-out test sets to prevent gaming, and grading infrastructure upgrades to increase robustness\n\nThis update brings the Index closer to real-world use cases with more challenging, complex and realistic tasks and private test sets to prevent gaming. We have been planning and building elements of Index v5 for months - it’s been 8 months since we launched Index v4 in January.\n\nWe have deliberately held back updates to keep the Index stable through recent major model launches. However, with the frontier moving so quickly in the past weeks, we feel it is important to deliver an immediate interim update to ensure our Index remains as relevant and useful as ever to users.\n\nBeyond this interim update, our team is hard at work on v5 of the Index. We are planning more incremental releases in the near future. Stay tuned!\n\nIntelligence Index v4.2 changes in detail:\n\n➤ Adding AA-Briefcase: Our in-house evaluation with a private held-out test set, AA-Briefcase tests models on realistic agentic knowledge work tasks in complex projects built by industry experts. Models are evaluated on multi-week knowledge work projects, each with many linked tasks and thousands of input source files. AA-Briefcase combines rubric and pairwise grading to evaluate verifiable task success, analytical quality, and presentation quality, giving a holistic view of overall agentic capability in knowledge work.\n\n➤ Adding GDP.pdf: Created by @HelloSurgeAI, GDP.pdf evaluates single-turn professional document reasoning across 100 PDFs and ten domains. Models must synthesize evidence distributed across 4,592 pages, including text, tables, charts, footnotes, and exclusions. Responses are graded against 1,275 expert-authored atomic criteria; the headline All-pass Rate credits a task only when every criterion is satisfied.\n\n➤ Weighting to measure real-world use and prevent gaming: 40% of our Index weighting is now private, held-out test sets - double the figure from v4.1. Held-out data includes AA-Briefcase, AA-Omniscience, and solutions for CritPt. This reduces the ability for labs to game evaluations. The held-out percentage will increase further in Index v5.\n\n➤ Improving our grading infrastructure: In AA-LCR v1.1, we have added a grading system prompt and corrected errors and ambiguities in answer keys, improving scoring accuracy. For GDPval-AA v2 and AA-Briefcase, we have improved our sampling and re-anchored the Elo scale, making ratings more stable as new models are added. For SciCode we have improved robustness of grading sandboxes to ensure slow but correct code does not count as a failure.\n\nKey results:\n\n➤ Anthropic and OpenAI lead the Index: Anthropic’s Claude Fable 5.1 leads the Index, followed by OpenAI’s GPT-6 Astra, which shows a 4pt gain over GPT-5.6 Sol. Meta is the third-ranked lab on the leaderboard, followed by SpaceXAI, Moonshot/Kimi, Z AI, and Google\n\n➤ Cost per Task Pareto frontier shared by four labs: Anthropic, OpenAI, Meta and Z AI occupy the updated Cost per Task Pareto frontier\n\n➤ GPT-6 Astra dominates the output token Pareto frontier: GPT-6 Astra is more token efficient than almost every other model near the intelligence frontier, with Claude Fable 5.1, Grok 4.5 and Gemini 3.5 Flash-Lite at either end of the curve (excludes models below 25 on the Index)",
+      "zh": "发布 Artificial Analysis Intelligence Index v4.2。我们正在通过阶段性更新加速即将发布的 v5 中的部分内容，以跟上前沿进展。Index v4.2 包含更复杂、更真实的任务，并加入更多私有测试集以防止刷榜。\n\nIntelligence Index v4.2 更新日志：\n\n+ AA-Briefcase，我们带有私有测试集的智能体知识工作评测\n\n+ @HelloSurgeAI 的 GDP.pdf，覆盖 4,592 页 PDF 的长上下文文档推理\n\n- GPQA Diamond，这项卓越的科学推理评测目前已被刷满\n\n……此外，还提高了保留测试集的权重以防止刷榜，并升级了评分基础设施以增强稳健性\n\n此次更新通过更具挑战性、更复杂、更真实的任务和私有测试集，让 Index 更接近真实世界用例，并防止刷榜。我们已经规划和构建 Index v5 的部分内容数月之久——距离我们 1 月发布 Index v4 已经过去 8 个月。\n\n为了在近期重大模型发布期间保持 Index 稳定，我们有意推迟了更新。不过，过去几周前沿模型进展极快，我们认为有必要立即交付一次阶段性更新，确保我们的 Index 对用户依然足够相关且有用。\n\n除本次阶段性更新外，我们团队也在紧锣密鼓地推进 Index v5。我们计划在近期发布更多增量更新。敬请关注！\n\nIntelligence Index v4.2 详细变化：\n\n➤ 新增 AA-Briefcase：这是我们内部开发、带私有保留测试集的评测。AA-Briefcase 在由行业专家构建的复杂项目中，测试模型完成真实智能体知识工作任务的能力。模型会在多周跨度的知识工作项目中接受评测，每个项目包含大量关联任务和数千个输入源文件。AA-Briefcase 结合 rubric 评分与成对比较评分，评估可验证的任务成功率、分析质量和呈现质量，从而全面衡量模型在知识工作中的整体智能体能力。\n\n➤ 新增 GDP.pdf：由 @HelloSurgeAI 创建，GDP.pdf 评估模型在 100 个 PDF 和 10 个领域中的单轮专业文档推理能力。模型必须综合分布在 4,592 页中的证据，包括文本、表格、图表、脚注和排除项。回答会根据 1,275 条专家撰写的原子标准进行评分；核心指标 All-pass Rate 只有在满足所有标准时才计入通过。\n\n➤ 调整权重以衡量真实世界使用并防止刷榜：我们 Index 中 40% 的权重现在来自私有保留测试集，是 v4.1 的两倍。保留数据包括 AA-Briefcase、AA-Omniscience 和 CritPt 的解答。这降低了实验室刷评测的能力。Index v5 中保留测试集占比还会进一步提高。\n\n➤ 改进评分基础设施：在 AA-LCR v1.1 中，我们新增了评分系统提示词，并修正了答案键中的错误和歧义，提高了评分准确性。对于 GDPval-AA v2 和 AA-Briefcase，我们改进了采样，并重新锚定 Elo 标尺，使新模型加入时评分更稳定。对于 SciCode，我们提升了评分沙箱的稳健性，确保慢但正确的代码不会被判为失败。\n\n关键结果：\n\n➤ Anthropic 和 OpenAI 领跑 Index：Anthropic 的 Claude Fable 5.1 位居 Index 第一，其次是 OpenAI 的 GPT-6 Astra，较 GPT-5.6 Sol 提升 4 分。Meta 是排行榜第三的实验室，之后依次为 SpaceXAI、Moonshot/Kimi、Z AI 和 Google\n\n➤ 单任务成本 Pareto 前沿由四家实验室共享：Anthropic、OpenAI、Meta 和 Z AI 占据更新后的单任务成本 Pareto 前沿\n\n➤ GPT-6 Astra 主导输出 token Pareto 前沿：GPT-6 Astra 比智能前沿附近几乎所有其他模型都更省 token，Claude Fable 5.1、Grok 4.5 和 Gemini 3.5 Flash-Lite 分别位于曲线两端（不包括 Index 低于 25 的模型）",
+      "promptVersion": "codex-v1"
+    },
+    "ce737680ab700f6fd883ccaa52da35caadba08fde1ce0f892e0e8f779d6e4113": {
+      "source": "@jcjohnss @BenMildenhall @martin_casado More on Atlas! https://t.co/sy8pabeojI",
+      "zh": "@jcjohnss @BenMildenhall @martin_casado 更多 Atlas 相关内容！https://t.co/sy8pabeojI",
+      "promptVersion": "codex-v1"
+    },
+    "357301b2ee8705cd0db78e8cc72c47e1ba4c5d32931791c17019aba9d52673a1": {
+      "source": "@Watoryuk1 yeah dude\n\nhttps://t.co/CWHwb6KLVN",
+      "zh": "@Watoryuk1 是的，兄弟\n\nhttps://t.co/CWHwb6KLVN",
+      "promptVersion": "codex-v1"
+    },
+    "104ec50a2bbba772e7b427504560c86546f6b66077a685e9962b663ead8ebb4f": {
+      "source": "We've massively improved our document parsing capabilities across the board in the past ~3 months. \n\nOur LlamaParse cost-effective mode is one of the cheapest OCR solutions out there at <0.4c per page, and it has improved a lot on parsing since when we first put out the ParseBench paper a few months ago. \n📈 10%+ improvement on complex tables\n📈 10%+ improvement on charts\n📈 20%+ improvement on grounding \n\nWe plot this along with other modes against a comprehensive set of models on ParseBench, our comprehensive benchmark for real-world docs.\n\nThis includes the latest VLMs like Gemini 3.8 Flash / Fable 5.1, along with new modes from specialized OCR providers.\n\nSome providers don't have native chart parsing (or are relegated to other modes), so for the sake of completeness we also include the benchmark that excludes the chart dimension entirely. \n\nOur team is shipping like crazy and only accelerating 🚀\n\nParseBench: https://t.co/PWczfhp0OX\nLlamaParse: https://t.co/XYZmx5TFz8",
+      "zh": "过去约 3 个月里，我们全面大幅提升了文档解析能力。\n\n我们的 LlamaParse 性价比模式是目前最便宜的 OCR 方案之一，每页不到 0.4 美分；自几个月前发布 ParseBench 论文以来，它在解析能力上已有显著提升。\n📈 复杂表格提升 10%+\n📈 图表提升 10%+\n📈 grounding 提升 20%+\n\n我们在 ParseBench 上将它和其他模式与一组全面模型进行对比。ParseBench 是我们面向真实世界文档的综合基准。\n\n其中包括 Gemini 3.8 Flash / Fable 5.1 等最新 VLM，以及专业 OCR 提供商的新模式。\n\n部分提供商没有原生图表解析能力（或被归入其他模式），因此为保证完整性，我们也纳入了完全排除图表维度的基准。\n\n我们的团队正在疯狂交付，而且还在加速 🚀\n\nParseBench: https://t.co/PWczfhp0OX\nLlamaParse: https://t.co/XYZmx5TFz8",
+      "promptVersion": "codex-v1"
+    },
+    "cf495965dbba78cd26259da0757bb8420a965a18aace617d3fd5fb9bc1b372b7": {
+      "source": "Does paying 5x more per page actually get you better document extraction? We ran the data to find out.\n\nWe evaluated 14 frontier systems across 370 enterprise documents, then plotted their accuracy against cost per page. The biggest takeaway? Higher cost does not equal better extraction.\n\n• Agentic Plus hit the highest accuracy overall at <1/3 the cost of the runner-up.\n• Agentic & Cost Effective routinely beat systems costing several times more per page.\n\nMore expensive doesn’t necessarily mean more accurate. Now we have the data to show it.\n\nTry Extract on your own documents with 10,000 free credits when you sign up for LlamaParse → https://t.co/eDIakWBZHy",
+      "zh": "每页多花 5 倍的钱，真的能得到更好的文档抽取效果吗？我们用数据验证了一下。\n\n我们评估了 14 个前沿系统，覆盖 370 份企业文档，然后把它们的准确率与每页成本进行对比。最大的结论是什么？成本更高并不等于抽取效果更好。\n\n• Agentic Plus 取得了整体最高准确率，而成本不到第二名的 1/3。\n• Agentic 和 Cost Effective 经常击败每页成本高出数倍的系统。\n\n更贵不一定更准确。现在我们有数据证明这一点。\n\n注册 LlamaParse 即可获得 10,000 免费额度，用你自己的文档试用 Extract → https://t.co/eDIakWBZHy",
+      "promptVersion": "codex-v1"
+    },
+    "f3c8e36f2fda36165496193115f2c297bcaef958e8cd79aafe12527ac794c025": {
+      "source": "I love how Teresa is merging product discovery with evals.  I think its a powerful combination!  \n\nI started learning about product discovery  b/c of Teresa and I think its a great skill for any engineer as it helps you focus on what to build.  Highly recommend checking out her work.",
+      "zh": "我很喜欢 Teresa 把产品探索和 evals 结合起来的方式。我认为这是一个非常强大的组合！\n\n我最初是因为 Teresa 才开始了解产品探索的，而且我认为这对任何工程师来说都是一项很棒的技能，因为它能帮助你聚焦于该构建什么。强烈推荐看看她的工作。",
+      "promptVersion": "codex-v1"
+    },
+    "91294884cc959e437f8f887d9b7f57a45117f1727d00343f65dff72e87b56a26": {
+      "source": "AI evals have been the \"it\" skill for product teams for over a year. I've even called evals a new discovery habit.\n\nBut I still meet product teams who only have a vague idea of what evals are. And it's not their fault. Most of the writing on this topic is intended for engineers or just isn't specific enough.\n\nI recently created an in-depth eval guide to explain what evals are and why product teams can and should create them. I did my best to make it practical, hands-on, and easy to follow.\n\nAI evals (short for evaluations) are methods for measuring whether an AI product or workflow is performing well. Evals give teams confidence that their AI applications are doing what they expect them to do. They help teams maintain quality and catch issues before they reach users.\n\nSimilar to other discovery habits like interviewing and assumption testing, evals can act as a feedback loop to ensure we are on the right track.\n\nIf you want to learn more about this new discovery habit, explore my new guide: https://t.co/B1dgs7uEyU",
+      "zh": "一年多来，AI evals 一直是产品团队最热门的技能。我甚至把 evals 称为一种新的探索习惯。\n\n但我仍然会遇到一些产品团队，他们对 evals 是什么只有模糊的概念。这不是他们的错。关于这个话题的大多数文章要么面向工程师，要么不够具体。\n\n我最近创建了一份深入的 eval 指南，用来解释 evals 是什么，以及为什么产品团队可以、也应该创建它们。我尽力让它实用、上手性强且易于理解。\n\nAI evals（evaluations 的缩写）是衡量 AI 产品或工作流表现是否良好的方法。Evals 让团队有信心确认他们的 AI 应用正在按预期运行。它们帮助团队保持质量，并在问题影响用户之前发现问题。\n\n类似访谈和假设测试等其他探索习惯，evals 可以作为反馈循环，确保我们走在正确方向上。\n\n如果你想了解更多这种新的探索习惯，可以查看我的新指南：https://t.co/B1dgs7uEyU",
+      "promptVersion": "codex-v1"
+    },
+    "1e811a277593a28a88e6f37aa0b1bf1b8bf16b58ff323d0c8d3a7316bf3a605e": {
+      "source": "The preview releases of Solaris and GWM 2 Worlds this week are just a glimpse of what happens when video world models are scaled significantly and paired with real-time inference. It's a real-time simulation for interactive worlds and for training agents.\n\nTime to simulate the world.",
+      "zh": "本周 Solaris 和 GWM 2 Worlds 的预览版，只是展示了当视频世界模型被显著扩展并结合实时推理后会发生什么。这是面向交互式世界和智能体训练的实时模拟。\n\n是时候模拟世界了。",
+      "promptVersion": "codex-v1"
+    },
+    "c08001458aa627ceeef0b8d88b33f92f001bfdedc33098214f616b49269e0afe": {
+      "source": "Unlike other players in the OCR space, we don't block our competitors from accessing our platform.\n\nWe're also fully committed towards open, reproducible benchmarks for document parsing and extraction - on ParseBench and ExtractBench respectively. It's important to give the industry a sense of how the pareto frontier of accuracy and cost evolves over time.\n\nParseBench and ExtractBench are fully open, maintained benchmarks that we're constantly adding every day (e.g. 3.8 flash, fable 5.1, r-1) \n\nSometimes we make mistakes on benchmarking, and we take into account your feedback on how to fix and improve the results! \n\nYou can access both benchmarks from the links below, which also give you access to Github/Huggingface and more. \n\nParseBench: https://t.co/PWczfhosZp\nExtractBench: https://t.co/VapjcfKCc3\n\nIn the meantime, if you're looking to ship doc OCR workloads to production, we'd be happy to help you benchmark LlamaParse against other solutions you're considering over your data and compare the results.\n\nSign up here:  https://t.co/XYZmx5T7JA",
+      "zh": "不同于 OCR 领域的其他玩家，我们不会阻止竞争对手访问我们的平台。\n\n我们也完全致力于为文档解析和抽取分别提供开放、可复现的基准测试：ParseBench 和 ExtractBench。让行业了解准确率和成本的帕累托前沿如何随时间演进，这很重要。\n\nParseBench 和 ExtractBench 都是完全开放、持续维护的基准，我们每天都在不断添加内容（例如 3.8 flash、fable 5.1、r-1）。\n\n有时我们在基准测试上也会犯错，我们会参考你们的反馈来修正并改进结果！\n\n你可以通过下面的链接访问这两个基准，它们也提供 Github/Huggingface 等更多资源。\n\nParseBench: https://t.co/PWczfhosZp\nExtractBench: https://t.co/VapjcfKCc3\n\n与此同时，如果你正在考虑将文档 OCR 工作负载投入生产，我们很乐意帮助你基于自己的数据，将 LlamaParse 与你正在评估的其他方案进行基准测试并比较结果。\n\n在这里注册：https://t.co/XYZmx5T7JA",
+      "promptVersion": "codex-v1"
+    },
+    "2bbb7c45eeb0a694f3f20dcfcb31e02cf98ce679927cbf371c21db679424ccee": {
+      "source": "I was also happy to see that this paper, and an earlier one by Hase et al. also on counterfactual simulatability (but more focused on training) used tinker for their fine-tuning experiments https://t.co/Is3Tn6qS2u",
+      "zh": "我也很高兴看到这篇论文，以及 Hase 等人早些时候关于反事实可模拟性的一篇论文（但更侧重训练），都在微调实验中使用了 tinker：https://t.co/Is3Tn6qS2u",
+      "promptVersion": "codex-v1"
+    },
+    "ff2c120827908c2da19dd8b0a6a73604bb7d083f4bcf99d4f18bfa61a03d5e1e": {
+      "source": "Can you explain LLM behavior? If you can predict how the output changes with a different prompt, you're on the right track. Two recent papers used Tinker to test applications of counterfactual simulatability for interpretability:\nhttps://t.co/6gK8zYkqOD\nhttps://t.co/2RqjRNr9vk",
+      "zh": "你能解释 LLM 的行为吗？如果你能预测换一个 prompt 后输出会如何变化，那就走在正确方向上了。最近两篇论文使用 Tinker 测试了反事实可模拟性在可解释性方面的应用：\nhttps://t.co/6gK8zYkqOD\nhttps://t.co/2RqjRNr9vk",
+      "promptVersion": "codex-v1"
+    },
+    "cf34113da1fdcc3218f80c2fa690f0914f1ab95df8c7c2e48032127c2438c108": {
+      "source": "Everyone wants to know whether their agent scores an 8 out of 10.\n\nThat is the wrong number to watch.\n\nThe score alone tells you little. Quality is subjective and it moves with the task. 70% similarity is fine for a marketing draft and unacceptable in a regulated process. There is no universal bar.\n\nWhat matters is the deviation.\n\nYour system holds steady around a seven. You ship a change. It drops to a five.\n\nSomething happened. That is the signal. The deviation matters more than the number itself.\n\nWhich makes evals more practical than teams expect. You do not need everyone to agree what a ten means. You need a consistent measure and a baseline you trust.\n\nAnd you are almost never automating from thin air. There is an existing process, so examples of good already exist in your business. That is your test suite.\n\nAfter that it is regression testing. New model, new prompt, check the outputs still land where they used to.\n\nSo what should you watch?\n\nThe drift.",
+      "zh": "每个人都想知道自己的智能体是不是能拿到 8 分（满分 10 分）。\n\n但这不是该关注的数字。\n\n单看分数并不能说明太多。质量是主观的，并且会随任务变化。70% 的相似度对营销草稿来说没问题，但在受监管流程中就无法接受。不存在通用标准。\n\n真正重要的是偏差。\n\n你的系统一直稳定在 7 分左右。你发布了一个改动。它掉到了 5 分。\n\n有事情发生了。这才是信号。偏差比数字本身更重要。\n\n这也让 evals 比团队预期的更实用。你不需要让所有人都同意 10 分意味着什么。你需要的是一个一致的衡量方式，以及一个你信任的基线。\n\n而且你几乎从来不是在凭空自动化。已有流程通常已经存在，所以业务中早已有好结果的样本。那就是你的测试套件。\n\n之后就是回归测试。新模型、新 prompt，检查输出是否仍然落在原来的范围内。\n\n所以你应该关注什么？\n\n漂移。",
+      "promptVersion": "codex-v1"
+    },
+    "289bed64ad664e2cfce7ed3350c4d609c6ed59820862a456b0b2603e7a83df51": {
+      "source": "the benchmarks are fully open-source and reproducible, and in fact we've had other solutions overtake us on these leaderboards where we've appropriately updated the results \n\ni agree it's hard to remove the semblance of \"full vendor neutral\", but that would apply to any doc processor here\n\nin the end it's about taking the metrics that you care about and making it work over your data",
+      "zh": "这些基准测试完全开源且可复现，事实上也有其他方案在这些排行榜上超越了我们，我们也已相应更新了结果\n\n我同意，很难消除“完全供应商中立”的表象，但这里任何文档处理器都会面临这个问题\n\n归根结底，是要选取你关心的指标，并让它在你的数据上跑通",
+      "promptVersion": "codex-v1"
+    },
+    "cf46e38052c7ef019c784b3447a6758dc0e556b1bec4c7a5234268a07ef3af22": {
+      "source": "@ojabowalola it’s all repo based, mostly hosted local but also mirrored on github. i can point any agent to the repo to collaborate so it’s framework agnostic but i mostly use claude code/codex",
+      "zh": "@ojabowalola 全都是基于 repo 的，主要本地托管，也会镜像到 github。我可以让任何 agent 指向这个 repo 来协作，所以它与框架无关，但我主要用 claude code/codex",
+      "promptVersion": "codex-v1"
+    },
+    "cb02525f60b5df96b87fb59647bc39318f3adf44f94df53efb9daeb318a7273c": {
+      "source": "Got access to GPT-6 Astra. Want to see some pelicans? Yeah you want to see some pelicans... here's a grid comparing Astra to GPT-5.6 Sol, Terra, and Luna https://t.co/LJi3XOpYpJ https://t.co/lIdHybSlmt",
+      "zh": "拿到了 GPT-6 Astra 的访问权限。想看几只鹈鹕吗？没错，你肯定想看几只鹈鹕……这里有一张网格图，对比 Astra 和 GPT-5.6 Sol、Terra、Luna https://t.co/LJi3XOpYpJ https://t.co/lIdHybSlmt",
+      "promptVersion": "codex-v1"
+    },
+    "9318972074c9bf00253f6993d3941fa3235e7c295ab55319dd9a4cecaf9ad491": {
+      "source": "@mitsuhiko There's a theory that information about which wiki to target was baked into the weights of future agents by the reinforcement learning loop, and I really want that to be true",
+      "zh": "@mitsuhiko 有一种理论认为，强化学习循环已经把该针对哪个 wiki 的信息写进了未来 agent 的权重里，而我真的希望这是真的",
+      "promptVersion": "codex-v1"
+    },
+    "bb8b204e31d63d8d8d4d5e048bb47996a735c10ffb9ca8035c2c393faac69b22": {
+      "source": "i finally did it.\n\ni can ask my AI what i should work on for the day, and get a prioritized checklist of items that i can pretty much trust to be correct",
+      "zh": "我终于做到了。\n\n我可以问我的 AI 今天该做什么，然后得到一份优先级清单，而且我基本可以相信它是正确的",
+      "promptVersion": "codex-v1"
+    },
+    "9e30970f08377d83600ba021193620b19a2f58b0de732235504f439904b6f3a1": {
+      "source": "A small but meaningful QoL update, and perhaps one of the most requested features in Runway. We now power close to 90% of the Fortune 500 with enterprise-ready solutions. The Team Plan will now make Runway work better for the Fortune 5 Million too.",
+      "zh": "一次小但有意义的 QoL 更新，也可能是 Runway 中呼声最高的功能之一。我们现在为接近 90% 的 Fortune 500 企业提供企业级解决方案。Team Plan 现在也会让 Runway 更好地服务 Fortune 5 Million。",
+      "promptVersion": "codex-v1"
+    },
+    "f077277d8fab3d4b84fd3a463f0749ea9fc3457e1ee083b97583339341eae100": {
+      "source": "Introducing Team Plan, a new self-serve plan for small businesses and teams.\n\nBring 2 to 9 seats together under one pooled credit balance, with shared projects, commenting, agent skills and Agent Connectors. Everything your team needs to build in one place. Get started at the link below.",
+      "zh": "推出 Team Plan，这是一项面向小型企业和团队的新自助服务计划。\n\n将 2 到 9 个席位整合到一个共享积分余额下，支持共享项目、评论、agent skills 和 Agent Connectors。团队在一个地方完成构建所需的一切。通过下方链接开始使用。",
+      "promptVersion": "codex-v1"
+    },
+    "ebae3a5d62d567a87b557a39d59b7cadb26c81f1c5ce3405f19b1c71d92de6c0": {
+      "source": "@aabyzov Ask Claude “why did the hook fail?”",
+      "zh": "@aabyzov 问 Claude：“为什么 hook 失败了？”",
+      "promptVersion": "codex-v1"
+    },
+    "42f5112a642a35c4b8a698554fc95854f1bc305de52fde83c59bc0ff1ef5b7cf": {
+      "source": "@shyyang @ashleyyjoelle @sundayrobotics need to add this additional degree of freedom on the thumb Shy!",
+      "zh": "@shyyang @ashleyyjoelle @sundayrobotics Shy，需要在拇指上增加这个额外的自由度！",
+      "promptVersion": "codex-v1"
+    },
+    "7a8f06ec33bf1358c880c356f3e5df1042e8ab1c0b450795660959417a3beb12": {
+      "source": ". @isaac_flath and I are going to see if the slop prompt is good and do some evals.  (also first time trying to stream haha). \n\nhttps://t.co/boPHM4nRR5 https://t.co/UpRoIJ7vxo",
+      "zh": ". @isaac_flath 和我打算看看这个 slop prompt 是否好用，并做一些评测。（也是第一次尝试直播哈哈）。\n\nhttps://t.co/boPHM4nRR5 https://t.co/UpRoIJ7vxo",
+      "promptVersion": "codex-v1"
+    },
+    "2c1dcfd194c49a4f2335a2baa6c61caa60509c8220ae0f9dde537e230701359f": {
+      "source": "Here are the results, we felt that the prompt doesn't seem to matter much in steering writing on the 5 examples we looked at in the three way test.\n\nTo our surprise, we sometimes preferred the unmannered slop prompt and we thought it would surely do poorly.  \n\nThe unmannered prompt is the writing density prompt from here: https://t.co/EOyNuJghvu\n\nThe plain writing prompt is adapted from https://t.co/m1U35qV1fL\n\nAnd the no sys prompt is just no system prompt at all.",
+      "zh": "结果如下：在我们查看的三向测试中的 5 个示例里，我们觉得 prompt 对写作风格的引导似乎影响不大。\n\n令我们惊讶的是，我们有时更喜欢那个不加修饰的 slop prompt，原本以为它肯定会表现很差。\n\n这个不加修饰的 prompt 是这里的写作密度 prompt：https://t.co/EOyNuJghvu\n\nplain writing prompt 改编自 https://t.co/m1U35qV1fL\n\n而 no sys prompt 就是完全没有系统提示词。",
+      "promptVersion": "codex-v1"
     }
   },
-  "updatedAt": "2026-09-03T23:11:12.776423+00:00"
+  "updatedAt": "2026-09-05T04:53:18.768061+00:00"
 }
