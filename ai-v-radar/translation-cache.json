@@ -9183,7 +9183,202 @@
       "source": "Everyone tells you AI models are getting cheaper.\n\nThe best ones are getting more expensive.\n\nThere are two prices moving in opposite directions right now. The models that are not top quality keep getting cheaper. The cream of the crop keep going up.\n\nWith GPT-5 we saw almost a 100% increase. They doubled it.\n\nAnother frontier model changed its tokenizer, and that alone added 35 to 40% to what it costs to run.\n\nSo what happens if only one of those two curves keeps going?\n\nYou get two versions of the future. One where more people have access to this intelligence, and one where fewer do.\n\nThat decides how much of this ends up controlled by the few, and how much by the many.",
       "zh": "所有人都告诉你，AI 模型正在变得更便宜。\n\n但最好的模型正在变得更贵。\n\n现在有两种价格正朝相反方向变化。非顶尖质量的模型持续降价，而最顶尖的模型价格不断上涨。\n\n在 GPT-5 上，我们看到了近 100% 的涨幅。价格翻了一倍。\n\n另一个前沿模型更改了分词器，仅这一项就让运行成本增加了 35% 到 40%。\n\n那么，如果这两条曲线中只有一条继续走下去，会发生什么？\n\n你会得到两种未来。一个是更多人能使用这种智能，另一个是更少人能使用。\n\n这将决定这种智能最终有多少被少数人掌控，又有多少归多数人所有。",
       "promptVersion": "codex-v1"
+    },
+    "bf3d58961c8eb1161b5d6fe46500e1b133f81c07f3906adc449412c03b2a5a63": {
+      "source": "Can you believe this? GPT-6 spun up a VM in the ChatGPT web UI, set up MuJoCo, went out and sourced Droid & Franka assets (plus every last mesh), then rebuilt this entire scene from a single video.\nThe shadows. The background color. Even the bystander standing behind — pixel-for-pixel faithful. 🔥\nBuilt by Guanghe Li (@orz2333333333)\nIf you were skeptical about real2sim2real — GPT-6 just proved it's real and it works. This changes everything for embodied AI. 🚀",
+      "zh": "你能相信吗？GPT-6 在 ChatGPT 网页 UI 里启动了一台 VM，配置好 MuJoCo，去找来了 Droid 和 Franka 资源（连所有 mesh 都齐了），然后只凭一个视频重建了整个场景。\n阴影、背景色，甚至后面站着的旁观者，都像素级还原。🔥\n由 Guanghe Li (@orz2333333333) 构建\n如果你之前还怀疑 real2sim2real，GPT-6 刚刚证明了它真实可行。这将彻底改变具身 AI。🚀",
+      "promptVersion": "codex-v1"
+    },
+    "53d9dc9da0f1b8c1ea7b9e9e81ef38094c07efe7c8ac6fce18c0a35d59ff9508": {
+      "source": "Astra is awesome, but if you're using it specifically to parse and extract a massive volume of documents, you will break the bank (10c+ per page on parsing and extraction!) \n\nWe've added a native LlamaParse connector to ChatGPT that gives the model access to high-quality document OCR and extraction at the pareto frontier of accuracy and cost.\n\nIt contains native access to our parse and extract endpoints. Upload your most complex documents, and you can do the following: \n* digitalize it into extremely accurate context for any QA task\n* perform large-scale extraction from a set of documents with accurate grounding and citations\n\nOffload the higher-level reasoning to Astra, leave specialized doc parsing and extraction to us. \n\nChatGPT plugin: https://t.co/tEOIO5xLiQ\n\nCome sign up here: https://t.co/XYZmx5TFz8",
+      "zh": "Astra 很强，但如果你专门用它来解析和提取海量文档，成本会非常高（解析和提取每页 10 美分以上！）\n\n我们为 ChatGPT 添加了原生 LlamaParse 连接器，让模型能以准确率和成本帕累托前沿的水平，访问高质量文档 OCR 和提取能力。\n\n它原生接入了我们的 parse 和 extract 端点。上传你最复杂的文档后，你可以：\n* 将其数字化为极其准确的上下文，用于任何问答任务\n* 从一组文档中进行大规模提取，并提供准确的依据和引用\n\n把更高层次的推理交给 Astra，把专业文档解析和提取交给我们。\n\nChatGPT 插件：https://t.co/tEOIO5xLiQ\n\n欢迎在这里注册：https://t.co/XYZmx5TFz8",
+      "promptVersion": "codex-v1"
+    },
+    "568f65fe08dcdff70d768c76a9d1472060e76783b09c4e06442a9b62ec88d2b6": {
+      "source": "Last week we brought LlamaParse to Claude. Now it’s available in ChatGPT, too 🦙 \n\nChatGPT can already read PDFs. But document work gets harder when the information you need is buried in messy scans, dense tables, spreadsheets, and charts. Strike the right balance between burning tokens and accuracy, with a specialized API for document understanding.\n\nTurn complex documents into clean, structured context and let Astra run its magic. Use our connector to:\n\n✅ Parse documents into clean Markdown, JSON, or HTML. \n✅ Extract specific fields into a schema you define.\n✅ Search across document collections to find the information you need. \n✅ Classify files and split documents into logical sections.\n\nLive in the ChatGPT plugin directory now! → https://t.co/6nrupYikK5",
+      "zh": "上周我们把 LlamaParse 带到了 Claude。现在它也可以在 ChatGPT 中使用了 🦙\n\nChatGPT 已经能读取 PDF。但当你需要的信息埋在混乱扫描件、密集表格、电子表格和图表中时，文档处理会变得更难。借助专门的文档理解 API，在消耗 token 和准确率之间取得最佳平衡。\n\n把复杂文档转成干净、结构化的上下文，然后让 Astra 发挥作用。使用我们的连接器可以：\n\n✅ 将文档解析为干净的 Markdown、JSON 或 HTML。\n✅ 按你定义的 schema 提取特定字段。\n✅ 在文档集合中搜索所需信息。\n✅ 分类文件，并将文档拆分为逻辑章节。\n\n现已上线 ChatGPT 插件目录！→ https://t.co/6nrupYikK5",
+      "promptVersion": "codex-v1"
+    },
+    "ada4cbbe7fedb0ca8a3d37435298cc6b6ea626d8b84369fde752df4b896a42ba": {
+      "source": "What will the economy look like in 2030? We've built a model that looks at the future by varying parameters relating to AI advancement and AI diffusion. Importantly, this is an interactive explorer where you can set the variables according to your assumptions about AI.",
+      "zh": "2030 年的经济会是什么样？我们构建了一个模型，通过改变与 AI 进步和 AI 扩散相关的参数来观察未来。重要的是，这是一个交互式探索器，你可以根据自己对 AI 的假设来设置变量。",
+      "promptVersion": "codex-v1"
+    },
+    "2ab61ee119229fc401310e3ff458de639000a4da9d6b8b3bbbeea5695951c4d5": {
+      "source": "Anthropic’s Economics team is sharing a new model of how AI might affect economic growth, jobs, wages, and more by 2030.\n\nExplore the scenarios, tell us what you think will happen, and see how your answers compare to more than 10,000 Americans. https://t.co/AvQlEZNxR0",
+      "zh": "Anthropic 经济学团队正在分享一个新模型，展示到 2030 年 AI 可能如何影响经济增长、就业、工资等。\n\n探索这些情景，告诉我们你认为会发生什么，并看看你的回答与 10,000 多名美国人相比如何。https://t.co/AvQlEZNxR0",
+      "promptVersion": "codex-v1"
+    },
+    "d563a7e7d76817d9f3ff4b8cef433d083c838844e7c5dd63ffb67ebc8a479a61": {
+      "source": "Astra for medical education:",
+      "zh": "用于医学教育的 Astra：",
+      "promptVersion": "codex-v1"
+    },
+    "cc5b3c1d874ea32a02f1c5ba40e359ec78b96fabc046364590508db5314fa0dd": {
+      "source": "GPT-6 Astra just solved a problem medical students have been facing for decades\n\nMedical students have been working around the same three problems for decades. Someone talked to them, identified all three, and built a service with Astra that solves them in one tool.\n\nThe problems are structural. Flat anatomical diagrams strip depth out of organs entirely. CT cross-sections don't connect naturally to the overview diagrams students spend years memorizing. And reading a scan requires holding three mental models simultaneously - patient orientation, cross-section direction, and how every organ shape shifts through each layer.\n\nAstra built a service that handles all three in one place. Not a better textbook. A spatial tool that connects the diagram, the CT view, and the 3D relationship together.\n\nMedical education hasn't changed its core format in over a century. This might be the first tool designed around how anatomy is actually understood - not just displayed.",
+      "zh": "GPT-6 Astra 刚刚解决了医学生几十年来一直面对的问题\n\n几十年来，医学生一直在绕开同样三个问题。有人与他们交流，识别出这三个问题，并用 Astra 构建了一个服务，在一个工具中解决了它们。\n\n这些问题是结构性的。平面解剖图完全抹去了器官的深度。CT 横断面无法自然连接到学生多年记忆的总体示意图。读片还要求同时维持三套心智模型：患者方位、切面方向，以及每个器官形态如何在各层中变化。\n\nAstra 构建了一个服务，把这三件事放在同一个地方处理。它不是一本更好的教材，而是一个空间工具，把示意图、CT 视图和 3D 关系连接起来。\n\n医学教育的核心形式一个多世纪以来几乎没有改变。这可能是第一个围绕解剖学实际理解方式设计的工具，而不仅仅是展示解剖结构。",
+      "promptVersion": "codex-v1"
+    },
+    "220b0b1845907f4ea22651895ca5196de032c86a331a07bd19eca31eb6c68c8b": {
+      "source": "Web app development usage (particularly those that require pulling information from several different places) is expanding quickly on Perplexity Computer. We're now supporting mobile and desktop previews for the websites created in the thread.",
+      "zh": "Perplexity Computer 上的 Web 应用开发使用量正在快速增长，尤其是那些需要从多个不同来源拉取信息的应用。我们现在支持对线程中创建的网站进行移动端和桌面端预览。",
+      "promptVersion": "codex-v1"
+    },
+    "3c87a72db53cd4e26a8d66029346deea1feb3da6e47651afc7d2269da7fd021a": {
+      "source": "I like this framing a lot: agent improvement is harness improvement, not model improvement\n\nThe interesting interventions are often at the tool boundary:\n- what context you pass\n- when tools are provided\n- how you recover from failure\n- what gets measured afterward\n\nThat’s the loop we’re building around deepagents (the orchestration logic) + LangSmith (how you measure)",
+      "zh": "我很喜欢这个表述：智能体改进是 harness 改进，而不是模型改进\n\n有意思的干预通常发生在工具边界：\n- 传入什么上下文\n- 何时提供工具\n- 如何从失败中恢复\n- 之后衡量什么\n\n这正是我们围绕 deepagents（编排逻辑）+ LangSmith（衡量方式）构建的循环",
+      "promptVersion": "codex-v1"
+    },
+    "5002f8e3a367457a0aeda56a4528d2791660b05daff31aa37bacb0bb0fe72215": {
+      "source": "Beyond Prompts: Measuring and Optimizing LLM Tool-Agent Harnesses — new paper (arXiv, 4 Sep 2026; accepted EMNLP 2026). https://t.co/pKJEV3lx5R\n\nTreats harness optimization around a fixed model as budgeted selection: edits are guarded intercepts at the tool boundary, not rewrites of execution logic. PRISM clusters failures, routes each repair to a prompt, middleware, or joint surface, and picks candidates by gate pass-rate AND reliability (RelLift95), not score alone.\n\n3 distinct takeaways for product builders:\n- Report selected-harness reliability, not just mean lift. BH found the best individual harnesses but had negative reliable lift on both tau-bench domains — a strong explorer, an unreliable selector.\n- Constrain middleware to tool-boundary edit patterns (silent correction, error blocking, prerequisite blocking). Unconstrained middleware (BH-MW) fell below its own prompt-only variant on Retail; the constraint, not the surface, is what makes middleware safely searchable.\n- Route each failure to the right surface: prompts for global policy, middleware for locally-checkable execution invariants. Removing routing collapsed lift first-order on all three tasks; prompts alone miss runtime failures, unconstrained middleware adds selection risk.\n\nExperiment setup (from the paper): fixed inner execution model gpt-5.4-mini, outer proposer claude-opus-4.7. Benchmarks: BFCL multi-round (600-case scorecard) and tau2-Retail / tau2-Telecom (74-case scorecard each of 114 tasks). Baselines BH, GEPA, MIPROv2 + PRISM; disjoint repair/gate/scorecard splits, 4 seeds, up to 16 runs. Baseline = native Deep Agents (v0.5.6). Metrics: mean held-out lift (pp), WorstLift, repeatability, RelLift95(B) by 5,000 bootstrap. PRISM-MW mean lifts 14.2 / 14.9 / 10.1 pp and positive RelLift95 on all three.",
+      "zh": "Beyond Prompts: Measuring and Optimizing LLM Tool-Agent Harnesses —— 新论文（arXiv，2026 年 9 月 4 日；已被 EMNLP 2026 接收）。https://t.co/pKJEV3lx5R\n\n将固定模型周围的 harness 优化视为有预算的选择问题：编辑是在工具边界设置的受控拦截，而不是重写执行逻辑。PRISM 会聚类失败，将每个修复路由到 prompt、中间件或联合表面，并按门控通过率和可靠性（RelLift95）选择候选，而不只看分数。\n\n给产品构建者的 3 个明确启示：\n- 报告所选 harness 的可靠性，而不只是平均提升。BH 找到了最佳的单个 harness，但在两个 tau-bench 领域的可靠提升为负，是强探索器，却是不可靠的选择器。\n- 将中间件限制在工具边界编辑模式内（静默纠正、错误阻断、前置条件阻断）。不受约束的中间件（BH-MW）在 Retail 上低于其仅 prompt 版本；让中间件可被安全搜索的是约束，而不是表面本身。\n- 将每个失败路由到正确表面：prompt 处理全局策略，中间件处理可在本地检查的执行不变量。移除路由后，三个任务的一阶提升都崩塌；仅靠 prompt 会遗漏运行时失败，不受约束的中间件会增加选择风险。\n\n实验设置（来自论文）：固定内部执行模型 gpt-5.4-mini，外部提议器 claude-opus-4.7。基准：BFCL multi-round（600 个案例记分卡）和 tau2-Retail / tau2-Telecom（各 74 个案例记分卡，来自 114 个任务）。基线为 BH、GEPA、MIPROv2 + PRISM；修复/门控/记分卡拆分互不重叠，4 个种子，最多 16 次运行。Baseline = 原生 Deep Agents（v0.5.6）。指标：平均留出集提升（pp）、WorstLift、可重复性、通过 5,000 次 bootstrap 计算的 RelLift95(B)。PRISM-MW 的平均提升为 14.2 / 14.9 / 10.1 pp，并且在三项任务上 RelLift95 均为正。",
+      "promptVersion": "codex-v1"
+    },
+    "82dbdda0e4857197e3e5584c6c83c9e2be78a66affc2b532d4d8fa14445de72b": {
+      "source": "we used our models to find and fix critical vulnerabilities in our own systems, as part of a 250+ person effort within openai. playbooks/learnings/architecture which we hope can be helpful for others to make the most of the defenders' window:",
+      "zh": "作为 openai 内部 250 多人参与的一项工作的一部分，我们用自己的模型发现并修复了自身系统中的关键漏洞。我们希望这些 playbook、经验和架构能帮助其他人充分利用防御者窗口：",
+      "promptVersion": "codex-v1"
+    },
+    "fd239a9af10319095fd4319d6cb28bd25e75ce865d8649a8b1d111f9d42c7420": {
+      "source": "We mobilized 250+ people to strengthen our defenses across hundreds of systems. Our latest cyber models helped us find and fix vulnerabilities we might never have discovered otherwise.\n\nWe’re sharing what we learned, the architecture, and a practical playbook so you can build your own Defense Factory: a continuous loop where AI agents find vulnerabilities, validate them, and verify that fixes work.\n\nhttps://t.co/k1oWJHle8S",
+      "zh": "我们动员了 250 多人，在数百个系统中加强防御。我们最新的网络安全模型帮助我们发现并修复了原本可能永远无法发现的漏洞。\n\n我们正在分享学到的经验、架构和一套实用 playbook，帮助你构建自己的 Defense Factory：一个由 AI 智能体持续发现漏洞、验证漏洞并确认修复有效的循环。\n\nhttps://t.co/k1oWJHle8S",
+      "promptVersion": "codex-v1"
+    },
+    "9232b22b617259a0c5978828c42ac183d5eec44cc523dacdd3aeba05df6a90fd": {
+      "source": "Our agentic extraction harness can extract 54+ fields from an insurance policy with 100% accuracy\n✅ coverage limits \n✅ nested sublimits\n✅ explicit noncoverage\n\nThis includes a full result review UI where you can audit every output, see which values have lower confidence scores, and see the source bounding box for every single field. \n\nCheck out the video below, using the \"Agentic Plus\" mode in our Extract API. It's a great option for extracting a massive amount of output tokens from any-sized document, whether it's 10 pages or 1k pages.\n\nIf you're interested in giving it a spin, come check out LlamaParse: https://t.co/XYZmx5TFz8",
+      "zh": "我们的 agentic extraction harness 可以从保险保单中提取 54+ 个字段，准确率达到 100%\n✅ 保障限额\n✅ 嵌套子限额\n✅ 明确不承保项\n\n其中包括完整的结果审核 UI，你可以审计每一项输出，查看哪些值的置信度较低，并看到每个字段对应的来源边界框。\n\n看看下面的视频，使用的是我们 Extract API 中的 \"Agentic Plus\" 模式。无论文档是 10 页还是 1k 页，它都非常适合从任意大小的文档中提取大量输出 token。\n\n如果你有兴趣试试，欢迎了解 LlamaParse：https://t.co/XYZmx5TFz8",
+      "promptVersion": "codex-v1"
+    },
+    "c4d36b6d967da41365df3867ea41d1c6b1f09b16eed1b72839a0667c699d90a1": {
+      "source": "Also note that well aligned models are not sufficient to solve prompt injection by themselves yet. That said, we have solved prompt injection in practice when layering our latest models with prompt injection probes (on by default for all traffic) and auto mode (also on by default). The little bit of scaffolding helps.\n\nhttps://t.co/z4jN6ip3cs",
+      "zh": "还要注意，仅靠对齐良好的模型本身还不足以解决 prompt injection。不过，在实践中，当我们将最新模型与 prompt injection 探针（默认对所有流量开启）和 auto mode（同样默认开启）叠加使用时，已经解决了 prompt injection。少量脚手架会有帮助。\n\nhttps://t.co/z4jN6ip3cs",
+      "promptVersion": "codex-v1"
+    },
+    "cb1150b744964441541c9c8bb3b26e725350fd91b1e3d8e40cbd736b9a7bca28": {
+      "source": "in 2026 training a model for a task should be as easy as vibe-coding an app\n\nthe pieces were already available on 🤗: papers, datasets, pre-trained models, benchmarks, storage and compute\n\nwhat was missing was an agent to put them together and run the whole process\n\nthat’s why we’re releasing ML Intern in HuggingChat\n\njust ask. it handles the work, keeps you posted, and keeps you in control of the process, steps and cost\n\nstart with a conversation. finish with a full set of shareable artifacts on the Hub\n\nhttps://t.co/apqYOBX1OK",
+      "zh": "在 2026 年，为一项任务训练模型应该像 vibe-coding 一个应用一样简单\n\n这些组件在 🤗 上早已具备：论文、数据集、预训练模型、基准、存储和计算\n\n缺少的是一个能把它们组合起来并运行完整流程的智能体\n\n这就是我们在 HuggingChat 中发布 ML Intern 的原因\n\n只需提出请求。它会处理工作，持续向你汇报，并让你掌控流程、步骤和成本\n\n从一段对话开始，以 Hub 上一整套可分享的成果结束\n\nhttps://t.co/apqYOBX1OK",
+      "promptVersion": "codex-v1"
+    },
+    "1a419853a4addf339a7aeecfc5cb02c5f3250e1a111539b61faef46ab6079daf": {
+      "source": "Nice!  The painting in the background is from our Droid setup @UCBerkeley ;)",
+      "zh": "不错！背景里的那幅画来自我们的 Droid setup @UCBerkeley ;)",
+      "promptVersion": "codex-v1"
+    },
+    "816f001414e3f35822d88316bbc400f155419c471b51b6a47f190200a3f0049a": {
+      "source": "muse, built for moms ❤️",
+      "zh": "muse，为妈妈们打造 ❤️",
+      "promptVersion": "codex-v1"
+    },
+    "b1ea0b968d40b0ff1787f7f26856240de796b769fdc67856f70b872c4f472862": {
+      "source": "NGL, $META genuinely may has just dropped an AI assistant for the masses. \n\nMy mom could use Muse effectively and she’s never touched a chatbot in her life. \n\nAmazing job. Amazing product. \n\nIt is user friendly, intuitive and has delivered everything I have prompted as I intended it with no re-direction. \n\nand on a cost basis, muse has delivered cheaply what has one shotted other token budgets. \n\n👏🏻👏🏻👏🏻",
+      "zh": "说真的，$META 可能真的刚刚推出了一款面向大众的 AI 助手。\n\n我妈妈都能有效使用 Muse，而她这辈子从没用过聊天机器人。\n\n做得太棒了。产品太棒了。\n\n它对用户友好、直观，而且我怎么提示，它就按我的意图交付，没有跑偏。\n\n从成本角度看，muse 用很低的成本完成了其他产品一次就会耗尽 token 预算的任务。\n\n👏🏻👏🏻👏🏻",
+      "promptVersion": "codex-v1"
+    },
+    "92232b4c97cfac23dd14f494da0128c73adb42ede1524e93b00663a162f8894e": {
+      "source": "\"Discovery consists of seeing what everybody has seen, and thinking what nobody has thought.\"\n(Albert Szent-Györgyi)",
+      "zh": "“发现，就是看见人人都看见的东西，却想到无人想到的事情。”\n（Albert Szent-Györgyi）",
+      "promptVersion": "codex-v1"
+    },
+    "0f2a182fe1b5222dcbdfc1866d301d43694833102ba06c756357da0ceeba4e2f": {
+      "source": "What we’re witnessing right now in AI for math is a dramatic improvement in objective-driven problem-solving, but it does not speak to non-objective discovery. I have always maintained that objectives are achievable when they are one stepping stone away, which means that they are within reach if their necessary prerequisite stepping stones are already laid. We say as much in Why Greatness Cannot Be Planned.\n\nFurthermore, I have identified “the stepping stepping already laid” as every invention and idea ever hatched over the course of human history.  That is the frontier of civilization.  But a massive challenge for every creative field is to make all the relevant stepping stones actually accessible to its practitioners.  How can anyone be aware of all of human knowledge in their field? To the extent they cannot, some dots cannot be connected even if they’re already uncovered.\n\nAI advances today have suddenly made the existing stepping stones vastly more accessible.  It can see something close to “all” of them, which means it has the possibility of leaping to many more next stepping stones in the chain.  Combined with a brute force-ish “try every known stepping stone under the sun”, that’s what we’re seeing in the pursuit of popular objectives.\n\nBut discovery and innovation are not only about finding the right existing stepping stones to solve your objective because for many problems the stepping stones are not already laid and also do not follow directly from existing stepping stones. If those problems are ever to be solved, they will require open-ended, non-objective search through spaces of ideas that are motivated not by solving a problem as an objective, but by being interesting in their own right.  The advances we’re seeing today speak only faintly to that purpose, which is why open-endedness remains firmly at the frontier of AI.",
+      "zh": "我们现在在 AI 数学领域看到的，是目标驱动型问题求解能力的大幅提升，但这并不代表非目标导向的发现能力也在进步。我一直认为，当目标只隔着一块垫脚石时，它就是可达成的，也就是说，只要必要的前置垫脚石已经铺好，它就触手可及。我们在《Why Greatness Cannot Be Planned》中也表达过类似观点。\n\n此外，我把“已经铺好的垫脚石”定义为人类历史进程中曾经诞生过的每一项发明和每一个想法。这就是文明的前沿。但对每个创造性领域来说，一个巨大挑战是如何让从业者真正接触到所有相关的垫脚石。谁能知晓自己领域内的全部人类知识？只要做不到这一点，有些点即便已经被发现，也仍然无法连接起来。\n\n如今的 AI 进展突然让现有垫脚石变得极大程度上更易获取。它几乎能看到“全部”垫脚石，这意味着它有可能跳到链条中更多的下一块垫脚石。再结合某种近似蛮力的“尝试天下所有已知垫脚石”的方法，这就是我们在追求热门目标时所看到的现象。\n\n但发现和创新并不只是找到正确的现有垫脚石来解决你的目标，因为对许多问题来说，垫脚石尚未铺好，也不会直接从现有垫脚石中推导出来。如果这些问题终有一天要被解决，就需要在思想空间中进行开放式、非目标导向的搜索，其动机不是把解决某个问题当作目标，而是这些想法本身就足够有趣。我们今天看到的进展对这一目的只有很微弱的启示，因此开放性仍然稳稳处在 AI 的前沿。",
+      "promptVersion": "codex-v1"
+    },
+    "bd26295dc3c60b22c867d7ec28641da060f5021c2b0bc26512e6d4979351d43d": {
+      "source": "i expect computer use to get a lot better and more popular over the next few months!\n\nllms becoming great at writing code is actually a big catalyst for this",
+      "zh": "我预计未来几个月，computer use 会变得更强大，也更流行！\n\nllms 变得擅长写代码，其实是这件事的一大催化剂",
+      "promptVersion": "codex-v1"
+    },
+    "36554a8f12c17c8a5940095335a8dfc129465c6489dc4dffc164c05fbd756ccc": {
+      "source": "Evolving computer use with code",
+      "zh": "用代码推动 computer use 演进",
+      "promptVersion": "codex-v1"
+    },
+    "8288f8fc3e31c9ec7ff602fe3cde47709d49ff802f41aa75083c1b024b977f12": {
+      "source": "TL;DR Letting agents write code makes them better at using a browser. When you get out of the way and just let models do what they’re good at (writing code), performance across all domains improves.",
+      "zh": "TL;DR 让智能体写代码，会让它们更擅长使用浏览器。当你不去干预，只让模型做它们擅长的事（写代码）时，各个领域的表现都会提升。",
+      "promptVersion": "codex-v1"
+    },
+    "9e320cccaaf0be334cfda931ca47b4d0b529d0dbdd47ff05c5976302d2bcc73e": {
+      "source": "Solaris, an interface world model https://t.co/QAiTwyYOlV",
+      "zh": "Solaris，一个界面世界模型 https://t.co/QAiTwyYOlV",
+      "promptVersion": "codex-v1"
+    },
+    "b4b31980dee1fc336756a69be8c594ed3ae9f48a22ad1bb54d5de5b20be32321": {
+      "source": "Websites created with Computer now have desktop and mobile previews.\n\nUse the artifact side pane to switch between views, refresh the preview, edit the site, or leave a comment. https://t.co/lYYFjW1zsz",
+      "zh": "用 Computer 创建的网站现在有了桌面端和移动端预览。\n\n可在 artifact 侧边栏中切换视图、刷新预览、编辑网站或留下评论。https://t.co/lYYFjW1zsz",
+      "promptVersion": "codex-v1"
+    },
+    "4c3dad2efcdb215ef3e0512505aeef8217b1e2b521a8cfe50cdfd8470d6c9e47": {
+      "source": "i just tried Muse*, connected it to my GitHub, and continued the work I was doing in ChatGPT/Claude w no interruptions\n\nwhich is great cuz i now have more credits across more services to do work with :)\n\n*it’s solid. nothing mindblowing yet but works smooth, fast, and UI is intuitive (maybe more so than ChatGPT/claude in some ways)",
+      "zh": "我刚试用了 Muse*，把它连到我的 GitHub，然后无缝接着做我在 ChatGPT/Claude 里做的工作。\n\n这很不错，因为现在我在更多服务里有更多额度可以用来干活了 :)\n\n*它挺扎实。还没有什么惊艳之处，但运行顺畅、速度快，UI 也很直观（某些方面可能比 ChatGPT/Claude 更直观）",
+      "promptVersion": "codex-v1"
+    },
+    "f0393983f169a794f448d7b6f899e888679f73c8c117ebdd19c9700d30bd5196": {
+      "source": "ZeroModels: 100+ model families with pretrained weights, implemented in Keras 3 and ready to run with any backend. Between this and KerasHub, that's a very extensive range of foundation models.\n\nhttps://t.co/LfXtvqVwaX",
+      "zh": "ZeroModels：100 多个模型家族，带预训练权重，用 Keras 3 实现，可在任意后端运行。再加上 KerasHub，基础模型的覆盖范围已经非常广了。\n\nhttps://t.co/LfXtvqVwaX",
+      "promptVersion": "codex-v1"
+    },
+    "b40bbf595d5b22952da4b5c85cc1a5661b052d9be8127ec2b09f78c3323a998d": {
+      "source": "If you're a JAX user and you need pretrained models, give it a try. All Keras models act as native JAX functions (with the JAX backend).\n\n\"JAX doesn't have pretrained models\" is a myth -- it has thousands of pretrained Keras 3 models.",
+      "zh": "如果你是 JAX 用户，并且需要预训练模型，可以试试。所有 Keras 模型（使用 JAX 后端时）都能作为原生 JAX 函数运行。\n\n“JAX 没有预训练模型”是个误解——它有成千上万个预训练的 Keras 3 模型。",
+      "promptVersion": "codex-v1"
+    },
+    "65c2d894b1a3e5807066e9446df349ed17e083c2e0175348b93a10b491fa37b3": {
+      "source": "@juan_zgz it's not picking up chat thread, but grabbing context from the repo. my agents all read the repo, do work, and then write a hand-off doc into the repo - so it's not just code but more of an operating manual + history + code",
+      "zh": "@juan_zgz 它不是读取聊天线程，而是从代码仓库里抓取上下文。我的 agents 都会阅读仓库、完成工作，然后把交接文档写进仓库——所以里面不只是代码，更像是操作手册 + 历史记录 + 代码",
+      "promptVersion": "codex-v1"
+    },
+    "05371cf05fedc69688aa0c9157dbc263a4938e46568bc6eb38f36c37d1579f4a": {
+      "source": "friends are regularly surprised when i say i don’t think math is (yet) “solved,” so in the wake of the ns result i figured i’d explain this take a bit more widely.\n\nfirst, this is massively impressive and clearly an example of AI being, in some respects, far more powerful than the human mind. the team deserves huge praise for attempting and succeeding at this. i’d love to read a technical report on the project (one can always hope :)\n\nbut second, here again we ended up with a counterexample rather than a full proof: option C won the NS problem by proving the conjecture false (which was one valid way to solve the problem for sure)\n\nnotice a pattern in many of the recent frontier results in ai for math? a striking number involve counterexamples or finding a needle in a haystack.\n\nnow don’t get me wrong: this is extraordinarily hard and commendable. but it is only one aspect of mathematicians’ work.\n\nMath is also about:\n- finding deep, general mathematical understanding and explanations within proofs\n- revisiting proven results to find more « elegant » proofs\n- proposing new conjectures and hypotheses that might open « fruitful » directions\n- taking the leap of faith of proposing entirely new, « exciting » research programs that may take decades to bear fruit\n\nyou may say these are simply further increments on the same intelligence scale, and perhaps point 2 above is already within the reach of current models. possibly\n\nbut you could also see this string of results as an extraordinarily powerful, massively parallel extension of search: explore the haystack, find the needle i.e. the counterexample that breaks the conjecture.\n\nthat would already be remarkable. but it would still leave open whether models understand the words I emphasized above: « elegant », « fruitful », « exciting ».\n\nas tristan put it in his brief report: “the first llm generated proof levent sent me was the most horrendous i have ever read.”\n\ndespite their formidable technical abilities, models still seem to lack something mathematicians rely on constantly: a type of mathematical taste. the ability to distinguish a beautiful argument from a merely valid one, a fertile idea from a sterile one.\n\ni’d be very curious to ask gpt or claude what they think of the result they just proved. do they find it elegant? if they ignore all the human noise about it on the web and history of math, do they appreciate the result and the path to it more than other proofs?\n\nmy suspicion is that, outside of the human knowledge that this is an important millennium prize problem, it may not 100% register it as fundamentally different from thousands of other proofs.\n\nor, more intriguingly, perhaps the beauty they find in mathematics is actually alien to our own sense of mathematical beauty, some « horrendous » proof to us might be deeply satisfying to them…\n\nall this to say that we might have significant progress to make in ai for math before declaring the field “solved,” (as too many are posting).\n\nin the meantime, ai will be an extraordinary collaborator for mathematicians. i just hope access to these tools be as widely shared as possible (so that you don’t need a Leven or Sebastien working in a big lab to help you), and that companies stop using mathematics primarily as a demonstration of prowess in their private race.",
+      "zh": "朋友们经常会惊讶于我说我认为数学（目前）还没有被“解决”，所以在 ns 结果之后，我想更广泛地解释一下这个看法。\n\n首先，这非常令人震撼，显然也说明 AI 在某些方面远比人类头脑强大。这个团队敢于尝试并取得成功，值得高度赞扬。我很想读一份关于这个项目的技术报告（总还是可以期待一下 :）\n\n但其次，我们这次又一次得到的是一个反例，而不是完整证明：选项 C 通过证明猜想为假赢下了 NS 问题（这当然也是解决该问题的一种有效方式）。\n\n注意到近期 AI 数学前沿成果中的一个模式了吗？相当多都涉及反例，或者是在大海捞针中找到那根针。\n\n别误会：这极其困难，也非常值得赞赏。但这只是数学家工作的一部分。\n\n数学还包括：\n- 在证明中找到深刻、普遍的数学理解和解释\n- 重新审视已被证明的结果，寻找更“优雅”的证明\n- 提出可能开启“富有成效”方向的新猜想和假设\n- 凭信念跃迁，提出全新的、“令人兴奋”的研究计划，而这些计划可能需要数十年才会结果\n\n你可能会说，这些只是同一智能尺度上的进一步增量，也许上面的第 2 点已经在当前模型的能力范围内。或许如此。\n\n但你也可以把这一系列结果看作是搜索能力的极其强大、超大规模并行扩展：探索草垛，找到那根针，也就是击破猜想的反例。\n\n这本身已经很了不起。但问题仍然存在：模型是否理解我上面强调的那些词：“优雅”、“富有成效”、“令人兴奋”。\n\n正如 tristan 在他的简短报告中所说：“levent 发给我的第一个 llm 生成证明，是我读过的最可怕的证明。”\n\n尽管模型具备强大的技术能力，它们似乎仍然缺少数学家一直依赖的一种东西：数学品味。也就是区分美的论证和仅仅有效的论证、区分有生命力的想法和贫瘠想法的能力。\n\n我很想问问 gpt 或 claude，它们如何看待自己刚刚证明的结果。它们觉得这个结果优雅吗？如果忽略网上的人类噪音和数学史，它们是否会比其他证明更欣赏这个结果以及通往它的路径？\n\n我的怀疑是，如果脱离“这是一个重要的千禧年大奖难题”这一人类知识，它可能并不会 100% 意识到它与成千上万其他证明有根本不同。\n\n或者更有意思的是，也许它们在数学中发现的美，其实与我们自己的数学美感完全不同；某个对我们来说“可怕”的证明，对它们来说或许会非常令人满足……\n\n总之，我想说的是，在宣布数学 AI 领域已被“解决”（现在太多人这样发帖了）之前，我们可能还有相当多进展要做。\n\n与此同时，AI 会成为数学家的非凡合作者。我只是希望这些工具能尽可能广泛地共享（这样你不需要有在大实验室工作的 Leven 或 Sebastien 来帮你），也希望公司不要主要把数学当作它们私下竞赛中展示实力的工具。",
+      "promptVersion": "codex-v1"
+    },
+    "5046e581ed3bae62b3aabd2d0995f2e6823a29c67b6b2a236f4d6662f883a536": {
+      "source": "In my latest op-ed for @TIME, I discuss why the OpenAI Hugging Face cyber incident represents a turning point for AI safety. If we want to prevent more autonomous cyberattacks from threatening critical infrastructure, we urgently need stronger regulatory oversight and new approaches to model training to ensure robust safety assurances by design, which is what we are tackling at @LawZero_.\n\nRead the full piece: https://t.co/xXGLIOUusL",
+      "zh": "在我为 @TIME 撰写的最新专栏中，我讨论了为什么 OpenAI Hugging Face 网络事件代表着 AI 安全的一个转折点。如果我们想防止更多自主网络攻击威胁关键基础设施，就迫切需要更强有力的监管监督，以及新的模型训练方法，以确保从设计上就具备稳健的安全保障。这正是我们在 @LawZero_ 正在解决的问题。\n\n阅读全文：https://t.co/xXGLIOUusL",
+      "promptVersion": "codex-v1"
+    },
+    "4fbb25ae62d1363c058e5044af57407ded5936dbf2aa356a5a3823f342a86ec6": {
+      "source": "Here's a Blender model of a Pluribus themed Fabergé egg I had GPT-6 Astra build - I generated the concept image using ChatGPT Images 2.5, then pasted the image into Codex and told Astra to turn that into a Blender file\n\nDetails here: https://t.co/9DZa0x6GZf https://t.co/ge8TbjsS5Y",
+      "zh": "这是一个 Pluribus 主题 Fabergé 彩蛋的 Blender 模型，是我让 GPT-6 Astra 做的——我先用 ChatGPT Images 2.5 生成概念图，然后把图粘到 Codex 里，让 Astra 把它转成 Blender 文件。\n\n详情见：https://t.co/9DZa0x6GZf https://t.co/ge8TbjsS5Y",
+      "promptVersion": "codex-v1"
+    },
+    "e0e5293fa1ac6b838fe6f448074755dedf2bfc53f9eb0c15a4c33c1283de8a42": {
+      "source": "muse -- built for convincing your loved ones that AI is useful!",
+      "zh": "muse -- 为说服你爱的人 AI 很有用而打造！",
+      "promptVersion": "codex-v1"
+    },
+    "ab526e567618c57ef8f113f3def04e63eee04d69d132120467d64cfb98270a7c": {
+      "source": "Meta Muse is incredibly good. Was showing my wife a couple uses cases:\n\n1. Search for green puffer jacket -&gt; find live discount codes, add to cart, apply, buy at cheapest price\n2. Find recipe and load Whole Foods cart\n\nShe was blown away. I don’t think META was up enough today…",
+      "zh": "Meta Muse 真的非常好用。我给妻子演示了几个用例：\n\n1. 搜索绿色羽绒夹克 -&gt; 找到实时折扣码、加入购物车、应用折扣、以最低价购买\n2. 查找食谱并把食材加入 Whole Foods 购物车\n\n她被震撼到了。我觉得 META 今天涨得还不够……",
+      "promptVersion": "codex-v1"
+    },
+    "d729b1708e569847c900ad39caf173e01733bbce33661ed48997b5962d764d2b": {
+      "source": "@martimC11 they're pretty sensitive to it! you can vary those settings yourself in the explorer and see the underlying paper for me",
+      "zh": "@martimC11 它们对此相当敏感！你可以在 explorer 里自己调整这些设置，并查看我底层使用的论文",
+      "promptVersion": "codex-v1"
+    },
+    "972cd4e3fd9fab07ecfe160bc5017bd91594e0bdaf2c48ab4f4808cd26579ac1": {
+      "source": "I also had Astra vibe code up an online Blender model viewing tool, so you can explore the egg interactively in your browser here: https://t.co/NGlFhPduoB",
+      "zh": "我还让 Astra vibe code 做了一个在线 Blender 模型查看工具，你可以在浏览器里交互式探索这个蛋：https://t.co/NGlFhPduoB",
+      "promptVersion": "codex-v1"
+    },
+    "984c9a4cd72f240e2639163b772fb172c261e8a2d3310a0affc91fca9952008a": {
+      "source": "see you soon!",
+      "zh": "很快见！",
+      "promptVersion": "codex-v1"
+    },
+    "0a968b411dee1aecf0550b65d16d980d2ec7a000e3c10640a92f3f6abd35f974": {
+      "source": "🎙️ Yohei Nakajima — GP at Untapped Capital\n\nToday on TWiST, we're joined by @yoheinakajima, GP at @UntappedVC. In March 2023 he open-sourced ~200 lines of Python called BabyAGI.\n\nHe invests by day and builds his own agent experiments by night. Come learn more at 12 PM central! https://t.co/81OFesyB7x",
+      "zh": "🎙️ Yohei Nakajima — Untapped Capital 的 GP\n\n今天在 TWiST，我们邀请到 @yoheinakajima，@UntappedVC 的 GP。2023 年 3 月，他开源了约 200 行名为 BabyAGI 的 Python 代码。\n\n他白天做投资，晚上构建自己的 agent 实验。中部时间中午 12 点来了解更多！https://t.co/81OFesyB7x",
+      "promptVersion": "codex-v1"
+    },
+    "6e09913547f1cc01643edb52d0ace629a83f2f2609ae6ef4f0164b2bca65ed3d": {
+      "source": "@Appyg99 We think about this constantly and have put a lot of energy into making Muse as secure as we can. You can read about our security efforts here: https://t.co/aKxcJYbfcH",
+      "zh": "@Appyg99 我们一直在思考这个问题，并投入了大量精力让 Muse 尽可能安全。你可以在这里了解我们的安全工作：https://t.co/aKxcJYbfcH",
+      "promptVersion": "codex-v1"
     }
   },
-  "updatedAt": "2026-09-08T23:08:21.278852+00:00"
+  "updatedAt": "2026-09-10T02:03:15.116410+00:00"
 }
