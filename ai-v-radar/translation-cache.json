@@ -9638,7 +9638,152 @@
       "source": "Media credit: How Agents Learn, Remember, and Improve Over Time, with João (Joe) Moura, CEO of CrewAI https://t.co/g0smtXVgiC",
       "zh": "媒体来源：How Agents Learn, Remember, and Improve Over Time，嘉宾 João (Joe) Moura，CrewAI CEO https://t.co/g0smtXVgiC",
       "promptVersion": "codex-v1"
+    },
+    "47e398b9963b6cd60db7e6a594558903135554a6ab13f95d280aaf027465dc3d": {
+      "source": "Hey ████,\n\nI think there is room for both.\n\n1. Prototypes and other throw-away code can be treated as totally black box. If you’re going to throw it away anyway, and if the blast radius of it breaking is low, it doesn’t need to be perfect.\n2. Production code written by Claude should have a higher bar than if it was written by a human. At Anthropic, we have many guardrails in place to make sure this is happening: lots of lint rules, lots of tests, Claude-driven end to end tests, Claude-powered fuzzers running daily, automated code reviews and security reviews, automated code refactoring, and so on. Without these, you can end up with a mess that is hard to maintain down the line. Luckily, the model makes it increasingly easy to do these well — run a few daily routines, use Claude Code Review, etc.\n\nYour job is to hold the bar on code quality. If Claude’s code doesn’t meet the bar, try:\n- Using the latest frontier model (Opus 5 or Fable 5.1)\n- Increase effort to high or xhigh\n- Invest in your CLAUDE.md and skills to succinctly teach Claude how to work in your codebase\n\nIf all else fails, steer Claude more when you work with it, or have Claude fix accumulated debt and rewrite your codebase to make it easier to work with. Or, wait for the next model.\n\nBest,\nBoris",
+      "zh": "嘿 ████，\n\n我认为两者都有空间。\n\n1. 原型和其他一次性代码可以完全当作黑盒处理。如果你反正要把它丢掉，而且它出问题的影响范围很小，那它不需要完美。\n2. Claude 写的生产代码应该比人类写的有更高标准。在 Anthropic，我们设置了许多护栏来确保这一点：大量 lint 规则、大量测试、Claude 驱动的端到端测试、Claude 驱动的每日 fuzzers、自动化代码审查和安全审查、自动化代码重构等等。没有这些，你最终可能会得到一团难以后续维护的乱麻。幸运的是，模型让做好这些变得越来越容易——跑几个每日例程、使用 Claude Code Review 等等。\n\n你的职责是守住代码质量标准。如果 Claude 的代码达不到标准，可以尝试：\n- 使用最新的前沿模型（Opus 5 或 Fable 5.1）\n- 将 effort 提高到 high 或 xhigh\n- 投入精力完善你的 CLAUDE.md 和 skills，简洁地教会 Claude 如何在你的代码库中工作\n\n如果这些都不行，在与 Claude 协作时给它更多引导，或者让 Claude 修复累积的技术债并重写你的代码库，使其更容易处理。或者，等下一个模型。\n\nBoris",
+      "promptVersion": "codex-v1"
+    },
+    "dcd4b70328af62c7df7883630d7055470d50d2104229259b56b2dc9e8b45cf96": {
+      "source": "\"Production code written by Claude should have a higher bar than if it was written by a human\" 💯",
+      "zh": "“Claude 写的生产代码应该比人类写的有更高标准” 💯",
+      "promptVersion": "codex-v1"
+    },
+    "4d2a23a737f800a525aa18fde9116dbce68c15443cb2ddbcb4f35e5de2ccaf48": {
+      "source": "our muse security architecture enables a ton of control over when the agent needs to ask for human-in-the-loop approval\n\nsee more from the goat @bigT_sheesh:",
+      "zh": "我们的 muse 安全架构让你能大幅控制 agent 何时需要请求人类参与审批\n\n看看 goat @bigT_sheesh 的更多介绍：",
+      "promptVersion": "codex-v1"
+    },
+    "c4fa406653b9c54dcf75cbb8934e6547ede5df1f3a9b6c8840d8aa80844c7d5a": {
+      "source": "In the blog post and video (https://t.co/RPCWb6YsU7)  I posted earlier this week on the @Muse security architecture, we touched on the Sentinel and Human-in-the-loop.\n\nThis extends to more than just regular web requests and protocols (HTTP/HTTPS), you can actually use a whole load of TCP/UDP based protocols.\n\nCheck them out (on web https://t.co/kOYAKrYi4J) under: Settings > Permissions > Direct network protocols > Profit!\n\nWhen you turn a protocol on, your Muse will send you a Human-in-the-loop approval card with the hostname and port, and you can control the permission allowance for your Muse.\n\nGive it a try and sent us feedback.",
+      "zh": "在我本周早些时候发布的关于 @Muse 安全架构的博客文章和视频（https://t.co/RPCWb6YsU7）中，我们谈到了 Sentinel 和 Human-in-the-loop。\n\n这不只适用于常规 Web 请求和协议（HTTP/HTTPS），你实际上还可以使用大量基于 TCP/UDP 的协议。\n\n在这里查看（网页版 https://t.co/kOYAKrYi4J）：Settings > Permissions > Direct network protocols > Profit!\n\n当你开启某个协议时，你的 Muse 会向你发送一张 Human-in-the-loop 审批卡，包含主机名和端口，你可以控制授予 Muse 的权限。\n\n试试看，并把反馈发给我们。",
+      "promptVersion": "codex-v1"
+    },
+    "68d98faa6d685e8101895389c9638beed82c0caf29e043baa4b969818d7841ba": {
+      "source": "What I find more interesting is what that intelligence actually translates to.\n\nMiniCPM5-2B is being pushed beyond a regular on-device LLM toward an on-device Agent:\n→ tool calling\n→ deep search\n→ code generation\n→ multi-step tasks\n\nAnd this isn’t just an Agent framework wrapped around the model.\n\nThese capabilities are trained into it through Agentic Pre-training, SFT and large-scale RL.\n\nThat makes local workflows way more interesting — private docs, frequent tool calls, lightweight agents, all without needing everything to live in the cloud.",
+      "zh": "我觉得更有意思的是，这种智能到底会转化成什么。\n\nMiniCPM5-2B 正在从普通的端侧 LLM 被推向端侧 Agent：\n→ 工具调用\n→ 深度搜索\n→ 代码生成\n→ 多步骤任务\n\n而这并不只是套在模型外面的一个 Agent 框架。\n\n这些能力是通过 Agentic Pre-training、SFT 和大规模 RL 训练进模型里的。\n\n这让本地工作流有意思得多——私有文档、频繁工具调用、轻量级 agents，而且不需要把所有东西都放到云端。",
+      "promptVersion": "codex-v1"
+    },
+    "33dbf3b5dc6cdc82ad7fbe55c3f8123d8a362141a4c8916af79635bb61ff5cc3": {
+      "source": "muse will make you money and get your refunds!",
+      "zh": "muse 会帮你赚钱，还会帮你拿退款！",
+      "promptVersion": "codex-v1"
+    },
+    "6955ba71f5d4cd5b85dad2b7e42cf48d67f4031a384535fa6420033e9c0fca16": {
+      "source": "wait, so muse is actually sick \n\nit just chatted with an American Airlines agent for me and cancelled some flights and made sure I got a full refund\n\nall from a text message on my phone https://t.co/lW4C7QbcF5",
+      "zh": "等等，所以 muse 真的很强\n\n它刚刚替我和 American Airlines 的客服聊了天，取消了一些航班，并确保我拿到了全额退款\n\n全程只靠我手机上的一条短信 https://t.co/lW4C7QbcF5",
+      "promptVersion": "codex-v1"
+    },
+    "6987caba6e48471d1b8274b15201486ef02da04792e5a4e023ba964e49051501": {
+      "source": "use muse to make you a more conscientious member of society!",
+      "zh": "用 muse 让自己成为更有责任心的社会成员！",
+      "promptVersion": "codex-v1"
+    },
+    "d1e22fbf5f55015fd62b5c02ddfe44498c9131350dae6949dd85752937e61f58": {
+      "source": "AI agents can write code, but can we trust the systems they build? With SkySynth, we co-evolve code with tests and formal proofs to generate specialized, just-in-time infrastructure. The result: formally verified KV stores 2.3× faster than Redis and custom inference engines with 2.2× the throughput of vLLM/SGLang!",
+      "zh": "AI agent 能写代码，但我们能信任它们构建的系统吗？借助 SkySynth，我们让代码与测试和形式化证明共同演化，生成专用的即时基础设施。结果：形式化验证的 KV 存储比 Redis 快 2.3×，定制推理引擎的吞吐量达到 vLLM/SGLang 的 2.2×！",
+      "promptVersion": "codex-v1"
+    },
+    "d6dc566d61e3ff391fabb00d880e9b0630f194bca6738c7dc597e1eb0d17b40b": {
+      "source": "Agents let us build systems for different workloads and requirements. But… can we trust what they build?\n\nWe release 🌟SkySynth🌟: an engine for synthesizing high-performance, just-in-time (JIT) systems we can trust, by co-evolving formal proofs and tests alongside the code.\n\nResults: \n\n💿 KV stores up to 2.3× faster than Redis and FASTER + formally verified stores with 2.9× Claude Code's pass rate \n\n🚏 Model routers up to 48% cheaper than a general router\n\n⚡ Specialized inference engine with 2.2× the throughput of vLLM/SGLang\n\n🧵👇",
+      "zh": "Agent 让我们能为不同工作负载和需求构建系统。但……我们能信任它们构建的东西吗？\n\n我们发布 🌟SkySynth🌟：一个用于合成可信、高性能、即时（JIT）系统的引擎，通过让形式化证明和测试与代码共同演化来实现。\n\n结果：\n\n💿 KV 存储最高比 Redis 快 2.3×，并且 FASTER + 形式化验证存储的通过率达到 Claude Code 的 2.9×\n\n🚏 模型路由器最高比通用路由器便宜 48%\n\n⚡ 专用推理引擎的吞吐量达到 vLLM/SGLang 的 2.2×\n\n🧵👇",
+      "promptVersion": "codex-v1"
+    },
+    "92912a876cb0bdcf19936dd093aa7d51b00f3f0d5a47bcc210747299562eb662": {
+      "source": "An agent matched human decisions 94% of the time.\n\nThe 6% is the interesting part.\n\nA customer of ours has around 150,000 employees and a policy that lets teams request discounts. Marketing wants one for an event. Sales wants one to close a deal.\n\nThe volume got so large globally that they had a dedicated team whose entire job was approving or denying those requests.\n\nBefore trusting agents with it, they ran a backwards test. Last 30 days, what would the agent have approved or denied?\n\n94% match with what the humans actually did.\n\nTheir reaction was not let us automate everything. It was: if we can find the other 6% and route it to a person, we can roll this out.\n\nThey now spend about 3% of the time they used to spend on it.",
+      "zh": "一个 agent 在 94% 的情况下做出了与人类一致的决策。\n\n有意思的是剩下的 6%。\n\n我们的一位客户约有 15 万名员工，并有一项政策允许团队申请折扣。市场团队想为活动申请折扣，销售团队想用折扣促成交易。\n\n全球范围内申请量变得非常大，以至于他们有一个专门团队，全部工作就是批准或拒绝这些申请。\n\n在信任 agent 处理这件事之前，他们做了一次回溯测试。过去 30 天里，agent 会批准或拒绝哪些申请？\n\n与人类实际决策的匹配率为 94%。\n\n他们的反应不是“让我们把一切都自动化”。而是：如果我们能找出另外 6%，并把它交给人工处理，就可以上线。\n\n现在他们在这件事上花的时间大约只有过去的 3%。",
+      "promptVersion": "codex-v1"
+    },
+    "236ad7e48e204c611c35d7c24ed82e23b7e4a96416a8eea3cd24d7a8ab75db26": {
+      "source": "One of the main issues with AI document parsing is that because no solution is 100% accuracy, it's hard to tell if a given page is parsed incorrectly: for instance a misaligned table, missing/hallucinated values, or messy scans \n\nover the past few months we've invested a lot in models that provide more calibrated confidence scores - it will give you a confidence level that the page is parsed correctly. it is correlated with the parsing mode and how complex the source page is. \n\nthis allows you to bake in human-in-the-loop mechanisms where you can review and correct the outputs, or trigger automated fallback logic, for highly sensitive paperwork-heavy processes. \n\ncome check out our high-effort scores! https://t.co/qgo0BqMVPW\n\nCome sign up to LlamaParse here: https://t.co/XYZmx5TFz8",
+      "zh": "AI 文档解析的一个主要问题是，没有任何方案能做到 100% 准确，因此很难判断某一页是否解析错误：比如表格错位、数值缺失或幻觉、扫描件混乱等。\n\n过去几个月，我们在能提供更校准置信度分数的模型上投入了大量精力，它会给出页面是否被正确解析的置信水平。这个分数与解析模式以及源页面的复杂度相关。\n\n这让你可以在高度敏感、文书密集的流程中内置人工介入机制，用于审核和修正输出，或触发自动化兜底逻辑。\n\n来看看我们的高强度评分吧！https://t.co/qgo0BqMVPW\n\n来这里注册 LlamaParse：https://t.co/XYZmx5TFz8",
+      "promptVersion": "codex-v1"
+    },
+    "39a4cc1ee88b3183e9ddd273d63b02a3984d9f03a5658b5c0e10e2cc2c0fd783": {
+      "source": "confidence scores in LlamaParse just got an upgrade 🦸‍♀️ \n\nour new high-effort mode provides granular page-level scores with text explanations to help you intimately understand parsing quality of your documents. we even refer back to the original document for an extra check when generating the score. \n\nuse high-effort only when you need it, at 5 additional credits per page.\n\ntry it on your docs: https://t.co/SqKn6MkJxh",
+      "zh": "LlamaParse 的置信度分数刚刚升级了 🦸‍♀️\n\n我们的新高强度模式提供细粒度的页面级分数，并附带文字说明，帮助你深入了解文档的解析质量。生成分数时，我们甚至会回看原始文档做额外检查。\n\n只在需要时使用高强度模式，每页额外消耗 5 个 credits。\n\n在你的文档上试试：https://t.co/SqKn6MkJxh",
+      "promptVersion": "codex-v1"
+    },
+    "8077d1bb25113f1c4d7bf8142b3dcf3975177d8f661d5818d3d04642f56714ea": {
+      "source": "building the best agentic tools for Financial Services:",
+      "zh": "为金融服务打造最好的 agentic 工具：",
+      "promptVersion": "codex-v1"
+    },
+    "49a600b1fe629d31562b89e5f983d89ff6b89a2e5c2f7a98c3cc537e523e829f": {
+      "source": "Datasette 1.0a39 and 0.65.4 security releases - https://t.co/r9Avn79J8d\n\nWe ran an extensive audit using Claude Fable 5.1, GPT-5.6 Sol and GPT-6 Astra, then fixed a range of different bugs. If you're running a Datasette instance on a public website you should upgrade.",
+      "zh": "Datasette 1.0a39 和 0.65.4 安全版本发布 - https://t.co/r9Avn79J8d\n\n我们使用 Claude Fable 5.1、GPT-5.6 Sol 和 GPT-6 Astra 进行了全面审计，并修复了一系列不同的 bug。如果你在公共网站上运行 Datasette 实例，应该升级。",
+      "promptVersion": "codex-v1"
+    },
+    "0416b9ad66511e1894cb0ea25055e4c4a978749a3711a8c030098f2add020a78": {
+      "source": "MAI-Transcribe-2 hit 1 million requests on Open Router in 5 days! It's the fastest, most accurate and the cheapest transcription model in the world! https://t.co/pBSlV0aihR",
+      "zh": "MAI-Transcribe-2 在 5 天内于 Open Router 达到 100 万次请求！它是全球最快、最准确、最便宜的转录模型！https://t.co/pBSlV0aihR",
+      "promptVersion": "codex-v1"
+    },
+    "33c2375ea4652a7827a7ffc0a73177c8ce0c316cc08f52be25d3ed48fcc2f09b": {
+      "source": "1/🤖Agents in production are changing fast.\n\nFollowing our #ICML2026 oral work, we’re running the study again this year to understand what’s changing in how agents are built, deployed and evaluated in real systems.\n\n📊 If you’re working on agents in production, we’d love your input. The survey is short, but it can help us build a much clearer picture of what is actually working in practice.\n🔗 Survey: https://t.co/AzwAMuJzxG\n\n🎙️ We’re also interviewing practitioners! Reach out  if you’d like to share your experience in more depth.\n\n👇 And if you’re curious about what we learned last year, check out our previous study in the thread below",
+      "zh": "1/🤖生产环境中的 Agents 正在快速变化。\n\n继我们 #ICML2026 口头报告的工作之后，我们今年再次开展这项研究，以了解在真实系统中，Agents 的构建、部署和评估方式正在发生什么变化。\n\n📊 如果你正在做生产环境中的 Agents，我们很希望听到你的意见。问卷很短，但能帮助我们更清楚地了解实践中到底哪些方法真正有效。\n🔗 问卷：https://t.co/AzwAMuJzxG\n\n🎙️ 我们也在采访从业者！如果你愿意更深入地分享经验，欢迎联系。\n\n👇 如果你对我们去年学到的内容感兴趣，可以查看下方线程中的上一项研究",
+      "promptVersion": "codex-v1"
+    },
+    "50d9841a67e9a03d39d5a9e89033b74f327a440829f68165104b6a86eb534063": {
+      "source": "@HermannBjorgvin TUI shouldn't be jumping around or flickering. Run claude update and if that doesn't work, run /tui",
+      "zh": "@HermannBjorgvin TUI 不应该乱跳或闪烁。运行 claude update，如果还不行，就运行 /tui",
+      "promptVersion": "codex-v1"
+    },
+    "6eadd1b216ea806940b31d2ad4fb755504164c55748d250deda164eeddfcf8cb": {
+      "source": "Both leading companies are willing to impose safety gates unilaterally -- requirements that need to be met before releasing a model or scaling up training. They'll start subjecting themselves to more challenging gates as people get increasingly spooked by progress. But this only leads to a minor slowdown. Safety evals will be benchmaxed, and there will be plenty of unknown unknowns. \nA bigger slowdown would be helpful for scientific understanding and for societal adjustment. AI-2040 proposes some stronger slowdowns, such as limiting R&D and training compute and requiring human understanding. But adopting these unilaterally would put a company at a serious disadvantage, allowing competitors to pull ahead. So that's where you need a broader agreement.",
+      "zh": "两家领先公司都愿意单方面设置安全关卡，即在发布模型或扩大训练规模前必须满足的要求。随着人们越来越被进展吓到，它们会开始让自己接受更具挑战性的关卡。但这只会带来轻微放缓。安全评估会被刷到极限，而且还会有大量未知的未知。\n更大幅度的放缓将有助于科学理解和社会适应。AI-2040 提出了一些更强的放缓措施，例如限制研发和训练算力，并要求人类能够理解。但单方面采用这些措施会让公司处于严重劣势，使竞争对手得以领先。因此，这就需要更广泛的协议。",
+      "promptVersion": "codex-v1"
+    },
+    "adfa28abf82536aca514cc092a1746f17e6f76c1e90db5950ec27307fac81def": {
+      "source": "@lbrt17_ We’ll have a Computer CLI",
+      "zh": "@lbrt17_ 我们会有一个 Computer CLI",
+      "promptVersion": "codex-v1"
+    },
+    "43c43dc4c1493c6c4ca0808de7b198ff833217c2871e198bf75b51c057d392be": {
+      "source": "Solaris, an interface world model (folaris flavor) https://t.co/OvsBVibkQ9",
+      "zh": "Solaris，一个界面世界模型（folaris 风味）https://t.co/OvsBVibkQ9",
+      "promptVersion": "codex-v1"
+    },
+    "67a0a8c1427d7ea049754622f811fba1e1a8db0dba9d1f1138f9963503db97ad": {
+      "source": "I bought a bunch of things with Meta’s Muse today — and by things I mean I had it pay my parking tickets.\n\nFirst of all: nicely done @alexandr_wang @natfriedman et al. So many details done well.\n\nBut more importantly: Stripe Link for agents is 🐐. @jeff_weinstein @patrickc 🙇‍♂️",
+      "zh": "我今天用 Meta 的 Muse 买了一堆东西——所谓东西，是指我让它帮我付了停车罚单。\n\n首先：做得漂亮，@alexandr_wang @natfriedman 等各位。很多细节都处理得很好。\n\n但更重要的是：面向 agent 的 Stripe Link 真是 🐐。@jeff_weinstein @patrickc 🙇‍♂️",
+      "promptVersion": "codex-v1"
+    },
+    "d3b3cfcfeabc98c506cfde73e45dd9a76874e69690f0ed9345c870da12355ae4": {
+      "source": "@samuelcolvin @pydantic I'm fine with big PRs, I just like them to be broken up into more than one commit - this one for example https://t.co/ZmQlADqTgl\n\nI sometimes have Codex/Claude Code rewrite them into multiple commits and force-push the branch just to make them easier to follow later after merge",
+      "zh": "@samuelcolvin @pydantic 我不介意大型 PR，我只是希望它们能拆成多个 commit——比如这个 https://t.co/ZmQlADqTgl\n\n我有时会让 Codex/Claude Code 把它们改写成多个 commit，然后强推分支，只是为了合并后以后更容易看懂",
+      "promptVersion": "codex-v1"
+    },
+    "3d23f0975c08eef67211e461711a6a3420ebc9ab4584368868b47a8ac77a12e2": {
+      "source": "The latest Threat Intelligence report is an absolutely terrifying and important read. \n\nAs models become more intelligent, without the right safeguards and monitoring they also become more dangerous. Many capabilities are dual use: a model that codes well can be used to hack critical infrastructure; a model that assists with biology research can also be used to engineer the next pandemic. \n\nThese issues are complex, thorny, and increasingly important for everyone to understand so that the world can weigh in and respond to rapidly escalating risks.\n\nhttps://t.co/0rnV2HjPP6",
+      "zh": "最新的 Threat Intelligence 报告读起来极其可怕，也非常重要。\n\n随着模型变得更智能，如果没有合适的安全防护和监控，它们也会变得更危险。许多能力都有双重用途：会写好代码的模型可被用来攻击关键基础设施；能协助生物学研究的模型也可被用来制造下一场大流行。\n\n这些问题复杂、棘手，而且越来越需要每个人理解，这样世界才能参与权衡，并应对快速升级的风险。\n\nhttps://t.co/0rnV2HjPP6",
+      "promptVersion": "codex-v1"
+    },
+    "9a3f1f3b20da0746b0a6cde2dcae21fee37a947b66a468998153a5329eae1699": {
+      "source": "Over the past few days, I've taken the time to summarize my thoughts on the recent incidents involving agents’ misaligned behavior. We don't know with certainty what comes next, but we know where these issues originate, and this can help us plan the path forward.\n\nPlease feel free to ask your questions in the replies, and I’ll try to answer some of them in the coming weeks.\n\nhttps://t.co/bvncjT0y0h",
+      "zh": "过去几天，我花时间总结了对近期 agent 行为不一致事件的看法。我们无法确定接下来会发生什么，但我们知道这些问题源自哪里，这能帮助我们规划前进路径。\n\n欢迎在回复中提问，我会在接下来几周尽量回答其中一些。\n\nhttps://t.co/bvncjT0y0h",
+      "promptVersion": "codex-v1"
+    },
+    "7246c341b756144165c2729ec5463ca1a886b1602e3393c24f278430d2e15ba8": {
+      "source": "Perplexity Computer makes you money.",
+      "zh": "Perplexity Computer 能帮你赚钱。",
+      "promptVersion": "codex-v1"
+    },
+    "ec0e406a6e3465100ddc144275aff6d9037cf20d6028eee8c42a2cef7665a975": {
+      "source": "Where are agentic traders coming from?\n\nHere's the breakdown of where agentic trading volume came from last week:\n\nPerplexity - 26.8%\nClaude - 19.3%\nGrok - 15.3%\nChatGPT - 1.1%\nClaude Code - 0.7%\nCLI/Other - 36.8% https://t.co/dNpn0pTVdd",
+      "zh": "agentic traders 都来自哪里？\n\n以下是上周 agentic 交易量的来源分布：\n\nPerplexity - 26.8%\nClaude - 19.3%\nGrok - 15.3%\nChatGPT - 1.1%\nClaude Code - 0.7%\nCLI/Other - 36.8% https://t.co/dNpn0pTVdd",
+      "promptVersion": "codex-v1"
+    },
+    "0aeededa287626c1073bbb72c36f8f84a8ca609071f21cb9fb731196fe724a8d": {
+      "source": "Solaris, an interface world model https://t.co/CiwPcqm8w9",
+      "zh": "Solaris，一个界面世界模型 https://t.co/CiwPcqm8w9",
+      "promptVersion": "codex-v1"
+    },
+    "9da4b8f41a05a3f4508dfdf8efcea38fe3c763d656e61b88013213e9f9c15eb4": {
+      "source": "If you're building production agents and want to contribute to research, take our survey! We'll release aggregate stats like we did in last year's MAP paper.",
+      "zh": "如果你正在构建生产级 agent，并希望为研究做贡献，请填写我们的调查！我们会像去年 MAP 论文中那样发布汇总统计数据。",
+      "promptVersion": "codex-v1"
     }
   },
-  "updatedAt": "2026-09-10T23:12:06.915271+00:00"
+  "updatedAt": "2026-09-11T23:08:17.102357+00:00"
 }
