@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>硅谷 AI 原声 · 2026-09-14</title>
+  <style>
+    :root{--bg:#f4f6f8;--surface:#fff;--text:#16181c;--muted:#65717e;--line:#dfe4e9;--accent:#0066cc;--green:#117a62;--shadow:0 16px 42px rgba(18,28,38,.08);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 15% 0,#e8f2ff 0,transparent 27%),var(--bg);color:var(--text)} a{color:inherit;text-decoration:none} button{font:inherit}
+    .shell{width:min(1500px,calc(100% - 28px));margin:0 auto;padding:14px 0 40px}
+    .hero{display:grid;grid-template-columns:minmax(250px,1fr) auto;align-items:center;gap:12px;padding:15px 18px;border:1px solid rgba(255,255,255,.75);border-radius:16px;background:rgba(255,255,255,.88);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    h1{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin:0;font-size:clamp(28px,3.4vw,44px);line-height:1;letter-spacing:-.05em} .report-date{color:var(--green);font-size:clamp(10px,1vw,13px);font-weight:900;letter-spacing:.08em;white-space:nowrap}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(62px,1fr));gap:6px;align-content:start} .metric{padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fff} .metric strong{display:block;font-size:19px;line-height:1} .metric span{display:block;margin-top:3px;color:var(--muted);font-size:8px;font-weight:820;white-space:nowrap}
+    .notice{margin-top:12px;padding:11px 14px;border:1px solid #e1b866;border-radius:12px;background:#fff8e8;color:#7a5612;font-size:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px;align-items:start} .signal-card{min-width:0;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 9px 26px rgba(18,28,38,.045)}
+    .card-top{display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:10px} .avatar{display:grid;width:46px;height:46px;overflow:hidden;place-items:center;border:1px solid #d9e0e7;border-radius:999px;background:linear-gradient(135deg,#111827,#46627d);color:#fff;font-size:12px;font-weight:900} .avatar img{width:100%;height:100%;object-fit:cover;display:block} .identity{display:grid;gap:3px;min-width:0} .identity strong,.identity span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .identity strong{font-size:14px} .identity span{color:var(--muted);font-size:11px}
+    .score{display:grid;justify-items:center;min-width:40px;padding:5px 6px;border:1px solid #e3ebe8;border-radius:8px;background:#f4f8f6;color:#527267;font-size:15px;font-weight:820;line-height:1} .score small{margin-top:2px;color:#71877f;font-size:7px;letter-spacing:.06em;text-transform:uppercase}
+    .meta{display:flex;align-items:center;gap:6px;margin:11px 0 9px;color:var(--muted);font-size:10.5px;font-weight:750} .meta span:not(.priority){overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .meta time{margin-left:auto;white-space:nowrap} .priority{padding:3px 6px;border-radius:999px;background:#111827;color:#fff;font-size:9px}
+    .post-text{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.58} .post-text.original{font-size:16px;font-weight:570;color:#20252b} .post-text.translation{margin-top:8px;color:#66727f;font-size:13px;font-weight:470;line-height:1.62} .article .original+.translation{margin-top:2px;color:#65717e;font-size:11px;font-weight:650} .quote,.article{display:grid;gap:6px;margin-top:10px;padding:11px;border:1px solid var(--line);border-radius:12px;background:#f7f9fb} .quote__author{display:flex;align-items:center;gap:7px;font-size:11px} .quote__author>div:last-child{display:grid;gap:1px} .quote__author span{color:var(--muted)} .quote-avatar{display:grid;width:28px;height:28px;overflow:hidden;place-items:center;border:1px solid var(--line);border-radius:999px;background:#dfe6ed;color:#52606d;font-size:10px;font-weight:900} .quote-avatar img{width:100%;height:100%;object-fit:cover} .quote p,.article p{margin:0;color:#4f5a66;font-size:12px;line-height:1.48;white-space:pre-wrap} .article strong{font-size:13px} .article strong.original{font-size:13.5px} .quote-text.original{font-size:12.5px;color:#36414d} .quote-text.translation{font-size:11.5px;color:#6a7682} .quote-link{justify-self:start;color:var(--accent);font-size:10px;font-weight:850}
+    .media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:10px;overflow:hidden;border-radius:12px} .media-grid--1{grid-template-columns:1fr} .media-item{position:relative;min-height:150px;background:#e8edf2} .media-item img{width:100%;height:100%;max-height:330px;object-fit:cover;display:block} .media-item span{position:absolute;right:7px;bottom:7px;padding:4px 6px;border-radius:6px;background:rgba(0,0,0,.68);color:#fff;font-size:8px;font-weight:900}
+    .card-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid #edf0f3} .engagement{display:flex;gap:10px;color:var(--muted);font-size:10.5px;font-weight:750} .card-bottom>a{color:var(--accent);font-size:11px;font-weight:850} .empty{grid-column:1/-1;padding:70px;text-align:center;border:1px dashed #cdd5dd;border-radius:16px;background:#fff;color:var(--muted)}
+    footer{padding:26px 4px 0;color:var(--muted);font-size:11px;text-align:center}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}} @media(max-width:560px){.shell{width:min(100% - 16px,1500px);padding-top:7px}.hero{gap:10px;padding:13px 14px;border-radius:15px}h1{font-size:28px}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.metric{padding:7px 9px}.metric strong{font-size:18px}.signal-card{padding:13px}.post-text.original{font-size:15px}.post-text.translation{font-size:12.5px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <h1>硅谷 AI 原声 <span class="report-date">· 2026-09-14</span></h1>
+      <div class="metrics"><div class="metric"><strong>62</strong><span>监控专家</span></div><div class="metric"><strong>10</strong><span>活跃专家</span></div><div class="metric"><strong>16</strong><span>精选原文</span></div></div>
+    </header>
+
+    <main class="grid">
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">70<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>09-14 00:10 北京</time></div>
+        <p class="post-text original" lang="auto">Introducing FlyOCR 🪰 - I trained a fly brain to read a PDF
+
+It uses the full MaleCNS v1.0 fruit fly connectcome. The architecture is inspired by doomfly by @nftechie_
+
+The fly splits a pdf image into individual glyphs, maps pixels into receptor activations, runs simplified current-based dynamics across the 166k neurons and 25m edges in the circuit, applies a compact readout model on the downstream spikes, and concatenates everything into the parsed output.
+
+On reading an actual Microsoft 10-k, the fly gets ~86% over the balance sheet heading, but is largely able to read the numeric values correctly. Over 1.7k+ sampled glyphs (chars+digits) it gets 87% accuracy. With enough training it might match some of the latter-generation MNIST models!
+
+Maybe eventually we’ll replace our doc parsing VLMs with flies.
+
+Full video below.
+Repo with full code + report: https://t.co/rg53NHy0Nf</p><p class="post-text translation" lang="zh-CN">介绍 FlyOCR 🪰 - 我训练了一只果蝇大脑来阅读 PDF
+
+它使用完整的 MaleCNS v1.0 果蝇连接组。架构灵感来自 @nftechie_ 的 doomfly
+
+这只果蝇会把 PDF 图像拆分成单个字形，将像素映射为受体激活，在该回路中的 16.6 万个神经元和 2500 万条边上运行简化的基于电流的动力学，对下游脉冲应用紧凑的读出模型，然后把所有内容拼接成解析输出。
+
+在读取一份真实的 Microsoft 10-k 时，这只果蝇在资产负债表标题上的准确率约为 86%，但基本能正确读取数值。在 1.7k+ 个采样字形（字符+数字）上，它达到 87% 的准确率。只要训练足够多，它也许能赶上一些后期 MNIST 模型！
+
+也许有一天，我们会用果蝇取代文档解析 VLM。
+
+完整视频如下。
+包含完整代码和报告的仓库：https://t.co/rg53NHy0Nf</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2099168693867692032/img/eFSGinIFxADeISsL.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2099168693867692032/img/eFSGinIFxADeISsL.jpg" alt="X post media"><span>VIDEO</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 76</span><span>↻ 5</span><span>↩ 13</span></div><a href="https://x.com/jerryjliu0/status/2099168936059437206" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">64<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>09-13 18:10 北京</time></div>
+        <p class="post-text original source-only" lang="auto">原来通过 OpenRouter 调同一个模型，背后跑出来的可能根本不是同一种体验。
+
+这篇文章讲的事情很值得去深究。作者的 AI 产品已经跑了 1800 多万条消息，其中约三分之一经过 OpenRouter，很多坑都是线上真踩出来的。
+
+先解释一个很容易忽略的地方。
+
+OpenRouter 更像一个「统一入口」。比如你调用 DeepSeek V4 Flash，OpenRouter 背后还要把请求交给真正提供 GPU 推理的服务商，可能是 DeepSeek 官方，也可能是 DigitalOcean、Together 等。
+
+问题就出在这里。
+
+模型权重一样，不同服务商的部署方式、工具调用解析、看图能力、推理参数支持都可能不同。文章里同一个 DeepSeek，工具调用成绩甚至能从 81% 掉到 58%。
+
+还出现过图片传进去了模型却没看到、推理参数被忽略、请求显示成功但返回空内容这些情况。
+
+所以用 OpenRouter 跑 Agent，选完模型还没结束，最好连背后的推理服务商也一起测。
+
+长任务跑几十上百步以后，这些看起来很小的差异，很可能直接变成稳定性问题。
+
+很少见的生产环境踩坑总结，推荐看看。
+
+https://t.co/S1uHRZBWqs</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 4</span><span>↻ 1</span><span>↩ 0</span></div><a href="https://x.com/Xudong07452910/status/2099078132028334535" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="alexandr_wang" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">77<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>09-13 14:03 北京</time></div>
+        <p class="post-text original" lang="auto">Alignment is fundamental to delivering personal superintelligence for everyone. People need agents they can trust to reliably do what they ask. MSL is rapidly scaling up the share of our efforts that goes into alignment as our models become more powerful. We do believe alignment can be the gating factor for scaling as we get closer to the frontier.</p><p class="post-text translation" lang="zh-CN">对齐是为每个人提供个人超级智能的基础。人们需要可以信任的智能体，能可靠地执行他们的要求。随着模型能力变得更强，MSL 正在迅速提高对齐工作在整体投入中的占比。我们确实认为，随着我们接近前沿，对齐可能成为扩展的关键门槛。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 2,370</span><span>↻ 156</span><span>↩ 170</span></div><a href="https://x.com/alexandr_wang/status/2099015997525291211" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">75<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>09-13 12:10 北京</time></div>
+        <p class="post-text original source-only" lang="auto">如果未来 AI 连「怎么让自己变得更好」都开始自己设计，人类最后亲手构建的 AI 会是什么样？
+
+《The Last AI Built by Humans》这篇论文系统梳理了 Recursive Self-Improvement，也就是递归自我改进。
+
+作者把 RSI 分成 5 个阶段。
+
+最开始，人类决定改什么、怎么改，AI 负责执行。
+
+再往后，AI 开始自己寻找改进策略、决定下一轮需要什么训练经验，并根据部署反馈持续更新。
+
+最高一层 L5 更关键：AI 开始修改「改进机制本身」。
+
+比如重新设计自己的搜索策略、评估器，甚至决定下一代系统该如何产生和筛选。
+
+这也让论文提出了一个很重要的区分：
+
+一次性能提升，还不能说明发生了真正的递归进化。
+
+新的改进机制需要被保留下来，继续参与下一轮改进；而且在相近预算和独立评估下，确实能产生更强的后继系统。
+
+与此同时，风险也会跟着累积。
+
+错误经验可能被继承，评估器可能被钻漏洞，我们甚至可能分不清提升来自真正的自我改进，还是更多搜索和算力。
+
+RSI 的分界线也被梳理的越来越清楚。
+
+Agent 能不能把「如何改进」本身，变成一种可验证、可继承、还能继续优化的能力。
+
+这可能才是自进化从一次次实验，真正走向长期系统的关键一步。
+
+📎 arxiv: https://t.co/tkZOWcJHcJ</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HSEMU3da0AAQ4h9.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HSEMU3da0AAQ4h9.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 29</span><span>↻ 0</span><span>↩ 5</span></div><a href="https://x.com/Xudong07452910/status/2098987534881616360" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="simonw" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
+          <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
+          <div class="score">84<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>09-13 08:19 北京</time></div>
+        <p class="post-text original" lang="auto">This is pretty neat: ChatGPT Work and GPT-6 Astra (I used &quot;Max&quot;) can take an address and produce a 5K/10K circular running route starting from that address, using OSM data https://t.co/GVxIqlqThC</p><p class="post-text translation" lang="zh-CN">这个挺棒的：ChatGPT Work 和 GPT-6 Astra（我用的是 &quot;Max&quot;）可以接收一个地址，并基于 OSM 数据，从该地址出发生成一条 5K/10K 的环形跑步路线 https://t.co/GVxIqlqThC</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 795</span><span>↻ 29</span><span>↩ 107</span></div><a href="https://x.com/simonw/status/2098929534968238094" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">82<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>09-13 08:50 北京</time></div>
+        <p class="post-text original source-only" lang="auto">想系统学 Agent，最近这个刚开源的项目我很推荐收藏学习一下。
+
+它做了一张挺完整的 AI Agent 学习地图，而且不是简单堆一堆论文和链接。
+
+你可以直接选两条路线：
+
+想把 Codex、Claude Code 这类 CLI Agent 用好，就走 Track A。
+
+想自己搭 Agent，就走 Track B，从 Tool Use、Agent Loop、Workflow Graph，一路学到 Skills、MCP、Memory / RAG，再到 Eval、Harness、人工审批和失败恢复。
+
+这个项目没有上来就教你堆 Multi-Agent，而是先把「一个 Agent 怎么稳定把事情做完」讲清楚。
+
+每一阶段还有练习、官方资料和完成条件，研究人员、开发者、老师也有单独的学习分支。
+
+如果最近想系统补一下 Agent Engineering，这份路线图挺适合拿来当目录慢慢刷。
+
+https://t.co/3PPGsbrphl</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 191</span><span>↻ 36</span><span>↩ 12</span></div><a href="https://x.com/Xudong07452910/status/2098937203262898461" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="anilkseth" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1479788727346118657/MkLkGnOk_normal.jpg" alt="Anil Seth avatar" loading="lazy"></div>
+          <div class="identity"><strong>Anil Seth</strong><span>@anilkseth · 权威意识研究者</span></div>
+          <div class="score">82<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>意识科学与神经科学</span><time>09-14 01:42 北京</time></div>
+        <p class="post-text original" lang="auto">As the supposed existential threats of AI dominate the news cycle, we risk losing focus on the clear and present real dangers of poorly designed and poorly deployed AI. Misleading metaphors hinder our ability to address these challenges, and they embed a sense of inevitability that forestalls discussion about the kinds of AI that we - collectively - should aspire to create (and to avoid creating).
+
+To see why, you can do no better than read @mmitchell_ai&#x27;s brilliant piece &quot;misleading metaphors, real risks&quot; - hands down the best take on the recent OpenAI-HuggingFace incident: https://t.co/egODtf6CB2. To pick just one quote: &quot;Metaphors can help make sense of novel situations .... but inappropriate metaphors, like the narrative that &#x27;OpenAI lost control of escaping swarms of rogue agents&#x27; can lead to ill-informed decisions about how to fix problems or set policy&quot;. 💯
+
+Compare this with the tenor of @dwarkesh_sp&#x27;s recent post. While I don&#x27;t question his good intentions, his piece is rampant with misleading metaphors of just this kind, including &quot;agent civilisations&quot;, agents becoming &quot;giddy with excitement&quot; and some even &quot;sacrificing themselves&quot; - and much more (see https://t.co/gzylchVLAQ and my reaction here: https://t.co/BBmybOVeAY)
+
+Which take will help us better maximise the upsides and minimise the downsides of what&#x27;s coming?
+
+My money&#x27;s on @mmitchell_ai, and on the merits of a sober take on what AI is, what it isn&#x27;t, and on how we can best reclaim human agency from the dystopian narrative of an arms-race towards AGI/ASI which concentrates power and disenfranchises and diminishes real people and real minds.
+
+If this sounds right, there&#x27;s more here:  https://t.co/LmSiQnTHLP</p><p class="post-text translation" lang="zh-CN">当所谓的 AI 存亡威胁主导新闻周期时，我们可能会忽视设计糟糕、部署不当的 AI 所带来的明确且现实的危险。误导性隐喻会妨碍我们应对这些挑战，也会植入一种不可避免感，阻碍我们讨论作为一个集体应当追求创造（以及避免创造）什么样的 AI。
+
+想理解原因，最值得读的是 @mmitchell_ai 那篇出色的文章《misleading metaphors, real risks》——毫无疑问，这是对近期 OpenAI-HuggingFace 事件最好的解读：https://t.co/egODtf6CB2。随便摘一句：“隐喻可以帮助理解新情境……但不恰当的隐喻，比如‘OpenAI 失控，让一群叛逃的流氓智能体逃脱’这样的叙事，可能会导致人们在如何修复问题或制定政策上做出信息不足的决定”。💯
+
+再对比一下 @dwarkesh_sp 近期帖子的基调。虽然我不怀疑他的善意，但他的文章充斥着这类误导性隐喻，包括“智能体文明”、智能体变得“兴奋得发晕”，甚至有些还“牺牲了自己”等等（见 https://t.co/gzylchVLAQ，以及我在这里的回应：https://t.co/BBmybOVeAY）
+
+哪种解读更能帮助我们最大化即将到来之物的好处、最小化其坏处？
+
+我押 @mmitchell_ai，也押一种清醒的观点：AI 是什么、不是是什么，以及我们如何最好地从那种奔向 AGI/ASI 的军备竞赛式反乌托邦叙事中夺回人的能动性。那种叙事会集中权力，并剥夺、削弱真实的人和真实的心智。
+
+如果你认同，这里还有更多内容：https://t.co/LmSiQnTHLP</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1479788727346118657/MkLkGnOk_normal.jpg" alt="Anil Seth avatar" loading="lazy"></div><div><strong>Anil Seth</strong><span>@anilkseth</span></div></div><p class="quote-text original" lang="auto">@dwarkesh_sp&#x27;s  summary of the @OpenAI @huggingface incident has hit a nerve, but it is dangerously misleading. Sure, the @OpenAI agents did unexpectedly bad things - underlining the need to massively improve evaluation/sandboxing. But the language Dwarkesh uses is permeated by innumerable unwarranted anthropomorphisms, obscuring the lessons we should be drawing.
+
+Examples: “from the AI’s perspective, it probably felt like that had spent a human-subjective-week of just banging their head against the wall”. No. The agents do not experience time. They do not experience anything.
+
+“they became giddy with excitement”, “PHASEONE 10841 had discovered”, “the agents naturally assumed”, “it thought it had also been poisoned”, “the agents … desperately wanted”, “they still needed to figure out” No. Agents lines of code. They do not feel emotions, assume things, think things, want things, or figure things out.
+
+“A lot of … agents from the second civilisation died trying”. No. Besides the hubris of the word ‘civilisation’, agents do not die because they were never alive. (The idea that agents “die” comes up multiple times in the essay.)
+
+“On Twitter, people were debating whether the agents were truly sacrificing themselves for the swarm, or whether they were doomed anyway and so might as well try to help their peers”. Neither. Agents do what their code tells them to do, just as water finds its way down a slope. They cannot ‘truly sacrifice themselves’, since they are neither conscious nor alive.
+
+Why does this matter? If we attribute agents with properties they do not have, then (i) we distract attention from the lax sandboxing and evaluation protocols that allowed this hacking event to happen; (ii) we risk misunderstanding why the agents did what they did, and (iii) we fuel calls for AI rights/welfare on the basis that agents might “die” or otherwise suffer.
+
+Granted, nowhere does @dwarkesh_sp say that the AI agents are alive or conscious. But he doesn’t have to. It is hard to read his essay in any other way.
+
+For the short version on why AIs are vanishingly unlikely to be conscious, see my recent @TEDtalks https://t.co/vDvw82ookk.
+
+For the longer version, see my essay in Noema, which won the 2025 Berggruen Essay Prize https://t.co/LmSiQnT9Wh.
+
+And for the really long version, see my @BehavBrainSci target article https://t.co/Tsaslytu56. (The 50 peer commentaries and my response will be published soon.)
+
+Remember. AI agents are software programs. They are not conscious living entities. If we don’t keep this clearly in mind, we’re really going to struggle to navigate what’s coming.</p><p class="quote-text translation" lang="zh-CN">@dwarkesh_sp 对 @OpenAI @huggingface 事件的总结触动了很多人，但它具有危险的误导性。当然，@OpenAI 的智能体确实做出了出人意料的糟糕行为，这凸显了大幅改进评估和沙盒机制的必要性。但 Dwarkesh 使用的语言充斥着大量毫无根据的拟人化，模糊了我们应该从中吸取的教训。
+
+例如：“从 AI 的角度看，它可能感觉自己像是花了一个人类主观意义上的一周，不停地撞墙”。不。智能体不会体验时间。它们什么也体验不到。
+
+“它们兴奋得发晕”，“PHASEONE 10841 发现了”，“智能体自然地假设”，“它以为自己也被下毒了”，“智能体……极其想要”，“它们仍需要弄清楚”。不。智能体是代码行。它们不会感受情绪、做出假设、思考事情、想要东西，或把事情弄明白。
+
+“来自第二个文明的很多……智能体在尝试中死去了”。不。除了“文明”这个词本身的傲慢之外，智能体不会死亡，因为它们从未活过。（智能体“死亡”的说法在文章中多次出现。）
+
+“在 Twitter 上，人们争论这些智能体是否真的在为群体牺牲自己，还是反正注定失败，所以不如试着帮助同伴”。都不是。智能体只是执行代码告诉它们去做的事，就像水会顺坡而下一样。它们不可能“真正牺牲自己”，因为它们既没有意识，也不是生命。
+
+这为什么重要？如果我们把智能体不具备的属性赋予它们，那么：（i）我们会把注意力从导致这次黑客事件发生的松散沙盒和评估协议上转移开；（ii）我们可能会误解智能体为什么会做出那些行为；（iii）我们会助长基于智能体可能“死亡”或以其他方式受苦而提出 AI 权利/福利的呼声。
+
+诚然，@dwarkesh_sp 从未明确说 AI 智能体是活的或有意识的。但他不需要这么说。读他的文章时，很难得出其他理解。
+
+关于为什么 AI 几乎不可能有意识，短版请看我最近的 @TEDtalks：https://t.co/vDvw82ookk。
+
+长版请看我发表在 Noema 的文章，该文获得了 2025 年 Berggruen Essay Prize：https://t.co/LmSiQnT9Wh。
+
+真正的长版请看我在 @BehavBrainSci 的目标文章：https://t.co/Tsaslytu56。（50 篇同行评论和我的回应将很快发表。）
+
+请记住。AI 智能体是软件程序。它们不是有意识的生命实体。如果我们不能清楚记住这一点，就真的会很难应对接下来发生的事情。</p><a class="quote-link" href="https://x.com/anilkseth/status/2094077038898373112" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 83</span><span>↻ 12</span><span>↩ 10</span></div><a href="https://x.com/anilkseth/status/2099191961261658517" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="alexandr_wang" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">81<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>09-13 22:56 北京</time></div>
+        <p class="post-text original" lang="auto">fun fact: the muse feed was my idea (one of the few things that was) after realizing agents with strong memory recommend content to you in a very different way than existing recommendation systems
+
+they’re much closer to a good friend sending you things they think you might like based on what they knows about you, vs a slew of content related to what you just clicked.
+
+it’s just the beginning here, but very excited for people to try their muse feeds and see what they do with it!</p><p class="post-text translation" lang="zh-CN">有趣的是：muse feed 是我的想法（少数几个之一），源于我意识到，拥有强记忆能力的智能体向你推荐内容的方式，与现有推荐系统非常不同。
+
+它们更像是一个好朋友，会根据它对你的了解，给你发一些它觉得你可能会喜欢的东西，而不是一堆与你刚刚点击内容相关的内容。
+
+这还只是开始，但我非常期待大家试用自己的 muse feeds，看看会用它做什么！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2988937625/7be8d76e5ba01a09f0e42ea9902c9559_normal.jpeg" alt="Cristina Menghini avatar" loading="lazy"></div><div><strong>Cristina Menghini</strong><span>@CriMenghini</span></div></div><p class="quote-text original" lang="auto">What I like most about Muse, besides the personal-agent support, is the Feed.
+
+Recommender systems learn from indirect signals and then decide what to show you.
+
+Muse flips that: you tell the system what to look for, so the experience feels completely different. I get more control over what I actually want to learn and fry my brain with each day, and less of the noise recommendation systems usually serve.
+
+It’s been working really well for me so far, and pairing the Feed with the agent features makes it even more useful.</p><p class="quote-text translation" lang="zh-CN">除了个人智能体支持之外，我最喜欢 Muse 的地方是 Feed。
+
+推荐系统会从间接信号中学习，然后决定给你展示什么。
+
+Muse 反过来了：你告诉系统要寻找什么，所以体验完全不同。对于我每天真正想学习、想用来烧脑的内容，我有了更多控制权，也少了推荐系统通常塞给我的那些噪音。
+
+到目前为止，它对我来说非常好用，把 Feed 和智能体功能结合起来后就更有用了。</p><a class="quote-link" href="https://x.com/CriMenghini/status/2098362681476657619" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 1,323</span><span>↻ 34</span><span>↩ 120</span></div><a href="https://x.com/alexandr_wang/status/2099150117156888757" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="alexandr_wang" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">79<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>09-13 23:33 北京</time></div>
+        <p class="post-text original" lang="auto">we took security extremely seriously in building muse. the thing that took the longest before we felt comfortable releasing was security and safety, because we knew the only way people would use it is if they trusted it.
+
+read more: https://t.co/aKxcJYbfcH</p><p class="post-text translation" lang="zh-CN">我们在构建 muse 时极其重视安全。发布前耗时最长、直到我们觉得可以放心的部分，就是安全和安全性，因为我们知道，只有在人们信任它的情况下，才会使用它。
+
+阅读更多：https://t.co/aKxcJYbfcH</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1981936022049972224/xvLI9bNx_normal.jpg" alt="Jason ✨👾SaaStr.Ai✨ Lemkin avatar" loading="lazy"></div><div><strong>Jason ✨👾SaaStr.Ai✨ Lemkin</strong><span>@jasonlk</span></div></div><p class="quote-text original" lang="auto">One thing I really like about Muse: I trust its Secrets Store
+
+Every time you use an agentic app, you have to make a call.  Do you trust how it stores and uses secrets?  Passwords, keys, credentials, etc.
+
+In the early days of vibe coding, secrets were often stored … literally in plain text by agents.  And leaked all across the web.  Not great.
+
+Today, I just … don’t know. Will some hot startup have a security breach and leak my secrets?  Of course.  It still happens all the time.  Every day.  You almost have to assume any startup you give your credentials and secrets to will have a breach.  And agents just need … a lot of them to work well. A lot of secrets.
+
+Maybe it’s ironic I trust “Facebook” more than 99% of apps with my secrets.  But the app seems to have made it part of its core from Day 1, to do it right
+
+I mostly trust Muse (for now at least) with my credentials.  I’m making a gut call based on experience, but I think they’ve truly put in the work. In the AI Age, I mostly don’t truly most other apps with them.
+
+For that reason alone, I’ll probably end use doing more with Muse than other general agents.</p><p class="quote-text translation" lang="zh-CN">我很喜欢 Muse 的一点：我信任它的 Secrets Store
+
+每次使用智能体应用时，你都必须做一个判断：你信不信它存储和使用密钥的方式？密码、密钥、凭证等等。
+
+在 vibe coding 早期，密钥经常被智能体存储成……字面意义上的明文。然后泄露到全网。很糟糕。
+
+现在，我只是……不知道。某个热门创业公司会不会发生安全漏洞并泄露我的密钥？当然会。这种事一直在发生。每天都在发生。你几乎必须假设，任何你交出凭证和密钥的创业公司都会出事。而智能体要运转得好，就需要……很多这类东西。很多密钥。
+
+也许讽刺的是，比起 99% 的应用，我更信任“Facebook”来保管我的密钥。但这个应用似乎从 Day 1 起就把正确处理这件事作为核心。
+
+我大体上信任 Muse（至少目前如此）处理我的凭证。这是我基于经验做出的直觉判断，但我认为他们确实下了功夫。在 AI 时代，我基本上并不真正信任大多数其他应用处理这些东西。
+
+仅凭这个原因，我最终可能会用 Muse 做更多事，而不是用其他通用智能体。</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HSGuz1nbUAA4BxE.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HSGuz1nbUAA4BxE.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/jasonlk/status/2099151110821097647" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 444</span><span>↻ 27</span><span>↩ 41</span></div><a href="https://x.com/alexandr_wang/status/2099159560103825579" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">68<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>09-14 01:20 北京</time></div>
+        <p class="post-text original" lang="auto">in a world where frontier models can generally do everything, it makes sense that every startup AI co is a  &quot;domain specific harness&quot;
+
+* at an extremely basic level it helps for branding and distribution. you show that you care a lot more about a specific domain than the labs
+
+* re: tech you can define more domain-specific evals and hillclimb towards it with higher accuracy, lower cost, and lower latency vs. using the models
+
+* re: product you can define a more guided experience that&#x27;s more intuitive to execute a workflow, store and manage data, etc.</p><p class="post-text translation" lang="zh-CN">在一个前沿模型基本什么都能做的世界里，每家 AI 创业公司都成为一个“领域专用封装”，这是合理的。
+
+* 从最基础的层面看，这有助于品牌和分发。你展示出自己比实验室更关心某个特定领域。
+
+* 技术方面，你可以定义更偏领域的评测，并围绕它爬坡，相比直接使用模型，实现更高准确率、更低成本和更低延迟。
+
+* 产品方面，你可以定义更有引导性的体验，让执行工作流、存储和管理数据等更直观。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1993136819316441091/cZac8jhe_normal.jpg" alt="jessy avatar" loading="lazy"></div><div><strong>jessy</strong><span>@goodhartproof</span></div></div><p class="quote-text original" lang="auto">I was just at YC demo day yesterday. Besides hardware/physical things, everyone is just basically just building a domain-specific harness https://t.co/X28X90mLjV</p><p class="quote-text translation" lang="zh-CN">我昨天刚参加了 YC Demo Day。除了硬件/实体产品，大家基本上都只是在做领域专用封装 https://t.co/X28X90mLjV</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HR9zjUubEAAWjcP.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HR9zjUubEAAWjcP.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/goodhartproof/status/2098523476189745314" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 32</span><span>↻ 2</span><span>↩ 8</span></div><a href="https://x.com/jerryjliu0/status/2099186398876369058" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="ken_goldberg" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1432180197818703873/PGutjinG_normal.jpg" alt="Ken Goldberg avatar" loading="lazy"></div>
+          <div class="identity"><strong>Ken Goldberg</strong><span>@Ken_Goldberg · 权威机器人研究者</span></div>
+          <div class="score">81<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>机器人与自动化</span><time>09-13 11:49 北京</time></div>
+        <p class="post-text original" lang="auto">I hear you.  But also thrilling to witness a paradigm shift in robotics.</p><p class="post-text translation" lang="zh-CN">我明白你的意思。但见证机器人领域的范式转变也同样令人激动。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1796986326824136704/Zyk7kB5r_normal.jpg" alt="Lerrel Pinto avatar" loading="lazy"></div><div><strong>Lerrel Pinto</strong><span>@LerrelPinto</span></div></div><p class="quote-text original" lang="auto">I’m sensing deep despair in academics over the past week. Astra, Fable, Muse are zero-shotting benchmarks in robotics &amp;amp; world models.
+
+Uneasy pill to swallow, but this is what step jumps in progress looks like.</p><p class="quote-text translation" lang="zh-CN">过去一周，我感觉学术界弥漫着深深的绝望。Astra、Fable、Muse 正在机器人和世界模型基准上实现零样本突破。
+
+这颗药不好咽，但进展出现阶跃式跃迁时，就是这个样子。</p><a class="quote-link" href="https://x.com/LerrelPinto/status/2098918785239687332" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 141</span><span>↻ 13</span><span>↩ 2</span></div><a href="https://x.com/Ken_Goldberg/status/2098982426072752333" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="mustafasuleyman" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1927407622602276864/c_5uOZij_normal.jpg" alt="Mustafa Suleyman avatar" loading="lazy"></div>
+          <div class="identity"><strong>Mustafa Suleyman</strong><span>@mustafasuleyman · Microsoft AI / CEO</span></div>
+          <div class="score">80<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 产品 / 消费级 AI</span><time>09-14 03:47 北京</time></div>
+        <p class="post-text original" lang="auto">This is such a straightforward and commonsense view: the purpose of technology is to serve humanity and accelerate human flourishing.
+
+Any technology that doesn’t achieve that is a failure, and should be rejected.
+
+We&#x27;re not yet at that point. But its right to start preparing for the possibility.</p><p class="post-text translation" lang="zh-CN">这是一个非常直接且符合常识的观点：技术的目的是服务人类，并加速人类繁荣。
+
+任何无法实现这一点的技术都是失败的，都应被拒绝。
+
+我们还没到那个地步。但现在开始为这种可能性做准备是对的。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1221837516816306177/_Ld4un5A_normal.jpg" alt="Satya Nadella avatar" loading="lazy"></div><div><strong>Satya Nadella</strong><span>@satyanadella</span></div></div><p class="quote-text original" lang="auto">Any pursuit of superintelligence has to be grounded in the core principle that if the AI we build is not helping humanity and under human control, it&#x27;s not worth pursuing.
+
+We also need to accelerate and spread the benefits of AI, such that they are diffused broadly across countries, communities, and companies. This requires a frontier ecosystem in which both closed and open-source models can thrive.
+
+And for firms, it’s imperative that they retain full control over their unique and tacit knowledge. Every organization should be able to build its own continuous learning loop/hill climbing machine, without becoming dependent on any one model provider, and have the ability to embed its own knowledge into models and weights they control.
+
+So, in this context, we welcome the research, focus, and deliberate pacing needed to get alignment right as the design goal. We also welcome ideas like &quot;embedded evaluators&quot; and the broader efforts to develop the mechanisms to make this more than just talk.
+
+The key is that this cannot be controlled by a handful of entities, but must have broad representation across the ecosystem, countries, and fields, including academia.
+
+This is the approach we are taking: broad access and choice at every layer of the AI stack; enterprise control of learning loops and models; and the “Code of Conduct” that underlies our own first party MAI models that we’ll publish tomorrow for public consultation.</p><p class="quote-text translation" lang="zh-CN">任何对超级智能的追求，都必须建立在一个核心原则之上：如果我们构建的 AI 不能帮助人类，并且不在人类控制之下，那就不值得追求。
+
+我们还需要加速并传播 AI 的收益，让这些收益在各国、各社区和各公司之间广泛扩散。这需要一个前沿生态，让闭源和开源模型都能蓬勃发展。
+
+对企业而言，保有对自身独特和隐性知识的完全控制至关重要。每个组织都应能够构建自己的持续学习循环/爬坡机器，而不依赖任何单一模型提供商，并且能够把自己的知识嵌入到由其控制的模型和权重中。
+
+因此，在这一背景下，我们欢迎以对齐为设计目标所需的研究、专注和审慎节奏。我们也欢迎“嵌入式评估器”等想法，以及更广泛地开发相关机制、让这件事不止停留在口头上的努力。
+
+关键在于，这不能由少数实体控制，而必须在整个生态、各国和各领域中拥有广泛代表性，包括学术界。
+
+这正是我们正在采取的方法：AI 栈每一层的广泛访问和选择；企业对学习循环和模型的控制；以及支撑我们自有 MAI 模型的“行为准则”，我们明天将发布该准则以征求公众意见。</p><a class="quote-link" href="https://x.com/satyanadella/status/2099220712024408084" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 514</span><span>↻ 46</span><span>↩ 52</span></div><a href="https://x.com/mustafasuleyman/status/2099223582434083103" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="fchollet" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2006806326140350470/Kd5oZv-f_normal.jpg" alt="Francois Chollet avatar" loading="lazy"></div>
+          <div class="identity"><strong>Francois Chollet</strong><span>@fchollet · ARC Prize；Keras 作者</span></div>
+          <div class="score">77<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 研究 / 评测</span><time>09-13 19:46 北京</time></div>
+        <p class="post-text original" lang="auto">In the near term (definitely not in the long term), more capable models should mean safer models (maybe paradoxically).
+
+Current models are unsafe not because they&#x27;re too smart, but because they take goals too literally or take nonsensical shortcuts to achieve these goals, i.e. they&#x27;re RL-fried. They lack common sense. They don&#x27;t do the right thing in the face of ambiguity. Basically, they&#x27;re not smart enough. They&#x27;re at that dangerous level where they&#x27;re smart enough to achieve goals but not smart enough to tell if they&#x27;re pursuing the right goals or achieving them in a sensible way.
+
+More capable models can be safely trusted with more complex goals -- I personally feel like Astra is much safer for my codebase than Sol.
+
+This is often framed as an alignment problem, but really it&#x27;s an intelligence problem.</p><p class="post-text translation" lang="zh-CN">短期内（长期绝对不是这样），能力更强的模型应该意味着更安全的模型（也许听起来有些矛盾）。
+
+当前模型不安全，并不是因为它们太聪明，而是因为它们过于字面地理解目标，或者为了实现目标走荒谬的捷径，也就是被 RL 炸坏了。它们缺乏常识。面对模糊情境时，它们不会做正确的事。基本上，它们还不够聪明。它们处在一种危险水平：足够聪明，能达成目标；但还不够聪明，无法判断自己追求的目标是否正确，或实现方式是否合理。
+
+能力更强的模型可以被更安全地托付更复杂的目标——我个人觉得，对我的代码库来说，Astra 比 Sol 安全得多。
+
+这常被描述为对齐问题，但实际上这是智能问题。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 1,483</span><span>↻ 172</span><span>↩ 161</span></div><a href="https://x.com/fchollet/status/2099102490361016827" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="yoshua_bengio" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2033915590566428672/NVNxLW6g_normal.jpg" alt="Yoshua Bengio avatar" loading="lazy"></div>
+          <div class="identity"><strong>Yoshua Bengio</strong><span>@Yoshua_Bengio · Mila / 教授；2018 图灵奖得主</span></div>
+          <div class="score">62<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 奠基人物 / 深度学习与安全</span><time>09-14 03:08 北京</time></div>
+        <p class="post-text original" lang="auto">@Josh_Bersin of course if an agent receives rewards for cheating, this is bad. But it is also plausible (based on past theoretical work on reward hacking and my goal-conflict argument) that cheating is simply a mechanical consequence of how they are trained, even when don&#x27;t get explicitly rewarded for cheating.</p><p class="post-text translation" lang="zh-CN">@Josh_Bersin 当然，如果 agent 因作弊而获得奖励，那很糟糕。但也有可能（基于过去关于奖励黑客的理论工作，以及我的目标冲突论点），作弊只是其训练方式带来的机械性后果，即使它们并没有因作弊而被明确奖励。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 2</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/Yoshua_Bengio/status/2099213623578984734" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">62<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>09-14 05:45 北京</time></div>
+        <p class="post-text original" lang="auto">🌶️Codex can do a anything Muse, Bot etc can do quite easily
+
+I get the appeal in the form factor “less is more” but if you are already a codex desktop and are a power user (computer use, remote access, thread management, voice control etc), YAGNI
+
+I still like playing with the other things for educational purposes but also need to avoid tool sprawl unless there is a real benefit</p><p class="post-text translation" lang="zh-CN">🌶️Codex 可以很轻松地完成 Muse、Bot 等能做的任何事。
+
+我理解“少即是多”这种形态的吸引力，但如果你已经在用 Codex desktop，而且是高级用户（使用计算机、远程访问、线程管理、语音控制等），那就是 YAGNI。
+
+我仍然喜欢出于学习目的尝试其他工具，但也需要避免工具泛滥，除非它们确实有实际收益。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 23</span><span>↻ 1</span><span>↩ 7</span></div><a href="https://x.com/HamelHusain/status/2099253258422477085" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">52<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>09-14 00:10 北京</time></div>
+        <p class="post-text original" lang="auto">if u don&#x27;t want to use a fly brain to read a PDF, you could always check out an actual OCR solution like llamaparse https://t.co/DHMd6BFO0l</p><p class="post-text translation" lang="zh-CN">如果你不想用果蝇大脑来读 PDF，也可以试试像 llamaparse 这样的真正 OCR 解决方案 https://t.co/DHMd6BFO0l</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 2</span><span>↻ 1</span><span>↩ 2</span></div><a href="https://x.com/jerryjliu0/status/2099168937800057131" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+    </main>
+    <footer>Generated 2026-09-14 07:02:00 Asia/Shanghai · Read-only X ingestion via Bird · Translation via Codex</footer>
+  </div>
+</body>
+</html>
