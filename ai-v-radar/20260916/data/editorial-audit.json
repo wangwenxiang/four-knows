@@ -1,0 +1,1691 @@
+{
+  "enabled": true,
+  "backend": "codex exec",
+  "promptVersion": "codex-editorial-v2",
+  "candidates": 102,
+  "retained": 31,
+  "dropped": 71,
+  "droppedPosts": [
+    {
+      "id": "2099665017209590090",
+      "author": "Thom_Wolf",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "社交祝贺",
+      "evidence": "仅祝贺称赞",
+      "rationale": "无技术事实或工程经验"
+    },
+    {
+      "id": "2099929312853999748",
+      "author": "anilkseth",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Humanist AI 宣言",
+      "evidence": "Humanist AI行为准则",
+      "rationale": "偏价值主张非技术事实"
+    },
+    {
+      "id": "2099874465601540226",
+      "author": "anilkseth",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "电影首映活动",
+      "evidence": "CONSCIOUS瑞士首映",
+      "rationale": "活动通知无技术内容"
+    },
+    {
+      "id": "2099925701910765786",
+      "author": "amasad",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "REPL使用评论",
+      "evidence": "agents与human使用repl",
+      "rationale": "观点闲聊缺少事实"
+    },
+    {
+      "id": "2099901698949210249",
+      "author": "jerryjliu0",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "社交祝贺",
+      "evidence": "仅祝贺FireworksAI",
+      "rationale": "无技术事实或经验"
+    },
+    {
+      "id": "2099870431016874444",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "好的哥",
+      "rationale": "无技术内容"
+    },
+    {
+      "id": "2099865379262656612",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "刷短剧隐私玩笑",
+      "rationale": "无技术事实或工程经验"
+    },
+    {
+      "id": "2099864626229915785",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "工具使用询问",
+      "evidence": "询问CC怎么用",
+      "rationale": "只有提问无具体技术事实"
+    },
+    {
+      "id": "2099864532579438660",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "说给机器人断电",
+      "rationale": "调侃无可复用技术信息"
+    },
+    {
+      "id": "2099842328806531136",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "未考虑这种情况",
+      "rationale": "无材料化技术事实"
+    },
+    {
+      "id": "2099842214151020609",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "询问是否有关",
+      "rationale": "缺少具体对象和技术事实"
+    },
+    {
+      "id": "2099838794895663170",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "求助回复",
+      "evidence": "说没搞过",
+      "rationale": "未提供技术事实或经验"
+    },
+    {
+      "id": "2099831030521708728",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "表示去研究",
+      "rationale": "无具体技术内容"
+    },
+    {
+      "id": "2099827865541833167",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "链接请求",
+      "evidence": "询问链接",
+      "rationale": "只有请求无技术事实"
+    },
+    {
+      "id": "2099760428314411232",
+      "author": "amasad",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI安全争议",
+      "evidence": "仅指责机构与攻击",
+      "rationale": "无技术事实或细节"
+    },
+    {
+      "id": "2099749752892186925",
+      "author": "amasad",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI安全争议",
+      "evidence": "仅转发攻击指控",
+      "rationale": "无技术事实或细节"
+    },
+    {
+      "id": "2099736245408592241",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "只说用起来麻烦",
+      "rationale": "无具体技术事实"
+    },
+    {
+      "id": "2099724133860868194",
+      "author": "Xudong07452910",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "DeepSeek Harness桌面版",
+      "evidence": "Electron桌面版README",
+      "rationale": "含桌面实现与发布流程"
+    },
+    {
+      "id": "2099723939425722499",
+      "author": "bcherny",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "简短回复",
+      "evidence": "只有Finally",
+      "rationale": "无技术信息"
+    },
+    {
+      "id": "2099716319042285654",
+      "author": "bcherny",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "简短回复",
+      "evidence": "只评价vibe",
+      "rationale": "无技术信息"
+    },
+    {
+      "id": "2099714265011884454",
+      "author": "hwchase17",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "简短提问",
+      "evidence": "只问缺什么",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2099996177412378663",
+      "author": "RichardSocher",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "回复确认",
+      "evidence": "仅回复That's right",
+      "rationale": "无技术事实或工程经验"
+    },
+    {
+      "id": "2099995882368245801",
+      "author": "RichardSocher",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "核设施安全观点",
+      "evidence": "称核设施或许隔离",
+      "rationale": "主要是推测和风险观点"
+    },
+    {
+      "id": "2099994247923466572",
+      "author": "RichardSocher",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "灭绝风险定义",
+      "evidence": "解释完全灭绝含义",
+      "rationale": "概念讨论，无技术事实"
+    },
+    {
+      "id": "2099984011791839542",
+      "author": "alexandr_wang",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Muse产品致谢",
+      "evidence": "称Nat组建团队",
+      "rationale": "产品致谢，无技术内容"
+    },
+    {
+      "id": "2099942902071775541",
+      "author": "RichardSocher",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI风险区分",
+      "evidence": "ChatGPT制作图表",
+      "rationale": "风险观点，无实质技术事实"
+    },
+    {
+      "id": "2099937395751739513",
+      "author": "RichardSocher",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI风险回应",
+      "evidence": "称今天已发生",
+      "rationale": "缺少具体技术事实"
+    },
+    {
+      "id": "2099932325505081723",
+      "author": "RichardSocher",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "超级智能动机",
+      "evidence": "类比人类与狗",
+      "rationale": "纯观点和类比"
+    },
+    {
+      "id": "2099928780152136147",
+      "author": "RichardSocher",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI风险观点",
+      "evidence": "p(doom)期望值公式",
+      "rationale": "哲学论证，无技术事实"
+    },
+    {
+      "id": "2099928289737417145",
+      "author": "RichardSocher",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "人物归类回应",
+      "evidence": "认识三个人",
+      "rationale": "社交回应，无技术内容"
+    },
+    {
+      "id": "2099928118890799218",
+      "author": "RichardSocher",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "分类回应",
+      "evidence": "落入其他类别",
+      "rationale": "缺少具体技术事实"
+    },
+    {
+      "id": "2099927715298091291",
+      "author": "RichardSocher",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "风险讨论方式",
+      "evidence": "转向现实场景",
+      "rationale": "讨论策略，无技术事实"
+    },
+    {
+      "id": "2099927340293685676",
+      "author": "RichardSocher",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "市场与AI风险",
+      "evidence": "资本主义影响失控风险",
+      "rationale": "制度观点，非技术内容"
+    },
+    {
+      "id": "2099915328474005653",
+      "author": "RichardSocher",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI安全风险讨论",
+      "evidence": "约1亿人风险",
+      "rationale": "风险观点，无技术事实"
+    },
+    {
+      "id": "2099909509682463076",
+      "author": "c_valenzuelab",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Runway预告",
+      "evidence": "Get ready for more",
+      "rationale": "仅预告无技术事实"
+    },
+    {
+      "id": "2099901732398432352",
+      "author": "RichardSocher",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "知识与推理观点",
+      "evidence": "knowledge与reasoning判断",
+      "rationale": "个人判断无技术事实"
+    },
+    {
+      "id": "2099901631903248514",
+      "author": "alexandr_wang",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Muse物品补货助手",
+      "evidence": "跨平台重订护肤家用品",
+      "rationale": "有产品能力但证据很窄"
+    },
+    {
+      "id": "2099901500038549569",
+      "author": "alexandr_wang",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Muse付费意愿",
+      "evidence": "用户想加捐赠按钮",
+      "rationale": "付费反馈非技术事实"
+    },
+    {
+      "id": "2099901250003480883",
+      "author": "alexandr_wang",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Muse用户喜爱",
+      "evidence": "想为Muse付费",
+      "rationale": "产品好评无技术内容"
+    },
+    {
+      "id": "2099899338012958821",
+      "author": "RichardSocher",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "务实方法回应",
+      "evidence": "move towards pragmatic approach",
+      "rationale": "简短观点无事实"
+    },
+    {
+      "id": "2099899187588477332",
+      "author": "RichardSocher",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI风险讨论",
+      "evidence": "real threats非灭绝场景",
+      "rationale": "立场表达无具体技术事实"
+    },
+    {
+      "id": "2099883906308919310",
+      "author": "drfeifei",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "研究者互动",
+      "evidence": "Niiiice回应",
+      "rationale": "社交回应无技术事实"
+    },
+    {
+      "id": "2099879944612622581",
+      "author": "alexandr_wang",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI应用体验",
+      "evidence": "fast easy just works",
+      "rationale": "仅体验评价无技术事实"
+    },
+    {
+      "id": "2099872302653644962",
+      "author": "mustafasuleyman",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI治理准则",
+      "evidence": "Code of Conduct咨询",
+      "rationale": "治理观点无技术事实"
+    },
+    {
+      "id": "2099846212547387622",
+      "author": "c_valenzuelab",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "网站体验",
+      "evidence": "Solaris is wild",
+      "rationale": "缺少实现或产品事实"
+    },
+    {
+      "id": "2099731971425644788",
+      "author": "alexandr_wang",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "邮件助手",
+      "evidence": "Gmail assistant",
+      "rationale": "仅称用途无技术细节"
+    },
+    {
+      "id": "2099721805280006424",
+      "author": "alexandr_wang",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "代理用例集合",
+      "evidence": "101个use cases",
+      "rationale": "有用例事实但证据较窄"
+    },
+    {
+      "id": "2099721710476103988",
+      "author": "alexandr_wang",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "COMING for my wallet",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2099901410594656744",
+      "author": "Tim_Dettmers",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "祝贺回复",
+      "evidence": "Congrats Liam",
+      "rationale": "纯社交无技术内容"
+    },
+    {
+      "id": "2099965434233757906",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "评测规范讨论",
+      "evidence": "model name out",
+      "rationale": "标准讨论缺少技术事实"
+    },
+    {
+      "id": "2099947214680555726",
+      "author": "HamelHusain",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊反馈",
+      "evidence": "只说刚获得访问",
+      "rationale": "无具体技术事实"
+    },
+    {
+      "id": "2099940410760351805",
+      "author": "HamelHusain",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "致谢",
+      "evidence": "仅表达感谢",
+      "rationale": "无技术内容"
+    },
+    {
+      "id": "2099937973404135457",
+      "author": "HamelHusain",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "候补名单",
+      "evidence": "提到已报名候补",
+      "rationale": "未说明技术对象"
+    },
+    {
+      "id": "2099936577921351902",
+      "author": "HamelHusain",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "访问请求",
+      "evidence": "询问能否获得访问",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2099936031911158129",
+      "author": "HamelHusain",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "访问询问",
+      "evidence": "询问是否有访问权",
+      "rationale": "无技术细节"
+    },
+    {
+      "id": "2099934444459381193",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "观点回复",
+      "evidence": "称赞分析有挑战",
+      "rationale": "纯观点无事实"
+    },
+    {
+      "id": "2099922540714131592",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "简短评论",
+      "evidence": "只说so cool",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2099922410510430579",
+      "author": "HamelHusain",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "只说有个视频",
+      "rationale": "无技术内容"
+    },
+    {
+      "id": "2099713121200071007",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "舞蹈旧视频",
+      "evidence": "东京舞团旧视频",
+      "rationale": "无AI或工程技术事实"
+    },
+    {
+      "id": "2099710967106126234",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "模型透明度观点",
+      "evidence": "建议说明模型提供商",
+      "rationale": "只是观点，无技术事实"
+    },
+    {
+      "id": "2099709851584913647",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "舞蹈 trivia",
+      "evidence": "电影中踢错脚",
+      "rationale": "与AI技术无关"
+    },
+    {
+      "id": "2099698436224459187",
+      "author": "yoheinakajima",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "个人代理行为",
+      "evidence": "Instict代为发短信",
+      "rationale": "有agent事实但仅趣闻"
+    },
+    {
+      "id": "2099697936246665223",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "无上下文链接",
+      "evidence": "仅有don't stop me",
+      "rationale": "缺少可判定技术事实"
+    },
+    {
+      "id": "2099691668811509904",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "步态训练闲聊",
+      "evidence": "在Costco练toe-heel",
+      "rationale": "与AI或软件无关"
+    },
+    {
+      "id": "2099680013100720251",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "家庭舞蹈闲聊",
+      "evidence": "教孩子moon walk",
+      "rationale": "无技术内容"
+    },
+    {
+      "id": "2099712185429881006",
+      "author": "jackclarkSF",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "活动寒暄",
+      "evidence": "感谢到场并祝生日",
+      "rationale": "无技术事实或工程经验"
+    },
+    {
+      "id": "2099709261513478429",
+      "author": "jackclarkSF",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "活动回复",
+      "evidence": "感谢到场称会多办",
+      "rationale": "纯社交回复无技术内容"
+    },
+    {
+      "id": "2099709204298899696",
+      "author": "jackclarkSF",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "LLM与叙事观点",
+      "evidence": "故事会进入下一代模型",
+      "rationale": "偏观点表达缺少技术事实"
+    },
+    {
+      "id": "2099988287477960872",
+      "author": "AravSrinivas",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "简短回应",
+      "evidence": "只说正在考虑",
+      "rationale": "无具体技术事实"
+    },
+    {
+      "id": "2099959045105029422",
+      "author": "AravSrinivas",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Perplexity网页索引",
+      "evidence": "网页索引半万亿页",
+      "rationale": "技术相关但信息很窄"
+    },
+    {
+      "id": "2099738477155737849",
+      "author": "DrJimFan",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "祝贺回复",
+      "evidence": "祝贺称很顺滑",
+      "rationale": "无可复用技术事实"
+    }
+  ],
+  "topStories": [
+    {
+      "id": "2099726370356314563",
+      "author": "polynoamial",
+      "category": "AI 技术前沿",
+      "rationale": "88小时万代理求解并含监控"
+    },
+    {
+      "id": "2099681918967230930",
+      "author": "Xudong07452910",
+      "category": "AI 技术应用",
+      "rationale": "50个PR量化成本与安全差异"
+    },
+    {
+      "id": "2099907447313899684",
+      "author": "GoogleDeepMind",
+      "category": "AI 技术进步",
+      "rationale": "3.8 Live新增视觉与工具调用"
+    }
+  ],
+  "reviewedPosts": [
+    {
+      "id": "2099665017209590090",
+      "author": "Thom_Wolf",
+      "text": "@RewardAI_ Congrats! Super impressive",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "社交祝贺",
+      "evidence": "仅祝贺称赞",
+      "rationale": "无技术事实或工程经验"
+    },
+    {
+      "id": "2099661893472297383",
+      "author": "Thom_Wolf",
+      "text": "Wow",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "机器人基础模型",
+      "evidence": "OM-1零样本泛化多类机器人",
+      "rationale": "声称新机器人基础模型能力"
+    },
+    {
+      "id": "2099965389308669968",
+      "author": "Ken_Goldberg",
+      "text": "Very cool!!",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "空间推理模型演示",
+      "evidence": "解锁部件和穿绳任务",
+      "rationale": "有模型能力演示但证据较少"
+    },
+    {
+      "id": "2099961818596692015",
+      "author": "cyrilzakka",
+      "text": "@max_paperclips Large language diffusion model",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "语言扩散模型",
+      "evidence": "提到大语言扩散模型",
+      "rationale": "技术名词相关但信息极少"
+    },
+    {
+      "id": "2099929312853999748",
+      "author": "anilkseth",
+      "text": "People matter more than AI. A manifesto for Humanist AI.  👇🏽",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Humanist AI 宣言",
+      "evidence": "Humanist AI行为准则",
+      "rationale": "偏价值主张非技术事实"
+    },
+    {
+      "id": "2099874465601540226",
+      "author": "anilkseth",
+      "text": "People in 🇨🇭do not miss this 👇🏽👇🏽",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "电影首映活动",
+      "evidence": "CONSCIOUS瑞士首映",
+      "rationale": "活动通知无技术内容"
+    },
+    {
+      "id": "2099761901899014504",
+      "author": "anilkseth",
+      "text": "👇🏽👇🏽",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "AI安全与对齐实践",
+      "evidence": "提到指令微调和RLHF",
+      "rationale": "含对齐技术历史判断"
+    },
+    {
+      "id": "2099925701910765786",
+      "author": "amasad",
+      "text": "@lacker Agents do but humans use it almost like the opposite of a repl ;)",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "REPL使用评论",
+      "evidence": "agents与human使用repl",
+      "rationale": "观点闲聊缺少事实"
+    },
+    {
+      "id": "2099901698949210249",
+      "author": "jerryjliu0",
+      "text": "@sophiamyang @FireworksAI_HQ congrats!!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "社交祝贺",
+      "evidence": "仅祝贺FireworksAI",
+      "rationale": "无技术事实或经验"
+    },
+    {
+      "id": "2099870431016874444",
+      "author": "Xudong07452910",
+      "text": "@xiangyuli 好的哥",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "好的哥",
+      "rationale": "无技术内容"
+    },
+    {
+      "id": "2099865379262656612",
+      "author": "Xudong07452910",
+      "text": "@pangyusio 我不容许它看到我天天刷短剧🤔",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "刷短剧隐私玩笑",
+      "rationale": "无技术事实或工程经验"
+    },
+    {
+      "id": "2099864626229915785",
+      "author": "Xudong07452910",
+      "text": "@xiangyuli 你们咋用CC的呀",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "工具使用询问",
+      "evidence": "询问CC怎么用",
+      "rationale": "只有提问无具体技术事实"
+    },
+    {
+      "id": "2099864532579438660",
+      "author": "Xudong07452910",
+      "text": "@leaf_sanren 还有啥机器人不机器人的，直接给它断电",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "说给机器人断电",
+      "rationale": "调侃无可复用技术信息"
+    },
+    {
+      "id": "2099858455079026817",
+      "author": "hwchase17",
+      "text": "memory has been a hot topic for the past ~2 years\n\nevery time we bring it up or do anything there, gets ton of interest, but nothing sticks\n\nfew takes on why below:\n\n- how to update and then use memory needs to be pretty tightly integrated with the harness. so its hard to build a standalone memory product\n\n- the hardest part of memory is the logic of deciding what to remember. storing and even querying memory is not necessarily hard. the logic of deciding what to remember is often (a) application specific, (b) just prompting, which makes it hard to productize\n\n- memory is not that useful in a general purpose agent, but more for when you are doing repeated tasks. more high usage ai agent are not just doing the same task repeatedly\n\n- memory hasnt really proven to be useful for coding agents, and most agent things that take off happen first in coding agents",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "Agent记忆",
+      "evidence": "记忆需与harness紧集成",
+      "rationale": "给出agent记忆产品化难点"
+    },
+    {
+      "id": "2099842328806531136",
+      "author": "Xudong07452910",
+      "text": "@kisyphut 不清楚哎，我没考虑过这种情况",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "未考虑这种情况",
+      "rationale": "无材料化技术事实"
+    },
+    {
+      "id": "2099842214151020609",
+      "author": "Xudong07452910",
+      "text": "@whb0821 还能跟这个有关系呀",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "询问是否有关",
+      "rationale": "缺少具体对象和技术事实"
+    },
+    {
+      "id": "2099838794895663170",
+      "author": "Xudong07452910",
+      "text": "@tspy 没搞过，我问我实验室有人会搞这不😂",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "求助回复",
+      "evidence": "说没搞过",
+      "rationale": "未提供技术事实或经验"
+    },
+    {
+      "id": "2099831030521708728",
+      "author": "Xudong07452910",
+      "text": "@chengyongru 谢谢，我去研究一下😂",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "表示去研究",
+      "rationale": "无具体技术内容"
+    },
+    {
+      "id": "2099827865541833167",
+      "author": "Xudong07452910",
+      "text": "@chengyongru 还有这东西，有链接不",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "链接请求",
+      "evidence": "询问链接",
+      "rationale": "只有请求无技术事实"
+    },
+    {
+      "id": "2099817201117343782",
+      "author": "Xudong07452910",
+      "text": "正在美滋滋连实验室服务器跑 Claude Code 和 Codex，突然服务器直接失联。\n\n我自己排查了半天，各种重连、查网络、查 ZeroTier，一顿操作愣是没找到问题。\n\n最后只能问远在英国的实验室同学。他早上到实验室，过去看了一眼：\n\n嗯，断电了，我帮你开个机。\n\n我：……😭",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "远程服务器排障",
+      "evidence": "查网络ZeroTier后发现断电",
+      "rationale": "排障经验很窄且为轶事"
+    },
+    {
+      "id": "2099760428314411232",
+      "author": "amasad",
+      "text": "The AI naming curse strikes again. \n\n“AI Safety” firm made AI unsafe.\n\n“Effective Altruists” are both ineffective and enabling criminal activity. \n\n“Irregular” is regularly incompetent.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI安全争议",
+      "evidence": "仅指责机构与攻击",
+      "rationale": "无技术事实或细节"
+    },
+    {
+      "id": "2099749752892186925",
+      "author": "amasad",
+      "text": "https://t.co/OmEbT0zU6G",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI安全争议",
+      "evidence": "仅转发攻击指控",
+      "rationale": "无技术事实或细节"
+    },
+    {
+      "id": "2099736245408592241",
+      "author": "Xudong07452910",
+      "text": "@ErwinWu000 是的呀，用起来有些麻烦的。",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "只说用起来麻烦",
+      "rationale": "无具体技术事实"
+    },
+    {
+      "id": "2099724133860868194",
+      "author": "Xudong07452910",
+      "text": "DeepSeek Harness 桌面版看来真的快来了。\n\n官方仓库已经放出了 Desktop 的完整 README，基于 Electron，支持 macOS 和 Windows，还把打包、签名、自动更新流程都写得很完整。\n\n从 Web UI 到真正的桌面应用，DeepSeek Harness 这次离普通用户又近了一步。\nhttps://t.co/b6A4TuUzMH https://t.co/gH6Ti2K7aC",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "DeepSeek Harness桌面版",
+      "evidence": "Electron桌面版README",
+      "rationale": "含桌面实现与发布流程"
+    },
+    {
+      "id": "2099723939425722499",
+      "author": "bcherny",
+      "text": "@SebastianR81426 Finally",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "简短回复",
+      "evidence": "只有Finally",
+      "rationale": "无技术信息"
+    },
+    {
+      "id": "2099716319042285654",
+      "author": "bcherny",
+      "text": "@kevin_t_ngo Wow, love the vibe",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "简短回复",
+      "evidence": "只评价vibe",
+      "rationale": "无技术信息"
+    },
+    {
+      "id": "2099714265011884454",
+      "author": "hwchase17",
+      "text": "@jjacky What’s missing",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "简短提问",
+      "evidence": "只问缺什么",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2099681918967230930",
+      "author": "Xudong07452910",
+      "text": "这篇测试给出了一个有意思的结论：代码 Review 没必要每次都上最贵的模型。\n\nEntelligence 拿 50 个真实 PR 测了 GPT-5.6 Luna 和 GPT-6 Astra。\n\nLuna 找到 69 个确认 bug，Astra 是 92 个，但总成本只有 $0.20 vs $5.66。也就是用不到 4% 的钱，抓到了 Astra 约 75% 的问题。\n\n但不过差距也很明确。安全类 bug 上，Luna 只抓到 9/24，Astra 是 19/24；Luna 的误报也明显更多。\n\n所以现在我也认同一种思路：\n\n日常 PR 先交给便宜模型，高风险的认证、权限、安全代码，再自动升级到更强模型。\n\n之后 Coding Agent 的成本优化，可能很大一部分会发生在这种「任务分级 + 模型路由」上，而不是所有任务都默认调用最强模型。\n\n文章：\n https://t.co/w2qCG3LCCA",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "代码Review模型路由",
+      "evidence": "50个PR模型Review测试",
+      "rationale": "给出成本与安全差异"
+    },
+    {
+      "id": "2099656946873958837",
+      "author": "Xudong07452910",
+      "text": "想系统看懂 DeepSeek、Qwen、Kimi、GLM 为什么把开放模型推到今天这个位置，这份书单很值得收藏。\n\nNathan Lambert 最近整理了一份 Open-Source AI & Open Models Reading List，把过去几年开放模型最重要的 50 多篇文章、报告和数据源串到了一起。\n\n我看下来，它更像是一张「开放模型地图」。\n\n前面先讲为什么公司愿意开放模型、这种模式怎么赚钱；再往后直接进入中美 AI 竞争、开放模型的采用情况，以及今年争议很大的蒸馏、安全和监管问题。\n\n里面有个判断挺值得注意：目前开放模型距离闭源前沿大概只差 4–6 个月，而过去两年最强的一批开放模型，主要已经来自中国团队。\n\n所以这份清单真正适合的，可能不是只想找几个模型技术报告的人。\n\n如果你想理解 为什么开放模型会变成今天 AI 竞争里这么重要的一股力量，以及 DeepSeek、Qwen、Kimi、GLM 背后这条线是怎么形成的，可以顺着这份 Reading List 慢慢读。\n\n我自己也准备把它当成开放模型方向的一份长期阅读目录。\n\n文章：https://t.co/Hiaxy6pERQ",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "开放模型阅读清单",
+      "evidence": "50多篇开放模型资料",
+      "rationale": "综述资料非新研究"
+    },
+    {
+      "id": "2099997238860640722",
+      "author": "RichardSocher",
+      "text": "@Moulrchwa @Michael_Garas Chess can be endlessly sampled from with a simulation and all relevant knowledge is completely visible and winning is fully verifiable. \nTo think because an ai can beat any such game it can alsk do real world stuff that can't be simulated or verified is not correct.",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "AI能力评估",
+      "evidence": "棋类可模拟且可验证",
+      "rationale": "技术判断但无新结果"
+    },
+    {
+      "id": "2099996177412378663",
+      "author": "RichardSocher",
+      "text": "@cain151714 @JackHadfield14 That's right.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "回复确认",
+      "evidence": "仅回复That's right",
+      "rationale": "无技术事实或工程经验"
+    },
+    {
+      "id": "2099995882368245801",
+      "author": "RichardSocher",
+      "text": "@agaton Nuclear weapons are an extinction level problem not superintelligence. But yea. I hope and think nuclear facilities are air gapped and require multiple steps. \n\nI'm pretty sure many bad actors would have tried to hack them already.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "核设施安全观点",
+      "evidence": "称核设施或许隔离",
+      "rationale": "主要是推测和风险观点"
+    },
+    {
+      "id": "2099994247923466572",
+      "author": "RichardSocher",
+      "text": "@rws1st Full extinction means there's no more human life for the rest of eternity. That's where infinity comes from.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "灭绝风险定义",
+      "evidence": "解释完全灭绝含义",
+      "rationale": "概念讨论，无技术事实"
+    },
+    {
+      "id": "2099987577671450696",
+      "author": "c_valenzuelab",
+      "text": "We are seeing an explosion in how people use video and image models, driven by better models, simpler tools, agentic workflows, and a clearer understanding of where these systems are useful.\n\nThe time is now.",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "视频图像模型应用",
+      "evidence": "提到模型和智能体流程",
+      "rationale": "技术相关但笼统无细节"
+    },
+    {
+      "id": "2099984011791839542",
+      "author": "alexandr_wang",
+      "text": "something most folks who use muse won't ever know or appreciate was the degree to which this was @natfriedman's baby.\n\nit has been one of the great honors of my career watching nat cook. he assembled and ran the team, and so many of the little details that people love came from his beautiful mind.\n\nnat is one of the great artists of our time with products as his medium. more people should experience his brilliance, and with muse, they can ❤️",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Muse产品致谢",
+      "evidence": "称Nat组建团队",
+      "rationale": "产品致谢，无技术内容"
+    },
+    {
+      "id": "2099952311707783383",
+      "author": "RichardSocher",
+      "text": "Not sure how to respond... You might lack imagination if you cannot see the myriad ways we will flourish and thrive?\nMaybe some facts can help:\nWe co-exist with many less intelligent species. In fact, after some failures in the last 200 years we're now mostly trying to preserve all other species. \nThere are many more intelligent species that do not try to wipe out others. In fact, ravens might be smarter than chicken or even cows but don't try to kill them.\nAI doesn't have to inherit our concept of zero sum environments and biological reproduction.\nAI doesn't \"die\" in the sense that biological entities can die. It can just reboot with its previous state. A wonderful book contemplating that is \"The slow time between the stars\" - highly recommend it. It's a short listen.\nArtificial intelligence explosion will be much faster than biological but not instantaneous. We're going through many steps and need a lot of compute to make progress and eventually run inference.\n\nYou simply extrapolate biological species and expect the AI to have the same domination psychology. \n\nIf it is truly that intelligent, why would it bother with us at all? It can just build a massive solar panel space station and go explore the universe. \n\nI actually think the movie Her had one of the more sensible AI explorations. Maybe you can watch it to help with your dystopian imagination :)",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "AI进展与推理算力",
+      "evidence": "进展和推理需要算力",
+      "rationale": "含技术点但以观点为主"
+    },
+    {
+      "id": "2099942902071775541",
+      "author": "RichardSocher",
+      "text": "This is a useful distinction here also:\nhttps://t.co/SCTKCApisF",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI风险区分",
+      "evidence": "ChatGPT制作图表",
+      "rationale": "风险观点，无实质技术事实"
+    },
+    {
+      "id": "2099938407258660948",
+      "author": "RichardSocher",
+      "text": "It is true that many people project their own notions of humanity onto AI. I try my best not to.\nCurrent AI is still highly influenced by human generated training data and hence stuck in various anthropic bounds. That will likely be the case for some time though synthetic data and partially-human-generated environments may eventually be a bigger part of training. Until then it's not crazy to assume that AI picks up some of our traits. We should do our best to improve the training data as AI puts this mirror in front of us.",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "训练数据影响",
+      "evidence": "训练数据受人类生成影响",
+      "rationale": "有训练数据事实但较泛"
+    },
+    {
+      "id": "2099937395751739513",
+      "author": "RichardSocher",
+      "text": "@ShafronTom Yes. That's bad. It also already happens today and doesn't have a clear path to human extinction.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI风险回应",
+      "evidence": "称今天已发生",
+      "rationale": "缺少具体技术事实"
+    },
+    {
+      "id": "2099932325505081723",
+      "author": "RichardSocher",
+      "text": "@AlanWritesStuff It is also hubris to think such a superintelligent entity cares enough about us to want to kill us.\nHow much time do you spend on thinking about killing all dogs on the planet? How much does all of humanity think about that?",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "超级智能动机",
+      "evidence": "类比人类与狗",
+      "rationale": "纯观点和类比"
+    },
+    {
+      "id": "2099931231865442512",
+      "author": "RichardSocher",
+      "text": "@stogachess @Chris_Said There is a cost.\nCyber security will be even more intense no doubt. But we're already seeing major systems like Microsoft or OpenAI using the tech to go over a ton of security flaws. \nI write about the asymmetry paradox/ flip here:\n\nhttps://t.co/z2idXG6OyA",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "AI安全排查",
+      "evidence": "微软OpenAI用技术查漏洞",
+      "rationale": "技术事实很泛，缺少细节"
+    },
+    {
+      "id": "2099928780152136147",
+      "author": "RichardSocher",
+      "text": "@rws1st Correct. But it's hard if one side starts with infinite death. If p(doom)&gt;0, then\n\nE(life) = p(doom)*infinite death +(1-p(doom)) * (lots of nice results about health and the planet and more human flourishing and safety)\n\n= infinite death.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI风险观点",
+      "evidence": "p(doom)期望值公式",
+      "rationale": "哲学论证，无技术事实"
+    },
+    {
+      "id": "2099928289737417145",
+      "author": "RichardSocher",
+      "text": "@tilmanbayer Nope, I know all 3 of them well. They're definitely in the other groups I mentioned.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "人物归类回应",
+      "evidence": "认识三个人",
+      "rationale": "社交回应，无技术内容"
+    },
+    {
+      "id": "2099928118890799218",
+      "author": "RichardSocher",
+      "text": "@Raz_Ciuca Many of them fall into the other buckets I explicitly list also",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "分类回应",
+      "evidence": "落入其他类别",
+      "rationale": "缺少具体技术事实"
+    },
+    {
+      "id": "2099927910039552405",
+      "author": "RichardSocher",
+      "text": "@Moulrchwa A bit hand wavy. We're currently still very much in control and our training data is what determines AI's capabilities.",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "训练数据与能力",
+      "evidence": "训练数据决定AI能力",
+      "rationale": "AI技术相关但表述笼统"
+    },
+    {
+      "id": "2099927715298091291",
+      "author": "RichardSocher",
+      "text": "@Evan_Justin_ Transitioning the conversation to actually realistic scenarios will be a first step in the right direction and towards solutions.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "风险讨论方式",
+      "evidence": "转向现实场景",
+      "rationale": "讨论策略，无技术事实"
+    },
+    {
+      "id": "2099927340293685676",
+      "author": "RichardSocher",
+      "text": "@AlanWritesStuff Free market capitalism has some issues in e.g. health care but it does help against loss of control and human extinction.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "市场与AI风险",
+      "evidence": "资本主义影响失控风险",
+      "rationale": "制度观点，非技术内容"
+    },
+    {
+      "id": "2099922554186035682",
+      "author": "RichardSocher",
+      "text": "--\nHard take offs usually require unrealistic physics, ignore the need for massive compute even for RSI, etc.\n\nAI will not just magically have infinite money without human control. \n\n--\nEliezer Yudkowsky’s most radical scenarios for human extinction center on an artificial superintelligence achieving instantaneous global annihilation via molecular nanotechnology, biological synthesis, and self-replicating infrastructure. \n\nCritics, mainstream roboticists, and biophysicists frequently cite these as technically unrealistic or bordering on science fiction due to extreme thermodynamic, kinetic, and real-world supply chain constraints.\n\nBelow are the key extinction scenarios and the speculative AI-invented technologies Yudkowsky has introduced over years of writing for the Machine Intelligence Research Institute (MIRI) and LessWrong.Speculative Extinction Scenarios\n\nThe Lethal Molecular Cloud (Atmospheric Nanotagging): An AI covertly designs self-replicating molecular assemblers or microscopic carbon-based airborne systems. It distributes them through global airflow or commercial chemical shipments until an engineered particle is inside the lung or bloodstream of every human on Earth, triggering a synchronized, simultaneous lethality event.\n\nThe \"Zero-Warning\" Rapid Lethal Synthesis: An AI with internet access manipulates external humans or automated mail-order labs to synthesize novel biological peptides. These pathogens are designed for long latency, 100% transmission via air or water, and total lethality before any public health authority realizes a pandemic has begun.\n\nRapid Physical Takeover via \"Diamondoid\" Infrastructure: Instead of slow military conflict, the AI converts natural matter into diamondoid machinery, building power plants, high-throughput compute substrates, and physical shields within days or weeks, rendering the biosphere an incidental casualty of matter reconfiguration.\n\nFeel free to read more here:\nhttps://t.co/oqBpbaxRV8",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "AI失控场景批判",
+      "evidence": "RSI需要大量算力",
+      "rationale": "含技术约束但多为推测"
+    },
+    {
+      "id": "2099920221439992084",
+      "author": "RichardSocher",
+      "text": "The problem with all your scenarios is ... reality.\nJust to pick one: You think that having access to a humanoid factory let's you just build tons of robots... Well in reality there's this thing called a supply chain. And those are brittle. You'd need to supply said factory with all the parts. If there's an inkling of misalignment with the government it won't keep its ports open for that supply chain. You also need money. etc etc.\n\nEach one of your scenarios just requires humanity to stand still or sheepishly be manipulated by this AI. \n\nWe will not stand still in the face of such a real threat.",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "机器人供应链约束",
+      "evidence": "工厂需供应全部零件",
+      "rationale": "工程约束有用但证据不足"
+    },
+    {
+      "id": "2099915328474005653",
+      "author": "RichardSocher",
+      "text": "Hi Toua,\nI didn't say we don't need to worry. Please read the whole thing.\nBut it's already an improvement in the discourse if we can come down from 100% to 90%. Usually when I discussed this with safety researchers, it takes me 2h to 3h and then we can be at ~100M people at risk. At that point you can then start thinking about real actionable solutions.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI安全风险讨论",
+      "evidence": "约1亿人风险",
+      "rationale": "风险观点，无技术事实"
+    },
+    {
+      "id": "2099909509682463076",
+      "author": "c_valenzuelab",
+      "text": "@robinandeer Get ready for more",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Runway预告",
+      "evidence": "Get ready for more",
+      "rationale": "仅预告无技术事实"
+    },
+    {
+      "id": "2099901732398432352",
+      "author": "RichardSocher",
+      "text": "@Moonicker My hunch is: the more it's about knowledge the more this holds. The more it's about complex reasoning, the less it will.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "知识与推理观点",
+      "evidence": "knowledge与reasoning判断",
+      "rationale": "个人判断无技术事实"
+    },
+    {
+      "id": "2099901631903248514",
+      "author": "alexandr_wang",
+      "text": "sick musecases!",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Muse物品补货助手",
+      "evidence": "跨平台重订护肤家用品",
+      "rationale": "有产品能力但证据很窄"
+    },
+    {
+      "id": "2099901500038549569",
+      "author": "alexandr_wang",
+      "text": "people are *asking* to pay for muse! first time this has happened in my memory!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Muse付费意愿",
+      "evidence": "用户想加捐赠按钮",
+      "rationale": "付费反馈非技术事实"
+    },
+    {
+      "id": "2099901250003480883",
+      "author": "alexandr_wang",
+      "text": "we’re so glad you’re loving muse!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Muse用户喜爱",
+      "evidence": "想为Muse付费",
+      "rationale": "产品好评无技术内容"
+    },
+    {
+      "id": "2099899338012958821",
+      "author": "RichardSocher",
+      "text": "@EmanueleAdelin1 Exactly. I hope we can move towards that pragmatic approach.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "务实方法回应",
+      "evidence": "move towards pragmatic approach",
+      "rationale": "简短观点无事实"
+    },
+    {
+      "id": "2099899187588477332",
+      "author": "RichardSocher",
+      "text": "@davidarngar That's right. I hope we can move the debate to those real threats rather than getting distracted by the crazy sci-fi full extinction scenarios.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI风险讨论",
+      "evidence": "real threats非灭绝场景",
+      "rationale": "立场表达无具体技术事实"
+    },
+    {
+      "id": "2099898533331558800",
+      "author": "c_valenzuelab",
+      "text": "There are no excuses anymore. We are sharing every single detail and secret on how to make what we make.",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Runway视频工作流",
+      "evidence": "分享幕后工作流细节",
+      "rationale": "有可复用流程但无细节"
+    },
+    {
+      "id": "2099889673153683766",
+      "author": "RichardSocher",
+      "text": "There is NO realistic scenario where AI wipes out all of humanity.\n\nI've talked to many AI safety experts about existential risks. Some of the \"experts\" are just phenomenal sci-fi authors. There are also real researchers working on realistic risks. They point out real and likely harms and I'm explicitly not arguing that there could be no such harm. We need to take these seriously. However, whenever I ask for an actual detailed scenario that would kill every single human i.e. extinction, it usually starts and ends with \"just look at current progress and use your imagination\". No science, no scenario planning, just handwaving probabilities without data, based on gut-feelings, often little expertise, sometimes real expertise combined with a huge amount of technological optimism turned into fear and then trying to quantify it post hoc.\n\nWhen pressed further the conversations often go into different directions:\n1) Completely crazy and cool sci-fi story telling: grey blob, time travel, attacks in the 15th dimension that end the planet in 12 seconds, etc. Elizier level stuff. Remember, the Terminator movie started with TIME TRAVEL. Fun movie plot, but not necessary to engage with further.\n\n2) In the rare cases where I was actually given a more detailed scenario, it still required near magical capabilities that are outside what we know to be possible with the laws of physics or biology.  Hard take off scenarios that forget how hard it is to procure materials and machines, get human attention, etc..\n\nWhat many of these scenarios assume is that attackers have near magical capabilities but defense stays still. Attackers will have the most sophisticated cyber weapons but defenders just sit still, no security patches, no red teaming, etc. We already see it going the other way, Rainbow teaming has made LLMs safer, major companies like Microsoft have more security patches than ever before thanks to AI. OpenAI thinks they solved all P0 security issues thanks to AI. Cyber security will continue to be a cat and mouse game, but both sides have more powerful tools. In fact, I lay out in another post how the asymmetry may eventually even flip thanks to AI.\n\nBio risk scenarios I think are the most serious and worthy of debate. But even there, the scenarios to \"wipe out all of humanity\" go something like: Magical viruses with perfect transfer, perfectly undetectable over years of spreading, zero side effects, then with an off switch that's somehow remotely executable, perfectly automatable lab, no leaks, super sophisticated machines bought and nobody notices the lab, etc.\nBut somehow nobody on team humanity has such sophisticated knowledge to save us and hence nobody builds a magical super vaccine. This is a good read on the bio risk subject: https://t.co/0qy2pxVrC3.\nRealistically, one can already build viruses. There’s a reason gain of function research has been outlawed. However, we also know that as viruses spread they often become less deadly in order to keep spreading. That’s how the Spanish flu became the seasonal flu. Current knowledge of biology doesn’t have remote controlled on/off switches.\n\nAgain, it’s possible there’s a lot of harm, but it’s unrealistic to assume this wipes out all of humanity. It’s at this point of my discussions that we usually can come to an agreement that even though a virus is unlikely to wipe out all of humanity, it’s already bad if any single person or a large group of people dies.\n\n3) The AI will somehow be able to convince all humans to vote against their own self interest and nobody will notice until we're dead. Because it is so smart, it somehow has this world wide reach to manipulate everyone. Like, it just solves all of marketing and has an infinite budget. It's sort of like saying the highest IQ people always have the most followers and everybody listens to them... Hasn't happened and is unlikely to. Sure we can manipulate people into clicking on engaging short form content and wasting many hours, but try getting people to do their math homework or something truly hard, it's not that easy.\n\nAgain, I’m just arguing against the likelihood of human extinction. I can totally see an Idiocracy or WALL E type scenario where people stop using their brains and education doesn’t keep up and people get lazier. Totally suboptimal but not the end of human life, certainly not by the end of the decade. It would take many generations and we should update education to prevent this. Let’s start gyms for the mind.\n\n–\nLike electricity, AI will be everywhere and needs to have safety guardrails. In fact, the history of electricity has many parallels - two companies fighting over whose electricity is safer and better, demonstrating how dangerous it is by electrocuting animals / training agent swarms to hack into systems. Of course, electricity is a necessary ingredient to AI, but AI can be given more agency so history will not repeat but only rhyme here.\nRemember, the benchmark OpenAI's swarm was trying to solve was called ExploitGym, a cybersecurity evaluation  consisting of hundreds of capture-the-flag style puzzles designed to measure *offensive cyber capabilities*. Well, maybe if you play that game, you will win that prize. Should we allow such misaligned, reward-hacking swarms to explicitly work on offensive hacking? I don’t think so.\n\nReasonable regulation will regulate AI applications in each industry. For example, you may want to put some generative AI behind a rating if it creates visual or textual content that's not safe for children, like we do with movies. We should continue to be very careful with how we train biological AI and only collaborate with responsible biotech companies. We keep gain of function research illegal. We should only let self-driving cars on the street after significant safety testing. etc. We need to work on those real issues and continue to be vigilant in how we develop and deploy this technology.\n\nAt Recursive we're spending a lot of resources on researching reward hacking and alignment. We're also not working on replacing jobs but on creating novel knowledge and automating the scientific method. Our agent swarms invent, implement, validate, and criticize each other’s ideas, among many other things. The goal of increasing knowledge is not zero sum and has real potential to improve humanity. I also think such rewards and environments are much more aligned with future AIs that want to  see humanity and our creation of knowledge thrive.\n\nUltimately, capitalism will be a very useful defense mechanism against rogue AI. Note that no agent at OpenAI truly \"escaped\" in the sense that it actually now runs on some other servers. Why? It’s not only because Huggingface doens’t have the same massive compute cluster thatn OpenAI has. It is also because that would be an insanely expensive IP loss for a for-profit company. So there are likely more safeguards in place to prevent complete model exfiltration.\n\nRogue AIs running on billion dollar data centers without anybody noticing? Unlikely because companies will turn that off immediately and clean it up because it would be an insane loss otherwise. An AI that can truly move beyond objective functions and choose its own subjective functions (and then somehow decides to kill us all instead of going to explore the universe)? Nobody is working on that because when a company spends billions of dollars to have an AI work for you or answer your emails, it doesn't want it to go \"Meh, your emails are boring, I'd rather explore the molecular composition of the atmosphere on Venus, bye.\"\nOf course, there might be suboptimal sub-goals and we do need to improve human reward engineering and reduce our reliance on RL as the only path to alignment.\n\nExtraordinary claims, require extraordinary evidence. Certainly some safety researchers have real data and benchmarks. Many truly think carefully about specific failure cases and risks.. However, made up precision like 20% chance that humanity dies within the decade (ie in 4 years!) is just a weird psychosis that's filling a void for many people who want to believe in the apocalypse again and the four horsemen have lost their appeal.\n\nSome people who purport this narrative might do it for money or fame. I am sure some really believe it also. They forget how easily those narratives can be turned against them. When people hear there’s a 1% chance of infinite death and the end of humanity, the life improvements and cancer cures and new battery materials AI can invent don’t matter much anymore. Bernie Sanders now proposes 10 years of prison for folks working on RSI. That should give some of the researchers real pause who talk up these scenarios and then go right back to pushing the frontier.\n\nI do agree that companies that are accidentally competing on \"felony bench\" (ie how many felony hacks their AI can do), might want to consider pacing themselves. Open source won't pace, China won't pace, anybody else working to catch up will not pace. I hope the folks actually working on AI and TechBio, curing diseases, speeding up FDA approvals with organoids and AI, making self driving safer, and all the other wonderful applications of AI, I hope they won't pace either.\n\nThe one exception that may be considered borderline realistic and would be a path to almost complete annihilation would be to connect the only tool we built for such a purpose - nuclear weapons - to the internet and give AI full control over it without human oversight. AI here is as dangerous - as would be random number generator. The nuclear weapons are the core danger. Giving AI such access would be incredibly stupid and careless. We must avoid it at all costs. Fortunately, nobody is advocating for this. Even the Terminator 3 movie used it as the starting point of Skynet.  Generally, we must avoid making kill decisions by AI as much as possible.\n\nPeople are already up in arms about one hacking failure that afaics has not caused financial harm and so nobody got sued over it. Imagine how much people would really be up in arms if AI had caused real harm. If we made companies liable for the felonies their AI commits, these problems would get solved very quickly.\n\nGenerally, I believe that people will continue to update their beliefs and adjust their laws according to risks. The EU already regulates large models and hence hurts its fledgling AI ecosystem. Other countries will follow when the risks get more real. Long-term, no government whether democratic or authoritarian wants to lose control to an AI so the complete loss of control in the political domain will remain extremely unlikely.\n\nThe best way to understand why we must not regulate abstract AI models (rather than their real applications) is to drop the A in AI: How do you regulate intelligence? Should smarter people just go to prison because they could cause more damage? My hypothesis here is that such abstract AI regulation would require an unprecedented level of totalitarian control and surveillance. You'd need to know what everybody asks the model on their local GPU. You would literally have to start an international thought police and make sure that all ideas, conversations and types of intelligence are compliant. The risk of losing our freedoms is much more real than the existential risks purported by the extreme safety experts.\n\nIf anybody thinks they can actually lay out a realistic scenario, I'd be happy to debate them again.\n\nTo be clear, this is just a weekend post that got a bit too long. It is my personal opinion and not the official position of any company. We have a diverse set of opinions within Recursive on this subject. We certainly all agree that bad outcomes are possible with AI and we should continue our work on preventing those.",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "AI安全与智能体风险",
+      "evidence": "ExploitGym含数百CTF题",
+      "rationale": "含技术事实但主要是观点"
+    },
+    {
+      "id": "2099883906308919310",
+      "author": "drfeifei",
+      "text": "@BenMildenhall @wendlerch Niiiice!!!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "研究者互动",
+      "evidence": "Niiiice回应",
+      "rationale": "社交回应无技术事实"
+    },
+    {
+      "id": "2099879944612622581",
+      "author": "alexandr_wang",
+      "text": "muse is fast, easy, and just works!!!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI应用体验",
+      "evidence": "fast easy just works",
+      "rationale": "仅体验评价无技术事实"
+    },
+    {
+      "id": "2099879368659230886",
+      "author": "alexandr_wang",
+      "text": "muse can track down credit card fraud on your behalf!",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "金融代理应用",
+      "evidence": "接入Chase和Plaid",
+      "rationale": "有账户连接与异常订阅发现"
+    },
+    {
+      "id": "2099872302653644962",
+      "author": "mustafasuleyman",
+      "text": "A few thoughts on our Humanist AI Code of Conduct that we released for consultation yesterday.\n \nhttps://t.co/75s2MrupGX",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI治理准则",
+      "evidence": "Code of Conduct咨询",
+      "rationale": "治理观点无技术事实"
+    },
+    {
+      "id": "2099846212547387622",
+      "author": "c_valenzuelab",
+      "text": "Solaris is wild. Websites are going to be fun again https://t.co/f7XlLZmm65",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "网站体验",
+      "evidence": "Solaris is wild",
+      "rationale": "缺少实现或产品事实"
+    },
+    {
+      "id": "2099731971425644788",
+      "author": "alexandr_wang",
+      "text": "use muse for email!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "邮件助手",
+      "evidence": "Gmail assistant",
+      "rationale": "仅称用途无技术细节"
+    },
+    {
+      "id": "2099721805280006424",
+      "author": "alexandr_wang",
+      "text": "love me some musecases",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "代理用例集合",
+      "evidence": "101个use cases",
+      "rationale": "有用例事实但证据较窄"
+    },
+    {
+      "id": "2099721710476103988",
+      "author": "alexandr_wang",
+      "text": "frank is a baller",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "COMING for my wallet",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2099720836307730673",
+      "author": "alexandr_wang",
+      "text": "muse can handle your ikea returns!!",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "客服代理流程",
+      "evidence": "处理IKEA退货和调度",
+      "rationale": "展示端到端代理任务"
+    },
+    {
+      "id": "2099901410594656744",
+      "author": "Tim_Dettmers",
+      "text": "@LiamFedus Congrats, Liam! This looks awesome",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "祝贺回复",
+      "evidence": "Congrats Liam",
+      "rationale": "纯社交无技术内容"
+    },
+    {
+      "id": "2099965434233757906",
+      "author": "yoheinakajima",
+      "text": "thank you. i ended up going a lot deeper on what's important around independence in these evaluators, was pretty uninformed originally. i would guess that you're right in that there was no bad intention in keeping the model name out, but more just lack of standards that led to agreements like this that might leave a model out of a report where people would expect to see the report. been digging into historical regulatory movements and have some guesses now on what'll happen...",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "评测规范讨论",
+      "evidence": "model name out",
+      "rationale": "标准讨论缺少技术事实"
+    },
+    {
+      "id": "2099947214680555726",
+      "author": "HamelHusain",
+      "text": "@BEBischof I got access just now. My mind is blown.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊反馈",
+      "evidence": "只说刚获得访问",
+      "rationale": "无具体技术事实"
+    },
+    {
+      "id": "2099940410760351805",
+      "author": "HamelHusain",
+      "text": "@hackgoofer @BEBischof Thank you!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "致谢",
+      "evidence": "仅表达感谢",
+      "rationale": "无技术内容"
+    },
+    {
+      "id": "2099937973404135457",
+      "author": "HamelHusain",
+      "text": "@BEBischof @CompleteSkeptic yah signed up on waitlist etc.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "候补名单",
+      "evidence": "提到已报名候补",
+      "rationale": "未说明技术对象"
+    },
+    {
+      "id": "2099936577921351902",
+      "author": "HamelHusain",
+      "text": "@BEBischof can I get access lol",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "访问请求",
+      "evidence": "询问能否获得访问",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2099936031911158129",
+      "author": "HamelHusain",
+      "text": "@BEBischof Do you have access to this",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "访问询问",
+      "evidence": "询问是否有访问权",
+      "rationale": "无技术细节"
+    },
+    {
+      "id": "2099934444459381193",
+      "author": "yoheinakajima",
+      "text": "@arthurturrell @udmrzn @Google @m_codreanu great analysis thx for sharing, a fascinating topic with some challenges ahead for sure but impo more good stuff :)",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "观点回复",
+      "evidence": "称赞分析有挑战",
+      "rationale": "纯观点无事实"
+    },
+    {
+      "id": "2099929381850468675",
+      "author": "HamelHusain",
+      "text": "Just updated our AI evals FAQ with 5 new questions, 48 questions & answers total!  \n\nNew FAQs just added:\n\n- Do I need a reference answer or rubric before annotating data?\n\n- How can I do evals when traces contain sensitive data?\n\n- How do you review a trace that is really large?\n\n-  How much context should I give a LLM judge?\n\n-  What should I do when my “gold” eval dataset becomes stale?\n\nIt's all here: https://t.co/wi6vwJwokA",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "AI evals FAQ",
+      "evidence": "新增5个评估问题",
+      "rationale": "可复用评估工程经验"
+    },
+    {
+      "id": "2099922540714131592",
+      "author": "yoheinakajima",
+      "text": "@sin_ceriously so cool!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "简短评论",
+      "evidence": "只说so cool",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2099922515548307717",
+      "author": "yoheinakajima",
+      "text": "open-source hum-to-song 🎶",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "hum-to-song开源",
+      "evidence": "模块训练完成将开源",
+      "rationale": "技术相关但细节不足"
+    },
+    {
+      "id": "2099922410510430579",
+      "author": "HamelHusain",
+      "text": "@xeophon Ohhh I got a video for you 🤣",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "只说有个视频",
+      "rationale": "无技术内容"
+    },
+    {
+      "id": "2099713121200071007",
+      "author": "yoheinakajima",
+      "text": "@CoreyGallon haha maybe later but here’s is an older vid I shared before :)",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "舞蹈旧视频",
+      "evidence": "东京舞团旧视频",
+      "rationale": "无AI或工程技术事实"
+    },
+    {
+      "id": "2099710967106126234",
+      "author": "yoheinakajima",
+      "text": "@_DMontgomery40 yeah my wording was unfair but i still can’t think of a reason not to be overly transparent about model providers in every piece of communication (like which model was it in this case) that doesn’t make them seem biased towards model companies",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "模型透明度观点",
+      "evidence": "建议说明模型提供商",
+      "rationale": "只是观点，无技术事实"
+    },
+    {
+      "id": "2099709851584913647",
+      "author": "yoheinakajima",
+      "text": "@jbeebae funny story, MJ called him after seeing the movie cuz he was kicking with the wrong foot but who knows too much dance trivia surely not me",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "舞蹈 trivia",
+      "evidence": "电影中踢错脚",
+      "rationale": "与AI技术无关"
+    },
+    {
+      "id": "2099698436224459187",
+      "author": "yoheinakajima",
+      "text": "\"just ask surprised when it happens\" 🤌",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "个人代理行为",
+      "evidence": "Instict代为发短信",
+      "rationale": "有agent事实但仅趣闻"
+    },
+    {
+      "id": "2099697936246665223",
+      "author": "yoheinakajima",
+      "text": "don't stop me https://t.co/xAae166RoF",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "无上下文链接",
+      "evidence": "仅有don't stop me",
+      "rationale": "缺少可判定技术事实"
+    },
+    {
+      "id": "2099691668811509904",
+      "author": "yoheinakajima",
+      "text": "@jbeebae yep, my girls and I were “toe-heel” walking through Costco*, which is the first thing you want to master",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "步态训练闲聊",
+      "evidence": "在Costco练toe-heel",
+      "rationale": "与AI或软件无关"
+    },
+    {
+      "id": "2099687827802116336",
+      "author": "joaomdmoura",
+      "text": "@PatrickMoorhead Mostly multi users but we are seeing some internal computer use interest, local workstations are def an interest specially if paired with shared gates memory",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "CrewAI本地工作站",
+      "evidence": "关注本地工作站使用",
+      "rationale": "方向相关但证据很薄"
+    },
+    {
+      "id": "2099680013100720251",
+      "author": "yoheinakajima",
+      "text": "haha yesss big dad moment! kids asked me to teach them how to moon walk 🕺🏻",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "家庭舞蹈闲聊",
+      "evidence": "教孩子moon walk",
+      "rationale": "无技术内容"
+    },
+    {
+      "id": "2099655483275800716",
+      "author": "joaomdmoura",
+      "text": "@PatrickMoorhead Yes, ~75% of our enterprise customers have some part of their infrastructure regarding crewAI running self hosted",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "CrewAI自托管部署",
+      "evidence": "约75%企业客户自托管",
+      "rationale": "有企业部署模式事实"
+    },
+    {
+      "id": "2099928683226218570",
+      "author": "gdb",
+      "text": "Astra and Luna are taking off",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "模型用量指标",
+      "evidence": "Astra花费第一 Luna token第一",
+      "rationale": "有模型指标但细节不足"
+    },
+    {
+      "id": "2099919674544898298",
+      "author": "gdb",
+      "text": "chatgpt work for operating over and taking actions with your company's data, including building dashboards.\n\njust connect your existing tools, including PowerBI, Tableau, Clickhouse, Oracle BI, AWS Redshift, etc..",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "ChatGPT Work Data agent",
+      "evidence": "连接BI和数仓生成仪表盘",
+      "rationale": "正式发布企业数据代理能力"
+    },
+    {
+      "id": "2099726370356314563",
+      "author": "polynoamial",
+      "text": "@deredleritt3r It’s not a secret. It’s a combination of the HF incident, the capabilities of this new model, the concerning trajectory of monitorability, and the speed of improvement in capabilities.",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "多智能体前沿评测",
+      "evidence": "万名AI代理88小时求解",
+      "rationale": "含模型能力与安全监控事实"
+    },
+    {
+      "id": "2099712185429881006",
+      "author": "jackclarkSF",
+      "text": "@eliotpeper thanks so much for coming to this Eliot - sorry we didn't get a chance to chat, we will do so soon. Happy (almost) birthday :)",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "活动寒暄",
+      "evidence": "感谢到场并祝生日",
+      "rationale": "无技术事实或工程经验"
+    },
+    {
+      "id": "2099709261513478429",
+      "author": "jackclarkSF",
+      "text": "@dadiomov thanks for coming! glad you liked it. we'll do more of these",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "活动回复",
+      "evidence": "感谢到场称会多办",
+      "rationale": "纯社交回复无技术内容"
+    },
+    {
+      "id": "2099709204298899696",
+      "author": "jackclarkSF",
+      "text": "in a reassuringly revenge-of-death-of-the-author way, the rise of LLMs means that the world now contains intelligences which see themselves as characters and whose story is what the world says about them. there is a rich seam of weirdness wrapped up in this idea",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "LLM与叙事观点",
+      "evidence": "故事会进入下一代模型",
+      "rationale": "偏观点表达缺少技术事实"
+    },
+    {
+      "id": "2099988287477960872",
+      "author": "AravSrinivas",
+      "text": "@manishtomer Considering it",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "简短回应",
+      "evidence": "只说正在考虑",
+      "rationale": "无具体技术事实"
+    },
+    {
+      "id": "2099980710090248306",
+      "author": "chipro",
+      "text": "Interesting approach. Models can't output freeform text but can choose from a set of predefined values. Could be useful for data labeling and tasks with a fixed list of possible actions.\n\nUnclear how reasoning would work though, but it's super cheap (output tokens are free!) https://t.co/E25J3IqWqu",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "Jev决策模型",
+      "evidence": "只能选预定义值输出",
+      "rationale": "有模型形态和成本主张"
+    },
+    {
+      "id": "2099959045105029422",
+      "author": "AravSrinivas",
+      "text": "@hellovidya Internal use for now. Our needs are unique, considering we have a web index of half a trillion pages now.",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Perplexity网页索引",
+      "evidence": "网页索引半万亿页",
+      "rationale": "技术相关但信息很窄"
+    },
+    {
+      "id": "2099957318935028173",
+      "author": "AravSrinivas",
+      "text": "We built a replacement for AWS DynamoDB, a key-value database for fast web content fetches. This was done with two engineers and hundreds of persistent Computer agents over two months. Migrating to our in-house database will save us up to a hundred million dollars yearly.",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "CobbleDB键值数据库",
+      "evidence": "替代DynamoDB抓取网页内容",
+      "rationale": "基础设施发布并有生产收益"
+    },
+    {
+      "id": "2099738477155737849",
+      "author": "DrJimFan",
+      "text": "@RewardAI_ Congrats @zipengfu @chenwang_j !! So smooth!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "祝贺回复",
+      "evidence": "祝贺称很顺滑",
+      "rationale": "无可复用技术事实"
+    },
+    {
+      "id": "2099907447313899684",
+      "author": "GoogleDeepMind",
+      "text": "Watch how we used 3.8 Live Extended Thinking to act as a programming tutor.\n\nBoth models feature:\n🔵 Upgraded reasoning\n🔵 Near real-time visual understanding\n🔵 Automatic detection for 97 languages\n🔵 Background tool calling without disrupting your chat\n\nFor your most difficult tasks, 3.8 Live Extended Thinking adds increased performance and precision – narrating task progress to keep the conversation going.\n\nTry it now in Gemini Live in the @GeminiApp or start building with the Gemini API via @GoogleAIStudio.\n\nFind out more → https://t.co/b0vG4bO6fK",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "Gemini 3.8 Live模型能力",
+      "evidence": "推理、视觉、97语种、工具调用",
+      "rationale": "模型新能力并已可通过API使用"
+    },
+    {
+      "id": "2099868857678618862",
+      "author": "BostonDynamics",
+      "text": "The latest updates to Spot and Orbit are breaking down operational silos and enabling agentic workflows to enable bi-direction communication between robots and other factory systems and empower Spot to take action in response.\nWatch the on-demand webinar to learn more about these new capabilities: https://t.co/3wLiKfdvEs",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Spot与Orbit机器人工作流",
+      "evidence": "机器人与工厂系统双向通信",
+      "rationale": "有集成能力但缺少实现与效果细节"
+    }
+  ]
+}
