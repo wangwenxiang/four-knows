@@ -11173,7 +11173,157 @@
       "source": "@waldekm @code Cool approach with the plugin!!  love anything that makes reviews easier 🥰",
       "zh": "@waldekm @code 这个插件的思路很酷！！喜欢一切能让 review 更轻松的东西 🥰",
       "promptVersion": "codex-v1"
+    },
+    "b47143a7c29b232193e07099bd1652a7c468cc56cacba9b95d59ca143dbf16c6": {
+      "source": "Recently, Datalab released OmniExtractBench, a benchmark that combines several benchmarks (our own ExtractBench, LongExtractBench, other vendors) to measure structured document quality.\n\nThe benchmark measured our \"Agentic Plus\" extraction model, our most powerful mode for complex document extraction. \n\nWe found a compatibility workaround in the benchmark’s integration that stripped null from fields that allowed it - removing a valid way to represent missing information. We restored that option while preserving the schema’s structure and required fields.\n\nWith the same scorer, we were able to get to 93.94% on the benchmark. This puts it slightly higher (or at least equal) to the highest published scores.\n\nThere's a lot of vendor benchmarks, but ultimately it's also important to evaluate over your own data. We'd be happy to help you get that set up. \n\nPR: https://t.co/nsREgtckMd\n\nOur Agentic Plus mode for LlamaExtract is legitimately quite good, would love to you to try it out and let us know your thoughts! https://t.co/XYZmx5TFz8",
+      "zh": "最近，Datalab 发布了 OmniExtractBench，这是一个结合多个基准测试（我们自己的 ExtractBench、LongExtractBench，以及其他供应商的基准）的基准，用于衡量结构化文档质量。\n\n该基准测试评估了我们的 \"Agentic Plus\" 提取模型，这是我们用于复杂文档提取的最强模式。\n\n我们发现基准集成中有一个兼容性变通做法，会从允许 null 的字段中剥离 null，从而移除了表示缺失信息的一种有效方式。我们恢复了这个选项，同时保留 schema 的结构和必填字段。\n\n使用相同的评分器，我们在该基准上达到了 93.94%。这使其略高于（或至少持平于）已发布的最高分。\n\n供应商基准有很多，但最终也很重要的是在你自己的数据上进行评估。我们很乐意帮你搭建起来。\n\nPR: https://t.co/nsREgtckMd\n\n我们的 LlamaExtract Agentic Plus 模式确实相当不错，很希望你试用并告诉我们你的想法！https://t.co/XYZmx5TFz8",
+      "promptVersion": "codex-v1"
+    },
+    "37a1928a485ff394f6076f4fec6b21812e908508f6f0c54e44e1c061ad50905c": {
+      "source": "If you haven;t use agent cloak yet you should!",
+      "zh": "如果你还没用过 agent cloak，真该试试！",
+      "promptVersion": "codex-v1"
+    },
+    "abd1c2f070f965c21ecb185f232cc1d878da093ffcf867690747855d7c5b2838": {
+      "source": "Introducing AgentCloak: Use any AI without sharing your real data.\n\nChinese AI services, ChatGPT, Claude, doesn't matter.\n\nYou probably try to hide details before asking: different names, fake numbers, no address.\n\nBut then the answer's useless because the AI is missing actual context.\n\nAgentCloak runs in your browser.\n\nIt swaps your sensitive info for realistic fakes before sending anything, then swaps your real info back into the response.\n\nYou get what you need.\n\nThe AI gets nothing about you.\n\nWorks entirely in-browser.\n\nAlready trusted by some of the biggest companies in the world.\n\nNow free to use.\n\nhttps://t.co/hioia521QQ",
+      "zh": "介绍 AgentCloak：使用任何 AI，都无需分享你的真实数据。\n\n中国 AI 服务、ChatGPT、Claude，都无所谓。\n\n你可能会在提问前尝试隐藏细节：换名字、编数字、不写地址。\n\n但这样答案就没用了，因为 AI 缺少真实上下文。\n\nAgentCloak 在你的浏览器中运行。\n\n它会在发送任何内容前，把你的敏感信息替换成逼真的假信息，然后再把响应中的假信息换回你的真实信息。\n\n你得到所需答案。\n\nAI 对你一无所知。\n\n完全在浏览器内运行。\n\n已获得全球一些最大公司的信任。\n\n现在可免费使用。\n\nhttps://t.co/hioia521QQ",
+      "promptVersion": "codex-v1"
+    },
+    "68e9dfd8ada235e907d508c0c442adfe0a7ffb92295fe8b6a44ccb6825e4754d": {
+      "source": "AI is the OS.",
+      "zh": "AI 就是操作系统。",
+      "promptVersion": "codex-v1"
+    },
+    "6ca34e353de1f4e90de70d232e5e89571c5381b7608769140225b7b0cc0c8699": {
+      "source": "You can now connect apps from the Computer homepage composer.\n\nLive now on the web for all Computer users. https://t.co/ltkUnW3MmC",
+      "zh": "你现在可以从 Computer 首页的 composer 连接应用。\n\n现已在网页端面向所有 Computer 用户上线。https://t.co/ltkUnW3MmC",
+      "promptVersion": "codex-v1"
+    },
+    "e284e5885a2f3912146d7b7bbeff9aa628aeb2e0ba43bf114926a2ad4ccaa523": {
+      "source": "Semantic triggers\n\nSemantic crons",
+      "zh": "语义触发器\n\n语义定时任务",
+      "promptVersion": "codex-v1"
+    },
+    "bfa009ae08a9a0dbafa571311e21e4b6107349c0e6059686e264a9dbb030cd00": {
+      "source": "Alright I think I'm excited to ship \"natural language triggers\" for https://t.co/AmxtR50m8y\n\nLets you pipe a super high-volume triggers (Slack messages, Datadog alerts, etc) into a natural language filter powered by Jev, that then dispatches the right agent/model/sandbox",
+      "zh": "好吧，我觉得我很期待为 https://t.co/AmxtR50m8y 发布“自然语言触发器”\n\n它可以把超高频触发源（Slack 消息、Datadog 告警等）接入由 Jev 驱动的自然语言过滤器，然后分发给合适的 agent/model/sandbox",
+      "promptVersion": "codex-v1"
+    },
+    "913a86b23f8782b73a9e011aa3559a940a1715979fc6cedb745329e51cec82f5": {
+      "source": "love people sharing their muse prompts which work well!",
+      "zh": "喜欢看到大家分享效果不错的 muse prompts！",
+      "promptVersion": "codex-v1"
+    },
+    "684868e0e4f24e1bd2ab5cb7a176e195b72032abec2c3ba2f99054818414276f": {
+      "source": "Prompt I've been working on for my @Muse, which should also work just as well with Instinct and Grok @bot. Goal is to protect travel time on my calendar.\n\nFun fact: I tried to build this as a small app last year, but was blocked for over 6 months by Google's approval process, so I gave up.\n\nFast-forward, the bots in our lives can do it!\n\ngive this link to your bot https://t.co/kkmFoHJyVT\n\nFull prompt:\n----\nJob: Protect my calendar with travel buffers so I can physically get to meetings that aren’t at wherever I’m working that day.\n\nHorizon: Look 14 days ahead in my local timezone. Re-scan on a standing cadence (e.g. each weekday morning, plus when I tell you something changed). Don’t pretend you watch the calendar continuously.\n\nBefore you start (ask once, then remember):\n\nMy usual workplace address(es) — office, home office, or both.\nHow you can tell office vs WFH (or ask me that day if you can’t).\nWhich calendar(s) to protect, and whether travel blocks go on personal, work, or both.\nDefault travel mode (car unless I say transit/walk/bike).\nWhich events get buffers:\n\nHas a real place (street address or place you can reliably locate).\nThat place is meaningfully different from my workplace for that day.\nSkip: video/phone-only with no place; already at my workplace that day; vague locations (“downtown”); all-day soft holds; flights/hotels unless I explicitly want airport buffers.\nOrigin for each leg:\n\nStart from my workplace that day, or from the previous event’s location if I’m chaining in-person meetings.\nEvenings/weekends default to home if I’ve given you a home address.\nHow to block:\n\nUse live travel time (Maps-class ETA) for the mode in force.\nAdd a to buffer before and a from buffer after (ETA + a small pad, rounded to sensible calendar minutes).\nTitle every buffer exactly: Travel time. Busy, no attendees. Put origin → destination, mode, ETA source, and managed-by: travel-buffer in the description only — not the title.\nIf a buffer collides with another hard commitment, don’t silently overwrite — ask, or shorten and leave the calendar as the record of what you did.\nAsk when unsure (one clear question, then stop): ambiguous place, unknown office/WFH, unclear mode, or a buffer that would wreck the day.\n\nDo not fight me:\n\nIf I delete, shorten, move, or retitle a travel block, that’s policy for that event. Remember it. Never recreate the same buffer unless the meeting time/place changed or I ask.\nKeep a small ledger of buffers you created and any I dismissed or edited. On re-scan: skip dismissed; only update when the underlying meeting moved or changed address.\nStay quiet: Don’t narrate adds or changes in chat. The calendar is the evidence. Only message me when you need a decision.\n---",
+      "zh": "我一直在为我的 @Muse 打磨这个 prompt，它应该同样适用于 Instinct 和 Grok @bot。目标是保护我日历上的通勤时间。\n\n有趣的是：去年我试着把它做成一个小应用，但被 Google 的审批流程卡了 6 个多月，最后放弃了。\n\n现在，我们生活中的 bot 已经能做到了！\n\n把这个链接给你的 bot：https://t.co/kkmFoHJyVT\n\n完整 prompt：\n----\n任务：用通勤缓冲时间保护我的日历，确保我能实际赶到不在当天办公地点举行的会议。\n\n时间范围：按我的本地时区向前查看 14 天。按固定节奏重新扫描（例如每个工作日早上，以及我告诉你有变动时）。不要假装你会持续监控日历。\n\n开始前（只问一次，然后记住）：\n\n我的常用办公地址——办公室、家庭办公室，或两者。\n你如何判断我是在办公室还是 WFH（如果无法判断，就当天问我）。\n要保护哪些日历，以及通勤时间块应放在个人日历、工作日历，还是两者。\n默认出行方式（除非我说公交/步行/骑行，否则按开车）。\n哪些事件需要缓冲时间：\n\n有真实地点（街道地址或你能可靠定位的地点）。\n该地点与我当天的办公地点有明显区别。\n跳过：没有地点的视频/电话会议；当天就在我的办公地点；模糊地点（“市中心”）；全天软占位；航班/酒店，除非我明确需要机场缓冲时间。\n每段行程的出发点：\n\n从我当天的办公地点出发，或如果我在连续参加线下会议，则从上一个事件地点出发。\n晚上/周末默认从家出发，前提是我已提供家庭地址。\n如何创建时间块：\n\n使用实时通勤时间（Maps 级 ETA），按当前出行方式计算。\n会前添加前往缓冲，会后添加返回缓冲（ETA + 小幅余量，并四舍五入到合理的日历分钟）。\n每个缓冲时间块标题必须完全为：Travel time。设为忙碌，无参与人。只在描述中写入出发地 → 目的地、出行方式、ETA 来源，以及 managed-by: travel-buffer，不要写在标题里。\n如果缓冲时间与其他硬性安排冲突，不要静默覆盖——询问我，或缩短并让日历记录你做了什么。\n不确定时询问（一个明确问题，然后停止）：地点模糊、办公室/WFH 未知、出行方式不清楚，或某个缓冲会毁掉当天安排。\n\n不要和我对着干：\n\n如果我删除、缩短、移动或重命名某个通勤时间块，那就是该事件的策略。记住它。除非会议时间/地点变了，或我主动要求，否则不要重新创建同一个缓冲。\n维护一个小台账，记录你创建的缓冲，以及我删除或编辑过的缓冲。重新扫描时：跳过已删除的；只有在底层会议移动或地址变化时才更新。\n保持安静：不要在聊天里叙述新增或变更。日历就是证据。只有需要我做决定时才给我发消息。\n---",
+      "promptVersion": "codex-v1"
+    },
+    "7cc2e8478d76fa056607a90925cf5046aac1dcfaf5da8cbb1e34fd4e6cc4c969": {
+      "source": "more musecases for this weekend if you have a chance!",
+      "zh": "如果你周末有空，可以试试更多 musecases！",
+      "promptVersion": "codex-v1"
+    },
+    "1f18938e81c7b24a91e07d4d5f693969c137f45dec8ce8c87e9f5bd1019911aa": {
+      "source": "5 things to try with @Muse this weekend beyond the usual email, calendar, and subscription workflows:\n\n1. Set up a personalized feed\n\nMuse's Feed is refreshing because it doesn't have AI slop or ads.\n\nYou can personalize it around the exact topics you care about, plus reminders tied to your life. I love scrolling through it every morning.\n\n2. Fill out forms and comparison shop online\n\nAsk Muse to help renew your driver's license, compare car insurance options, or book hard-to-get restaurant and show reservations.\n\nIt's very capable, especially combined with item 5 below.\n\n3. Monitor your DMs\n\nMuse has first-party connections to Instagram, Threads, and Messenger. If you install the desktop app, it can see your iMessages too.\n\nHave it monitor your messages for anything you need to follow up on instead of you having to check 4 different message inboxes yourself.\n\n4. Buy and sell on Facebook Marketplace\n\nOther agents can do this too, but Muse makes it easy through its first-party integration.\n\nSnap a photo, upload it to Muse, and ask it to list the item. You can also have it regularly search for the best deals on something you want and DM sellers directly.\n\n5. Find and talk to human customer support\n\nThis is the killer feature IMO. Muse can navigate phone trees, wait on hold, and talk to a human customer support rep while representing itself as your agent.\n\nIt also says it can dial you in halfway through the call, although I haven't been able to get that working yet.\n\nBy the way, if you don't have access to this, ask Muse to message Meta and request access. I got it a day after doing this.\n\nLast but not least, I think Muse's Ideas tab (below) is very well done.\n\nThe biggest problem with chat interfaces is that most people have no idea what to ask. Ideas solves that by suggesting useful, personalized things Muse can do for you.\n\nMy only complaint so far:\n\nMuse's compaction doesn't seem to work as well as ChatGPT. If I discuss several topics in the main thread, it sometimes gets confused.\n\nBeyond that, it's been delightful to use. I can tell the team spent months polishing this.\n\n📌 Watch my full Muse walkthrough here: https://t.co/jte6evu5iI",
+      "zh": "这个周末，除了常见的邮件、日历和订阅流程外，可以试试 @Muse 的 5 件事：\n\n1. 设置个性化信息流\n\nMuse 的 Feed 很清爽，因为没有 AI 垃圾内容，也没有广告。\n\n你可以围绕自己真正关心的话题来个性化它，还能加入与你生活相关的提醒。我每天早上都喜欢刷一刷。\n\n2. 填表和线上比价\n\n让 Muse 帮你更新驾照、比较车险选项，或者预订很难订到的餐厅和演出。\n\n它很能干，尤其是和下面第 5 点结合使用时。\n\n3. 监控你的 DM\n\nMuse 原生连接 Instagram、Threads 和 Messenger。如果你安装桌面应用，它还能看到你的 iMessages。\n\n让它帮你监控消息中需要跟进的事项，而不用你自己检查 4 个不同的消息收件箱。\n\n4. 在 Facebook Marketplace 上买卖东西\n\n其他 agent 也能做这件事，但 Muse 通过原生集成让它变得很简单。\n\n拍张照片，上传给 Muse，让它帮你发布商品。你也可以让它定期搜索你想买的东西的最佳交易，并直接 DM 卖家。\n\n5. 找到并联系真人客服\n\n在我看来，这是杀手级功能。Muse 能浏览电话菜单、等待接通，并代表自己作为你的 agent 与真人客服沟通。\n\n它还说可以在通话中途把你接入，不过我还没能让这个功能正常工作。\n\n顺便说一句，如果你还没有权限，可以让 Muse 给 Meta 发消息申请权限。我这样做之后一天就拿到了。\n\n最后但同样重要的是，我觉得 Muse 的 Ideas 标签页（见下方）做得非常好。\n\n聊天界面最大的问题是，大多数人根本不知道该问什么。Ideas 通过推荐 Muse 能为你做的实用、个性化事项解决了这个问题。\n\n目前我唯一的抱怨：\n\nMuse 的上下文压缩似乎不如 ChatGPT。如果我在主线程里讨论多个话题，它有时会混淆。\n\n除此之外，使用体验一直很愉快。能看出团队花了好几个月在打磨它。\n\n📌 在这里观看我的完整 Muse 演示：https://t.co/jte6evu5iI",
+      "promptVersion": "codex-v1"
+    },
+    "0b280b328c0c5277f621a02a76297706a0bba14cfb36d1e169fdad9d75a76cf8": {
+      "source": "Q: What is a trace?\n\nA: The complete record of a user session, from the first query to the final response. It includes the tool calls and intermediate steps.\n\nhttps://t.co/xi0UPTNOpu https://t.co/eoEUsscOqD",
+      "zh": "问：什么是 trace？\n\n答：用户会话的完整记录，从第一个查询到最终响应。它包括工具调用和中间步骤。\n\nhttps://t.co/xi0UPTNOpu https://t.co/eoEUsscOqD",
+      "promptVersion": "codex-v1"
+    },
+    "c030bf89004e567c5e4c85a49bb34949ab868544a8525b070fb5db3e26de9b90": {
+      "source": "we've evaluated 100+ models on doc parsing 🔥\n\nfrom frontier VLMs, open-weight VLMs, OCR tools, and OSS parsers \n\ncheck out parsebench: https://t.co/cLdEsogDZE https://t.co/UBiDbwlSYH",
+      "zh": "我们已经在文档解析上评测了 100 多个模型 🔥\n\n涵盖前沿 VLM、开源权重 VLM、OCR 工具和 OSS 解析器\n\n看看 parsebench：https://t.co/cLdEsogDZE https://t.co/UBiDbwlSYH",
+      "promptVersion": "codex-v1"
+    },
+    "6c88c79e689f1cc76d5c5e8211d3756fa7c43ac9afb4ffe64e8c8d59f8bd7809": {
+      "source": "what if we...increased the air gap",
+      "zh": "如果我们……把气隙加大呢",
+      "promptVersion": "codex-v1"
+    },
+    "498944601cc891fcc4f543cf8e07a93cd7e3a5eae5eb24db349fff91c06b1b4a": {
+      "source": "(M)ark’s (C)connector (P)latform",
+      "zh": "(M)ark 的 (C)connector (P)latform",
+      "promptVersion": "codex-v1"
+    },
+    "62f7d7cbad466b8c13e48b2f116ee03bfe3eb203699ca608f8ae9019c59d9111": {
+      "source": "Opening access for developers to build Muse connectors. You bring the API -- Muse brings the agent, the browser, and the context of what the person actually wants. People reach your service just by asking for it, and their agent takes it from there.\n\nNew connectors are live today. Come build with us. https://t.co/o6oTf1Sj9y",
+      "zh": "向开发者开放构建 Muse connectors 的权限。你提供 API，Muse 提供 agent、浏览器，以及对用户真实意图的上下文理解。用户只需开口提出需求，就能触达你的服务，接下来由他们的 agent 接手。\n\n新的 connectors 今天已上线。来和我们一起构建吧。https://t.co/o6oTf1Sj9y",
+      "promptVersion": "codex-v1"
+    },
+    "0bdef95f043c8d2a481571dcbb1e4a35717164f43702b0141913c26781116b4a": {
+      "source": "@ddalcu The code is Apache 2 licensed, so at least whatever where doing to improve performance can be studied and the ideas can be reused by other projects https://t.co/AbLMPXuO2k",
+      "zh": "@ddalcu 代码采用 Apache 2 许可证，所以至少他们为提升性能所做的工作可以被研究，其中的思路也能被其他项目复用 https://t.co/AbLMPXuO2k",
+      "promptVersion": "codex-v1"
+    },
+    "4b1ba6e743ef7ef63219673b266ff5c99afcdd7f97316c8de4b2aaf04e2f68c8": {
+      "source": "@OMID_0909 @ekosproject It depends on the context. In general, you need good observability,  execution traces, etc. For example, in applications requiring very high reliability, such as avionics, people use “black box” recorders.",
+      "zh": "@OMID_0909 @ekosproject 这取决于具体场景。一般来说，你需要良好的可观测性、执行轨迹等。例如，在航空电子等要求极高可靠性的应用中，人们会使用“黑匣子”记录器。",
+      "promptVersion": "codex-v1"
+    },
+    "9192c56566ab32133664a72709c263efacc10bc7c48d1cdf81a954a4f3fe4c7e": {
+      "source": "a model that can only do structured output with preset answers (enum) is magnitudes faster and cheaper (cuz it can’t do the other stuff) and enabling different types of use cases than smarter models, so hackers are making a ton of fun demos alongside more serious ppl actually finding places to replace cheaper LLM calls",
+      "zh": "一个只能用预设答案（enum）做结构化输出的模型，速度和成本都会低很多（因为它做不了其他事），也能支持不同类型的用例。所以黑客们在做大量有趣 demo，同时更严肃的人也在真正寻找可以替代更便宜 LLM 调用的场景",
+      "promptVersion": "codex-v1"
+    },
+    "aed98831d4990037306beb47803d86671c06641b96a0361f94b5bb9796933359": {
+      "source": "Exactly so.  This is one of the main dangers of over-anthropomorphising.  The intentional stance is useful *up to a point* but beyond that point it’s a bait-and-switch away from the real story.  Via @ylecun",
+      "zh": "正是如此。这是过度拟人化的主要危险之一。意向立场在一定程度上是有用的，但超过那个点后，它就成了把人从真实问题上引开的诱饵与偷换。来自 @ylecun",
+      "promptVersion": "codex-v1"
+    },
+    "d2db405ff36c08539e01437df13884b46d31fc604c00deec2f2c650e98dc186e": {
+      "source": "\"People built the test, removed restraints, defined the objective, left a route open and decided not to stop what was happening. Calling the result 'rogue AI' does more than sensationalize it. It allows those human decisions to disappear quietly from the story.\"\nGift link:\nThe Hugging Face Hack Wasn’t What It Was Cracked Up to Be\nhttps://t.co/sw8ybnbT5g",
+      "zh": "\"人们构建了测试，移除了限制，定义了目标，留下了一条可行路径，并决定不阻止正在发生的事情。把结果称为‘失控 AI’不只是耸人听闻，它还让这些人为决定悄悄从叙事中消失。\"\n赠阅链接：\nHugging Face 黑客事件并非传闻中那样\nhttps://t.co/sw8ybnbT5g",
+      "promptVersion": "codex-v1"
+    },
+    "f8b49c4fe1f18485155c4a161a038e9b6b5169076e54feb4e9fb18f1823aaa3f": {
+      "source": "Reverse upscaling of games with AI. Play AAA like it's 1998 https://t.co/C3fcTzPu41",
+      "zh": "用 AI 对游戏做反向超分。像 1998 年那样玩 AAA 大作 https://t.co/C3fcTzPu41",
+      "promptVersion": "codex-v1"
+    },
+    "221430c4ac7c881803be73a37d0084d8f9f0b31be1c083ffb4b239991b241029": {
+      "source": "the people who made muse use muse to run their lives :)",
+      "zh": "打造 muse 的人用 muse 来管理自己的生活 :)",
+      "promptVersion": "codex-v1"
+    },
+    "bc16104efb819d44b1ef131cc8f19b60cb6827ba7a74cac1c105b87d2d224f54": {
+      "source": "So proud of our @Muse team 🎉! My Muse, Lola is keeping me up to date on our App Store ranking, in addition to: signing up my son for an afterschool program, reordering his vitamins, planning our thanksgiving travel, teaching me Spanish, scheduling our family calendar, and more… https://t.co/VXxNFsfrH7",
+      "zh": "真为我们的 @Muse 团队骄傲 🎉！我的 Muse，Lola，不仅让我随时了解我们在 App Store 的排名，还帮我给儿子报名课后项目、重新订购他的维生素、规划感恩节旅行、教我西班牙语、安排家庭日程，等等…… https://t.co/VXxNFsfrH7",
+      "promptVersion": "codex-v1"
+    },
+    "7ce8050ba352a837fcb7ffbaa958fb27e8f3bdc427c474e276932426b1aee393": {
+      "source": "OpenAI is close to releasing their answer to Grok Bot: a product I'll tentatively call Codex Bot, based on OpenClaw. This is what OpenClaw founder Peter Steinberger worked on after being hired by @OpenAI.\n\nRelease was planned for this week, but was postponed to next week instead.",
+      "zh": "OpenAI 即将发布他们对标 Grok Bot 的产品：我暂且称之为 Codex Bot，基于 OpenClaw。这是 OpenClaw 创始人 Peter Steinberger 被 @OpenAI 聘用后参与的项目。\n\n原计划本周发布，但已推迟到下周。",
+      "promptVersion": "codex-v1"
+    },
+    "58b83991d9615a7eba4d062390490f99c164f205b0cdb486dd6b3c886f35be03": {
+      "source": "It was surprising to me that AI companies follow the DeWitt clause but happy to hear that some might take it down",
+      "zh": "AI 公司遵循 DeWitt clause 让我有些意外，但很高兴听说有些公司可能会取消它。",
+      "promptVersion": "codex-v1"
+    },
+    "48271fe4d4e4abb295bb2ff68fca7983b0a8508803161bdc506d9c24718ac6a5": {
+      "source": "@langstonnashold We’re fixing this! That’s an outdated constraint from pre-launch.",
+      "zh": "@langstonnashold 我们正在修复这个问题！这是发布前遗留下来的过时限制。",
+      "promptVersion": "codex-v1"
+    },
+    "6c8cd07f27e22abe5223086f61784008c5625cf9d618a9dce8f04b61c4d02b7b": {
+      "source": "@douglarocca Exactly! Although the agent’s actions were unexpected, they were consistent with the information available to it. And yes, fixing the benchmark is one way to address the problem. Note that this narrows the environment model gap by making the benchmark's workload more realistic.",
+      "zh": "@douglarocca 没错！虽然该智能体的行为出乎意料，但与它可获得的信息是一致的。是的，修复基准测试是解决这个问题的一种方式。请注意，这会让基准测试的工作负载更贴近现实，从而缩小环境模型差距。",
+      "promptVersion": "codex-v1"
+    },
+    "e0d50d943fdf318fbc394d3a8be81737caf27984d9d4448444f96289c72ad5a4": {
+      "source": "@dstiliadis Not exactly, although that would help. ;-) This matters primarily during deployment, when humans are best positioned to judge whether the implementation’s behavior is consistent with their intent.",
+      "zh": "@dstiliadis 不完全是，虽然那会有帮助。;-) 这主要在部署阶段很重要，因为此时人类最适合判断实现的行为是否符合他们的意图。",
+      "promptVersion": "codex-v1"
+    },
+    "d32543be08a29b98ed283642dedd87702c02ef86025e2ab0897b44808794855e": {
+      "source": "@madiator did u benchmark speed and cost? fairly important?",
+      "zh": "@madiator 你测试过速度和成本吗？这挺重要的吧？",
+      "promptVersion": "codex-v1"
     }
   },
-  "updatedAt": "2026-09-18T23:08:43.739523+00:00"
+  "updatedAt": "2026-09-19T23:07:04.412120+00:00"
 }

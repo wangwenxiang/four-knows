@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>硅谷 AI 原声 · 2026-09-20</title>
+  <style>
+    :root{--bg:#f4f6f8;--surface:#fff;--text:#16181c;--muted:#65717e;--line:#dfe4e9;--accent:#0066cc;--green:#117a62;--shadow:0 16px 42px rgba(18,28,38,.08);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 15% 0,#e8f2ff 0,transparent 27%),var(--bg);color:var(--text)} a{color:inherit;text-decoration:none} button{font:inherit}
+    .shell{width:min(1500px,calc(100% - 28px));margin:0 auto;padding:14px 0 40px}
+    .hero{display:grid;grid-template-columns:minmax(250px,1fr) auto;align-items:center;gap:12px;padding:15px 18px;border:1px solid rgba(255,255,255,.75);border-radius:16px;background:rgba(255,255,255,.88);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    h1{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin:0;font-size:clamp(28px,3.4vw,44px);line-height:1;letter-spacing:-.05em} .report-date{color:var(--green);font-size:clamp(10px,1vw,13px);font-weight:900;letter-spacing:.08em;white-space:nowrap}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(62px,1fr));gap:6px;align-content:start} .metric{padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fff} .metric strong{display:block;font-size:19px;line-height:1} .metric span{display:block;margin-top:3px;color:var(--muted);font-size:8px;font-weight:820;white-space:nowrap}
+    .notice{margin-top:12px;padding:11px 14px;border:1px solid #e1b866;border-radius:12px;background:#fff8e8;color:#7a5612;font-size:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px;align-items:start} .signal-card{min-width:0;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 9px 26px rgba(18,28,38,.045)}
+    .card-top{display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:10px} .avatar{display:grid;width:46px;height:46px;overflow:hidden;place-items:center;border:1px solid #d9e0e7;border-radius:999px;background:linear-gradient(135deg,#111827,#46627d);color:#fff;font-size:12px;font-weight:900} .avatar img{width:100%;height:100%;object-fit:cover;display:block} .identity{display:grid;gap:3px;min-width:0} .identity strong,.identity span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .identity strong{font-size:14px} .identity span{color:var(--muted);font-size:11px}
+    .score{display:grid;justify-items:center;min-width:40px;padding:5px 6px;border:1px solid #e3ebe8;border-radius:8px;background:#f4f8f6;color:#527267;font-size:15px;font-weight:820;line-height:1} .score small{margin-top:2px;color:#71877f;font-size:7px;letter-spacing:.06em;text-transform:uppercase}
+    .meta{display:flex;align-items:center;gap:6px;margin:11px 0 9px;color:var(--muted);font-size:10.5px;font-weight:750} .meta span:not(.priority){overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .meta time{margin-left:auto;white-space:nowrap} .priority{padding:3px 6px;border-radius:999px;background:#111827;color:#fff;font-size:9px}
+    .post-text{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.58} .post-text.original{font-size:16px;font-weight:570;color:#20252b} .post-text.translation{margin-top:8px;color:#66727f;font-size:13px;font-weight:470;line-height:1.62} .article .original+.translation{margin-top:2px;color:#65717e;font-size:11px;font-weight:650} .quote,.article{display:grid;gap:6px;margin-top:10px;padding:11px;border:1px solid var(--line);border-radius:12px;background:#f7f9fb} .quote__author{display:flex;align-items:center;gap:7px;font-size:11px} .quote__author>div:last-child{display:grid;gap:1px} .quote__author span{color:var(--muted)} .quote-avatar{display:grid;width:28px;height:28px;overflow:hidden;place-items:center;border:1px solid var(--line);border-radius:999px;background:#dfe6ed;color:#52606d;font-size:10px;font-weight:900} .quote-avatar img{width:100%;height:100%;object-fit:cover} .quote p,.article p{margin:0;color:#4f5a66;font-size:12px;line-height:1.48;white-space:pre-wrap} .article strong{font-size:13px} .article strong.original{font-size:13.5px} .quote-text.original{font-size:12.5px;color:#36414d} .quote-text.translation{font-size:11.5px;color:#6a7682} .quote-link{justify-self:start;color:var(--accent);font-size:10px;font-weight:850}
+    .media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:10px;overflow:hidden;border-radius:12px} .media-grid--1{grid-template-columns:1fr} .media-item{position:relative;min-height:150px;background:#e8edf2} .media-item img{width:100%;height:100%;max-height:330px;object-fit:cover;display:block} .media-item span{position:absolute;right:7px;bottom:7px;padding:4px 6px;border-radius:6px;background:rgba(0,0,0,.68);color:#fff;font-size:8px;font-weight:900}
+    .card-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid #edf0f3} .engagement{display:flex;gap:10px;color:var(--muted);font-size:10.5px;font-weight:750} .card-bottom>a{color:var(--accent);font-size:11px;font-weight:850} .empty{grid-column:1/-1;padding:70px;text-align:center;border:1px dashed #cdd5dd;border-radius:16px;background:#fff;color:var(--muted)}
+    footer{padding:26px 4px 0;color:var(--muted);font-size:11px;text-align:center}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}} @media(max-width:560px){.shell{width:min(100% - 16px,1500px);padding-top:7px}.hero{gap:10px;padding:13px 14px;border-radius:15px}h1{font-size:28px}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.metric{padding:7px 9px}.metric strong{font-size:18px}.signal-card{padding:13px}.post-text.original{font-size:15px}.post-text.translation{font-size:12.5px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <h1>硅谷 AI 原声 <span class="report-date">· 2026-09-20</span></h1>
+      <div class="metrics"><div class="metric"><strong>62</strong><span>监控专家</span></div><div class="metric"><strong>14</strong><span>活跃专家</span></div><div class="metric"><strong>23</strong><span>精选原文</span></div></div>
+    </header>
+
+    <main class="grid">
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">69<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>09-19 08:11 北京</time></div>
+        <p class="post-text original" lang="auto">Recently, Datalab released OmniExtractBench, a benchmark that combines several benchmarks (our own ExtractBench, LongExtractBench, other vendors) to measure structured document quality.
+
+The benchmark measured our &quot;Agentic Plus&quot; extraction model, our most powerful mode for complex document extraction.
+
+We found a compatibility workaround in the benchmark’s integration that stripped null from fields that allowed it - removing a valid way to represent missing information. We restored that option while preserving the schema’s structure and required fields.
+
+With the same scorer, we were able to get to 93.94% on the benchmark. This puts it slightly higher (or at least equal) to the highest published scores.
+
+There&#x27;s a lot of vendor benchmarks, but ultimately it&#x27;s also important to evaluate over your own data. We&#x27;d be happy to help you get that set up.
+
+PR: https://t.co/nsREgtckMd
+
+Our Agentic Plus mode for LlamaExtract is legitimately quite good, would love to you to try it out and let us know your thoughts! https://t.co/XYZmx5TFz8</p><p class="post-text translation" lang="zh-CN">最近，Datalab 发布了 OmniExtractBench，这是一个结合多个基准测试（我们自己的 ExtractBench、LongExtractBench，以及其他供应商的基准）的基准，用于衡量结构化文档质量。
+
+该基准测试评估了我们的 &quot;Agentic Plus&quot; 提取模型，这是我们用于复杂文档提取的最强模式。
+
+我们发现基准集成中有一个兼容性变通做法，会从允许 null 的字段中剥离 null，从而移除了表示缺失信息的一种有效方式。我们恢复了这个选项，同时保留 schema 的结构和必填字段。
+
+使用相同的评分器，我们在该基准上达到了 93.94%。这使其略高于（或至少持平于）已发布的最高分。
+
+供应商基准有很多，但最终也很重要的是在你自己的数据上进行评估。我们很乐意帮你搭建起来。
+
+PR: https://t.co/nsREgtckMd
+
+我们的 LlamaExtract Agentic Plus 模式确实相当不错，很希望你试用并告诉我们你的想法！https://t.co/XYZmx5TFz8</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HSic19masAABPvM.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HSic19masAABPvM.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 41</span><span>↻ 8</span><span>↩ 12</span></div><a href="https://x.com/jerryjliu0/status/2101101864326693077" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">71<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>09-19 13:38 北京</time></div>
+        <p class="post-text original source-only" lang="auto">这两天关于 Jev 的讨论真的铺天盖地，Demo、应用、解读一篇接一篇。
+
+有人觉得这是新的 System One 范式，也有人吐槽「AI 圈绕了一圈又重新发明了分类器」。
+
+争议归争议，它有一点确实挺有意思，不再让模型什么都靠生成文本解决，而是直接输出选择、概率和置信度。
+
+这种东西放进 Agent 里很顺，路由、选工具、打分、判断要不要继续，都不一定值得叫一个大模型慢慢生成一遍。现在已经有人拿它做 Agent Router、游戏和各种实时决策了。
+
+看到这里我就知道，我又得开始接受一个新的范式了。😂
+
+以后 Agent 的「大脑」可能也不会只有一个模型，慢模型负责真正困难的推理，大量高频的小决定交给这种又快又便宜的决策模型。
+
+Jev 最后是不是革命还不好说，但这个方向我感觉很难忽略。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 14</span><span>↻ 1</span><span>↩ 7</span></div><a href="https://x.com/Xudong07452910/status/2101184217463841142" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="joaomdmoura" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1993772444268810240/FPCMce3S_normal.jpg" alt="Joao Moura avatar" loading="lazy"></div>
+          <div class="identity"><strong>Joao Moura</strong><span>@joaomdmoura · CrewAI / 创始人兼 CEO</span></div>
+          <div class="score">60<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 框架</span><time>09-19 11:35 北京</time></div>
+        <p class="post-text original" lang="auto">If you haven;t use agent cloak yet you should!</p><p class="post-text translation" lang="zh-CN">如果你还没用过 agent cloak，真该试试！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/855186035382173697/vqZkNkt__normal.jpg" alt="Peter Yared avatar" loading="lazy"></div><div><strong>Peter Yared</strong><span>@peteryared</span></div></div><p class="quote-text original" lang="auto">Introducing AgentCloak: Use any AI without sharing your real data.
+
+Chinese AI services, ChatGPT, Claude, doesn&#x27;t matter.
+
+You probably try to hide details before asking: different names, fake numbers, no address.
+
+But then the answer&#x27;s useless because the AI is missing actual context.
+
+AgentCloak runs in your browser.
+
+It swaps your sensitive info for realistic fakes before sending anything, then swaps your real info back into the response.
+
+You get what you need.
+
+The AI gets nothing about you.
+
+Works entirely in-browser.
+
+Already trusted by some of the biggest companies in the world.
+
+Now free to use.
+
+https://t.co/hioia521QQ</p><p class="quote-text translation" lang="zh-CN">介绍 AgentCloak：使用任何 AI，都无需分享你的真实数据。
+
+中国 AI 服务、ChatGPT、Claude，都无所谓。
+
+你可能会在提问前尝试隐藏细节：换名字、编数字、不写地址。
+
+但这样答案就没用了，因为 AI 缺少真实上下文。
+
+AgentCloak 在你的浏览器中运行。
+
+它会在发送任何内容前，把你的敏感信息替换成逼真的假信息，然后再把响应中的假信息换回你的真实信息。
+
+你得到所需答案。
+
+AI 对你一无所知。
+
+完全在浏览器内运行。
+
+已获得全球一些最大公司的信任。
+
+现在可免费使用。
+
+https://t.co/hioia521QQ</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2100957439264980992/img/iP7HeVLgX70tzR8D.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2100957439264980992/img/iP7HeVLgX70tzR8D.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/peteryared/status/2100960005289807961" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 15</span><span>↻ 0</span><span>↩ 3</span></div><a href="https://x.com/joaomdmoura/status/2101153288498585820" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="aravsrinivas" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2028729526822588416/WhtMUI-P_normal.jpg" alt="Aravind Srinivas avatar" loading="lazy"></div>
+          <div class="identity"><strong>Aravind Srinivas</strong><span>@AravSrinivas · Perplexity / CEO</span></div>
+          <div class="score">88<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 搜索 / 产品</span><time>09-19 11:21 北京</time></div>
+        <p class="post-text original" lang="auto">AI is the OS.</p><p class="post-text translation" lang="zh-CN">AI 就是操作系统。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2028889294174380032/1hOF3gRi_normal.jpg" alt="Computer avatar" loading="lazy"></div><div><strong>Computer</strong><span>@AskPerplexity</span></div></div><p class="quote-text original" lang="auto">You can now connect apps from the Computer homepage composer.
+
+Live now on the web for all Computer users. https://t.co/ltkUnW3MmC</p><p class="quote-text translation" lang="zh-CN">你现在可以从 Computer 首页的 composer 连接应用。
+
+现已在网页端面向所有 Computer 用户上线。https://t.co/ltkUnW3MmC</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2101147933446123520/img/vfsoKKjcP1kF6r22.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2101147933446123520/img/vfsoKKjcP1kF6r22.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/AskPerplexity/status/2101147964307849718" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 677</span><span>↻ 29</span><span>↩ 51</span></div><a href="https://x.com/AravSrinivas/status/2101149706235834829" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="hwchase17" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1569345624935485442/R67C4wCQ_normal.jpg" alt="Harrison Chase avatar" loading="lazy"></div>
+          <div class="identity"><strong>Harrison Chase</strong><span>@hwchase17 · LangChain / CEO</span></div>
+          <div class="score">78<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Agent 框架</span><time>09-19 08:38 北京</time></div>
+        <p class="post-text original" lang="auto">Semantic triggers
+
+Semantic crons</p><p class="post-text translation" lang="zh-CN">语义触发器
+
+语义定时任务</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/707401818326867968/eLhiZkco_normal.jpg" alt="Sajid Mehmood avatar" loading="lazy"></div><div><strong>Sajid Mehmood</strong><span>@smehmood</span></div></div><p class="quote-text original" lang="auto">Alright I think I&#x27;m excited to ship &quot;natural language triggers&quot; for https://t.co/AmxtR50m8y
+
+Lets you pipe a super high-volume triggers (Slack messages, Datadog alerts, etc) into a natural language filter powered by Jev, that then dispatches the right agent/model/sandbox</p><p class="quote-text translation" lang="zh-CN">好吧，我觉得我很期待为 https://t.co/AmxtR50m8y 发布“自然语言触发器”
+
+它可以把超高频触发源（Slack 消息、Datadog 告警等）接入由 Jev 驱动的自然语言过滤器，然后分发给合适的 agent/model/sandbox</p><a class="quote-link" href="https://x.com/smehmood/status/2101055370307228053" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 55</span><span>↻ 2</span><span>↩ 24</span></div><a href="https://x.com/hwchase17/status/2101108730716958780" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="alexandr_wang" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">72<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>09-19 10:48 北京</time></div>
+        <p class="post-text original" lang="auto">love people sharing their muse prompts which work well!</p><p class="post-text translation" lang="zh-CN">喜欢看到大家分享效果不错的 muse prompts！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2049354574516178944/OKHe6Ocu_normal.jpg" alt="Trevin Chow avatar" loading="lazy"></div><div><strong>Trevin Chow</strong><span>@trevin</span></div></div><p class="quote-text original" lang="auto">Prompt I&#x27;ve been working on for my @Muse, which should also work just as well with Instinct and Grok @bot. Goal is to protect travel time on my calendar.
+
+Fun fact: I tried to build this as a small app last year, but was blocked for over 6 months by Google&#x27;s approval process, so I gave up.
+
+Fast-forward, the bots in our lives can do it!
+
+give this link to your bot https://t.co/kkmFoHJyVT
+
+Full prompt:
+----
+Job: Protect my calendar with travel buffers so I can physically get to meetings that aren’t at wherever I’m working that day.
+
+Horizon: Look 14 days ahead in my local timezone. Re-scan on a standing cadence (e.g. each weekday morning, plus when I tell you something changed). Don’t pretend you watch the calendar continuously.
+
+Before you start (ask once, then remember):
+
+My usual workplace address(es) — office, home office, or both.
+How you can tell office vs WFH (or ask me that day if you can’t).
+Which calendar(s) to protect, and whether travel blocks go on personal, work, or both.
+Default travel mode (car unless I say transit/walk/bike).
+Which events get buffers:
+
+Has a real place (street address or place you can reliably locate).
+That place is meaningfully different from my workplace for that day.
+Skip: video/phone-only with no place; already at my workplace that day; vague locations (“downtown”); all-day soft holds; flights/hotels unless I explicitly want airport buffers.
+Origin for each leg:
+
+Start from my workplace that day, or from the previous event’s location if I’m chaining in-person meetings.
+Evenings/weekends default to home if I’ve given you a home address.
+How to block:
+
+Use live travel time (Maps-class ETA) for the mode in force.
+Add a to buffer before and a from buffer after (ETA + a small pad, rounded to sensible calendar minutes).
+Title every buffer exactly: Travel time. Busy, no attendees. Put origin → destination, mode, ETA source, and managed-by: travel-buffer in the description only — not the title.
+If a buffer collides with another hard commitment, don’t silently overwrite — ask, or shorten and leave the calendar as the record of what you did.
+Ask when unsure (one clear question, then stop): ambiguous place, unknown office/WFH, unclear mode, or a buffer that would wreck the day.
+
+Do not fight me:
+
+If I delete, shorten, move, or retitle a travel block, that’s policy for that event. Remember it. Never recreate the same buffer unless the meeting time/place changed or I ask.
+Keep a small ledger of buffers you created and any I dismissed or edited. On re-scan: skip dismissed; only update when the underlying meeting moved or changed address.
+Stay quiet: Don’t narrate adds or changes in chat. The calendar is the evidence. Only message me when you need a decision.
+---</p><p class="quote-text translation" lang="zh-CN">我一直在为我的 @Muse 打磨这个 prompt，它应该同样适用于 Instinct 和 Grok @bot。目标是保护我日历上的通勤时间。
+
+有趣的是：去年我试着把它做成一个小应用，但被 Google 的审批流程卡了 6 个多月，最后放弃了。
+
+现在，我们生活中的 bot 已经能做到了！
+
+把这个链接给你的 bot：https://t.co/kkmFoHJyVT
+
+完整 prompt：
+----
+任务：用通勤缓冲时间保护我的日历，确保我能实际赶到不在当天办公地点举行的会议。
+
+时间范围：按我的本地时区向前查看 14 天。按固定节奏重新扫描（例如每个工作日早上，以及我告诉你有变动时）。不要假装你会持续监控日历。
+
+开始前（只问一次，然后记住）：
+
+我的常用办公地址——办公室、家庭办公室，或两者。
+你如何判断我是在办公室还是 WFH（如果无法判断，就当天问我）。
+要保护哪些日历，以及通勤时间块应放在个人日历、工作日历，还是两者。
+默认出行方式（除非我说公交/步行/骑行，否则按开车）。
+哪些事件需要缓冲时间：
+
+有真实地点（街道地址或你能可靠定位的地点）。
+该地点与我当天的办公地点有明显区别。
+跳过：没有地点的视频/电话会议；当天就在我的办公地点；模糊地点（“市中心”）；全天软占位；航班/酒店，除非我明确需要机场缓冲时间。
+每段行程的出发点：
+
+从我当天的办公地点出发，或如果我在连续参加线下会议，则从上一个事件地点出发。
+晚上/周末默认从家出发，前提是我已提供家庭地址。
+如何创建时间块：
+
+使用实时通勤时间（Maps 级 ETA），按当前出行方式计算。
+会前添加前往缓冲，会后添加返回缓冲（ETA + 小幅余量，并四舍五入到合理的日历分钟）。
+每个缓冲时间块标题必须完全为：Travel time。设为忙碌，无参与人。只在描述中写入出发地 → 目的地、出行方式、ETA 来源，以及 managed-by: travel-buffer，不要写在标题里。
+如果缓冲时间与其他硬性安排冲突，不要静默覆盖——询问我，或缩短并让日历记录你做了什么。
+不确定时询问（一个明确问题，然后停止）：地点模糊、办公室/WFH 未知、出行方式不清楚，或某个缓冲会毁掉当天安排。
+
+不要和我对着干：
+
+如果我删除、缩短、移动或重命名某个通勤时间块，那就是该事件的策略。记住它。除非会议时间/地点变了，或我主动要求，否则不要重新创建同一个缓冲。
+维护一个小台账，记录你创建的缓冲，以及我删除或编辑过的缓冲。重新扫描时：跳过已删除的；只有在底层会议移动或地址变化时才更新。
+保持安静：不要在聊天里叙述新增或变更。日历就是证据。只有需要我做决定时才给我发消息。
+---</p><a class="quote-link" href="https://x.com/trevin/status/2100985450248712547" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 152</span><span>↻ 6</span><span>↩ 31</span></div><a href="https://x.com/alexandr_wang/status/2101141362607632873" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="alexandr_wang" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">71<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>09-20 00:39 北京</time></div>
+        <p class="post-text original" lang="auto">more musecases for this weekend if you have a chance!</p><p class="post-text translation" lang="zh-CN">如果你周末有空，可以试试更多 musecases！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1454103621516206083/_klMwpkk_normal.jpg" alt="Peter Yang avatar" loading="lazy"></div><div><strong>Peter Yang</strong><span>@petergyang</span></div></div><p class="quote-text original" lang="auto">5 things to try with @Muse this weekend beyond the usual email, calendar, and subscription workflows:
+
+1. Set up a personalized feed
+
+Muse&#x27;s Feed is refreshing because it doesn&#x27;t have AI slop or ads.
+
+You can personalize it around the exact topics you care about, plus reminders tied to your life. I love scrolling through it every morning.
+
+2. Fill out forms and comparison shop online
+
+Ask Muse to help renew your driver&#x27;s license, compare car insurance options, or book hard-to-get restaurant and show reservations.
+
+It&#x27;s very capable, especially combined with item 5 below.
+
+3. Monitor your DMs
+
+Muse has first-party connections to Instagram, Threads, and Messenger. If you install the desktop app, it can see your iMessages too.
+
+Have it monitor your messages for anything you need to follow up on instead of you having to check 4 different message inboxes yourself.
+
+4. Buy and sell on Facebook Marketplace
+
+Other agents can do this too, but Muse makes it easy through its first-party integration.
+
+Snap a photo, upload it to Muse, and ask it to list the item. You can also have it regularly search for the best deals on something you want and DM sellers directly.
+
+5. Find and talk to human customer support
+
+This is the killer feature IMO. Muse can navigate phone trees, wait on hold, and talk to a human customer support rep while representing itself as your agent.
+
+It also says it can dial you in halfway through the call, although I haven&#x27;t been able to get that working yet.
+
+By the way, if you don&#x27;t have access to this, ask Muse to message Meta and request access. I got it a day after doing this.
+
+Last but not least, I think Muse&#x27;s Ideas tab (below) is very well done.
+
+The biggest problem with chat interfaces is that most people have no idea what to ask. Ideas solves that by suggesting useful, personalized things Muse can do for you.
+
+My only complaint so far:
+
+Muse&#x27;s compaction doesn&#x27;t seem to work as well as ChatGPT. If I discuss several topics in the main thread, it sometimes gets confused.
+
+Beyond that, it&#x27;s been delightful to use. I can tell the team spent months polishing this.
+
+📌 Watch my full Muse walkthrough here: https://t.co/jte6evu5iI</p><p class="quote-text translation" lang="zh-CN">这个周末，除了常见的邮件、日历和订阅流程外，可以试试 @Muse 的 5 件事：
+
+1. 设置个性化信息流
+
+Muse 的 Feed 很清爽，因为没有 AI 垃圾内容，也没有广告。
+
+你可以围绕自己真正关心的话题来个性化它，还能加入与你生活相关的提醒。我每天早上都喜欢刷一刷。
+
+2. 填表和线上比价
+
+让 Muse 帮你更新驾照、比较车险选项，或者预订很难订到的餐厅和演出。
+
+它很能干，尤其是和下面第 5 点结合使用时。
+
+3. 监控你的 DM
+
+Muse 原生连接 Instagram、Threads 和 Messenger。如果你安装桌面应用，它还能看到你的 iMessages。
+
+让它帮你监控消息中需要跟进的事项，而不用你自己检查 4 个不同的消息收件箱。
+
+4. 在 Facebook Marketplace 上买卖东西
+
+其他 agent 也能做这件事，但 Muse 通过原生集成让它变得很简单。
+
+拍张照片，上传给 Muse，让它帮你发布商品。你也可以让它定期搜索你想买的东西的最佳交易，并直接 DM 卖家。
+
+5. 找到并联系真人客服
+
+在我看来，这是杀手级功能。Muse 能浏览电话菜单、等待接通，并代表自己作为你的 agent 与真人客服沟通。
+
+它还说可以在通话中途把你接入，不过我还没能让这个功能正常工作。
+
+顺便说一句，如果你还没有权限，可以让 Muse 给 Meta 发消息申请权限。我这样做之后一天就拿到了。
+
+最后但同样重要的是，我觉得 Muse 的 Ideas 标签页（见下方）做得非常好。
+
+聊天界面最大的问题是，大多数人根本不知道该问什么。Ideas 通过推荐 Muse 能为你做的实用、个性化事项解决了这个问题。
+
+目前我唯一的抱怨：
+
+Muse 的上下文压缩似乎不如 ChatGPT。如果我在主线程里讨论多个话题，它有时会混淆。
+
+除此之外，使用体验一直很愉快。能看出团队花了好几个月在打磨它。
+
+📌 在这里观看我的完整 Muse 演示：https://t.co/jte6evu5iI</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HSlm5XXbAAA_vJA.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HSlm5XXbAAA_vJA.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/petergyang/status/2101323839976432111" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 114</span><span>↻ 12</span><span>↩ 29</span></div><a href="https://x.com/alexandr_wang/status/2101350436540465343" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">68<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>09-19 23:00 北京</time></div>
+        <p class="post-text original" lang="auto">Q: What is a trace?
+
+A: The complete record of a user session, from the first query to the final response. It includes the tool calls and intermediate steps.
+
+https://t.co/xi0UPTNOpu https://t.co/eoEUsscOqD</p><p class="post-text translation" lang="zh-CN">问：什么是 trace？
+
+答：用户会话的完整记录，从第一个查询到最终响应。它包括工具调用和中间步骤。
+
+https://t.co/xi0UPTNOpu https://t.co/eoEUsscOqD</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HSloXNxXgAApcji.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HSloXNxXgAApcji.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 69</span><span>↻ 9</span><span>↩ 20</span></div><a href="https://x.com/HamelHusain/status/2101325452484735231" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">67<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>09-20 02:59 北京</time></div>
+        <p class="post-text original" lang="auto">we&#x27;ve evaluated 100+ models on doc parsing 🔥
+
+from frontier VLMs, open-weight VLMs, OCR tools, and OSS parsers
+
+check out parsebench: https://t.co/cLdEsogDZE https://t.co/UBiDbwlSYH</p><p class="post-text translation" lang="zh-CN">我们已经在文档解析上评测了 100 多个模型 🔥
+
+涵盖前沿 VLM、开源权重 VLM、OCR 工具和 OSS 解析器
+
+看看 parsebench：https://t.co/cLdEsogDZE https://t.co/UBiDbwlSYH</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HSmeg4oaIAA_FMw.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HSmeg4oaIAA_FMw.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 69</span><span>↻ 6</span><span>↩ 8</span></div><a href="https://x.com/jerryjliu0/status/2101385597495755018" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">66<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>09-19 14:47 北京</time></div>
+        <p class="post-text original" lang="auto">what if we...increased the air gap</p><p class="post-text translation" lang="zh-CN">如果我们……把气隙加大呢</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2066254089756061697/MGnZGljz_normal.jpg" alt="Fireside Alpha avatar" loading="lazy"></div><div><strong>Fireside Alpha</strong><span>@firesidealpha</span></div></div><p class="quote-text original" lang="auto">OpenAI&#x27;s Noam Brown says air-gapping the computers may not stop a misaligned AI, because two air-gapped machines can still talk by running a CPU hot and reading the temperature change
+
+&quot;But I think the major takeaway from the incident is that people underestimated the AI. And we never want to be in a situation again where we underestimate the AI. It&#x27;s a weird world, because AI progress is so fast that people are consistently underestimating the AI.&quot;
+
+&quot;So to be in a situation where you don&#x27;t underestimate it again, when it comes to safety and alignment, you have to have a very, very, very high bar.&quot;
+
+&quot;You could even go as far as to say, &quot;Well, we should air gap the computers.&quot; And I&#x27;m not convinced that that would be sufficient.&quot;
+
+&quot;There are studies, and this is mostly academic, where you can have two computers next to each other that are air-gapped and they&#x27;re still able to communicate with each other because they have temperature sensors.&quot;
+
+&quot;One of them is able to run their CPU really hot, and then the other one can actually detect the temperature change, and then that actually gives them a mechanism to communicate.&quot;
+_________
+Link and more key quotes from OpenAI&#x27;s safety related conversations: https://t.co/uGBDtpmLBj</p><p class="quote-text translation" lang="zh-CN">OpenAI 的 Noam Brown 表示，对计算机进行物理隔离也未必能阻止一个失准的 AI，因为两台物理隔离的机器仍可通过让 CPU 过热并读取温度变化来通信。
+
+“但我认为这起事件的主要启示是，人们低估了 AI。我们再也不想陷入低估 AI 的境地。这是个奇怪的世界，因为 AI 进展太快，人们一直在低估 AI。”
+
+“所以，要避免再次低估它，在安全和对齐问题上，你必须设定非常非常非常高的标准。”
+
+“你甚至可以进一步说，‘好吧，我们应该对计算机进行物理隔离。’但我并不确信这就足够了。”
+
+“有一些研究，主要是学术性的，表明两台相邻的计算机即使物理隔离，也仍然能通过温度传感器相互通信。”
+
+“其中一台可以让 CPU 运行得非常热，另一台实际上就能检测到温度变化，这就为它们提供了一种通信机制。”
+_________
+OpenAI 安全相关对话的链接和更多关键引述：https://t.co/uGBDtpmLBj</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2100641163418230784/img/aCQAhuga2pH5zHvd.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2100641163418230784/img/aCQAhuga2pH5zHvd.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/firesidealpha/status/2100641742135701983" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 48</span><span>↻ 0</span><span>↩ 9</span></div><a href="https://x.com/jerryjliu0/status/2101201572386795846" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="yoheinakajima" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
+          <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
+          <div class="score">64<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>09-20 02:43 北京</time></div>
+        <p class="post-text original" lang="auto">(M)ark’s (C)connector (P)latform</p><p class="post-text translation" lang="zh-CN">(M)ark 的 (C)connector (P)latform</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/77846223/profile_normal.jpg" alt="Mark Zuckerberg avatar" loading="lazy"></div><div><strong>Mark Zuckerberg</strong><span>@finkd</span></div></div><p class="quote-text original" lang="auto">Opening access for developers to build Muse connectors. You bring the API -- Muse brings the agent, the browser, and the context of what the person actually wants. People reach your service just by asking for it, and their agent takes it from there.
+
+New connectors are live today. Come build with us. https://t.co/o6oTf1Sj9y</p><p class="quote-text translation" lang="zh-CN">向开发者开放构建 Muse connectors 的权限。你提供 API，Muse 提供 agent、浏览器，以及对用户真实意图的上下文理解。用户只需开口提出需求，就能触达你的服务，接下来由他们的 agent 接手。
+
+新的 connectors 今天已上线。来和我们一起构建吧。https://t.co/o6oTf1Sj9y</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2101084600898580480/img/b42MGXW3LdlSL43K.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2101084600898580480/img/b42MGXW3LdlSL43K.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/finkd/status/2101084678640066765" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 35</span><span>↻ 1</span><span>↩ 6</span></div><a href="https://x.com/yoheinakajima/status/2101381625900900757" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="simonw" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
+          <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
+          <div class="score">62<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>09-19 22:32 北京</time></div>
+        <p class="post-text original" lang="auto">@ddalcu The code is Apache 2 licensed, so at least whatever where doing to improve performance can be studied and the ideas can be reused by other projects https://t.co/AbLMPXuO2k</p><p class="post-text translation" lang="zh-CN">@ddalcu 代码采用 Apache 2 许可证，所以至少他们为提升性能所做的工作可以被研究，其中的思路也能被其他项目复用 https://t.co/AbLMPXuO2k</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 3</span><span>↻ 0</span><span>↩ 3</span></div><a href="https://x.com/simonw/status/2101318580520567029" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="istoica05" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1889424820821172228/OKFe0cdL_normal.jpg" alt="Ion Stoica avatar" loading="lazy"></div>
+          <div class="identity"><strong>Ion Stoica</strong><span>@istoica05 · Berkeley；Anyscale 联合创始人</span></div>
+          <div class="score">51<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 基础设施 / 分布式系统</span><time>09-19 14:14 北京</time></div>
+        <p class="post-text original" lang="auto">@OMID_0909 @ekosproject It depends on the context. In general, you need good observability,  execution traces, etc. For example, in applications requiring very high reliability, such as avionics, people use “black box” recorders.</p><p class="post-text translation" lang="zh-CN">@OMID_0909 @ekosproject 这取决于具体场景。一般来说，你需要良好的可观测性、执行轨迹等。例如，在航空电子等要求极高可靠性的应用中，人们会使用“黑匣子”记录器。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 4</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/istoica05/status/2101193139365281998" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="yoheinakajima" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
+          <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
+          <div class="score">48<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>09-20 01:42 北京</time></div>
+        <p class="post-text original" lang="auto">a model that can only do structured output with preset answers (enum) is magnitudes faster and cheaper (cuz it can’t do the other stuff) and enabling different types of use cases than smarter models, so hackers are making a ton of fun demos alongside more serious ppl actually finding places to replace cheaper LLM calls</p><p class="post-text translation" lang="zh-CN">一个只能用预设答案（enum）做结构化输出的模型，速度和成本都会低很多（因为它做不了其他事），也能支持不同类型的用例。所以黑客们在做大量有趣 demo，同时更严肃的人也在真正寻找可以替代更便宜 LLM 调用的场景</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 1</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/yoheinakajima/status/2101366228959035634" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="anilkseth" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1479788727346118657/MkLkGnOk_normal.jpg" alt="Anil Seth avatar" loading="lazy"></div>
+          <div class="identity"><strong>Anil Seth</strong><span>@anilkseth · 权威意识研究者</span></div>
+          <div class="score">78<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>意识科学与神经科学</span><time>09-19 15:18 北京</time></div>
+        <p class="post-text original" lang="auto">Exactly so.  This is one of the main dangers of over-anthropomorphising.  The intentional stance is useful *up to a point* but beyond that point it’s a bait-and-switch away from the real story.  Via @ylecun</p><p class="post-text translation" lang="zh-CN">正是如此。这是过度拟人化的主要危险之一。意向立场在一定程度上是有用的，但超过那个点后，它就成了把人从真实问题上引开的诱饵与偷换。来自 @ylecun</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1746907202974076928/y3QfIte9_normal.jpg" alt="Jeff (Hot Type) Jarvis avatar" loading="lazy"></div><div><strong>Jeff (Hot Type) Jarvis</strong><span>@jeffjarvis</span></div></div><p class="quote-text original" lang="auto">&quot;People built the test, removed restraints, defined the objective, left a route open and decided not to stop what was happening. Calling the result &#x27;rogue AI&#x27; does more than sensationalize it. It allows those human decisions to disappear quietly from the story.&quot;
+Gift link:
+The Hugging Face Hack Wasn’t What It Was Cracked Up to Be
+https://t.co/sw8ybnbT5g</p><p class="quote-text translation" lang="zh-CN">&quot;人们构建了测试，移除了限制，定义了目标，留下了一条可行路径，并决定不阻止正在发生的事情。把结果称为‘失控 AI’不只是耸人听闻，它还让这些人为决定悄悄从叙事中消失。&quot;
+赠阅链接：
+Hugging Face 黑客事件并非传闻中那样
+https://t.co/sw8ybnbT5g</p><a class="quote-link" href="https://x.com/jeffjarvis/status/2100908522842071147" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 63</span><span>↻ 9</span><span>↩ 14</span></div><a href="https://x.com/anilkseth/status/2101209364749025428" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="c_valenzuelab" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2070496516893229056/bm-CWE5N_normal.jpg" alt="Cristobal Valenzuela avatar" loading="lazy"></div>
+          <div class="identity"><strong>Cristobal Valenzuela</strong><span>@c_valenzuelab · Runway / 联合创始人兼 CEO</span></div>
+          <div class="score">77<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>生成式视频</span><time>09-19 09:41 北京</time></div>
+        <p class="post-text original" lang="auto">Reverse upscaling of games with AI. Play AAA like it&#x27;s 1998 https://t.co/C3fcTzPu41</p><p class="post-text translation" lang="zh-CN">用 AI 对游戏做反向超分。像 1998 年那样玩 AAA 大作 https://t.co/C3fcTzPu41</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2101124423445102592/img/HdFjXIMyZQWZp3wT.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2101124423445102592/img/HdFjXIMyZQWZp3wT.jpg" alt="X post media"><span>VIDEO</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 11,706</span><span>↻ 386</span><span>↩ 394</span></div><a href="https://x.com/c_valenzuelab/status/2101124472661069980" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">73<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>09-19 18:45 北京</time></div>
+        <p class="post-text original source-only" lang="auto">这个角度去解读 Jev 还是挺有意思的，这算是 Encoder 的文艺复兴嘛？
+
+还记得我第一个 paper 就是用 Encoder 做时序预测模型，当时 BERT 还是有一席之地的。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2089337602436444161/F8lWtWJZ_normal.jpg" alt="Dongxi 东锡 NLP avatar" loading="lazy"></div><div><strong>Dongxi 东锡 NLP</strong><span>@dongxi_nlp</span></div></div><p class="quote-text original source-only" lang="auto">Encoder 的卷土重来
+
+BERT 本来是一条极有潜力的路线：高效地把输入压成 representation。但它停留在了 task-specific 时代，每个任务都需要微调。
+
+GPT 早期同样如此，后来却沿着 scaling、in-context learning 和 instruction tuning 走向了 泛化，把自然语言变成 universal task interface。分类、判断、推理、工具调用，统统变成 generation。
+
+于是 decoder-only 赢下了整个 paradigm，encoder 也失去了继续探索 general classifier 和 general representation model 的历史机会。
+
+但 Agent 改变了 workload。模型开始面对越来越大的输入、越来越重的 KV cache、越来越频繁的循环调用，此时，用一个巨大的 decoder 完整 prefill，再 autoregressive decode 几个 token 来完成一次判断，开始显得昂贵。
+
+Jev 恰好等到了这个窗口。它试图补上 BERT 当年没有走完的路线，保留 GPT 的 task generalization，同时重新获得 encoder 和 classifier 式的 decision efficiency，成为面向 service、面向 Agent 的 泛化 decision model。</p><a class="quote-link" href="https://x.com/dongxi_nlp/status/2101183155294117913" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 28</span><span>↻ 0</span><span>↩ 3</span></div><a href="https://x.com/Xudong07452910/status/2101261508705435773" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="alexandr_wang" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">70<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>09-20 00:28 北京</time></div>
+        <p class="post-text original" lang="auto">the people who made muse use muse to run their lives :)</p><p class="post-text translation" lang="zh-CN">打造 muse 的人用 muse 来管理自己的生活 :)</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1557769515823296512/CFiI2m9D_normal.jpg" alt="Susie Lee avatar" loading="lazy"></div><div><strong>Susie Lee</strong><span>@hellojellosusie</span></div></div><p class="quote-text original" lang="auto">So proud of our @Muse team 🎉! My Muse, Lola is keeping me up to date on our App Store ranking, in addition to: signing up my son for an afterschool program, reordering his vitamins, planning our thanksgiving travel, teaching me Spanish, scheduling our family calendar, and more… https://t.co/VXxNFsfrH7</p><p class="quote-text translation" lang="zh-CN">真为我们的 @Muse 团队骄傲 🎉！我的 Muse，Lola，不仅让我随时了解我们在 App Store 的排名，还帮我给儿子报名课后项目、重新订购他的维生素、规划感恩节旅行、教我西班牙语、安排家庭日程，等等…… https://t.co/VXxNFsfrH7</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HSjjjPiaEAED5NB.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HSjjjPiaEAED5NB.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/hellojellosusie/status/2101179423492042926" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 111</span><span>↻ 6</span><span>↩ 22</span></div><a href="https://x.com/alexandr_wang/status/2101347704819556644" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">65<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>09-19 12:56 北京</time></div>
+        <p class="post-text original source-only" lang="auto">有点期待 OpenAI 即将发布的 Codex Bot，对标 Grok Bot。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1923114794804039680/HMfSchLD_normal.jpg" alt="Mark Kretschmann avatar" loading="lazy"></div><div><strong>Mark Kretschmann</strong><span>@mark_k</span></div></div><p class="quote-text original" lang="auto">OpenAI is close to releasing their answer to Grok Bot: a product I&#x27;ll tentatively call Codex Bot, based on OpenClaw. This is what OpenClaw founder Peter Steinberger worked on after being hired by @OpenAI.
+
+Release was planned for this week, but was postponed to next week instead.</p><p class="quote-text translation" lang="zh-CN">OpenAI 即将发布他们对标 Grok Bot 的产品：我暂且称之为 Codex Bot，基于 OpenClaw。这是 OpenClaw 创始人 Peter Steinberger 被 @OpenAI 聘用后参与的项目。
+
+原计划本周发布，但已推迟到下周。</p><a class="quote-link" href="https://x.com/mark_k/status/2100490135661875372" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 3</span><span>↻ 0</span><span>↩ 2</span></div><a href="https://x.com/Xudong07452910/status/2101173449947570459" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="sh_reya" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1342529111839944705/hzr44mb5_normal.jpg" alt="Shreya Shankar avatar" loading="lazy"></div>
+          <div class="identity"><strong>Shreya Shankar</strong><span>@sh_reya · UC Berkeley / AI 工程研究员</span></div>
+          <div class="score">57<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>09-20 01:30 北京</time></div>
+        <p class="post-text original" lang="auto">It was surprising to me that AI companies follow the DeWitt clause but happy to hear that some might take it down</p><p class="post-text translation" lang="zh-CN">AI 公司遵循 DeWitt clause 让我有些意外，但很高兴听说有些公司可能会取消它。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2100659744486936577/VYfTeKoN_normal.jpg" alt="Eugene Shvarts avatar" loading="lazy"></div><div><strong>Eugene Shvarts</strong><span>@mathfax</span></div></div><p class="quote-text original" lang="auto">@langstonnashold We’re fixing this! That’s an outdated constraint from pre-launch.</p><p class="quote-text translation" lang="zh-CN">@langstonnashold 我们正在修复这个问题！这是发布前遗留下来的过时限制。</p><a class="quote-link" href="https://x.com/mathfax/status/2101215621619028063" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 5</span><span>↻ 0</span><span>↩ 3</span></div><a href="https://x.com/sh_reya/status/2101363374915232076" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="istoica05" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1889424820821172228/OKFe0cdL_normal.jpg" alt="Ion Stoica avatar" loading="lazy"></div>
+          <div class="identity"><strong>Ion Stoica</strong><span>@istoica05 · Berkeley；Anyscale 联合创始人</span></div>
+          <div class="score">48<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 基础设施 / 分布式系统</span><time>09-20 00:43 北京</time></div>
+        <p class="post-text original" lang="auto">@douglarocca Exactly! Although the agent’s actions were unexpected, they were consistent with the information available to it. And yes, fixing the benchmark is one way to address the problem. Note that this narrows the environment model gap by making the benchmark&#x27;s workload more realistic.</p><p class="post-text translation" lang="zh-CN">@douglarocca 没错！虽然该智能体的行为出乎意料，但与它可获得的信息是一致的。是的，修复基准测试是解决这个问题的一种方式。请注意，这会让基准测试的工作负载更贴近现实，从而缩小环境模型差距。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 1</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/istoica05/status/2101351536819646879" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="istoica05" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1889424820821172228/OKFe0cdL_normal.jpg" alt="Ion Stoica avatar" loading="lazy"></div>
+          <div class="identity"><strong>Ion Stoica</strong><span>@istoica05 · Berkeley；Anyscale 联合创始人</span></div>
+          <div class="score">46<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 基础设施 / 分布式系统</span><time>09-19 14:02 北京</time></div>
+        <p class="post-text original" lang="auto">@dstiliadis Not exactly, although that would help. ;-) This matters primarily during deployment, when humans are best positioned to judge whether the implementation’s behavior is consistent with their intent.</p><p class="post-text translation" lang="zh-CN">@dstiliadis 不完全是，虽然那会有帮助。;-) 这主要在部署阶段很重要，因为此时人类最适合判断实现的行为是否符合他们的意图。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 0</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/istoica05/status/2101190259417763875" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="swyx" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx avatar" loading="lazy"></div>
+          <div class="identity"><strong>swyx</strong><span>@swyx · Latent Space / AI Engineer</span></div>
+          <div class="score">45<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 工作流</span><time>09-20 03:03 北京</time></div>
+        <p class="post-text original" lang="auto">@madiator did u benchmark speed and cost? fairly important?</p><p class="post-text translation" lang="zh-CN">@madiator 你测试过速度和成本吗？这挺重要的吧？</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 1</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/swyx/status/2101386764158111985" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+    </main>
+    <footer>Generated 2026-09-20 07:02:36 Asia/Shanghai · Read-only X ingestion via Bird · Translation via Codex</footer>
+  </div>
+</body>
+</html>
