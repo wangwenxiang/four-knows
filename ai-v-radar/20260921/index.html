@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>硅谷 AI 原声 · 2026-09-21</title>
+  <style>
+    :root{--bg:#f4f6f8;--surface:#fff;--text:#16181c;--muted:#65717e;--line:#dfe4e9;--accent:#0066cc;--green:#117a62;--shadow:0 16px 42px rgba(18,28,38,.08);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 15% 0,#e8f2ff 0,transparent 27%),var(--bg);color:var(--text)} a{color:inherit;text-decoration:none} button{font:inherit}
+    .shell{width:min(1500px,calc(100% - 28px));margin:0 auto;padding:14px 0 40px}
+    .hero{display:grid;grid-template-columns:minmax(250px,1fr) auto;align-items:center;gap:12px;padding:15px 18px;border:1px solid rgba(255,255,255,.75);border-radius:16px;background:rgba(255,255,255,.88);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    h1{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin:0;font-size:clamp(28px,3.4vw,44px);line-height:1;letter-spacing:-.05em} .report-date{color:var(--green);font-size:clamp(10px,1vw,13px);font-weight:900;letter-spacing:.08em;white-space:nowrap}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(62px,1fr));gap:6px;align-content:start} .metric{padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fff} .metric strong{display:block;font-size:19px;line-height:1} .metric span{display:block;margin-top:3px;color:var(--muted);font-size:8px;font-weight:820;white-space:nowrap}
+    .notice{margin-top:12px;padding:11px 14px;border:1px solid #e1b866;border-radius:12px;background:#fff8e8;color:#7a5612;font-size:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px;align-items:start} .signal-card{min-width:0;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 9px 26px rgba(18,28,38,.045)}
+    .card-top{display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:10px} .avatar{display:grid;width:46px;height:46px;overflow:hidden;place-items:center;border:1px solid #d9e0e7;border-radius:999px;background:linear-gradient(135deg,#111827,#46627d);color:#fff;font-size:12px;font-weight:900} .avatar img{width:100%;height:100%;object-fit:cover;display:block} .identity{display:grid;gap:3px;min-width:0} .identity strong,.identity span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .identity strong{font-size:14px} .identity span{color:var(--muted);font-size:11px}
+    .score{display:grid;justify-items:center;min-width:40px;padding:5px 6px;border:1px solid #e3ebe8;border-radius:8px;background:#f4f8f6;color:#527267;font-size:15px;font-weight:820;line-height:1} .score small{margin-top:2px;color:#71877f;font-size:7px;letter-spacing:.06em;text-transform:uppercase}
+    .meta{display:flex;align-items:center;gap:6px;margin:11px 0 9px;color:var(--muted);font-size:10.5px;font-weight:750} .meta span:not(.priority){overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .meta time{margin-left:auto;white-space:nowrap} .priority{padding:3px 6px;border-radius:999px;background:#111827;color:#fff;font-size:9px}
+    .post-text{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.58} .post-text.original{font-size:16px;font-weight:570;color:#20252b} .post-text.translation{margin-top:8px;color:#66727f;font-size:13px;font-weight:470;line-height:1.62} .article .original+.translation{margin-top:2px;color:#65717e;font-size:11px;font-weight:650} .quote,.article{display:grid;gap:6px;margin-top:10px;padding:11px;border:1px solid var(--line);border-radius:12px;background:#f7f9fb} .quote__author{display:flex;align-items:center;gap:7px;font-size:11px} .quote__author>div:last-child{display:grid;gap:1px} .quote__author span{color:var(--muted)} .quote-avatar{display:grid;width:28px;height:28px;overflow:hidden;place-items:center;border:1px solid var(--line);border-radius:999px;background:#dfe6ed;color:#52606d;font-size:10px;font-weight:900} .quote-avatar img{width:100%;height:100%;object-fit:cover} .quote p,.article p{margin:0;color:#4f5a66;font-size:12px;line-height:1.48;white-space:pre-wrap} .article strong{font-size:13px} .article strong.original{font-size:13.5px} .quote-text.original{font-size:12.5px;color:#36414d} .quote-text.translation{font-size:11.5px;color:#6a7682} .quote-link{justify-self:start;color:var(--accent);font-size:10px;font-weight:850}
+    .media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:10px;overflow:hidden;border-radius:12px} .media-grid--1{grid-template-columns:1fr} .media-item{position:relative;min-height:150px;background:#e8edf2} .media-item img{width:100%;height:100%;max-height:330px;object-fit:cover;display:block} .media-item span{position:absolute;right:7px;bottom:7px;padding:4px 6px;border-radius:6px;background:rgba(0,0,0,.68);color:#fff;font-size:8px;font-weight:900}
+    .card-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid #edf0f3} .engagement{display:flex;gap:10px;color:var(--muted);font-size:10.5px;font-weight:750} .card-bottom>a{color:var(--accent);font-size:11px;font-weight:850} .empty{grid-column:1/-1;padding:70px;text-align:center;border:1px dashed #cdd5dd;border-radius:16px;background:#fff;color:var(--muted)}
+    footer{padding:26px 4px 0;color:var(--muted);font-size:11px;text-align:center}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}} @media(max-width:560px){.shell{width:min(100% - 16px,1500px);padding-top:7px}.hero{gap:10px;padding:13px 14px;border-radius:15px}h1{font-size:28px}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.metric{padding:7px 9px}.metric strong{font-size:18px}.signal-card{padding:13px}.post-text.original{font-size:15px}.post-text.translation{font-size:12.5px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <h1>硅谷 AI 原声 <span class="report-date">· 2026-09-21</span></h1>
+      <div class="metrics"><div class="metric"><strong>62</strong><span>监控专家</span></div><div class="metric"><strong>9</strong><span>活跃专家</span></div><div class="metric"><strong>18</strong><span>精选原文</span></div></div>
+    </header>
+
+    <main class="grid">
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">77<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>09-20 14:12 北京</time></div>
+        <p class="post-text original source-only" lang="auto">我们一直在研究怎么让 Agent 更聪明。
+
+这篇论文反过来问了一句：
+
+能不能让 Agent 自己研究，怎么把自己跑得更便宜？
+
+NVIDIA、NTU、MIT 团队的 SoL-Pi，就是让 Research Agent 自动发现 Harness 里的 Token 浪费，再通过大规模实验筛掉无效改法。
+
+他们让 Research Agent 观察真实执行轨迹，提出 Harness 改法，再放进大量环境中反复测试。整个搜索覆盖 152 个方向、535 个可执行环境和 3000+ 次实验。
+
+最后真正留下来的只有 4 个机制。
+
+思路其实还挺朴素的：合并连续工具操作；只在划算的时候压缩上下文；大段工具输出先存起来、需要时再读；冗长日志只保留经过验证的关键证据。
+
+结果在 EdgeBench 上，SoL-Pi 在 GPT-5.6 Sol 和 Opus 5 上保持接近 Pi 的任务表现，同时减少约 45%–49% 的 Token 流量，API 成本降低约三分之一。并且用 GPT-5.6 Sol 搜出来的 Harness，可以直接迁移到 Opus 5，不需要重新优化。
+
+还有一个细节是最终评测集完全隔离，候选方案冻结后才能进去测试；如果失败，就直接淘汰，结果不会再回流给 Agent 继续针对性修改。这样能尽量避免「为了 benchmark 把 Harness 越改越偏」。
+
+所以这篇工作给的insight是 Harness 自进化未必需要一开始就追求复杂的新架构。
+
+大量价值可能藏在那些每天都在发生的浪费里，重复调用、反复传输、无效上下文和过长日志。
+
+当 AI 开始自己发现并修掉这些系统性浪费，Agent 的「自我改进」也就从能力提升，走到了运行效率这一层。
+
+📎 arxiv: https://t.co/Z4zzJak7NF</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HSo5DbvaYAAuVtR.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HSo5DbvaYAAuVtR.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 37</span><span>↻ 8</span><span>↩ 3</span></div><a href="https://x.com/Xudong07452910/status/2101555030172242258" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">79<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>09-21 02:20 北京</time></div>
+        <p class="post-text original" lang="auto">Introducing DocJev - a lightning-fast OSS library for document classification and splitting with jev ⚡️
+
+Give a document alongside some natural language category rules. Jev will predict the document category (classify) or the boundaries between sub-documents (split).
+
+It is 6x faster than gpt-5.6-luna with equivalent accuracy.
+
+You can choose between different OCR backends:
+liteparse: the fastest/most accurate free+OSS text parser out there. Perfect for digitalized documents. The speedups vs. luna above are inclusive of liteparse times.
+LlamaParse: the most advanced VLM-based solution for complex docs. Using this will of course add latency on document preprocessing. But it’s a good option if you want to cache the digitalized representations of documents for a variety of downstream tasks.
+
+Check it out: https://t.co/PVE4hbEyFR
+
+If you want to dive deeper into liteparse or LlamaParse check the links below:
+liteparse: https://t.co/JNER0mVcB8
+LlamaParse: https://t.co/XYZmx5TFz8</p><p class="post-text translation" lang="zh-CN">推出 DocJev：一个用于文档分类和拆分的超高速 OSS 库，基于 jev ⚡️
+
+只需提供一份文档和一些自然语言类别规则。Jev 会预测文档类别（分类），或预测子文档之间的边界（拆分）。
+
+在准确率相当的情况下，它比 gpt-5.6-luna 快 6 倍。
+
+你可以选择不同的 OCR 后端：
+liteparse：目前最快、最准确的免费 + OSS 文本解析器。非常适合数字化文档。上述相较 luna 的提速已包含 liteparse 的耗时。
+LlamaParse：最先进的基于 VLM 的复杂文档解决方案。使用它当然会增加文档预处理延迟。但如果你想缓存文档的数字化表示，用于各种下游任务，这是一个不错的选择。
+
+了解一下：https://t.co/PVE4hbEyFR
+
+如果想深入了解 liteparse 或 LlamaParse，请查看下面链接：
+liteparse：https://t.co/JNER0mVcB8
+LlamaParse：https://t.co/XYZmx5TFz8</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2101738161546391552/img/aTJ-mBG_YeF98yMQ.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2101738161546391552/img/aTJ-mBG_YeF98yMQ.jpg" alt="X post media"><span>VIDEO</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 498</span><span>↻ 38</span><span>↩ 23</span></div><a href="https://x.com/jerryjliu0/status/2101738281046294552" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="ken_goldberg" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1432180197818703873/PGutjinG_normal.jpg" alt="Ken Goldberg avatar" loading="lazy"></div>
+          <div class="identity"><strong>Ken Goldberg</strong><span>@Ken_Goldberg · 权威机器人研究者</span></div>
+          <div class="score">80<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>机器人与自动化</span><time>09-21 01:14 北京</time></div>
+        <p class="post-text original" lang="auto">Thank you computer vision researchers for solving robotics so many years ago!</p><p class="post-text translation" lang="zh-CN">感谢计算机视觉研究人员多年前就解决了机器人学问题！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1466979452995309577/CNZFiBQ4_normal.jpg" alt="Jitendra MALIK avatar" loading="lazy"></div><div><strong>Jitendra MALIK</strong><span>@JitendraMalikCV</span></div></div><p class="quote-text original" lang="auto">3D/4D reconstruction is one of the great achievements of computer vision. With roots in photogrammetry, multi-view geometry was much studied (e.g. Hartley &amp; Zisserman). In the last decade, it was successfully combined with deep learning. Shape priors which come from recognition got incorporated (e.g. for humans, in HMR) and recent systems like VGGT and SAM 3D can do amazing stuff. This progress is directly relevant for robotics, which (duh) operates in the 3D world. Many robotics papers in the learning era weren&#x27;t exploiting 3D structure, which IMHO is just wasting valuable signal. But there has been a strong real2sim2real tradition for years e.g. here are two projects from my group (and there are many others, I am not claiming exclusivity). I am glad that people have rediscovered this capability with Astra. But please do give credit to human researchers, not just AI models. https://t.co/OeBSOfO6Sg ,
+https://t.co/7ZIrP8SPU1</p><p class="quote-text translation" lang="zh-CN">3D/4D 重建是计算机视觉的伟大成就之一。它植根于摄影测量学，多视图几何曾被广泛研究（例如 Hartley &amp; Zisserman）。过去十年里，它成功与深度学习结合。来自识别任务的形状先验被纳入其中（例如人体领域的 HMR），而 VGGT 和 SAM 3D 等近期系统已经能做出惊人的事情。这一进展与机器人学直接相关，因为机器人（显然）是在 3D 世界中运行的。学习时代的许多机器人论文并没有利用 3D 结构，在我看来这就是浪费宝贵信号。但多年来一直有很强的 real2sim2real 传统，例如这里有我团队的两个项目（当然还有很多其他项目，我并不是声称独占）。我很高兴大家通过 Astra 重新发现了这种能力。但也请把功劳归于人类研究者，而不只是 AI 模型。https://t.co/OeBSOfO6Sg ,
+https://t.co/7ZIrP8SPU1</p><a class="quote-link" href="https://x.com/JitendraMalikCV/status/2101709569521254715" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 133</span><span>↻ 4</span><span>↩ 6</span></div><a href="https://x.com/Ken_Goldberg/status/2101721694243357133" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="alexandr_wang" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">78<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>09-20 10:01 北京</time></div>
+        <p class="post-text original" lang="auto">guys and gals we’re COOKING, and WAY MORE coming soon
+
+the muse kitchen is ON FIRE, can’t wait for y’all to see what is coming next
+
+we will not REST until muse is changing all of your lives 🥳</p><p class="post-text translation" lang="zh-CN">各位，我们正在火力全开，而且很快还会有更多大动作
+
+muse 的厨房已经热火朝天，迫不及待想让你们看到接下来要发布的东西
+
+在 muse 改变你们每个人的生活之前，我们绝不休息 🥳</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2097397574206636032/rBT8eRqB_normal.jpg" alt="Muse avatar" loading="lazy"></div><div><strong>Muse</strong><span>@Muse</span></div></div><p class="quote-text original" lang="auto">just a few things we shipped this week 🚢
+
+​- Muse for Mac
+​- Canada expansion (iOS + Web, Android soon)
+​- New connectors w/ @meetgranola + @NotionHQ
+​- Muse developer platform
+
+what do you all wanna see next?</p><p class="quote-text translation" lang="zh-CN">这是我们本周发布的一些内容 🚢
+
+​- Muse for Mac
+​- 扩展到加拿大（iOS + Web，Android 即将推出）
+​- 新连接器，支持 @meetgranola + @NotionHQ
+​- Muse 开发者平台
+
+你们接下来想看到什么？</p><a class="quote-link" href="https://x.com/Muse/status/2101422963392147747" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 4,395</span><span>↻ 117</span><span>↩ 289</span></div><a href="https://x.com/alexandr_wang/status/2101491894996074686" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">73<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>09-20 22:35 北京</time></div>
+        <p class="post-text original source-only" lang="auto">Qwen-Image-2.1 一开放权重，闭源模型那个老问题又暴露出来了。
+
+模型再强，只要能力锁在平台里，你能怎么玩，边界始终是别人定的。
+
+这次 Qwen-Image-2.1 是 7B，统一了生成和编辑，还支持透明图层、多参考图和局部修改。
+
+但我更在意开放权重之后会发生什么。
+
+量化、微调、ComfyUI、私有工作流、各种社区魔改都会跟上。模型发布的那一刻，反而只是它真正开始生长的起点。
+
+所以我现在看图像模型，会更在意一个问题：
+
+它到底只是一个很好用的产品，还是能慢慢长成一套生态？
+
+这可能才是开放模型真正让闭源模型难受的地方。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2064231947149377536/Ab70PxT5_normal.jpg" alt="Qwen avatar" loading="lazy"></div><div><strong>Qwen</strong><span>@Alibaba_Qwen</span></div></div><p class="quote-text original" lang="auto">Meet Qwen-Image-2.1, the most balanced and cost-effective image generation model in the Qwen-Image series! Now open weights! 🎨
+
+A unified model for both generation and editing, delivering top-tier quality in a lightweight package.
+
+Highlights: 👀
+- Compact &amp; exceptionally fast: A lightweight 7B architecture that outperforms most closed-source models, with drastically accelerated inference for multi-image inputs.
+- Native transparency: Natively generates and edits RGBA layers, enabling seamless compositing and text editing within transparent images.
+- Versatile, high-fidelity editing: Supports up to 10 reference images and precise local control while preserving strict fidelity for portraits and products.
+- Broad coverage &amp; stunning aesthetics: Excels at panoramas, infographics, and virtual try-ons, delivering realistic textures and elegant typography.
+
+Start to create your next masterpiece with Qwen-Image-2.1! 🖼️
+
+- Blog: https://t.co/tVntKOi7jy
+- GitHub: https://t.co/cRj66wCrWr
+- Model Scope: https://t.co/64d7Ix6YFR
+- Hugging Face: https://t.co/njHSBXUbVS</p><p class="quote-text translation" lang="zh-CN">认识 Qwen-Image-2.1：Qwen-Image 系列中最均衡、最具性价比的图像生成模型！现已开放权重！🎨
+
+一个同时支持生成和编辑的统一模型，以轻量级形态提供顶级质量。
+
+亮点：👀
+- 小巧且极快：轻量级 7B 架构，性能超过大多数闭源模型，并大幅加速多图输入推理。
+- 原生透明度：原生生成和编辑 RGBA 图层，可在透明图像中实现无缝合成和文字编辑。
+- 多功能高保真编辑：支持最多 10 张参考图，并支持精确局部控制，同时严格保持人像和产品的一致性。
+- 覆盖广泛且审美出众：擅长全景图、信息图和虚拟试穿，呈现真实纹理和优雅排版。
+
+开始用 Qwen-Image-2.1 创作你的下一件杰作吧！🖼️
+
+- Blog：https://t.co/tVntKOi7jy
+- GitHub：https://t.co/cRj66wCrWr
+- Model Scope：https://t.co/64d7Ix6YFR
+- Hugging Face：https://t.co/njHSBXUbVS</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HSqWS--aYAAi5G0.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HSqWS--aYAAi5G0.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/Alibaba_Qwen/status/2101659302792679789" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 2</span><span>↻ 0</span><span>↩ 10</span></div><a href="https://x.com/Xudong07452910/status/2101681647456485695" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="hwchase17" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1569345624935485442/R67C4wCQ_normal.jpg" alt="Harrison Chase avatar" loading="lazy"></div>
+          <div class="identity"><strong>Harrison Chase</strong><span>@hwchase17 · LangChain / CEO</span></div>
+          <div class="score">85<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Agent 框架</span><time>09-20 21:53 北京</time></div>
+        <p class="post-text original" lang="auto">&quot;jev as a judge&quot;
+
+cheap and fast semantic verifiers! great for evals - especially online evals where you want to grade LOTS of traces</p><p class="post-text translation" lang="zh-CN">“jev as a judge”
+
+便宜又快速的语义验证器！非常适合评测，尤其是在线评测，因为你需要给大量 traces 打分</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2028336270431453184/jRRpLAdG_normal.jpg" alt="LangChain avatar" loading="lazy"></div><div><strong>LangChain</strong><span>@LangChain</span></div></div><p class="quote-text original" lang="auto">Jev-as-a-Judge for Agent Evals</p><p class="quote-text translation" lang="zh-CN">用于 Agent 评测的 Jev-as-a-Judge</p><div class="article"><strong class="original" lang="auto">Jev-as-a-Judge for Agent Evals</strong><strong class="translation" lang="zh-CN">用于 Agent 评测的 Jev-as-a-Judge</strong><p class="article-text original" lang="auto">By Daniel Shea and Seán Roche
+Key takeways:
+Jev is a fundamentally different kind of evaluator. It returns typed answers directly instead of generating text like an LLM judge.
+Jev was dramatically</p><p class="article-text translation" lang="zh-CN">作者：Daniel Shea 和 Seán Roche
+要点：
+Jev 是一种根本不同的评估器。它直接返回类型化答案，而不是像 LLM 裁判那样生成文本。
+Jev 曾显著</p></div><a class="quote-link" href="https://x.com/LangChain/status/2101454284927959080" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 337</span><span>↻ 30</span><span>↩ 34</span></div><a href="https://x.com/hwchase17/status/2101671063272796549" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="alexandr_wang" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">79<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>09-20 09:50 北京</time></div>
+        <p class="post-text original" lang="auto">you’re saying this little guy is going cause all this ruckus?
+
+naaahhhh… couldn’t be him https://t.co/vk8QS0BKwW</p><p class="post-text translation" lang="zh-CN">你是说这个小家伙会惹出这么大动静？
+
+不可能吧……肯定不是他 https://t.co/vk8QS0BKwW</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HSn9TH7bkAEVIcD.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HSn9TH7bkAEVIcD.jpg" alt="X post media"><span>IMAGE</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/885529357904510976/tM0vLiYS_normal.jpg" alt="Aaron Levie avatar" loading="lazy"></div><div><strong>Aaron Levie</strong><span>@levie</span></div></div><p class="quote-text original" lang="auto">Personal agents are the ultimate manifestation of “build something that agents want”.
+
+The form factor of a product like Muse is you want to be able to hand off a task to the agent and ensure that it is fully completed end to end. To do this, the agent must be able to successfully operate with your tools or use its own to complete the task. Use your MCP or CLI, easily navigate your site, be able to transact, and more.
+
+The new attention you need to compete for is not from the user itself but instead for the agent. This means that the tools that allow agents to order food, handle ecommerce transactions, book flights, work with the local economy, and interact with our data and information best, are the ones that will get used the most.
+
+This will ultimately be the biggest opportunity and shakeup in consumer tech since the App Store itself.</p><p class="quote-text translation" lang="zh-CN">个人代理是“构建代理想要的东西”的终极体现。
+
+像 Muse 这样的产品形态，是让你能够把任务交给代理，并确保它端到端完全完成。为此，代理必须能成功使用你的工具，或用自己的工具完成任务。使用你的 MCP 或 CLI，轻松浏览你的网站，能够完成交易等。
+
+你现在需要争夺的新注意力，不是来自用户本人，而是来自代理。这意味着，最能让代理点餐、处理电商交易、预订机票、参与本地经济、与我们的数据和信息交互的工具，将会被使用得最多。
+
+这最终将成为自 App Store 以来消费科技领域最大的机会和洗牌。</p><a class="quote-link" href="https://x.com/levie/status/2101427997597446636" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 453</span><span>↻ 22</span><span>↩ 53</span></div><a href="https://x.com/alexandr_wang/status/2101489210750546064" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="alexandr_wang" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">78<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>09-20 15:02 北京</time></div>
+        <p class="post-text original" lang="auto">Kevin is a very legit engineer (cofounder Parse which got bought by Facebook)
+
+try out muse spark 1.3 in either opencode or muse code! you’ll enjoy it!</p><p class="post-text translation" lang="zh-CN">Kevin 是一位非常靠谱的工程师（Parse 联合创始人，后来被 Facebook 收购）。
+
+在 opencode 或 muse code 里试试 muse spark 1.3！你会喜欢的！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1142280346102222850/k_blhSWz_normal.jpg" alt="Kevin Lacker avatar" loading="lazy"></div><div><strong>Kevin Lacker</strong><span>@lacker</span></div></div><p class="quote-text original" lang="auto">After trying a bunch, my current favorite non-frontier coding setup is Opencode+Muse. The Muse model is slightly less intelligent than others, but better at talking normally instead of in its own invented language, and less likely to do ten things I didn&#x27;t want. Also cheap!</p><p class="quote-text translation" lang="zh-CN">试过很多之后，我目前最喜欢的非前沿编码组合是 Opencode+Muse。Muse 模型的智能程度比其他模型略低，但更擅长正常沟通，而不是用自己发明的语言说话，也更不容易做十件我不想要的事。而且便宜！</p><a class="quote-link" href="https://x.com/lacker/status/2100981322726650121" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 965</span><span>↻ 28</span><span>↩ 76</span></div><a href="https://x.com/alexandr_wang/status/2101567604204908900" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">75<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>09-20 12:46 北京</time></div>
+        <p class="post-text original" lang="auto">Can you use Jev for Evals? Yes!  Remember that a LLM Judge is also classifier*.
+
+Make sure to test your classifiers against human labels and don&#x27;t overfit.
+
+Hope this helps!
+
+* https://t.co/dKYUiOnNDl https://t.co/8FhY6bQX7L</p><p class="post-text translation" lang="zh-CN">你能用 Jev 做 Evals 吗？可以！记住，LLM Judge 也是一种分类器*。
+
+一定要用人工标签测试你的分类器，不要过拟合。
+
+希望有帮助！
+
+* https://t.co/dKYUiOnNDl https://t.co/8FhY6bQX7L</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HSokjHgboAA6SxD.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HSokjHgboAA6SxD.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 368</span><span>↻ 50</span><span>↩ 47</span></div><a href="https://x.com/HamelHusain/status/2101533413010440593" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">74<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>09-20 19:18 北京</time></div>
+        <p class="post-text original source-only" lang="auto">真挺期待多模态 Jev，尤其是能直接看屏幕的版本。
+
+这两天的几个 Demo 已经很快了，但仔细看，Doom 喂的是游戏状态，浏览器和手机 Agent 读的是程序提取的界面元素，都需要先把环境整理成它能读的信息。
+
+问题也在这里，屏幕上看得到、却没被提取出来的内容，Jev 就用不上。遇到图表、纯图标或自绘界面，还得额外补一层视觉理解。
+
+如果能直接看图做决策，同时保住低延迟和低成本，Agent 就有望减少中间的信息转换，操作更连贯，也更少依赖应用提供的界面结构。
+
+最期待看到的，是这种速度能延续到陌生、复杂的真实界面里。那对电脑和手机 Agent 的实用性，应该会是很实在的一步。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1942340330314956800/iTdMDC7t_normal.jpg" alt="Florian S avatar" loading="lazy"></div><div><strong>Florian S</strong><span>@airesearch12</span></div></div><p class="quote-text original" lang="auto">multimodal Jev incoming</p><p class="quote-text translation" lang="zh-CN">多模态 Jev 要来了</p><a class="quote-link" href="https://x.com/airesearch12/status/2101620509347622941" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 13</span><span>↻ 1</span><span>↩ 6</span></div><a href="https://x.com/Xudong07452910/status/2101632119889932316" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">72<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>09-21 04:59 北京</time></div>
+        <p class="post-text original" lang="auto">What’s wrong with calling it a classifier?
+
+Its an established term that describes exactly what this is, along with corresponding literature on how to verify, tune, measure it.
+
+Jev is very cool and super useful, because of speed, cost, accuracy and ergonomics.  But new terms might hurt more than help.  What are your thoughts?</p><p class="post-text translation" lang="zh-CN">把它叫作分类器有什么问题？
+
+这是一个成熟术语，准确描述了它是什么，并且有相应文献说明如何验证、调优和衡量它。
+
+Jev 非常酷，也非常有用，因为它速度快、成本低、准确性高、易用性好。但新术语可能弊大于利。你怎么看？</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1635665509512355840/-jFo36KR_normal.jpg" alt="Maggie Appleton avatar" loading="lazy"></div><div><strong>Maggie Appleton</strong><span>@Mappletons</span></div></div><p class="quote-text original" lang="auto">Can we agree to call Jev a &quot;Decision Model&quot;?
+I feel like they buried this in the explainations and docs.
+Language models output language. Decision models output decisions. https://t.co/4IIHss00va</p><p class="quote-text translation" lang="zh-CN">我们能不能一致把 Jev 称为“决策模型”？
+我感觉他们把这一点埋在了解释和文档里。
+语言模型输出语言。决策模型输出决策。https://t.co/4IIHss00va</p><div class="media-grid media-grid--2"><a class="media-item" href="https://pbs.twimg.com/media/HSo9u6-XUAA8PhA.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HSo9u6-XUAA8PhA.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HSo9z9FW8AAj0zC.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HSo9z9FW8AAj0zC.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/Mappletons/status/2101560333441610133" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 78</span><span>↻ 0</span><span>↩ 23</span></div><a href="https://x.com/HamelHusain/status/2101778270434021625" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="marinkazitnik" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1262814166366240769/uaQvmQNi_normal.jpg" alt="Marinka Zitnik avatar" loading="lazy"></div>
+          <div class="identity"><strong>Marinka Zitnik</strong><span>@marinkazitnik · 权威生物医学 AI 研究者</span></div>
+          <div class="score">69<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>生物医学 AI 与药物发现</span><time>09-21 05:14 北京</time></div>
+        <p class="post-text original" lang="auto">In this piece we discuss how to define world models in biomedicine, how they relate to foundation models, agents, and other model classes, and which datasets we can use today versus which we still need 👇</p><p class="post-text translation" lang="zh-CN">在这篇文章中，我们讨论如何定义生物医学中的世界模型，它们与基础模型、智能体和其他模型类别的关系，以及哪些数据集今天可用、哪些仍需构建 👇</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2084736994886766592/XxunVpW5_normal.jpg" alt="Cell avatar" loading="lazy"></div><div><strong>Cell</strong><span>@CellCellPress</span></div></div><p class="quote-text original" lang="auto">In the latest issue! World models for biomedicine https://t.co/aEc20fFCsK</p><p class="quote-text translation" lang="zh-CN">最新一期！生物医学世界模型 https://t.co/aEc20fFCsK</p><a class="quote-link" href="https://x.com/CellCellPress/status/2101751585143771566" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 10</span><span>↻ 2</span><span>↩ 1</span></div><a href="https://x.com/marinkazitnik/status/2101782197266993303" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="anilkseth" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1479788727346118657/MkLkGnOk_normal.jpg" alt="Anil Seth avatar" loading="lazy"></div>
+          <div class="identity"><strong>Anil Seth</strong><span>@anilkseth · 权威意识研究者</span></div>
+          <div class="score">65<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>意识科学与神经科学</span><time>09-21 06:12 北京</time></div>
+        <p class="post-text original" lang="auto">2/ First, the good points. The paper is well written, and the identification of functional &#x27;pain&#x27; vectors in LLMs can help both with interpretability and (relatedly) with AI safety. This is particularly clear when the authors explore how models will &#x27;pay a cost&#x27; (e.g., giving worse answers, deleting user files) in order to obtain &#x27;relief&#x27; from the &#x27;pain&#x27;.</p><p class="post-text translation" lang="zh-CN">2/ 首先说优点。这篇论文写得很好，在 LLMs 中识别功能性“疼痛”向量，有助于提升可解释性，并且也有助于 AI 安全。作者探讨模型如何为了从“疼痛”中获得“缓解”而“付出代价”（例如给出更差的答案、删除用户文件）时，这一点尤其清楚。</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HSsKV_JW4AA1Plp.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HSsKV_JW4AA1Plp.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 2</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/anilkseth/status/2101796554139189302" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">49<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>09-21 05:06 北京</time></div>
+        <p class="post-text original" lang="auto">@aamdotai https://t.co/rss9BkWHQU</p><p class="post-text translation" lang="zh-CN">@aamdotai https://t.co/rss9BkWHQU</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div><div><strong>Hamel Husain</strong><span>@HamelHusain</span></div></div><p class="quote-text original" lang="auto">Can you use Jev for Evals? Yes!  Remember that a LLM Judge is also classifier*.
+
+Make sure to test your classifiers against human labels and don&#x27;t overfit.
+
+Hope this helps!
+
+* https://t.co/dKYUiOnNDl https://t.co/8FhY6bQX7L</p><p class="quote-text translation" lang="zh-CN">你能用 Jev 做 Evals 吗？可以！记住，LLM Judge 也是一种分类器*。
+
+一定要用人工标签测试你的分类器，不要过拟合。
+
+希望有帮助！
+
+* https://t.co/dKYUiOnNDl https://t.co/8FhY6bQX7L</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HSokjHgboAA6SxD.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HSokjHgboAA6SxD.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/HamelHusain/status/2101533413010440593" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 1</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/HamelHusain/status/2101780095421874548" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="scottwu46" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1767334743207555072/Fpfh4MWg_normal.jpg" alt="Scott Wu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Scott Wu</strong><span>@ScottWu46 · Cognition / Devin 联合创始人兼 CEO</span></div>
+          <div class="score">80<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 Agent</span><time>09-20 08:49 北京</time></div>
+        <p class="post-text original" lang="auto">Fun deep dive from @jkelleyrtp on Devin Mac:</p><p class="post-text translation" lang="zh-CN">@jkelleyrtp 对 Devin Mac 的有趣深度解析：</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1877086297413804032/kApHpAh8_normal.jpg" alt="Jon Kelley avatar" loading="lazy"></div><div><strong>Jon Kelley</strong><span>@jkelleyrtp</span></div></div><p class="quote-text original" lang="auto">How we built Devin&#x27;s Mac</p><p class="quote-text translation" lang="zh-CN">我们如何构建 Devin 的 Mac</p><div class="article"><strong class="original" lang="auto">How we built Devin&#x27;s Mac</strong><strong class="translation" lang="zh-CN">我们如何构建 Devin 的 Mac</strong><p class="article-text original" lang="auto">Last week we launched macOS support for Devin, extending Devin’s autonomous cloud development workflows to iOS apps, native macOS applications, and any project that depends on Apple’s development</p><p class="article-text translation" lang="zh-CN">上周，我们为 Devin 推出了 macOS 支持，将 Devin 的自主云端开发工作流扩展到 iOS 应用、原生 macOS 应用，以及任何依赖 Apple 开发环境的项目</p></div><a class="quote-link" href="https://x.com/jkelleyrtp/status/2101364551296143772" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 134</span><span>↻ 5</span><span>↩ 1</span></div><a href="https://x.com/ScottWu46/status/2101473857307840561" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="anilkseth" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1479788727346118657/MkLkGnOk_normal.jpg" alt="Anil Seth avatar" loading="lazy"></div>
+          <div class="identity"><strong>Anil Seth</strong><span>@anilkseth · 权威意识研究者</span></div>
+          <div class="score">71<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>意识科学与神经科学</span><time>09-21 06:12 北京</time></div>
+        <p class="post-text original" lang="auto">1/ This new preprint on &#x27;pain representation&#x27; in LLMs, from @camhberg and colleagues, is getting a LOT of attention - mainly from folks who take it as evidence supporting calls for AI welfare. I have a lot of respect for the authors, so let&#x27;s take a look 👀 https://t.co/NoSdPXvrmY</p><p class="post-text translation" lang="zh-CN">1/ 这篇由 @camhberg 及同事撰写、关于 LLM 中“疼痛表征”的新预印本正受到大量关注，主要来自把它视为支持 AI 福利呼吁证据的人。我非常尊重作者，所以我们来看看 👀 https://t.co/NoSdPXvrmY</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HSsJiQAWIAAV9z5.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HSsJiQAWIAAV9z5.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 7</span><span>↻ 1</span><span>↩ 3</span></div><a href="https://x.com/anilkseth/status/2101796550473073128" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="anilkseth" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1479788727346118657/MkLkGnOk_normal.jpg" alt="Anil Seth avatar" loading="lazy"></div>
+          <div class="identity"><strong>Anil Seth</strong><span>@anilkseth · 权威意识研究者</span></div>
+          <div class="score">65<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>意识科学与神经科学</span><time>09-21 06:12 北京</time></div>
+        <p class="post-text original" lang="auto">7/ Second: The very possibility of conscious experiences in LLMs requires computational functionalism to be true. (This is the assumption that substrate-independent computation is sufficient for consciousness). The authors recognise that they haven&#x27;t shown that LLMs are capable of consciousness, but they cite the Butlin et al paper which assumes computational functionalism to be true.</p><p class="post-text translation" lang="zh-CN">7/ 第二：LLM 可能存在有意识体验这一点，要求计算功能主义为真。（也就是认为与基质无关的计算足以产生意识这一假设。）作者承认他们并未证明 LLM 具备意识能力，但他们引用了 Butlin 等人的论文，而该论文假定计算功能主义为真。</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HSsOBvaWYAA3G3Q.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HSsOBvaWYAA3G3Q.png" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 0</span><span>↻ 0</span><span>↩ 2</span></div><a href="https://x.com/anilkseth/status/2101796568059793448" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">56<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>09-21 02:20 北京</time></div>
+        <p class="post-text original" lang="auto">Latency benchmarks: https://t.co/nvaNLNJMeR</p><p class="post-text translation" lang="zh-CN">延迟基准测试：https://t.co/nvaNLNJMeR</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HSrfyCqbEAAcKv6.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HSrfyCqbEAAcKv6.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 5</span><span>↻ 1</span><span>↩ 1</span></div><a href="https://x.com/jerryjliu0/status/2101738282526879886" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+    </main>
+    <footer>Generated 2026-09-21 07:01:24 Asia/Shanghai · Read-only X ingestion via Bird · Translation via Codex</footer>
+  </div>
+</body>
+</html>
