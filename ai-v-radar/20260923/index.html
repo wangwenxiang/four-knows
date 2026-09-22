@@ -1,0 +1,929 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>硅谷 AI 原声 · 2026-09-23</title>
+  <style>
+    :root{--bg:#f4f6f8;--surface:#fff;--text:#16181c;--muted:#65717e;--line:#dfe4e9;--accent:#0066cc;--green:#117a62;--shadow:0 16px 42px rgba(18,28,38,.08);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 15% 0,#e8f2ff 0,transparent 27%),var(--bg);color:var(--text)} a{color:inherit;text-decoration:none} button{font:inherit}
+    .shell{width:min(1500px,calc(100% - 28px));margin:0 auto;padding:14px 0 40px}
+    .hero{display:grid;grid-template-columns:minmax(250px,1fr) auto;align-items:center;gap:12px;padding:15px 18px;border:1px solid rgba(255,255,255,.75);border-radius:16px;background:rgba(255,255,255,.88);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    h1{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin:0;font-size:clamp(28px,3.4vw,44px);line-height:1;letter-spacing:-.05em} .report-date{color:var(--green);font-size:clamp(10px,1vw,13px);font-weight:900;letter-spacing:.08em;white-space:nowrap}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(62px,1fr));gap:6px;align-content:start} .metric{padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fff} .metric strong{display:block;font-size:19px;line-height:1} .metric span{display:block;margin-top:3px;color:var(--muted);font-size:8px;font-weight:820;white-space:nowrap}
+    .notice{margin-top:12px;padding:11px 14px;border:1px solid #e1b866;border-radius:12px;background:#fff8e8;color:#7a5612;font-size:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px;align-items:start} .signal-card{min-width:0;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 9px 26px rgba(18,28,38,.045)}
+    .card-top{display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:10px} .avatar{display:grid;width:46px;height:46px;overflow:hidden;place-items:center;border:1px solid #d9e0e7;border-radius:999px;background:linear-gradient(135deg,#111827,#46627d);color:#fff;font-size:12px;font-weight:900} .avatar img{width:100%;height:100%;object-fit:cover;display:block} .identity{display:grid;gap:3px;min-width:0} .identity strong,.identity span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .identity strong{font-size:14px} .identity span{color:var(--muted);font-size:11px}
+    .score{display:grid;justify-items:center;min-width:40px;padding:5px 6px;border:1px solid #e3ebe8;border-radius:8px;background:#f4f8f6;color:#527267;font-size:15px;font-weight:820;line-height:1} .score small{margin-top:2px;color:#71877f;font-size:7px;letter-spacing:.06em;text-transform:uppercase}
+    .meta{display:flex;align-items:center;gap:6px;margin:11px 0 9px;color:var(--muted);font-size:10.5px;font-weight:750} .meta span:not(.priority){overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .meta time{margin-left:auto;white-space:nowrap} .priority{padding:3px 6px;border-radius:999px;background:#111827;color:#fff;font-size:9px}
+    .post-text{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.58} .post-text.original{font-size:16px;font-weight:570;color:#20252b} .post-text.translation{margin-top:8px;color:#66727f;font-size:13px;font-weight:470;line-height:1.62} .article .original+.translation{margin-top:2px;color:#65717e;font-size:11px;font-weight:650} .quote,.article{display:grid;gap:6px;margin-top:10px;padding:11px;border:1px solid var(--line);border-radius:12px;background:#f7f9fb} .quote__author{display:flex;align-items:center;gap:7px;font-size:11px} .quote__author>div:last-child{display:grid;gap:1px} .quote__author span{color:var(--muted)} .quote-avatar{display:grid;width:28px;height:28px;overflow:hidden;place-items:center;border:1px solid var(--line);border-radius:999px;background:#dfe6ed;color:#52606d;font-size:10px;font-weight:900} .quote-avatar img{width:100%;height:100%;object-fit:cover} .quote p,.article p{margin:0;color:#4f5a66;font-size:12px;line-height:1.48;white-space:pre-wrap} .article strong{font-size:13px} .article strong.original{font-size:13.5px} .quote-text.original{font-size:12.5px;color:#36414d} .quote-text.translation{font-size:11.5px;color:#6a7682} .quote-link{justify-self:start;color:var(--accent);font-size:10px;font-weight:850}
+    .media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:10px;overflow:hidden;border-radius:12px} .media-grid--1{grid-template-columns:1fr} .media-item{position:relative;min-height:150px;background:#e8edf2} .media-item img{width:100%;height:100%;max-height:330px;object-fit:cover;display:block} .media-item span{position:absolute;right:7px;bottom:7px;padding:4px 6px;border-radius:6px;background:rgba(0,0,0,.68);color:#fff;font-size:8px;font-weight:900}
+    .card-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid #edf0f3} .engagement{display:flex;gap:10px;color:var(--muted);font-size:10.5px;font-weight:750} .card-bottom>a{color:var(--accent);font-size:11px;font-weight:850} .empty{grid-column:1/-1;padding:70px;text-align:center;border:1px dashed #cdd5dd;border-radius:16px;background:#fff;color:var(--muted)}
+    footer{padding:26px 4px 0;color:var(--muted);font-size:11px;text-align:center}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}} @media(max-width:560px){.shell{width:min(100% - 16px,1500px);padding-top:7px}.hero{gap:10px;padding:13px 14px;border-radius:15px}h1{font-size:28px}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.metric{padding:7px 9px}.metric strong{font-size:18px}.signal-card{padding:13px}.post-text.original{font-size:15px}.post-text.translation{font-size:12.5px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <h1>硅谷 AI 原声 <span class="report-date">· 2026-09-23</span></h1>
+      <div class="metrics"><div class="metric"><strong>62</strong><span>监控专家</span></div><div class="metric"><strong>21</strong><span>活跃专家</span></div><div class="metric"><strong>37</strong><span>精选原文</span></div></div>
+    </header>
+
+    <main class="grid">
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="istoica05" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1889424820821172228/OKFe0cdL_normal.jpg" alt="Ion Stoica avatar" loading="lazy"></div>
+          <div class="identity"><strong>Ion Stoica</strong><span>@istoica05 · Berkeley；Anyscale 联合创始人</span></div>
+          <div class="score">63<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 基础设施 / 分布式系统</span><time>09-23 05:52 北京</time></div>
+        <p class="post-text original" lang="auto">Approaching Llama-3.2-3B performance with &amp;lt;1% of the pretraining FLOPs! Introducing Rigel, a 2.3B MoE Hybrid Mamba-2 with a 294k context window. Check out the full thread.</p><p class="post-text translation" lang="zh-CN">用不到 1% 的预训练 FLOPs 接近 Llama-3.2-3B 的性能！介绍 Rigel：一款 2.3B MoE Hybrid Mamba-2，支持 294k 上下文窗口。查看完整帖文。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1718510814842195968/5-DWxMbE_normal.jpg" alt="Mayank Mishra avatar" loading="lazy"></div><div><strong>Mayank Mishra</strong><span>@MayankMish98</span></div></div><p class="quote-text original" lang="auto">We pretrained a 2.3B MoE (360M active) Hybrid Mamba-2 that lands within a few points of Llama-3.2-3B using &amp;lt;1% of its pretraining FLOPs.
+
+No dedicated cluster. The run hopped between H100s, A100s, V100s (yes, V100s) and TPU v5p/v6e on a single codebase.
+
+Meet Rigel 🧵 https://t.co/9WB0loMVbo</p><p class="quote-text translation" lang="zh-CN">我们预训练了一个 2.3B MoE（360M 激活）Hybrid Mamba-2，用不到 Llama-3.2-3B 预训练 FLOPs 的 1%，性能只差几个百分点。
+
+没有专用集群。这次训练在同一套代码库上，辗转使用了 H100、A100、V100（没错，V100）以及 TPU v5p/v6e。
+
+认识一下 Rigel 🧵 https://t.co/9WB0loMVbo</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HS2QtVhaUAADxYn.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HS2QtVhaUAADxYn.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/MayankMish98/status/2102504657973383638" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 19</span><span>↻ 4</span><span>↩ 3</span></div><a href="https://x.com/istoica05/status/2102516463823372433" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="aravsrinivas" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2028729526822588416/WhtMUI-P_normal.jpg" alt="Aravind Srinivas avatar" loading="lazy"></div>
+          <div class="identity"><strong>Aravind Srinivas</strong><span>@AravSrinivas · Perplexity / CEO</span></div>
+          <div class="score">85<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 搜索 / 产品</span><time>09-23 04:39 北京</time></div>
+        <p class="post-text original" lang="auto">We&#x27;re sharing new research on our post‑training approach, which teaches the Perplexity Computer agent to learn from real user sessions by imitating good trajectories and explicitly correcting avoidable mistakes like bad tool calls (even when the overall trajectory was successful). The method combines rejection sampling fine‑tuning (RFT) with hint‑guided self‑distillation, and it cuts tool call failures by about 21% in live A/B tests</p><p class="post-text translation" lang="zh-CN">我们分享了关于后训练方法的新研究：让 Perplexity Computer agent 通过模仿优秀轨迹，并明确纠正可避免的错误（如错误的工具调用，即便整体轨迹是成功的），从真实用户会话中学习。该方法结合了拒绝采样微调（RFT）和提示引导的自蒸馏，在实时 A/B 测试中将工具调用失败率降低了约 21%。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2009310641165660160/XArF3_Ib_normal.jpg" alt="Perplexity avatar" loading="lazy"></div><div><strong>Perplexity</strong><span>@perplexity_ai</span></div></div><p class="quote-text original" lang="auto">New research: We post-trained a Computer model to learn from its own errors using hint-guided self-distillation.
+
+In a live A/B test, a later trained checkpoint reduced tool-call failures by 21.2% relative to an earlier checkpoint. https://t.co/3MFrp1yxDt</p><p class="quote-text translation" lang="zh-CN">新研究：我们对一个 Computer 模型进行了后训练，让它通过提示引导的自蒸馏从自身错误中学习。
+
+在实时 A/B 测试中，后续训练的 checkpoint 相比早期 checkpoint 将工具调用失败率降低了 21.2%。https://t.co/3MFrp1yxDt</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HS2OzFfbMAAsWHr.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HS2OzFfbMAAsWHr.png" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/perplexity_ai/status/2102493613192298913" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 191</span><span>↻ 16</span><span>↩ 15</span></div><a href="https://x.com/AravSrinivas/status/2102497917185802737" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="tim_dettmers" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1998431471304876032/BhUl3uX9_normal.jpg" alt="Tim Dettmers avatar" loading="lazy"></div>
+          <div class="identity"><strong>Tim Dettmers</strong><span>@Tim_Dettmers · AI2 / 研究员</span></div>
+          <div class="score">72<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 基础设施 / 量化</span><time>09-22 23:21 北京</time></div>
+        <p class="post-text original" lang="auto">This is the first release in our open-source week: runtime dynamic compression and the private beta for bitsandbytes2.
+
+bnb2 offers a new level of compression that brings large models to smaller devices.
+
+The bnb2 private beta has started. We offer a limited number of people access to an early version of bnb2.
+
+Sign up below.</p><p class="post-text translation" lang="zh-CN">这是我们开源周的首个发布：运行时动态压缩，以及 bitsandbytes2 私测版。
+
+bnb2 提供了新一级别的压缩能力，可将大模型带到更小的设备上。
+
+bnb2 私测已开始。我们将向少量用户开放 bnb2 早期版本访问权限。
+
+请在下方报名。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1998431471304876032/BhUl3uX9_normal.jpg" alt="Tim Dettmers avatar" loading="lazy"></div><div><strong>Tim Dettmers</strong><span>@Tim_Dettmers</span></div></div><p class="quote-text original" lang="auto">Releasing our runtime dynamic compression framework that achieves 1.5-2.0 bit compression at high quality. This is integrated into the bitsandbytes2 library, which starts as a private beta today.
+
+Paper: https://t.co/f4L4Nm8JwM
+Private beta signup: https://t.co/q8PPAulmq3 https://t.co/itisM1zYMo</p><p class="quote-text translation" lang="zh-CN">发布我们的运行时动态压缩框架，可在高质量下实现 1.5-2.0 bit 压缩。该框架已集成到 bitsandbytes2 库中，今天以私测版形式启动。
+
+论文：https://t.co/f4L4Nm8JwM
+私测报名：https://t.co/q8PPAulmq3 https://t.co/itisM1zYMo</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HS1BAQRWQAAUwV0.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HS1BAQRWQAAUwV0.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/Tim_Dettmers/status/2102416550322159891" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 96</span><span>↻ 9</span><span>↩ 9</span></div><a href="https://x.com/Tim_Dettmers/status/2102418118568018281" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="alexalbert__" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1856486626072915968/JEQpB9CW_normal.jpg" alt="Alex Albert avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alex Albert</strong><span>@alexalbert__ · Anthropic / Claude 开发者关系与产品传播</span></div>
+          <div class="score">99<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Claude / Anthropic KOL</span><time>09-23 00:39 北京</time></div>
+        <p class="post-text original" lang="auto">Using Opus 5.5 feels like hitting every green light on your drive home, drinking a cold glass of water when you&#x27;re thirsty, and a hot shower after a long day.
+
+It&#x27;s super smart, it writes clearly, it&#x27;s fast, and it costs way less. It&#x27;s a very good model.</p><p class="post-text translation" lang="zh-CN">使用 Opus 5.5 的感觉，就像回家路上一路绿灯，口渴时喝下一杯冰水，忙了一整天后冲个热水澡。
+
+它非常聪明，写作清晰，速度快，而且成本低得多。是一个非常好的模型。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1950950107937185792/QOfEjFoJ_normal.jpg" alt="Claude avatar" loading="lazy"></div><div><strong>Claude</strong><span>@claudeai</span></div></div><p class="quote-text original" lang="auto">Introducing Claude Opus 5.5, the first model in our new Claude 5.5 family.
+
+It performs at the level of Claude Fable 5.1 for most tasks, and costs 40% less to run than Opus 5. https://t.co/Q9C2VKQ79f</p><p class="quote-text translation" lang="zh-CN">介绍 Claude Opus 5.5，我们全新 Claude 5.5 系列的首个模型。
+
+在大多数任务上，它达到了 Claude Fable 5.1 的水平，运行成本比 Opus 5 低 40%。https://t.co/Q9C2VKQ79f</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HS1aPgYWMAAP9sw.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HS1aPgYWMAAP9sw.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/claudeai/status/2102435511222890900" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 1,508</span><span>↻ 42</span><span>↩ 43</span></div><a href="https://x.com/alexalbert__/status/2102437766114275842" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="bcherny" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1902044548936953856/J2jeik0t_normal.jpg" alt="Boris Cherny avatar" loading="lazy"></div>
+          <div class="identity"><strong>Boris Cherny</strong><span>@bcherny · Anthropic / Claude Code</span></div>
+          <div class="score">99<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Claude / Anthropic</span><time>09-23 00:45 北京</time></div>
+        <p class="post-text original" lang="auto">Opus 5.5 is a really good model. It&#x27;s been my daily driver the last few weeks.
+
+We had Opus 5.5 and Fable 5.1 each port HAProxy from C to Rust. Both passed nearly all of HAProxy&#x27;s tests, but Opus 5.5 finished in 9.5 hours compared to Fable 5.1&#x27;s 12 hours, and for 51% less cost.</p><p class="post-text translation" lang="zh-CN">Opus 5.5 是一个非常优秀的模型。过去几周它一直是我的日常主力。
+
+我们让 Opus 5.5 和 Fable 5.1 分别把 HAProxy 从 C 移植到 Rust。两者都通过了 HAProxy 几乎所有测试，但 Opus 5.5 用时 9.5 小时完成，而 Fable 5.1 用时 12 小时，成本还低了 51%。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1950950107937185792/QOfEjFoJ_normal.jpg" alt="Claude avatar" loading="lazy"></div><div><strong>Claude</strong><span>@claudeai</span></div></div><p class="quote-text original" lang="auto">Introducing Claude Opus 5.5, the first model in our new Claude 5.5 family.
+
+It performs at the level of Claude Fable 5.1 for most tasks, and costs 40% less to run than Opus 5. https://t.co/Q9C2VKQ79f</p><p class="quote-text translation" lang="zh-CN">介绍 Claude Opus 5.5，我们全新 Claude 5.5 系列的首个模型。
+
+在大多数任务上，它达到了 Claude Fable 5.1 的水平，运行成本比 Opus 5 低 40%。https://t.co/Q9C2VKQ79f</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HS1aPgYWMAAP9sw.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HS1aPgYWMAAP9sw.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/claudeai/status/2102435511222890900" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 5,736</span><span>↻ 177</span><span>↩ 281</span></div><a href="https://x.com/bcherny/status/2102439069053747549" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="polynoamial" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1872883170292457472/8ywVGO5M_normal.jpg" alt="Noam Brown avatar" loading="lazy"></div>
+          <div class="identity"><strong>Noam Brown</strong><span>@polynoamial · OpenAI / 推理研究</span></div>
+          <div class="score">99<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>推理模型 / OpenAI</span><time>09-23 02:27 北京</time></div>
+        <p class="post-text original" lang="auto">GPT-6 Sol and Luna are out, and they are better AND 50% cheaper than 5.6. Luna is now $0.10 input / $0.50 output per 1M tokens.
+
+This is on top of the 80% price cut to Luna we made at the end of July. Output went from $6 -&amp;gt; $0.50 within two months.</p><p class="post-text translation" lang="zh-CN">GPT-6 Sol 和 Luna 已发布，它们比 5.6 更强，而且便宜 50%。Luna 现在每 100 万 token 输入 $0.10、输出 $0.50。
+
+这还叠加了我们 7 月底对 Luna 进行的 80% 降价。两个月内，输出价格从 $6 降到了 $0.50。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1885410181409820672/ztsaR0JW_normal.jpg" alt="OpenAI avatar" loading="lazy"></div><div><strong>OpenAI</strong><span>@OpenAI</span></div></div><p class="quote-text original" lang="auto">Please welcome GPT-6 Sol and GPT-6 Luna to the GPT-6 universe.
+
+GPT-6 Sol and Luna build on the advances behind GPT-6 Astra, bringing much of its strengths into faster and more affordable models to support work at scale.
+
+We’ve also made caching and inference more efficient, and we’re passing the savings directly to you: 50% lower API prices for Sol and Luna compared with GPT‑5.6 promotional pricing.</p><p class="quote-text translation" lang="zh-CN">欢迎 GPT-6 Sol 和 GPT-6 Luna 加入 GPT-6 宇宙。
+
+GPT-6 Sol 和 Luna 基于 GPT-6 Astra 背后的进展，将其大部分优势带入更快、更实惠的模型，以支持大规模工作。
+
+我们还提升了缓存和推理效率，并将节省的成本直接回馈给你：Sol 和 Luna 的 API 价格相比 GPT‑5.6 促销价降低 50%。</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2102460948430966784/img/AtB4MxYZuAKgOLey.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2102460948430966784/img/AtB4MxYZuAKgOLey.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/OpenAI/status/2102460975790137662" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 994</span><span>↻ 44</span><span>↩ 39</span></div><a href="https://x.com/polynoamial/status/2102464815751111057" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="gdb" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_normal.jpg" alt="Greg Brockman avatar" loading="lazy"></div>
+          <div class="identity"><strong>Greg Brockman</strong><span>@gdb · OpenAI / 联合创始人</span></div>
+          <div class="score">98<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>基座模型 / OpenAI</span><time>09-23 02:48 北京</time></div>
+        <p class="post-text original" lang="auto">GPT-6 Sol and Luna — faster, more affordable models with the advances behind Astra’s SOTA performance in professional work, factuality, coding, computer use, and alignment:</p><p class="post-text translation" lang="zh-CN">GPT-6 Sol 和 Luna：更快、更实惠的模型，承袭了 Astra 在专业工作、事实性、编码、计算机使用和对齐方面达到 SOTA 表现的底层进展：</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1885410181409820672/ztsaR0JW_normal.jpg" alt="OpenAI avatar" loading="lazy"></div><div><strong>OpenAI</strong><span>@OpenAI</span></div></div><p class="quote-text original" lang="auto">Please welcome GPT-6 Sol and GPT-6 Luna to the GPT-6 universe.
+
+GPT-6 Sol and Luna build on the advances behind GPT-6 Astra, bringing much of its strengths into faster and more affordable models to support work at scale.
+
+We’ve also made caching and inference more efficient, and we’re passing the savings directly to you: 50% lower API prices for Sol and Luna compared with GPT‑5.6 promotional pricing.</p><p class="quote-text translation" lang="zh-CN">欢迎 GPT-6 Sol 和 GPT-6 Luna 加入 GPT-6 宇宙。
+
+GPT-6 Sol 和 Luna 基于 GPT-6 Astra 背后的进展，将其大部分优势带入更快、更实惠的模型，以支持大规模工作。
+
+我们还提升了缓存和推理效率，并将节省的成本直接回馈给你：Sol 和 Luna 的 API 价格相比 GPT‑5.6 促销价降低 50%。</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2102460948430966784/img/AtB4MxYZuAKgOLey.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2102460948430966784/img/AtB4MxYZuAKgOLey.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/OpenAI/status/2102460975790137662" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 1,224</span><span>↻ 62</span><span>↩ 101</span></div><a href="https://x.com/gdb/status/2102470107826159755" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="alexalbert__" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1856486626072915968/JEQpB9CW_normal.jpg" alt="Alex Albert avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alex Albert</strong><span>@alexalbert__ · Anthropic / Claude 开发者关系与产品传播</span></div>
+          <div class="score">97<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Claude / Anthropic KOL</span><time>09-23 01:04 北京</time></div>
+        <p class="post-text original" lang="auto">Lots more coming soon. Today is just the start!</p><p class="post-text translation" lang="zh-CN">很快还会有更多内容。今天只是开始！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1600639584294969344/VOYWWHNN_normal.jpg" alt="Mike Krieger avatar" loading="lazy"></div><div><strong>Mike Krieger</strong><span>@mikeyk</span></div></div><p class="quote-text original" lang="auto">We’re also launching Claude Sonnet 5.5 and Haiku 5.5 in the coming weeks. These models will come with many of the same improvements to performance, efficiency, and safety.
+
+With that, happy building everyone.</p><p class="quote-text translation" lang="zh-CN">我们还将在未来几周推出 Claude Sonnet 5.5 和 Haiku 5.5。这些模型将在性能、效率和安全性方面带来许多相同改进。
+
+祝大家构建愉快。</p><a class="quote-link" href="https://x.com/mikeyk/status/2102441803253535060" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 856</span><span>↻ 16</span><span>↩ 19</span></div><a href="https://x.com/alexalbert__/status/2102443989941223527" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="mikeyk" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1600639584294969344/VOYWWHNN_normal.jpg" alt="Mike Krieger avatar" loading="lazy"></div>
+          <div class="identity"><strong>Mike Krieger</strong><span>@mikeyk · Anthropic / 产品负责人</span></div>
+          <div class="score">93<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 产品 / Anthropic</span><time>09-23 00:56 北京</time></div>
+        <p class="post-text original" lang="auto">We’re also launching Claude Sonnet 5.5 and Haiku 5.5 in the coming weeks. These models will come with many of the same improvements to performance, efficiency, and safety.
+
+With that, happy building everyone.</p><p class="post-text translation" lang="zh-CN">我们还将在未来几周推出 Claude Sonnet 5.5 和 Haiku 5.5。这些模型将在性能、效率和安全性方面带来许多相同改进。
+
+祝大家构建愉快。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 785</span><span>↻ 49</span><span>↩ 26</span></div><a href="https://x.com/mikeyk/status/2102441803253535060" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="mikeyk" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1600639584294969344/VOYWWHNN_normal.jpg" alt="Mike Krieger avatar" loading="lazy"></div>
+          <div class="identity"><strong>Mike Krieger</strong><span>@mikeyk · Anthropic / 产品负责人</span></div>
+          <div class="score">90<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 产品 / Anthropic</span><time>09-23 00:56 北京</time></div>
+        <p class="post-text original" lang="auto">Go try out Opus 5.5, which we launched today! It leads in coding and knowledge work, and it’s a great writer. It performs at the level of Claude Fable 5.1 for most tasks, and costs 40% less to run than Opus 5.</p><p class="post-text translation" lang="zh-CN">去试试我们今天发布的 Opus 5.5！它在编码和知识工作方面领先，而且写作能力很强。它在大多数任务上的表现达到 Claude Fable 5.1 水平，运行成本比 Opus 5 低 40%。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1950950107937185792/QOfEjFoJ_normal.jpg" alt="Claude avatar" loading="lazy"></div><div><strong>Claude</strong><span>@claudeai</span></div></div><p class="quote-text original" lang="auto">Introducing Claude Opus 5.5, the first model in our new Claude 5.5 family.
+
+It performs at the level of Claude Fable 5.1 for most tasks, and costs 40% less to run than Opus 5. https://t.co/Q9C2VKQ79f</p><p class="quote-text translation" lang="zh-CN">介绍 Claude Opus 5.5，我们全新 Claude 5.5 系列的首个模型。
+
+在大多数任务上，它达到了 Claude Fable 5.1 的水平，运行成本比 Opus 5 低 40%。https://t.co/Q9C2VKQ79f</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HS1aPgYWMAAP9sw.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HS1aPgYWMAAP9sw.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/claudeai/status/2102435511222890900" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 172</span><span>↻ 1</span><span>↩ 12</span></div><a href="https://x.com/mikeyk/status/2102441795879919636" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="simonw" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
+          <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
+          <div class="score">88<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>09-23 04:07 北京</time></div>
+        <p class="post-text original" lang="auto">GPT-6 Luna is half the price of 5.6 Luna, which was already an astonishingly cheap model given how capable it is
+
+Luna is my favorite model for building product features thanks to its cost (and speed)</p><p class="post-text translation" lang="zh-CN">GPT-6 Luna 的价格是 5.6 Luna 的一半，而考虑到其能力，5.6 Luna 已经是一个便宜得惊人的模型。
+
+得益于成本（和速度），Luna 是我最喜欢用来构建产品功能的模型。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1885410181409820672/ztsaR0JW_normal.jpg" alt="OpenAI avatar" loading="lazy"></div><div><strong>OpenAI</strong><span>@OpenAI</span></div></div><p class="quote-text original" lang="auto">Please welcome GPT-6 Sol and GPT-6 Luna to the GPT-6 universe.
+
+GPT-6 Sol and Luna build on the advances behind GPT-6 Astra, bringing much of its strengths into faster and more affordable models to support work at scale.
+
+We’ve also made caching and inference more efficient, and we’re passing the savings directly to you: 50% lower API prices for Sol and Luna compared with GPT‑5.6 promotional pricing.</p><p class="quote-text translation" lang="zh-CN">欢迎 GPT-6 Sol 和 GPT-6 Luna 加入 GPT-6 宇宙。
+
+GPT-6 Sol 和 Luna 基于 GPT-6 Astra 背后的进展，将其大部分优势带入更快、更实惠的模型，以支持大规模工作。
+
+我们还提升了缓存和推理效率，并将节省的成本直接回馈给你：Sol 和 Luna 的 API 价格相比 GPT‑5.6 促销价降低 50%。</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2102460948430966784/img/AtB4MxYZuAKgOLey.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2102460948430966784/img/AtB4MxYZuAKgOLey.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/OpenAI/status/2102460975790137662" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 700</span><span>↻ 26</span><span>↩ 68</span></div><a href="https://x.com/simonw/status/2102490016752779458" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="aravsrinivas" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2028729526822588416/WhtMUI-P_normal.jpg" alt="Aravind Srinivas avatar" loading="lazy"></div>
+          <div class="identity"><strong>Aravind Srinivas</strong><span>@AravSrinivas · Perplexity / CEO</span></div>
+          <div class="score">87<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 搜索 / 产品</span><time>09-23 00:49 北京</time></div>
+        <p class="post-text original" lang="auto">Claude Opus 5.5 is now available to all Perplexity Computer users. On our Wide-And-Deep-Research evals, it compares favorably to Fable 5.1 at a fraction of the cost. Opus 5.5 will become the “Standard”
+Effort orchestrator on Computer for all Pro and Max users. Congrats @AnthropicAI!</p><p class="post-text translation" lang="zh-CN">Claude Opus 5.5 现已面向所有 Perplexity Computer 用户开放。在我们的 Wide-And-Deep-Research 评测中，它以低得多的成本取得了优于 Fable 5.1 的表现。Opus 5.5 将成为所有 Pro 和 Max 用户在 Computer 上的“Standard” Effort 编排器。恭喜 @AnthropicAI！</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HS1eJElbcAAvSS3.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HS1eJElbcAAvSS3.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 378</span><span>↻ 9</span><span>↩ 27</span></div><a href="https://x.com/AravSrinivas/status/2102440114295369796" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="aravsrinivas" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2028729526822588416/WhtMUI-P_normal.jpg" alt="Aravind Srinivas avatar" loading="lazy"></div>
+          <div class="identity"><strong>Aravind Srinivas</strong><span>@AravSrinivas · Perplexity / CEO</span></div>
+          <div class="score">86<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 搜索 / 产品</span><time>09-23 03:06 北京</time></div>
+        <p class="post-text original" lang="auto">GPT-6 Sol is now available to all Perplexity users. On our Wide-And-Deep-Research (WANDR) evals, it outperforms Opus 5 at one-fifth the price. Sol will become the “Light” Effort orchestrator for Computer users, while Astra remains the orchestrator for &quot;High&quot; effort. Congrats to @OpenAI for consistently launching pareto-optimal models!</p><p class="post-text translation" lang="zh-CN">GPT-6 Sol 现已面向所有 Perplexity 用户开放。在我们的 Wide-And-Deep-Research (WANDR) 评测中，它以五分之一的价格超越了 Opus 5。Sol 将成为 Computer 用户的“Light” Effort 编排器，而 Astra 仍将作为“High” effort 的编排器。恭喜 @OpenAI 持续推出帕累托最优模型！</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HS181n4bIAArRgg.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HS181n4bIAArRgg.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 255</span><span>↻ 16</span><span>↩ 29</span></div><a href="https://x.com/AravSrinivas/status/2102474729127022799" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="bostondynamics" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1156978210783019009/AbgIujGu_normal.jpg" alt="Boston Dynamics avatar" loading="lazy"></div>
+          <div class="identity"><strong>Boston Dynamics</strong><span>@BostonDynamics · 机器人项目</span></div>
+          <div class="score">85<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>机器人领域突破</span><time>09-22 22:52 北京</time></div>
+        <p class="post-text original" lang="auto">Since @WienEnergie deployed Spot at its Simmering Power Plant in 2023, the robot has conducted over 4,000 inspection routes and walked 1,600 kilometers. Now they are expanding their fleet, adding four new Spot robots to facilities in the Vienna area. https://t.co/04aJxV7KIb https://t.co/8hFcgZUXH8</p><p class="post-text translation" lang="zh-CN">自 @WienEnergie 于 2023 年在其 Simmering Power Plant 部署 Spot 以来，这台机器人已完成 4,000 多条巡检路线，行走了 1,600 公里。现在他们正在扩充机队，在维也纳地区的设施中新增四台 Spot 机器人。https://t.co/04aJxV7KIb https://t.co/8hFcgZUXH8</p>
+
+        <div class="media-grid media-grid--4"><a class="media-item" href="https://pbs.twimg.com/media/HS1DVAoXkAAYTxW.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HS1DVAoXkAAYTxW.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HS1DWOnXUAAEV1z.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HS1DWOnXUAAEV1z.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HS1DXdIXwAA8u9R.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HS1DXdIXwAA8u9R.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HS1DYrKWkAAUP5-.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HS1DYrKWkAAUP5-.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 215</span><span>↻ 28</span><span>↩ 12</span></div><a href="https://x.com/BostonDynamics/status/2102410714325414277" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="alexalbert__" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1856486626072915968/JEQpB9CW_normal.jpg" alt="Alex Albert avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alex Albert</strong><span>@alexalbert__ · Anthropic / Claude 开发者关系与产品传播</span></div>
+          <div class="score">81<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Claude / Anthropic KOL</span><time>09-23 02:01 北京</time></div>
+        <p class="post-text original" lang="auto">need to make sure you&#x27;ve been updated to this (rolling out to everyone soon if you haven&#x27;t!) https://t.co/fjCAQKazVs</p><p class="post-text translation" lang="zh-CN">需要确认你已经更新到这个版本了（如果还没有，很快会向所有人推出！）https://t.co/fjCAQKazVs</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1950950107937185792/QOfEjFoJ_normal.jpg" alt="Claude avatar" loading="lazy"></div><div><strong>Claude</strong><span>@claudeai</span></div></div><p class="quote-text original" lang="auto">Claude Cowork and chat are merging into one Claude.
+
+Ask a quick question or hand over a report, and Claude takes it from there, even after you close your laptop. If something&#x27;s unclear, Claude asks—you keep the final say.
+
+Rolling out to Pro and Max over the next few weeks. https://t.co/87HC2lUjxG</p><p class="quote-text translation" lang="zh-CN">Claude Cowork 和 chat 正在合并成一个 Claude。
+
+无论是问一个简单问题，还是交给它一份报告，Claude 都会接手完成，即使你合上笔记本也没关系。如果有不清楚的地方，Claude 会提问，而最终决定权仍在你手里。
+
+将在未来几周内向 Pro 和 Max 用户逐步推出。https://t.co/87HC2lUjxG</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HSWeH9NXMAAJvUC.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HSWeH9NXMAAJvUC.png" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/claudeai/status/2100258490740539730" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 25</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/alexalbert__/status/2102458350348935454" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="alexandr_wang" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">78<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>09-22 23:23 北京</time></div>
+        <p class="post-text original" lang="auto">exciting news!!
+
+we’re partnering with @PayPal to enable customers to seamlessly shop and checkout online with @Muse across all PayPal merchants worldwide.
+
+we will not rest until your muse can ship till he drops!!!</p><p class="post-text translation" lang="zh-CN">激动人心的消息！！
+
+我们正在与 @PayPal 合作，让客户可以在全球所有 PayPal 商户处通过 @Muse 无缝在线购物和结账。
+
+在你的 muse 买到手软之前，我们绝不停歇！！！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1831523218831634432/dtvuvsNM_normal.jpg" alt="PayPal avatar" loading="lazy"></div><div><strong>PayPal</strong><span>@PayPal</span></div></div><p class="quote-text original" lang="auto">We&#x27;re excited to partner with @Meta to enable PayPal customers to seamlessly shop and check out using their @Muse personal AI agents across PayPal merchants worldwide. https://t.co/TVI2LUcNT0</p><p class="quote-text translation" lang="zh-CN">我们很高兴与 @Meta 合作，让 PayPal 客户可以在全球 PayPal 商户处使用他们的 @Muse 个人 AI 智能体无缝购物和结账。https://t.co/TVI2LUcNT0</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HS1FQQ-W4AAfMhr.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HS1FQQ-W4AAfMhr.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/PayPal/status/2102412767307194786" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 2,321</span><span>↻ 151</span><span>↩ 137</span></div><a href="https://x.com/alexandr_wang/status/2102418455622508722" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="tri_dao" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1389486324516671496/owa9Z4AC_normal.jpg" alt="Tri Dao avatar" loading="lazy"></div>
+          <div class="identity"><strong>Tri Dao</strong><span>@tri_dao · Together AI；FlashAttention 作者</span></div>
+          <div class="score">78<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 基础设施 / 训练优化</span><time>09-23 05:17 北京</time></div>
+        <p class="post-text original" lang="auto">Mayank put in a crazy amount of work to get pretraining to work on 3 gens of Nvidia GPUs and 2 gens of TPUs! Very good model for such a small size</p><p class="post-text translation" lang="zh-CN">Mayank 付出了惊人的努力，让预训练能在 3 代 Nvidia GPU 和 2 代 TPU 上运行！以这么小的规模来说，这是个非常出色的模型</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1718510814842195968/5-DWxMbE_normal.jpg" alt="Mayank Mishra avatar" loading="lazy"></div><div><strong>Mayank Mishra</strong><span>@MayankMish98</span></div></div><p class="quote-text original" lang="auto">We pretrained a 2.3B MoE (360M active) Hybrid Mamba-2 that lands within a few points of Llama-3.2-3B using &amp;lt;1% of its pretraining FLOPs.
+
+No dedicated cluster. The run hopped between H100s, A100s, V100s (yes, V100s) and TPU v5p/v6e on a single codebase.
+
+Meet Rigel 🧵 https://t.co/9WB0loMVbo</p><p class="quote-text translation" lang="zh-CN">我们预训练了一个 2.3B MoE（360M 激活）Hybrid Mamba-2，用不到 Llama-3.2-3B 预训练 FLOPs 的 1%，性能只差几个百分点。
+
+没有专用集群。这次训练在同一套代码库上，辗转使用了 H100、A100、V100（没错，V100）以及 TPU v5p/v6e。
+
+认识一下 Rigel 🧵 https://t.co/9WB0loMVbo</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HS2QtVhaUAADxYn.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HS2QtVhaUAADxYn.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/MayankMish98/status/2102504657973383638" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 87</span><span>↻ 3</span><span>↩ 3</span></div><a href="https://x.com/tri_dao/status/2102507647740322105" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">77<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>09-23 03:27 北京</time></div>
+        <p class="post-text original" lang="auto">DocJev is the fastest way to classify and split complex document packets ⚡️. (and the default is fully free and OSS!)
+
+I made a sick teaser video below. TY Opus 5.5 🙏
+
+check it out: https://t.co/fgSUUCWcwI https://t.co/7VbUMgCtyH</p><p class="post-text translation" lang="zh-CN">DocJev 是分类和拆分复杂文档包的最快方式 ⚡️。（而且默认版本完全免费且开源！）
+
+我做了下面这个很酷的预热视频。感谢 Opus 5.5 🙏
+
+来看看：https://t.co/fgSUUCWcwI https://t.co/7VbUMgCtyH</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2102479606909636608/img/ir4DEV6u1VcpfLuN.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2102479606909636608/img/ir4DEV6u1VcpfLuN.jpg" alt="X post media"><span>VIDEO</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div><div><strong>Jerry Liu</strong><span>@jerryjliu0</span></div></div><p class="quote-text original" lang="auto">Introducing DocJev - a lightning-fast OSS library for document classification and splitting with jev ⚡️
+
+Give a document alongside some natural language category rules. Jev will predict the document category (classify) or the boundaries between sub-documents (split).
+
+It is 6x faster than gpt-5.6-luna with equivalent accuracy.
+
+You can choose between different OCR backends:
+liteparse: the fastest/most accurate free+OSS text parser out there. Perfect for digitalized documents. The speedups vs. luna above are inclusive of liteparse times.
+LlamaParse: the most advanced VLM-based solution for complex docs. Using this will of course add latency on document preprocessing. But it’s a good option if you want to cache the digitalized representations of documents for a variety of downstream tasks.
+
+Check it out: https://t.co/PVE4hbEyFR
+
+If you want to dive deeper into liteparse or LlamaParse check the links below:
+liteparse: https://t.co/JNER0mVcB8
+LlamaParse: https://t.co/XYZmx5TFz8</p><p class="quote-text translation" lang="zh-CN">推出 DocJev：一个用于文档分类和拆分的超高速 OSS 库，基于 jev ⚡️
+
+只需提供一份文档和一些自然语言类别规则。Jev 会预测文档类别（分类），或预测子文档之间的边界（拆分）。
+
+在准确率相当的情况下，它比 gpt-5.6-luna 快 6 倍。
+
+你可以选择不同的 OCR 后端：
+liteparse：目前最快、最准确的免费 + OSS 文本解析器。非常适合数字化文档。上述相较 luna 的提速已包含 liteparse 的耗时。
+LlamaParse：最先进的基于 VLM 的复杂文档解决方案。使用它当然会增加文档预处理延迟。但如果你想缓存文档的数字化表示，用于各种下游任务，这是一个不错的选择。
+
+了解一下：https://t.co/PVE4hbEyFR
+
+如果想深入了解 liteparse 或 LlamaParse，请查看下面链接：
+liteparse：https://t.co/JNER0mVcB8
+LlamaParse：https://t.co/XYZmx5TFz8</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2101738161546391552/img/aTJ-mBG_YeF98yMQ.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2101738161546391552/img/aTJ-mBG_YeF98yMQ.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/jerryjliu0/status/2101738281046294552" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 315</span><span>↻ 20</span><span>↩ 11</span></div><a href="https://x.com/jerryjliu0/status/2102479924032577686" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="tim_dettmers" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1998431471304876032/BhUl3uX9_normal.jpg" alt="Tim Dettmers avatar" loading="lazy"></div>
+          <div class="identity"><strong>Tim Dettmers</strong><span>@Tim_Dettmers · AI2 / 研究员</span></div>
+          <div class="score">75<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 基础设施 / 量化</span><time>09-22 23:15 北京</time></div>
+        <p class="post-text original" lang="auto">Releasing our runtime dynamic compression framework that achieves 1.5-2.0 bit compression at high quality. This is integrated into the bitsandbytes2 library, which starts as a private beta today.
+
+Paper: https://t.co/f4L4Nm8JwM
+Private beta signup: https://t.co/q8PPAulmq3 https://t.co/itisM1zYMo</p><p class="post-text translation" lang="zh-CN">发布我们的运行时动态压缩框架，可在高质量下实现 1.5-2.0 bit 压缩。该框架已集成到 bitsandbytes2 库中，今天以私测版形式启动。
+
+论文：https://t.co/f4L4Nm8JwM
+私测报名：https://t.co/q8PPAulmq3 https://t.co/itisM1zYMo</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HS1BAQRWQAAUwV0.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HS1BAQRWQAAUwV0.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 200</span><span>↻ 31</span><span>↩ 15</span></div><a href="https://x.com/Tim_Dettmers/status/2102416550322159891" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">67<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>09-23 02:23 北京</time></div>
+        <p class="post-text original" lang="auto">holy fuck it&#x27;s christmas</p><p class="post-text translation" lang="zh-CN">我靠，简直像过圣诞</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1885410181409820672/ztsaR0JW_normal.jpg" alt="OpenAI avatar" loading="lazy"></div><div><strong>OpenAI</strong><span>@OpenAI</span></div></div><p class="quote-text original" lang="auto">Please welcome GPT-6 Sol and GPT-6 Luna to the GPT-6 universe.
+
+GPT-6 Sol and Luna build on the advances behind GPT-6 Astra, bringing much of its strengths into faster and more affordable models to support work at scale.
+
+We’ve also made caching and inference more efficient, and we’re passing the savings directly to you: 50% lower API prices for Sol and Luna compared with GPT‑5.6 promotional pricing.</p><p class="quote-text translation" lang="zh-CN">欢迎 GPT-6 Sol 和 GPT-6 Luna 加入 GPT-6 宇宙。
+
+GPT-6 Sol 和 Luna 基于 GPT-6 Astra 背后的进展，将其大部分优势带入更快、更实惠的模型，以支持大规模工作。
+
+我们还提升了缓存和推理效率，并将节省的成本直接回馈给你：Sol 和 Luna 的 API 价格相比 GPT‑5.6 促销价降低 50%。</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2102460948430966784/img/AtB4MxYZuAKgOLey.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2102460948430966784/img/AtB4MxYZuAKgOLey.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/OpenAI/status/2102460975790137662" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 78</span><span>↻ 0</span><span>↩ 5</span></div><a href="https://x.com/jerryjliu0/status/2102463876419981406" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">65<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>09-23 01:34 北京</time></div>
+        <p class="post-text original source-only" lang="auto">怎么中美模型都赶着中秋和国庆节之前放大招呀？
+
+本来 Claude Opus 我都打算弃用了，是在太难用了，Opus 5.5 看着诚意满满，明天起来试试看咋样🧐
+
+这不得 reset 庆祝一下？</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1950950107937185792/QOfEjFoJ_normal.jpg" alt="Claude avatar" loading="lazy"></div><div><strong>Claude</strong><span>@claudeai</span></div></div><p class="quote-text original" lang="auto">Introducing Claude Opus 5.5, the first model in our new Claude 5.5 family.
+
+It performs at the level of Claude Fable 5.1 for most tasks, and costs 40% less to run than Opus 5. https://t.co/Q9C2VKQ79f</p><p class="quote-text translation" lang="zh-CN">介绍 Claude Opus 5.5，我们全新 Claude 5.5 系列的首个模型。
+
+在大多数任务上，它达到了 Claude Fable 5.1 的水平，运行成本比 Opus 5 低 40%。https://t.co/Q9C2VKQ79f</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HS1aPgYWMAAP9sw.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HS1aPgYWMAAP9sw.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/claudeai/status/2102435511222890900" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 4</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/Xudong07452910/status/2102451592133812336" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="openaidevs" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2022002720971096064/l3Kyt4qt_normal.jpg" alt="OpenAI Developers avatar" loading="lazy"></div>
+          <div class="identity"><strong>OpenAI Developers</strong><span>@OpenAIDevs · Agent 平台与开发者产品</span></div>
+          <div class="score">88<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Agent 技术突破</span><time>09-23 02:14 北京</time></div>
+        <p class="post-text original" lang="auto">On DeepSWE v1.1, which tests coding agents on long-horizon engineering tasks, GPT-6 Sol (max) nearly matches Claude Fable 5 (xhigh) at ~80% lower cost per task.
+
+GPT-6 Luna (max) is comparable to Fable 5 (medium) at 96% lower cost per task. https://t.co/RN7DmjpUfJ</p><p class="post-text translation" lang="zh-CN">在 DeepSWE v1.1 上，该基准用于测试编码代理的长周期工程任务，GPT-6 Sol (max) 几乎追平 Claude Fable 5 (xhigh)，但每项任务成本低约 80%。
+
+GPT-6 Luna (max) 的表现可媲美 Fable 5 (medium)，但每项任务成本低 96%。https://t.co/RN7DmjpUfJ</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HS1xj3gbgAAiG5R.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HS1xj3gbgAAiG5R.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 456</span><span>↻ 25</span><span>↩ 18</span></div><a href="https://x.com/OpenAIDevs/status/2102461464279912495" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="mikeyk" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1600639584294969344/VOYWWHNN_normal.jpg" alt="Mike Krieger avatar" loading="lazy"></div>
+          <div class="identity"><strong>Mike Krieger</strong><span>@mikeyk · Anthropic / 产品负责人</span></div>
+          <div class="score">83<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 产品 / Anthropic</span><time>09-23 00:56 北京</time></div>
+        <p class="post-text original" lang="auto">We cut API pricing to $4/million input and $20/million output tokens (20% less than Opus 5) and cache reads are 60% cheaper too. For subscribers, we raised five hour limits and you get a banked rate limit reset to use whenever you need it most.</p><p class="post-text translation" lang="zh-CN">我们将 API 价格降至每百万输入 token 4 美元、每百万输出 token 20 美元（比 Opus 5 低 20%），缓存读取也便宜了 60%。对订阅用户，我们提高了五小时限制，并提供可累积的速率限制重置额度，方便你在最需要时使用。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 49</span><span>↻ 0</span><span>↩ 2</span></div><a href="https://x.com/mikeyk/status/2102441797482152313" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="hwchase17" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1569345624935485442/R67C4wCQ_normal.jpg" alt="Harrison Chase avatar" loading="lazy"></div>
+          <div class="identity"><strong>Harrison Chase</strong><span>@hwchase17 · LangChain / CEO</span></div>
+          <div class="score">80<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Agent 框架</span><time>09-23 02:49 北京</time></div>
+        <p class="post-text original" lang="auto">🖼️ Improved UI for Jev models in LangSmith
+
+agents are going to complex systems of many llms calls
+
+many llm calls will be jev-like (decision models)
+
+we&#x27;ve updated tracing view in LangSmith to display these types of calls (state, questions, choices, output) more clearly! https://t.co/7ALyxKpBQE</p><p class="post-text translation" lang="zh-CN">🖼️ LangSmith 中 Jev 模型的 UI 改进
+
+代理正在变成由多次 llms 调用组成的复杂系统
+
+许多 llm 调用会类似 jev（决策模型）
+
+我们更新了 LangSmith 的追踪视图，可以更清晰地展示这类调用（状态、问题、选项、输出）！https://t.co/7ALyxKpBQE</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HS15lPbWQAACAfX.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HS15lPbWQAACAfX.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 50</span><span>↻ 4</span><span>↩ 22</span></div><a href="https://x.com/hwchase17/status/2102470464735949263" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="alexandr_wang" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">78<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>09-23 04:03 北京</time></div>
+        <p class="post-text original" lang="auto">pretty psyched about this one—
+
+expedia 🤝 muse
+
+we&#x27;ve seen travel be a breakout use case for muse, and excited to partner with expedia to make it seamless to go anywhere ✈️</p><p class="post-text translation" lang="zh-CN">对这次合作非常兴奋——
+
+expedia 🤝 muse
+
+我们看到旅行已成为 muse 的爆发式应用场景，很高兴能与 expedia 合作，让去任何地方都变得无缝顺畅 ✈️</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1647978420759035905/1fI2H1n0_normal.jpg" alt="Expedia avatar" loading="lazy"></div><div><strong>Expedia</strong><span>@Expedia</span></div></div><p class="quote-text original" lang="auto">Here at Expedia, we love planning trips. Soon, your personal AI agent will too. We&#x27;re joining @Muse: tell it where you&#x27;re headed and it can work with Expedia to sort your hotels, and everything in between. https://t.co/WArE24LfoB</p><p class="quote-text translation" lang="zh-CN">在 Expedia，我们热爱规划旅行。很快，你的个人 AI 代理也会喜欢上这件事。我们正在加入 @Muse：告诉它你要去哪里，它就能与 Expedia 协作，帮你安排酒店以及中间的一切。https://t.co/WArE24LfoB</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HS2DYk7WAAA46h_.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HS2DYk7WAAA46h_.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/Expedia/status/2102481062429426085" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 836</span><span>↻ 35</span><span>↩ 65</span></div><a href="https://x.com/alexandr_wang/status/2102488916586889600" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">76<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>09-22 08:35 北京</time></div>
+        <p class="post-text original source-only" lang="auto">Jev 这两天刚火起来，TypeSafe CEO 紧接着又抛出了一个更有意思的问题：如果让 Jev 这种模型直接参与 Coding Agent 的「大脑调度」，会发生什么？
+
+这份文档里，他们想动的其实是 Coding Agent 最底层的 Context 和 State。
+
+现在很多 Agent 底层还是 while loop + Tools，再把越来越长的上下文一路往后传。Routing、Compaction、Subagent 很多麻烦，都卡在「下一步到底该带什么 Context」。
+
+TypeSafe 想做得更细一点。
+
+每一步都动态判断哪些 Context 值得保留、该调用哪个 Tool、该切哪个模型、要不要开 Subagent，甚至 AGENTS.md 都可以按任务加载。
+
+这时候 Jev 这种又快又便宜的 typed decision model 就很有意思了。
+
+它不一定负责写代码，反而可以负责 Agent 周围大量高频的小决策。
+
+这样看起来，下一代 Coding Agent 拼的可能不只是主模型有多强，而是谁能把 Context、Routing 和 State 这套「神经系统」管得更细。
+
+这条路值得我们持续地关注。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1650708125685800960/7k6r0UZg_normal.jpg" alt="Diogo Almeida avatar" loading="lazy"></div><div><strong>Diogo Almeida</strong><span>@CompleteSkeptic</span></div></div><p class="quote-text original" lang="auto">sharing some notes on typesafe 🤝 coding agents:
+https://t.co/bzNv8zC3UB
+
+we likely will never have time (ever again) to play ourselves, but hope the that the community goes WILD (and makes me look like a naive idiot)</p><p class="quote-text translation" lang="zh-CN">分享一些关于 typesafe 🤝 coding agents 的笔记：
+https://t.co/bzNv8zC3UB
+
+我们可能再也没时间亲自玩了，但希望社区能彻底玩疯（并让我看起来像个天真的傻瓜）</p><a class="quote-link" href="https://x.com/CompleteSkeptic/status/2101894250401271876" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 21</span><span>↻ 1</span><span>↩ 6</span></div><a href="https://x.com/Xudong07452910/status/2102194919204909399" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">74<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>09-22 09:20 北京</time></div>
+        <p class="post-text original source-only" lang="auto">现在新模型出得这么快，每个人都应该有一套自己的 AI Benchmark。
+
+Every 这家公司最近就在给每个员工做这件事。
+
+方法其实很简单：把你平时最常交给 AI 的几个真实任务留下来，再把每次「这里不对」「这个我会改掉」慢慢变成可检查的规则。
+
+久而久之，你就有了一套只属于自己的 Eval。
+
+很有意思的是，他们内部测试里，GPT-5.6 Luna 在某些人的真实工作上，甚至比更强的模型表现更好。
+
+我觉得这件事以后会很重要。
+
+Benchmark 不应该只回答「哪个模型最强」，还应该回答「哪个模型最适合替我做这件事」。
+
+甚至再往前一步，你每天修改 AI 的那些地方，其实都在暴露自己的判断标准。
+
+如果能把这些判断慢慢沉淀成 Eval，AI 才真的开始学会「什么叫对你来说做得好」。
+
+文章：https://t.co/gt91zokgAZ</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 35</span><span>↻ 3</span><span>↩ 6</span></div><a href="https://x.com/Xudong07452910/status/2102206243641098436" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">71<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>09-23 04:04 北京</time></div>
+        <p class="post-text original" lang="auto">liteparse is the fastest pdf parser on the planet
+
+parses each page at just 2.8ms / page!!
+
+check it out: https://t.co/VfA6yJwzcZ https://t.co/vGsfeBJZuB</p><p class="post-text translation" lang="zh-CN">liteparse 是全球最快的 pdf 解析器
+
+每页解析只需 2.8ms / page！！
+
+来看看：https://t.co/VfA6yJwzcZ https://t.co/vGsfeBJZuB</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HS2Kvyka4AAHnEQ.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HS2Kvyka4AAHnEQ.jpg" alt="X post media"><span>IMAGE</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1967920417760251904/0ytfduMQ_normal.png" alt="LlamaIndex 🦙 avatar" loading="lazy"></div><div><strong>LlamaIndex 🦙</strong><span>@llama_index</span></div></div><p class="quote-text original" lang="auto">The fastest PDF-to-Markdown parser just got faster. ⚡️
+
+With LiteParse v2.14.6, text-based PDFs parse about 25% faster.
+
+Across realistic documents, LiteParse processed pages at 2.8ms/page and 1.5× faster than the next-fastest local parser.
+
+LiteParse is open source and runs locally in Python, Node.js, Rust, or directly in the browser.
+
+Grab v2.14.6 → https://t.co/UJy6KQ1Dyi
+Bench Docs →  https://t.co/rVY3Cxyj8H</p><p class="quote-text translation" lang="zh-CN">最快的 PDF 转 Markdown 解析器又更快了。⚡️
+
+在 LiteParse v2.14.6 中，基于文本的 PDF 解析速度提升约 25%。
+
+在真实文档测试中，LiteParse 的处理速度达到 2.8ms/page，比第二快的本地解析器快 1.5×。
+
+LiteParse 是开源的，可在 Python、Node.js、Rust 中本地运行，也可直接在浏览器中运行。
+
+获取 v2.14.6 → https://t.co/UJy6KQ1Dyi
+基准测试文档 →  https://t.co/rVY3Cxyj8H</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HS1hR6bXMAA7zKK.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HS1hR6bXMAA7zKK.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/llama_index/status/2102443566962188783" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 69</span><span>↻ 5</span><span>↩ 7</span></div><a href="https://x.com/jerryjliu0/status/2102489185609535990" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="yoheinakajima" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
+          <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
+          <div class="score">69<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>09-23 03:06 北京</time></div>
+        <p class="post-text original" lang="auto">simultaneous live detection of:
+😡 emotion
+📕 object
+🖐️ finger count
+
+single call for 3 detections, 0.2 sec inference each https://t.co/11wjoDKVqc</p><p class="post-text translation" lang="zh-CN">同时实时检测：
+😡 情绪
+📕 物体
+🖐️ 手指数
+
+一次调用完成 3 项检测，每项推理 0.2 秒 https://t.co/11wjoDKVqc</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2102473991235739648/img/3V5qsXVpIedds3yl.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2102473991235739648/img/3V5qsXVpIedds3yl.jpg" alt="X post media"><span>VIDEO</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei avatar" loading="lazy"></div><div><strong>Yohei</strong><span>@yoheinakajima</span></div></div><p class="quote-text original" lang="auto">fast enough for a live emotion detector https://t.co/m5rbegjn7U</p><p class="quote-text translation" lang="zh-CN">快到足以用于实时情绪检测器 https://t.co/m5rbegjn7U</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2102231696108331008/img/IUPLhtvTifNlXC_h.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2102231696108331008/img/IUPLhtvTifNlXC_h.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/yoheinakajima/status/2102231755189268531" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 45</span><span>↻ 2</span><span>↩ 14</span></div><a href="https://x.com/yoheinakajima/status/2102474542820339794" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="alexandr_wang" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">68<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>09-23 05:57 北京</time></div>
+        <p class="post-text original" lang="auto">we’ve really appreciated the partnership with @scale_AI in building muse 🤝</p><p class="post-text translation" lang="zh-CN">我们非常感谢与 @scale_AI 在构建 muse 过程中的合作 🤝</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2081569336305803264/K7FAtckt_normal.jpg" alt="Aakash Sabharwal avatar" loading="lazy"></div><div><strong>Aakash Sabharwal</strong><span>@aakashsabharwal</span></div></div><p class="quote-text original" lang="auto">Leaderboard spotlight!
+
+With @Muse on top of the app store, a special shoutout to @AIatMeta for Muse Spark 1.3. The @ScaleAILabs team worked closely with them on evaluations, training data, and testing.
+
+Muse does well on tool use, multi-turn conversation, tutoring, professional reasoning, and end-to-end software engineering. Different tasks, but each asks a model to hold context across long horizon workflows, make judgments under uncertainty, and recover from partial failures.
+
+PRBench is where that&#x27;s clearest. Its tasks are written by domain experts and scored on rubrics that reward professional utility, not trivia-style correctness. Muse has held the top spot in finance and law since 1.1, and 1.3 extends the lead.</p><p class="quote-text translation" lang="zh-CN">排行榜焦点！
+
+随着 @Muse 登顶应用商店，特别感谢 @AIatMeta 推出的 Muse Spark 1.3。@ScaleAILabs 团队在评测、训练数据和测试方面与他们紧密合作。
+
+Muse 在工具使用、多轮对话、辅导、专业推理和端到端软件工程方面表现出色。任务各不相同，但都要求模型在长周期工作流中保持上下文、在不确定性下做判断，并从部分失败中恢复。
+
+这一点在 PRBench 上最为明显。它的任务由领域专家编写，并按强调专业实用性而非问答式正确性的评分标准打分。Muse 自 1.1 以来一直在金融和法律领域保持第一，1.3 进一步扩大了领先优势。</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HS2HE0WaIAAoIrK.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HS2HE0WaIAAoIrK.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/aakashsabharwal/status/2102485169034944735" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 67</span><span>↻ 6</span><span>↩ 10</span></div><a href="https://x.com/alexandr_wang/status/2102517758793756736" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">65<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>09-23 01:00 北京</time></div>
+        <p class="post-text original" lang="auto">Q: What should you do when your &quot;gold&quot; eval dataset becomes stale?
+
+A: Use regular error analysis to find new problems. Keep updating your evals as your product and users change.
+
+https://t.co/L1AI4XrR4f https://t.co/6LfvxgiSEq</p><p class="post-text translation" lang="zh-CN">问：当你的“黄金”评测数据集过时时，应该怎么做？
+
+答：通过定期错误分析发现新问题。随着产品和用户变化，持续更新评测。
+
+https://t.co/L1AI4XrR4f https://t.co/6LfvxgiSEq</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HS1gl1XXEAAeEAl.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HS1gl1XXEAAeEAl.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 43</span><span>↻ 3</span><span>↩ 14</span></div><a href="https://x.com/HamelHusain/status/2102442807575076880" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="tim_dettmers" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1998431471304876032/BhUl3uX9_normal.jpg" alt="Tim Dettmers avatar" loading="lazy"></div>
+          <div class="identity"><strong>Tim Dettmers</strong><span>@Tim_Dettmers · AI2 / 研究员</span></div>
+          <div class="score">61<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 基础设施 / 量化</span><time>09-22 23:15 北京</time></div>
+        <p class="post-text original" lang="auto">Dynamic runtime compression allocates different levels of quantization and levels of expert removal for any layer to increase compression while keeping quality high. It also exchanges experts dynamically at runtime through dynamic REAP to improve quality and out-of-context generalization</p><p class="post-text translation" lang="zh-CN">动态运行时压缩会为任意层分配不同的量化级别和专家移除级别，以在保持高质量的同时提高压缩率。它还会在运行时通过 dynamic REAP 动态交换专家，从而提升质量和上下文外泛化能力</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HS1CPaVXAAEKGLN.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HS1CPaVXAAEKGLN.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 12</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/Tim_Dettmers/status/2102416553316647354" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="yoheinakajima" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
+          <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
+          <div class="score">54<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>09-23 04:50 北京</time></div>
+        <p class="post-text original" lang="auto">@feulf no but a similar approach on qwen3 vl 4b</p><p class="post-text translation" lang="zh-CN">@feulf 没有，但在 qwen3 vl 4b 上采用了类似方法</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei avatar" loading="lazy"></div><div><strong>Yohei</strong><span>@yoheinakajima</span></div></div><p class="quote-text original" lang="auto">Jev-style logit read on a 4B open VLM, measured: https://t.co/bvA3ijRgkU 👀
+
+vs the same model writing JSON:
+⏳ ~1/3 less time for a yes/no on a full photo
+🤑 up to ~85% less GPU cost with many Qs per image
+🎯 same accuracy
+
+on fresh photos: level with the best hosted models on pick-one (0.933 vs 0.937), ~2 pts behind Gemini on yes/no
+
+pip install glance-vlm
+https://t.co/rtdSOPY3pD</p><p class="quote-text translation" lang="zh-CN">在一个 4B 开源 VLM 上实测 Jev 风格的 logit 读取：https://t.co/bvA3ijRgkU 👀
+
+相比同一模型写 JSON：
+⏳ 对整张照片做 yes/no 判断，耗时减少约 1/3
+🤑 每张图有多个问题时，GPU 成本最高降低约 85%
+🎯 准确率相同
+
+在新照片上：pick-one 任务与最好的托管模型持平（0.933 vs 0.937），yes/no 任务落后 Gemini 约 2 个百分点
+
+pip install glance-vlm
+https://t.co/rtdSOPY3pD</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HSwS0BYaEAI_jlV.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HSwS0BYaEAI_jlV.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/yoheinakajima/status/2102088674699850107" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 3</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/yoheinakajima/status/2102500738643755446" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="yoheinakajima" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
+          <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
+          <div class="score">53<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>09-23 06:20 北京</time></div>
+        <p class="post-text original" lang="auto">just object detection is much faster with .5 sec latency
+
+much snappier https://t.co/efLewyDtWf</p><p class="post-text translation" lang="zh-CN">单做目标检测要快得多，延迟 0.5 秒
+
+灵敏多了 https://t.co/efLewyDtWf</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2102523311142100992/img/L6kP5eKTwzRJN9jE.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2102523311142100992/img/L6kP5eKTwzRJN9jE.jpg" alt="X post media"><span>VIDEO</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 1</span><span>↻ 1</span><span>↩ 1</span></div><a href="https://x.com/yoheinakajima/status/2102523455203844255" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="thom_wolf" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2068682157451571200/_ZNKM_5E_normal.jpg" alt="Thomas Wolf avatar" loading="lazy"></div>
+          <div class="identity"><strong>Thomas Wolf</strong><span>@Thom_Wolf · Hugging Face / 联合创始人兼 CSO</span></div>
+          <div class="score">71<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>开源模型 / Hugging Face</span><time>09-22 18:48 北京</time></div>
+        <p class="post-text original" lang="auto">open-weights with licence and tech-report is still 100x better for the ecosystem than having only closed-weights API from 2 companies with zero public details
+
+more options to adapt the model, higher resilience with more inference providers, more transparency and eyes on the internals, less concentration of power in 2 labs</p><p class="post-text translation" lang="zh-CN">带许可证和技术报告的 open-weights，对生态系统来说仍然比只有两家公司、零公开细节的闭源权重 API 好 100 倍
+
+更多模型适配选择，更多推理提供商带来更高韧性，对内部机制有更多透明度和审视，权力也更少集中在两个实验室手里</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 19</span><span>↻ 0</span><span>↩ 6</span></div><a href="https://x.com/Thom_Wolf/status/2102349373858340874" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="richardsocher" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1232361282759610368/YYxndVmI_normal.jpg" alt="Richard Socher avatar" loading="lazy"></div>
+          <div class="identity"><strong>Richard Socher</strong><span>@RichardSocher · You.com / CEO</span></div>
+          <div class="score">70<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 搜索 / 产品</span><time>09-23 04:38 北京</time></div>
+        <p class="post-text original" lang="auto">AI moves so fast that I thought this book was going to be a year too late. It turns out it&#x27;s right on time.
+
+While I was writing, I kept having to change chapters from &quot;someone should do this&quot; to &quot;someone has done this,&quot; and then go talk to the people who had done it. A good example is the chapter on virtual cells. I&#x27;d written that we needed large initiatives to build one. By the time I finished, I was writing about the ones that exist — the Chan Zuckerberg Initiative&#x27;s is now the largest and best-funded push to model a human cell.
+
+The Eureka Machine is out today.
+
+It&#x27;s about building a full-stack scientific superintelligence: a living map of human knowledge, a model of physical reality, high-fidelity simulations, autonomous labs, and an agent swarm of AI scientists on top. There&#x27;s no better science to start with than the science of AI itself, because that&#x27;s where the feedback loop is tightest. Then you expand the aperture to physics, chemistry, and especially pre-clinical biology.
+
+This will be the most meaningful application of AI, and one of the most important things humanity does. And it may be the last organic invention we need to make. After that, it starts inventing everything else for us to solve our most pressing problems.
+
+While writing, I couldn&#x27;t let the idea go. Eight of us started @Recursive_SI to go build it.
+
+AI is going to massively accelerate science, and unlike most of what gets argued about right now, that isn&#x27;t zero sum.
+
+I hope you all enjoy the book. I look forward to discussing it with you all.</p><p class="post-text translation" lang="zh-CN">AI 发展太快，我原以为这本书会晚一年。结果它来得正是时候。
+
+写作期间，我不断得把章节从“应该有人做这件事”改成“已经有人做了这件事”，然后去和那些已经做出来的人交流。虚拟细胞那章就是一个很好的例子。我原本写的是我们需要大型计划来构建一个虚拟细胞。等我写完时，我写的已经是现有项目了，其中 Chan Zuckerberg Initiative 如今是建模人类细胞规模最大、资金最充足的推进力量。
+
+The Eureka Machine 今天发布。
+
+它讲的是如何构建一个全栈科学超级智能：一张活的人类知识地图、一个物理现实模型、高保真模拟、自主实验室，以及位于其上的 AI 科学家智能体群。没有比 AI 科学本身更适合作为起点的科学了，因为这里的反馈循环最紧密。然后再把视野扩展到物理、化学，尤其是临床前生物学。
+
+这将是 AI 最有意义的应用，也将是人类要做的最重要的事情之一。它也可能是我们需要完成的最后一项有机发明。之后，它会开始为我们发明其他一切，帮助解决最紧迫的问题。
+
+写作过程中，我始终放不下这个想法。我们八个人创办了 @Recursive_SI，去把它造出来。
+
+AI 将极大加速科学发展，而且不同于当下大多数争论的事情，这不是零和博弈。
+
+希望大家喜欢这本书。期待和大家讨论。</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HS2SfVXaUAAOG0O.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HS2SfVXaUAAOG0O.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 61</span><span>↻ 11</span><span>↩ 9</span></div><a href="https://x.com/RichardSocher/status/2102497670929719476" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="anilkseth" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1479788727346118657/MkLkGnOk_normal.jpg" alt="Anil Seth avatar" loading="lazy"></div>
+          <div class="identity"><strong>Anil Seth</strong><span>@anilkseth · 权威意识研究者</span></div>
+          <div class="score">58<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>意识科学与神经科学</span><time>09-23 00:50 北京</time></div>
+        <p class="post-text original" lang="auto">Thanks @LeonardDung1 - very helpful!  I guess, as I said to @danwilliamsphil and @camhberg - the interesting questions hereabouts mostly concern what counts as &#x27;surprising behaviour&#x27; given the richness of the training data and the learning paradigms applied.
+
+Having been deeply involved in the study, you&#x27;ll know much more than me about the details. My less-well-informed view is that I don&#x27;t find it so surprising (ex-post) that agents make costly actions or distinguish &#x27;self pain&#x27; from &#x27;other pain&#x27;, since the training data and the learning paradigm will emphasise instrumental responses to pain, not just descriptions of pain experience. But this is easy for me to say ex-post - I didn&#x27;t get a chance to make predictions in advance.
+
+And you&#x27;re 💯 right that we need to focus also on more fundamental questions about &#x27;conscious AI&#x27; - notably the plausibility of computational functionalism (CF) - the validity of which needs to be established before the kind of evidence presented in your paper can update any credences. As you know,  I think there are good reasons why CF is false (even if BN turns out not to be true).
+
+On your last point, that &#x27;AI consciousness does not require CF&#x27;, while strictly this is true, without CF being true there do not seem to be good reasons to attribute consciousness to AI - since we&#x27;d need independent grounds besides substrate-independent computation to license the required substrate flexibility. I make this point in my @BBSJournal response to your comment (see https://t.co/BoB8pBafw8).
+
+Perhaps relatedly, I also think you confuse two notions of function: there are Cummins-functions which underpin philosophical functionalism, and there are teleo-functions (a clock has the function of telling time). The two are distinct. A property can have a teleo-function even if functionalism does not provide the basis for that property. So I do not see how something having a teleo-function licenses the claim that conscious AI does not require CF.
+
+Finally, I do think that for balance your paper should have at least acknowledged the risks associated with misattribution of conscious pain to LLMs (false positives). And when you say that false negatives are &quot;much worse&quot; than false positives, IMO this really ought to be conditioned on their posterior probability. If false negatives are very bad but extremely unlikely, while false positives are quite bad but very likely, then it is not very meaningful - and potentially misleading - to say that false negatives are &quot;much worse&quot;
+
+Anyway - thanks for the paper and for the discussion. I am sure it will continue :-)</p><p class="post-text translation" lang="zh-CN">谢谢 @LeonardDung1，非常有帮助！我想，正如我对 @danwilliamsphil 和 @camhberg 所说的，这里有意思的问题主要在于，考虑到训练数据的丰富性和所采用的学习范式，什么才算是“令人意外的行为”。
+
+你深度参与了这项研究，所以一定比我更了解细节。以我较不充分的信息来看，我事后并不觉得智能体采取高代价行动，或区分“自身疼痛”和“他者疼痛”有多令人意外，因为训练数据和学习范式会强调对疼痛的工具性反应，而不只是对疼痛体验的描述。不过这只是我事后说说很容易，我没有机会提前做预测。
+
+你也完全说对了，我们还需要关注关于“有意识 AI”的更根本问题，尤其是计算功能主义（CF）的可信度。在你们论文中呈现的那类证据能够更新任何置信度之前，必须先确立 CF 的有效性。你知道，我认为有充分理由认为 CF 是错的（即使 BN 最终并不为真）。
+
+关于你的最后一点，即“AI 意识不需要 CF”，严格来说这是真的，但如果 CF 不成立，似乎就没有充分理由把意识归于 AI，因为除了基质无关的计算之外，我们还需要独立依据来支持所需的基质灵活性。我在对你评论的 @BBSJournal 回复中提出了这一点（见 https://t.co/BoB8pBafw8）。
+
+或许相关的是，我也认为你混淆了两种功能概念：一种是支撑哲学功能主义的 Cummins-functions，另一种是 teleo-functions（比如时钟具有报时的功能）。两者是不同的。即使功能主义不构成某个属性的基础，一个属性也可以有 teleo-function。因此我看不出，某物具有 teleo-function 如何能支持“有意识 AI 不需要 CF”这一主张。
+
+最后，我确实认为，为了保持平衡，你们的论文至少应该承认把有意识疼痛错误归因于 LLMs 的风险（假阳性）。而当你说假阴性比假阳性“严重得多”时，在我看来，这其实应该以它们的后验概率为条件。如果假阴性非常糟糕但极不可能，而假阳性相当糟糕但很可能，那么说假阴性“严重得多”就不是很有意义，并且可能具有误导性。
+
+无论如何，感谢你的论文和这次讨论。我相信讨论还会继续 :-)</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 1</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/anilkseth/status/2102440427773174076" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+    </main>
+    <footer>Generated 2026-09-23 07:01:59 Asia/Shanghai · Read-only X ingestion via Bird · Translation via Codex</footer>
+  </div>
+</body>
+</html>
