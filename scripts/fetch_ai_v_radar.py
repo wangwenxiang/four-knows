@@ -276,7 +276,7 @@ TOP_STORY_CORE_TERMS = (
     "training", "inference", "benchmark", "eval", "coding", "software",
     "api", "github", "open-source", "open source", "open-weight", "open weight",
     "robot", "cyber", "vulnerab", "security", "ocr", "workflow", "quantiz",
-    "lora", "dataset", "algorithm", "transformer", "interpretability",
+    "lora", "dataset", "algorithm", "transformer", "interpretability", "prefill", "decode",
 )
 
 
@@ -291,13 +291,14 @@ TOP_STORY_FRONTIER_TERMS = (
     "frontier", "state of the art", "sota", "novel", "research", "paper",
     "benchmark", "training", "reasoning", "interpretability", "alignment",
     "distill", "open-weight", "open weight", "architecture", "scaling",
+    "prefill", "compute-bound", "active tracing", "interactive perception",
 )
 
 
 TOP_STORY_APPLICATION_TERMS = (
     "use", "apply", "deploy", "production", "workflow", "coding", "review",
     "security", "secure", "system", "robot", "agent", "api", "ocr", "tool",
-    "developer", "automation", "infrastructure", "data center", "datacenter",
+    "developer", "automation", "infrastructure", "data center", "datacenter", "decode",
 )
 
 
@@ -309,6 +310,7 @@ CONCRETE_TECHNICAL_EVIDENCE_TERMS = (
     "reasoning transcript", "responses api", "server-side tool", "logging",
     "benchmark", "evaluation", "safeguard", "open-weight", "open weight",
     "on-device", "on device", "deploy", "api", "taxonomy",
+    "prefill", "compute-bound", "active tracing", "interactive perception",
 )
 
 
@@ -1191,6 +1193,20 @@ def top_story_profile(post: dict[str, Any], expert: Expert) -> tuple[bool, int, 
     return eligible, min(99, score), category
 
 
+def has_substantive_primary_top_story_evidence(post: dict[str, Any], expert: Expert) -> bool:
+    """Require a poster lead to stand on its own primary material.
+
+    Quotes are valuable supporting evidence for a report card, but a poster
+    headline must summarize the primary post.  A reaction such as "Gemini
+    who?" must therefore not become a lead merely because its quote contains
+    a substantive model announcement.
+    """
+    primary_only = dict(post)
+    primary_only.pop("quotedTweet", None)
+    eligible, _score, _category = top_story_profile(primary_only, expert)
+    return eligible
+
+
 def attach_editorial_rank(post: dict[str, Any], expert: Expert) -> None:
     eligible, score, category = top_story_profile(post, expert)
     post["topStoryEligible"] = eligible
@@ -1659,12 +1675,19 @@ def select_editorial_top_stories(posts: list[dict[str, Any]], retries: int) -> l
     for post in posts:
         expert = Expert(**post["expert"])
         deterministic_eligible, deterministic_score, deterministic_category = top_story_profile(post, expert)
+        primary_substantive = has_substantive_primary_top_story_evidence(post, expert)
         grade = str(post.get("editorial", {}).get("dailyGrade") or "D")
+        post["headlineDecision"] = {
+            "grade": grade,
+            "primarySubstantive": primary_substantive,
+            "reason": "primary_not_substantive" if not primary_substantive else "grade_not_eligible",
+        }
         # A semantic B is still a valid top-story candidate when the
         # deterministic profile confirms concrete technical substance.  It
         # must not be limited to core labs: that restriction can incorrectly
         # leave a publishable day with fewer than three qualified stories.
-        if grade == "A" or (grade == "B" and deterministic_eligible):
+        if primary_substantive and (grade == "A" or (grade == "B" and deterministic_eligible)):
+            post["headlineDecision"]["reason"] = "eligible_not_selected"
             candidates.append(post)
             candidate_profiles[str(post["id"])] = (
                 deterministic_score,
@@ -1774,6 +1797,24 @@ INPUT:
         jerry_at = selected_handles.index("jerryjliu0")
         if greg_at > jerry_at:
             selected[greg_at], selected[jerry_at] = selected[jerry_at], selected[greg_at]
+    selected_ids = {str(post["id"]) for post in selected}
+    for post in candidates:
+        decision = post["headlineDecision"]
+        if str(post["id"]) in selected_ids:
+            decision["reason"] = "selected"
+            continue
+        same_author = next((item for item in selected if top_story_author_key(item) == top_story_author_key(post)), None)
+        conflicts = [
+            {"selectedId": str(item["id"]), **evidence}
+            for item in selected
+            if (evidence := top_story_event_evidence(post, item))
+        ]
+        if same_author is not None:
+            decision.update(reason="same_author", selectedId=str(same_author["id"]))
+        elif conflicts:
+            decision.update(reason="same_event", conflicts=conflicts)
+        elif len(selected) >= 3:
+            decision["reason"] = "capacity"
     return selected
 
 
@@ -2035,6 +2076,20 @@ EVENT_STOPWORDS = frozenset({
     "ai", "openai", "anthropic", "claude", "model", "models", "system", "systems", "technology",
     "technical", "research", "software", "tool", "tools", "use", "used", "using", "data", "team",
 })
+# These terms are common in unrelated AI posts and become especially noisy
+# when a long quoted thread is present.  They cannot, by themselves, identify
+# a shared underlying event.
+EVENT_GENERIC_TERMS = frozenset({
+    "able", "above", "acros", "ago", "all", "almost", "alway", "amount", "answer", "any", "anyone",
+    "approach", "barely", "better", "big", "both", "bound", "but", "capability", "challenge", "come",
+    "conversation", "cost", "did", "dimension", "doe", "doing", "doc", "every", "everyth", "example",
+    "first", "follow", "frontier", "full", "get", "goal", "hard", "has", "how", "include", "keep",
+    "large", "look", "made", "many", "may", "much", "need", "never", "next", "often", "once", "only",
+    "other", "people", "personal", "point", "present", "read", "reason", "return", "see", "set", "small",
+    "some", "someth", "spread", "strong", "sure", "take", "them", "there", "thing", "those", "time",
+    "too", "try", "two", "very", "wait", "want", "was", "were", "when", "which", "will", "work", "world",
+    "yet", "agent", "code", "coding", "loop", "result", "scale", "expensive",
+})
 EVENT_BROAD_TERMS = frozenset({
     "benchmark", "capable", "cyber", "defence", "defender", "evaluation", "incident", "partnership",
     "production", "security", "sharing", "vulnerabil",
@@ -2062,7 +2117,7 @@ def top_story_event_terms(post: dict[str, Any]) -> set[str]:
         normalize_event_token(token)
         for token in re.findall(r"[a-z][a-z0-9_-]{2,}", text)
     }
-    return {token for token in tokens if token not in EVENT_STOPWORDS}
+    return {token for token in tokens if token not in EVENT_STOPWORDS and token not in EVENT_GENERIC_TERMS}
 
 
 def top_story_event_phrases(post: dict[str, Any]) -> set[tuple[str, str]]:
@@ -2082,25 +2137,50 @@ def top_story_event_phrases(post: dict[str, Any]) -> set[tuple[str, str]]:
         for left, right in zip(tokens, tokens[1:])
         if left not in EVENT_STOPWORDS
         and right not in EVENT_STOPWORDS
+        and left not in EVENT_GENERIC_TERMS
+        and right not in EVENT_GENERIC_TERMS
         and left not in EVENT_BROAD_TERMS
         and right not in EVENT_BROAD_TERMS
     }
 
 
-def same_top_story_event(left: dict[str, Any], right: dict[str, Any]) -> bool:
-    """Conservatively identify two authors narrating the same underlying event."""
+def top_story_event_evidence(left: dict[str, Any], right: dict[str, Any]) -> dict[str, Any]:
+    """Return auditable evidence; a few shared words alone are not an event."""
     left_quote = (left.get("quotedTweet") or {}).get("id") if isinstance(left.get("quotedTweet"), dict) else None
     right_quote = (right.get("quotedTweet") or {}).get("id") if isinstance(right.get("quotedTweet"), dict) else None
     if left_quote and str(left_quote) == str(right_quote):
-        return True
+        return {"kind": "shared_quote", "quoteId": str(left_quote)}
     # A shared specific two-word product/model name is stronger event evidence
     # than a loose overlap of generic technical vocabulary.
-    if top_story_event_phrases(left) & top_story_event_phrases(right):
-        return True
-    shared = top_story_event_terms(left) & top_story_event_terms(right)
-    if len(shared) < 4 or not (shared - EVENT_BROAD_TERMS):
-        return False
-    return len(shared & EVENT_ANCHOR_TERMS) >= 2 or len(shared) >= 6
+    phrases = top_story_event_phrases(left) & top_story_event_phrases(right)
+    if phrases:
+        return {"kind": "specific_phrase", "phrases": [" ".join(pair) for pair in sorted(phrases)]}
+    left_terms, right_terms = top_story_event_terms(left), top_story_event_terms(right)
+    shared = left_terms & right_terms
+    shared_specific = shared - EVENT_BROAD_TERMS
+    smaller = min(len(left_terms - EVENT_BROAD_TERMS), len(right_terms - EVENT_BROAD_TERMS))
+    overlap = len(shared_specific) / smaller if smaller else 0.0
+    # Long, unrelated posts often share several technical words. Require a
+    # substantial fraction of the shorter event description as well as anchors.
+    if overlap >= 0.5 and len(shared_specific) >= 2 and (
+        len(shared & EVENT_ANCHOR_TERMS) >= 2 or len(shared_specific) >= 3
+    ):
+        return {"kind": "substantial_overlap", "sharedTerms": sorted(shared_specific), "overlap": overlap}
+    return {}
+
+
+def same_top_story_event(left: dict[str, Any], right: dict[str, Any]) -> bool:
+    return bool(top_story_event_evidence(left, right))
+
+
+def headline_selection_audit(posts: list[dict[str, Any]]) -> dict[str, Any]:
+    return {
+        "schemaVersion": 1,
+        "candidates": [
+            {"id": str(post["id"]), "author": top_story_author_key(post), **post["headlineDecision"]}
+            for post in posts if "headlineDecision" in post
+        ],
+    }
 
 
 def top_story_author_key(post: dict[str, Any]) -> str:
@@ -2263,6 +2343,10 @@ def render_report(
 
 def rebuild_from_data(args: argparse.Namespace, experts: list[Expert]) -> int:
     payload = json.loads(args.reuse_data.read_text(encoding="utf-8"))
+    source_report_path = args.reuse_data.parent / "run-report.json"
+    source_report = json.loads(source_report_path.read_text(encoding="utf-8")) if source_report_path.exists() else {}
+    if source_report.get("fetchStartedAt") != payload.get("fetchStartedAt"):
+        source_report = {}
     posts = payload.get("posts", [])
     if not isinstance(posts, list):
         raise RuntimeError(f"Invalid posts array in {args.reuse_data}")
@@ -2301,6 +2385,7 @@ def rebuild_from_data(args: argparse.Namespace, experts: list[Expert]) -> int:
             post["topStoryCategory"] = ""
             post["topStoryScore"] = 0
         top_stories = select_editorial_top_stories(posts, args.editorial_retries)
+        payload.setdefault("editorial", {})["headlineSelection"] = headline_selection_audit(posts)
         top_ids = {str(post.get("id") or "") for post in top_stories}
         grade_order = {"A": 0, "B": 1, "C": 2, "D": 3}
         posts = top_stories + sorted(
@@ -2397,6 +2482,13 @@ def rebuild_from_data(args: argparse.Namespace, experts: list[Expert]) -> int:
             "perAuthorCap": capped_posts,
         },
     }
+    # A ranking repair must not erase or fabricate the original acquisition audit.
+    for key in ("fetches", "failures", "searchFallbacks", "fetchMode", "windowHours", "accountsRequested", "accountsSucceeded", "accountsFailed", "dropped"):
+        if key in source_report:
+            report[key] = source_report[key]
+    if isinstance(payload.get("editorial"), dict):
+        payload["editorial"]["topStories"] = report["topStories"]
+        write_json_atomic(data_dir / "editorial-audit.json", payload["editorial"])
     write_json_atomic(data_dir / "posts.json", payload)
     write_json_atomic(data_dir / "run-report.json", report)
     write_text_atomic(output_dir / "index.html", render_report(experts, posts, results, now, cutoff, translation_report))
@@ -2675,6 +2767,7 @@ def main() -> int:
             post["topStoryCategory"] = ""
             post["topStoryScore"] = 0
         top_stories = select_editorial_top_stories(posts, args.editorial_retries)
+        editorial_audit["headlineSelection"] = headline_selection_audit(posts)
         top_ids = {str(post["id"]) for post in top_stories}
         grade_order = {"A": 0, "B": 1, "C": 2, "D": 3}
         remaining = sorted(

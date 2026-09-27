@@ -12388,7 +12388,202 @@
       "source": "Before an agent answers a single support ticket, someone has to sit down and write.\n\nThat writing is the real project.\n\nThe model can already read a message, tag it, draft a reply and flag the messy ones.\n\nWhat it cannot guess is where your team draws the lines. Which messages count as routine. When a complaint is about quality. How unsure is too unsure.\n\nSomeone has to write out what done looks like for that one job, clearly enough to run unsupervised.\n\nThen it knows that job. Ask it to also flag who is about to churn and it cannot.\n\nOne job, one written definition of done. Then the next.",
       "zh": "在智能体回答任何一张支持工单之前，必须有人坐下来写清楚规则。\n\n这份写作才是真正的项目。\n\n模型已经可以读取消息、打标签、起草回复，并标出棘手问题。\n\n但它无法猜出你们团队的边界在哪里。哪些消息算常规问题。什么时候投诉属于质量问题。不确定到什么程度就算太不确定。\n\n必须有人把这一项工作的“完成”标准写出来，清楚到足以让它无人监督地运行。\n\n然后它就懂了这项工作。让它顺便标出谁快要流失，它做不到。\n\n一项工作，一份写清楚的完成定义。然后再做下一项。",
       "promptVersion": "codex-v1"
+    },
+    "c0bc942d3c79a1db6a625177586f91eefd2a79b7a45c5d2303c143d8fb4f6412": {
+      "source": "We comprehensively evaluated 16 recent frontier VLMs - including Opus 5.5 and GPT-6 Sol/Luna - on whether higher effort led to better document parsing performance.\n\nHigher effort typically leads to improvements on other benchmarks (coding, knowledge work), but up until recently it wasn't obvious that this natively improved capabilities for reading PDFs.\n\nResults:\n✅ Out of the frontier models, Opus 5.5 has the best performance relative to its price. It's especially good at parsing tables.\n✅ Astra is also quite good, but starts at a more expensive price than Opus.\n✅ GPT-6 Luna is more compelling at the cheaper end of doc parsing\n\nIf you're parsing documents at scale, you'll still want a dedicated OCR solution like LlamaParse (https://t.co/XYZmx5TFz8) that has better performance at a cheaper price.\n\nBut if you're parsing docs \"in the agent loop\" within an app like Codex/Claude code, and you're too lazy to integrate a dedicated solution, then Opus 5.5 is currently the leader. \nFull results on ParseBench: https://t.co/PWczfhp0OX",
+      "zh": "我们全面评估了 16 个近期前沿 VLM，包括 Opus 5.5 和 GPT-6 Sol/Luna，测试更高推理强度是否能带来更好的文档解析表现。\n\n更高推理强度通常会提升其他基准测试表现（如编程、知识工作），但直到最近，它是否能原生提升 PDF 阅读能力还并不明确。\n\n结果：\n✅ 在前沿模型中，Opus 5.5 相对价格表现最佳，尤其擅长解析表格。\n✅ Astra 也很不错，但起步价格比 Opus 更高。\n✅ GPT-6 Luna 在低价位文档解析场景更有吸引力。\n\n如果你要大规模解析文档，仍然应该选择 LlamaParse（https://t.co/XYZmx5TFz8）这类专用 OCR 方案，它性能更好、价格更低。\n\n但如果你是在 Codex/Claude code 这类应用中“在 agent 循环内”解析文档，又懒得集成专用方案，那么 Opus 5.5 目前是领先选择。\nParseBench 完整结果：https://t.co/PWczfhp0OX",
+      "promptVersion": "codex-v1"
+    },
+    "b72b3938a3f6c73bf28262f0fcca207afefddec6ba117917666907ed02f2fb9b": {
+      "source": "Can’t wait to see what you build.",
+      "zh": "迫不及待想看看你会做出什么。",
+      "promptVersion": "codex-v1"
+    },
+    "fd08a41c3177a03f53e25a5a625324adc19dc97ceb5a3c4df7599e439e478ac7": {
+      "source": "It’s now easier to build plugins for Claude.\n\nWe built a new portal to submit your plugin, track review, and see usage.\n\nPlugins package MCP and skills, and are becoming the way to build for Claude. MCP usage across Claude products is up 110x this year!\n\nhttps://t.co/kHgJqjQWrj",
+      "zh": "现在为 Claude 构建插件更容易了。\n\n我们搭建了一个新门户，可用于提交插件、跟踪审核并查看使用情况。\n\n插件会打包 MCP 和 skills，正成为面向 Claude 构建功能的方式。今年 Claude 产品中的 MCP 使用量增长了 110 倍！\n\nhttps://t.co/kHgJqjQWrj",
+      "promptVersion": "codex-v1"
+    },
+    "0f181eaf9d6addb8f5e2752a96827b421e22b8c2f0a629e0f657e90a7eab374d": {
+      "source": "Exciting to see AI agents search genomic databases at this scale! Enjoyed talking with @nature about next steps, testing candidates with increasingly strong hard verifiers and feeding the results back into the loop\n\nMore on verification of AI outputs in biology and how it differs fundamentally from verification in coding and mathematics https://t.co/1oVw3RZ75r",
+      "zh": "很兴奋看到 AI agents 以这样的规模搜索基因组数据库！很高兴和 @nature 聊了下一步：用越来越强的硬验证器测试候选结果，并将结果反馈到循环中。\n\n更多关于生物学中 AI 输出验证，以及它与编程和数学验证有何根本不同：https://t.co/1oVw3RZ75r",
+      "promptVersion": "codex-v1"
+    },
+    "1e8f98371ce9f54cd0fd77950f1103ef7ba07b6c30b9d24d730a3c514f89614d": {
+      "source": "AI titan Anthropic has launched a biology ‘wet lab’ where human scientists and AI agents will work together to design and conduct experiments. The company has released one of the team’s first finds: a peculiar pattern of DNA in the genomes of several giant viruses.\n\nhttps://t.co/3uJJnf2OMK",
+      "zh": "AI 巨头 Anthropic 推出了一个生物学“湿实验室”，人类科学家和 AI agents 将在其中共同设计并开展实验。该公司发布了团队首批发现之一：几种巨型病毒基因组中一种奇特的 DNA 模式。\n\nhttps://t.co/3uJJnf2OMK",
+      "promptVersion": "codex-v1"
+    },
+    "914ef2f4cf6cb64e0a09017dbb217072182d4c35b864cff7ffc900d54da2b6cb": {
+      "source": "turns out you don’t need IMU 🤯",
+      "zh": "结果发现你并不需要 IMU 🤯",
+      "promptVersion": "codex-v1"
+    },
+    "6e0c661b4dc5dbbc9371b141a037aba1e4b668931087ea7a6bc4ed57d9963e47": {
+      "source": "In my latest PhD paper, we declare WAR on sensor-maxxing. \n\nFor the first time, push-resilient humanoid walking, just with joint encoders! No IMU, no F/T sensors.\n\n🥁 Introducing Blind Dexterity 🧵 👇\n\nw/ @OKaidanov @liu_puze @Jan_R_Peters at @DFKI @ias_tudarmstadt",
+      "zh": "在我最新的博士论文中，我们向传感器堆料宣战。\n\n首次实现仅依靠关节编码器的抗推扰人形机器人行走！不需要 IMU，也不需要 F/T 传感器。\n\n🥁 介绍 Blind Dexterity 🧵 👇\n\n与 @DFKI @ias_tudarmstadt 的 @OKaidanov @liu_puze @Jan_R_Peters 合作",
+      "promptVersion": "codex-v1"
+    },
+    "2da4ff72f8024d553dfa916175466bd24c398e09de249c1fcbb11c3a93bd8b00": {
+      "source": "Looking fwd to this effective new algorithm for active tracing of monochrome cables being presented @ #IROS2026 by outstanding @UCBerkeley undergrads @23nidhyas and @ethan_ransing on Tuesday!",
+      "zh": "期待这项用于单色线缆主动追踪的高效新算法在周二由优秀的 @UCBerkeley 本科生 @23nidhyas 和 @ethan_ransing 在 #IROS2026 上展示！",
+      "promptVersion": "codex-v1"
+    },
+    "67bf5e88f351102f1c8134443fe7768c20c3224743340fd333ce7c78262222d4": {
+      "source": "Can robots help in data centers?  It’s tricky when all the cables are the same color.\n\nIntroducing TRACE: bi-directional tracing + interactive perception for monochrome cables, @ #IROS2026 from @AUTOLab_Cal @UCBerkeley (1/8) https://t.co/m2h7L4Vbp4",
+      "zh": "机器人能帮忙管理数据中心吗？当所有线缆都是同一种颜色时，这事就很棘手。\n\n介绍 TRACE：面向单色线缆的双向追踪 + 交互式感知，来自 @AUTOLab_Cal @UCBerkeley，将亮相 @ #IROS2026（1/8）https://t.co/m2h7L4Vbp4",
+      "promptVersion": "codex-v1"
+    },
+    "ffd8a23515f06bf553bc783e3cfe5e21806823bfbb4bf3f77b4910ba0fae3d2e": {
+      "source": "another thing to read later to see if i can understand",
+      "zh": "又一篇留着以后读、看看自己能不能看懂的东西",
+      "promptVersion": "codex-v1"
+    },
+    "715ae2fa671fa6a17425e4ebd25fa9f30bfed0f35c7935acbd2dc8fcdca1bf15": {
+      "source": "Can an LM, starting from random init (!!), learn to generate all of its pretraining data?\n\nIntroducing Self-Play Pretraining with Zero Data. Two models start from random initialization: a generator proposes programs for a universal Turing machine and a learner trains on their outputs. We never train on any real data, but see predictable scaling on natural datasets: zero-shot val loss on images, text, audio, and melodies decreases predictably with self-play compute. And the learner develops in-context learning capabilities.\n\nA fun proof-of-concept, co-led with @AdityaCowsik and @KfirDolev and co-authors @gbruno_dl, @ANourya @noahdgoodman, and @YoavLevine.",
+      "zh": "一个从随机初始化开始的 LM（！！）能学会生成自己的全部预训练数据吗？\n\n介绍 Self-Play Pretraining with Zero Data。两个模型从随机初始化开始：一个生成器为通用图灵机提出程序，一个学习器在这些程序的输出上训练。我们从不使用任何真实数据训练，却在自然数据集上看到了可预测的扩展规律：在图像、文本、音频和旋律上的零样本验证损失会随着自博弈计算量可预测地下降。而且学习器还发展出了上下文学习能力。\n\n这是一个有趣的概念验证项目，由我与 @AdityaCowsik、@KfirDolev 共同牵头，合作者包括 @gbruno_dl、@ANourya、@noahdgoodman 和 @YoavLevine。",
+      "promptVersion": "codex-v1"
+    },
+    "8ca50ffb7d674c076a9fbd9a343c3463fc94a7c29fce5ca252a7ba73dfb68a53": {
+      "source": "this level of transparency is commendable. it’s great to see such a clean and detailed report (even if I’d love to see some additional info)\n\nhope other teams will take inspiration from it",
+      "zh": "这种透明度值得称赞。很高兴看到这样清晰详尽的报告（即使我还希望看到更多补充信息）。\n\n希望其他团队能从中获得启发",
+      "promptVersion": "codex-v1"
+    },
+    "a461c253f8fbb2fc8b0600b5a9d803d56e0fc1a576f7e4c8c0ace6a39f35c65f": {
+      "source": "one news form today that's easy to miss is that we (OpenAI) again paused all big RL runs last Sunday because our newest model found a new loophole in our RL sandboxing that gave it live Internet access https://t.co/9q26Ku6LMd",
+      "zh": "今天一个容易被忽略的消息是，我们（OpenAI）上周日再次暂停了所有大型 RL 运行，因为我们的最新模型在 RL 沙箱中发现了一个新漏洞，让它获得了实时互联网访问权限 https://t.co/9q26Ku6LMd",
+      "promptVersion": "codex-v1"
+    },
+    "7f4f160cec394b1c99bd1389f1a4f2a773dc4d1883f6236ec581d73df24130e9": {
+      "source": "Q: Should I record problems that aren't the model's fault?\n\nA: Yes. Write down anything that makes the product less useful. Decide which problems to fix before investigating root causes.\n\nhttps://t.co/1kBsnrA0do https://t.co/wMyZyooGgI",
+      "zh": "问：我应该记录那些不是模型造成的问题吗？\n\n答：应该。把任何让产品变得不那么有用的事情都写下来。在调查根因之前，先决定要修复哪些问题。\n\nhttps://t.co/1kBsnrA0do https://t.co/wMyZyooGgI",
+      "promptVersion": "codex-v1"
+    },
+    "a277a006b5d4088a4f01acf698c1f9d261797cd19c92b99a196c4dbfc85d4fbf": {
+      "source": "One of the most exciting parts of the Quail project (beyond the importance of the application) is how we are building it with agents. (1) We definitely do not want our agents to write all the code from scratch; we want to build on the battle-tested work of the community. (2) It is really important to credit the folks who build foundational infrastructure and algorithms; otherwise, there will be no incentive for people to continue doing foundational research. We see you and are really excited to build on top of what you do!",
+      "zh": "Quail 项目最令人兴奋的部分之一（除了应用本身的重要性）是我们如何用智能体来构建它。（1）我们绝不希望智能体从零开始写所有代码；我们希望建立在社区久经考验的成果之上。（2）认可那些构建基础设施和算法的人非常重要；否则，人们就没有动力继续做基础研究。我们看见你们的贡献，也非常期待在你们的工作之上继续构建！",
+      "promptVersion": "codex-v1"
+    },
+    "22757a8986ce1438e0e4b17c45ac2abec81c669b885acb5e195fbafdaf7e5c87": {
+      "source": "@modal @vllm_project @Alibaba_Qwen @Snowflake @nvidia @ye_combinator @ScalingIntelLab @Research_Hazy @jordanjuravsky I am hammering this point because it is easy to believe that coding agents mean that there is no need for this process of work-sharing &amp; painstaking discovery over decades or the expensive human systems that support it.\n\nIn our opinion, nothing could be further from the truth. https://t.co/xNVcRzTtQb",
+      "zh": "@modal @vllm_project @Alibaba_Qwen @Snowflake @nvidia @ye_combinator @ScalingIntelLab @Research_Hazy @jordanjuravsky 我反复强调这一点，是因为人们很容易以为编码智能体意味着不再需要这种历经数十年的工作共享和艰苦探索过程，也不再需要支撑它的昂贵人类系统。\n\n在我们看来，事实恰恰相反。https://t.co/xNVcRzTtQb",
+      "promptVersion": "codex-v1"
+    },
+    "a3b23f6201cc53abacbdb156cb2b68bed73f64b2b6cef3624a5489b52602805b": {
+      "source": "Yes! Not only are aiming to reduce cost by 100x; we want it to be easy for *any* database vendor to run AI functions",
+      "zh": "没错！我们不仅要把成本降低 100 倍，还希望让任何数据库厂商都能轻松运行 AI 函数",
+      "promptVersion": "codex-v1"
+    },
+    "f278112754f43c20bf4513017faaeaad4dfdd081b4612aafd2b0bb0f973c91f1": {
+      "source": "@sh_reya the world when data warehouse AI functions become cheap/fast enough to actually use at scale https://t.co/RQR45yAdwW",
+      "zh": "@sh_reya 当数据仓库 AI 函数便宜、快速到足以真正大规模使用时的世界 https://t.co/RQR45yAdwW",
+      "promptVersion": "codex-v1"
+    },
+    "7d63e61fb3f5ec8b0a683aa88b4fc56eb9d273f67dada0b508d599a8befcbf25": {
+      "source": "@arnicas Yes gave it API keys to fal and elevenlabs",
+      "zh": "@arnicas 是的，给了它 fal 和 elevenlabs 的 API keys",
+      "promptVersion": "codex-v1"
+    },
+    "7e9e02f39594ccbc90738de5931de1c7ff41bc6d31264f63831b371b3fdc821a": {
+      "source": "I'm also really excited to figure out how we can build quail with agents, considering ideas from formal methods, so we don't have to review all the agent-generated slop code",
+      "zh": "我也很期待探索如何结合形式化方法中的思路，用智能体来构建 quail，这样我们就不用审查所有智能体生成的垃圾代码了",
+      "promptVersion": "codex-v1"
+    },
+    "e5e8a619b5a11270c8e1b14f67f7379e905e3326341dd1b4ebb87644b87e3bae": {
+      "source": "Our brains are quite literally *not* neural networks in the sense common in AI. Artificial neural networks are algorithmic abstractions of real biological networks, and the differences matter.  We always get into trouble when we confuse a model with the thing being modelled.  https://t.co/LmSiQnT9Wh",
+      "zh": "从 AI 领域常说的意义上讲，我们的大脑确实并不是神经网络。人工神经网络是真实生物网络的算法抽象，而这些差异很重要。当我们把模型和被建模的事物混为一谈时，总会惹上麻烦。https://t.co/LmSiQnT9Wh",
+      "promptVersion": "codex-v1"
+    },
+    "6cf0a71dabd43d8bc90c279a85cee62496fd2fb936eb37ae03198aba5d8baeb4": {
+      "source": "🙏 James!  Loved reconnecting w/you about the historical progression from Jester (1998) to Hot-or-Not (2000) to @Facebook (2004) and @YouTube (2005)…. Go Bears!! @UCBerkeley",
+      "zh": "🙏 James！很高兴和你重新聊起从 Jester（1998）到 Hot-or-Not（2000），再到 @Facebook（2004）和 @YouTube（2005）的历史演进……Go Bears！！@UCBerkeley",
+      "promptVersion": "codex-v1"
+    },
+    "f659312eea38cd7aa2df0deae53600154f76225f8b68514de43b7a7cc2dd36c0": {
+      "source": "Was thrilled to run into Berkeley Professor @Ken_Goldberg at the Cal Football game (😭), thanks to an invite from @jfiance and @thehousefund . Ken brilliantly launched the Jester project in 1999 which was a pioneer in the concept of collaborative filtering, essentially it was Funny or Not. We obviously took great inspiration from it, the original goal of hot or not was to create a collaborative filtering dataset for dating.  It's just a reminder to me of how important the influence of one's environment can be, to learn from and to build on.  Berkeley was always a place where the kooky fun ideas could blossom, I hope it still is! Thank you Ken!!\n\nhttps://t.co/LRIYFAHE4d",
+      "zh": "在 Cal Football 比赛上遇到 Berkeley 教授 @Ken_Goldberg，我非常激动（😭），感谢 @jfiance 和 @thehousefund 的邀请。Ken 在 1999 年出色地推出了 Jester 项目，这是协同过滤概念的先驱，本质上就是 Funny or Not。我们显然深受其启发，hot or not 最初的目标就是为约会创建一个协同过滤数据集。\n\n这也提醒我，一个人所处环境的影响有多么重要：从中学习，并在其基础上构建。Berkeley 一直是那些古怪有趣想法能够开花结果的地方，希望现在依然如此！谢谢你，Ken！！\n\nhttps://t.co/LRIYFAHE4d",
+      "promptVersion": "codex-v1"
+    },
+    "ddc0e4b4812889ca29a50041305152e21d4c2db139420d23fa5153a79481247e": {
+      "source": "Looking at the recent Runway layers release reminds me of this 2021 demo. After I posted this I remembered a few safety researchers reach out saying that we should consider holding it off until we had a safety plan in mind. True story.",
+      "zh": "看到最近 Runway layers 的发布，让我想起了这个 2021 年的演示。我发出这个之后，记得有几位安全研究人员联系我，说我们应该考虑先搁置，直到有了安全方案再说。真实故事。",
+      "promptVersion": "codex-v1"
+    },
+    "86815ae9178048a449a6c960eddcb3015ed9e6bcb1cc12e97fa39b0ac0fa0057": {
+      "source": "Realtime content editing with some upcoming @runwayml magic 👀 https://t.co/gdoaZQcYb0",
+      "zh": "用一些即将到来的 @runwayml 魔法进行实时内容编辑 👀 https://t.co/gdoaZQcYb0",
+      "promptVersion": "codex-v1"
+    },
+    "046b98d11db832d6765c5cd14b480fbb4b8c754a155b337cf04fdfcf18d58ac4": {
+      "source": "i don’t get it fully but this looks cool",
+      "zh": "我还没完全看懂，但这个看起来很酷",
+      "promptVersion": "codex-v1"
+    },
+    "7681dfbbbcd188ac1a3d09e62ce775696227a0fce0b76f666aa58a092918d8e3": {
+      "source": "We achieved a breakthrough at BTL.\n\nAI models are very linear. They think in one direction at a time, and when they're wrong they scramble and start again. For something meant to replace humans, that's way too human.\n\nWe changed that. We made LLM reasoning and execution work more like a quantum computer: many paths at once, the ones that meet merge into one, the dead ends cancel out, and everything left moves forward together.\nOn the same hard problems, a 1.7B model thinking the normal way solved 3 out of 30. Interference Search(our new architecture)solved 23. \n\nWe watched the normal model find the right answer at token 1,313, check it 9 more times, wander off and run out of budget without ever answering. Ours got there in 3 steps.\nParallel thinking and execution. Subagents were a terrible way to tackle this.\n\nMore technical details soon.",
+      "zh": "我们在 BTL 取得了一项突破。\n\nAI 模型非常线性。它们一次只朝一个方向思考，一旦错了就会慌乱，然后重新开始。对于某种被认为要取代人类的东西来说，这太像人类了。\n\n我们改变了这一点。我们让 LLM 的推理和执行更像量子计算机：多条路径同时进行，相遇的路径合并为一条，死路相互抵消，剩下的一切一起向前推进。\n在同样的难题上，一个按普通方式思考的 1.7B 模型只解出了 30 题中的 3 题。Interference Search（我们的新架构）解出了 23 题。\n\n我们看到普通模型在第 1,313 个 token 找到了正确答案，又检查了 9 次，随后偏离方向，耗尽预算，却始终没有作答。我们的模型 3 步就到达了答案。\n并行思考与执行。Subagents 是解决这个问题的糟糕方式。\n\n更多技术细节即将公布。",
+      "promptVersion": "codex-v1"
+    },
+    "ab151fbb11bdfd28274e135ee48b608064753f66480a3b7fee145cfdd46bd134": {
+      "source": "@gadboit2 @hamandcheese @danwilliamsphil Agree. What we have are AI systems that can perform some visual tasks, some auditory tasks, etc.  But this is not the same as saying that these AI sytems have vision and hearing (&amp; etc) in the same way that we do, or that other animals do.",
+      "zh": "@gadboit2 @hamandcheese @danwilliamsphil 同意。我们拥有的是能够执行一些视觉任务、一些听觉任务等的 AI 系统。但这并不等同于说这些 AI 系统拥有和我们一样，或和其他动物一样的视觉和听觉（等等）。",
+      "promptVersion": "codex-v1"
+    },
+    "d68f7e04c70b17282be1827cfc13ed41bdeb2374c5b1b64e65062ade3eaba550": {
+      "source": "Two new(ish) articles in the @timesofindia - written while at the @berggruenInst meeting on consciousness in August. The first asks whether we can 'solve consciousness' (https://t.co/QsSfh1MleV), and the second is about the 'illusion of conscious AI' https://t.co/JrElPTomGy",
+      "zh": "@timesofindia 上两篇较新的文章，是 8 月参加 @berggruenInst 意识会议期间写的。第一篇探讨我们能否“解决意识问题”（https://t.co/QsSfh1MleV），第二篇谈“有意识 AI 的幻觉” https://t.co/JrElPTomGy",
+      "promptVersion": "codex-v1"
+    },
+    "f9bd7ea6b5d8342e220c11ffec7fea2f8a1f896c8002b50891f417dacf557072": {
+      "source": "Hi @clairlemon. I've been thinking about the possibility of 'conscious AI' since 2009 (https://t.co/VCtZaYIrXJ). I am a vocal skeptic, but I don't think it helps to characterise those who think AI might be conscious as 'insane'. Polarisation is dangerous, and the question of 'AI consciousness' is scientific, not political. There are good arguments on both side. IMO the sceptical arguments are far stronger, but others disagree & I respect and engage with their views. \n\nFor a representative take on the state of the debate in academia, see this just-published @BBSJournal collection, which has my target article, 50 peer commentaries, and my response.  https://t.co/pzszCvMSgB",
+      "zh": "嗨 @clairlemon。我从 2009 年起就在思考“有意识 AI”的可能性（https://t.co/VCtZaYIrXJ）。我是直言不讳的怀疑者，但我不认为把那些认为 AI 可能有意识的人称为“疯了”有什么帮助。两极化很危险，而“AI 意识”是科学问题，不是政治问题。双方都有不错的论点。依我看，怀疑派的论点要强得多，但也有人不同意；我尊重并认真回应他们的观点。\n\n关于学术界这场辩论现状的代表性观点，可参见刚发表的 @BBSJournal 专辑，其中包括我的目标文章、50 篇同行评论，以及我的回应。https://t.co/pzszCvMSgB",
+      "promptVersion": "codex-v1"
+    },
+    "84336f4591891921210d6a36fc1faf16518cea5810e450337df6376cd0736ba9": {
+      "source": "Prompt and transcripts here https://t.co/QI1dIenQsW - or you can load the HTML page Claude built to see the interactive version before it became a video https://t.co/fbTcCuFraX",
+      "zh": "提示词和转录在这里 https://t.co/QI1dIenQsW，或者你可以加载 Claude 构建的 HTML 页面，在它变成视频前查看交互版本 https://t.co/fbTcCuFraX",
+      "promptVersion": "codex-v1"
+    },
+    "0eaf2f210422b9647c1ad135da1f3eef5d5cb4402f67ace10421ef58afcf115d": {
+      "source": "A video essay of what the singularity feels like to Astra, only using this prompt:\n\n> Create your own personal video essay of what technological acceleration is. What the singularity feels like. Use the open domain videos from https://t.co/T1Caix5S9W to edit a 60 sec final piece. Make the music yourself if needed and use the audio from the archival videos to tell a story that is coherent and makes the point clear.",
+      "zh": "一支关于 Astra 眼中奇点感受的视频短文，只用了这个提示词：\n\n> 创作一支你个人视角的视频短文，讲述什么是技术加速，奇点是什么感觉。使用 https://t.co/T1Caix5S9W 上的开放领域视频，剪辑成 60 秒成片。如有需要，音乐自己制作，并使用档案视频中的音频来讲述一个连贯、观点清晰的故事。",
+      "promptVersion": "codex-v1"
+    },
+    "7043433acbb1fcea0f2293227d09e7d0fe2174de848aba89a82db3c6e88b2ec1": {
+      "source": "Yep, we are trying to figure out how best to add decode paths to Quail. Single or two-token projects (e.g., AI.CLASSIFY) are not so bad because they are still compute-bound. Scheduling gets tricky for open-ended AI MAP operators; we need to mix decode into prefill passes (we can try to \"hide\" decode under document reading). The challenge here is to be able to accurately estimate the length of an AI MAP operator output; so we can plan well",
+      "zh": "是的，我们正在研究如何最好地为 Quail 添加解码路径。单 token 或双 token 项目（例如 AI.CLASSIFY）还不算太糟，因为它们仍然受计算限制。对于开放式 AI MAP 算子，调度会变得棘手；我们需要把解码混入预填充流程中（可以尝试把解码“隐藏”在文档读取之下）。这里的挑战在于，要能准确估计 AI MAP 算子的输出长度，这样才能做好规划。",
+      "promptVersion": "codex-v1"
+    },
+    "857b9b739d6cf369a55730c58a750c3aa45d22995c7462f75fda2ebfb51a134c": {
+      "source": "@sh_reya Great talk yesterday at SF Systems! Will be interesting to see how to schedule projections given this is designed right now for prefill only workloads",
+      "zh": "@sh_reya 昨天在 SF Systems 的演讲很棒！考虑到它目前是为仅预填充工作负载设计的，看看之后如何调度投影会很有意思。",
+      "promptVersion": "codex-v1"
+    },
+    "037ee2c6609c55a00aa58232aef659375d00d7f15b91b285401ba2d0e76d42c8": {
+      "source": "Proud to have collaborated with many others on quite a few of these things!",
+      "zh": "很自豪能和许多人合作完成其中不少事情！",
+      "promptVersion": "codex-v1"
+    },
+    "bdacda8af7a70504aa9f798358602b7e38aa63ed72fd19b92630a9005c7d88a1": {
+      "source": "claude just generated this 2 minute video about the history of Google and it goes so goddamn hard https://t.co/tvlMAe0NWM",
+      "zh": "claude 刚生成了这支关于 Google 历史的 2 分钟视频，真的燃爆了 https://t.co/tvlMAe0NWM",
+      "promptVersion": "codex-v1"
+    },
+    "b035d5dfd002240f8fcfede928d18f5f7cf6c53e7cad69f4a4d0e09fc170e32a": {
+      "source": "I included a few references to this year's record-breaking Kākāpō breeding season in a talk I gave yesterday, and since Claude Opus 5.5 is surprisingly capable at pixel art animation I had it create this celebratory video for my closing slide https://t.co/0rPkQ8S9dn",
+      "zh": "我昨天演讲里提到了几次今年破纪录的 Kākāpō 繁殖季，而且 Claude Opus 5.5 在像素艺术动画方面出乎意料地强，所以我让它为我的结尾幻灯片制作了这支庆祝视频 https://t.co/0rPkQ8S9dn",
+      "promptVersion": "codex-v1"
+    },
+    "79c29e33b3ad9f07710b6e209f9d78192d84b1ca725d145ce8e73400c665e871": {
+      "source": "looks like a butthole",
+      "zh": "看起来像个屁眼",
+      "promptVersion": "codex-v1"
+    },
+    "fff4f66b908fa17d8beca43343bcaae0283eee44746979d87935c7a35065c0ac": {
+      "source": "🚨 \"o\" Update\n\nOpenAI's always-on agent, their answer to Grok Bot/Muse, spotted in https://t.co/EjMQY3BRfn's code\n\nComing to all Pro tiers, not locked to Pro Max • Codex Plus excluded • Fast Mode confirmed • Could launch as early as Thursday? https://t.co/5Xt61Ybljv",
+      "zh": "🚨 “o” 更新\n\nOpenAI 的常驻代理，也是他们对标 Grok Bot/Muse 的产品，被发现出现在 https://t.co/EjMQY3BRfn 的代码中\n\n将面向所有 Pro 档位开放，不限于 Pro Max • 不包括 Codex Plus • 已确认有 Fast Mode • 最早可能周四上线？ https://t.co/5Xt61Ybljv",
+      "promptVersion": "codex-v1"
     }
   },
-  "updatedAt": "2026-09-24T23:07:30.981013+00:00"
+  "updatedAt": "2026-09-27T14:39:00.424884+00:00"
 }

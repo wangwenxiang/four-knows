@@ -92,6 +92,7 @@ def main() -> int:
         DEFAULT_EXPANSION_WATCHLIST,
         DEFAULT_HOTSPOT_QUERIES,
         DEFAULT_WATCHLIST,
+        Expert,
         append_expansion_experts,
         hotspot_matches,
         is_recruitment_post,
@@ -102,6 +103,7 @@ def main() -> int:
         load_hotspot_searches,
         same_top_story_event,
         technical_context,
+        has_substantive_primary_top_story_evidence,
         term_matches,
     )
 
@@ -217,18 +219,22 @@ def main() -> int:
             errors.append(f"display position {index + 1} is not an eligible top story")
         if post.get("topStoryCategory") not in allowed_categories:
             errors.append(f"display position {index + 1} has an invalid top-story category")
+        expert_payload = post.get("expert") or {}
+        try:
+            expert = Expert(**expert_payload)
+        except TypeError:
+            errors.append(f"display position {index + 1} has invalid expert metadata")
+        else:
+            if not has_substantive_primary_top_story_evidence(post, expert):
+                errors.append(f"display position {index + 1} relies on quoted material instead of substantive primary content")
     if len(report.get("topStories") or []) != required_top:
         errors.append("run-report topStories does not match the required leading-card count")
-    eligible_authors = {
-        str((post.get("expert") or {}).get("handle") or (post.get("author") or {}).get("username") or post.get("id") or "").casefold()
-        for post in eligible_posts
-    }
     leading_authors = {
         str((post.get("expert") or {}).get("handle") or (post.get("author") or {}).get("username") or post.get("id") or "").casefold()
         for post in posts[:required_top]
     }
-    if len(leading_authors) < min(required_top, len(eligible_authors)):
-        errors.append("the first three stories do not maximize author diversity")
+    if len(leading_authors) != required_top:
+        errors.append("the first three stories require three different authors")
     for left_index, left in enumerate(posts[:required_top]):
         for right in posts[left_index + 1:required_top]:
             if same_top_story_event(left, right):

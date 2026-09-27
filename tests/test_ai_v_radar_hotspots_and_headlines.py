@@ -11,6 +11,7 @@ from scripts.fetch_ai_v_radar import (
     cap_selected_posts_per_author,
     normalize_posts,
     parse_args,
+    same_top_story_event,
     select_editorial_top_stories,
     select_diverse_top_stories,
 )
@@ -116,6 +117,26 @@ def headline_post(post_id: str, handle: str, score: int, text: str) -> dict:
 
 
 class HeadlineEventDedupeTest(unittest.TestCase):
+
+    def test_event_dedupe_ignores_generic_ai_vocabulary(self):
+        long_efficiency_thread = {
+            "text": (
+                "Current AI agents can improve, but benchmark performance still has a large cost and efficiency gap. "
+                "People often discuss how models work, which methods are better, and what the next frontier will be."
+            )
+        }
+        data_agent_benchmark = {
+            "text": "Our data-agent benchmark spans 12 SQL datasets and exposes failure modes in multi-database queries."
+        }
+        same_ocr_event = {
+            "text": "LlamaParse documents a just-in-time OCR pipeline with LiteParse for fast first-pass parsing."
+        }
+        ocr_followup = {
+            "text": "Just-in-time OCR with LlamaParse and LiteParse reduces unnecessary document parsing work."
+        }
+
+        self.assertFalse(same_top_story_event(long_efficiency_thread, data_agent_benchmark))
+        self.assertTrue(same_top_story_event(same_ocr_event, ocr_followup))
     def test_shared_two_word_model_name_is_not_split_into_two_headlines(self):
         announcement = headline_post(
             "muse-release", "alexandr_wang", 100,
@@ -222,6 +243,40 @@ class HeadlineEventDedupeTest(unittest.TestCase):
             selected = select_editorial_top_stories(posts, retries=0)
 
         self.assertEqual([post["id"] for post in selected], ["bench", "tools", "safety"])
+
+    def test_quote_only_reaction_cannot_be_a_poster_lead(self):
+        def editorial_post(post_id: str, handle: str, text: str, quote=None) -> dict:
+            post = {
+                "id": post_id,
+                "text": text,
+                "expert": {"handle": handle, "name": handle, "priority": "P0", "domain": "AI", "role": "Researcher", "why": "test"},
+                "author": {"username": handle},
+                "signalScore": 70,
+                "editorial": {"dailyGrade": "A", "technicalRelevant": True},
+            }
+            if quote:
+                post["quotedTweet"] = {"text": quote}
+            return post
+
+        posts = [
+            editorial_post("reaction", "alex", "gemini who?", "A new model improves agent benchmarks by 20% with faster inference."),
+            editorial_post("local", "arav", "We open-sourced a local inference engine for Apple Silicon model serving."),
+            editorial_post("cyber", "deepmind", "Our cyber model produced 2.6 times more valid fixes in real codebase testing."),
+            editorial_post("agents", "cursor", "Cloud agents now run on autoscaling customer infrastructure with internal-service access."),
+        ]
+        completed = type("Completed", (), {
+            "returncode": 0,
+            "stdout": json.dumps({"topStories": [
+                {"id": "reaction", "category": "AI 技术进步", "rationale": "引用模型结果"},
+                {"id": "local", "category": "AI 技术前沿", "rationale": "本地推理"},
+                {"id": "cyber", "category": "AI 技术进步", "rationale": "修复效果"},
+            ]}),
+            "stderr": "",
+        })()
+        with patch("scripts.fetch_ai_v_radar.subprocess.run", return_value=completed):
+            selected = select_editorial_top_stories(posts, retries=0)
+
+        self.assertNotIn("reaction", [post["id"] for post in selected])
 
     def test_greg_priority_replacement_accepts_full_candidate_profile(self):
         def editorial_post(post_id: str, handle: str, text: str) -> dict:

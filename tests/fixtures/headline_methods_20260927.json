@@ -1,0 +1,86 @@
+[
+  {
+    "id": "2103897790258581771",
+    "text": "Exciting to see AI agents search genomic databases at this scale! Enjoyed talking with @nature about next steps, testing candidates with increasingly strong hard verifiers and feeding the results back into the loop\n\nMore on verification of AI outputs in biology and how it differs fundamentally from verification in coding and mathematics https://t.co/1oVw3RZ75r",
+    "expert": {
+      "priority": "P0",
+      "domain": "生物医学 AI 与药物发现",
+      "name": "Marinka Zitnik",
+      "role": "权威生物医学 AI 研究者",
+      "why": "历史发布内容通过技术密度审计",
+      "handle": "marinkazitnik"
+    },
+    "editorial": {
+      "id": "2103897790258581771",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "生物AI代理实验",
+      "evidence": "AI代理搜索基因数据库",
+      "rationale": "新实验平台与验证闭环明确"
+    },
+    "signalScore": 84
+  },
+  {
+    "id": "2103927141742280921",
+    "text": "turns out you don’t need IMU 🤯",
+    "expert": {
+      "priority": "P0",
+      "domain": "开源模型 / Hugging Face",
+      "name": "Thomas Wolf",
+      "role": "Hugging Face / 联合创始人兼 CSO",
+      "why": "Transformers 生态和开源模型讨论的重要人物",
+      "handle": "Thom_Wolf"
+    },
+    "editorial": {
+      "id": "2103927141742280921",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "仿人机器人控制",
+      "evidence": "仅关节编码器抗推行走",
+      "rationale": "机器人控制新研究能力"
+    },
+    "signalScore": 79
+  },
+  {
+    "id": "2103883060651692335",
+    "text": "Looking fwd to this effective new algorithm for active tracing of monochrome cables being presented @ #IROS2026 by outstanding @UCBerkeley undergrads @23nidhyas and @ethan_ransing on Tuesday!",
+    "expert": {
+      "priority": "P0",
+      "domain": "机器人与自动化",
+      "name": "Ken Goldberg",
+      "role": "权威机器人研究者",
+      "why": "历史发布内容通过技术密度审计",
+      "handle": "Ken_Goldberg"
+    },
+    "editorial": {
+      "id": "2103883060651692335",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "机器人线缆追踪",
+      "evidence": "TRACE双向追踪单色线缆",
+      "rationale": "含机器人感知算法事实"
+    },
+    "signalScore": 72
+  },
+  {
+    "id": "2103995722496659675",
+    "text": "Yep, we are trying to figure out how best to add decode paths to Quail. Single or two-token projects (e.g., AI.CLASSIFY) are not so bad because they are still compute-bound. Scheduling gets tricky for open-ended AI MAP operators; we need to mix decode into prefill passes (we can try to \"hide\" decode under document reading). The challenge here is to be able to accurately estimate the length of an AI MAP operator output; so we can plan well",
+    "expert": {
+      "priority": "P1",
+      "domain": "Agent / 评测",
+      "name": "Shreya Shankar",
+      "role": "UC Berkeley / AI 工程研究员",
+      "why": "评测、LLM Pipeline、AI 工程学科化",
+      "handle": "sh_reya"
+    },
+    "editorial": {
+      "id": "2103995722496659675",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "Quail解码调度",
+      "evidence": "mix decode into prefill passes",
+      "rationale": "包含模型推理调度经验"
+    },
+    "signalScore": 64
+  }
+]

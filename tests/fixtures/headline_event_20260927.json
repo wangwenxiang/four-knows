@@ -1,0 +1,119 @@
+[
+  {
+    "id": "2103799240543650072",
+    "text": "有人把企业真实的 AI 模型消费数据拉出来看了一遍，结果和我们每天看到的 Benchmark 热度几乎是两个世界。\n\nTomasz Tunguz 的分析里，Anthropic 最强的 Fable 5.1 上线前 12 天，只占网关支出的 3.7%。大型企业账户中，前沿模型的 Token 占比也从 8 月的 53% 降到了 9 月的 45%。\n\n更夸张的是 Cursor，基于 Kimi K2.5 微调 Composer 2，整体成本直接降了 86%。\n\n我觉得这里真正值得看的，是企业开始按「每美元能买到多少智能」来选模型。\n\n一个工作流要跑几十、几百次调用，模型只要跨过「够用」那条线，多出来的能力未必值得继续付溢价。接下来模型路由、微调和开放权重都会越来越重要。\n\nBenchmark 在比能力上限，企业真正算的是每个工作流节点的性价比。\n\nAI 模型市场最后最肥的那一块，可能恰恰是中间。\n\n文章：https://t.co/FNYjMRb09z",
+    "expert": {
+      "priority": "P0",
+      "domain": "LLM / AI Agents",
+      "name": "Xudong Han",
+      "role": "University of Sussex 博士生；LLM 与 AI Agents",
+      "why": "持续构建个人 AI Agent，并分享 Vibe Coding 和 LLM 应用工程实践",
+      "handle": "Xudong07452910"
+    },
+    "editorial": {
+      "id": "2103799240543650072",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "企业模型消费与路由",
+      "evidence": "Composer 2成本降86%",
+      "rationale": "含生产成本效果与模型选择"
+    },
+    "signalScore": 69
+  },
+  {
+    "id": "2103638561262362985",
+    "text": "We comprehensively evaluated 16 recent frontier VLMs - including Opus 5.5 and GPT-6 Sol/Luna - on whether higher effort led to better document parsing performance.\n\nHigher effort typically leads to improvements on other benchmarks (coding, knowledge work), but up until recently it wasn't obvious that this natively improved capabilities for reading PDFs.\n\nResults:\n✅ Out of the frontier models, Opus 5.5 has the best performance relative to its price. It's especially good at parsing tables.\n✅ Astra is also quite good, but starts at a more expensive price than Opus.\n✅ GPT-6 Luna is more compelling at the cheaper end of doc parsing\n\nIf you're parsing documents at scale, you'll still want a dedicated OCR solution like LlamaParse (https://t.co/XYZmx5TFz8) that has better performance at a cheaper price.\n\nBut if you're parsing docs \"in the agent loop\" within an app like Codex/Claude code, and you're too lazy to integrate a dedicated solution, then Opus 5.5 is currently the leader. \nFull results on ParseBench: https://t.co/PWczfhp0OX",
+    "expert": {
+      "priority": "P1",
+      "domain": "RAG / Agent 基础设施",
+      "name": "Jerry Liu",
+      "role": "LlamaIndex / CEO",
+      "why": "RAG、知识 Agent、企业数据 Agent 的重要实践信号源；排序低于 OpenAI 核心人物",
+      "handle": "jerryjliu0"
+    },
+    "editorial": {
+      "id": "2103638561262362985",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "VLM文档解析评测",
+      "evidence": "评测16个前沿VLM",
+      "rationale": "有模型基准和选型信息"
+    },
+    "signalScore": 70
+  },
+  {
+    "id": "2103691327699550598",
+    "text": "Can’t wait to see what you build.",
+    "expert": {
+      "priority": "P0",
+      "domain": "Claude / Anthropic",
+      "name": "Boris Cherny",
+      "role": "Anthropic / Claude Code",
+      "why": "Claude Code 核心人物之一，代表 AI 编程工作流、工程角色变化、Agentic 软件开发方向",
+      "handle": "bcherny"
+    },
+    "editorial": {
+      "id": "2103691327699550598",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "Claude插件门户",
+      "evidence": "插件打包MCP和skills",
+      "rationale": "正式发布开发基础设施"
+    },
+    "signalScore": 97,
+    "quotedTweet": {
+      "id": "2103577007938228300",
+      "text": "It’s now easier to build plugins for Claude.\n\nWe built a new portal to submit your plugin, track review, and see usage.\n\nPlugins package MCP and skills, and are becoming the way to build for Claude. MCP usage across Claude products is up 110x this year!\n\nhttps://t.co/kHgJqjQWrj"
+    }
+  },
+  {
+    "id": "2103897790258581771",
+    "text": "Exciting to see AI agents search genomic databases at this scale! Enjoyed talking with @nature about next steps, testing candidates with increasingly strong hard verifiers and feeding the results back into the loop\n\nMore on verification of AI outputs in biology and how it differs fundamentally from verification in coding and mathematics https://t.co/1oVw3RZ75r",
+    "expert": {
+      "priority": "P0",
+      "domain": "生物医学 AI 与药物发现",
+      "name": "Marinka Zitnik",
+      "role": "权威生物医学 AI 研究者",
+      "why": "历史发布内容通过技术密度审计",
+      "handle": "marinkazitnik"
+    },
+    "editorial": {
+      "id": "2103897790258581771",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "生物AI代理",
+      "evidence": "AI代理搜索基因组数据库",
+      "rationale": "新实验设施与研究发现"
+    },
+    "signalScore": 80,
+    "quotedTweet": {
+      "id": "2103591717530173647",
+      "text": "AI titan Anthropic has launched a biology ‘wet lab’ where human scientists and AI agents will work together to design and conduct experiments. The company has released one of the team’s first finds: a peculiar pattern of DNA in the genomes of several giant viruses.\n\nhttps://t.co/3uJJnf2OMK"
+    }
+  },
+  {
+    "id": "2103972995048083461",
+    "text": "One of the most exciting parts of the Quail project (beyond the importance of the application) is how we are building it with agents. (1) We definitely do not want our agents to write all the code from scratch; we want to build on the battle-tested work of the community. (2) It is really important to credit the folks who build foundational infrastructure and algorithms; otherwise, there will be no incentive for people to continue doing foundational research. We see you and are really excited to build on top of what you do!",
+    "expert": {
+      "priority": "P1",
+      "domain": "Agent / 评测",
+      "name": "Shreya Shankar",
+      "role": "UC Berkeley / AI 工程研究员",
+      "why": "评测、LLM Pipeline、AI 工程学科化",
+      "handle": "sh_reya"
+    },
+    "editorial": {
+      "id": "2103972995048083461",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "Agent 工程实践",
+      "evidence": "不让 agents 从零写代码",
+      "rationale": "有可复用工程原则"
+    },
+    "signalScore": 62,
+    "quotedTweet": {
+      "id": "2103969065471783263",
+      "text": "@modal @vllm_project @Alibaba_Qwen @Snowflake @nvidia @ye_combinator @ScalingIntelLab @Research_Hazy @jordanjuravsky I am hammering this point because it is easy to believe that coding agents mean that there is no need for this process of work-sharing &amp; painstaking discovery over decades or the expensive human systems that support it.\n\nIn our opinion, nothing could be further from the truth. https://t.co/xNVcRzTtQb"
+    }
+  }
+]
