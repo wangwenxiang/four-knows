@@ -9,6 +9,7 @@ from scripts.fetch_ai_v_radar import (
     Expert,
     build_hotspot_summary,
     cap_selected_posts_per_author,
+    has_substantive_primary_top_story_evidence,
     normalize_posts,
     parse_args,
     same_top_story_event,
@@ -117,6 +118,29 @@ def headline_post(post_id: str, handle: str, score: int, text: str) -> dict:
 
 
 class HeadlineEventDedupeTest(unittest.TestCase):
+
+    def test_evaluation_classifier_validation_is_substantive_primary_evidence(self):
+        post = {
+            "id": "eval-classifier",
+            "text": (
+                "Q: Can I use Jev for evals?\n\n"
+                "A: Jev and an LLM judge are both classifiers that you should "
+                "validate against trusted labels."
+            ),
+            "expert": {"handle": "hamel", "name": "Hamel", "priority": "P0", "domain": "AI", "role": "Researcher", "why": "test"},
+            "author": {"username": "hamel"},
+            "signalScore": 70,
+            "editorial": {"dailyGrade": "B", "technicalRelevant": True},
+        }
+        self.assertTrue(has_substantive_primary_top_story_evidence(post, Expert(**post["expert"])))
+        completed = type("Completed", (), {
+            "returncode": 0,
+            "stdout": json.dumps({"topStories": [{"id": "eval-classifier", "category": "AI 技术应用"}]}),
+            "stderr": "",
+        })()
+        with patch("scripts.fetch_ai_v_radar.subprocess.run", return_value=completed):
+            selected = select_editorial_top_stories([post], retries=0)
+        self.assertEqual([item["id"] for item in selected], ["eval-classifier"])
 
     def test_event_dedupe_ignores_generic_ai_vocabulary(self):
         long_efficiency_thread = {

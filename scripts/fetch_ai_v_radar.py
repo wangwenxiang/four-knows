@@ -299,6 +299,9 @@ TOP_STORY_APPLICATION_TERMS = (
     "use", "apply", "deploy", "production", "workflow", "coding", "review",
     "security", "secure", "system", "robot", "agent", "api", "ocr", "tool",
     "developer", "automation", "infrastructure", "data center", "datacenter", "decode",
+    # Evaluation classifiers and validation against labeled data are concrete
+    # engineering methods, not merely an AI-related opinion.
+    "classifier", "validat", "trusted label",
 )
 
 
@@ -311,6 +314,7 @@ CONCRETE_TECHNICAL_EVIDENCE_TERMS = (
     "benchmark", "evaluation", "safeguard", "open-weight", "open weight",
     "on-device", "on device", "deploy", "api", "taxonomy",
     "prefill", "compute-bound", "active tracing", "interactive perception",
+    "classifier", "validat", "trusted label",
 )
 
 
