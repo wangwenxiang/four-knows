@@ -301,7 +301,10 @@ TOP_STORY_APPLICATION_TERMS = (
     "developer", "automation", "infrastructure", "data center", "datacenter", "decode",
     # Evaluation classifiers and validation against labeled data are concrete
     # engineering methods, not merely an AI-related opinion.
-    "classifier", "validat", "trusted label",
+    "classifier", "validat", "trusted label", "redaction", "synthetic data",
+    # Agent orchestration details (per-agent model/tool/permission isolation
+    # and scheduling) are likewise concrete system design evidence.
+    "subagent", "permission", "orchestrat",
 )
 
 
@@ -314,7 +317,8 @@ CONCRETE_TECHNICAL_EVIDENCE_TERMS = (
     "benchmark", "evaluation", "safeguard", "open-weight", "open weight",
     "on-device", "on device", "deploy", "api", "taxonomy",
     "prefill", "compute-bound", "active tracing", "interactive perception",
-    "classifier", "validat", "trusted label",
+    "classifier", "validat", "trusted label", "redaction", "synthetic data",
+    "subagent", "permission", "orchestrat",
 )
 
 

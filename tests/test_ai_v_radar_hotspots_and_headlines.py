@@ -142,6 +142,26 @@ class HeadlineEventDedupeTest(unittest.TestCase):
             selected = select_editorial_top_stories([post], retries=0)
         self.assertEqual([item["id"] for item in selected], ["eval-classifier"])
 
+    def test_sensitive_eval_data_and_subagent_orchestration_are_substantive_primary_evidence(self):
+        expert = Expert("P0", "AI", "Test", "Researcher", "test", "tester")
+        sensitive_evals = {
+            "id": "sensitive-evals",
+            "text": (
+                "Q: How can I do AI evals when traces contain sensitive data? "
+                "A: Four approaches: negotiate access to a defined scope, work "
+                "with authorized experts, redaction and synthetic data."
+            ),
+        }
+        subagent_orchestration = {
+            "id": "subagent-orchestration",
+            "text": (
+                "In deepagents you give each subagent its own model, tools, and "
+                "permissions - the main loop picks which to spawn and when."
+            ),
+        }
+        self.assertTrue(has_substantive_primary_top_story_evidence(sensitive_evals, expert))
+        self.assertTrue(has_substantive_primary_top_story_evidence(subagent_orchestration, expert))
+
     def test_event_dedupe_ignores_generic_ai_vocabulary(self):
         long_efficiency_thread = {
             "text": (
