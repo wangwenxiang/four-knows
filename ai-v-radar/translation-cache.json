@@ -13088,7 +13088,222 @@
       "source": "Give your app real-time decision-making with Decisions API, powered by GPT-6 Luna.\n\nDefine questions and possible answers to classify content, route requests, or choose an agent’s next action.\n\nAvailable in limited preview. https://t.co/LbaD18M6Do",
       "zh": "用由 GPT-6 Luna 驱动的 Decisions API，为你的应用带来实时决策能力。\n\n定义问题和可能答案，用于内容分类、请求路由，或选择智能体的下一步动作。\n\n现已开放有限预览。https://t.co/LbaD18M6Do",
       "promptVersion": "codex-v1"
+    },
+    "dcdaf08c9adc8ed9fe2c79a33eec31411d1ab0024fa8f93baf318b6916540b08": {
+      "source": "decision model season indeed\n\nsaid there'd be more entrants before long - now open weights too, nice work @ritakozlov + the cloudflare team\n\nyour harness should be able to swap its decision model as easily as its main model\n\n https://t.co/vGcHvb6RaN",
+      "zh": "确实到了决策模型季\n\n之前说过很快会有更多入局者——现在连开放权重也来了，@ritakozlov 和 cloudflare 团队干得漂亮\n\n你的评测框架应该能像切换主模型一样轻松切换决策模型\n\n https://t.co/vGcHvb6RaN",
+      "promptVersion": "codex-v1"
+    },
+    "09f1c3121e5d209829ea51f4203f683c47b9c723b07598749682a3c2741d399a": {
+      "source": "it's decision model season 🍂\n\ntoday, we open sourced clef and clef-flash, our first homegrown models — both now available on @cloudflare workers ai! \n\ndemo / leaderboard: https://t.co/GJfPEKzP8k\n\nblog: https://t.co/HskdhS0nJz https://t.co/YzhzRmeeOH",
+      "zh": "决策模型季到了 🍂\n\n今天，我们开源了 clef 和 clef-flash，这是我们首批自研模型——现在都可在 @cloudflare workers ai 上使用！\n\ndemo / 排行榜：https://t.co/GJfPEKzP8k\n\n博客：https://t.co/HskdhS0nJz https://t.co/YzhzRmeeOH",
+      "promptVersion": "codex-v1"
+    },
+    "153f618969f80535994a87c311efb480ddd4ec57ddc93e89e0c2507cf6eeea92": {
+      "source": "The critical distinction between base LLMs (2024 and earlier) and modern LRMs is not symbolic tool use. It's the switch from a transductive paradigm (intuit the answer to the query) to an inductive paradigm (intuit the program/instructions that produce the answer to the query).\n\nThey're trained to be inductive, and they perform test-time induction, i.e. test-time prediction of a NL program / reasoning chain. This unlocks entirely new capabilities -- in particular fluid intelligence. Base LLMs, to this day, have ~0 fluid intelligence. LRMs have substantial levels of fluid intelligence.\n\nThe performance of LLMs on ARC 1 (a benchmark from 2019) remains ~10-15% today. Scaling them up by a factor ~100,000x got them from 0% to 10%. Meanwhile LRMs the same size or smaller saturated ARC 1 in 2025.",
+      "zh": "基础 LLM（2024 年及更早）与现代 LRM 之间的关键区别，不是符号化工具使用。而是从转导式范式（凭直觉给出查询答案）转向归纳式范式（凭直觉生成能产出查询答案的程序/指令）。\n\n它们被训练成具备归纳能力，并在测试时执行归纳，也就是在测试时预测自然语言程序/推理链。这解锁了全新的能力，尤其是流体智能。直到今天，基础 LLM 的流体智能仍接近 0。LRM 则具备相当水平的流体智能。\n\nLLM 在 ARC 1（2019 年的基准）上的表现如今仍约为 10-15%。将规模扩大约 100,000 倍，只让它们从 0% 提升到 10%。与此同时，相同规模或更小的 LRM 在 2025 年已经刷满 ARC 1。",
+      "promptVersion": "codex-v1"
+    },
+    "d42933d2f11f3a9e504228dbacda2fe378c58898a129b30dee62bf4fd70ca056": {
+      "source": "Today we’re introducing Extract v2.5 - a series of frontier agents tuned for document extraction.\n\nThe agents (cost-effective, agentic, agentic plus) are tuned for value accuracy and grounding. Our extraction agents outperform Opus 5.5 and GPT-6 Sol while being 30%-4x cheaper. \n\nWe’ve made massive improvements on complex extraction over \n* long lists (86.1% -> 95.5% on our agentic tier)\n* records spanning pages (85.5% -> 96.5%)\n* scanned forms (90.9% -> 95.7%)\n\nWe’ve also launched the following features:\n✅ Advanced citations: we locate bounding boxes for all supporting values for an inferred field, even if there's not an exact match.\n✅ Structural Reasoning: we tailor document extraction algorithms depending on the type, layout, and information\n\nOur extraction agents are SOTA in price-performance on ExtractBench, across a wide range of cost points. We are the best tool for document extraction across documents of any complexity.\n\nBlog: https://t.co/TTlTdECU03\n\nAll of these are available on LlamaParse: https://t.co/XYZmx5TFz8 . Come check it out!",
+      "zh": "今天我们推出 Extract v2.5——一系列面向文档抽取调优的前沿智能体。\n\n这些智能体（cost-effective、agentic、agentic plus）针对数值准确性和可溯源性进行了调优。我们的抽取智能体表现优于 Opus 5.5 和 GPT-6 Sol，同时成本低 30% 到 4 倍。\n\n我们在复杂抽取方面取得了大幅提升：\n* 长列表（agentic 档位从 86.1% 提升到 95.5%）\n* 跨页记录（85.5% -> 96.5%）\n* 扫描表单（90.9% -> 95.7%）\n\n我们还上线了以下功能：\n✅ 高级引用：即使没有精确匹配，我们也能为推断字段定位所有支撑值的边界框。\n✅ 结构化推理：我们会根据文档类型、版式和信息定制文档抽取算法。\n\n在 ExtractBench 上，覆盖多个成本区间，我们的抽取智能体在性价比上达到 SOTA。对于任何复杂度的文档，我们都是最佳文档抽取工具。\n\n博客：https://t.co/TTlTdECU03\n\n这些都已在 LlamaParse 上可用：https://t.co/XYZmx5TFz8 。欢迎来看看！",
+      "promptVersion": "codex-v1"
+    },
+    "c521053203dab43010a7572b31a96b7d26c06b7b092adcd729d71109313c0676": {
+      "source": "a lot of robot video data for thee https://t.co/mfUFZOyUSH",
+      "zh": "给你准备了大量机器人视频数据 https://t.co/mfUFZOyUSH",
+      "promptVersion": "codex-v1"
+    },
+    "c46901fbeb48e51a065d76f05a7265b46ab3c006a03f6493a3606121802820a6": {
+      "source": "We’re making the egocentric internet searchable.\n\nVideoDB now lets you search 12M+ task episodes from every open datasets.\n\nType “arms folding a towel” and get thousands of matching episodes back in seconds.\n\nAnd if you have a dataset, you can submit it too. 🧵 https://t.co/Ucx3ILx0k4",
+      "zh": "我们正在让第一视角互联网变得可搜索。\n\nVideoDB 现在可搜索来自所有开放数据集的 1200 万+任务片段。\n\n输入“手臂折叠毛巾”，几秒内就能返回数千个匹配片段。\n\n如果你有数据集，也可以提交。🧵 https://t.co/Ucx3ILx0k4",
+      "promptVersion": "codex-v1"
+    },
+    "953ca0e01083ef639f83477fa8e119ca430ae05723de995e4d7b87b663190274": {
+      "source": "These new hands are the perfect companion for Atlas. With 13 degrees of freedom, they are directly actuated, built for high fidelity simulation to enable sim-to-real RL, and designed from the ground up for dexterous physical work. \n\nLearn how we built robot hands for modern AI and real work: https://t.co/XxCYEcmHdP",
+      "zh": "这些新手部是 Atlas 的完美搭档。它们拥有 13 个自由度，采用直接驱动，为高保真仿真而打造，以支持 sim-to-real RL，并从零开始为灵巧的物理工作而设计。\n\n了解我们如何为现代 AI 和真实工作打造机器人手：https://t.co/XxCYEcmHdP",
+      "promptVersion": "codex-v1"
+    },
+    "0e70b39eec5328bc356bb0f2e87ef57d5a739d0d40b8eb9e3586f9a276a3bb8d": {
+      "source": "model routing - \"no one knows what it means, but its provocative, gets the people going\"\n\nwe try to shed light on how to do it properly\n\n1. understand tasks\n2. understand the models\n3. build the router **in the harness**\n4. track outcomes\n\nlower costs, with no performance hit https://t.co/NDvjP6YDwu",
+      "zh": "模型路由——“没人知道它是什么意思，但它很有煽动性，能让人们兴奋起来”\n\n我们试图说明如何正确地做这件事\n\n1. 理解任务\n2. 理解模型\n3. 在评测框架中构建路由器\n4. 跟踪结果\n\n降低成本，同时不损失性能 https://t.co/NDvjP6YDwu",
+      "promptVersion": "codex-v1"
+    },
+    "3243d173b6cdfdc7a317b4c812c470c35479af5ff773203d4f392bc29d7035ff": {
+      "source": "We’re open sourcing a state of the art multimodal Decision Model, pplx-decider-27b, and are offering it in a new Decisions API at 4 cents per million input tokens and free output tokens. We intend to bring down the price even further over the coming days. Enjoy!",
+      "zh": "我们正在开源一个先进的多模态决策模型 pplx-decider-27b，并通过新的 Decisions API 提供服务，价格为每百万输入 token 4 美分，输出 token 免费。我们计划在接下来的几天里进一步降价。祝使用愉快！",
+      "promptVersion": "codex-v1"
+    },
+    "241e71535091d2df4faf77223241c49c9184df56c24409f803e987624a59ad43": {
+      "source": "Introducing the Perplexity Decisions API.\n\nIt's powered by pplx-decider-v1-27b, our multimodal decision model trained to output a probability distribution over a fixed set of answers instead of text.\n\nIt costs $0.04/million input tokens and scores 85.71% across benchmarks. https://t.co/3yzPjTXVXe",
+      "zh": "推出 Perplexity Decisions API。\n\n它由 pplx-decider-v1-27b 提供支持，这是我们的多模态决策模型，训练目标不是输出文本，而是在固定答案集合上输出概率分布。\n\n价格为每百万输入 token 0.04 美元，并在各项基准测试中取得 85.71% 的成绩。https://t.co/3yzPjTXVXe",
+      "promptVersion": "codex-v1"
+    },
+    "d23c452c474e0f0210a185005e03e70ae88c34ab841d86203b248f34bc38ca9b": {
+      "source": "We're launching the most accurate real time transcription model in the world... #1 !!!  \n55% faster and 60% cheaper than ElevenLabs. \nCome build agents on our platform!",
+      "zh": "我们正在发布全球最准确的实时转录模型……#1！！！\n比 ElevenLabs 快 55%，便宜 60%。\n快来我们的平台上构建 agents！",
+      "promptVersion": "codex-v1"
+    },
+    "fcd09be028f958df512f758983d62e81db38177848f190c7a91e7c6d4602cd9f": {
+      "source": "Microsoft AI has released MAI-Transcribe-2-Streaming, taking the #1 spot for Final Transcript accuracy and First Partial Transcript accuracy on AA-WER Streaming with 2.5% WER at 0.13s after end of speech\n\nMAI-Transcribe-2-Streaming is @MicrosoftAI's new streaming Speech to Text model, joining the non-streaming MAI-Transcribe-2. It leads streaming Final Transcript WER at 2.5%, ahead of the previous #1, SpaceXAI's Grok Voice Transcribe 2.0 at 2.7%, and returns that transcript in 0.13s rather than 0.49s. It is available for streaming transcription at $0.54 per hour of audio, at the higher end of pricing among the leading streaming models.\n\nKey takeaways\n\n➤ Final Transcript: MAI-Transcribe-2-Streaming achieves 2.5% WER at 0.13s after end of speech, ranking #1 of 38 models. It is more accurate and faster than Grok Voice Transcribe 2.0 at 2.7% and 0.49s, Muse Voice Transcribe at 3.1% and 0.16s, and ElevenLabs Scribe v2 Realtime at 3.6% and 0.14s. It is also more accurate, though slightly slower, than Cartesia Ink Preview (external endpoints) at 3.1% and 0.11s\n\n➤ First Partial Transcript: The model achieves 2.5% WER at 0.12s, ahead of Grok Voice Transcribe 2.0 at 3.4% and 0.49s, and ahead of Muse Voice Transcribe and ElevenLabs Scribe v2 Realtime on accuracy, both at 3.6%, and slightly faster than both at 0.12s versus 0.13s. It is more accurate but slower than Cartesia Ink-2 (external endpoints) at 4.0% and 0.07s\n\n➤ Price: MAI-Transcribe-2-Streaming costs $0.54 per hour for streaming, or $9.00 per 1,000 minutes. This puts it level with Gemini 3.5 Transcribe Live at $9, above the $6.50 charged for ElevenLabs Scribe v2 Realtime and Deepgram Flux, more than twice Cartesia Ink-2 at $4, and three times Muse Voice Transcribe at $3. Non-streaming transcription costs $0.10 per hour, or $1.67 per 1,000 minutes\n\nCongrats to the @MicrosoftAI team on the launch!\n\nSee more details below",
+      "zh": "Microsoft AI 发布了 MAI-Transcribe-2-Streaming，在 AA-WER Streaming 上以语音结束后 0.13 秒、2.5% WER 的成绩，拿下最终转录准确率和首个部分转录准确率 #1。\n\nMAI-Transcribe-2-Streaming 是 @MicrosoftAI 新推出的流式 Speech to Text 模型，与非流式 MAI-Transcribe-2 一同构成产品线。它以 2.5% 的 WER 领先流式最终转录榜单，超过此前 #1 的 SpaceXAI Grok Voice Transcribe 2.0（2.7%），并且返回转录结果只需 0.13 秒，而不是 0.49 秒。该模型可用于流式转录，价格为每小时音频 0.54 美元，在领先的流式模型中属于较高价位。\n\n要点\n\n➤ 最终转录：MAI-Transcribe-2-Streaming 在语音结束后 0.13 秒达到 2.5% WER，在 38 个模型中排名 #1。相比 Grok Voice Transcribe 2.0 的 2.7% 和 0.49 秒、Muse Voice Transcribe 的 3.1% 和 0.16 秒，以及 ElevenLabs Scribe v2 Realtime 的 3.6% 和 0.14 秒，它更准确也更快。相比 Cartesia Ink Preview（external endpoints）的 3.1% 和 0.11 秒，它也更准确，但略慢一些。\n\n➤ 首个部分转录：该模型达到 2.5% WER、0.12 秒，领先 Grok Voice Transcribe 2.0 的 3.4% 和 0.49 秒；准确率也领先 Muse Voice Transcribe 和 ElevenLabs Scribe v2 Realtime（两者均为 3.6%），速度也略快于两者的 0.13 秒。相比 Cartesia Ink-2（external endpoints）的 4.0% 和 0.07 秒，它更准确但更慢。\n\n➤ 价格：MAI-Transcribe-2-Streaming 流式转录价格为每小时 0.54 美元，即每 1,000 分钟 9.00 美元。这与 Gemini 3.5 Transcribe Live 的 9 美元持平，高于 ElevenLabs Scribe v2 Realtime 和 Deepgram Flux 的 6.50 美元，是 Cartesia Ink-2 4 美元的两倍多，也是 Muse Voice Transcribe 3 美元的三倍。非流式转录价格为每小时 0.10 美元，即每 1,000 分钟 1.67 美元。\n\n祝贺 @MicrosoftAI 团队发布新模型！\n\n更多详情见下方",
+      "promptVersion": "codex-v1"
+    },
+    "66dcedb62752f6791feac407d7e277c83099610991c2bae462be2a90dc6852b1": {
+      "source": "Have you tried to use a decision model (like Jev) on thousands of rows? Calling an API once per row is a terrible idea for batch work, because it gets no benefit from query planning and sits *extremely* far from optimal performance.\n\nWith Qwen3-4B on one H100, the speed-of-light (SoL) for one AI filter over 5k movie reviews, or the fastest the GPU could possibly run it, is about...6.6 seconds! No system today comes close, including Quail, our open-source AI-SQL engine 😱\n\nNew blog post on how we cost AI-powered filters in Quail (based on SoL estimates), check it out! https://t.co/Rcryn8kOJH",
+      "zh": "你试过在数千行数据上使用决策模型（比如 Jev）吗？批处理时每行调用一次 API 是个糟糕的想法，因为它无法从查询规划中获益，性能也会离最优状态*极其*遥远。\n\n在一块 H100 上运行 Qwen3-4B，对 5k 条电影评论执行一个 AI 过滤器时，光速上限（SoL），也就是 GPU 理论上可能达到的最快速度，大约是……6.6 秒！如今没有任何系统接近这个水平，包括我们的开源 AI-SQL 引擎 Quail 😱\n\n我们发布了一篇新博客，介绍如何在 Quail 中基于 SoL 估算为 AI 驱动的过滤器计算成本，欢迎阅读！https://t.co/Rcryn8kOJH",
+      "promptVersion": "codex-v1"
+    },
+    "92d6847a8f34ac383262628aab71e12b3426307bcc812fe41d5435f8f920b97b": {
+      "source": "Mods are absolutely insane. You can now customize Claude to work and look the way you want by just prompting it.\n\nEach person works differently, so there's no reason why everyone should have an identical Claude experience. Make Claude your own, and share mods as plugins so others can try your mods too.",
+      "zh": "Mods 简直太疯狂了。现在你只需提示 Claude，就能按自己的想法自定义 Claude 的工作方式和外观。\n\n每个人的工作方式都不同，所以没理由让所有人拥有完全相同的 Claude 体验。把 Claude 变成你自己的样子，并把 mods 作为插件分享，让其他人也能试用你的 mods。",
+      "promptVersion": "codex-v1"
+    },
+    "dc111bdd3380074b56d60d53c247a2bb13a4126072621c19dde69fae3349e987": {
+      "source": "You can now mod Claude Code:\n\n- Change how it behaves\n- Customize the UI\n- Swap in your own features\n\nWrite one with a few lines of TypeScript, or have Claude build it for you. Mods ship inside plugins, so you install them with /plugin in the CLI or desktop app.\n\nA few examples: https://t.co/qMtzV8AeId",
+      "zh": "你现在可以 mod Claude Code：\n\n- 改变它的行为方式\n- 自定义 UI\n- 替换成你自己的功能\n\n用几行 TypeScript 就能写一个，或者让 Claude 帮你构建。Mods 会随插件一起发布，因此你可以在 CLI 或桌面应用中用 /plugin 安装它们。\n\n一些示例：https://t.co/qMtzV8AeId",
+      "promptVersion": "codex-v1"
+    },
+    "84b7b38dd1cd6de6c652e16672bb0ab18d61f68c113ae3ceed982405f3f2d2e0": {
+      "source": "SynthID Bio is our new family of watermarking methods made for AI-generated biological designs.\n\nIn a world first, we can now embed an imperceptible signature directly into protein sequences without affecting their biological function. 🧵 https://t.co/R2bM7Jn5Qu",
+      "zh": "SynthID Bio 是我们面向 AI 生成生物设计推出的新一代水印方法。\n\n这是全球首创：我们现在可以将不可察觉的签名直接嵌入蛋白质序列中，同时不影响其生物功能。🧵 https://t.co/R2bM7Jn5Qu",
+      "promptVersion": "codex-v1"
+    },
+    "ff99b6e17328f7dada5e764eca2503161827ae6d1e3f70742a05e43f36363f82": {
+      "source": "Every pixel will be generated",
+      "zh": "每一个像素都将被生成",
+      "promptVersion": "codex-v1"
+    },
+    "c39dfd8d144362359d1738a796f00f244133a2c9401417e9baeea94717189ef3": {
+      "source": "Introducing Project Continuum by Runway Labs, a new operating system research application built around real-time video interfaces.\n\nHere's a short demo walktrough: https://t.co/cU4FM2vMFr",
+      "zh": "Runway Labs 推出 Project Continuum，这是一款围绕实时视频界面构建的新型操作系统研究应用。\n\n这里有一个简短的演示 walkthrough：https://t.co/cU4FM2vMFr",
+      "promptVersion": "codex-v1"
+    },
+    "37f5e79f8e9bb17d54361130c9557fcfe9b838a17de463af1e9839289d4d6da2": {
+      "source": "Really excited to share a sneak peek at Continuum, a new research paradigm for building an operating system around real time video",
+      "zh": "很高兴分享 Continuum 的预览，这是一个围绕实时视频构建操作系统的新研究范式",
+      "promptVersion": "codex-v1"
+    },
+    "1ab1d9e9a08e6f7afe48e25a7428fb1fe207a38237f8fcdc46601de16a1df35d": {
+      "source": "Introducing Project Continuum by @runwayml_labs, a new operating system research application built around real-time video interfaces.\n\nToday, we're sharing an early look at four new ways of interacting with your computer: Portals, Visual Thinking, Responsive Video Interfaces and Interactive Worlds. Interface World Models, like Solaris, are reimagining what an interface can be.",
+      "zh": "@runwayml_labs 推出 Project Continuum，这是一款围绕实时视频界面构建的新型操作系统研究应用。\n\n今天，我们将提前展示四种与电脑交互的新方式：Portals、Visual Thinking、Responsive Video Interfaces 和 Interactive Worlds。像 Solaris 这样的 Interface World Models 正在重新想象界面的可能形态。",
+      "promptVersion": "codex-v1"
+    },
+    "1184a4047817517a6071d7625b205e47b640c82520047edfc35255fe075bb40f": {
+      "source": "Really bullish on workload-aware inference! Database systems are of course a crown jewel of exploiting workload knowledge to achieve good performance. now in today's inference era, any system with a declarative interface and budding demand for LLM inference is probably a good candidate for workload-aware inference",
+      "zh": "非常看好工作负载感知推理！数据库系统当然是利用工作负载知识来实现高性能的典范。到了今天的推理时代，任何具备声明式接口、且对 LLM 推理需求正在增长的系统，可能都很适合采用工作负载感知推理",
+      "promptVersion": "codex-v1"
+    },
+    "36532ac35a9af0d941e59ec713f17985cef508aabb8c1c6df076d1055468de42": {
+      "source": "Yep! A batch data processing pipeline usually has several LLM operations, and the API approach makes one call per row per operation, with each call served independently. If you know all the requests up front, you can plan the whole job, like reordering requests within an operation to share KV cache, running the most selective filter first, and reusing each document's KV cache across operations. Also beyond planning, you also want to change execution — eg if you know which requests in a batch share a prefix, you can use different attention kernels that read the shared KV from HBM once, instead of once per request",
+      "zh": "没错！批量数据处理流水线通常包含多个 LLM 操作，而 API 方式会对每一行、每个操作发起一次调用，每次调用都独立处理。如果你提前知道所有请求，就可以规划整个任务，比如在某个操作内部重新排序请求以共享 KV cache，先运行选择性最强的过滤器，并在多个操作间复用每个文档的 KV cache。除了规划之外，你还会想改变执行方式，例如如果你知道批次中哪些请求共享前缀，就可以使用不同的 attention kernels，只从 HBM 读取一次共享 KV，而不是每个请求都读一次",
+      "promptVersion": "codex-v1"
+    },
+    "58d2d8ecaca12658d463fdd8b5ac3c4011f564f519c8e14ce6a7741a3c4f3181": {
+      "source": "It's the training and inference that differ (and the weights, as a result of training), which is what matters. The architecture is only a compute substrate (a universal one, at that). \"The model architecture is the same\" is like saying \"the codebase is still in Python and executed via the Python interpreter\". It's really about the content and functional dynamics, not about the specific substrate.",
+      "zh": "关键在于训练和推理不同（以及训练带来的权重差异）。架构只是计算基底（而且是通用基底）。“模型架构是一样的”就像是在说“代码库仍然用 Python 编写，并通过 Python 解释器执行”。真正重要的是内容和功能动态，而不是具体的基底。",
+      "promptVersion": "codex-v1"
+    },
+    "3d1349f1be30791aff937e8150b37e8585b38cbc8d8f157fca73b42c18310251": {
+      "source": "@thesixthday6 It's still inductive but in latent space. Same inductive training and inductive test-time behavior.",
+      "zh": "@thesixthday6 它仍然是归纳式的，只不过是在潜在空间中。同样是归纳式训练，也具有归纳式的测试时行为。",
+      "promptVersion": "codex-v1"
+    },
+    "72152f387556e7338874905975d22cbf4942328af8f0583007528e29461b0bc6": {
+      "source": "How to Build a Model Router in the Harness",
+      "zh": "如何在 Harness 中构建模型路由器",
+      "promptVersion": "codex-v1"
+    },
+    "adf1ffb553174460e6085d126b6d276d07539934bb228d8fe003bdab55e949b9": {
+      "source": "Frontier LLMs continue to be expensive. As agents become ubiquitous and operate at massive scale, this is cost prohibitive. Luckily, most agents don't need frontier-level intelligence for every task.",
+      "zh": "前沿 LLM 依然昂贵。随着智能体变得无处不在并以大规模运行，这种成本难以承受。幸运的是，大多数智能体并不需要在每项任务上都具备前沿级智能。",
+      "promptVersion": "codex-v1"
+    },
+    "fc6f80d1af5cba67321dc1a2646d64bbd17426a12731ae143a6b1be07e17a27e": {
+      "source": "Seedance inside Computer is quite incredible for marketing and brand teams!",
+      "zh": "Computer 里的 Seedance 对营销和品牌团队来说相当惊艳！",
+      "promptVersion": "codex-v1"
+    },
+    "0f033d9878971946ece78865fea4fcc4d7a5807ecb1b763cb7bf529a628d047a": {
+      "source": "Generate a commercial or brand video for your small business with Seedance 2.5 in Perplexity Computer.\n\nThis commercial was created entirely inside Computer, including the brand look, product mockups, and full video edit. https://t.co/FOhYkUJDhH",
+      "zh": "在 Perplexity Computer 中用 Seedance 2.5 为你的小企业生成商业广告或品牌视频。\n\n这支广告完全在 Computer 内完成，包括品牌视觉、产品模型和完整视频剪辑。https://t.co/FOhYkUJDhH",
+      "promptVersion": "codex-v1"
+    },
+    "b01fef9d76fd2e128717fa66797ef774ea25e17990dd5da5904934afb8d86260": {
+      "source": "We’re rolling out inline charts, diagrams, visualizations in Computer. Including contextual financial charts from @tradingview",
+      "zh": "我们正在 Computer 中推出内联图表、图示和可视化，包括来自 @tradingview 的上下文金融图表。",
+      "promptVersion": "codex-v1"
+    },
+    "648a3fa1193043dbf245b9b27a5883f46d177aae9f3bf9b726d17bfbb91952ce": {
+      "source": "Perplexity Computer now creates interactive charts and visualizations directly in your thread.\n\nFor financial data, Computer uses @tradingview Lightweight Charts for candlesticks, volume, and moving averages. https://t.co/AItBm2tN07",
+      "zh": "Perplexity Computer 现在可以直接在你的线程中创建交互式图表和可视化。\n\n对于金融数据，Computer 使用 @tradingview Lightweight Charts 来展示 K 线、成交量和移动平均线。https://t.co/AItBm2tN07",
+      "promptVersion": "codex-v1"
+    },
+    "3546cb22ed0d9476b0aa24a3eb04973324a7a2dc66beebfd3927de4bca697cc1": {
+      "source": "Great summary!!",
+      "zh": "总结得太好了！！",
+      "promptVersion": "codex-v1"
+    },
+    "b1344b45abaa7f6b1eea0534340f3fd966ec48e8685dedfa2fd6249b27f6c07f": {
+      "source": "🤖 Should robots be generalists or specialists?\n\nAt #IROS2026, @Ken_Goldberg & @andrea_bajcsy moderated one of the best debates in robotics.\n\nMatt Mason opened with a better question:\n\n“Should animals be humans?”\n\n10 takeaways 🧵👇\n\n1️⃣ @HarryXu12, for generalists:\n\n“Don’t build Excel. Build GPT.”\n\nWe don’t know what we’ll need tomorrow, so buy generality just in case — and amortize it.\n\nThe twist: GPT didn’t replace Excel. It learned to drive it.\n\n2️⃣ @GeorgiaChal split “general” into 4 axes:\n\nBody. Scene. Contact. Task.\n\n“Breadth and reliability are measured per axis. One does not imply the other.”\n\nHer prediction: “The next task is the test.”\n\n3️⃣ The most honest number of the day, from Georgia’s slides:\n\nA general model calling robot tools.\n\nCoarse block placement: 19/20 ✅\nPrecision insertion: 2/20 ❌\n\n“Coarse pick and place works. Physical composition and precise contact not yet.”\n\nTool use ≠ dexterity.\n\n4️⃣ @KaterinaFragiadaki’s architecture:\n\nThe generalist writes the curriculum.\nThe specialist does the reps.\n\nVideo → sim → RL on subgoals → specialist policies.\n\nNo teleop.\n\nAt deployment:\n\n“Fast specialists for the common case. Flexible generalists for the long tail.”\n\n5️⃣ Specialist bench:\n\n“Fixture and conveyor are part of the intelligence.”\n\nA fixture is a prior.\nA conveyor is a scheduler.\n\nStrip them to look “general” and you’ve moved work onto a pricier learned controller.\n\nOptionality that hurts reliability isn’t intelligence. It’s cost.\n\n6️⃣ A surgical robot doing one procedure 10,000 times learns exactly what can go wrong.\n\n“Generality is the enemy of certification.”\n\nFrom the floor:\n\nAre human drivers generalists or specialists?\n\nWe certify generalists one task at a time.\n\nThat’s what a license is.\n\n7️⃣ Toshio Fukuda changed the register:\n\n“NON-AI matters.”\n\nKizuki: help offered before it’s asked for.\n\n“Awareness comes from the body, not from the model.”\n\nJapan: ~29% aged 65+, ~570k care workers short by 2040.\n\n“If people live to 120, must our machines last that long?”\n\n8️⃣ The floor fight:\n\n“A human is a generalist.”\n\n“We’re all human specialists.”\n\nThe room accidentally re-derived pretrain-then-finetune.\n\nVeterans argued from what has shipped.\nNewcomers argued from what has scaled.\n\nBoth are data.\n\n9️⃣ The title asked for a side.\n\nThe slides drew a stack:\n\nGeneral planning + recovery on top.\nFast, certifiable specialists below.\n\nA verifier is a fixture made of code.\n\n🔟 The real question:\n\nHow thick can the middle get before the body must specialize anyway?\n\nGeneralist or specialist?\n\nMaybe the winning architecture is neither.\n\nIt’s a stack.\n\n#IROS2026 #Robotics #PhysicalAI #RobotLearning #WorldModels",
+      "zh": "🤖 机器人应该是通才还是专才？\n\n在 #IROS2026 上，@Ken_Goldberg 和 @andrea_bajcsy 主持了一场机器人领域最精彩的辩论之一。\n\nMatt Mason 以一个更好的问题开场：\n\n“动物应该成为人类吗？”\n\n10 条要点 🧵👇\n\n1️⃣ @HarryXu12 支持通才：\n\n“不要造 Excel。要造 GPT。”\n\n我们不知道明天会需要什么，所以先购买通用性以备不时之需，并将成本摊销。\n\n转折是：GPT 并没有取代 Excel。它学会了驱动 Excel。\n\n2️⃣ @GeorgiaChal 将“通用”拆成 4 个轴：\n\n身体。场景。接触。任务。\n\n“广度和可靠性要按每个轴来衡量。一个并不意味着另一个。”\n\n她的预测是：“下一个任务就是测试。”\n\n3️⃣ 当天最诚实的数字来自 Georgia 的幻灯片：\n\n一个调用机器人工具的通用模型。\n\n粗略方块放置：19/20 ✅\n精密插入：2/20 ❌\n\n“粗略抓取和放置可行。物理组合和精确接触还不行。”\n\n工具使用 ≠ 灵巧操作。\n\n4️⃣ @KaterinaFragiadaki 的架构：\n\n通才编写课程。\n专才完成训练。\n\n视频 → 仿真 → 针对子目标的 RL → 专才策略。\n\n无需遥操作。\n\n部署时：\n\n“常见场景用快速专才。长尾场景用灵活通才。”\n\n5️⃣ 专才基准：\n\n“夹具和传送带也是智能的一部分。”\n\n夹具是一种先验。\n传送带是一种调度器。\n\n把它们拿掉，只为看起来“通用”，你就把工作转移到了更昂贵的学习型控制器上。\n\n损害可靠性的可选性不是智能。那是成本。\n\n6️⃣ 一台外科手术机器人重复同一种手术 10,000 次，就会准确学会哪些地方可能出错。\n\n“通用性是认证的敌人。”\n\n来自台下的问题：\n\n人类司机是通才还是专才？\n\n我们是按任务逐一认证通才的。\n\n驾照就是这样。\n\n7️⃣ Toshio Fukuda 改变了讨论基调：\n\n“NON-AI 很重要。”\n\nKizuki：在对方开口前就提供帮助。\n\n“意识来自身体，而不是模型。”\n\n日本：约 29% 的人口年龄在 65 岁以上，到 2040 年将短缺约 57 万名护理人员。\n\n“如果人能活到 120 岁，我们的机器也必须撑那么久吗？”\n\n8️⃣ 现场争论：\n\n“人类是通才。”\n\n“我们都是人类专才。”\n\n全场无意中重新推导出了先预训练、再微调。\n\n老兵从已经落地的东西出发争论。\n新来者从已经规模化的东西出发争论。\n\n两者都是数据。\n\n9️⃣ 标题要求选边。\n\n幻灯片画出的是一个栈：\n\n上层是通用规划 + 恢复。\n下层是快速、可认证的专才。\n\n验证器就是用代码做成的夹具。\n\n🔟 真正的问题是：\n\n在身体无论如何都必须专门化之前，中间层能做得多厚？\n\n通才还是专才？\n\n也许胜出的架构两者都不是。\n\n而是一个栈。\n\n#IROS2026 #Robotics #PhysicalAI #RobotLearning #WorldModels",
+      "promptVersion": "codex-v1"
+    },
+    "891bcb3b652c5ff8bba27b074495f31753408f50729b4a5cb12e51c9ab6f83fa": {
+      "source": "All models are available today in Microsoft Foundry. \nWe're also excited to bring these models into tools you use everyday like Vercel and OpenRouter.\n\nhttps://t.co/LbtYiwxwys",
+      "zh": "所有模型今天已在 Microsoft Foundry 上线。\n我们也很高兴将这些模型带到你日常使用的工具中，比如 Vercel 和 OpenRouter。\n\nhttps://t.co/LbtYiwxwys",
+      "promptVersion": "codex-v1"
+    },
+    "b21dc501d5c1c8f77628d49656df01d11f9f7f919f813088f2d0360361cb36b3": {
+      "source": "durable agents, so hot right now",
+      "zh": "持久化智能体，现在真是太火了",
+      "promptVersion": "codex-v1"
+    },
+    "cba89336fcd7a052652d4f0a29eec0f7e42b8aaa2a5add58f0348ba5c71e9aa5": {
+      "source": "@wongmjane Interesting!  Yeah I have also noticed that if I post with a picture or video with few words, there are no AI bot replies.  Maybe its bc it costs more to parse those etc",
+      "zh": "@wongmjane 有意思！是的，我也注意到，如果我发带图片或视频、文字很少的帖子，就不会有 AI 机器人回复。也许是因为解析这些内容成本更高之类的",
+      "promptVersion": "codex-v1"
+    },
+    "818cd7713c55a4312af2df7e8209d9f1b92b47f7c8c6f6e627426203f2140f5f": {
+      "source": "@fipetru @claudeai @ClaudeDevs @trq212 Looking, seems like a bug",
+      "zh": "@fipetru @claudeai @ClaudeDevs @trq212 在看了，似乎是个 bug",
+      "promptVersion": "codex-v1"
+    },
+    "1df53ae0bdb0fc692112634460a68d051196865f295a61ecd82a0cd46b8875fa": {
+      "source": "goat recognizes game",
+      "zh": "goat 看懂了游戏",
+      "promptVersion": "codex-v1"
+    },
+    "fd2225022e27752dbe45bc85caca2043ae1880e6fe80f1da97284e24ebfa1ddb": {
+      "source": "the muse hype is real. i can def say that it is the easiest to use & most focused consumer ai product on the market. the extremely generous limits also make it impossible to ignore.\n\nit actually helps the avg person navigate the day to day complexity of personal life.\n\nif you go back to my april tbpn appearance, i talked about how an ai generated feed would become a baseline primitive for new ai experiences & muse has a pretty compelling version of that idea already. & you can start to imagine how powerful the multiplayer layer could become.\n\nmy stack right now is claude for work & muse for life. great execution from facebook here. credit where credit is due.",
+      "zh": "muse 的热度是真的。我可以肯定地说，它是目前市场上最易用、最聚焦的消费级 AI 产品。极其慷慨的额度也让人很难忽视它。\n\n它确实能帮助普通人应对日常个人生活中的复杂事务。\n\n如果回看我 4 月参加 tbpn 的节目，我当时谈到过，AI 生成的信息流会成为新 AI 体验的基础原语，而 muse 已经对这个想法做出了相当有说服力的版本。你也可以开始想象，多人协作层未来会变得多么强大。\n\n我现在的组合是工作用 claude，生活用 muse。facebook 这次执行得很好，该认可就要认可。",
+      "promptVersion": "codex-v1"
+    },
+    "f302674299a97796dc59045b5f5c9d0484ddfe97f3f0df291151f6a1f4110bd2": {
+      "source": "pretty clear every agent harness needs a durable runtime\n\npi :: pi-durable\n\ndeepagents :: langgraph",
+      "zh": "很明显，每个 agent harness 都需要一个持久运行时\n\npi :: pi-durable\n\ndeepagents :: langgraph",
+      "promptVersion": "codex-v1"
+    },
+    "cde6745e2fe213662e68a459d2e5fed7d50ff3a99eb7547f4d22de713933eb0c": {
+      "source": "People of Pi: We've shipped Pi 1.0 with Pi Durable. Go make them yours.\n\nhttps://t.co/oUPfVfvAZl",
+      "zh": "Pi 的各位：我们已经发布了带有 Pi Durable 的 Pi 1.0。去把它们变成你们自己的吧。\n\nhttps://t.co/oUPfVfvAZl",
+      "promptVersion": "codex-v1"
+    },
+    "1feaa673492cb662616f1465e4a68b3343377168aef37cfe8189cd09a5785631": {
+      "source": "@bsniz @GergelyOrosz He did",
+      "zh": "@bsniz @GergelyOrosz 他确实做了",
+      "promptVersion": "codex-v1"
+    },
+    "1f1131867a5b31eeec1141a51b6d9e8c555b78d9b171cef0fe7aca144eb6a678": {
+      "source": "Yes, I saw the scorecard. It’s a 244-page PDF produced by Anthropic. On one hand, Anthropic is a research lab. On the other, models are how they generate revenue: and this model supposedly took billions to train. \n\nI prefer to make up my mind based on either me using something, or (even better) several independent folks I trust do the same.\n\nRight now we have just Anthropic self-reporting. Better than nothing but not enough for me.",
+      "zh": "是的，我看到了评分卡。那是一份由 Anthropic 制作的 244 页 PDF。一方面，Anthropic 是一家研究实验室。另一方面，模型也是他们的收入来源，而这个模型据说花了数十亿美元训练。\n\n我更愿意根据自己实际使用的体验来判断，或者更好的是，看几位我信任的独立人士是否也得出类似结论。\n\n目前我们只有 Anthropic 的自我报告。聊胜于无，但对我来说还不够。",
+      "promptVersion": "codex-v1"
+    },
+    "ee25189c746fe6857e52d8329b9754dbc70ad4c5cab9cda8fa2e1c6e67d5db4c": {
+      "source": "it's interesting that we get decision models by chopping off the reasoning, as if decisions are made before the reasoning happens",
+      "zh": "有意思的是，我们通过截掉推理来得到决策模型，仿佛决策是在推理发生之前就已经做出的",
+      "promptVersion": "codex-v1"
     }
   },
-  "updatedAt": "2026-09-30T23:05:46.932673+00:00"
+  "updatedAt": "2026-10-01T23:08:05.170912+00:00"
 }
