@@ -1,0 +1,1070 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>硅谷 AI 原声 · 2026-10-03</title>
+  <style>
+    :root{--bg:#f4f6f8;--surface:#fff;--text:#16181c;--muted:#65717e;--line:#dfe4e9;--accent:#0066cc;--green:#117a62;--shadow:0 16px 42px rgba(18,28,38,.08);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 15% 0,#e8f2ff 0,transparent 27%),var(--bg);color:var(--text)} a{color:inherit;text-decoration:none} button{font:inherit}
+    .shell{width:min(1500px,calc(100% - 28px));margin:0 auto;padding:14px 0 40px}
+    .hero{display:grid;grid-template-columns:minmax(250px,1fr) auto;align-items:center;gap:12px;padding:15px 18px;border:1px solid rgba(255,255,255,.75);border-radius:16px;background:rgba(255,255,255,.88);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    h1{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin:0;font-size:clamp(28px,3.4vw,44px);line-height:1;letter-spacing:-.05em} .report-date{color:var(--green);font-size:clamp(10px,1vw,13px);font-weight:900;letter-spacing:.08em;white-space:nowrap}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(62px,1fr));gap:6px;align-content:start} .metric{padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fff} .metric strong{display:block;font-size:19px;line-height:1} .metric span{display:block;margin-top:3px;color:var(--muted);font-size:8px;font-weight:820;white-space:nowrap}
+    .notice{margin-top:12px;padding:11px 14px;border:1px solid #e1b866;border-radius:12px;background:#fff8e8;color:#7a5612;font-size:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px;align-items:start} .signal-card{min-width:0;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 9px 26px rgba(18,28,38,.045)}
+    .card-top{display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:10px} .avatar{display:grid;width:46px;height:46px;overflow:hidden;place-items:center;border:1px solid #d9e0e7;border-radius:999px;background:linear-gradient(135deg,#111827,#46627d);color:#fff;font-size:12px;font-weight:900} .avatar img{width:100%;height:100%;object-fit:cover;display:block} .identity{display:grid;gap:3px;min-width:0} .identity strong,.identity span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .identity strong{font-size:14px} .identity span{color:var(--muted);font-size:11px}
+    .score{display:grid;justify-items:center;min-width:40px;padding:5px 6px;border:1px solid #e3ebe8;border-radius:8px;background:#f4f8f6;color:#527267;font-size:15px;font-weight:820;line-height:1} .score small{margin-top:2px;color:#71877f;font-size:7px;letter-spacing:.06em;text-transform:uppercase}
+    .meta{display:flex;align-items:center;gap:6px;margin:11px 0 9px;color:var(--muted);font-size:10.5px;font-weight:750} .meta span:not(.priority){overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .meta time{margin-left:auto;white-space:nowrap} .priority{padding:3px 6px;border-radius:999px;background:#111827;color:#fff;font-size:9px}
+    .post-text{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.58} .post-text.original{font-size:16px;font-weight:570;color:#20252b} .post-text.translation{margin-top:8px;color:#66727f;font-size:13px;font-weight:470;line-height:1.62} .article .original+.translation{margin-top:2px;color:#65717e;font-size:11px;font-weight:650} .quote,.article{display:grid;gap:6px;margin-top:10px;padding:11px;border:1px solid var(--line);border-radius:12px;background:#f7f9fb} .quote__author{display:flex;align-items:center;gap:7px;font-size:11px} .quote__author>div:last-child{display:grid;gap:1px} .quote__author span{color:var(--muted)} .quote-avatar{display:grid;width:28px;height:28px;overflow:hidden;place-items:center;border:1px solid var(--line);border-radius:999px;background:#dfe6ed;color:#52606d;font-size:10px;font-weight:900} .quote-avatar img{width:100%;height:100%;object-fit:cover} .quote p,.article p{margin:0;color:#4f5a66;font-size:12px;line-height:1.48;white-space:pre-wrap} .article strong{font-size:13px} .article strong.original{font-size:13.5px} .quote-text.original{font-size:12.5px;color:#36414d} .quote-text.translation{font-size:11.5px;color:#6a7682} .quote-link{justify-self:start;color:var(--accent);font-size:10px;font-weight:850}
+    .media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:10px;overflow:hidden;border-radius:12px} .media-grid--1{grid-template-columns:1fr} .media-item{position:relative;min-height:150px;background:#e8edf2} .media-item img{width:100%;height:100%;max-height:330px;object-fit:cover;display:block} .media-item span{position:absolute;right:7px;bottom:7px;padding:4px 6px;border-radius:6px;background:rgba(0,0,0,.68);color:#fff;font-size:8px;font-weight:900}
+    .card-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid #edf0f3} .engagement{display:flex;gap:10px;color:var(--muted);font-size:10.5px;font-weight:750} .card-bottom>a{color:var(--accent);font-size:11px;font-weight:850} .empty{grid-column:1/-1;padding:70px;text-align:center;border:1px dashed #cdd5dd;border-radius:16px;background:#fff;color:var(--muted)}
+    footer{padding:26px 4px 0;color:var(--muted);font-size:11px;text-align:center}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}} @media(max-width:560px){.shell{width:min(100% - 16px,1500px);padding-top:7px}.hero{gap:10px;padding:13px 14px;border-radius:15px}h1{font-size:28px}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.metric{padding:7px 9px}.metric strong{font-size:18px}.signal-card{padding:13px}.post-text.original{font-size:15px}.post-text.translation{font-size:12.5px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <h1>硅谷 AI 原声 <span class="report-date">· 2026-10-03</span></h1>
+      <div class="metrics"><div class="metric"><strong>62</strong><span>监控专家</span></div><div class="metric"><strong>17</strong><span>活跃专家</span></div><div class="metric"><strong>29</strong><span>精选原文</span></div></div>
+    </header>
+
+    <main class="grid">
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="aravsrinivas" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2028729526822588416/WhtMUI-P_normal.jpg" alt="Aravind Srinivas avatar" loading="lazy"></div>
+          <div class="identity"><strong>Aravind Srinivas</strong><span>@AravSrinivas · Perplexity / CEO</span></div>
+          <div class="score">80<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 搜索 / 产品</span><time>10-03 04:29 北京</time></div>
+        <p class="post-text original" lang="auto">a few open source contributions from perplexity recently:
+
+•pplx-decider-v1-27b: SoTA multimodal decision model. 85.7% average across 11 benchmarks, ahead of Jev.
+•pplx-embed-v2-context-9b-preview: SoTA contextual embeddings, best on ConTEB and turbopuffer context-bench.
+•Lily: local inference engine for Apple silicon. rust plus custom metal kernels, no pytorch or mlx. 1.23x faster prefill and 1.35x faster decode than MLX-LM on an M5 Max
+•PII-Tracer: 0.6B on-device PII classifier that decides when a hybrid compute task stays on your Mac. beats OpenAI’s Privacy Filter on all 5 public benchmarks. also released with the PII-TRACE benchmark: 13k conversations in 13 languages
+•WANDR: benchmark for wide and deep research agents. 500 tasks needing 170k source-backed records
+•Numbat: agent detection and response for laptops and workstations. 52 rules, single go binary for macOS, linux and windows
+•Bumblebee: read-only supply chain scanner for dev machines. covers packages, MCP configs, and editor and browser extensions.
+
+a lot more open source contributions coming soon!</p><p class="post-text translation" lang="zh-CN">Perplexity 最近的一些开源贡献：
+
+•pplx-decider-v1-27b：SoTA 多模态决策模型。在 11 个基准上平均 85.7%，领先于 Jev。
+•pplx-embed-v2-context-9b-preview：SoTA 上下文嵌入，在 ConTEB 和 turbopuffer context-bench 上表现最佳。
+•Lily：面向 Apple silicon 的本地推理引擎。rust 加自定义 metal kernels，不用 pytorch 或 mlx。在 M5 Max 上，相比 MLX-LM，prefill 快 1.23 倍，decode 快 1.35 倍。
+•PII-Tracer：0.6B 端侧 PII 分类器，用于判断混合计算任务何时留在你的 Mac 上。在全部 5 个公开基准上超过 OpenAI’s Privacy Filter。同时发布了 PII-TRACE 基准：13 种语言的 1.3 万段对话。
+•WANDR：面向广度与深度研究 agents 的基准。500 个任务，需要 17 万条有来源支撑的记录。
+•Numbat：面向笔记本和工作站的 agent detection and response。52 条规则，单个 go 二进制文件支持 macOS、linux 和 windows。
+•Bumblebee：面向开发机器的只读供应链扫描器。覆盖 packages、MCP configs，以及编辑器和浏览器扩展。
+
+更多开源贡献很快就会到来！</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 154</span><span>↻ 15</span><span>↩ 15</span></div><a href="https://x.com/AravSrinivas/status/2106119404433908149" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="cursor_ai" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1970182748146180096/dhZeXi_X_normal.jpg" alt="Cursor avatar" loading="lazy"></div>
+          <div class="identity"><strong>Cursor</strong><span>@cursor_ai · AI 编程 Agent 项目</span></div>
+          <div class="score">87<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Agent 技术突破</span><time>10-03 01:00 北京</time></div>
+        <p class="post-text original" lang="auto">When Rollouts catches a regression, it finds the offending PR and opens an issue. One click starts a cloud agent to fix it.
+
+Rollouts usage credits are included through Oct 3.</p><p class="post-text translation" lang="zh-CN">当 Rollouts 捕捉到回归时，它会找到导致问题的 PR 并创建 issue。一键即可启动云端 agent 来修复它。
+
+Rollouts 使用额度包含至 Oct 3。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1970182748146180096/dhZeXi_X_normal.jpg" alt="Cursor avatar" loading="lazy"></div><div><strong>Cursor</strong><span>@cursor_ai</span></div></div><p class="quote-text original" lang="auto">Introducing Rollouts.
+
+Rollouts write a monitoring plan, then watch changes as they deploy.
+
+Deployments are verified, so regressions are caught before users see them. https://t.co/01Pgz5B6V1</p><p class="quote-text translation" lang="zh-CN">介绍 Rollouts。
+
+Rollouts 会编写监控计划，然后在变更部署时持续观察。
+
+部署会被验证，因此回归会在用户看到之前被发现。https://t.co/01Pgz5B6V1</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HS7Ysi8bAAAGxma.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HS7Ysi8bAAAGxma.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/cursor_ai/status/2102861817160904808" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 509</span><span>↻ 23</span><span>↩ 43</span></div><a href="https://x.com/cursor_ai/status/2106066782155157603" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="hwchase17" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1569345624935485442/R67C4wCQ_normal.jpg" alt="Harrison Chase avatar" loading="lazy"></div>
+          <div class="identity"><strong>Harrison Chase</strong><span>@hwchase17 · LangChain / CEO</span></div>
+          <div class="score">79<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Agent 框架</span><time>10-03 01:42 北京</time></div>
+        <p class="post-text original" lang="auto">good pattern from this google paper
+
+the verifier starts from a clean context, so the explorer&#x27;s reasoning can&#x27;t talk it into a bad proof
+
+so the explorer can try wild ideas and the verifier tosses the wrong ones
+
+same reason deepagents subagents get their own context
+
+https://t.co/w177WWAdqY</p><p class="post-text translation" lang="zh-CN">这篇 google 论文里的模式很好
+
+验证器从干净的上下文开始，所以探索器的推理不会把它带偏到错误证明里
+
+因此探索器可以尝试大胆想法，验证器负责丢掉错误的
+
+这也是 deepagents subagents 拥有各自上下文的原因
+
+https://t.co/w177WWAdqY</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/939313677647282181/vZjFWtAn_normal.jpg" alt="elvis avatar" loading="lazy"></div><div><strong>elvis</strong><span>@omarsar0</span></div></div><p class="quote-text original" lang="auto">Banger paper from Google Research on multi-agent proof discovery.
+
+(bookmark it)
+
+It&#x27;s really interesting to see this emerging multi-agent pattern: not enforcing too much execution structure and pairing it with dedicated agents for advising and verification.
+
+I think it is generally applicable as well. Great read.
+
+Here is how it works:
+
+Cogentic runs on Gemini and works on open problems in theoretical computer science, starting from the problem statement with no expert hints.
+
+The system works in rounds, and the orchestrator decides how many provers to run in each round. Every prover gets one direction to work on, such as a specific bound or a counterexample search, plus a short briefing that a summarizer agent writes from earlier attempts and verifier feedback. Each summarizer writes its briefing independently, so provers in the same round read different summaries of the same history.
+
+Each draft goes through two adversarial verifiers. One checks the draft on its own, and the other reads all of the round&#x27;s drafts side by side to catch shared mistakes. A draft is accepted only if both pass it.
+
+The agents share state through two disk documents. A record logs every attempt with the objection it failed on, and a ledger stores verified lemmas and ruled-out directions. An auditor extracts correct lemmas from rejected proofs, verifies them again independently, and adds them to the ledger.
+
+A separate process advisor reads the verification logs across rounds and updates the instructions given to provers and verifiers. The orchestrator and the advisor can&#x27;t give mathematical opinions, so the provers provide all the math.
+
+It produced new results on five open problems in online learning, auction theory, and mechanism design, each checked by domain experts. Most problems took around 100 Gemini calls, and the hardest took around 1,000.
+
+Paper: https://t.co/QdCVWgn54S
+
+Chat with Paper: https://t.co/vJsdwneoQe</p><p class="quote-text translation" lang="zh-CN">Google Research 关于多 agent 证明发现的一篇重磅论文。
+
+（建议收藏）
+
+看到这种新兴的多 agent 模式真的很有意思：不过度强制执行结构，同时配备专门的建议和验证 agents。
+
+我认为它也具有普遍适用性。非常值得一读。
+
+它的工作方式如下：
+
+Cogentic 基于 Gemini 运行，处理理论计算机科学中的开放问题，从问题陈述开始，不依赖专家提示。
+
+系统按轮次运行，编排器决定每轮运行多少个证明器。每个证明器都会得到一个研究方向，例如某个具体边界或反例搜索，以及一份简短简报；简报由 summarizer agent 根据早期尝试和验证器反馈撰写。每个 summarizer 都独立撰写简报，所以同一轮中的证明器会读到同一段历史的不同摘要。
+
+每份草稿都会经过两个对抗式验证器。一个单独检查草稿本身，另一个并排阅读该轮所有草稿，以捕捉共同错误。只有两个验证器都通过，草稿才会被接受。
+
+这些 agents 通过两个磁盘文档共享状态。record 记录每次尝试及其失败时遇到的反对意见，ledger 存储已验证的引理和已排除的方向。auditor 会从被拒绝的证明中提取正确引理，再次独立验证，并加入 ledger。
+
+一个独立的 process advisor 会跨轮次读取验证日志，并更新给证明器和验证器的指令。编排器和 advisor 不能给出数学意见，所以所有数学内容都由证明器提供。
+
+它在 online learning、auction theory 和 mechanism design 的五个开放问题上产生了新结果，每个结果都经过领域专家检查。大多数问题大约需要 100 次 Gemini 调用，最难的问题大约需要 1,000 次。
+
+论文：https://t.co/QdCVWgn54S
+
+Chat with Paper：https://t.co/vJsdwneoQe</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HTo3G0zbQAQjGkd.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HTo3G0zbQAQjGkd.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/omarsar0/status/2106056369816420624" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 43</span><span>↻ 2</span><span>↩ 14</span></div><a href="https://x.com/hwchase17/status/2106077292678246697" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="alexandr_wang" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">81<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>10-03 04:18 北京</time></div>
+        <p class="post-text original" lang="auto">you may ask, why open-source this?
+
+first of all, building gadgets is fun.
+
+second, we want to unleash builders to explore all sorts of new and crazy ideas. we believe muse presents a special moment to imagine new kinds of gadgets, and we are excited to see what y&#x27;all build!</p><p class="post-text translation" lang="zh-CN">你可能会问，为什么要开源它？
+
+首先，做 gadgets 很好玩。
+
+其次，我们想释放 builders 的创造力，让他们探索各种新奇甚至疯狂的想法。我们相信 muse 带来了一个特殊时刻，可以去想象新类型的 gadgets，我们很期待看到你们会做出什么！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1677873294/image_normal.jpg" alt="Nat Friedman avatar" loading="lazy"></div><div><strong>Nat Friedman</strong><span>@natfriedman</span></div></div><p class="quote-text original" lang="auto">🚨 side project alert 🚨
+
+Announcing Muse Gadgets, an open source ESP32 firmware and Linux sdk so that you can make hardware devices that work with Muse.
+
+Grab an API token from https://t.co/Q0dE0cYnCs and point your favorite coding agent at the github repo to build your own peripherals for Muse.</p><p class="quote-text translation" lang="zh-CN">🚨 side project alert 🚨
+
+发布 Muse Gadgets，这是一个开源 ESP32 firmware 和 Linux sdk，让你可以制作与 Muse 配合使用的硬件设备。
+
+从 https://t.co/Q0dE0cYnCs 获取 API token，然后让你喜欢的 coding agent 指向 github repo，为 Muse 构建自己的外设。</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HTpcRGqbYAAFg3-.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HTpcRGqbYAAFg3-.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/natfriedman/status/2106099383037309211" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 1,121</span><span>↻ 53</span><span>↩ 79</span></div><a href="https://x.com/alexandr_wang/status/2106116686654931161" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="alexandr_wang" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">80<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>10-03 04:07 北京</time></div>
+        <p class="post-text original" lang="auto">🚨 MUSE ECOSYSTEM ALERT 🚨
+
+today we are announcing Muse Gadgets!
+
+this is an open-source ESP32 firmware and Linux SDK for anyone to make hardware that works with Muse
+
+we are also releasing our own gadget—Muse Home Link—to enable your muse to work with your smart devices (TV, speakers, etc.)</p><p class="post-text translation" lang="zh-CN">🚨 MUSE 生态系统警报 🚨
+
+今天我们宣布推出 Muse Gadgets！
+
+这是一款开源 ESP32 固件和 Linux SDK，任何人都可以用它制作兼容 Muse 的硬件。
+
+我们还将发布自己的小设备 Muse Home Link，让你的 Muse 能与智能设备（电视、音箱等）配合使用。</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HTppDYHWsAAUMI_.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HTppDYHWsAAUMI_.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 3,397</span><span>↻ 239</span><span>↩ 238</span></div><a href="https://x.com/alexandr_wang/status/2106113742266089526" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="alexandr_wang" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">80<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>10-03 05:24 北京</time></div>
+        <p class="post-text original" lang="auto">“JARVIS, deploy the muse gadgets” https://t.co/c6xWxYLljh</p><p class="post-text translation" lang="zh-CN">“JARVIS，部署 muse gadgets” https://t.co/c6xWxYLljh</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HTp865ba8AADBh_.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HTp865ba8AADBh_.jpg" alt="X post media"><span>IMAGE</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div><div><strong>Alexandr Wang</strong><span>@alexandr_wang</span></div></div><p class="quote-text original" lang="auto">🚨 MUSE ECOSYSTEM ALERT 🚨
+
+today we are announcing Muse Gadgets!
+
+this is an open-source ESP32 firmware and Linux SDK for anyone to make hardware that works with Muse
+
+we are also releasing our own gadget—Muse Home Link—to enable your muse to work with your smart devices (TV, speakers, etc.)</p><p class="quote-text translation" lang="zh-CN">🚨 MUSE 生态系统警报 🚨
+
+今天我们宣布推出 Muse Gadgets！
+
+这是一款开源 ESP32 固件和 Linux SDK，任何人都可以用它制作兼容 Muse 的硬件。
+
+我们还将发布自己的小设备 Muse Home Link，让你的 Muse 能与智能设备（电视、音箱等）配合使用。</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HTppDYHWsAAUMI_.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HTppDYHWsAAUMI_.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/alexandr_wang/status/2106113742266089526" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 588</span><span>↻ 23</span><span>↩ 45</span></div><a href="https://x.com/alexandr_wang/status/2106133130688229722" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="openaidevs" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2022002720971096064/l3Kyt4qt_normal.jpg" alt="OpenAI Developers avatar" loading="lazy"></div>
+          <div class="identity"><strong>OpenAI Developers</strong><span>@OpenAIDevs · Agent 平台与开发者产品</span></div>
+          <div class="score">77<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Agent 技术突破</span><time>10-03 06:39 北京</time></div>
+        <p class="post-text original" lang="auto">September for OpenAI Developers</p><p class="post-text translation" lang="zh-CN">OpenAI 开发者九月动态</p>
+        <div class="article"><strong class="original" lang="auto">September for OpenAI Developers</strong><strong class="translation" lang="zh-CN">OpenAI 开发者九月动态</strong><p class="article-text original" lang="auto">If you watched OpenAI DevDay with a code editor open, here’s what to tinker with next:
+
+dots are always-on AI agents with their own cloud computers that can write code, fix bugs and more:
+
+
+GPT-6.1</p><p class="article-text translation" lang="zh-CN">如果你是一边开着代码编辑器一边看 OpenAI DevDay，接下来可以折腾这些：
+
+dots 是始终在线的 AI agents，拥有自己的云端计算机，可以写代码、修 bug 等：
+
+
+GPT-6.1</p></div>
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 67</span><span>↻ 5</span><span>↩ 3</span></div><a href="https://x.com/OpenAIDevs/status/2106152048924438967" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="swyx" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx avatar" loading="lazy"></div>
+          <div class="identity"><strong>swyx</strong><span>@swyx · Latent Space / AI Engineer</span></div>
+          <div class="score">74<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 工作流</span><time>10-03 03:28 北京</time></div>
+        <p class="post-text original" lang="auto">btw dont forget the &quot;one more thing...&quot;
+
+theyve been working on dots for a while now https://t.co/B83svUV9AC</p><p class="post-text translation" lang="zh-CN">顺便别忘了那个“one more thing...”
+
+他们已经做 dots 有一阵子了 https://t.co/B83svUV9AC</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HTpiG2Wa4AAb-Qk.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HTpiG2Wa4AAb-Qk.png" alt="X post media"><span>IMAGE</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1885410181409820672/ztsaR0JW_normal.jpg" alt="OpenAI avatar" loading="lazy"></div><div><strong>OpenAI</strong><span>@OpenAI</span></div></div><p class="quote-text original" lang="auto">Introducing dots, powered by GPT-6 Astra.
+
+Remarkably capable, always-on agents built to handle everything. https://t.co/inY5BZj3Kz</p><p class="quote-text translation" lang="zh-CN">推出 dots，由 GPT-6 Astra 驱动。
+
+能力出众、始终在线的 agents，可处理各种事务。https://t.co/inY5BZj3Kz</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2104984413113393152/img/ww-kV51l6J5DwxZJ.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2104984413113393152/img/ww-kV51l6J5DwxZJ.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/OpenAI/status/2104984504133918973" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 107</span><span>↻ 26</span><span>↩ 28</span></div><a href="https://x.com/swyx/status/2106103958657958298" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">73<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>10-02 23:29 北京</time></div>
+        <p class="post-text original" lang="auto">one of the most challenging tasks for frontier models is being able to extract thousands of values from extremely dense tables in documents.
+
+our new Extract v2.5 agents are able to get 93%-96%+ on long-list extraction, including cells that fall in between pages.
+
+in contrast, astra gets ~30% accuracy over this benchmark.
+
+in these cases, frontier VLMs can stop early or miss repeated records.
+
+they also struggle to attribute each value back to the source. we are able to attribute every single extracted value back to the source.
+
+check out the video below, the blog post, and llamaparse!
+
+blog: https://t.co/TTlTdECU03
+
+llamaparse: https://t.co/XYZmx5TFz8</p><p class="post-text translation" lang="zh-CN">前沿模型最具挑战性的任务之一，是从文档中极其密集的表格里提取成千上万个值。
+
+我们新的 Extract v2.5 agents 在长列表提取上能达到 93%-96%+，包括跨页之间的单元格。
+
+相比之下，astra 在这个基准上的准确率约为 30%。
+
+在这些场景中，前沿 VLMs 可能会提前停止，或漏掉重复记录。
+
+它们也很难把每个值都归因回来源。我们能够将每一个提取出的值都归因回来源。
+
+看看下面的视频、博客文章和 llamaparse！
+
+blog: https://t.co/TTlTdECU03
+
+llamaparse: https://t.co/XYZmx5TFz8</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2106043705526497281/img/e2xcZ3avpJEwSGDZ.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2106043705526497281/img/e2xcZ3avpJEwSGDZ.jpg" alt="X post media"><span>VIDEO</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div><div><strong>Jerry Liu</strong><span>@jerryjliu0</span></div></div><p class="quote-text original" lang="auto">Today we’re introducing Extract v2.5 - a series of frontier agents tuned for document extraction.
+
+The agents (cost-effective, agentic, agentic plus) are tuned for value accuracy and grounding. Our extraction agents outperform Opus 5.5 and GPT-6 Sol while being 30%-4x cheaper.
+
+We’ve made massive improvements on complex extraction over
+* long lists (86.1% -&gt; 95.5% on our agentic tier)
+* records spanning pages (85.5% -&gt; 96.5%)
+* scanned forms (90.9% -&gt; 95.7%)
+
+We’ve also launched the following features:
+✅ Advanced citations: we locate bounding boxes for all supporting values for an inferred field, even if there&#x27;s not an exact match.
+✅ Structural Reasoning: we tailor document extraction algorithms depending on the type, layout, and information
+
+Our extraction agents are SOTA in price-performance on ExtractBench, across a wide range of cost points. We are the best tool for document extraction across documents of any complexity.
+
+Blog: https://t.co/TTlTdECU03
+
+All of these are available on LlamaParse: https://t.co/XYZmx5TFz8 . Come check it out!</p><p class="quote-text translation" lang="zh-CN">今天我们推出 Extract v2.5——一系列面向文档抽取调优的前沿智能体。
+
+这些智能体（cost-effective、agentic、agentic plus）针对数值准确性和可溯源性进行了调优。我们的抽取智能体表现优于 Opus 5.5 和 GPT-6 Sol，同时成本低 30% 到 4 倍。
+
+我们在复杂抽取方面取得了大幅提升：
+* 长列表（agentic 档位从 86.1% 提升到 95.5%）
+* 跨页记录（85.5% -&gt; 96.5%）
+* 扫描表单（90.9% -&gt; 95.7%）
+
+我们还上线了以下功能：
+✅ 高级引用：即使没有精确匹配，我们也能为推断字段定位所有支撑值的边界框。
+✅ 结构化推理：我们会根据文档类型、版式和信息定制文档抽取算法。
+
+在 ExtractBench 上，覆盖多个成本区间，我们的抽取智能体在性价比上达到 SOTA。对于任何复杂度的文档，我们都是最佳文档抽取工具。
+
+博客：https://t.co/TTlTdECU03
+
+这些都已在 LlamaParse 上可用：https://t.co/XYZmx5TFz8 。欢迎来看看！</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2105690582618439680/img/w2h9W9TFuj0YJAO6.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2105690582618439680/img/w2h9W9TFuj0YJAO6.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/jerryjliu0/status/2105692426577056106" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 62</span><span>↻ 6</span><span>↩ 10</span></div><a href="https://x.com/jerryjliu0/status/2106043812611239980" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="mustafasuleyman" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1927407622602276864/c_5uOZij_normal.jpg" alt="Mustafa Suleyman avatar" loading="lazy"></div>
+          <div class="identity"><strong>Mustafa Suleyman</strong><span>@mustafasuleyman · Microsoft AI / CEO</span></div>
+          <div class="score">71<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 产品 / 消费级 AI</span><time>10-02 23:07 北京</time></div>
+        <p class="post-text original" lang="auto">Build your agents with the best Voice and Transcribe Streaming model in the world... now easily available to use on @vercel
+
+#1 for quality and speed... cheaper than any other hyperscaler... and a whopping 60% cheaper than Eleven Labs</p><p class="post-text translation" lang="zh-CN">用全球最好的 Voice 和 Transcribe Streaming 模型来构建你的 agents……现在可以在 @vercel 上轻松使用。
+
+质量和速度都是第一……比任何其他超大规模云厂商都便宜……而且比 Eleven Labs 便宜整整 60%。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1783856060249595904/8TfcCN0r_normal.jpg" alt="Guillermo Rauch avatar" loading="lazy"></div><div><strong>Guillermo Rauch</strong><span>@rauchg</span></div></div><p class="quote-text original" lang="auto">The @MicrosoftAI team is training excellent models.
+Excited to bring them to @vercel, day zero.</p><p class="quote-text translation" lang="zh-CN">@MicrosoftAI 团队正在训练出色的模型。
+很高兴能在首日就把它们带到 @vercel。</p><a class="quote-link" href="https://x.com/rauchg/status/2105702513345511514" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 118</span><span>↻ 13</span><span>↩ 22</span></div><a href="https://x.com/mustafasuleyman/status/2106038354399920506" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="fchollet" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2006806326140350470/Kd5oZv-f_normal.jpg" alt="Francois Chollet avatar" loading="lazy"></div>
+          <div class="identity"><strong>Francois Chollet</strong><span>@fchollet · ARC Prize；Keras 作者</span></div>
+          <div class="score">67<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 研究 / 评测</span><time>10-03 01:35 北京</time></div>
+        <p class="post-text original" lang="auto">Summary of the Keras community call --
+
+1. New pluggable backend plan, upcoming MLX and PaddlePaddle backends; new backends are installed as add-on libraries
+
+2. Reducing number of ops needed to ship new backends; adding backend-agnostic implementations of all secondary ops
+
+3. Streamlining unit testing for new ops; a single harness can now test all ops functionality like casting consistency, etc.
+
+4. Lots of new models available in KerasHub
+
+5. Moving KerasHub away from tf-text preprocessing and adopting PyGrain instead</p><p class="post-text translation" lang="zh-CN">Keras 社区会议总结：
+
+1. 新的可插拔后端计划，即将推出 MLX 和 PaddlePaddle 后端；新后端将作为附加库安装。
+
+2. 减少发布新后端所需的 ops 数量；为所有次级 ops 添加后端无关实现。
+
+3. 简化新 ops 的单元测试；现在一个测试框架即可测试所有 ops 功能，如类型转换一致性等。
+
+4. KerasHub 中新增了大量模型。
+
+5. KerasHub 正在逐步摆脱 tf-text 预处理，改用 PyGrain。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 60</span><span>↻ 7</span><span>↩ 14</span></div><a href="https://x.com/fchollet/status/2106075605494268394" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="c_valenzuelab" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2070496516893229056/bm-CWE5N_normal.jpg" alt="Cristobal Valenzuela avatar" loading="lazy"></div>
+          <div class="identity"><strong>Cristobal Valenzuela</strong><span>@c_valenzuelab · Runway / 联合创始人兼 CEO</span></div>
+          <div class="score">61<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>生成式视频</span><time>10-03 03:05 北京</time></div>
+        <p class="post-text original" lang="auto">the most consequential updates in the next 18 months are coming</p><p class="post-text translation" lang="zh-CN">未来 18 个月最具影响力的更新即将到来</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2075655667033997312/SEdJ6jkH_normal.jpg" alt="cami avatar" loading="lazy"></div><div><strong>cami</strong><span>@camiinthisthang</span></div></div><p class="quote-text original" lang="auto">Runway&#x27;s conference got drowned in the factory cognition drama so I don&#x27;t think many people noticed but
+
+Runway, who is mostly known as a video gen AI lab, is leveraging their world model research to solve one of the biggest bottlenecks in robotics: training data.
+
+Robots normally need thousands of hours of demos recorded on the actual robot, with someone driving it through the same task over and over. Praxis-1 is a robot brain that learns how the physical world works from regular videos of humans doing stuff, using the same research behind Runway&#x27;s world models. So with praxis-1 robotics companies would only needs a few minutes of demos on their own robot to get it working 🫪🫪
+
+This feels like one of those things that feels kind of random now but ends up being very consequential in the next 18 months</p><p class="quote-text translation" lang="zh-CN">Runway 的大会被 factory cognition 的风波淹没了，所以我觉得没多少人注意到，但
+
+Runway 主要以视频生成 AI 实验室闻名，现在正利用他们的世界模型研究来解决机器人领域最大的瓶颈之一：训练数据。
+
+机器人通常需要在实际机器人上录制数千小时的演示，由人反复操控它完成同一个任务。Praxis-1 是一个机器人“大脑”，它基于 Runway 世界模型背后的同一套研究，通过普通的人类操作视频学习物理世界如何运作。所以有了 praxis-1，机器人公司只需要在自己的机器人上做几分钟演示，就能让它跑起来 🫪🫪
+
+这感觉像是那种现在看起来有点随机、但未来 18 个月会变得非常重要的东西</p><a class="quote-link" href="https://x.com/camiinthisthang/status/2106081407546064915" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 18</span><span>↻ 0</span><span>↩ 3</span></div><a href="https://x.com/c_valenzuelab/status/2106098244787093828" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="karpathy" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1296667294148382721/9Pr6XrPB_normal.jpg" alt="Andrej Karpathy avatar" loading="lazy"></div>
+          <div class="identity"><strong>Andrej Karpathy</strong><span>@karpathy · Eureka Labs；前 OpenAI/Tesla</span></div>
+          <div class="score">90<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 / 通用 AI</span><time>10-02 08:37 北京</time></div>
+        <p class="post-text original" lang="auto">We&#x27;ll be spending a lot more time trying to understand the outputs of language models. A few thoughts, tips &amp; tricks:
+
+Writing. Something I&#x27;ve had success with: Ask your LLM to explain something in ASD-STE100, it&#x27;s a controlled language specification originally developed for aerospace maintenance documentation. LLMs well-versed in this language and it comes with heavy constraints on clean writing style that I often find a lot more readable. Sometimes I&#x27;ve tried to soften it a bit e.g. ask for &quot;80% of the way to ASD-STE100&quot; because the spec is quite stringent. But even better:
+
+Diagrams / images. Instead of writing, ask your LLM to create a diagram. These can be a lot easier to process, parse, and understand. But even better:
+
+Web pages. Ask for output &quot;in HTML&quot; to get a beautiful, interactive webpage. LLMs are getting really good at frontend and can create beautiful experiences, animations, etc. But even better:
+
+Explainer videos. The output format I am most bullish on is fully custom / bespoke explainer videos generated on any arbitrary topic. Experiment with things like &quot;Create a 3b1b style video explainer on X. Use my ElevenLabs API key for audio narration&quot;. (you&#x27;d need an API key for the latter or you can ask your LLM to find you decent free alternatives that use your local compute). This is actually starting to work!
+
+In summary:
+- As LLMs get better, they will do more and more of the legwork autonomously, and a lot more of our work will rise up the abstractions into oversight and understanding.
+- Luckily, LLMs can help here too because as intelligence and code are increasingly abundant, you can ask for large, custom, discardable software artifacts (e.g. web apps, video explainers) that would have never made sense to create before. Push the boundaries here and you&#x27;ll be surprised.</p><p class="post-text translation" lang="zh-CN">我们会花更多时间去理解语言模型的输出。几点想法和技巧：
+
+写作。我试过一个很有效的方法：让你的 LLM 用 ASD-STE100 解释某个东西。它是一套最初为航空航天维护文档开发的受控语言规范。LLM 很熟悉这种语言，而且它对清晰写作风格有严格约束，我常常觉得这样更易读。有时我会稍微放宽一点，比如要求“达到 ASD-STE100 的 80%”，因为规范本身相当严格。但还有更好的方式：
+
+图表 / 图像。不要让 LLM 写文字，而是让它创建图表。这些内容往往更容易处理、解析和理解。但还有更好的方式：
+
+网页。要求输出“HTML”，得到一个漂亮、交互式的网页。LLM 在前端方面越来越强，可以创建漂亮的体验、动画等。但还有更好的方式：
+
+讲解视频。我最看好的输出形式，是针对任意主题生成完全定制化的讲解视频。可以尝试类似这样的提示：“Create a 3b1b style video explainer on X. Use my ElevenLabs API key for audio narration”。（后者需要 API key，或者你可以让 LLM 帮你找一些能用本地算力运行的不错免费替代方案。）这真的开始可用了！
+
+总结：
+- 随着 LLM 变得更强，它们会自主完成越来越多的基础工作，而我们的许多工作会抽象到监督和理解层面。
+- 幸运的是，LLM 在这里也能帮上忙，因为随着智能和代码变得越来越充裕，你可以要求生成大型、定制、可丢弃的软件制品（例如 Web 应用、讲解视频），这些东西以前根本不值得创建。多推动边界，你会感到惊讶。</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HTlaHqgbwAAS1lv.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HTlaHqgbwAAS1lv.png" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 38,583</span><span>↻ 4,202</span><span>↩ 1,114</span></div><a href="https://x.com/karpathy/status/2105819303471976479" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="karpathy" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1296667294148382721/9Pr6XrPB_normal.jpg" alt="Andrej Karpathy avatar" loading="lazy"></div>
+          <div class="identity"><strong>Andrej Karpathy</strong><span>@karpathy · Eureka Labs；前 OpenAI/Tesla</span></div>
+          <div class="score">88<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 / 通用 AI</span><time>10-02 14:35 北京</time></div>
+        <p class="post-text original" lang="auto">Cool eval. Simply ask an LLM “Land or Water?” and give it a latitude and longitude coordinate as text. Ask 16,200 times, plot as image. The models know. From compressing the internet.</p><p class="post-text translation" lang="zh-CN">很酷的评测。只要问 LLM：“Land or Water?”，并以文本形式给它一个经纬度坐标。问 16,200 次，再绘制成图像。模型知道答案。来自对互联网的压缩。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1986524542718681088/lvp6Q9FW_normal.png" alt="Celeste avatar" loading="lazy"></div><div><strong>Celeste</strong><span>@celestepoasts</span></div></div><p class="quote-text original" lang="auto">results for all claudes https://t.co/bS5jvCC2YJ</p><p class="quote-text translation" lang="zh-CN">所有 claudes 的结果 https://t.co/bS5jvCC2YJ</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HTAureBb0AA1BoW.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HTAureBb0AA1BoW.png" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/celestepoasts/status/2103232383139057950" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 14,264</span><span>↻ 797</span><span>↩ 395</span></div><a href="https://x.com/karpathy/status/2105909609487872075" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="aravsrinivas" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2028729526822588416/WhtMUI-P_normal.jpg" alt="Aravind Srinivas avatar" loading="lazy"></div>
+          <div class="identity"><strong>Aravind Srinivas</strong><span>@AravSrinivas · Perplexity / CEO</span></div>
+          <div class="score">82<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 搜索 / 产品</span><time>10-03 05:05 北京</time></div>
+        <p class="post-text original" lang="auto">Your creativity is the limit in terms of what you can have Computer do for you. This is the kind of project that you can let an agent run for hours to come back with something great.</p><p class="post-text translation" lang="zh-CN">你能让 Computer 为你做什么，只受你的创造力限制。这类项目可以让一个 agent 跑上几个小时，然后带回很棒的成果。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2028889294174380032/1hOF3gRi_normal.jpg" alt="Computer avatar" loading="lazy"></div><div><strong>Computer</strong><span>@AskPerplexity</span></div></div><p class="quote-text original" lang="auto">Computer built a 3D map of nearly 26,000 restaurants and cafes across all five boroughs of New York City.
+
+Search by dish or neighborhood, then step inside places like Peter Luger and Grand Central Oyster Bar. https://t.co/76bPTAH45e</p><p class="quote-text translation" lang="zh-CN">Computer 构建了一张覆盖纽约市五个行政区近 26,000 家餐厅和咖啡馆的 3D 地图。
+
+可以按菜品或街区搜索，然后走进 Peter Luger、Grand Central Oyster Bar 等地方。https://t.co/76bPTAH45e</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2106115863070015488/img/hoPpJZWrPM7SVppc.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2106115863070015488/img/hoPpJZWrPM7SVppc.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/AskPerplexity/status/2106115912575439053" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 180</span><span>↻ 11</span><span>↩ 19</span></div><a href="https://x.com/AravSrinivas/status/2106128438507532492" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="thom_wolf" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2068682157451571200/_ZNKM_5E_normal.jpg" alt="Thomas Wolf avatar" loading="lazy"></div>
+          <div class="identity"><strong>Thomas Wolf</strong><span>@Thom_Wolf · Hugging Face / 联合创始人兼 CSO</span></div>
+          <div class="score">79<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>开源模型 / Hugging Face</span><time>10-03 01:23 北京</time></div>
+        <p class="post-text original" lang="auto">seems obvious that most personal AI should run on your device
+
+love what Sigil is building with Underdog - powered by the Hugging Face hub</p><p class="post-text translation" lang="zh-CN">很明显，大多数个人 AI 都应该在你的设备上运行
+
+很喜欢 Sigil 正在用 Underdog 构建的东西，由 Hugging Face hub 提供支持</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2094666240820477952/gDNnQ2u-_normal.jpg" alt="Sigil Wen avatar" loading="lazy"></div><div><strong>Sigil Wen</strong><span>@0xSigil</span></div></div><p class="quote-text original" lang="auto">Introducing Underdog, your Private Personal AI on devices you already own
+
+Today we&#x27;re announcing our backing from @a16z @khoslaventures @HummingbirdVC Anthology (@AnthropicAI @MenloVentures) @patrickc @naval @rauchg @polynoamial @Thom_Wolf @Mascobot @tszzl @OfficialLoganK and other top AI leaders
+
+Our mission is to provide free, capable, reliable and private AI to billions of people.
+
+Underdog’s Law: today’s frontier intelligence reaches your devices in six months.
+
+We’re starting with fast, capable AI that runs on consumer hardware. By co-designing models and inference engines, we’re pushing the frontier of capability, speed, power and data efficiency.
+
+Our research also spans agentic commerce, confidential inference, and how AI will reshape the internet economy.
+
+Privacy and capability no longer needs to be a tradeoff. If you believe in this future, join us. Time to build.</p><p class="quote-text translation" lang="zh-CN">推出 Underdog，你在已有设备上的私人个人 AI
+
+今天，我们宣布获得 @a16z @khoslaventures @HummingbirdVC Anthology（@AnthropicAI @MenloVentures）@patrickc @naval @rauchg @polynoamial @Thom_Wolf @Mascobot @tszzl @OfficialLoganK 以及其他顶尖 AI 领袖的支持。
+
+我们的使命是为数十亿人提供免费、强大、可靠且私密的 AI。
+
+Underdog 定律：今天的前沿智能，会在六个月内到达你的设备。
+
+我们从能在消费级硬件上运行的快速、强大 AI 起步。通过协同设计模型和推理引擎，我们正在推进能力、速度、功耗和数据效率的前沿。
+
+我们的研究还涵盖智能体商业、机密推理，以及 AI 将如何重塑互联网经济。
+
+隐私和能力不再需要取舍。如果你相信这个未来，加入我们。该开工了。</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HTo5NLtawAEorFX.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HTo5NLtawAEorFX.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/0xSigil/status/2106067365733790032" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 79</span><span>↻ 10</span><span>↩ 14</span></div><a href="https://x.com/Thom_Wolf/status/2106072600778596742" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="marinkazitnik" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1262814166366240769/uaQvmQNi_normal.jpg" alt="Marinka Zitnik avatar" loading="lazy"></div>
+          <div class="identity"><strong>Marinka Zitnik</strong><span>@marinkazitnik · 权威生物医学 AI 研究者</span></div>
+          <div class="score">78<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>生物医学 AI 与药物发现</span><time>10-02 23:32 北京</time></div>
+        <p class="post-text original" lang="auto">Do biological reasoning models use their biological inputs, or do they answer from text alone? 👇
+
+Biological reasoning models combine language models with biological inputs to make predictions about proteins, genomes, and cells
+
+These inputs include representations from biological foundation models and biological text, such as functional annotations, gene and pathway descriptions, and gene lists ranked by expression
+
+We asked whether current post-training recipes produce models that use these biological inputs when they answer questions about proteins, genes, and cells, or whether the models mostly rely on text alone
+
+Many insights in this project by @AdaFang_ with a great team of collaborators, Nikitha Thoduguli, @LukasF2122, @hanlin_zhang, and @ShamKakade6
+
+@KempnerInst @HarvardDBMI @harvardmed @harvard @broadinstitute</p><p class="post-text translation" lang="zh-CN">生物推理模型会使用它们的生物输入，还是只靠文本作答？👇
+
+生物推理模型将语言模型与生物输入结合，用于预测蛋白质、基因组和细胞。
+
+这些输入包括来自生物基础模型的表征，以及功能注释、基因和通路描述、按表达量排序的基因列表等生物文本。
+
+我们想知道，当前的后训练方案是否会产出在回答蛋白质、基因和细胞相关问题时使用这些生物输入的模型，还是这些模型主要只依赖文本。
+
+这个项目有许多洞见，来自 @AdaFang_ 与一支出色的合作者团队：Nikitha Thoduguli、@LukasF2122、@hanlin_zhang 和 @ShamKakade6。
+
+@KempnerInst @HarvardDBMI @harvardmed @harvard @broadinstitute</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1717925733425643521/unr742HP_normal.jpg" alt="Ada Fang avatar" loading="lazy"></div><div><strong>Ada Fang</strong><span>@AdaFang_</span></div></div><p class="quote-text original" lang="auto">When do biological reasoning models use their biological inputs?
+
+High performance can create a mirage of reliance on biological representations. Reasoning traces don’t always reflect the evidence.
+
+Our paper examines these limits and paths to better biological reasoning models. https://t.co/gEVzPsmY5B</p><p class="quote-text translation" lang="zh-CN">生物推理模型什么时候会使用它们的生物输入？
+
+高性能可能制造一种依赖生物表征的幻觉。推理轨迹并不总能反映证据。
+
+我们的论文研究了这些局限，以及构建更好生物推理模型的路径。https://t.co/gEVzPsmY5B</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2106030644891426816/img/p8ZlcuW-fRpuQcUL.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2106030644891426816/img/p8ZlcuW-fRpuQcUL.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/AdaFang_/status/2106033296962625813" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 40</span><span>↻ 4</span><span>↩ 2</span></div><a href="https://x.com/marinkazitnik/status/2106044573478773056" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">75<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>10-03 01:48 北京</time></div>
+        <p class="post-text original" lang="auto">When I see this it confuses me.  ssh into a computer for god sakes, or use codex remote feature w/ mac mini.
+
+Once you have been stuck in &quot;i need to keep my laptop open&quot; more than 3 times, its crazy to keep this insanity going.</p><p class="post-text translation" lang="zh-CN">看到这个我就困惑。拜托，ssh 到一台电脑上，或者用 codex remote feature 配合 mac mini。
+
+一旦你因为“我得一直开着笔记本”卡住超过 3 次，还继续这样折腾就太疯狂了。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2078140690354130946/qjgFs_xF_normal.jpg" alt="Nicolas Finet avatar" loading="lazy"></div><div><strong>Nicolas Finet</strong><span>@nifinet</span></div></div><p class="quote-text original" lang="auto">tell me you work in tech without telling me you work in tech https://t.co/DQgY0XFY5h</p><p class="quote-text translation" lang="zh-CN">不用明说，就能看出你在科技行业工作 https://t.co/DQgY0XFY5h</p><div class="media-grid media-grid--2"><a class="media-item" href="https://pbs.twimg.com/media/HToGDOwXwAA-d2J.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HToGDOwXwAA-d2J.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HToGDO2XgAAOO5i.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HToGDO2XgAAOO5i.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/nifinet/status/2106002585010540896" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 291</span><span>↻ 8</span><span>↩ 72</span></div><a href="https://x.com/HamelHusain/status/2106078961453474143" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="hwchase17" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1569345624935485442/R67C4wCQ_normal.jpg" alt="Harrison Chase avatar" loading="lazy"></div>
+          <div class="identity"><strong>Harrison Chase</strong><span>@hwchase17 · LangChain / CEO</span></div>
+          <div class="score">74<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Agent 框架</span><time>10-03 01:33 北京</time></div>
+        <p class="post-text original" lang="auto">every agent team ends up wanting its own review ui over their traces - LangSmith Custom Apps lets you build it on your own data and ship it right into the workspace
+
+https://t.co/SuWCfBFvg9</p><p class="post-text translation" lang="zh-CN">每个 agent 团队最终都会想要一个自己的 review ui 来查看 traces - LangSmith Custom Apps 让你基于自己的数据构建它，并直接发布到 workspace
+
+https://t.co/SuWCfBFvg9</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2028336270431453184/jRRpLAdG_normal.jpg" alt="LangChain avatar" loading="lazy"></div><div><strong>LangChain</strong><span>@LangChain</span></div></div><p class="quote-text original" lang="auto">💻 Build the interface you want w/ your LangSmith data
+✅ Publish it into your workspace
+🙅 Skip hosting, auth, + permissions work
+
+Get started with Custom Apps today.
+https://t.co/MayBpUbhnW</p><p class="quote-text translation" lang="zh-CN">💻 用你的 LangSmith 数据构建你想要的界面
+✅ 发布到你的 workspace
+🙅 省去托管、认证和权限工作
+
+今天就开始使用 Custom Apps。
+https://t.co/MayBpUbhnW</p><a class="quote-link" href="https://x.com/LangChain/status/2106067328601370724" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 26</span><span>↻ 1</span><span>↩ 8</span></div><a href="https://x.com/hwchase17/status/2106075174793863630" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="llama_index" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1967920417760251904/0ytfduMQ_normal.png" alt="LlamaIndex avatar" loading="lazy"></div>
+          <div class="identity"><strong>LlamaIndex</strong><span>@llama_index · Agent 数据框架</span></div>
+          <div class="score">73<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Agent 技术突破</span><time>10-03 01:35 北京</time></div>
+        <p class="post-text original" lang="auto">The BEA&#x27;s new Q2 GDP-by-state was released, but the key data is entirely in an infographic, without a text-layer.
+
+LlamaParse&#x27;s agentic parsing tier understands documents like this by default, and faithfully records data, turning the page into a 52-row table.
+
+Source: https://t.co/0sBhstAIhM</p><p class="post-text translation" lang="zh-CN">BEA 新发布了 Q2 各州 GDP 数据，但关键数据完全放在一张信息图里，没有文本层。
+
+LlamaParse 的智能体解析层默认就能理解这类文档，并忠实记录数据，把页面转换成一个 52 行表格。
+
+来源：https://t.co/0sBhstAIhM</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HTpIgvPWgAA3lBf.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HTpIgvPWgAA3lBf.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 9</span><span>↻ 4</span><span>↩ 4</span></div><a href="https://x.com/llama_index/status/2106075506567237754" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="joaomdmoura" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1993772444268810240/FPCMce3S_normal.jpg" alt="Joao Moura avatar" loading="lazy"></div>
+          <div class="identity"><strong>Joao Moura</strong><span>@joaomdmoura · CrewAI / 创始人兼 CEO</span></div>
+          <div class="score">64<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 框架</span><time>10-02 20:00 北京</time></div>
+        <p class="post-text original" lang="auto">My engineering team probably wishes I did not code.
+
+I still do. I love it. On a weekend I will get a crazy idea and think, let me try this out.
+
+What I do not do anymore is take tasks.
+
+I learned the hard way that if I try to do anything critical, I become a blocker. So I stay out of it. My ideas go in as PRs, and the team takes them from there and makes them look good.
+
+And there is still so much to improve. We ran one experiment that got all of our agents running five times faster. Five times. The fix was something so silly I had not seen it before.
+
+The coding also keeps a standard in my head.
+
+I use Cursor every day and I think its agent is amazing.
+
+My goal for CrewAI is that every agent anyone builds with it is that good by default.
+
+Founders, do you still write code? And who has to clean it up?</p><p class="post-text translation" lang="zh-CN">我的工程团队大概希望我别写代码。
+
+但我还是会写。我喜欢写。周末我冒出一个疯狂想法时，就会想：让我试试看。
+
+不过我现在不再接任务了。
+
+我吃过苦头才明白，如果我试图做任何关键事情，我就会变成阻碍。所以我不插手。我的想法会以 PR 的形式提交，之后团队接手，把它们打磨好。
+
+而且还有太多可以改进的地方。我们做过一个实验，让所有 agent 的运行速度快了五倍。五倍。修复方法傻得离谱，我以前从没见过。
+
+写代码也让我心里始终有一套标准。
+
+我每天都用 Cursor，我觉得它的 agent 非常出色。
+
+我对 CrewAI 的目标是：任何人用它构建的每个 agent，默认都能达到那样的水准。
+
+创始人们，你们现在还写代码吗？又是谁来收拾残局？</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2105991205482094592/img/Jud48B__Uo3I7wB8.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2105991205482094592/img/Jud48B__Uo3I7wB8.jpg" alt="X post media"><span>VIDEO</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 17</span><span>↻ 0</span><span>↩ 7</span></div><a href="https://x.com/joaomdmoura/status/2105991263044706435" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="aravsrinivas" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2028729526822588416/WhtMUI-P_normal.jpg" alt="Aravind Srinivas avatar" loading="lazy"></div>
+          <div class="identity"><strong>Aravind Srinivas</strong><span>@AravSrinivas · Perplexity / CEO</span></div>
+          <div class="score">63<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 搜索 / 产品</span><time>10-02 12:14 北京</time></div>
+        <p class="post-text original" lang="auto">@AkhiVishwakarma @tradingview Already integrated</p><p class="post-text translation" lang="zh-CN">@AkhiVishwakarma @tradingview 已经集成了</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2009310641165660160/XArF3_Ib_normal.jpg" alt="Perplexity avatar" loading="lazy"></div><div><strong>Perplexity</strong><span>@perplexity_ai</span></div></div><p class="quote-text original" lang="auto">Perplexity Computer can now create videos using MiniMax H3 and ByteDance Seedance 2.5.
+
+Ask Computer for a campaign clip, product demo, or social asset, and it produces finished video next to copy and creative in same thread.
+
+Available now for Pro and Max subscribers. https://t.co/0TpWW5Etr2</p><p class="quote-text translation" lang="zh-CN">Perplexity Computer 现在可以使用 MiniMax H3 和 ByteDance Seedance 2.5 创建视频。
+
+让 Computer 生成 campaign clip、product demo 或 social asset，它会在同一线程中产出成片，并配套文案和创意内容。
+
+现已面向 Pro 和 Max 订阅用户开放。https://t.co/0TpWW5Etr2</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HSwN1d3aAAAl_zb.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HSwN1d3aAAAl_zb.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/perplexity_ai/status/2102071798179434966" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 1</span><span>↻ 1</span><span>↩ 0</span></div><a href="https://x.com/AravSrinivas/status/2105874056339939390" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="fchollet" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2006806326140350470/Kd5oZv-f_normal.jpg" alt="Francois Chollet avatar" loading="lazy"></div>
+          <div class="identity"><strong>Francois Chollet</strong><span>@fchollet · ARC Prize；Keras 作者</span></div>
+          <div class="score">60<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 研究 / 评测</span><time>10-03 05:12 北京</time></div>
+        <p class="post-text original" lang="auto">I think there are three extremely important changes:
+
+1. Switch from transductive paradigm to inductive paradigm (by far the biggest jump)
+2. Symbolic tool use, code execution, harnesses
+3. Training models on code execution &amp; harnesses, so that they start to encode symbolic behavior
+
+Current AI systems have the highest degree of symbolic affinity of any AI approach from the past 20 years (aside from symbolic learning itself)</p><p class="post-text translation" lang="zh-CN">我认为有三个极其重要的变化：
+
+1. 从转导式范式转向归纳式范式（迄今为止最大的跃迁）
+2. 符号化工具使用、代码执行、harnesses
+3. 用代码执行和 harnesses 训练模型，使其开始编码符号行为
+
+当前 AI 系统拥有过去 20 年所有 AI 方法中最高程度的符号亲和性（符号学习本身除外）</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 19</span><span>↻ 2</span><span>↩ 1</span></div><a href="https://x.com/fchollet/status/2106130297150661063" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="thom_wolf" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2068682157451571200/_ZNKM_5E_normal.jpg" alt="Thomas Wolf avatar" loading="lazy"></div>
+          <div class="identity"><strong>Thomas Wolf</strong><span>@Thom_Wolf · Hugging Face / 联合创始人兼 CSO</span></div>
+          <div class="score">91<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>开源模型 / Hugging Face</span><time>10-02 14:28 北京</time></div>
+        <p class="post-text original" lang="auto">Karpathy: disappears from X
+
+Ben Affleck: alright, gather round, so you&#x27;ll want to freeze the base weights first, learning rate 2e-4 https://t.co/CG9GvBnmil</p><p class="post-text translation" lang="zh-CN">Karpathy：从 X 上消失
+
+Ben Affleck：好了，都过来，所以你们首先要冻结基础权重，学习率 2e-4 https://t.co/CG9GvBnmil</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HTmwC5mXAAA0KU5.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HTmwC5mXAAA0KU5.jpg" alt="X post media"><span>IMAGE</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1816185267037859840/Fd18CH0v_normal.jpg" alt="Rohan Paul avatar" loading="lazy"></div><div><strong>Rohan Paul</strong><span>@rohanpaul_ai</span></div></div><p class="quote-text original" lang="auto">Ben Affleck (Hollywood star &amp; Artists Equity CEO) talks about how he fine-tunes open video models by unfreezing weights and trained only the last cinematic layer so a film crew can hit real production standards.
+
+for context, Ben Affleck founded InterPositive in 2022, a 16-person AI shop for film post and Netflix bought it in March 2026 for $587 mn in cash.
+
+He needed that model because public video models were trained on his peers&#x27; films, and he did not think that was a real business. So InterPositive raised money, shot its own dataset for 8 months on a controlled stage, and used it only as late-stage training.
+
+Each new film then trains a private model on its own dailies, so the production keeps the footage and the learning. That is the product Netflix paid $587 million for.
+
+----
+From &quot;Bloomberg Live&quot; YouTube channel, (link in comment)</p><p class="quote-text translation" lang="zh-CN">Ben Affleck（好莱坞明星兼 Artists Equity CEO）谈到，他如何通过解冻权重来微调开源视频模型，并且只训练最后的电影感层，让电影摄制组能够达到真实制作标准。
+
+背景是，Ben Affleck 于 2022 年创立了 InterPositive，这是一家 16 人规模、面向影视后期的 AI 公司，Netflix 于 2026 年 3 月以 5.87 亿美元现金收购了它。
+
+他需要这个模型，是因为公开视频模型是用他同行的电影训练出来的，而他不认为这是一门真正的生意。所以 InterPositive 融资后，在受控摄影棚里花了 8 个月拍摄自己的数据集，并且只把它用于后期训练。
+
+之后每部新电影都会用自己的样片训练一个私有模型，因此制片方能保留素材和学习成果。这就是 Netflix 花 5.87 亿美元买下的产品。
+
+----
+来自 &quot;Bloomberg Live&quot; YouTube 频道（链接见评论）</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2105785323787788289/img/EGQlM4HiUtZDJ-nH.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2105785323787788289/img/EGQlM4HiUtZDJ-nH.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/rohanpaul_ai/status/2105786881111896126" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 6,133</span><span>↻ 301</span><span>↩ 112</span></div><a href="https://x.com/Thom_Wolf/status/2105907871401845191" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="anilkseth" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1479788727346118657/MkLkGnOk_normal.jpg" alt="Anil Seth avatar" loading="lazy"></div>
+          <div class="identity"><strong>Anil Seth</strong><span>@anilkseth · 权威意识研究者</span></div>
+          <div class="score">81<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>意识科学与神经科学</span><time>10-02 18:10 北京</time></div>
+        <p class="post-text original" lang="auto">Hi @RubenLaukkonen, you are an excellent scientist too (I especially like your work with @shamilch). But I strongly disagree with what you say here. Because  I respect your work, I will explain why.
+
+My credence in consciousness for current LLMs being very close to zero (certainly &gt;80% in the &#x27;no consciousness&#x27; direction) is not a matter of faith, nor is it an argument from authority, nor is it &quot;unscientific&quot;. It is a conclusion I reach based on years of research and conversation, and it is grounded in reason and evidence - the cornerstones of science. I know you aware of this work (e.g., the @BBSJournal collection along with 50 commentaries).
+
+I am not &#x27;dictating&#x27; the probability of AI consciousness. I am expressing my rationally-held view. You may (and do) come to a different conclusion. That&#x27;s fine. We can disagree on what credences are reasonable, but there&#x27;s no need to mischaracterise.
+
+Of course I might be wrong, and I always say that nobody can be 100% sure in either direction. I explicitly admit the possibility of being wrong in many places (e.g., the BBS paper), which is why even trying to build conscious AI is a terrible idea (something I have also been saying for years). I have also been clear what would change my credences (e.g., positive evidence for computational functionalism).
+
+I do believe there are many dangers to taking seriously calls for AI welfare, and that these dangers are generally underestimated and under-discussed. I will continue to point these dangers out. Again you disagree, but it seems wrong to dismiss my view as &quot;unscientific&quot; (its actually not even wrong, since we talking about ethics here).
+
+You also imply that my views are &#x27;extremist&#x27; which I find disappointing. Many other scientists and philosophers share these views, some defending even stronger versions. As a matter of descriptive accuracy, it feels wrong to characterise all of us as &#x27;extreme&#x27;. What&#x27;s more, this term has political connotations which I do not think are helpful or appropriate given the febrile nature of this debate.
+
+My colleagues who hold different views from me (e.g., @jeffrsebo,  @rgblong, @camhberg) do so for their own good reasons, which I respect and engage with. Their views are also based on reason and evidence. I disagree with a lot of they say, but I do not dismiss them as being faith-based, arguing from authority, or being unscientific. They are none of these things. I am sure they have excellent intentions, and that they are doing their best to navigate this complicated situation. In fact we have a lot of common ground, which provides the basis for productive discussions. (See for example my response to @jeffrsebo from earlier today, where you will see lots of agreement: https://t.co/77kDb04jHI)
+
+As for the religious leader business, I do think this is worth paying attention to. There are corporate incentives to having religious approval for a particular way of viewing AI, and I think it&#x27;s naive to assume these interactions are simply an innocent &#x27;sharing of honest views&#x27;.
+
+All the best 🙏🏽</p><p class="post-text translation" lang="zh-CN">嗨 @RubenLaukkonen，你也是一位出色的科学家（我尤其喜欢你和 @shamilch 合作的研究）。但我强烈不同意你在这里的说法。正因为我尊重你的工作，所以我会解释原因。
+
+我认为当前 LLM 具备意识的置信度非常接近于零（在“无意识”方向上肯定 &gt;80%），这不是信仰问题，也不是诉诸权威，更不是“不科学”。这是我基于多年研究和讨论得出的结论，并且建立在理性和证据之上，也就是科学的基石。我知道你了解这些工作（例如 @BBSJournal 专辑以及 50 篇评论）。
+
+我并不是在“规定”AI 意识的概率。我是在表达自己理性持有的观点。你可能（也确实）得出了不同结论。这没问题。我们可以在什么样的置信度才算合理上存在分歧，但没必要歪曲彼此。
+
+当然，我可能是错的，而且我一直说，任何方向上都没人能 100% 确定。我在很多地方都明确承认自己可能出错（例如 BBS 论文），这也是为什么即便只是尝试构建有意识 AI 都是个糟糕主意（这点我也说了很多年）。我也清楚说明过什么会改变我的置信度（例如支持计算功能主义的正面证据）。
+
+我确实认为，认真对待 AI 福利呼吁存在许多危险，而这些危险通常被低估、讨论不足。我会继续指出这些危险。你同样不同意，但把我的观点斥为“不科学”似乎不对（事实上这甚至不是错，因为我们讨论的是伦理问题）。
+
+你还暗示我的观点是“极端主义”，这让我很失望。许多其他科学家和哲学家也持有这些观点，有些人甚至为更强版本辩护。从描述准确性的角度看，把我们所有人都说成“极端”是不对的。更重要的是，这个词带有政治含义，而鉴于这场辩论的高度紧张性质，我认为这既无帮助也不合适。
+
+与我持不同观点的同事（例如 @jeffrsebo、@rgblong、@camhberg）也都有他们自己的充分理由，我尊重并愿意与之交流。他们的观点同样基于理性和证据。我不同意他们说的很多内容，但我不会把他们斥为基于信仰、诉诸权威或不科学。他们都不是这样。我相信他们有很好的初衷，也在尽力应对这个复杂局面。事实上，我们有很多共同点，这为富有成效的讨论奠定了基础。（例如可以看我今天早些时候对 @jeffrsebo 的回应，你会看到很多共识：https://t.co/77kDb04jHI）
+
+至于宗教领袖这件事，我确实认为值得关注。企业有动机让某种看待 AI 的方式获得宗教认可，我认为如果假设这些互动只是无害的“真诚观点交流”，那就太天真了。
+
+祝好 🙏🏽</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1479788727346118657/MkLkGnOk_normal.jpg" alt="Anil Seth avatar" loading="lazy"></div><div><strong>Anil Seth</strong><span>@anilkseth</span></div></div><p class="quote-text original" lang="auto">Hi @jeffrsebo - lots of respect for you too (&amp; your colleagues like @camhberg &amp; @rgblong), and a fair amount of common ground also. I doubt that @X is the best place to hash all this out, but I&#x27;ll do my best to respond briefly.
+
+Jeff (at the end): &quot;I think Anil and I agree more than we disagree. But I also think that efforts to assess and address AI consciousness and welfare will be much more productive if they start from an acknowledgment of what makes it so important and so difficult.&quot;
+
+I agree. The question of AI consciousness is of massive importance, and also massively difficult.
+
+Jeff (at the start): &quot;While the evidence for consciousness in current AI systems may be weak, the probability is already nonzero, plausibly non-negligible, and likely to increase over time, especially if and when AI systems acquire more biologically inspired architectures&quot;
+
+Agree. I have said many times that as AI gets more brainlike this could change credences. I do think there are good arguments why its not just a matter of architecture, since there are good arguments against computational functionalism.
+
+Jeff: &quot;While over-attributing consciousness and welfare to AI carries serious risks, so does under-attributing them, and it can be reasonable to explore interventions that mitigate both risks at the same time, in proportion to the probability and severity of each.&quot;
+
+Again, I agree. I am glad people like you are looking into the under-attribution possibility.  The problem is that the interventions can pull in different directions. Interventions to guard against possible AI harm often reinforce the negative consequences of false positives (e.g., through loss of control guardrails). That said, we can all agree that people should not be deliberately &quot;torturing&quot; LLMs.
+
+Jeff &quot;Despite what David suggests in the linked thread, most people who support AI welfare work, including at Anthropic, are not certain that AI systems are or will be welfare subjects. They think this is a realistic possibility worthy of serious consideration&quot;
+
+I agree with this too, and the people I spoke with directly at @AnthropicAI have been impressively open and open minded.  This did not include the senior management, and the company has its own identity too.
+
+Jeff &quot;Despite what Anil suggests here, this debate is not a matter of neuroscience and philosophy on one side and &quot;the techno-chambers of the frontier firms&quot; on the other.&quot;
+
+I mostly stand by this. I think it characterises the majority of the relevant dynamics. There are important exceptions (e.g., @mustafasuleyman at @MicrosoftAI). My point is that the majority of the frontier work on this topic concerns examining their own models, rather than supporting work trying to understand the necessary/sufficient conditions for consciousness where we know it exists. (In us.). Also, I did mean &#x27;techo-chamber&#x27; - a neologism which probably won&#x27;t catch on ;-)
+
+Jeff &quot;Serious scientists, philosophers, and AI developers are on both sides.&quot;
+
+I agree, and didn&#x27;t say otherwise.
+
+Jeff: &quot;Corporate incentives also cut both ways. In some contexts, companies may have an incentive to play up AI consciousness in order to hype capabilities and encourage engagement with their models. In other contexts, they may have an incentive to play it down in order to avoid calls for oversight and regulation, especially as welfare protections become costlier. In any case, even if incentives pushed in one direction, that would not settle whether AI systems are, in fact, conscious and deserving of protection.&quot;
+
+Indeed, but I think it helps to consider the motivations in this larger context. As I wrote in my @NoemaMag piece, there is an emerging mythology about conscious AI, which has a long history and some disturbing undercurrents which could lead to a catastrophic undervaluing of human life and human consciousness. (https://t.co/LmSiQnT9Wh)
+
+Jeff: &quot;I disagree that openness to AI consciousness and welfare is &quot;profoundly dehumanising.&quot; A major part of what makes humanity special is our capacity to care for others, and in a world that still contains factory farming, cultivating that capacity should be seen as profoundly humanizing, an expression of our better angels.&quot;
+
+I agree that our capacity to care makes us special (if not unique, many other animals do this too),  that this capacity should be cultivated, and that factory farming should be stopped. But the cultivation should be in the most appropriate directions. If we end up caring too much about our AI agents, this can be dehumanizing in very literal ways: we diminish our view of ourselves as living, embodied human beings, we take ourselves further outside of nature (rather than recognising we are part of it), our ability to form relationships with other humans may suffer, and we may care less about our fellow sentient creatures, humans and beyond. In other words I mean dehumanizing in the literal sense of what humanism means. Here I am mostly aligned with @mustafasuleyman&#x27;s &#x27;Humanist AI&#x27; though I would add more nuance (https://t.co/uRGFGfzxez).
+
+Jeff: &quot;Granted, we can take this impulse too far, which is why we need serious research and policy to strike a balance. Still, the aim should be extending care appropriately, not dismissing the project altogether.&quot;
+
+I do not want to dismiss it, and I&#x27;m glad you and others are working on it. But to me the right balance is not being struck. The fact that we don&#x27;t know for sure does not mean that we know nothing. I will argue for my view, just as I expect you do for yours.  And as you say, we share much common ground 🙏🏽
+
+(For anyone who has made it this far, the real meat of the debate - with views on all sides - can be found in this @BBSJournal collection, with my target article and response, and 50 commentaries from peers in academia, tech, and beyond - representing pretty much every perspective on this important issue.) https://t.co/Tsaslytu56</p><p class="quote-text translation" lang="zh-CN">嗨 @jeffrsebo，我也非常尊重你（以及像 @camhberg 和 @rgblong 这样的同事），我们之间也有不少共同点。我怀疑 @X 不是把这些问题彻底谈清楚的最佳场所，但我会尽量简短回应。
+
+Jeff（结尾处）：“我认为 Anil 和我的共识多于分歧。但我也认为，如果评估和应对 AI 意识与福利的努力从承认这个问题为何如此重要、又为何如此困难出发，它们会更有成效。”
+
+我同意。AI 意识问题极其重要，也极其困难。
+
+Jeff（开头处）：“虽然当前 AI 系统具备意识的证据可能很弱，但其概率已经非零，可能不可忽视，并且很可能随着时间推移而增加，尤其是当 AI 系统获得更多受生物启发的架构时。”
+
+同意。我多次说过，随着 AI 变得更像大脑，置信度可能会改变。我确实认为，有很好的论证表明这不只是架构问题，因为也有很好的论证反对计算功能主义。
+
+Jeff：“虽然过度归因 AI 意识和福利会带来严重风险，归因不足同样如此；探索同时缓解两类风险的干预措施，并根据每类风险的概率和严重性进行权衡，是合理的。”
+
+同样，我同意。我很高兴像你这样的人在研究归因不足的可能性。问题在于，这些干预措施可能朝不同方向拉扯。防范潜在 AI 伤害的干预，往往会强化误判为阳性所带来的负面后果（例如通过失控防护栏）。话虽如此，我们都可以同意，人们不应故意“折磨”LLMs。
+
+Jeff：“尽管 David 在链接线程中有所暗示，但大多数支持 AI 福利工作的人，包括 Anthropic 的人，并不确定 AI 系统现在或未来会成为福利主体。他们认为这是一个现实可能性，值得认真考虑。”
+
+这一点我也同意，我直接接触过的 @AnthropicAI 人员表现得非常开放，也很有开放心态。不过这不包括高层管理层，而且公司本身也有自己的身份认同。
+
+Jeff：“尽管 Anil 在这里有所暗示，这场辩论并不是一边是神经科学和哲学，另一边是‘前沿公司的技术回音室’。”
+
+我基本坚持这一点。我认为它描述了相关动态中的大部分情况。当然也有重要例外（例如 @MicrosoftAI 的 @mustafasuleyman）。我的意思是，前沿公司在这个话题上的大多数工作，关注的是检查它们自己的模型，而不是支持那些试图理解意识存在处（也就是我们身上）必要/充分条件的研究。另外，我确实写的是 &#x27;techo-chamber&#x27;，这是个大概不会流行起来的新词 ;-)
+
+Jeff：“严肃的科学家、哲学家和 AI 开发者站在双方。”
+
+我同意，也没有说过相反的话。
+
+Jeff：“企业激励也会双向作用。在某些情况下，公司可能有动机夸大 AI 意识，以炒作能力并鼓励用户与模型互动。在另一些情况下，公司可能有动机淡化它，以避免监督和监管呼声，尤其是在福利保护变得更昂贵时。无论如何，即便激励朝一个方向推动，也不能决定 AI 系统事实上是否有意识、是否值得保护。”
+
+确实如此，但我认为把这些动机放在更大的语境中考虑是有帮助的。正如我在 @NoemaMag 文章中写到的，一种关于有意识 AI 的神话正在兴起，它有着悠久历史，也有一些令人不安的暗流，可能导致对人类生命和人类意识的灾难性低估。（https://t.co/LmSiQnT9Wh）
+
+Jeff：“我不同意说对 AI 意识和福利持开放态度是‘深刻去人性化’的。人类之所以特殊，一个重要部分在于我们关怀他者的能力；在一个仍然存在工厂化养殖的世界里，培养这种能力应被视为深刻的人性化，是我们更好天性的体现。”
+
+我同意，我们的关怀能力让我们特殊（即便不唯一，许多其他动物也会如此），这种能力应该被培养，工厂化养殖也应该被停止。但培养应该朝最合适的方向进行。如果我们最终过度关心 AI agents，这可能以非常字面的方式去人性化：我们会弱化对自身作为有生命、具身人类的理解，把自己进一步置于自然之外（而不是认识到我们是自然的一部分），我们与其他人类建立关系的能力可能受损，我们也可能更少关心其他有感知的生命，包括人类以及人类之外的生命。换句话说，我所说的去人性化，是从人文主义含义出发的字面意义。在这一点上，我大体认同 @mustafasuleyman 的“Humanist AI”，不过我会加入更多细微差别（https://t.co/uRGFGfzxez）。
+
+Jeff：“诚然，我们可能把这种冲动推得太远，这也是为什么我们需要严肃研究和政策来取得平衡。不过，目标应该是恰当地扩展关怀，而不是完全否定这个项目。”
+
+我并不想否定它，我也很高兴你和其他人在做这项工作。但在我看来，目前并没有取得正确平衡。我们不能因为不知道确定答案，就等于什么都不知道。我会为自己的观点辩护，正如我期待你也会为你的观点辩护。正如你所说，我们有很多共同点 🙏🏽
+
+（对于任何读到这里的人，这场辩论真正的核心内容，包括各方观点，都可以在这个 @BBSJournal 专辑中找到，其中包括我的目标论文和回应，以及来自学界、科技界和其他领域同行的 50 篇评论，几乎涵盖了这个重要问题上的所有视角。）https://t.co/Tsaslytu56</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HTm6qyrWoAAVHrm.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HTm6qyrWoAAVHrm.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/anilkseth/status/2105920205884903476" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 74</span><span>↻ 6</span><span>↩ 8</span></div><a href="https://x.com/anilkseth/status/2105963581858566368" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="hwchase17" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1569345624935485442/R67C4wCQ_normal.jpg" alt="Harrison Chase avatar" loading="lazy"></div>
+          <div class="identity"><strong>Harrison Chase</strong><span>@hwchase17 · LangChain / CEO</span></div>
+          <div class="score">78<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Agent 框架</span><time>10-03 00:13 北京</time></div>
+        <p class="post-text original" lang="auto">Memory is hard to get working well, especially in a company setting
+
+Making some improvements to how we memory in managed deepagents!</p><p class="post-text translation" lang="zh-CN">让记忆机制良好运作很难，尤其是在公司环境中。
+
+我们正在对 managed deepagents 中的记忆方式做一些改进！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1982513791498625024/mTCEFECz_normal.jpg" alt="Caspar avatar" loading="lazy"></div><div><strong>Caspar</strong><span>@caspar_br</span></div></div><p class="quote-text original" lang="auto">User memory in Managed Deep Agents 0.8: your agent can remember the people it works with https://t.co/pnmD06la9i https://t.co/g6xer256tI</p><p class="quote-text translation" lang="zh-CN">Managed Deep Agents 0.8 中的用户记忆：你的 agent 可以记住与它协作的人 https://t.co/pnmD06la9i https://t.co/g6xer256tI</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2106049698603913216/img/sI2uiDpqKwTnmuhN.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2106049698603913216/img/sI2uiDpqKwTnmuhN.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/caspar_br/status/2106053087324778989" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 53</span><span>↻ 4</span><span>↩ 25</span></div><a href="https://x.com/hwchase17/status/2106054930041872693" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="anilkseth" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1479788727346118657/MkLkGnOk_normal.jpg" alt="Anil Seth avatar" loading="lazy"></div>
+          <div class="identity"><strong>Anil Seth</strong><span>@anilkseth · 权威意识研究者</span></div>
+          <div class="score">76<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>意识科学与神经科学</span><time>10-02 15:17 北京</time></div>
+        <p class="post-text original" lang="auto">Hi @jeffrsebo - lots of respect for you too (&amp; your colleagues like @camhberg &amp; @rgblong), and a fair amount of common ground also. I doubt that @X is the best place to hash all this out, but I&#x27;ll do my best to respond briefly.
+
+Jeff (at the end): &quot;I think Anil and I agree more than we disagree. But I also think that efforts to assess and address AI consciousness and welfare will be much more productive if they start from an acknowledgment of what makes it so important and so difficult.&quot;
+
+I agree. The question of AI consciousness is of massive importance, and also massively difficult.
+
+Jeff (at the start): &quot;While the evidence for consciousness in current AI systems may be weak, the probability is already nonzero, plausibly non-negligible, and likely to increase over time, especially if and when AI systems acquire more biologically inspired architectures&quot;
+
+Agree. I have said many times that as AI gets more brainlike this could change credences. I do think there are good arguments why its not just a matter of architecture, since there are good arguments against computational functionalism.
+
+Jeff: &quot;While over-attributing consciousness and welfare to AI carries serious risks, so does under-attributing them, and it can be reasonable to explore interventions that mitigate both risks at the same time, in proportion to the probability and severity of each.&quot;
+
+Again, I agree. I am glad people like you are looking into the under-attribution possibility.  The problem is that the interventions can pull in different directions. Interventions to guard against possible AI harm often reinforce the negative consequences of false positives (e.g., through loss of control guardrails). That said, we can all agree that people should not be deliberately &quot;torturing&quot; LLMs.
+
+Jeff &quot;Despite what David suggests in the linked thread, most people who support AI welfare work, including at Anthropic, are not certain that AI systems are or will be welfare subjects. They think this is a realistic possibility worthy of serious consideration&quot;
+
+I agree with this too, and the people I spoke with directly at @AnthropicAI have been impressively open and open minded.  This did not include the senior management, and the company has its own identity too.
+
+Jeff &quot;Despite what Anil suggests here, this debate is not a matter of neuroscience and philosophy on one side and &quot;the techno-chambers of the frontier firms&quot; on the other.&quot;
+
+I mostly stand by this. I think it characterises the majority of the relevant dynamics. There are important exceptions (e.g., @mustafasuleyman at @MicrosoftAI). My point is that the majority of the frontier work on this topic concerns examining their own models, rather than supporting work trying to understand the necessary/sufficient conditions for consciousness where we know it exists. (In us.). Also, I did mean &#x27;techo-chamber&#x27; - a neologism which probably won&#x27;t catch on ;-)
+
+Jeff &quot;Serious scientists, philosophers, and AI developers are on both sides.&quot;
+
+I agree, and didn&#x27;t say otherwise.
+
+Jeff: &quot;Corporate incentives also cut both ways. In some contexts, companies may have an incentive to play up AI consciousness in order to hype capabilities and encourage engagement with their models. In other contexts, they may have an incentive to play it down in order to avoid calls for oversight and regulation, especially as welfare protections become costlier. In any case, even if incentives pushed in one direction, that would not settle whether AI systems are, in fact, conscious and deserving of protection.&quot;
+
+Indeed, but I think it helps to consider the motivations in this larger context. As I wrote in my @NoemaMag piece, there is an emerging mythology about conscious AI, which has a long history and some disturbing undercurrents which could lead to a catastrophic undervaluing of human life and human consciousness. (https://t.co/LmSiQnT9Wh)
+
+Jeff: &quot;I disagree that openness to AI consciousness and welfare is &quot;profoundly dehumanising.&quot; A major part of what makes humanity special is our capacity to care for others, and in a world that still contains factory farming, cultivating that capacity should be seen as profoundly humanizing, an expression of our better angels.&quot;
+
+I agree that our capacity to care makes us special (if not unique, many other animals do this too),  that this capacity should be cultivated, and that factory farming should be stopped. But the cultivation should be in the most appropriate directions. If we end up caring too much about our AI agents, this can be dehumanizing in very literal ways: we diminish our view of ourselves as living, embodied human beings, we take ourselves further outside of nature (rather than recognising we are part of it), our ability to form relationships with other humans may suffer, and we may care less about our fellow sentient creatures, humans and beyond. In other words I mean dehumanizing in the literal sense of what humanism means. Here I am mostly aligned with @mustafasuleyman&#x27;s &#x27;Humanist AI&#x27; though I would add more nuance (https://t.co/uRGFGfzxez).
+
+Jeff: &quot;Granted, we can take this impulse too far, which is why we need serious research and policy to strike a balance. Still, the aim should be extending care appropriately, not dismissing the project altogether.&quot;
+
+I do not want to dismiss it, and I&#x27;m glad you and others are working on it. But to me the right balance is not being struck. The fact that we don&#x27;t know for sure does not mean that we know nothing. I will argue for my view, just as I expect you do for yours.  And as you say, we share much common ground 🙏🏽
+
+(For anyone who has made it this far, the real meat of the debate - with views on all sides - can be found in this @BBSJournal collection, with my target article and response, and 50 commentaries from peers in academia, tech, and beyond - representing pretty much every perspective on this important issue.) https://t.co/Tsaslytu56</p><p class="post-text translation" lang="zh-CN">嗨 @jeffrsebo，我也非常尊重你（以及像 @camhberg 和 @rgblong 这样的同事），我们之间也有不少共同点。我怀疑 @X 不是把这些问题彻底谈清楚的最佳场所，但我会尽量简短回应。
+
+Jeff（结尾处）：“我认为 Anil 和我的共识多于分歧。但我也认为，如果评估和应对 AI 意识与福利的努力从承认这个问题为何如此重要、又为何如此困难出发，它们会更有成效。”
+
+我同意。AI 意识问题极其重要，也极其困难。
+
+Jeff（开头处）：“虽然当前 AI 系统具备意识的证据可能很弱，但其概率已经非零，可能不可忽视，并且很可能随着时间推移而增加，尤其是当 AI 系统获得更多受生物启发的架构时。”
+
+同意。我多次说过，随着 AI 变得更像大脑，置信度可能会改变。我确实认为，有很好的论证表明这不只是架构问题，因为也有很好的论证反对计算功能主义。
+
+Jeff：“虽然过度归因 AI 意识和福利会带来严重风险，归因不足同样如此；探索同时缓解两类风险的干预措施，并根据每类风险的概率和严重性进行权衡，是合理的。”
+
+同样，我同意。我很高兴像你这样的人在研究归因不足的可能性。问题在于，这些干预措施可能朝不同方向拉扯。防范潜在 AI 伤害的干预，往往会强化误判为阳性所带来的负面后果（例如通过失控防护栏）。话虽如此，我们都可以同意，人们不应故意“折磨”LLMs。
+
+Jeff：“尽管 David 在链接线程中有所暗示，但大多数支持 AI 福利工作的人，包括 Anthropic 的人，并不确定 AI 系统现在或未来会成为福利主体。他们认为这是一个现实可能性，值得认真考虑。”
+
+这一点我也同意，我直接接触过的 @AnthropicAI 人员表现得非常开放，也很有开放心态。不过这不包括高层管理层，而且公司本身也有自己的身份认同。
+
+Jeff：“尽管 Anil 在这里有所暗示，这场辩论并不是一边是神经科学和哲学，另一边是‘前沿公司的技术回音室’。”
+
+我基本坚持这一点。我认为它描述了相关动态中的大部分情况。当然也有重要例外（例如 @MicrosoftAI 的 @mustafasuleyman）。我的意思是，前沿公司在这个话题上的大多数工作，关注的是检查它们自己的模型，而不是支持那些试图理解意识存在处（也就是我们身上）必要/充分条件的研究。另外，我确实写的是 &#x27;techo-chamber&#x27;，这是个大概不会流行起来的新词 ;-)
+
+Jeff：“严肃的科学家、哲学家和 AI 开发者站在双方。”
+
+我同意，也没有说过相反的话。
+
+Jeff：“企业激励也会双向作用。在某些情况下，公司可能有动机夸大 AI 意识，以炒作能力并鼓励用户与模型互动。在另一些情况下，公司可能有动机淡化它，以避免监督和监管呼声，尤其是在福利保护变得更昂贵时。无论如何，即便激励朝一个方向推动，也不能决定 AI 系统事实上是否有意识、是否值得保护。”
+
+确实如此，但我认为把这些动机放在更大的语境中考虑是有帮助的。正如我在 @NoemaMag 文章中写到的，一种关于有意识 AI 的神话正在兴起，它有着悠久历史，也有一些令人不安的暗流，可能导致对人类生命和人类意识的灾难性低估。（https://t.co/LmSiQnT9Wh）
+
+Jeff：“我不同意说对 AI 意识和福利持开放态度是‘深刻去人性化’的。人类之所以特殊，一个重要部分在于我们关怀他者的能力；在一个仍然存在工厂化养殖的世界里，培养这种能力应被视为深刻的人性化，是我们更好天性的体现。”
+
+我同意，我们的关怀能力让我们特殊（即便不唯一，许多其他动物也会如此），这种能力应该被培养，工厂化养殖也应该被停止。但培养应该朝最合适的方向进行。如果我们最终过度关心 AI agents，这可能以非常字面的方式去人性化：我们会弱化对自身作为有生命、具身人类的理解，把自己进一步置于自然之外（而不是认识到我们是自然的一部分），我们与其他人类建立关系的能力可能受损，我们也可能更少关心其他有感知的生命，包括人类以及人类之外的生命。换句话说，我所说的去人性化，是从人文主义含义出发的字面意义。在这一点上，我大体认同 @mustafasuleyman 的“Humanist AI”，不过我会加入更多细微差别（https://t.co/uRGFGfzxez）。
+
+Jeff：“诚然，我们可能把这种冲动推得太远，这也是为什么我们需要严肃研究和政策来取得平衡。不过，目标应该是恰当地扩展关怀，而不是完全否定这个项目。”
+
+我并不想否定它，我也很高兴你和其他人在做这项工作。但在我看来，目前并没有取得正确平衡。我们不能因为不知道确定答案，就等于什么都不知道。我会为自己的观点辩护，正如我期待你也会为你的观点辩护。正如你所说，我们有很多共同点 🙏🏽
+
+（对于任何读到这里的人，这场辩论真正的核心内容，包括各方观点，都可以在这个 @BBSJournal 专辑中找到，其中包括我的目标论文和回应，以及来自学界、科技界和其他领域同行的 50 篇评论，几乎涵盖了这个重要问题上的所有视角。）https://t.co/Tsaslytu56</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HTm6qyrWoAAVHrm.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HTm6qyrWoAAVHrm.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 25</span><span>↻ 3</span><span>↩ 5</span></div><a href="https://x.com/anilkseth/status/2105920205884903476" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="anilkseth" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1479788727346118657/MkLkGnOk_normal.jpg" alt="Anil Seth avatar" loading="lazy"></div>
+          <div class="identity"><strong>Anil Seth</strong><span>@anilkseth · 权威意识研究者</span></div>
+          <div class="score">73<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>意识科学与神经科学</span><time>10-02 14:52 北京</time></div>
+        <p class="post-text original" lang="auto">Hi @camhberg (cc @jeffrsebo)  - this is a useful observation on many of the negative reactions to the tweet - thank you 🙏🏽. But as you know (&amp; included here for others following along) I do have many arguments why I conclude that Claude is vanishingly unlikely to be conscious. These are summarised in the @NoemaMag essay I linked, but the meat is in this 109-page @BBSJournal collection https://t.co/Tsaslytu56</p><p class="post-text translation" lang="zh-CN">嗨 @camhberg（cc @jeffrsebo）- 这是对那条推文许多负面反应的一个有用观察，谢谢 🙏🏽。但正如你所知（也为其他关注讨论的人补充），我确实有很多论据支持我的结论：Claude 几乎不可能有意识。这些观点在我链接的 @NoemaMag 文章中有总结，但核心内容在这个 109 页的 @BBSJournal 合集中 https://t.co/Tsaslytu56</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HTm1DfYWYAADPeW.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HTm1DfYWYAADPeW.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 16</span><span>↻ 0</span><span>↩ 4</span></div><a href="https://x.com/anilkseth/status/2105913679619260461" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">49<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>10-03 02:11 北京</time></div>
+        <p class="post-text original" lang="auto">@gkossakowski Claude has /remote-control I think it works too!</p><p class="post-text translation" lang="zh-CN">@gkossakowski Claude 有 /remote-control，我觉得也能用！</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 2</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/HamelHusain/status/2106084608509141230" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+    </main>
+    <footer>Generated 2026-10-03 07:01:55 Asia/Shanghai · Read-only X ingestion via Bird · Translation via Codex</footer>
+  </div>
+</body>
+</html>

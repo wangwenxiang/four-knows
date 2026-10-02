@@ -162,6 +162,17 @@ class HeadlineEventDedupeTest(unittest.TestCase):
         self.assertTrue(has_substantive_primary_top_story_evidence(sensitive_evals, expert))
         self.assertTrue(has_substantive_primary_top_story_evidence(subagent_orchestration, expert))
 
+    def test_regression_to_pr_agent_repair_is_substantive_primary_evidence(self):
+        expert = Expert("P0", "AI", "Test", "Researcher", "test", "tester")
+        post = {
+            "id": "regression-repair",
+            "text": (
+                "When Rollouts catches a regression, it finds the offending PR and "
+                "opens an issue. One click starts a cloud agent to fix it."
+            ),
+        }
+        self.assertTrue(has_substantive_primary_top_story_evidence(post, expert))
+
     def test_event_dedupe_ignores_generic_ai_vocabulary(self):
         long_efficiency_thread = {
             "text": (

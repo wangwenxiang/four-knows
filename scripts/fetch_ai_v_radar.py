@@ -299,6 +299,9 @@ TOP_STORY_APPLICATION_TERMS = (
     "use", "apply", "deploy", "production", "workflow", "coding", "review",
     "security", "secure", "system", "robot", "agent", "api", "ocr", "tool",
     "developer", "automation", "infrastructure", "data center", "datacenter", "decode",
+    # Detecting a regression, locating the responsible PR, and dispatching an
+    # agentic repair is a concrete production engineering workflow.
+    "regression", "offending pr", "cloud agent",
     # Evaluation classifiers and validation against labeled data are concrete
     # engineering methods, not merely an AI-related opinion.
     "classifier", "validat", "trusted label", "redaction", "synthetic data",
@@ -318,7 +321,7 @@ CONCRETE_TECHNICAL_EVIDENCE_TERMS = (
     "on-device", "on device", "deploy", "api", "taxonomy",
     "prefill", "compute-bound", "active tracing", "interactive perception",
     "classifier", "validat", "trusted label", "redaction", "synthetic data",
-    "subagent", "permission", "orchestrat",
+    "subagent", "permission", "orchestrat", "regression", "offending pr", "cloud agent",
 )
 
 
