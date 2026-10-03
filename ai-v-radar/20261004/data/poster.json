@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-10-04T07:01:06.829887+08:00",
+  "windowHours": 23.0,
+  "monitored": 62,
+  "selected": 19,
+  "inputSha256": "c7a8d13105b69f304b5c9c6444b9599e416d16b22db696e08d0f18fbe85038da",
+  "copyBackend": "codex",
+  "copyAttempts": 1,
+  "copyRetries": 0,
+  "copyError": "",
+  "stories": [
+    {
+      "id": "2106187777058693216",
+      "author": "Jerry Liu",
+      "category": "AI 技术应用",
+      "title": "新型抽取代理可拼接跨页表格记录生成结构化输出",
+      "summary": "引用｜今天我们推出 Extract v2.5——一系列面向文档抽取调优的前沿智能体。\n\n这些智能体（cost-effective、agentic、agentic plus）针对数值准确性和可溯源性进行了调优。我们的抽取智能体表现优于 Opus 5.5 和 GPT-6 Sol，同时成本低 30% 到 4 倍。\n\n我们在复杂抽取方面取得了大幅提升：\n* 长列表（agentic 档位从 86.1% 提升到 95.5%）\n* 跨页记录（85.5% -> 96.5%）\n* 扫描表单（90.9% -> 95.7%）\n\n我们还上线了以下功能：\n✅ 高级引用：即使没有精确匹配，我们也能为推断字段定位所有支撑值的边界框。\n✅ 结构化推理：我们会根据文档类型、版式和信息定制文档抽取算法。\n\n在 ExtractBench 上，覆盖多个成本区间，我们的抽取智能体在性价比上达到 SOTA。对于任何复杂度的文档，我们都是最佳文档抽取工具。\n\n博客：https://t.co/TTlTdECU03\n\n这些都已在 LlamaParse 上可用：https://t.co/XYZmx5TFz8 。欢迎来看看！"
+    },
+    {
+      "id": "2106442901232460256",
+      "author": "Shreya Shankar",
+      "category": "AI 技术前沿",
+      "title": "Jev API在Postgres中找到适配OLTP数据库的使用形态",
+      "summary": "引用｜又一个很疯狂的 Jev 用例！\n\n传统数据库过滤器需要精确、预定义的条件。但很多问题是语义性的：\n\n- 这篇文章主要是关于软件工程的吗？\n- 哪个主题最能描述它？\n- 它看起来有多深的技术含量？\n\n这些通常需要把行移到应用代码中，调用模型，解析输出，再把结果写回。\n\npg-jev 是一个开源 Postgres 扩展，通过 SQL 函数暴露 Jev。\n\n- jev() 可在 WHERE 中使用\n- jev_prob() 返回概率\n- jev_choice() 选择标签\n- jev_score() 按有序等级对行排序。\n\n它不需要向量列或嵌入索引。\n\n在底层，pg-jev 会批处理行，将它们发送给 Jev，并返回带类型的答案，让 SQL 可以过滤、排序、分组，并与精确谓词组合。\n\n下面的录屏是在 Postgres 中存储的真实 Hacker News 故事上运行的。\n\n它先展示这些行，然后让 Jev 查找软件工程故事，按主题分类，并按技术深度排序。最后一个查询报告该数据库会话中的请求数、token、成本和缓存命中。\n\nGitHub repo: https://t.co/6OD0nRMgfH\n\n（别忘了给它 star ⭐）\n\nPostgres 保留数据并控制查询，而 Jev 处理 SQL 无法表达为确定性条件的部分。\n\n如果你想了解 Jev 底层在做什么，我还写了一篇实践指南，介绍如何完全在本地用开放模型构建 Jev 风格的模型。\n\n请在下方阅读。"
+    },
+    {
+      "id": "2106475668804657555",
+      "author": "Harrison Chase",
+      "category": "AI 技术进步",
+      "title": "LangChain中Jev可按首条消息路由整个模型运行",
+      "summary": "引用｜一个基于初始提示词、使用 DSPy 和 Jev 的模型路由器快速示例。\n\n应请求用约 15 分钟草拟出来，效果好得让我有点惊讶！https://t.co/nHVFduV4RS"
+    }
+  ]
+}

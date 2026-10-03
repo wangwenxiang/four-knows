@@ -13518,7 +13518,162 @@
       "source": "Memory is hard to get working well, especially in a company setting\n\nMaking some improvements to how we memory in managed deepagents!",
       "zh": "让记忆机制良好运作很难，尤其是在公司环境中。\n\n我们正在对 managed deepagents 中的记忆方式做一些改进！",
       "promptVersion": "codex-v1"
+    },
+    "4ac1b9dc200f08d811fa30b9e10e793e118bb3271ec544fa55c1723ee94aec86": {
+      "source": "Our new extraction agents are extremely good at reasoning over tables that span multiple pages\n\nsometimes a record starts on one page and finishes on the next. extremely common for real world docs (insurance claims, regulatory filings, legal schedules) - for instance you print Word / Google Doc to PDF \n\nour agents can piece these cells along with hundreds/thousands of other cells into clean, structured tabular output.\n\ncome check it out: https://t.co/TTlTdECU03\n\ncome sign up to llamaparse: https://t.co/XYZmx5TFz8",
+      "zh": "我们的新型提取代理非常擅长推理跨多页的表格\n\n有时一条记录从一页开始，在下一页结束。这在真实世界文档中极其常见（保险理赔、监管申报、法律附表），比如你把 Word / Google Doc 打印成 PDF。\n\n我们的代理可以把这些单元格与数百/数千个其他单元格拼接起来，生成干净、结构化的表格输出。\n\n欢迎来看看：https://t.co/TTlTdECU03\n\n欢迎注册 llamaparse：https://t.co/XYZmx5TFz8",
+      "promptVersion": "codex-v1"
+    },
+    "d4986dd7d60cfeecf7f78b092d3cd5eb65a447688241bc51fa083ef1a31c2448": {
+      "source": "Finally a use case that makes sense for the jev api in the database — Postgres (an OLTP database) is the right form factor. Follow along with our Quail project for how we are designing for the OLAP case 🌟 \n\nhttps://t.co/Y7iajFzk8Y",
+      "zh": "终于有了一个适合在数据库中使用 jev api 的用例 —— Postgres（一个 OLTP 数据库）是正确的形态。关注我们的 Quail 项目，了解我们如何为 OLAP 场景做设计 🌟\n\nhttps://t.co/Y7iajFzk8Y",
+      "promptVersion": "codex-v1"
+    },
+    "500f7403f78d55395aae7351838342c0f086393be1c36ea42f7b310e84d6be24": {
+      "source": "Another insane Jev use case!\n\nTraditional database filters need precise, predefined conditions. But many questions are semantic:\n\n- Is this article mainly about software engineering?\n- Which topic best describes it?\n- How technically deep does it appear?\n\nThese usually require moving rows into application code, invoking a model, parsing its output, and writing the result back.\n\npg-jev is an open-source Postgres extension that exposes Jev through SQL functions.\n\n- jev() works inside WHERE\n- jev_prob() returns a probability\n- jev_choice() selects a label\n- jev_score() ranks rows across ordered levels.\n\nIt needs no vector column or embedding index.\n\nUnder the hood, pg-jev batches rows, sends them to Jev, and returns typed answers that SQL can filter, sort, group, and combine with exact predicates.\n\nThe recording below runs it against real Hacker News stories stored in Postgres.\n\nIt first shows the rows, then asks Jev to find software-engineering stories, classify them by topic, and rank them by technical depth. The final query reports requests, tokens, cost, and cache hits from the database session.\n\nGitHub repo: https://t.co/6OD0nRMgfH\n\n(don't forget to star it ⭐)\n\nPostgres keeps the data and controls the query, while Jev handles the part SQL cannot express as a deterministic condition.\n\nIf you want to understand what Jev is doing under the hood, I also wrote a hands-on guide to building a Jev-style model with open models, entirely locally.\n\nRead it below.",
+      "zh": "又一个很疯狂的 Jev 用例！\n\n传统数据库过滤器需要精确、预定义的条件。但很多问题是语义性的：\n\n- 这篇文章主要是关于软件工程的吗？\n- 哪个主题最能描述它？\n- 它看起来有多深的技术含量？\n\n这些通常需要把行移到应用代码中，调用模型，解析输出，再把结果写回。\n\npg-jev 是一个开源 Postgres 扩展，通过 SQL 函数暴露 Jev。\n\n- jev() 可在 WHERE 中使用\n- jev_prob() 返回概率\n- jev_choice() 选择标签\n- jev_score() 按有序等级对行排序。\n\n它不需要向量列或嵌入索引。\n\n在底层，pg-jev 会批处理行，将它们发送给 Jev，并返回带类型的答案，让 SQL 可以过滤、排序、分组，并与精确谓词组合。\n\n下面的录屏是在 Postgres 中存储的真实 Hacker News 故事上运行的。\n\n它先展示这些行，然后让 Jev 查找软件工程故事，按主题分类，并按技术深度排序。最后一个查询报告该数据库会话中的请求数、token、成本和缓存命中。\n\nGitHub repo: https://t.co/6OD0nRMgfH\n\n（别忘了给它 star ⭐）\n\nPostgres 保留数据并控制查询，而 Jev 处理 SQL 无法表达为确定性条件的部分。\n\n如果你想了解 Jev 底层在做什么，我还写了一篇实践指南，介绍如何完全在本地用开放模型构建 Jev 风格的模型。\n\n请在下方阅读。",
+      "promptVersion": "codex-v1"
+    },
+    "67c2cc7e26bcd23b4244fe56e3026f889ecc60725ba2d74f9a2e956c4eba076a": {
+      "source": "cool project by @dbreunig\n\nin langchain this is ModelRouterMiddleware - jev reads the first message, picks the model, and that model handles the whole run\n\njev is cheap enough that you can also re-pick after each tool result with a custom hook\n\ndocs: https://t.co/T2OwFGxocd\n\nhttps://t.co/oYrDHho4t5",
+      "zh": "@dbreunig 做的很酷的项目\n\n在 langchain 中这是 ModelRouterMiddleware - jev 读取第一条消息，选择模型，然后由该模型处理整个运行过程\n\njev 足够便宜，你也可以用自定义 hook 在每次工具结果之后重新选择\n\ndocs: https://t.co/T2OwFGxocd\n\nhttps://t.co/oYrDHho4t5",
+      "promptVersion": "codex-v1"
+    },
+    "240baa970552c974da8449655f9a44904eff8b28c79f1dea09bd419bea069f99": {
+      "source": "A quick example of a model router, using DSPy and Jev, based on your initial prompt. \n\nSketched this out in ~15 min, by request, and am surprised at how well it works! https://t.co/nHVFduV4RS",
+      "zh": "一个基于初始提示词、使用 DSPy 和 Jev 的模型路由器快速示例。\n\n应请求用约 15 分钟草拟出来，效果好得让我有点惊讶！https://t.co/nHVFduV4RS",
+      "promptVersion": "codex-v1"
+    },
+    "62589442877ac8339c4c6158771a5ce75e9dbf75d7d64a462624e3c36f51229b": {
+      "source": "Try “Visualize….” in Computer and ask for whatever you want to learn visually. You will now get an inline viz with rich educative and interactive widgets and animations! Have fun! Best experienced on Standard or High effort.",
+      "zh": "在 Computer 中试试“Visualize….”，然后询问任何你想通过视觉方式学习的内容。现在你会在对话中直接获得内联可视化，包含丰富的教育性和交互式组件与动画！玩得开心！在 Standard 或 High effort 下体验最佳。",
+      "promptVersion": "codex-v1"
+    },
+    "925f5eec2a138567289d86d54897e7446e98ea2056b73ad1ed2bcd1da733de7f": {
+      "source": "Here are 5 examples of inline visualizations that Computer can create directly in your thread:\n\n1. Show me how a jet engine works in an inline 3D cutaway. https://t.co/HGBRxoDBO6",
+      "zh": "以下是 Computer 可以直接在你的对话中创建的 5 个内联可视化示例：\n\n1. 用内联 3D 剖视图向我展示喷气发动机的工作原理。https://t.co/HGBRxoDBO6",
+      "promptVersion": "codex-v1"
+    },
+    "89c551429e1abcabfdfbf2863db3bee1d2343cb868fffd109710a8f1b51acecb": {
+      "source": "“Companies using AI to generate fake people are committing an immoral act of vandalism, and should be held liable”.  Daniel C Dennett in 2023. https://t.co/DByW2bImjF",
+      "zh": "“使用 AI 生成虚假人物的公司是在实施一种不道德的破坏行为，应该承担责任”。Daniel C Dennett，2023 年。https://t.co/DByW2bImjF",
+      "promptVersion": "codex-v1"
+    },
+    "cc00f5824e75cff998942dbb8bc777a74de121e14a23f0a4af72cd88c754bd16": {
+      "source": "Introducing Griffin, the first model to pass the video Turing test.\n\n48% of people who talked to it live thought it was a real human. Previous systems have had a pass rate &lt;3%. It is #1 on NVIDIA's benchmark for full-duplex AI video.\n\nIt’s the first Human Interaction Model (HIM). https://t.co/eb11XbC8Xr",
+      "zh": "介绍 Griffin，首个通过视频图灵测试的模型。\n\n与它实时交谈的人中，有 48% 认为它是真人。此前系统的通过率低于 3%。它在 NVIDIA 全双工 AI 视频基准中排名第一。\n\n它是首个 Human Interaction Model (HIM)。https://t.co/eb11XbC8Xr",
+      "promptVersion": "codex-v1"
+    },
+    "64dcfb8d5653179836dd06fb514bad0e602e8980fe52768c7a29b4761e467b9d": {
+      "source": "I cannot understand this demo video at all.  Sadly, it’s visual slop 😭 \n\nNot trying to disrespect anyone maybe the feature is cool it’s just what happened to demos humans can understand",
+      "zh": "我完全看不懂这个演示视频。遗憾的是，它就是视觉垃圾 😭\n\n不是想冒犯谁，也许这个功能很酷，只是现在的演示怎么变得让人看不懂了",
+      "promptVersion": "codex-v1"
+    },
+    "39e4879e48be37535b56448d49fefe4b852b3a417f453c851275f22b3bc4be7e": {
+      "source": "We go really deep and somewhat technical here with the brilliant @alexatallah of OpenRouter. Enjoy!",
+      "zh": "我们和 OpenRouter 的杰出人物 @alexatallah 进行了非常深入且有些技术性的交流。请欣赏！",
+      "promptVersion": "codex-v1"
+    },
+    "e89f48d5797146872bd32d2ef6d35e14640ca4e256742540bd0f047bf41c697e": {
+      "source": ".@OpenRouter co-founder Alex Atallah, in his first podcast since Stripe acquired the company, joins @Replit co-founder Amjad Masad and a16z's Erik Torenberg on why the future of AI is independence and specialization.\n\nIn this conversation, Alex walks through how the Stripe deal unfolded, why he wasn't originally looking to sell, and why \"payments and inference are going to blend together.\"\n\nPre-OpenRouter, the typical AI workflow had one model provider to choose from, and little pressure on that provider to lower prices. Now enterprises are diversifying across labs and open-weight models, and every board is asking about AI costs and benchmarks.\n\nAmjad argues if your company depends on one AI lab, it can turn into your competitor. So Replit is building the layer that lets enterprises use any model and any cloud, without being locked into either.\n\nAlex and Amjad are split on personal agents – Amjad runs one agent across his whole company and loves the cross-domain joins, while Alex says general agents cause you to sacrifice understanding, and argues 10 specialized chiefs of staff beats one superagent.\n\n0:45 How the Stripe deal unfolded\n5:05 Why mixing models beats one model\n7:25 Forcing the labs to compete on price\n8:50 Enterprises want open-weight models\n10:30 Every board asks about AI every month\n12:25 Why companies must own their intelligence\n14:15 Replit as the independence layer\n15:10 Everyone is building the same agent\n16:35 Why Amjad built bring-your-own-cloud\n18:10 Amjad's agent that runs his whole company\n19:55 Why 10 specialized agents beat one\n23:35 Machines, not humans, should specialize\n27:30 Guardrails for agents talking to agents\n31:10 Models training their own replacements\n33:45 Most tasks don't need a frontier model\n40:50 Training small models on Qwen 8B\n43:25 The Rust cycle is coming for AI\n45:10 Fusion models: frontier quality at half the cost\n\nYouTube: https://t.co/stL1g14F3q\n\n@alexatallah @OpenRouter @amasad @eriktorenberg",
+      "zh": ".@OpenRouter 联合创始人 Alex Atallah 在公司被 Stripe 收购后的首档播客中，与 @Replit 联合创始人 Amjad Masad 和 a16z 的 Erik Torenberg 一起探讨为什么 AI 的未来在于独立性和专业化。\n\n在这次对话中，Alex 讲述了 Stripe 交易是如何发生的，为什么他原本并不打算出售，以及为什么“支付和推理将会融合在一起”。\n\n在 OpenRouter 之前，典型的 AI 工作流只能选择一个模型提供商，而该提供商几乎没有降价压力。如今，企业正在跨实验室和开源权重模型分散使用，每个董事会都在询问 AI 成本和基准表现。\n\nAmjad 认为，如果你的公司依赖某一家 AI 实验室，它可能会变成你的竞争对手。因此 Replit 正在构建一个层，让企业可以使用任何模型和任何云，而不会被锁定在其中任何一方。\n\nAlex 和 Amjad 对个人代理看法不同：Amjad 在全公司运行一个代理，并很喜欢它的跨领域关联能力；而 Alex 认为通用代理会让你牺牲理解力，并主张 10 个专业化的幕僚长胜过一个超级代理。\n\n0:45 Stripe 交易如何展开\n5:05 为什么混合模型胜过单一模型\n7:25 迫使实验室在价格上竞争\n8:50 企业想要开源权重模型\n10:30 每个董事会每月都会问 AI\n12:25 为什么公司必须拥有自己的智能\n14:15 Replit 作为独立性层\n15:10 每个人都在构建同一种代理\n16:35 为什么 Amjad 构建自带云方案\n18:10 Amjad 运行整个公司的代理\n19:55 为什么 10 个专业代理胜过一个\n23:35 应该由机器而不是人类来专业化\n27:30 代理与代理对话的护栏\n31:10 模型训练自己的替代者\n33:45 大多数任务不需要前沿模型\n40:50 在 Qwen 8B 上训练小模型\n43:25 AI 的 Rust 周期即将到来\n45:10 融合模型：半价实现前沿质量\n\nYouTube: https://t.co/stL1g14F3q\n\n@alexatallah @OpenRouter @amasad @eriktorenberg",
+      "promptVersion": "codex-v1"
+    },
+    "2c961174ae21d20c93ffbd2d7c18342a98ef73a123e4e872f4707b0f5899b61b": {
+      "source": "specialized agents or one mega agent?\n\nwe're having this debate internally...",
+      "zh": "专业化代理，还是一个超级代理？\n\n我们内部正在争论这个问题……",
+      "promptVersion": "codex-v1"
+    },
+    "42dd5ca08631e6f002ac368ae2d5636347a11ec0a4bfaa37f34f168b16abc8ae": {
+      "source": ".@OpenRouter co-founder Alex Atallah on personal agents: 10 specialized chiefs of staff beat one universal agent. One job each means you can see exactly where it's failing.\n\n\"The worst part about doing cross-domain joins with your personal agent is that the more work you give it, the more understanding of what's going on you're sacrificing.\"\n\n\"And no one is taking responsibility for that sacrifice. Agents don't have any responsibility.\"\n\n\"With a universal agent that's doing all things, I can't adjust how much understanding I'm sacrificing.\"\n\n\"It points me towards: maybe down the road, the sub-agents people use will be very vertically focused, and we have a chief of staff type agent that coordinates between them.\"\n\n\"You need vertically focused agents where this agent is more responsible, psychologically, for these things. I want quality checks that make sure it's doing those things correctly. It doesn't need to focus on anything else, it has one focus area.\"\n\n\"I wonder if that's going to help people get at least a loose sense of responsibility on top of agents.\"\n\n@alexatallah",
+      "zh": ".@OpenRouter 联合创始人 Alex Atallah 谈个人代理：10 个专业化幕僚长胜过一个通用代理。每个代理只负责一项工作，你就能清楚看到它到底在哪里出错。\n\n“让个人代理做跨领域关联最糟糕的一点是，你交给它的工作越多，就越是在牺牲你对实际情况的理解。”\n\n“而且没有人为这种牺牲负责。代理没有任何责任。”\n\n“如果是一个包办一切的通用代理，我无法调整自己牺牲了多少理解力。”\n\n“这让我想到：也许未来人们使用的子代理会非常垂直化，然后由一个幕僚长式代理在它们之间协调。”\n\n“你需要垂直聚焦的代理，让这个代理在心理上更负责这些事情。我希望有质量检查，确保它正确完成这些事。它不需要关注其他任何东西，它只有一个重点领域。”\n\n“我在想，这是否能帮助人们至少在代理之上建立一种松散的责任感。”\n\n@alexatallah",
+      "promptVersion": "codex-v1"
+    },
+    "ab2254493884362fc5a57dfecd63b56cad5af9331d2af094df9edf21a05a1bed": {
+      "source": "Do bimanual robots really need wrist cameras?  Maybe not!",
+      "zh": "双臂机器人真的需要腕部摄像头吗？也许不需要！",
+      "promptVersion": "codex-v1"
+    },
+    "a20be76d17b6fe280a2f424966b779fbace95482d1eba6d130be460bc383c401": {
+      "source": "Almost all bimanual robots include wrist cameras. They add bulk, cost, and complexity, but are critical for performance. Are they really needed?\n\nExcited to finally share EyeRobot 2.0, where we use active gaze from an ego stereo camera instead 🧵 (with @kushtimusprime) https://t.co/iAjzZaxIm2",
+      "zh": "几乎所有双臂机器人都配有腕部摄像头。它们会增加体积、成本和复杂度，但对性能至关重要。它们真的必需吗？\n\n很高兴终于分享 EyeRobot 2.0，我们改用来自第一视角立体摄像头的主动凝视 🧵（与 @kushtimusprime 合作）https://t.co/iAjzZaxIm2",
+      "promptVersion": "codex-v1"
+    },
+    "9bdce3de69caf350d9752d688c76dc1d045d32e945f49f9f31587bfd14fcf156": {
+      "source": "no fucking way\n\nmuse gadget on Nintendo 3DS ‼️\n\n(also cute doggo)",
+      "zh": "不是吧，真的假的\n\nNintendo 3DS 上的 Muse 小工具 ‼️\n\n（还有可爱狗狗）",
+      "promptVersion": "codex-v1"
+    },
+    "485f04930a97f43abf7944a2e8731f524fb1ed0961afb2f68967887aa1227e51": {
+      "source": "I put Muse on my 3DS! @natfriedman @alexandr_wang  \n\nI created a game running on actual Nintendo hardware allowing me to control my smart home through Muse! So cool! https://t.co/TCB9lAY0x9",
+      "zh": "我把 Muse 搬到我的 3DS 上了！@natfriedman @alexandr_wang  \n\n我做了一个运行在真实 Nintendo 硬件上的游戏，让我能通过 Muse 控制智能家居！太酷了！https://t.co/TCB9lAY0x9",
+      "promptVersion": "codex-v1"
+    },
+    "706796dfdf28699fc94a7a6f76056230ebe81f229ec960b12adb637302e3a8f8": {
+      "source": "High-quality video generation now runs on the hardware you already own. We cannot wait to see what you can do with it!",
+      "zh": "高质量视频生成现在已经能在你现有的硬件上运行了。我们迫不及待想看看你能用它做出什么！",
+      "promptVersion": "codex-v1"
+    },
+    "8a4b4916407f18c9cc3278f8e88ca198558754cf3adaaa3a83c8693f75bc9bcb": {
+      "source": "FreeVideo + FreeToken will enable a fully automatic pipeline for short-drama generation: use VLMs to write prompts and design storylines, generate high-quality videos and visual assets with FreeVideo, and orchestrate the whole workflow with FreeToken. Really excited about what this can unlock for automated short-drama creation!\n\nHuge thanks to @BowenXue_  and @HaochengXiUCB  for making this happen!",
+      "zh": "FreeVideo + FreeToken 将支持短剧生成的全自动流水线：用 VLM 编写提示词并设计剧情，用 FreeVideo 生成高质量视频和视觉素材，再用 FreeToken 编排整个工作流。非常期待它能为自动化短剧创作带来什么可能！\n\n非常感谢 @BowenXue_ 和 @HaochengXiUCB 促成这件事！",
+      "promptVersion": "codex-v1"
+    },
+    "f07fa82c92eb4d3f6a962b18569faf01d59a4c51d061998989afaa32b0191cf1": {
+      "source": "@BHolmesDev @aiDotEngineer 1000% always run some kind of skill review/cutter after every model-created skill https://t.co/MbfK4dygPP",
+      "zh": "@BHolmesDev @aiDotEngineer 1000% 同意，每次模型生成技能后，都一定要跑某种技能审查/裁剪器 https://t.co/MbfK4dygPP",
+      "promptVersion": "codex-v1"
+    },
+    "6ebeeca8bea31ff47525447b31a76caf33b2941b13a8aef678cefbdc6725277f": {
+      "source": "Our goal is to vertically integrate our agentic infrastructure: own our sandboxes, and optimize the sandbox for the best silicon. Vera is far better than x86. Look forward to sharing more soon as we begin to rollout deployment of Perplexity Computer on Vera.",
+      "zh": "我们的目标是垂直整合我们的智能体基础设施：拥有自己的沙箱，并针对最佳芯片优化沙箱。Vera 远胜于 x86。随着我们开始在 Vera 上部署 Perplexity Computer，期待很快分享更多信息。",
+      "promptVersion": "codex-v1"
+    },
+    "dbf70a8331ceb07da8f2bc45b94a9357bc0b03889e8c49269b084f4db04fecdb": {
+      "source": "We're looking forward to working with the new @NVIDIA Vera CPU on SPACE. https://t.co/LPwmaRDja7",
+      "zh": "我们期待在 SPACE 上使用新的 @NVIDIA Vera CPU。https://t.co/LPwmaRDja7",
+      "promptVersion": "codex-v1"
+    },
+    "7527dd5bf99a1e7d8d355355fc205ab53e1e943d67fa1f189e40015cb96399af": {
+      "source": "\"I can tell you this, though: Every single person who thinks that machines cannot be conscious, is making an argument that humans are special.  Everything they say just boils down to blah blah blah, \"nooo, we're special.\" From there it's just rationalization.\"  \n\nThis is very far from the truth. There are many (IMO compelling) arguments against (silicon, digital) machine consciousness that in no way depend on human exceptionalism, or even on carbon chauvinism.  \n\nTo get a good sense of the current debate in academia, have a look at this just-out @BBSJournal paper, along with 50 commentaries (from all perspective), and my response. You'll see a much richer debate than you describe. https://t.co/bQVmlAXLa0",
+      "zh": "“不过我可以告诉你：每一个认为机器不可能有意识的人，其实都在论证人类是特殊的。他们说的一切归根结底都是在说，‘不不不，我们很特殊。’然后就都是合理化解释了。”  \n\n这与事实相去甚远。反对（硅基、数字）机器意识的论点有很多，而且在我看来很有说服力，它们完全不依赖人类例外论，甚至也不依赖碳基沙文主义。\n\n如果想了解当前学术界争论的全貌，可以看看这篇刚发表的 @BBSJournal 论文，以及 50 篇评论文章（来自各种视角）和我的回应。你会看到一场比你描述的丰富得多的讨论。https://t.co/bQVmlAXLa0",
+      "promptVersion": "codex-v1"
+    },
+    "c97e90e7de52d40b3e4259a34ccc9125ca9508445ce62f75b21894a98a4818a3": {
+      "source": "I'm pretty much on board with @fchollet here. I'd add a little more nuance, since we can't be 💯 certain. But he gives the right intuitions for why current AI is vanishingly unlikely to be conscious, and he's absolutely right about the dystopian outcomes that would follow from treating it as if it is.\n\nI make the broader case against conscious AI in this @NoemaMag essay https://t.co/LmSiQnTHLP, and in long form in this @BBSJournal collection https://t.co/6ZFzHrV0Kp (with arguments from all sides in the commentaries) 👇🏽",
+      "zh": "我基本同意 @fchollet 的看法。由于我们无法 💯 确定，我会再补充一点细微差别。但他很好地说明了为什么当前 AI 几乎不可能有意识，而且他关于若把它当作有意识来对待会导致反乌托邦后果的判断也完全正确。\n\n我在这篇 @NoemaMag 文章中更广泛地论证了反对有意识 AI 的理由：https://t.co/LmSiQnTHLP，也在这期 @BBSJournal 合集中做了长篇论述：https://t.co/6ZFzHrV0Kp（评论部分包含各方观点）👇🏽",
+      "promptVersion": "codex-v1"
+    },
+    "648549d671ece7197de693ca6fe7b5ba1ed085cc380f32e37a5c2943f2dcb333": {
+      "source": "The notion that current AI models are sentient and can suffer, combined with the foolish idea that suffering can be mathematically quantified and weighted between humans and non-humans, could lead us down an incredibly dark and dystopian path.\n\nBut before it gets to that point, it will rightfully be met with immense backlash from team humans.",
+      "zh": "认为当前 AI 模型有感知能力并且会受苦，再加上“痛苦可以被数学量化，并在人类与非人类之间加权比较”这种愚蠢想法，可能会把我们带上一条极其黑暗、反乌托邦的道路。\n\n但在走到那一步之前，它理应会遭到“人类阵营”的强烈反弹。",
+      "promptVersion": "codex-v1"
+    },
+    "524db61a505ee6cc36a9fd4c58921dbd6c482ab6039a6b8511b01863edd59b8c": {
+      "source": "Who’s building this?",
+      "zh": "谁在做这个？",
+      "promptVersion": "codex-v1"
+    },
+    "42abbcb4e60dbc14fbb01fd6f64249e6940c662e976e1b3bb1d85770e3ed1ea2": {
+      "source": "Replit CEO Amjad Masad on how general models could train smaller, domain-specific models on the fly:\n\n\"There's a lot of talk of recursive self-improvement, but there's something I don't think is getting a lot of discussion, which is models training their replacements.\"\n\n\"You can think of it as a just-in-time compiler. As you're executing dynamic code, the interpreter realizes there's an opportunity to optimize, and it emits machine code on the fly that's a lot more optimized.\"\n\n\"You can imagine general models, you're doing something with Operator or Astra, some of the big models, and they realize the use case is limited, or some other agent observing realizes the use case is limited.\"\n\n\"General agents have all these flaws, but there's also more potential for them to be harmful, more potential for them to go off the rails.\"\n\n\"So the model, on the fly, trains a model that could be its replacement, but is a lot more domain specific. Therefore it's cheaper, less vulnerable to prompt injections, and less harmful for you, because it's less capable.\"\n\n\"It's almost like a system that's training machine learning models for specific use cases as it's monitoring the entire system.\"\n\n@amasad",
+      "zh": "Replit CEO Amjad Masad 谈通用模型如何即时训练更小的领域专用模型：\n\n“关于递归自我改进有很多讨论，但有一件事我觉得还没有被充分讨论，那就是模型训练自己的替代者。”\n\n“你可以把它想成即时编译器。当你执行动态代码时，解释器意识到有优化机会，就会即时生成更优化的机器码。”\n\n“你可以想象，通用模型在你使用 Operator 或 Astra 等大模型做某件事时，发现这个用例是有限的，或者另一个观察中的 agent 发现这个用例是有限的。”\n\n“通用 agent 有各种缺陷，同时也更可能造成伤害，更可能失控。”\n\n“所以模型会即时训练一个可以替代自己的模型，但它会更加领域专用。因此它更便宜，更不容易受到提示注入攻击，对你也更无害，因为它能力更有限。”\n\n“这几乎就像一个在监控整个系统的同时，为特定用例训练机器学习模型的系统。”\n\n@amasad",
+      "promptVersion": "codex-v1"
+    },
+    "af5a80349da8f59b1b67c1c3469e1579778f3fac77750bdf68939254761576ca": {
+      "source": "Now that we've had a few days with it, how are people differentiating between Dot and regular ChatGPT?\n\nI'm having trouble deciding when I should prompt Dot vs using ChatGPT - my Dot seems to afford a single conversation, but I like controlling my context across multiple threads",
+      "zh": "现在我们已经用了几天，大家是如何区分 Dot 和普通 ChatGPT 的？\n\n我很难判断什么时候该提示 Dot，什么时候该用 ChatGPT。我的 Dot 似乎更适合单一对话，但我喜欢在多个线程中控制自己的上下文。",
+      "promptVersion": "codex-v1"
+    },
+    "46c66f2aef4cd3cfafcf0c120bb81fb319cf06abd21049db18f72cf14728b0c4": {
+      "source": "Last open lesson of the year!  How to crack the AI Evals Interview! \n\nAI Evals are now a part of an increasing number of AI job postings, and you're now more likely to encounter them in interviews. \n\nI've helped design quite a few evals interviews, so I know what kinds of traps exist, along with nuanced things companies tend to look for.   I'll discuss this, as well as how to structure a take home or report to help you think through the problem clearly.  \n\nTuesday Oct 6, 8:30am PT.   This one assumes some basic evals knowledge.  Read this first if you're new to the topic to get the most out of the session: https://t.co/Sz0Kwo4ICe\n\nSign up here: https://t.co/I55gqLinQg",
+      "zh": "今年最后一堂公开课！如何攻克 AI Evals 面试！\n\nAI Evals 现在出现在越来越多的 AI 岗位招聘中，你在面试中遇到它们的可能性也越来越高。\n\n我参与设计过不少 evals 面试，所以我知道其中有哪些陷阱，以及公司通常会关注哪些细微点。我会讨论这些内容，也会讲如何组织 take-home 作业或报告，帮助你清晰地思考问题。\n\n太平洋时间 10 月 6 日周二上午 8:30。本次课程假设你具备一些基础 evals 知识。如果你是新手，建议先读这篇，以便更好地参与课程：https://t.co/Sz0Kwo4ICe\n\n在这里报名：https://t.co/I55gqLinQg",
+      "promptVersion": "codex-v1"
+    },
+    "f2c1b0b871756f803a246903923ec9f4c8a32096f06bd230fae2c565786d4a0e": {
+      "source": "@bhola746922 I’m talking about remoting into another local computer",
+      "zh": "@bhola746922 我说的是远程连接到另一台本地电脑",
+      "promptVersion": "codex-v1"
     }
   },
-  "updatedAt": "2026-10-02T23:10:21.092952+00:00"
+  "updatedAt": "2026-10-03T23:06:42.889562+00:00"
 }
