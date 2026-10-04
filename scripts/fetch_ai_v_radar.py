@@ -682,6 +682,14 @@ def hydrate_post_avatars(
     all_handles = sorted(primary_handles | quote_handles, key=str.casefold)
     inline_cached = seed_avatar_cache_from_posts(posts, cached_avatars)
     missing = [handle for handle in all_handles if not avatar_cache_url(cached_avatars.get(handle.casefold()))]
+    # A reuse-data repair can expose a missing avatar after the fresh scan has
+    # ended. Resolve Cookie Manager lazily here so Bird receives the ephemeral
+    # in-memory session rather than the unsupported literal "cookie-manager".
+    profile_cookie_source = (
+        prepare_bird_session(cookie_source)
+        if missing and cookie_source == "cookie-manager"
+        else cookie_source
+    )
     errors: list[dict[str, str]] = []
     fetched = 0
     attempted = 0
@@ -697,7 +705,7 @@ def hydrate_post_avatars(
                 while len(futures) < max_workers and next_missing < len(missing) and not rate_limited:
                     handle = missing[next_missing]
                     next_missing += 1
-                    futures[pool.submit(fetch_profile_avatar, handle, cookie_source, retries)] = handle
+                    futures[pool.submit(fetch_profile_avatar, handle, profile_cookie_source, retries)] = handle
                     attempted += 1
                 if not futures:
                     break

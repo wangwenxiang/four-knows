@@ -152,6 +152,25 @@ class AvatarCacheTests(unittest.TestCase):
         self.assertEqual(second_report["coverage"], 1.0)
         self.assertEqual(second_report["quotedCoverage"], 1.0)
 
+    def test_cookie_manager_avatar_repair_uses_ephemeral_session(self) -> None:
+        posts = [avatar_post("primary")]
+        session = radar.CookieManagerBirdSession("test-token", "test-ct0")
+
+        def profile_avatar(handle: str, cookie_source: object, *_args: object) -> tuple[str, str, str]:
+            self.assertIs(cookie_source, session)
+            return handle, "https://images.example/primary.jpg", ""
+
+        with TemporaryDirectory() as directory:
+            cache_path = Path(directory) / "avatar-cache.json"
+            with patch.object(radar, "prepare_bird_session", return_value=session) as prepare, patch.object(
+                radar, "fetch_profile_avatar", side_effect=profile_avatar
+            ):
+                report = radar.hydrate_post_avatars(posts, cache_path, "cookie-manager", workers=1, retries=0)
+
+        prepare.assert_called_once_with("cookie-manager")
+        self.assertEqual(report["fetchedNow"], 1)
+        self.assertEqual(report["coverage"], 1.0)
+
     def test_rate_limit_stops_unscheduled_avatar_lookups(self) -> None:
         posts = [avatar_post(handle) for handle in ("alpha", "beta", "gamma")]
         calls: list[str] = []

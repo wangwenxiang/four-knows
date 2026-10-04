@@ -1,5 +1,11 @@
 import unittest
+import json
+import sys
+from pathlib import Path
+from tempfile import TemporaryDirectory
+from unittest.mock import patch
 
+from scripts import render_ai_v_poster as poster
 from scripts.render_ai_v_poster import clip_title, editorial_copy_with_metadata, fallback_copy, fit_subtitle, headline_font_size, poster_subtitle, render_story
 
 
@@ -14,6 +20,26 @@ def sample_post():
 
 
 class PosterDensityTest(unittest.TestCase):
+    def test_rendered_poster_resets_scroll_before_native_capture(self):
+        posts = {
+            "fetchStartedAt": "2026-10-05T00:00:00+00:00",
+            "windowHours": 23,
+            "experts": [],
+            "posts": [sample_post() | {"topStoryEligible": True} for _ in range(3)],
+        }
+        with TemporaryDirectory() as directory:
+            output_dir = Path(directory) / "20261005"
+            input_path = output_dir / "data" / "posts.json"
+            input_path.parent.mkdir(parents=True)
+            input_path.write_text(json.dumps(posts), encoding="utf-8")
+            with patch.object(poster, "editorial_copy_with_metadata", return_value=(
+                [{"title": "标题", "summary": "摘要"}] * 3,
+                {"copyBackend": "test", "copyAttempts": 0, "copyRetries": 0, "copyError": ""},
+            )), patch.object(sys, "argv", ["render_ai_v_poster.py", "--input", str(input_path), "--no-codex"]):
+                self.assertEqual(poster.main(), 0)
+            html = (output_dir / "poster.html").read_text(encoding="utf-8")
+        self.assertIn("window.scrollTo(0,0)", html)
+
     def test_sparse_copy_gets_large_type_class(self):
         rendered = render_story(sample_post(), {"title": "短标题", "summary": "简短但完整的事实说明"}, 1)
         self.assertIn("story--sparse", rendered)
