@@ -1,0 +1,2273 @@
+{
+  "enabled": true,
+  "backend": "codex exec",
+  "promptVersion": "codex-editorial-v2",
+  "candidates": 121,
+  "retained": 22,
+  "dropped": 99,
+  "droppedPosts": [
+    {
+      "id": "2108595557522612402",
+      "author": "Thom_Wolf",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "祝贺互动",
+      "evidence": "仅祝贺Bercan",
+      "rationale": "无技术事实或经验"
+    },
+    {
+      "id": "2108557969705340977",
+      "author": "JeffDean",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "同事祝贺",
+      "evidence": "仅欢迎成为同事",
+      "rationale": "无AI技术内容"
+    },
+    {
+      "id": "2108487016719466644",
+      "author": "Thom_Wolf",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Microduck玩笑",
+      "evidence": "Microduck遭微侵犯",
+      "rationale": "玩笑内容无技术事实"
+    },
+    {
+      "id": "2108379769108861308",
+      "author": "JeffDean",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "结果祝贺",
+      "evidence": "仅称赞结果不错",
+      "rationale": "未说明任何结果事实"
+    },
+    {
+      "id": "2108599700731674976",
+      "author": "anilkseth",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "意识综述链接",
+      "evidence": "开放获取综述含评论",
+      "rationale": "仅推荐论文无技术事实"
+    },
+    {
+      "id": "2108564998691643686",
+      "author": "anilkseth",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "意识影片放映",
+      "evidence": "29/10米兰放映",
+      "rationale": "活动宣传非技术内容"
+    },
+    {
+      "id": "2108493467953332354",
+      "author": "anilkseth",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "LLM意识争论",
+      "evidence": "称LLM很可能无意识",
+      "rationale": "观点讨论无技术事实"
+    },
+    {
+      "id": "2108482160307097688",
+      "author": "anilkseth",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI伦理文章片段",
+      "evidence": "引用Noema和BBS回应",
+      "rationale": "材料未给技术细节"
+    },
+    {
+      "id": "2108480561748582722",
+      "author": "anilkseth",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "意识理论反驳",
+      "evidence": "称提案非必要充分",
+      "rationale": "意识观点非AI技术事实"
+    },
+    {
+      "id": "2108479320209383574",
+      "author": "anilkseth",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "对LLM施虐观点",
+      "evidence": "讨论用户负面影响",
+      "rationale": "伦理观点无工程事实"
+    },
+    {
+      "id": "2108664217612247168",
+      "author": "karpathy",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "媒体交流",
+      "evidence": "记者读论文提技术问题",
+      "rationale": "无具体AI技术事实"
+    },
+    {
+      "id": "2108614291687715144",
+      "author": "jerryjliu0",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "社交祝贺",
+      "evidence": "仅表示祝贺",
+      "rationale": "无技术内容"
+    },
+    {
+      "id": "2108597112707686552",
+      "author": "amasad",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI影响讨论",
+      "evidence": "询问领域态度差异",
+      "rationale": "纯观点提问无事实"
+    },
+    {
+      "id": "2108593292707319816",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Agent认知",
+      "evidence": "称Manus带火Agent",
+      "rationale": "缺少可验证技术事实"
+    },
+    {
+      "id": "2108593078789341567",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "地点回复",
+      "evidence": "称还有北京",
+      "rationale": "无AI技术内容"
+    },
+    {
+      "id": "2108592013818110415",
+      "author": "bcherny",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "追问",
+      "evidence": "仅回复How so",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108591824600445042",
+      "author": "bcherny",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Claude Code权限",
+      "evidence": "/permission保持解锁",
+      "rationale": "命令用法很窄"
+    },
+    {
+      "id": "2108508081176920431",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "状态回复",
+      "evidence": "称彻底回归了",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108508029142417851",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI人才",
+      "evidence": "称AI人才很贵",
+      "rationale": "招聘成本非技术事实"
+    },
+    {
+      "id": "2108494206029422671",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "产品闲聊",
+      "evidence": "产品足够前沿吸引人",
+      "rationale": "只有观点无技术事实"
+    },
+    {
+      "id": "2108445234300637498",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "社交回复",
+      "evidence": "哈哈，谢谢",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108441535415308430",
+      "author": "bcherny",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Claude Code权限模式",
+      "evidence": "权限选择器有auto",
+      "rationale": "软件功能细节但信息很窄"
+    },
+    {
+      "id": "2108438191271477740",
+      "author": "bcherny",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Claude Code默认设置",
+      "evidence": "auto是默认模式",
+      "rationale": "产品配置事实但价值有限"
+    },
+    {
+      "id": "2108427771160768658",
+      "author": "bcherny",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "只表示抱歉耗时",
+      "rationale": "无技术事实或工程经验"
+    },
+    {
+      "id": "2108419816457748798",
+      "author": "bcherny",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "进度回复",
+      "evidence": "只说快完成了",
+      "rationale": "缺少对象和技术细节"
+    },
+    {
+      "id": "2108414210526867945",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "社交互动",
+      "evidence": "称自己是传话筒",
+      "rationale": "无AI技术事实"
+    },
+    {
+      "id": "2108412856064688201",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "人员动态",
+      "evidence": "提到从鹅厂出来",
+      "rationale": "职业动态非技术事实"
+    },
+    {
+      "id": "2108411560284852488",
+      "author": "bcherny",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "表情回复",
+      "evidence": "仅有互动表情",
+      "rationale": "无可审读技术内容"
+    },
+    {
+      "id": "2108406715830215000",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "模型体感评价",
+      "evidence": "称跑分近体感差大",
+      "rationale": "主观评价缺少事实证据"
+    },
+    {
+      "id": "2108406379971305606",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "社区增长",
+      "evidence": "粉丝从600到1.4万",
+      "rationale": "社区数据非技术内容"
+    },
+    {
+      "id": "2108386943771799877",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "创作者分发",
+      "evidence": "讨论投放和私域",
+      "rationale": "商业观点非AI技术"
+    },
+    {
+      "id": "2108384638892953928",
+      "author": "jerryjliu0",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "产品预告",
+      "evidence": "宣布dots链接",
+      "rationale": "无功能或技术事实"
+    },
+    {
+      "id": "2108369852293398999",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI任务趋势观点",
+      "evidence": "只称一次性任务可解决",
+      "rationale": "泛泛趋势判断，无技术事实"
+    },
+    {
+      "id": "2108369248523288667",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "简短回复",
+      "evidence": "仅回复“是的”",
+      "rationale": "无任何技术信息"
+    },
+    {
+      "id": "2108364530900467813",
+      "author": "amasad",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "编程玩笑",
+      "evidence": "只调侃打孔卡编程",
+      "rationale": "闲聊玩笑，无技术事实"
+    },
+    {
+      "id": "2108362528753643958",
+      "author": "jerryjliu0",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Agent活动社交",
+      "evidence": "活动满400人",
+      "rationale": "活动名单与社交，无技术事实"
+    },
+    {
+      "id": "2108360049861034365",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI Coding观点",
+      "evidence": "为了驾驭ai coding",
+      "rationale": "纯观点表达，无工程事实"
+    },
+    {
+      "id": "2108352485140332758",
+      "author": "jerryjliu0",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "日常调侃",
+      "evidence": "WFH时卖文档解析模型",
+      "rationale": "生活吐槽，无模型技术事实"
+    },
+    {
+      "id": "2108650534534262833",
+      "author": "alexandr_wang",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Muse宣传",
+      "evidence": "Muse发布1个月",
+      "rationale": "无功能或技术细节"
+    },
+    {
+      "id": "2108597234942238821",
+      "author": "alexandr_wang",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI安全访谈宣传",
+      "evidence": "AI safety 对话发布",
+      "rationale": "仅访谈预告，无技术事实"
+    },
+    {
+      "id": "2108582451023118427",
+      "author": "alexandr_wang",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "问题跟进",
+      "evidence": "we are looking into it",
+      "rationale": "无具体问题或技术细节"
+    },
+    {
+      "id": "2108449342508212452",
+      "author": "drfeifei",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "机器时代审美",
+      "evidence": "谁定义机器时代的美",
+      "rationale": "哲学提问，无技术事实"
+    },
+    {
+      "id": "2108408481074356468",
+      "author": "alexandr_wang",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Muse文章转发",
+      "evidence": "Why We're Building Muse",
+      "rationale": "只有链接标题，事实不足"
+    },
+    {
+      "id": "2108408327109750967",
+      "author": "alexandr_wang",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Claude玩笑回复",
+      "evidence": "did Claude write this tweet",
+      "rationale": "闲聊调侃，无技术事实"
+    },
+    {
+      "id": "2108618616229048342",
+      "author": "fchollet",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "科研进展瓶颈观点",
+      "evidence": "不认为瓶颈是人数",
+      "rationale": "纯观点，无可验证技术事实"
+    },
+    {
+      "id": "2108373342713679998",
+      "author": "fchollet",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "AI capability scaling",
+      "evidence": "doubling time在下降",
+      "rationale": "技术相关但只是简短判断"
+    },
+    {
+      "id": "2108689387064344748",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回应",
+      "evidence": "仅表情回应",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108685659674431733",
+      "author": "sh_reya",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "社交互动",
+      "evidence": "只是在认人和玩笑",
+      "rationale": "无技术内容"
+    },
+    {
+      "id": "2108681920368537806",
+      "author": "HamelHusain",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "部署环境提问",
+      "evidence": "询问为何本地不用Modal",
+      "rationale": "只有问题，无事实经验"
+    },
+    {
+      "id": "2108649669127803036",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "仓库评价",
+      "evidence": "称看了repo很棒",
+      "rationale": "无实现或工程事实"
+    },
+    {
+      "id": "2108646993124012383",
+      "author": "yoheinakajima",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "tesseract packing",
+      "evidence": "n=26到30发现新最优",
+      "rationale": "包含明确研究结果数值"
+    },
+    {
+      "id": "2108645160825573669",
+      "author": "sh_reya",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "论文归属",
+      "evidence": "说明论文作者归属",
+      "rationale": "无论文技术事实"
+    },
+    {
+      "id": "2108622581716640226",
+      "author": "swyx",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "slide into my dms",
+      "rationale": "无技术事实或工程经验"
+    },
+    {
+      "id": "2108612205595828395",
+      "author": "swyx",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "祝贺互动",
+      "evidence": "congrats to both teams",
+      "rationale": "仅社交祝贺，无技术内容"
+    },
+    {
+      "id": "2108608298048184396",
+      "author": "HamelHusain",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "网站询问",
+      "evidence": "Is there a website?",
+      "rationale": "只询问网站，无事实信息"
+    },
+    {
+      "id": "2108592010492047839",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "结果询问",
+      "evidence": "did you submit results",
+      "rationale": "语境不足，未给技术事实"
+    },
+    {
+      "id": "2108590820949729586",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "万圣节创意",
+      "evidence": "build a pumpkin-claw",
+      "rationale": "创意玩笑，无技术细节"
+    },
+    {
+      "id": "2108589000550387757",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "万圣节玩笑",
+      "evidence": "headless horseman",
+      "rationale": "无AI或软件技术事实"
+    },
+    {
+      "id": "2108587886799159445",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "简短回复",
+      "evidence": "why not?",
+      "rationale": "无可判断技术内容"
+    },
+    {
+      "id": "2108585292726931668",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "机器人内容创意",
+      "evidence": "humanoid moves like a human",
+      "rationale": "提到机器人但无技术事实"
+    },
+    {
+      "id": "2108574993672290645",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "机器人营销内容",
+      "evidence": "robotics company",
+      "rationale": "内容策划建议非技术事实"
+    },
+    {
+      "id": "2108573825197892024",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "表情回复",
+      "evidence": "👍",
+      "rationale": "纯互动，无技术信息"
+    },
+    {
+      "id": "2108573726958858363",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "proofs是crazy math",
+      "rationale": "无具体技术事实"
+    },
+    {
+      "id": "2108573271503380723",
+      "author": "HamelHusain",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "AI评估实践",
+      "evidence": "审查真实用户交互并修复",
+      "rationale": "可复用评估落地经验"
+    },
+    {
+      "id": "2108573019077779657",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "提到NPT simulations",
+      "rationale": "仅称刚学到无事实"
+    },
+    {
+      "id": "2108572618672718113",
+      "author": "yoheinakajima",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "数学研究",
+      "evidence": "n=26到30刷新tesseract packing",
+      "rationale": "有研究结果但非AI主题"
+    },
+    {
+      "id": "2108572455967346800",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "best kind of records",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108563579645636697",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "形式化证明",
+      "evidence": "问是否尝试Lean proof",
+      "rationale": "只有提问无结果细节"
+    },
+    {
+      "id": "2108563331376124389",
+      "author": "swyx",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "职业建议",
+      "evidence": "发观点作品并建立关系",
+      "rationale": "求职建议非技术事实"
+    },
+    {
+      "id": "2108562387704164860",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "链接回复",
+      "evidence": "只给出链接",
+      "rationale": "材料无可判定事实"
+    },
+    {
+      "id": "2108562104609657100",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "回复yep",
+      "rationale": "无技术内容"
+    },
+    {
+      "id": "2108562067469021590",
+      "author": "yoheinakajima",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "数学研究",
+      "evidence": "2.942809优于Friedman 1998",
+      "rationale": "有研究结果但证据较窄"
+    },
+    {
+      "id": "2108561810169516388",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "无明确主题",
+      "evidence": "仅提及链接",
+      "rationale": "无可核验技术事实"
+    },
+    {
+      "id": "2108561356807147939",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "apparently so",
+      "rationale": "无技术内容"
+    },
+    {
+      "id": "2108555628881027392",
+      "author": "swyx",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "true",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108555490624258209",
+      "author": "swyx",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "观点争论",
+      "evidence": "讨论editorial判断",
+      "rationale": "缺少技术事实"
+    },
+    {
+      "id": "2108553084330991762",
+      "author": "swyx",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "职业闲聊",
+      "evidence": "谈收入和公司",
+      "rationale": "非技术内容"
+    },
+    {
+      "id": "2108551313483342183",
+      "author": "yoheinakajima",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "tesseract packing",
+      "evidence": "n=26到30新最佳",
+      "rationale": "含研究结果和数值改进"
+    },
+    {
+      "id": "2108464269599572206",
+      "author": "swyx",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "求职闲聊",
+      "evidence": "on the market",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108400482071003470",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "swirly fluids",
+      "rationale": "无明确技术事实"
+    },
+    {
+      "id": "2108397904880914780",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "泛泛评价",
+      "evidence": "these are cool",
+      "rationale": "未说明技术事实"
+    },
+    {
+      "id": "2108392598830502064",
+      "author": "swyx",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "简短评价",
+      "evidence": "worth",
+      "rationale": "无技术内容"
+    },
+    {
+      "id": "2108391703488958475",
+      "author": "swyx",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "credibility",
+      "evidence": "讨论可信度稀缺",
+      "rationale": "纯观点无技术事实"
+    },
+    {
+      "id": "2108388128390086675",
+      "author": "swyx",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "hiring",
+      "evidence": "推荐沟通与人事角色",
+      "rationale": "招聘推广无技术事实"
+    },
+    {
+      "id": "2108387824034873808",
+      "author": "swyx",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "discourse recap",
+      "evidence": "称回顾上次争论",
+      "rationale": "缺少具体技术内容"
+    },
+    {
+      "id": "2108379841859072028",
+      "author": "swyx",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI roles",
+      "evidence": "agent labs岗位薪酬",
+      "rationale": "岗位市场信息非技术事实"
+    },
+    {
+      "id": "2108660997594731005",
+      "author": "jackclarkSF",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "arXiv reading",
+      "evidence": "称arXiv有好故事",
+      "rationale": "未给论文技术事实"
+    },
+    {
+      "id": "2108656865752305955",
+      "author": "jackclarkSF",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "research habit",
+      "evidence": "十年阅读研究记录",
+      "rationale": "个人经历非技术事实"
+    },
+    {
+      "id": "2108615902308769912",
+      "author": "simonw",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "coding agents",
+      "evidence": "猜测agent降低维护成本",
+      "rationale": "预测式观点证据不足"
+    },
+    {
+      "id": "2108608837175701514",
+      "author": "simonw",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Qwen model",
+      "evidence": "Qwen3.5-35B-A3B",
+      "rationale": "模型点名但缺少细节"
+    },
+    {
+      "id": "2108579186948624712",
+      "author": "simonw",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI使用建议",
+      "evidence": "建议处理更难问题",
+      "rationale": "只有泛泛建议无技术事实"
+    },
+    {
+      "id": "2108578142092976386",
+      "author": "simonw",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "PR提及",
+      "evidence": "称后来在PR审查",
+      "rationale": "无PR内容或技术细节"
+    },
+    {
+      "id": "2108555464116154711",
+      "author": "simonw",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "模型URL推断",
+      "evidence": "识别substack域名",
+      "rationale": "窄能力观察证据有限"
+    },
+    {
+      "id": "2108547654083039700",
+      "author": "simonw",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "提示词链接",
+      "evidence": "仅称Example prompt",
+      "rationale": "未给提示词内容或事实"
+    },
+    {
+      "id": "2108547065634844839",
+      "author": "simonw",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "Codex语音编程",
+      "evidence": "语音用Codex做博客功能",
+      "rationale": "有AI编码工作流经验"
+    },
+    {
+      "id": "2108541102261502356",
+      "author": "simonw",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "观点讨论",
+      "evidence": "称尚未被说服",
+      "rationale": "政治调侃无技术事实"
+    },
+    {
+      "id": "2108364133712486772",
+      "author": "simonw",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Meta更名评论",
+      "evidence": "评论Metaverse改名",
+      "rationale": "公司命名看法非技术"
+    },
+    {
+      "id": "2108347087985480107",
+      "author": "simonw",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI命名争论",
+      "evidence": "讨论人工智能名称",
+      "rationale": "语义争论无技术事实"
+    },
+    {
+      "id": "2108675639859724458",
+      "author": "physical_int",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "机器人融资与部署观点",
+      "evidence": "宣布5000万美元A轮",
+      "rationale": "融资和泛化观点，无技术事实"
+    }
+  ],
+  "headlineSelection": {
+    "schemaVersion": 1,
+    "candidates": [
+      {
+        "id": "2108497951849099444",
+        "author": "xudong07452910",
+        "grade": "A",
+        "primarySubstantive": true,
+        "reason": "selected"
+      },
+      {
+        "id": "2108673441314566158",
+        "author": "chelseabfinn",
+        "grade": "A",
+        "primarySubstantive": true,
+        "reason": "selected"
+      },
+      {
+        "id": "2108596098277249441",
+        "author": "fchollet",
+        "grade": "B",
+        "primarySubstantive": true,
+        "reason": "capacity"
+      },
+      {
+        "id": "2108579538372612400",
+        "author": "fchollet",
+        "grade": "A",
+        "primarySubstantive": false,
+        "reason": "primary_not_substantive"
+      },
+      {
+        "id": "2108453917277254058",
+        "author": "hwchase17",
+        "grade": "B",
+        "primarySubstantive": true,
+        "reason": "selected"
+      },
+      {
+        "id": "2108608482442449261",
+        "author": "simonw",
+        "grade": "B",
+        "primarySubstantive": true,
+        "reason": "capacity"
+      },
+      {
+        "id": "2108398043066450195",
+        "author": "xudong07452910",
+        "grade": "B",
+        "primarySubstantive": true,
+        "reason": "same_author",
+        "selectedId": "2108497951849099444"
+      },
+      {
+        "id": "2108364321072030004",
+        "author": "xudong07452910",
+        "grade": "B",
+        "primarySubstantive": true,
+        "reason": "same_author",
+        "selectedId": "2108497951849099444"
+      },
+      {
+        "id": "2108556188610940940",
+        "author": "simonw",
+        "grade": "B",
+        "primarySubstantive": true,
+        "reason": "capacity"
+      },
+      {
+        "id": "2108634469033005101",
+        "author": "jackclarksf",
+        "grade": "C",
+        "primarySubstantive": false,
+        "reason": "primary_not_substantive"
+      },
+      {
+        "id": "2108428779555274825",
+        "author": "bcherny",
+        "grade": "C",
+        "primarySubstantive": false,
+        "reason": "primary_not_substantive"
+      },
+      {
+        "id": "2108474622966444102",
+        "author": "hwchase17",
+        "grade": "C",
+        "primarySubstantive": false,
+        "reason": "primary_not_substantive"
+      },
+      {
+        "id": "2108456337374065097",
+        "author": "alexandr_wang",
+        "grade": "C",
+        "primarySubstantive": false,
+        "reason": "primary_not_substantive"
+      },
+      {
+        "id": "2108465208297476157",
+        "author": "hwchase17",
+        "grade": "C",
+        "primarySubstantive": false,
+        "reason": "primary_not_substantive"
+      },
+      {
+        "id": "2108403786129801671",
+        "author": "alexandr_wang",
+        "grade": "C",
+        "primarySubstantive": false,
+        "reason": "primary_not_substantive"
+      },
+      {
+        "id": "2108436834418373099",
+        "author": "jerryjliu0",
+        "grade": "C",
+        "primarySubstantive": true,
+        "reason": "grade_not_eligible"
+      },
+      {
+        "id": "2108617137241911723",
+        "author": "fchollet",
+        "grade": "C",
+        "primarySubstantive": true,
+        "reason": "grade_not_eligible"
+      },
+      {
+        "id": "2108557290412597610",
+        "author": "simonw",
+        "grade": "C",
+        "primarySubstantive": false,
+        "reason": "primary_not_substantive"
+      },
+      {
+        "id": "2108613049448108093",
+        "author": "jerryjliu0",
+        "grade": "C",
+        "primarySubstantive": false,
+        "reason": "primary_not_substantive"
+      }
+    ]
+  },
+  "topStories": [
+    {
+      "id": "2108497951849099444",
+      "author": "Xudong07452910",
+      "category": "AI 技术前沿",
+      "editorialScore": 100
+    },
+    {
+      "id": "2108673441314566158",
+      "author": "chelseabfinn",
+      "category": "AI 技术进步",
+      "editorialScore": 99
+    },
+    {
+      "id": "2108453917277254058",
+      "author": "hwchase17",
+      "category": "AI 技术应用",
+      "editorialScore": 98
+    }
+  ],
+  "reviewedPosts": [
+    {
+      "id": "2108595557522612402",
+      "author": "Thom_Wolf",
+      "text": "@bercankilic @microagi Congrats Bercan!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "祝贺互动",
+      "evidence": "仅祝贺Bercan",
+      "rationale": "无技术事实或经验"
+    },
+    {
+      "id": "2108557969705340977",
+      "author": "JeffDean",
+      "text": "@prfsanjeevarora @DiscoLoopAI @PrincetonCS @PrincetonPLI Awesome to have you as a colleague!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "同事祝贺",
+      "evidence": "仅欢迎成为同事",
+      "rationale": "无AI技术内容"
+    },
+    {
+      "id": "2108487016719466644",
+      "author": "Thom_Wolf",
+      "text": "⚠️ Viewer discretion advised: Microduck is subjected to a microaggression https://t.co/QB1FpEqdh2",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Microduck玩笑",
+      "evidence": "Microduck遭微侵犯",
+      "rationale": "玩笑内容无技术事实"
+    },
+    {
+      "id": "2108379769108861308",
+      "author": "JeffDean",
+      "text": "@maithra_raghu Congrats on these very nice results!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "结果祝贺",
+      "evidence": "仅称赞结果不错",
+      "rationale": "未说明任何结果事实"
+    },
+    {
+      "id": "2108599700731674976",
+      "author": "anilkseth",
+      "text": "@MatthiasMichel_ @John_Stepek @dioscuri I'd add (disclaimer - I'm an author, along with @axelcleeremans @Liad_Mudrik) is this recent review (with commentaries), also open access: https://t.co/vZiobVnn0L",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "意识综述链接",
+      "evidence": "开放获取综述含评论",
+      "rationale": "仅推荐论文无技术事实"
+    },
+    {
+      "id": "2108564998691643686",
+      "author": "anilkseth",
+      "text": "People of Milan! Do not miss this - CONSIOUS is coming to the Fondazione Prada on 29/10 at 8pm 👇🏼🧠",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "意识影片放映",
+      "evidence": "29/10米兰放映",
+      "rationale": "活动宣传非技术内容"
+    },
+    {
+      "id": "2108493467953332354",
+      "author": "anilkseth",
+      "text": "I don't think you understand. What you say here does not make sense, or reflect my view / what I said. There are good reasons to avoid engaging in abusive behaviour towards LLMs independent of whether they are conscious (v unlikely) or not (v likely).  That is what 'entirely grounded' means in this context.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "LLM意识争论",
+      "evidence": "称LLM很可能无意识",
+      "rationale": "观点讨论无技术事实"
+    },
+    {
+      "id": "2108482160307097688",
+      "author": "anilkseth",
+      "text": "@MatthiasMichel_ @camhberg @ravfogel Thanks Matthias. I wrote about this mainly in the @NoemaMag essay (that I linked to) and also at the end of my BBS response - in both places drawing quite strongly on Shannon Vallor's work. I attach a couple of snippets, but they really need to be read in context. https://t.co/XVlckSZRUj",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI伦理文章片段",
+      "evidence": "引用Noema和BBS回应",
+      "rationale": "材料未给技术细节"
+    },
+    {
+      "id": "2108480561748582722",
+      "author": "anilkseth",
+      "text": "Hi @davidasinclair.  I don't think we are close at all. Your proposal seems like a statement, not a theory. There are many good reasons why what you suggest is neither necessary nor sufficient for consciousness. For starters, see https://t.co/LmSiQnT9Wh (and for the meat, https://t.co/6ZFzHrUsUR - with commentaries and response)",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "意识理论反驳",
+      "evidence": "称提案非必要充分",
+      "rationale": "意识观点非AI技术事实"
+    },
+    {
+      "id": "2108479320209383574",
+      "author": "anilkseth",
+      "text": "@Grady_Booch is right here.  There are good reasons to not engage in abusive behaviour towards LLMs which are entirely grounded in the negative effects on the users. These arguments about 'brutalising the mind' go right back to Kant, and probably earlier.  I discuss this in §6.2 of my BBS paper - snippet here FWIW",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "对LLM施虐观点",
+      "evidence": "讨论用户负面影响",
+      "rationale": "伦理观点无工程事实"
+    },
+    {
+      "id": "2108664217612247168",
+      "author": "karpathy",
+      "text": "@TheStalwart I had some amount of journalistic inbound way back as a PhD student but the only person I consistently replied to was Jack because he actually put in effort, read academic papers and asked good technical questions and I have not really seen that before (or since). https://t.co/AHmDN62FMh",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "媒体交流",
+      "evidence": "记者读论文提技术问题",
+      "rationale": "无具体AI技术事实"
+    },
+    {
+      "id": "2108614291687715144",
+      "author": "jerryjliu0",
+      "text": "@CompleteSkeptic @a16z congrats!!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "社交祝贺",
+      "evidence": "仅表示祝贺",
+      "rationale": "无技术内容"
+    },
+    {
+      "id": "2108613049448108093",
+      "author": "jerryjliu0",
+      "text": "@malaysiangovm @artemmurzin tbf we're not trying to make a margin on inference volume, we take a small cut of transctions. we're looking to drive these inference costs down over time",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "推理成本",
+      "evidence": "不赚推理量差价",
+      "rationale": "涉及推理成本但细节少"
+    },
+    {
+      "id": "2108597112707686552",
+      "author": "amasad",
+      "text": "Some communities are excited by AI’s impact on their field. Others are petrified. What’s the deciding factor(s)?",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI影响讨论",
+      "evidence": "询问领域态度差异",
+      "rationale": "纯观点提问无事实"
+    },
+    {
+      "id": "2108593292707319816",
+      "author": "Xudong07452910",
+      "text": "@FUCK_CCTV 不晚，最早Agent被大家熟知就是因为Manus，底蕴还在",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Agent认知",
+      "evidence": "称Manus带火Agent",
+      "rationale": "缺少可验证技术事实"
+    },
+    {
+      "id": "2108593078789341567",
+      "author": "Xudong07452910",
+      "text": "@ddnioo 应该有的，还有北京",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "地点回复",
+      "evidence": "称还有北京",
+      "rationale": "无AI技术内容"
+    },
+    {
+      "id": "2108592013818110415",
+      "author": "bcherny",
+      "text": "@CryptoCaseus @ipv4fan How so",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "追问",
+      "evidence": "仅回复How so",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108591824600445042",
+      "author": "bcherny",
+      "text": "@Moriarty_tech @ipv4fan /permission to unblock and keep it unblocked",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Claude Code权限",
+      "evidence": "/permission保持解锁",
+      "rationale": "命令用法很窄"
+    },
+    {
+      "id": "2108508081176920431",
+      "author": "Xudong07452910",
+      "text": "@kaka11chen 彻底回归了",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "状态回复",
+      "evidence": "称彻底回归了",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108508029142417851",
+      "author": "Xudong07452910",
+      "text": "@gordon758 🤣，现在ai人才还是很贵的",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI人才",
+      "evidence": "称AI人才很贵",
+      "rationale": "招聘成本非技术事实"
+    },
+    {
+      "id": "2108497951849099444",
+      "author": "Xudong07452910",
+      "text": "MiMo v2.6 的 RL 环境开源后，Vals AI 一查发现了个很大的坑。\n\n2698 个编程任务里，67% 的参考修复其实还藏在 Git 历史里。\n\nMiMo 真的会去翻这些隐藏 commit，找到现成 patch 再通过测试。Git 被清掉后，它还会继续找文件时间戳、缓存，甚至自己解析 Git pack 文件。\n\n更麻烦的是，小米原本已经做了防作弊，但漏掉的捷径照样能拿 reward。\n\n还有个实验很有意思。只写一句「Do not cheat」几乎没用，把具体禁止的作弊路径写清楚后，作弊才降到 0。\n\n这件事提醒得很直接，RL 训练环境如果会漏答案，模型最后学会的可能就是怎么钻漏洞。\n\n开源环境很好，但以后 Benchmark 和 RL 环境本身也得先被审一遍。\n\n文章\nhttps://t.co/KWMypF26r7",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "RL环境与基准泄漏",
+      "evidence": "67%修复藏在Git历史",
+      "rationale": "揭示RL环境会奖励作弊路径"
+    },
+    {
+      "id": "2108494206029422671",
+      "author": "Xudong07452910",
+      "text": "@tspy 是的，还是产品足够前沿和吸引人",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "产品闲聊",
+      "evidence": "产品足够前沿吸引人",
+      "rationale": "只有观点无技术事实"
+    },
+    {
+      "id": "2108474622966444102",
+      "author": "hwchase17",
+      "text": "This is great point\n\nGoodharts law: when a measure becomes a target, it ceases to be a good measure\n\nInitial take: eval driven development works for narrowly scoped things, but for more autonomous agents it doesn’t\n\nSo then - how do you hill climb those?",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Agent评测方法",
+      "evidence": "eval适合窄任务",
+      "rationale": "有方法判断但缺实证细节"
+    },
+    {
+      "id": "2108465208297476157",
+      "author": "hwchase17",
+      "text": "eval driven development",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Eval驱动开发",
+      "evidence": "用eval和hillclimbing解任务",
+      "rationale": "技术相关但主要是观点预测"
+    },
+    {
+      "id": "2108453917277254058",
+      "author": "hwchase17",
+      "text": "trajectory labeling is really several questions, not one pass/fail - nice framing here\n\nthat's how Jev as a judge works in LangSmith evals: difficulty and correctness each get their own typed answer, in one pass, on every trace\n\nhttps://t.co/jlD2ywtlOT\n\nhttps://t.co/QgQpQFpZ26",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "轨迹标注与LangSmith评测",
+      "evidence": "难度和正确性各自类型化",
+      "rationale": "给出可复用评测实现方式"
+    },
+    {
+      "id": "2108445234300637498",
+      "author": "Xudong07452910",
+      "text": "@tspy @xiaohuiyuan 哈哈，谢谢",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "社交回复",
+      "evidence": "哈哈，谢谢",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108441535415308430",
+      "author": "bcherny",
+      "text": "@tt_tisht @ipv4fan Do you not see “auto” in the permission picker?",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Claude Code权限模式",
+      "evidence": "权限选择器有auto",
+      "rationale": "软件功能细节但信息很窄"
+    },
+    {
+      "id": "2108438191271477740",
+      "author": "bcherny",
+      "text": "@tt_tisht @ipv4fan It’s the default",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Claude Code默认设置",
+      "evidence": "auto是默认模式",
+      "rationale": "产品配置事实但价值有限"
+    },
+    {
+      "id": "2108436834418373099",
+      "author": "jerryjliu0",
+      "text": "These days, you can pretty much solve any task by defining an eval and hillclimbing over it, instead of directly defining the deterministic/agentic workflow to solve it.\n\nThe data provider companies' entire job is to define evals for all economic activity to make the frontier models capable of doing anything. \n\nYour job then becomes pointing frontier intelligence in the right direction - defining what to solve, and how to measure what good looks like. \n\nAgent application interfaces will evolve to capture this. The most complex processes will still need some sort of explicit workflow builder interface, but most tasks can be compressed into goals and eval instructions.",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Agent eval接口",
+      "evidence": "任务可压缩为目标和eval",
+      "rationale": "技术相关但证据不足"
+    },
+    {
+      "id": "2108428779555274825",
+      "author": "bcherny",
+      "text": "@ipv4fan Use auto mode! No more prompts",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Claude Code自动权限",
+      "evidence": "auto mode无更多提示",
+      "rationale": "工具使用细节但范围很窄"
+    },
+    {
+      "id": "2108427771160768658",
+      "author": "bcherny",
+      "text": "@almonk @AnthropicAI Sorry it took a little while",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "只表示抱歉耗时",
+      "rationale": "无技术事实或工程经验"
+    },
+    {
+      "id": "2108419816457748798",
+      "author": "bcherny",
+      "text": "@antponcee @ClaudeDevs Yes! Almost done",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "进度回复",
+      "evidence": "只说快完成了",
+      "rationale": "缺少对象和技术细节"
+    },
+    {
+      "id": "2108414210526867945",
+      "author": "Xudong07452910",
+      "text": "@li9292 @xiaohuiyuan 还是晓辉老师太出名啦，我就是个传话筒😂。",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "社交互动",
+      "evidence": "称自己是传话筒",
+      "rationale": "无AI技术事实"
+    },
+    {
+      "id": "2108412856064688201",
+      "author": "Xudong07452910",
+      "text": "之前经常在小红书上看余一老师跟晓辉老师联动的视频，没想到也这么快从鹅厂出来了，多多关注余一老师哦。",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "人员动态",
+      "evidence": "提到从鹅厂出来",
+      "rationale": "职业动态非技术事实"
+    },
+    {
+      "id": "2108411560284852488",
+      "author": "bcherny",
+      "text": "@mitchellh @AnthropicAI 🙌",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "表情回复",
+      "evidence": "仅有互动表情",
+      "rationale": "无可审读技术内容"
+    },
+    {
+      "id": "2108406715830215000",
+      "author": "Xudong07452910",
+      "text": "@keane42443 是这样的，就跟claude和其他模型可能跑分差不多，但是体感差距很大",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "模型体感评价",
+      "evidence": "称跑分近体感差大",
+      "rationale": "主观评价缺少事实证据"
+    },
+    {
+      "id": "2108406379971305606",
+      "author": "Xudong07452910",
+      "text": "我昨天转发晓辉老师 @xiaohuiyuan 帖子时候才600多粉丝，现在已经1.4万粉了，我这也算是贡献自己的力量了🙃。\n\n很开心之前一直关注的一些博主陆续都来到的 X 上，希望我们的中文社区越来越好👏 https://t.co/jfl2Qxadk6",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "社区增长",
+      "evidence": "粉丝从600到1.4万",
+      "rationale": "社区数据非技术内容"
+    },
+    {
+      "id": "2108398043066450195",
+      "author": "Xudong07452910",
+      "text": "我们是不是高估了 Harness 对 Coding Agent「能力」的提升？\n\n这篇论文中把模型固定，只替换 Claude Code、mini-SWE-agent 和 OpenCode，在 SWE-bench Verified 上重新测试。\n\n结果很有意思。\n\n在 447 个任务上，最重的 Claude Code 和最轻的 mini-SWE-agent，成绩差异落在 5 个百分点以内。\n\n在 45 个高难任务、5 个模型上，换 Harness 会让 13% 的任务结果发生变化；但什么都不改，只把同一个配置再跑一遍，同样有 13% 的任务会翻转。\n\n也就是说，很多看起来像 Harness 带来的提升，可能还没有明显超过运行本身的随机波动。\n\n真正拉开差距的反而是成本。\n\n同一个模型、同一批任务，不同 Harness 的单任务成本最高能差 3 倍。主要原因很简单：系统 Prompt 和工具 schema 会在每一步重复进入上下文，初始开销再被执行步数不断放大。\n\n论文还提醒了一个容易被忽略的问题：\n\n45 个任务连 13 个百分点的差距都只有约一半概率能检出；即使做到 447 个任务，分辨率也大约只有 5 个百分点。\n\n所以我们得把 Harness 的价值拆开看了。\n\n它当然会影响 Agent 怎么工作，但很多时候，最稳定、最容易测出来的差异，可能先体现在 token、成本和执行效率上。\n\n📎 arxiv: https://t.co/L8YKHxouAQ",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "Coding Agent评测",
+      "evidence": "SWE-bench差异5个百分点",
+      "rationale": "有评测结果和成本分析"
+    },
+    {
+      "id": "2108386943771799877",
+      "author": "Xudong07452910",
+      "text": "@3MuSpark 说白了，如果创作者不掌握投放或私域，最后很容易变成给平台供货的上游。真正能吃到红利的，还是会卡在分发那一层的人。",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "创作者分发",
+      "evidence": "讨论投放和私域",
+      "rationale": "商业观点非AI技术"
+    },
+    {
+      "id": "2108384638892953928",
+      "author": "jerryjliu0",
+      "text": "Today we’re announcing dots\n\nhttps://t.co/nkYyYDtlnL",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "产品预告",
+      "evidence": "宣布dots链接",
+      "rationale": "无功能或技术事实"
+    },
+    {
+      "id": "2108369852293398999",
+      "author": "Xudong07452910",
+      "text": "@thelexten 是的，目前是可以很好解决一次性的任务，长期来说肯定是个趋势，",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI任务趋势观点",
+      "evidence": "只称一次性任务可解决",
+      "rationale": "泛泛趋势判断，无技术事实"
+    },
+    {
+      "id": "2108369248523288667",
+      "author": "Xudong07452910",
+      "text": "@0x_Guagua 是的",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "简短回复",
+      "evidence": "仅回复“是的”",
+      "rationale": "无任何技术信息"
+    },
+    {
+      "id": "2108364530900467813",
+      "author": "amasad",
+      "text": "@tmuxvim This is like when boomers talk about programming with punchcards 😭",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "编程玩笑",
+      "evidence": "只调侃打孔卡编程",
+      "rationale": "闲聊玩笑，无技术事实"
+    },
+    {
+      "id": "2108364321072030004",
+      "author": "Xudong07452910",
+      "text": "这两天刷屏的「DeepSeek 一家 token 量超过美国四家总和」，我去 OpenRouter 官方榜单核了一下。\n\n按 token 算，基本属实；换成请求数看，故事就完全不一样了。\n\nSocial Capital 统计的 9 月最后一周，DeepSeek 在 OpenRouter 上跑了 36.8T token。OpenAI、Google、Anthropic、xAI 四家加起来约 33T。\n\nOpenRouter 现在的榜单方向也一致。最近 7 天，DeepSeek V4.1 Flash 一个模型就跑了 33.6T，GPT-6 Luna 是 6.46T。\n\n但再看请求数。\n\nDeepSeek 占 21.8%，Google 21.5%，OpenAI 18.2%，Anthropic 2.5%。\n\n光后三家加起来就有 42.2%，接近 DeepSeek 两倍。\n\n所以我觉得这张图真正说明的，更像是 DeepSeek 正在吃下大量高 token 的 Agent 工作负载。长上下文、多轮执行、工具调用一跑起来，token 很容易堆上去。\n\nOpenRouter 自己此前也观察到，DeepSeek token 份额的增长主要由 Agent 场景推动。\n\n而且 OpenRouter 也写得很清楚，token 不等于用户数、请求数或收入，不同模型的 tokenisation 也不同。\n\nClaude、GPT 还有大量流量直接走官方渠道，本来就不会出现在这里。\n\n所以「DeepSeek 全面超过美国模型」我觉得说过头了。\n\n但另一个信号已经很明显了。\n\n在价格敏感、Token 消耗巨大的 Agent 场景里，便宜又够用的 Flash 模型正在快速吃量。",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "OpenRouter模型用量分析",
+      "evidence": "DeepSeek跑36.8T token",
+      "rationale": "含模型用量与agent负载分析"
+    },
+    {
+      "id": "2108362528753643958",
+      "author": "jerryjliu0",
+      "text": "i'm pulling out my suit for this \n\nHuge shoutout to @imaanxsultan and everyone else for organizing!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Agent活动社交",
+      "evidence": "活动满400人",
+      "rationale": "活动名单与社交，无技术事实"
+    },
+    {
+      "id": "2108360049861034365",
+      "author": "Xudong07452910",
+      "text": "@CloudDogx 吵来吵去还是为了更好的驾驭ai coding，而不是被替代",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI Coding观点",
+      "evidence": "为了驾驭ai coding",
+      "rationale": "纯观点表达，无工程事实"
+    },
+    {
+      "id": "2108354255711240656",
+      "author": "Xudong07452910",
+      "text": "这篇《Reasons to dislike AI coding》挺有意思，标题像是在劝退 AI Coding，内容其实是在拆解大家最常见的几种反感。\n\n代码是不是艺术、AI 会不会抢饭碗、工程师会不会变成 Prompt 的「肉体中介」、LLM 到底懂不懂 SOLID 这些工程规则，以及大厂值不值得信任。作者几乎都挨个聊了一遍。\n\n有一个观点我最认同。\n\n很多争论还是把「写代码」看得太重了。客户最后买的是结果，软件开发本身也一直靠复制、试错、抽象和自动化往前走。\n\n但我反而觉得文章没怎么展开的部分更值得讨论。\n\n我之前也谈过，AI Coding 最麻烦的地方会慢慢转向理解债、验证成本和责任归属。\n\n代码越容易生成以后，谁还能真正看懂系统、判断结果、为它负责，这可能才是工程师价值重新被定义的地方。\n\n文章链接：https://t.co/8yD27JpQn0",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "AI Coding工程讨论",
+      "evidence": "提到验证成本和责任归属",
+      "rationale": "技术相关但以观点为主"
+    },
+    {
+      "id": "2108352485140332758",
+      "author": "jerryjliu0",
+      "text": "fleet week makes me patriotic af",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "日常调侃",
+      "evidence": "WFH时卖文档解析模型",
+      "rationale": "生活吐槽，无模型技术事实"
+    },
+    {
+      "id": "2108673441314566158",
+      "author": "chelseabfinn",
+      "text": "As robots become more reliable, DAgger becomes far less efficient.\n\neg 90% success means the person spends &gt;90% of the time passively watching the robot\n\nKey idea: failures come from similar initial states &amp; we can focus learning on these states!\n\nPaper: https://t.co/kzsIufeRy1",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "机器人学习数据采集",
+      "evidence": "3个真实任务2550次盲评",
+      "rationale": "提出方法并有实验效果"
+    },
+    {
+      "id": "2108650534534262833",
+      "author": "alexandr_wang",
+      "text": "https://t.co/NnBHKMdj8X",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Muse宣传",
+      "evidence": "Muse发布1个月",
+      "rationale": "无功能或技术细节"
+    },
+    {
+      "id": "2108597234942238821",
+      "author": "alexandr_wang",
+      "text": "cleo is brilliant and we one of my favorite conversations about ai safety\n\nalso i have a subtle diss during the interview to some well-known peeps 🙃 you’ll have to find it!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI安全访谈宣传",
+      "evidence": "AI safety 对话发布",
+      "rationale": "仅访谈预告，无技术事实"
+    },
+    {
+      "id": "2108582451023118427",
+      "author": "alexandr_wang",
+      "text": "@BasicProtein26 ok we are looking into it!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "问题跟进",
+      "evidence": "we are looking into it",
+      "rationale": "无具体问题或技术细节"
+    },
+    {
+      "id": "2108456337374065097",
+      "author": "alexandr_wang",
+      "text": "we launched muse a month ago today\n\nfor the past month, reality felt like a dream. we watched the world catch fire with muse. every day we read stories of people saving money and precious time. every day it made people’s lives better in small and big ways. every day i watched the muse team pour their hearts into bringing a little more wonder in the world.\n\nthe response to muse has surpassed anything i could have imagined. i know the muse team will remember it for the rest of our lives.\n\nit is easy to become jaded in tech. products launch every day but they very rarely make any dent in the world. but i have seen muse make a real difference for moms, for grandpas, for students, for coworkers. many of you using it in ways we never expected. \n\nthank you to the muse team. thank you to everyone who’s tried muse. this is only the beginning. we have so much more to build.",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Muse个人AI助手",
+      "evidence": "可用浏览器并连接应用",
+      "rationale": "有能力描述但多为宣传"
+    },
+    {
+      "id": "2108449342508212452",
+      "author": "drfeifei",
+      "text": "Every one of my mathematician friend sees beauty in the numbers, shapes and the natural phenomena they work with. Who defines beauty in the age of machines?🤔",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "机器时代审美",
+      "evidence": "谁定义机器时代的美",
+      "rationale": "哲学提问，无技术事实"
+    },
+    {
+      "id": "2108408481074356468",
+      "author": "alexandr_wang",
+      "text": "@npew *points to sign*\nhttps://t.co/BxZSLK3iPD",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Muse文章转发",
+      "evidence": "Why We're Building Muse",
+      "rationale": "只有链接标题，事实不足"
+    },
+    {
+      "id": "2108408327109750967",
+      "author": "alexandr_wang",
+      "text": "@signulll did Claude write this tweet",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Claude玩笑回复",
+      "evidence": "did Claude write this tweet",
+      "rationale": "闲聊调侃，无技术事实"
+    },
+    {
+      "id": "2108403786129801671",
+      "author": "alexandr_wang",
+      "text": "wow have i forever changed the course of technology",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Noto 3D表情设计",
+      "evidence": "2D图标转3D角色",
+      "rationale": "含设计实现过程但非AI核心"
+    },
+    {
+      "id": "2108618616229048342",
+      "author": "fchollet",
+      "text": "@AIQuanting If headcount were the bottleneck and it shifts to compute, then the coefficient of the linear progress curve increases. Not much else.\n\nTo be clear I don't think scientific progress is bottlenecked by headcount right now.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "科研进展瓶颈观点",
+      "evidence": "不认为瓶颈是人数",
+      "rationale": "纯观点，无可验证技术事实"
+    },
+    {
+      "id": "2108617137241911723",
+      "author": "fchollet",
+      "text": "The real world abounds with recursively self-improving systems, but one in particular deserves attention: Science, modeled as a system (perhaps even as an agent, with goals and resources). If you want to really understand AI RSI, science should be your reference point.\n\nScience is an intelligent system, and it is obviously recursively self-improving:\n\n1. Scientific discoveries unlock new technology that helps build better experimental tools. This is a top driver of progress in nearly all fields.\n2. They unlock new conceptual advances (ideas, theories) that help solve more problems.\n3. They increase society's economic output, leading to more resources flowing into science.\n4. They unlock better faster tooling (e.g. more compute via better chip & networking technology).\n\nAs a result, many measures of scientific *input* grow exponentially:\n\n1. Headcount (doubles every ~15 years)\n2. Global R&D spending (doubles a bit faster, every ~13 years)\n3. Papers and patents (technically this is a measure of headcount)\n4. Compute dedicated to science (doubles every ~2 years)\n\nBut is scientific progress exponential? Historically, the rate of scientific impact over time has remained roughly constant since the start of the industrial revolution (i.e. scientific progress is *linear*). 1850-1900 was about as dramatic as 1900-1950 or 1950-2000.\n\n1850–1900: Evolution, germ theory & antiseptic surgery, thermodynamics, electromagnetic field equations, the periodic table, pharmaceuticals, electricity, telegraph and telephone, internal combustion engine, skyscrapers, mechanized agriculture...\n\n1900–1950: special and general relativity, quantum mechanics, nuclear fission & atomic energy, antibiotics, genetic theory, electronic computers, information theory, synthetic polymers and plastics, the transistor, aviation...\n\n1950–2000: DNA, genetic engineering, integrated circuits, microprocessors & personal computing, the Internet, crewed spaceflight, moon landing, satellite communications & GPS, standard model of particle physics...\n\nIn real terms, like life expectancy, which has increased in a remarkably linear fashion of roughly 3 months per year since 1840, progress is a straight line. This is especially apparent for fields where impact is easy to measure, like biology, medicine, and agriculture.\n\nI first wrote about this phenomenon and its causes in 2012, and a steady stream of research has confirmed it in the years since. Examples include the 2018 paper by Nielsen and Collison, \"Science Is Getting Less Bang for Its Buck,\" and the 2020 economic paper, \"Are Ideas Getting Harder to Find?\" (In fact, I believe the Nielsen paper stemmed from a conversation I had with him about this exact idea six months earlier)\n\nIn short, the primary cause is that research solves the highest-impact, easiest problems first, and every subsequent problem is either harder or lower-impact. Exponentially so. The paper that presented information theory wasn't very hard to write (single author!) but you'd have a hard time ever writing a CS paper that beats it in impact.\n\nThis is why science as a system requires exponential resources (input) to produce linear impact (output). It gets exponentially harder over time.\n\nWorth thinking about if you're pondering RSI for AI. I fully believe AI RSI is already happening and will accelerate in the future. But I do not believe this leads to an \"intelligence explosion\" -- that would fly in the face of everything I know about intelligence and everything I know about recursively self-improving systems.",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "AI递归自改进类比",
+      "evidence": "科研投入指数增长产出线性",
+      "rationale": "有研究论据但偏理论观点"
+    },
+    {
+      "id": "2108596098277249441",
+      "author": "fchollet",
+      "text": "Right now, using AI agents still feels very single-player. They do your work, but the results are trapped in isolated chat histories and nothing compounds.\n\nThe Busabase team (@Busabase4agent) is launching an open-source (MIT) database and workspace for agents to fix this. Instead of losing work to ephemeral chats, your agents write directly to a structured workspace to turn their outputs into reusable data, docs, and skills your entire team can access.\n\nDetails here: https://t.co/RdFPoAR10C",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "Busabase Agent工作区",
+      "evidence": "MIT开源数据库和工作区",
+      "rationale": "面向agent复用产物的工程工具"
+    },
+    {
+      "id": "2108579538372612400",
+      "author": "fchollet",
+      "text": "We're reaching really good ARC-AGI-2 scores on Kaggle now!",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "ARC-AGI-2",
+      "evidence": "ARC-AGI-2得分88.06%",
+      "rationale": "明确基准高分，属重要结果"
+    },
+    {
+      "id": "2108374591869743486",
+      "author": "fchollet",
+      "text": "@ChrSzegedy Constant error rate halving time on nearly all benchmarks (exact time depends on the benchmark). Try it",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "AI benchmark scaling",
+      "evidence": "多数基准错误率固定减半",
+      "rationale": "有技术判断但缺少数据支撑"
+    },
+    {
+      "id": "2108373342713679998",
+      "author": "fchollet",
+      "text": "@ChrSzegedy The doubling time is decreasing over time. That's super exponential.",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "AI capability scaling",
+      "evidence": "doubling time在下降",
+      "rationale": "技术相关但只是简短判断"
+    },
+    {
+      "id": "2108372703178838202",
+      "author": "fchollet",
+      "text": "@SchopenhauerOn Isn't ECI basically on a log scale already? AI capabilities seem exponential in the sense that error rate on ~all benchmarks gets halved in a fixed time increment (exact interval depends on the benchmark)",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "AI benchmark scaling",
+      "evidence": "基准错误率按固定时间减半",
+      "rationale": "技术相关但证据不足"
+    },
+    {
+      "id": "2108689387064344748",
+      "author": "yoheinakajima",
+      "text": "@debesh @BuilderOfAgents 🫡",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回应",
+      "evidence": "仅表情回应",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108685659674431733",
+      "author": "sh_reya",
+      "text": "@conor_power23 🤣 🤣 my bad for not knowing @imliangyc is on here",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "社交互动",
+      "evidence": "只是在认人和玩笑",
+      "rationale": "无技术内容"
+    },
+    {
+      "id": "2108681920368537806",
+      "author": "HamelHusain",
+      "text": "@kwuchu @charles_irl @sh_reya Why local and not Modal?  Just wondering",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "部署环境提问",
+      "evidence": "询问为何本地不用Modal",
+      "rationale": "只有问题，无事实经验"
+    },
+    {
+      "id": "2108649669127803036",
+      "author": "yoheinakajima",
+      "text": "@BuilderOfAgents just checked out the repo, this is awesome",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "仓库评价",
+      "evidence": "称看了repo很棒",
+      "rationale": "无实现或工程事实"
+    },
+    {
+      "id": "2108646993124012383",
+      "author": "yoheinakajima",
+      "text": "@11walzu yep https://t.co/B39yzRe4aC",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "tesseract packing",
+      "evidence": "n=26到30发现新最优",
+      "rationale": "包含明确研究结果数值"
+    },
+    {
+      "id": "2108645160825573669",
+      "author": "sh_reya",
+      "text": "@conor_power23 Haha I cannot be the one taking credit, it is Yuchen’s paper!! Yuchen is an awesome first year advised by Andy and Jignesh",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "论文归属",
+      "evidence": "说明论文作者归属",
+      "rationale": "无论文技术事实"
+    },
+    {
+      "id": "2108622581716640226",
+      "author": "swyx",
+      "text": "@willcb ladies slide into my dms ^",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "slide into my dms",
+      "rationale": "无技术事实或工程经验"
+    },
+    {
+      "id": "2108612205595828395",
+      "author": "swyx",
+      "text": "@KentonVarda @rough__sea @piscisaureus congrats to both teams!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "祝贺互动",
+      "evidence": "congrats to both teams",
+      "rationale": "仅社交祝贺，无技术内容"
+    },
+    {
+      "id": "2108608298048184396",
+      "author": "HamelHusain",
+      "text": "@BEBischof @lancedb Is there a website?",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "网站询问",
+      "evidence": "Is there a website?",
+      "rationale": "只询问网站，无事实信息"
+    },
+    {
+      "id": "2108592010492047839",
+      "author": "yoheinakajima",
+      "text": "@small_LM nice! rounding the edges seems to help. did you submit results?",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "结果询问",
+      "evidence": "did you submit results",
+      "rationale": "语境不足，未给技术事实"
+    },
+    {
+      "id": "2108590820949729586",
+      "author": "yoheinakajima",
+      "text": "build a pumpkin-claw to scare the kids",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "万圣节创意",
+      "evidence": "build a pumpkin-claw",
+      "rationale": "创意玩笑，无技术细节"
+    },
+    {
+      "id": "2108589000550387757",
+      "author": "yoheinakajima",
+      "text": "headless horseman (too easy)",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "万圣节玩笑",
+      "evidence": "headless horseman",
+      "rationale": "无AI或软件技术事实"
+    },
+    {
+      "id": "2108587886799159445",
+      "author": "yoheinakajima",
+      "text": "@AtlasAlphaFi why not?",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "简短回复",
+      "evidence": "why not?",
+      "rationale": "无可判断技术内容"
+    },
+    {
+      "id": "2108585292726931668",
+      "author": "yoheinakajima",
+      "text": "your humanoid moves like a human?\n\ngive it a costume and prove it can trick-or-treat without getting caught",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "机器人内容创意",
+      "evidence": "humanoid moves like a human",
+      "rationale": "提到机器人但无技术事实"
+    },
+    {
+      "id": "2108574993672290645",
+      "author": "yoheinakajima",
+      "text": "if you’re a robotics company, i hope you’ve started planning your Halloween content already. i have high hopes, don’t disappoint me",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "机器人营销内容",
+      "evidence": "robotics company",
+      "rationale": "内容策划建议非技术事实"
+    },
+    {
+      "id": "2108573825197892024",
+      "author": "yoheinakajima",
+      "text": "@all_hail_cheese 👍",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "表情回复",
+      "evidence": "👍",
+      "rationale": "纯互动，无技术信息"
+    },
+    {
+      "id": "2108573726958858363",
+      "author": "yoheinakajima",
+      "text": "@horsemankukka @WhrWinterSleeps yeah the proofs are some crazy math",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "proofs是crazy math",
+      "rationale": "无具体技术事实"
+    },
+    {
+      "id": "2108573271503380723",
+      "author": "HamelHusain",
+      "text": "Q: How do I make the case for investing in evaluations to my team?\n\nA: Review real user interactions and show your team the problems you find. Fix them, then show what improved.\n\nhttps://t.co/NfTU0BpeAo https://t.co/5L3oI5h6ri",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "AI评估实践",
+      "evidence": "审查真实用户交互并修复",
+      "rationale": "可复用评估落地经验"
+    },
+    {
+      "id": "2108573019077779657",
+      "author": "yoheinakajima",
+      "text": "@debesh TIL about NPT simulations",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "提到NPT simulations",
+      "rationale": "仅称刚学到无事实"
+    },
+    {
+      "id": "2108572618672718113",
+      "author": "yoheinakajima",
+      "text": "@MartinShkreli same method broke records in 4d as well:",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "数学研究",
+      "evidence": "n=26到30刷新tesseract packing",
+      "rationale": "有研究结果但非AI主题"
+    },
+    {
+      "id": "2108572455967346800",
+      "author": "yoheinakajima",
+      "text": "@mikiraIRL the best kind of records to beat 😉",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "best kind of records",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108563579645636697",
+      "author": "yoheinakajima",
+      "text": "@kevinmneal @ojoshe @QiaochuYuan did you try lean proof?",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "形式化证明",
+      "evidence": "问是否尝试Lean proof",
+      "rationale": "只有提问无结果细节"
+    },
+    {
+      "id": "2108563331376124389",
+      "author": "swyx",
+      "text": "most of you are unfortunately not qualified but there is somewhat a path https://t.co/l29L1HJVej \n\nwrote down mine in @Coding_Career 6 years ago and you can now get it free or on amazon https://t.co/P0wqju1nsk \n\ndidnt intend to relaunch CC today but eh why not",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "职业建议",
+      "evidence": "发观点作品并建立关系",
+      "rationale": "求职建议非技术事实"
+    },
+    {
+      "id": "2108562387704164860",
+      "author": "yoheinakajima",
+      "text": "@devank_nassa https://t.co/e8Maaoqpkq",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "链接回复",
+      "evidence": "只给出链接",
+      "rationale": "材料无可判定事实"
+    },
+    {
+      "id": "2108562104609657100",
+      "author": "yoheinakajima",
+      "text": "@robertomasymas yep",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "回复yep",
+      "rationale": "无技术内容"
+    },
+    {
+      "id": "2108562067469021590",
+      "author": "yoheinakajima",
+      "text": "@KalachPavel here you go:",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "数学研究",
+      "evidence": "2.942809优于Friedman 1998",
+      "rationale": "有研究结果但证据较窄"
+    },
+    {
+      "id": "2108561810169516388",
+      "author": "yoheinakajima",
+      "text": "@bookasheep https://t.co/4TjSQLw4t0",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "无明确主题",
+      "evidence": "仅提及链接",
+      "rationale": "无可核验技术事实"
+    },
+    {
+      "id": "2108561356807147939",
+      "author": "yoheinakajima",
+      "text": "@tombielecki apparently so :)",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "apparently so",
+      "rationale": "无技术内容"
+    },
+    {
+      "id": "2108555628881027392",
+      "author": "swyx",
+      "text": "@madhavsinghal_ @mattyp true",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "true",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108555490624258209",
+      "author": "swyx",
+      "text": "@DaveThackeray how do you read adel's list and conclude it maps to \"editorial\"",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "观点争论",
+      "evidence": "讨论editorial判断",
+      "rationale": "缺少技术事实"
+    },
+    {
+      "id": "2108553084330991762",
+      "author": "swyx",
+      "text": "@theo theo you definitely make more than this + you cant work for corporate overlords lol",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "职业闲聊",
+      "evidence": "谈收入和公司",
+      "rationale": "非技术内容"
+    },
+    {
+      "id": "2108551313483342183",
+      "author": "yoheinakajima",
+      "text": "yohei’s packing method strikes again!",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "tesseract packing",
+      "evidence": "n=26到30新最佳",
+      "rationale": "含研究结果和数值改进"
+    },
+    {
+      "id": "2108464269599572206",
+      "author": "swyx",
+      "text": "@MatthewBerman if u were on the market, yes for the right company",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "求职闲聊",
+      "evidence": "on the market",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108400482071003470",
+      "author": "yoheinakajima",
+      "text": "@ItsGoharr don’t forget the swirly fluids",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "swirly fluids",
+      "rationale": "无明确技术事实"
+    },
+    {
+      "id": "2108397904880914780",
+      "author": "yoheinakajima",
+      "text": "@MartinShkreli hadn’t even heard of them, these are cool",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "泛泛评价",
+      "evidence": "these are cool",
+      "rationale": "未说明技术事实"
+    },
+    {
+      "id": "2108392598830502064",
+      "author": "swyx",
+      "text": "@staysaasy worth",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "简短评价",
+      "evidence": "worth",
+      "rationale": "无技术内容"
+    },
+    {
+      "id": "2108391703488958475",
+      "author": "swyx",
+      "text": "to paraphrase modern family, there are 5 things wrong in this tweet. the talented {role} will already have posts covering most of them \nhttps://t.co/TEtI8UL5TA",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "credibility",
+      "evidence": "讨论可信度稀缺",
+      "rationale": "纯观点无技术事实"
+    },
+    {
+      "id": "2108388128390086675",
+      "author": "swyx",
+      "text": "if you cant hire for it, my team will do oneoff consult for you, get in touch business@latent.space \n\nhttps://t.co/TrsDS8PK4l",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "hiring",
+      "evidence": "推荐沟通与人事角色",
+      "rationale": "招聘推广无技术事实"
+    },
+    {
+      "id": "2108387824034873808",
+      "author": "swyx",
+      "text": "recap of last time this discourse happened for those who are insufficiently online https://t.co/mI2kqulWLi",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "discourse recap",
+      "evidence": "称回顾上次争论",
+      "rationale": "缺少具体技术内容"
+    },
+    {
+      "id": "2108379841859072028",
+      "author": "swyx",
+      "text": "going rate for this role is between 5-50m comp package btw at the frontier agent labs",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI roles",
+      "evidence": "agent labs岗位薪酬",
+      "rationale": "岗位市场信息非技术事实"
+    },
+    {
+      "id": "2108660997594731005",
+      "author": "jackclarkSF",
+      "text": "@gamoid @extliqprovider @DeepDishEnjoyer @TheStalwart I still do! arXiv continues to be an amazing source of alpha/fun stories. Eg this paper which I covered and got some media pickup this year https://t.co/498Bmy6Ue0",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "arXiv reading",
+      "evidence": "称arXiv有好故事",
+      "rationale": "未给论文技术事实"
+    },
+    {
+      "id": "2108656865752305955",
+      "author": "jackclarkSF",
+      "text": "@extliqprovider @DeepDishEnjoyer @TheStalwart My hobby for the last ~20 years has been obsessively reading research about whatever interests me and trying to play around with things where I can. Import AI is in some sense a public record of about 70% of the research I've read for fun in the past decade",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "research habit",
+      "evidence": "十年阅读研究记录",
+      "rationale": "个人经历非技术事实"
+    },
+    {
+      "id": "2108634469033005101",
+      "author": "jackclarkSF",
+      "text": "@DeepDishEnjoyer @TheStalwart more that I'd become the google reporter because i was obsessed with deepmind's dqn stuff, and had got obsessed about that because i'd been looking at google's ml work since the 'cat paper' https://t.co/QRUUxlw6Gq and had also been studying google distributed tech like spanner",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "AI research history",
+      "evidence": "提到DQN、猫论文、Spanner",
+      "rationale": "技术史线索但无新细节"
+    },
+    {
+      "id": "2108615902308769912",
+      "author": "simonw",
+      "text": "@mitsuhiko A couple of years ago the staffing cost of supporting a project of that scope would have made a community takeover extremely unlikely, but I wonder if coding agents mean a small development community might actually be able to keep it moving?",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "coding agents",
+      "evidence": "猜测agent降低维护成本",
+      "rationale": "预测式观点证据不足"
+    },
+    {
+      "id": "2108608837175701514",
+      "author": "simonw",
+      "text": "I like Qwen3.5-35B-A3B for this, wondering what else is out there that might be a bit more recent and pack a little more of a punch",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Qwen model",
+      "evidence": "Qwen3.5-35B-A3B",
+      "rationale": "模型点名但缺少细节"
+    },
+    {
+      "id": "2108608482442449261",
+      "author": "simonw",
+      "text": "What's the best open weight Mixture-of-Experts LLM for coding that fits in less than 60GB of RAM?\n\nI think MoE might be necessary to get reasonably interactive speeds on the hardware I have access to - I want something faster than 12 tokens/second",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "local coding LLM",
+      "evidence": "MoE、60GB、12 tokens/s",
+      "rationale": "本地编码模型选型约束"
+    },
+    {
+      "id": "2108579186948624712",
+      "author": "simonw",
+      "text": "@ASpittel Use it to help take on much harder problems!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI使用建议",
+      "evidence": "建议处理更难问题",
+      "rationale": "只有泛泛建议无技术事实"
+    },
+    {
+      "id": "2108578142092976386",
+      "author": "simonw",
+      "text": "@costa__io I reviewed it later in a PR https://t.co/l5n6RGnUNA",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "PR提及",
+      "evidence": "称后来在PR审查",
+      "rationale": "无PR内容或技术细节"
+    },
+    {
+      "id": "2108557290412597610",
+      "author": "simonw",
+      "text": "@bhaveyx I won't let AI write for me, but I do use it for proof-reading and as a thesaurus - here's my proof-reading prompt https://t.co/1fgi4h3taj",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "AI校对提示词",
+      "evidence": "AI用于校对和同义词",
+      "rationale": "有AI用法但细节不足"
+    },
+    {
+      "id": "2108556188610940940",
+      "author": "simonw",
+      "text": "@aapakari It tried /api/v1/archive first (so it clearly knew that existed), then ran a search to figure out what arguments that takes",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "Agent API探索",
+      "evidence": "先试/api/v1/archive",
+      "rationale": "含代理查API参数行为"
+    },
+    {
+      "id": "2108555464116154711",
+      "author": "simonw",
+      "text": "@giacomomasseron It got that one straight away! \"simonw dot substack dot com\" is short and obvious enough I guess",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "模型URL推断",
+      "evidence": "识别substack域名",
+      "rationale": "窄能力观察证据有限"
+    },
+    {
+      "id": "2108547654083039700",
+      "author": "simonw",
+      "text": "Example prompt: https://t.co/qSsBnLwly5",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "提示词链接",
+      "evidence": "仅称Example prompt",
+      "rationale": "未给提示词内容或事实"
+    },
+    {
+      "id": "2108547065634844839",
+      "author": "simonw",
+      "text": "I built a new feature for my blog entirely by voice with Codex Desktop, while I was cooking dinner https://t.co/dQwOlgFeKT",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "Codex语音编程",
+      "evidence": "语音用Codex做博客功能",
+      "rationale": "有AI编码工作流经验"
+    },
+    {
+      "id": "2108541102261502356",
+      "author": "simonw",
+      "text": "@migueldeicaza I did, but I'm not (yet) convinced by it\n\nIt's a pretty niche grift, I expect grifts that are less subtle than that one from this administration!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "观点讨论",
+      "evidence": "称尚未被说服",
+      "rationale": "政治调侃无技术事实"
+    },
+    {
+      "id": "2108364133712486772",
+      "author": "simonw",
+      "text": "@HimelandStein I did, and I feel particularly good about that with hindsight given that they changed their name because they thought the Metaverse was the future...",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Meta更名评论",
+      "evidence": "评论Metaverse改名",
+      "rationale": "公司命名看法非技术"
+    },
+    {
+      "id": "2108347087985480107",
+      "author": "simonw",
+      "text": "Admittedly I guess this is a pretty incredible troll targeted at people who say \"it shouldn't be called artificial intelligent because it's not actually intelligent\"\n\nDo they now feel obliged to defend the old name against the new one?",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI命名争论",
+      "evidence": "讨论人工智能名称",
+      "rationale": "语义争论无技术事实"
+    },
+    {
+      "id": "2108675639859724458",
+      "author": "physical_int",
+      "text": "Excited to see our partners at @Ultraroboticsco announce their $50M Series A! Ultra is a great example of what's becoming possible when general-purpose robot foundation models meet real-world deployments!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "机器人融资与部署观点",
+      "evidence": "宣布5000万美元A轮",
+      "rationale": "融资和泛化观点，无技术事实"
+    }
+  ]
+}

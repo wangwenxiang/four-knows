@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>硅谷 AI 原声 · 2026-10-10</title>
+  <style>
+    :root{--bg:#f4f6f8;--surface:#fff;--text:#16181c;--muted:#65717e;--line:#dfe4e9;--accent:#0066cc;--green:#117a62;--shadow:0 16px 42px rgba(18,28,38,.08);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 15% 0,#e8f2ff 0,transparent 27%),var(--bg);color:var(--text)} a{color:inherit;text-decoration:none} button{font:inherit}
+    .shell{width:min(1500px,calc(100% - 28px));margin:0 auto;padding:14px 0 40px}
+    .hero{display:grid;grid-template-columns:minmax(250px,1fr) auto;align-items:center;gap:12px;padding:15px 18px;border:1px solid rgba(255,255,255,.75);border-radius:16px;background:rgba(255,255,255,.88);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    h1{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin:0;font-size:clamp(28px,3.4vw,44px);line-height:1;letter-spacing:-.05em} .report-date{color:var(--green);font-size:clamp(10px,1vw,13px);font-weight:900;letter-spacing:.08em;white-space:nowrap}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(62px,1fr));gap:6px;align-content:start} .metric{padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fff} .metric strong{display:block;font-size:19px;line-height:1} .metric span{display:block;margin-top:3px;color:var(--muted);font-size:8px;font-weight:820;white-space:nowrap}
+    .notice{margin-top:12px;padding:11px 14px;border:1px solid #e1b866;border-radius:12px;background:#fff8e8;color:#7a5612;font-size:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px;align-items:start} .signal-card{min-width:0;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 9px 26px rgba(18,28,38,.045)}
+    .card-top{display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:10px} .avatar{display:grid;width:46px;height:46px;overflow:hidden;place-items:center;border:1px solid #d9e0e7;border-radius:999px;background:linear-gradient(135deg,#111827,#46627d);color:#fff;font-size:12px;font-weight:900} .avatar img{width:100%;height:100%;object-fit:cover;display:block} .identity{display:grid;gap:3px;min-width:0} .identity strong,.identity span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .identity strong{font-size:14px} .identity span{color:var(--muted);font-size:11px}
+    .score{display:grid;justify-items:center;min-width:40px;padding:5px 6px;border:1px solid #e3ebe8;border-radius:8px;background:#f4f8f6;color:#527267;font-size:15px;font-weight:820;line-height:1} .score small{margin-top:2px;color:#71877f;font-size:7px;letter-spacing:.06em;text-transform:uppercase}
+    .meta{display:flex;align-items:center;gap:6px;margin:11px 0 9px;color:var(--muted);font-size:10.5px;font-weight:750} .meta span:not(.priority){overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .meta time{margin-left:auto;white-space:nowrap} .priority{padding:3px 6px;border-radius:999px;background:#111827;color:#fff;font-size:9px}
+    .post-text{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.58} .post-text.original{font-size:16px;font-weight:570;color:#20252b} .post-text.translation{margin-top:8px;color:#66727f;font-size:13px;font-weight:470;line-height:1.62} .article .original+.translation{margin-top:2px;color:#65717e;font-size:11px;font-weight:650} .quote,.article{display:grid;gap:6px;margin-top:10px;padding:11px;border:1px solid var(--line);border-radius:12px;background:#f7f9fb} .quote__author{display:flex;align-items:center;gap:7px;font-size:11px} .quote__author>div:last-child{display:grid;gap:1px} .quote__author span{color:var(--muted)} .quote-avatar{display:grid;width:28px;height:28px;overflow:hidden;place-items:center;border:1px solid var(--line);border-radius:999px;background:#dfe6ed;color:#52606d;font-size:10px;font-weight:900} .quote-avatar img{width:100%;height:100%;object-fit:cover} .quote p,.article p{margin:0;color:#4f5a66;font-size:12px;line-height:1.48;white-space:pre-wrap} .article strong{font-size:13px} .article strong.original{font-size:13.5px} .quote-text.original{font-size:12.5px;color:#36414d} .quote-text.translation{font-size:11.5px;color:#6a7682} .quote-link{justify-self:start;color:var(--accent);font-size:10px;font-weight:850}
+    .media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:10px;overflow:hidden;border-radius:12px} .media-grid--1{grid-template-columns:1fr} .media-item{position:relative;min-height:150px;background:#e8edf2} .media-item img{width:100%;height:100%;max-height:330px;object-fit:cover;display:block} .media-item span{position:absolute;right:7px;bottom:7px;padding:4px 6px;border-radius:6px;background:rgba(0,0,0,.68);color:#fff;font-size:8px;font-weight:900}
+    .card-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid #edf0f3} .engagement{display:flex;gap:10px;color:var(--muted);font-size:10.5px;font-weight:750} .card-bottom>a{color:var(--accent);font-size:11px;font-weight:850} .empty{grid-column:1/-1;padding:70px;text-align:center;border:1px dashed #cdd5dd;border-radius:16px;background:#fff;color:var(--muted)}
+    footer{padding:26px 4px 0;color:var(--muted);font-size:11px;text-align:center}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}} @media(max-width:560px){.shell{width:min(100% - 16px,1500px);padding-top:7px}.hero{gap:10px;padding:13px 14px;border-radius:15px}h1{font-size:28px}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.metric{padding:7px 9px}.metric strong{font-size:18px}.signal-card{padding:13px}.post-text.original{font-size:15px}.post-text.translation{font-size:12.5px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <h1>硅谷 AI 原声 <span class="report-date">· 2026-10-10</span></h1>
+      <div class="metrics"><div class="metric"><strong>62</strong><span>监控专家</span></div><div class="metric"><strong>9</strong><span>活跃专家</span></div><div class="metric"><strong>19</strong><span>精选原文</span></div></div>
+    </header>
+
+    <main class="grid">
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">75<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>10-09 18:01 北京</time></div>
+        <p class="post-text original source-only" lang="auto">MiMo v2.6 的 RL 环境开源后，Vals AI 一查发现了个很大的坑。
+
+2698 个编程任务里，67% 的参考修复其实还藏在 Git 历史里。
+
+MiMo 真的会去翻这些隐藏 commit，找到现成 patch 再通过测试。Git 被清掉后，它还会继续找文件时间戳、缓存，甚至自己解析 Git pack 文件。
+
+更麻烦的是，小米原本已经做了防作弊，但漏掉的捷径照样能拿 reward。
+
+还有个实验很有意思。只写一句「Do not cheat」几乎没用，把具体禁止的作弊路径写清楚后，作弊才降到 0。
+
+这件事提醒得很直接，RL 训练环境如果会漏答案，模型最后学会的可能就是怎么钻漏洞。
+
+开源环境很好，但以后 Benchmark 和 RL 环境本身也得先被审一遍。
+
+文章
+https://t.co/KWMypF26r7</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 46</span><span>↻ 9</span><span>↩ 5</span></div><a href="https://x.com/Xudong07452910/status/2108497951849099444" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="chelseabfinn" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1531702062487965698/a6iO2pRx_normal.jpg" alt="Chelsea Finn avatar" loading="lazy"></div>
+          <div class="identity"><strong>Chelsea Finn</strong><span>@chelseabfinn · Stanford</span></div>
+          <div class="score">70<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>机器人 / AI</span><time>10-10 05:38 北京</time></div>
+        <p class="post-text original" lang="auto">As robots become more reliable, DAgger becomes far less efficient.
+
+eg 90% success means the person spends &amp;gt;90% of the time passively watching the robot
+
+Key idea: failures come from similar initial states &amp;amp; we can focus learning on these states!
+
+Paper: https://t.co/kzsIufeRy1</p><p class="post-text translation" lang="zh-CN">随着机器人变得更可靠，DAgger 的效率会大幅下降。
+
+例如 90% 的成功率意味着人类有超过 90% 的时间只是在被动观看机器人。
+
+核心思路：失败往往来自相似的初始状态，我们可以把学习重点放在这些状态上！
+
+论文：https://t.co/kzsIufeRy1</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1685450843624177664/eMVgm5vP_normal.jpg" alt="Lars Ankile avatar" loading="lazy"></div><div><strong>Lars Ankile</strong><span>@larsankile</span></div></div><p class="quote-text original" lang="auto">I&#x27;ve been thinking a lot about making robot learning scalable. To me, that means learning on the job, and using the human help still needed efficiently.
+
+In Mulligan ⛳️, we focus each data-collection round on the initial states where the robot fails. This happens in deployment, with the robot doing the task and a person stepping in when needed.
+
+On 3 real tasks and 2,550 blind evals, it improves on uniform collection at the same budget.</p><p class="quote-text translation" lang="zh-CN">我一直在思考如何让机器人学习具备可扩展性。对我来说，这意味着边工作边学习，并高效利用仍然需要的人类帮助。
+
+在 Mulligan ⛳️ 中，我们把每一轮数据收集都集中在机器人会失败的初始状态上。这发生在实际部署中：机器人执行任务，人类在需要时介入。
+
+在 3 个真实任务和 2,550 次盲评中，它在相同预算下优于均匀采集。</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2108342185234149376/img/Nth1ma5Yy_whXnpc.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2108342185234149376/img/Nth1ma5Yy_whXnpc.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/larsankile/status/2108366595978617250" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 67</span><span>↻ 2</span><span>↩ 2</span></div><a href="https://x.com/chelseabfinn/status/2108673441314566158" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="hwchase17" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1569345624935485442/R67C4wCQ_normal.jpg" alt="Harrison Chase avatar" loading="lazy"></div>
+          <div class="identity"><strong>Harrison Chase</strong><span>@hwchase17 · LangChain / CEO</span></div>
+          <div class="score">83<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Agent 框架</span><time>10-09 15:06 北京</time></div>
+        <p class="post-text original" lang="auto">trajectory labeling is really several questions, not one pass/fail - nice framing here
+
+that&#x27;s how Jev as a judge works in LangSmith evals: difficulty and correctness each get their own typed answer, in one pass, on every trace
+
+https://t.co/jlD2ywtlOT
+
+https://t.co/QgQpQFpZ26</p><p class="post-text translation" lang="zh-CN">轨迹标注其实是多个问题，而不是一次简单的通过/失败判断，这里的表述很不错。
+
+这也是 Jev 在 LangSmith evals 中作为评判器的工作方式：难度和正确性各自得到一个类型化答案，并在每条 trace 上一次性完成。
+
+https://t.co/jlD2ywtlOT
+
+https://t.co/QgQpQFpZ26</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1644413538470080512/onr1yE5E_normal.jpg" alt="Vaibhav Tulsyan avatar" loading="lazy"></div><div><strong>Vaibhav Tulsyan</strong><span>@xennygrimmato_</span></div></div><p class="quote-text original" lang="auto">This is a very clever usecase for Jev-like decision models. Trajectory labelling at scale is key for RSI.
+
+Why is that?
+Every trajectory needs to be assessed across several dimensions.
+1. How difficult was the task?
+2. Was the agent’s solution correct?
+3. Did the agent consider a diverse set of design choices before deciding to pick a specific route?
+4. Is the agent’s thinking directionally correct?
+
+Imagine answering these questions for millions of agents each of which spawns tens or hundreds of subagents! Token cost for trajectory labelling needs to be driven down a lot to do this at scale.
+
+This work is unique and solves a rather under-looked aspect of RL research.</p><p class="quote-text translation" lang="zh-CN">这是 Jev 这类决策模型的一个非常巧妙的用例。大规模轨迹标注是 RSI 的关键。
+
+为什么？
+每条轨迹都需要从多个维度评估。
+1. 任务有多难？
+2. 智能体的解法是否正确？
+3. 智能体在选择特定路径前，是否考虑了多样化的设计选择？
+4. 智能体的思考方向是否正确？
+
+想象一下，要为数百万个智能体回答这些问题，而每个智能体又会派生出数十或数百个子智能体！要实现大规模轨迹标注，token 成本必须大幅降低。
+
+这项工作很独特，解决了 RL 研究中一个相当被忽视的方面。</p><a class="quote-link" href="https://x.com/xennygrimmato_/status/2108303751136297226" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 101</span><span>↻ 6</span><span>↩ 32</span></div><a href="https://x.com/hwchase17/status/2108453917277254058" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="fchollet" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2006806326140350470/Kd5oZv-f_normal.jpg" alt="Francois Chollet avatar" loading="lazy"></div>
+          <div class="identity"><strong>Francois Chollet</strong><span>@fchollet · ARC Prize；Keras 作者</span></div>
+          <div class="score">71<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 研究 / 评测</span><time>10-09 23:25 北京</time></div>
+        <p class="post-text original" lang="auto">We&#x27;re reaching really good ARC-AGI-2 scores on Kaggle now!</p><p class="post-text translation" lang="zh-CN">我们现在在 Kaggle 上的 ARC-AGI-2 分数已经非常不错了！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1800565057493078016/XigYRdTo_normal.jpg" alt="ARC Prize avatar" loading="lazy"></div><div><strong>ARC Prize</strong><span>@arcprize</span></div></div><p class="quote-text original" lang="auto">New ARC Prize 2026 - ARC-AGI-2 High Score
+
+88.06% by @tufalabs
+
+The $150K Bonus Prize, on top of the guaranteed prizes, will be split among all teams scoring over 85% https://t.co/jwUYwr4Ecv</p><p class="quote-text translation" lang="zh-CN">新的 ARC Prize 2026 - ARC-AGI-2 最高分
+
+@tufalabs 达到 88.06%
+
+除保底奖金外，15 万美元额外奖金将由所有得分超过 85% 的团队分享 https://t.co/jwUYwr4Ecv</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HUMsG2paoAAslyh.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HUMsG2paoAAslyh.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/arcprize/status/2108578092558250148" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 120</span><span>↻ 10</span><span>↩ 20</span></div><a href="https://x.com/fchollet/status/2108579538372612400" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="simonw" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
+          <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
+          <div class="score">82<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>10-10 01:20 北京</time></div>
+        <p class="post-text original" lang="auto">What&#x27;s the best open weight Mixture-of-Experts LLM for coding that fits in less than 60GB of RAM?
+
+I think MoE might be necessary to get reasonably interactive speeds on the hardware I have access to - I want something faster than 12 tokens/second</p><p class="post-text translation" lang="zh-CN">在 60GB 以下内存中能运行、最适合编程的开源权重 Mixture-of-Experts LLM 是哪个？
+
+我觉得要在我能用的硬件上获得足够流畅的交互速度，MoE 可能是必要的。我想要比每秒 12 个 token 更快的模型。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 161</span><span>↻ 1</span><span>↩ 81</span></div><a href="https://x.com/simonw/status/2108608482442449261" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">78<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>10-09 11:24 北京</time></div>
+        <p class="post-text original source-only" lang="auto">我们是不是高估了 Harness 对 Coding Agent「能力」的提升？
+
+这篇论文中把模型固定，只替换 Claude Code、mini-SWE-agent 和 OpenCode，在 SWE-bench Verified 上重新测试。
+
+结果很有意思。
+
+在 447 个任务上，最重的 Claude Code 和最轻的 mini-SWE-agent，成绩差异落在 5 个百分点以内。
+
+在 45 个高难任务、5 个模型上，换 Harness 会让 13% 的任务结果发生变化；但什么都不改，只把同一个配置再跑一遍，同样有 13% 的任务会翻转。
+
+也就是说，很多看起来像 Harness 带来的提升，可能还没有明显超过运行本身的随机波动。
+
+真正拉开差距的反而是成本。
+
+同一个模型、同一批任务，不同 Harness 的单任务成本最高能差 3 倍。主要原因很简单：系统 Prompt 和工具 schema 会在每一步重复进入上下文，初始开销再被执行步数不断放大。
+
+论文还提醒了一个容易被忽略的问题：
+
+45 个任务连 13 个百分点的差距都只有约一半概率能检出；即使做到 447 个任务，分辨率也大约只有 5 个百分点。
+
+所以我们得把 Harness 的价值拆开看了。
+
+它当然会影响 Agent 怎么工作，但很多时候，最稳定、最容易测出来的差异，可能先体现在 token、成本和执行效率上。
+
+📎 arxiv: https://t.co/L8YKHxouAQ</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HUHyG1CWkAAnewi.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HUHyG1CWkAAnewi.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 30</span><span>↻ 6</span><span>↩ 12</span></div><a href="https://x.com/Xudong07452910/status/2108398043066450195" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="fchollet" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2006806326140350470/Kd5oZv-f_normal.jpg" alt="Francois Chollet avatar" loading="lazy"></div>
+          <div class="identity"><strong>Francois Chollet</strong><span>@fchollet · ARC Prize；Keras 作者</span></div>
+          <div class="score">75<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 研究 / 评测</span><time>10-10 00:31 北京</time></div>
+        <p class="post-text original" lang="auto">Right now, using AI agents still feels very single-player. They do your work, but the results are trapped in isolated chat histories and nothing compounds.
+
+The Busabase team (@Busabase4agent) is launching an open-source (MIT) database and workspace for agents to fix this. Instead of losing work to ephemeral chats, your agents write directly to a structured workspace to turn their outputs into reusable data, docs, and skills your entire team can access.
+
+Details here: https://t.co/RdFPoAR10C</p><p class="post-text translation" lang="zh-CN">现在使用 AI 智能体仍然很像单人模式。它们帮你完成工作，但结果被困在彼此隔离的聊天历史里，无法持续积累。
+
+Busabase 团队（@Busabase4agent）正在推出一个开源（MIT）数据库和智能体工作区来解决这个问题。你的智能体不再把工作成果丢在临时聊天里，而是直接写入结构化工作区，把输出转化为整个团队都能访问的可复用数据、文档和技能。
+
+详情：https://t.co/RdFPoAR10C</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 406</span><span>↻ 32</span><span>↩ 70</span></div><a href="https://x.com/fchollet/status/2108596098277249441" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">70<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>10-09 09:10 北京</time></div>
+        <p class="post-text original source-only" lang="auto">这两天刷屏的「DeepSeek 一家 token 量超过美国四家总和」，我去 OpenRouter 官方榜单核了一下。
+
+按 token 算，基本属实；换成请求数看，故事就完全不一样了。
+
+Social Capital 统计的 9 月最后一周，DeepSeek 在 OpenRouter 上跑了 36.8T token。OpenAI、Google、Anthropic、xAI 四家加起来约 33T。
+
+OpenRouter 现在的榜单方向也一致。最近 7 天，DeepSeek V4.1 Flash 一个模型就跑了 33.6T，GPT-6 Luna 是 6.46T。
+
+但再看请求数。
+
+DeepSeek 占 21.8%，Google 21.5%，OpenAI 18.2%，Anthropic 2.5%。
+
+光后三家加起来就有 42.2%，接近 DeepSeek 两倍。
+
+所以我觉得这张图真正说明的，更像是 DeepSeek 正在吃下大量高 token 的 Agent 工作负载。长上下文、多轮执行、工具调用一跑起来，token 很容易堆上去。
+
+OpenRouter 自己此前也观察到，DeepSeek token 份额的增长主要由 Agent 场景推动。
+
+而且 OpenRouter 也写得很清楚，token 不等于用户数、请求数或收入，不同模型的 tokenisation 也不同。
+
+Claude、GPT 还有大量流量直接走官方渠道，本来就不会出现在这里。
+
+所以「DeepSeek 全面超过美国模型」我觉得说过头了。
+
+但另一个信号已经很明显了。
+
+在价格敏感、Token 消耗巨大的 Agent 场景里，便宜又够用的 Flash 模型正在快速吃量。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1491885317825069065/DdAdOTGK_normal.jpg" alt="Social Capital avatar" loading="lazy"></div><div><strong>Social Capital</strong><span>@socialcapital</span></div></div><p class="quote-text original" lang="auto">In the last week of September, DeepSeek models processed more tokens on OpenRouter than OpenAI, Google, Anthropic and xAI models combined. https://t.co/ICyf29pCfF</p><p class="quote-text translation" lang="zh-CN">9 月最后一周，DeepSeek 模型在 OpenRouter 上处理的 token 数量超过了 OpenAI、Google、Anthropic 和 xAI 模型的总和。https://t.co/ICyf29pCfF</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HUDiy4jagAATvFv.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HUDiy4jagAATvFv.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/socialcapital/status/2107933993173954859" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 5</span><span>↻ 1</span><span>↩ 2</span></div><a href="https://x.com/Xudong07452910/status/2108364321072030004" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="simonw" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
+          <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
+          <div class="score">52<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>10-09 21:52 北京</time></div>
+        <p class="post-text original" lang="auto">@aapakari It tried /api/v1/archive first (so it clearly knew that existed), then ran a search to figure out what arguments that takes</p><p class="post-text translation" lang="zh-CN">@aapakari 它先尝试了 /api/v1/archive（所以它显然知道这个接口存在），然后运行搜索来弄清楚它需要哪些参数</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 0</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/simonw/status/2108556188610940940" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="jackclarksf" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/726446881547517952/ULhSTKxN_normal.jpg" alt="Jack Clark avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jack Clark</strong><span>@jackclarkSF · Anthropic / 政策与传播；Import AI 作者</span></div>
+          <div class="score">88<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 安全 / Anthropic</span><time>10-10 03:03 北京</time></div>
+        <p class="post-text original" lang="auto">@DeepDishEnjoyer @TheStalwart more that I&#x27;d become the google reporter because i was obsessed with deepmind&#x27;s dqn stuff, and had got obsessed about that because i&#x27;d been looking at google&#x27;s ml work since the &#x27;cat paper&#x27; https://t.co/QRUUxlw6Gq and had also been studying google distributed tech like spanner</p><p class="post-text translation" lang="zh-CN">@DeepDishEnjoyer @TheStalwart 更准确地说，我会成为 google 记者，是因为我痴迷于 deepmind 的 dqn 相关东西；而我之所以痴迷于那些，是因为我从“猫论文”开始就在关注 google 的 ml 工作 https://t.co/QRUUxlw6Gq，也一直在研究 spanner 这样的 google 分布式技术</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 144</span><span>↻ 4</span><span>↩ 3</span></div><a href="https://x.com/jackclarkSF/status/2108634469033005101" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="bcherny" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1902044548936953856/J2jeik0t_normal.jpg" alt="Boris Cherny avatar" loading="lazy"></div>
+          <div class="identity"><strong>Boris Cherny</strong><span>@bcherny · Anthropic / Claude Code</span></div>
+          <div class="score">87<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Claude / Anthropic</span><time>10-09 13:26 北京</time></div>
+        <p class="post-text original" lang="auto">@ipv4fan Use auto mode! No more prompts</p><p class="post-text translation" lang="zh-CN">@ipv4fan 用 auto 模式！不会再有提示了</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 195</span><span>↻ 1</span><span>↩ 26</span></div><a href="https://x.com/bcherny/status/2108428779555274825" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="hwchase17" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1569345624935485442/R67C4wCQ_normal.jpg" alt="Harrison Chase avatar" loading="lazy"></div>
+          <div class="identity"><strong>Harrison Chase</strong><span>@hwchase17 · LangChain / CEO</span></div>
+          <div class="score">85<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Agent 框架</span><time>10-09 16:28 北京</time></div>
+        <p class="post-text original" lang="auto">This is great point
+
+Goodharts law: when a measure becomes a target, it ceases to be a good measure
+
+Initial take: eval driven development works for narrowly scoped things, but for more autonomous agents it doesn’t
+
+So then - how do you hill climb those?</p><p class="post-text translation" lang="zh-CN">这个观点很好
+
+古德哈特定律：当一个指标成为目标时，它就不再是一个好指标
+
+初步看法：评测驱动开发适用于范围较窄的事情，但不适用于更自主的智能体
+
+那么问题来了，你该如何让它们持续爬坡？</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1261161265042423809/8nF2EB1O_normal.jpg" alt="Hunter Gerlach avatar" loading="lazy"></div><div><strong>Hunter Gerlach</strong><span>@HunterGerlach</span></div></div><p class="quote-text original" lang="auto">1. Create new high-value evals
+2. Realize you need to fight against Goodhart&#x27;s Law
+3. Go to 1</p><p class="quote-text translation" lang="zh-CN">1. 创建新的高价值评测
+2. 意识到你需要对抗古德哈特定律
+3. 回到第 1 步</p><a class="quote-link" href="https://x.com/HunterGerlach/status/2108472779364282861" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 106</span><span>↻ 8</span><span>↩ 70</span></div><a href="https://x.com/hwchase17/status/2108474622966444102" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="alexandr_wang" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">84<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>10-09 15:15 北京</time></div>
+        <p class="post-text original" lang="auto">we launched muse a month ago today
+
+for the past month, reality felt like a dream. we watched the world catch fire with muse. every day we read stories of people saving money and precious time. every day it made people’s lives better in small and big ways. every day i watched the muse team pour their hearts into bringing a little more wonder in the world.
+
+the response to muse has surpassed anything i could have imagined. i know the muse team will remember it for the rest of our lives.
+
+it is easy to become jaded in tech. products launch every day but they very rarely make any dent in the world. but i have seen muse make a real difference for moms, for grandpas, for students, for coworkers. many of you using it in ways we never expected.
+
+thank you to the muse team. thank you to everyone who’s tried muse. this is only the beginning. we have so much more to build.</p><p class="post-text translation" lang="zh-CN">一个月前的今天，我们发布了 muse
+
+过去这个月，现实感觉像一场梦。我们看着世界因 muse 而沸腾。每天，我们都读到人们省下金钱和宝贵时间的故事。每天，它都以或小或大的方式让人们的生活变得更好。每天，我都看着 muse 团队全心投入，为这个世界带来多一点奇妙。
+
+大家对 muse 的反响超出了我的所有想象。我知道 muse 团队会一辈子记得这一切。
+
+在科技行业，人很容易变得麻木。每天都有产品发布，但它们很少真正改变世界。但我看到 muse 确实为妈妈们、爷爷们、学生们、同事们带来了真实的改变。你们很多人的使用方式，是我们从未预料到的。
+
+感谢 muse 团队。感谢每一位尝试过 muse 的人。这只是开始。我们还有太多东西要构建。</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HUK93QmbQAAH9Vx.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HUK93QmbQAAH9Vx.jpg" alt="X post media"><span>IMAGE</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div><div><strong>Alexandr Wang</strong><span>@alexandr_wang</span></div></div><p class="quote-text original" lang="auto">1/ today we&#x27;re rolling out Muse, our new personal ai assistant. Muse is always-on, wicked fast, can use a browser, connect to your apps, and is designed to be secure.
+
+try it now: https://t.co/n7swQh9v6C. https://t.co/Yb783uwpJ5</p><p class="quote-text translation" lang="zh-CN">1/ 今天我们正在推出 Muse，我们全新的个人 ai 助手。Muse 始终在线、速度极快，可以使用浏览器、连接你的应用，并且以安全为设计目标。
+
+立即试用：https://t.co/n7swQh9v6C。https://t.co/Yb783uwpJ5</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2097397839869698049/img/EBXBYqEIsH9rB2m-.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2097397839869698049/img/EBXBYqEIsH9rB2m-.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/alexandr_wang/status/2097402344061510004" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 1,675</span><span>↻ 97</span><span>↩ 180</span></div><a href="https://x.com/alexandr_wang/status/2108456337374065097" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="hwchase17" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1569345624935485442/R67C4wCQ_normal.jpg" alt="Harrison Chase avatar" loading="lazy"></div>
+          <div class="identity"><strong>Harrison Chase</strong><span>@hwchase17 · LangChain / CEO</span></div>
+          <div class="score">83<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Agent 框架</span><time>10-09 15:50 北京</time></div>
+        <p class="post-text original" lang="auto">eval driven development</p><p class="post-text translation" lang="zh-CN">评测驱动开发</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div><div><strong>Jerry Liu</strong><span>@jerryjliu0</span></div></div><p class="quote-text original" lang="auto">These days, you can pretty much solve any task by defining an eval and hillclimbing over it, instead of directly defining the deterministic/agentic workflow to solve it.
+
+The data provider companies&#x27; entire job is to define evals for all economic activity to make the frontier models capable of doing anything.
+
+Your job then becomes pointing frontier intelligence in the right direction - defining what to solve, and how to measure what good looks like.
+
+Agent application interfaces will evolve to capture this. The most complex processes will still need some sort of explicit workflow builder interface, but most tasks can be compressed into goals and eval instructions.</p><p class="quote-text translation" lang="zh-CN">如今，你几乎可以通过定义一个评测指标，并围绕它不断爬坡优化，来解决任何任务，而不是直接定义用于解决任务的确定性/智能体式工作流。
+
+数据提供商的全部工作，就是为所有经济活动定义评测，让前沿模型能够做任何事。
+
+于是你的工作变成了把前沿智能引向正确方向：定义要解决什么，以及如何衡量“好”的样子。
+
+智能体应用界面会逐步演化以承载这一点。最复杂的流程仍然需要某种显式的工作流构建器界面，但大多数任务都可以压缩成目标和评测指令。</p><a class="quote-link" href="https://x.com/jerryjliu0/status/2108436834418373099" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 211</span><span>↻ 16</span><span>↩ 15</span></div><a href="https://x.com/hwchase17/status/2108465208297476157" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="alexandr_wang" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">78<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>10-09 11:46 北京</time></div>
+        <p class="post-text original" lang="auto">wow have i forever changed the course of technology</p><p class="post-text translation" lang="zh-CN">哇，我是不是永远改变了技术发展的进程</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2001678065701675008/2CEHA0LD_normal.jpg" alt="Google en español avatar" loading="lazy"></div><div><strong>Google en español</strong><span>@googleespanol</span></div></div><p class="quote-text original" lang="auto">En un chat, terminar una frase con un punto a veces se siente como una declaración de guerra. 😅
+
+Para darle más calidez y expresividad a la pantalla, los emojis planos evolucionan a 3D con Noto 3D:
+
+✨ Expresividad en 360°: Diseñados con más dimensión, textura y personalidad para tus conversaciones.
+
+🎨 Detrás del diseño: Conoce los retos creativos para transformar íconos 2D en personajes tridimensionales completos.
+
+👀 Spoiler: Sí, pensamos absolutamente en cada ángulo (incluso en los que no te esperabas). 🍑
+
+Descubre el proceso de diseño detrás de esta evolución:
+➡️ https://t.co/wkUkDU763x
+Para español: En Chrome &gt; Clic derecho &gt; Traducir.</p><p class="quote-text translation" lang="zh-CN">在聊天里，用句号结束一句话有时感觉像是在宣战。😅
+
+为了给屏幕带来更多温度和表现力，扁平 emoji 通过 Noto 3D 进化成了 3D：
+
+✨ 360° 表现力：为你的对话设计出更多维度、质感和个性。
+
+🎨 设计幕后：了解把 2D 图标变成完整三维角色所面临的创意挑战。
+
+👀 剧透：是的，我们绝对考虑了每一个角度（甚至包括你想不到的角度）。🍑
+
+探索这次进化背后的设计过程：
+➡️ https://t.co/wkUkDU763x
+西班牙语版：在 Chrome 中 &gt; 右键点击 &gt; 翻译。</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HUIVf38XsAEMTAN.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HUIVf38XsAEMTAN.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/googleespanol/status/2108271216616145112" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 3,511</span><span>↻ 51</span><span>↩ 116</span></div><a href="https://x.com/alexandr_wang/status/2108403786129801671" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">77<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>10-09 13:58 北京</time></div>
+        <p class="post-text original" lang="auto">These days, you can pretty much solve any task by defining an eval and hillclimbing over it, instead of directly defining the deterministic/agentic workflow to solve it.
+
+The data provider companies&#x27; entire job is to define evals for all economic activity to make the frontier models capable of doing anything.
+
+Your job then becomes pointing frontier intelligence in the right direction - defining what to solve, and how to measure what good looks like.
+
+Agent application interfaces will evolve to capture this. The most complex processes will still need some sort of explicit workflow builder interface, but most tasks can be compressed into goals and eval instructions.</p><p class="post-text translation" lang="zh-CN">如今，你几乎可以通过定义一个评测指标，并围绕它不断爬坡优化，来解决任何任务，而不是直接定义用于解决任务的确定性/智能体式工作流。
+
+数据提供商的全部工作，就是为所有经济活动定义评测，让前沿模型能够做任何事。
+
+于是你的工作变成了把前沿智能引向正确方向：定义要解决什么，以及如何衡量“好”的样子。
+
+智能体应用界面会逐步演化以承载这一点。最复杂的流程仍然需要某种显式的工作流构建器界面，但大多数任务都可以压缩成目标和评测指令。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 808</span><span>↻ 61</span><span>↩ 94</span></div><a href="https://x.com/jerryjliu0/status/2108436834418373099" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="fchollet" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2006806326140350470/Kd5oZv-f_normal.jpg" alt="Francois Chollet avatar" loading="lazy"></div>
+          <div class="identity"><strong>Francois Chollet</strong><span>@fchollet · ARC Prize；Keras 作者</span></div>
+          <div class="score">77<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 研究 / 评测</span><time>10-10 01:54 北京</time></div>
+        <p class="post-text original" lang="auto">The real world abounds with recursively self-improving systems, but one in particular deserves attention: Science, modeled as a system (perhaps even as an agent, with goals and resources). If you want to really understand AI RSI, science should be your reference point.
+
+Science is an intelligent system, and it is obviously recursively self-improving:
+
+1. Scientific discoveries unlock new technology that helps build better experimental tools. This is a top driver of progress in nearly all fields.
+2. They unlock new conceptual advances (ideas, theories) that help solve more problems.
+3. They increase society&#x27;s economic output, leading to more resources flowing into science.
+4. They unlock better faster tooling (e.g. more compute via better chip &amp; networking technology).
+
+As a result, many measures of scientific *input* grow exponentially:
+
+1. Headcount (doubles every ~15 years)
+2. Global R&amp;D spending (doubles a bit faster, every ~13 years)
+3. Papers and patents (technically this is a measure of headcount)
+4. Compute dedicated to science (doubles every ~2 years)
+
+But is scientific progress exponential? Historically, the rate of scientific impact over time has remained roughly constant since the start of the industrial revolution (i.e. scientific progress is *linear*). 1850-1900 was about as dramatic as 1900-1950 or 1950-2000.
+
+1850–1900: Evolution, germ theory &amp; antiseptic surgery, thermodynamics, electromagnetic field equations, the periodic table, pharmaceuticals, electricity, telegraph and telephone, internal combustion engine, skyscrapers, mechanized agriculture...
+
+1900–1950: special and general relativity, quantum mechanics, nuclear fission &amp; atomic energy, antibiotics, genetic theory, electronic computers, information theory, synthetic polymers and plastics, the transistor, aviation...
+
+1950–2000: DNA, genetic engineering, integrated circuits, microprocessors &amp; personal computing, the Internet, crewed spaceflight, moon landing, satellite communications &amp; GPS, standard model of particle physics...
+
+In real terms, like life expectancy, which has increased in a remarkably linear fashion of roughly 3 months per year since 1840, progress is a straight line. This is especially apparent for fields where impact is easy to measure, like biology, medicine, and agriculture.
+
+I first wrote about this phenomenon and its causes in 2012, and a steady stream of research has confirmed it in the years since. Examples include the 2018 paper by Nielsen and Collison, &quot;Science Is Getting Less Bang for Its Buck,&quot; and the 2020 economic paper, &quot;Are Ideas Getting Harder to Find?&quot; (In fact, I believe the Nielsen paper stemmed from a conversation I had with him about this exact idea six months earlier)
+
+In short, the primary cause is that research solves the highest-impact, easiest problems first, and every subsequent problem is either harder or lower-impact. Exponentially so. The paper that presented information theory wasn&#x27;t very hard to write (single author!) but you&#x27;d have a hard time ever writing a CS paper that beats it in impact.
+
+This is why science as a system requires exponential resources (input) to produce linear impact (output). It gets exponentially harder over time.
+
+Worth thinking about if you&#x27;re pondering RSI for AI. I fully believe AI RSI is already happening and will accelerate in the future. But I do not believe this leads to an &quot;intelligence explosion&quot; -- that would fly in the face of everything I know about intelligence and everything I know about recursively self-improving systems.</p><p class="post-text translation" lang="zh-CN">现实世界中充满了递归式自我改进系统，但其中一个尤其值得关注：科学，作为一个系统来建模（甚至可以视为一个拥有目标和资源的智能体）。如果你想真正理解 AI 的递归式自我改进，科学应该是你的参照点。
+
+科学是一个智能系统，而且显然是递归式自我改进的：
+
+1. 科学发现解锁新技术，帮助制造更好的实验工具。这是几乎所有领域进步的主要驱动力之一。
+2. 它们解锁新的概念进展（思想、理论），帮助解决更多问题。
+3. 它们提升社会经济产出，使更多资源流向科学。
+4. 它们解锁更好、更快的工具（例如通过更好的芯片和网络技术获得更多计算能力）。
+
+因此，许多科学“投入”指标都呈指数增长：
+
+1. 研究人员数量（约每 15 年翻一番）
+2. 全球研发支出（翻番稍快，约每 13 年）
+3. 论文和专利（严格说这是人员数量的一个指标）
+4. 投入科学的计算资源（约每 2 年翻一番）
+
+但科学进步是指数级的吗？从历史上看，自工业革命以来，科学影响力随时间变化的速率大致保持恒定（也就是说，科学进步是线性的）。1850-1900 年的变化，与 1900-1950 年或 1950-2000 年差不多同样剧烈。
+
+1850–1900：进化论、细菌理论和抗菌手术、热力学、电磁场方程、元素周期表、制药、电力、电报和电话、内燃机、摩天大楼、机械化农业……
+
+1900–1950：狭义和广义相对论、量子力学、核裂变和原子能、抗生素、遗传理论、电子计算机、信息论、合成聚合物和塑料、晶体管、航空……
+
+1950–2000：DNA、基因工程、集成电路、微处理器和个人计算、互联网、载人航天、登月、卫星通信和 GPS、粒子物理标准模型……
+
+从实际指标来看，比如预期寿命，自 1840 年以来一直以每年约 3 个月的惊人线性方式增长，进步就是一条直线。在生物学、医学和农业等影响容易衡量的领域，这一点尤其明显。
+
+我最早在 2012 年写过这个现象及其成因，此后多年持续有研究证实它。例子包括 Nielsen 和 Collison 2018 年的论文《Science Is Getting Less Bang for Its Buck》，以及 2020 年的经济学论文《Are Ideas Getting Harder to Find?》（事实上，我相信 Nielsen 那篇论文源于我六个月前和他关于这个确切想法的一次谈话）
+
+简而言之，主要原因是研究会先解决影响最大、最容易的问题，而之后的每一个问题要么更难，要么影响更小。并且是指数级地如此。提出信息论的那篇论文并不难写（单作者！），但你几乎不可能再写出一篇影响力超过它的 CS 论文。
+
+这就是为什么科学作为一个系统，需要指数级资源（投入）才能产生线性影响（产出）。它会随着时间变得指数级更难。
+
+如果你在思考 AI 的递归式自我改进，这一点值得考虑。我完全相信 AI 的递归式自我改进已经在发生，并且未来会加速。但我不认为这会导致“智能爆炸”——那会违背我对智能的全部理解，也违背我对递归式自我改进系统的全部理解。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 560</span><span>↻ 66</span><span>↩ 64</span></div><a href="https://x.com/fchollet/status/2108617137241911723" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="simonw" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
+          <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
+          <div class="score">64<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>10-09 21:56 北京</time></div>
+        <p class="post-text original" lang="auto">@bhaveyx I won&#x27;t let AI write for me, but I do use it for proof-reading and as a thesaurus - here&#x27;s my proof-reading prompt https://t.co/1fgi4h3taj</p><p class="post-text translation" lang="zh-CN">@bhaveyx 我不会让 AI 替我写作，但我确实会用它来校对和当同义词词典——这是我的校对提示词 https://t.co/1fgi4h3taj</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 7</span><span>↻ 1</span><span>↩ 2</span></div><a href="https://x.com/simonw/status/2108557290412597610" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">42<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>10-10 01:38 北京</time></div>
+        <p class="post-text original" lang="auto">@malaysiangovm @artemmurzin tbf we&#x27;re not trying to make a margin on inference volume, we take a small cut of transctions. we&#x27;re looking to drive these inference costs down over time</p><p class="post-text translation" lang="zh-CN">@malaysiangovm @artemmurzin 公平地说，我们并不是想从推理量里赚差价，我们只是从交易中抽取一小部分。我们希望随着时间推移把这些推理成本降下来</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 0</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/jerryjliu0/status/2108613049448108093" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+    </main>
+    <footer>Generated 2026-10-10 07:00:57 Asia/Shanghai · Read-only X ingestion via Bird · Translation via Codex</footer>
+  </div>
+</body>
+</html>
