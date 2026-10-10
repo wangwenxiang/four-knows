@@ -1,0 +1,1391 @@
+{
+  "enabled": true,
+  "backend": "codex exec",
+  "promptVersion": "codex-editorial-v2",
+  "candidates": 75,
+  "retained": 23,
+  "dropped": 52,
+  "droppedPosts": [
+    {
+      "id": "2109023886235009345",
+      "author": "anilkseth",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "学术回复",
+      "evidence": "无法逐一阅读理论",
+      "rationale": "仅社交回复无技术事实"
+    },
+    {
+      "id": "2109023459338605024",
+      "author": "anilkseth",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "下载反馈",
+      "evidence": "Glad it works",
+      "rationale": "仅确认可用无技术内容"
+    },
+    {
+      "id": "2109021884360605935",
+      "author": "anilkseth",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "论文下载",
+      "evidence": "save pdf可下109页",
+      "rationale": "下载说明不含AI技术事实"
+    },
+    {
+      "id": "2109017765151645772",
+      "author": "anilkseth",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "开放访问",
+      "evidence": "109页合集暂时开放",
+      "rationale": "访问说明非技术内容"
+    },
+    {
+      "id": "2109014029549130129",
+      "author": "anilkseth",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "措辞讨论",
+      "evidence": "论证支持措辞选择",
+      "rationale": "无具体技术事实"
+    },
+    {
+      "id": "2108935819331354775",
+      "author": "anilkseth",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "下载提示",
+      "evidence": "Download the pdf",
+      "rationale": "仅操作提示无技术内容"
+    },
+    {
+      "id": "2108931499986690076",
+      "author": "anilkseth",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "开放访问通知",
+      "evidence": "BBS合集限时开放",
+      "rationale": "通知性质无技术事实"
+    },
+    {
+      "id": "2108822257728418166",
+      "author": "anilkseth",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "AI意识论证",
+      "evidence": "论证AI并非有意识",
+      "rationale": "涉及AI认知判断但偏观点"
+    },
+    {
+      "id": "2108998245196476546",
+      "author": "jerryjliu0",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "RAG与宗教引文",
+      "evidence": "只说long live RAG",
+      "rationale": "无具体技术事实或经验"
+    },
+    {
+      "id": "2108946737633313256",
+      "author": "bcherny",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "祝贺消息",
+      "evidence": "只有祝贺团队",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108807083818631177",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "只回复是这样的",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108800657016918114",
+      "author": "bcherny",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "只要求截图提示时间",
+      "rationale": "无技术事实或经验"
+    },
+    {
+      "id": "2108796448305209571",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "只说也有道理",
+      "rationale": "无技术事实或经验"
+    },
+    {
+      "id": "2108789730703987158",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI观点",
+      "evidence": "谈system one价值",
+      "rationale": "概念评论无事实"
+    },
+    {
+      "id": "2108775913454268790",
+      "author": "Xudong07452910",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "模型后训练",
+      "evidence": "用qwen模型后训练",
+      "rationale": "信息很窄证据不足"
+    },
+    {
+      "id": "2108774994918408354",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "只说真好看",
+      "rationale": "无技术事实或经验"
+    },
+    {
+      "id": "2108763542220403010",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "模型能力观点",
+      "evidence": "称模型能力对行业溢出",
+      "rationale": "纯观点无技术事实"
+    },
+    {
+      "id": "2108728218438258729",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Agent工程观点",
+      "evidence": "系统需先定义清楚",
+      "rationale": "抽象观点无具体技术事实"
+    },
+    {
+      "id": "2108727132918841657",
+      "author": "karpathy",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "技术采访回忆",
+      "evidence": "记者读论文提技术问题",
+      "rationale": "个人回忆非技术内容"
+    },
+    {
+      "id": "2109054384143487461",
+      "author": "alexandr_wang",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "邮箱玩笑",
+      "evidence": "看到邮箱后的反应",
+      "rationale": "闲聊无技术事实"
+    },
+    {
+      "id": "2109051929439670408",
+      "author": "c_valenzuelab",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "社交回复",
+      "evidence": "welcome to the club",
+      "rationale": "社交寒暄无技术信息"
+    },
+    {
+      "id": "2109045467116163192",
+      "author": "drfeifei",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "表情回复",
+      "evidence": "仅有表情回应",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2109038555561603460",
+      "author": "alexandr_wang",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "AI硬件集成",
+      "evidence": "Muse接入咖啡研磨机",
+      "rationale": "有实现事实但细节不足"
+    },
+    {
+      "id": "2108959938781511812",
+      "author": "mustafasuleyman",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI治理",
+      "evidence": "超智能需被约束",
+      "rationale": "治理观点无技术细节"
+    },
+    {
+      "id": "2109048871632671041",
+      "author": "sh_reya",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "模型支持",
+      "evidence": "quail将支持Qwen 3.8 27B",
+      "rationale": "版本支持预告信息窄"
+    },
+    {
+      "id": "2109035314547396837",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "仅表情回复",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2109032807041519749",
+      "author": "swyx",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "评论照片发型",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2109003632725446856",
+      "author": "sh_reya",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI招聘观点",
+      "evidence": "猜测收集训练数据",
+      "rationale": "纯推测无事实"
+    },
+    {
+      "id": "2108979232420614460",
+      "author": "HamelHusain",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "只表达痛苦感受",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108920481650708721",
+      "author": "swyx",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "agent采用抱怨",
+      "evidence": "新agent花钱无结果",
+      "rationale": "缺少可验证技术事实"
+    },
+    {
+      "id": "2108810508635943311",
+      "author": "swyx",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回应",
+      "evidence": "只说lol jevday",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108780918060036335",
+      "author": "swyx",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI会议票务",
+      "evidence": "工程票仍可购买",
+      "rationale": "会议宣传非技术内容"
+    },
+    {
+      "id": "2108771004088815699",
+      "author": "yoheinakajima",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "几何形状舍入观察",
+      "evidence": "方形受益于rounding",
+      "rationale": "技术窄且缺少上下文"
+    },
+    {
+      "id": "2108764717095555491",
+      "author": "svlevine",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "聊天致谢",
+      "evidence": "感谢聊天邀请",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108760397352435787",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "自我回应",
+      "evidence": "只说good job",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108755011937440057",
+      "author": "yoheinakajima",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "方形装箱结果",
+      "evidence": "n=11等达到best known",
+      "rationale": "研究结果窄且缺细节"
+    },
+    {
+      "id": "2108746110361891091",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊评价",
+      "evidence": "只说fun to watch",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108745343055855943",
+      "author": "yoheinakajima",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "packing optimization",
+      "evidence": "方法找到Lin解",
+      "rationale": "有优化步骤事实但语境不足"
+    },
+    {
+      "id": "2108737022534009222",
+      "author": "yoheinakajima",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "packing method comparison",
+      "evidence": "rigid多数形状更好",
+      "rationale": "方法对比有事实但范围较窄"
+    },
+    {
+      "id": "2108735418325987770",
+      "author": "yoheinakajima",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "packing experiment",
+      "evidence": "测试圆形渐变与snapping",
+      "rationale": "包含可复现实验对比方法"
+    },
+    {
+      "id": "2108723946749297055",
+      "author": "yoheinakajima",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "packing generalization",
+      "evidence": "方形立方体表现好",
+      "rationale": "有方法适用性但证据有限"
+    },
+    {
+      "id": "2108722906264203476",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "chat",
+      "evidence": "只有表情回复",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108719775165935943",
+      "author": "yoheinakajima",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "packing method behavior",
+      "evidence": "其他形状弱于rigid",
+      "rationale": "有实验观察但结论窄"
+    },
+    {
+      "id": "2108711080956764458",
+      "author": "HamelHusain",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "chat",
+      "evidence": "只谈竞争非奖金",
+      "rationale": "无AI或工程事实"
+    },
+    {
+      "id": "2108709889602388252",
+      "author": "yoheinakajima",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "cube packing record",
+      "evidence": "n=12立方体新纪录",
+      "rationale": "给出坐标和明确纪录结果"
+    },
+    {
+      "id": "2109040027359650130",
+      "author": "simonw",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "event logistics",
+      "evidence": "展览到周一",
+      "rationale": "无技术内容"
+    },
+    {
+      "id": "2108972753852543441",
+      "author": "jackclarkSF",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI culture event",
+      "evidence": "预告AI与小说视频",
+      "rationale": "偏观点活动无技术事实"
+    },
+    {
+      "id": "2108943287285686726",
+      "author": "simonw",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "手机使用闲聊",
+      "evidence": "洗澡时用手机语音模式",
+      "rationale": "无AI或工程技术事实"
+    },
+    {
+      "id": "2108894325249818657",
+      "author": "jackclarkSF",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "个人感想",
+      "evidence": "提到读材料科学研究",
+      "rationale": "未给具体研究或技术事实"
+    },
+    {
+      "id": "2108893332395241982",
+      "author": "jackclarkSF",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "音乐评论",
+      "evidence": "评价Jamie T写作风格",
+      "rationale": "纯音乐观点无技术内容"
+    },
+    {
+      "id": "2108893025376370984",
+      "author": "jackclarkSF",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "音乐推荐",
+      "evidence": "推荐Jamie T新专辑",
+      "rationale": "音乐闲聊不涉技术事实"
+    },
+    {
+      "id": "2108712484865753365",
+      "author": "simonw",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "语境不足回复",
+      "evidence": "称现在少耗时",
+      "rationale": "缺少具体技术对象和事实"
+    }
+  ],
+  "headlineSelection": {
+    "schemaVersion": 1,
+    "candidates": [
+      {
+        "id": "2108777449622245793",
+        "author": "hwchase17",
+        "grade": "A",
+        "primarySubstantive": true,
+        "reason": "selected"
+      },
+      {
+        "id": "2108763702396948905",
+        "author": "xudong07452910",
+        "grade": "A",
+        "primarySubstantive": true,
+        "reason": "selected"
+      },
+      {
+        "id": "2108996530204205463",
+        "author": "jerryjliu0",
+        "grade": "A",
+        "primarySubstantive": true,
+        "reason": "selected"
+      },
+      {
+        "id": "2108860842867323083",
+        "author": "xudong07452910",
+        "grade": "A",
+        "primarySubstantive": true,
+        "reason": "same_author",
+        "selectedId": "2108763702396948905"
+      },
+      {
+        "id": "2108774523659264295",
+        "author": "xudong07452910",
+        "grade": "A",
+        "primarySubstantive": true,
+        "reason": "same_author",
+        "selectedId": "2108763702396948905"
+      },
+      {
+        "id": "2109005438083645569",
+        "author": "marinkazitnik",
+        "grade": "A",
+        "primarySubstantive": true,
+        "reason": "capacity"
+      },
+      {
+        "id": "2108777335650476163",
+        "author": "hwchase17",
+        "grade": "B",
+        "primarySubstantive": true,
+        "reason": "same_author",
+        "selectedId": "2108777449622245793"
+      },
+      {
+        "id": "2108768259516281038",
+        "author": "bcherny",
+        "grade": "B",
+        "primarySubstantive": true,
+        "reason": "capacity"
+      },
+      {
+        "id": "2109027327569203687",
+        "author": "bcherny",
+        "grade": "B",
+        "primarySubstantive": true,
+        "reason": "capacity"
+      },
+      {
+        "id": "2109016088688082952",
+        "author": "marinkazitnik",
+        "grade": "B",
+        "primarySubstantive": false,
+        "reason": "primary_not_substantive"
+      },
+      {
+        "id": "2109003050774065516",
+        "author": "sh_reya",
+        "grade": "B",
+        "primarySubstantive": true,
+        "reason": "capacity"
+      },
+      {
+        "id": "2109055615008125231",
+        "author": "hamelhusain",
+        "grade": "B",
+        "primarySubstantive": true,
+        "reason": "capacity"
+      },
+      {
+        "id": "2108777187902124480",
+        "author": "yoheinakajima",
+        "grade": "B",
+        "primarySubstantive": false,
+        "reason": "primary_not_substantive"
+      },
+      {
+        "id": "2108923993226932246",
+        "author": "anilkseth",
+        "grade": "C",
+        "primarySubstantive": false,
+        "reason": "primary_not_substantive"
+      },
+      {
+        "id": "2108951977904517409",
+        "author": "fchollet",
+        "grade": "C",
+        "primarySubstantive": true,
+        "reason": "grade_not_eligible"
+      },
+      {
+        "id": "2108983824453615939",
+        "author": "jerryjliu0",
+        "grade": "C",
+        "primarySubstantive": true,
+        "reason": "grade_not_eligible"
+      },
+      {
+        "id": "2109042999846215749",
+        "author": "c_valenzuelab",
+        "grade": "C",
+        "primarySubstantive": true,
+        "reason": "grade_not_eligible"
+      },
+      {
+        "id": "2109021576758734975",
+        "author": "anilkseth",
+        "grade": "C",
+        "primarySubstantive": true,
+        "reason": "grade_not_eligible"
+      },
+      {
+        "id": "2108760621970010412",
+        "author": "yoheinakajima",
+        "grade": "C",
+        "primarySubstantive": false,
+        "reason": "primary_not_substantive"
+      }
+    ]
+  },
+  "topStories": [
+    {
+      "id": "2108763702396948905",
+      "author": "Xudong07452910",
+      "category": "AI 技术前沿",
+      "editorialScore": 100
+    },
+    {
+      "id": "2108777449622245793",
+      "author": "hwchase17",
+      "category": "AI 技术应用",
+      "editorialScore": 99
+    },
+    {
+      "id": "2108996530204205463",
+      "author": "jerryjliu0",
+      "category": "AI 技术应用",
+      "editorialScore": 98
+    }
+  ],
+  "reviewedPosts": [
+    {
+      "id": "2109023886235009345",
+      "author": "anilkseth",
+      "text": "@bokuHaruyaHaru Thanks for sending this but unfortunately I get sent many theories that I am unable to properly engage with, through lack of time.  Nonetheless, I will still try to read it.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "学术回复",
+      "evidence": "无法逐一阅读理论",
+      "rationale": "仅社交回复无技术事实"
+    },
+    {
+      "id": "2109023459338605024",
+      "author": "anilkseth",
+      "text": "@jlmannisto @BBSJournal You're welcome :-). Glad it works - that's reassuring for me too.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "下载反馈",
+      "evidence": "Glad it works",
+      "rationale": "仅确认可用无技术内容"
+    },
+    {
+      "id": "2109021884360605935",
+      "author": "anilkseth",
+      "text": "@jlmannisto @BBSJournal If you try to download each commentary individually, you will find they are indeed paywalled,  But the 'save pdf' on the target article (my piece) should download the entire 109 page collection, including all commentaries. Try that?",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "论文下载",
+      "evidence": "save pdf可下109页",
+      "rationale": "下载说明不含AI技术事实"
+    },
+    {
+      "id": "2109021576758734975",
+      "author": "anilkseth",
+      "text": "Allow me to respectfully nuance a few of things you say here.\n\n(i) My first paper on conscious AI, which was indeed sceptical, goes back to 2009 - long before the current hoohaa developed.  (See https://t.co/VCtZaYIrXJ)\n\n(ii) I do not \"need\" biology to be vital to consciousness\"   This is my current best guess. Based on my reading of  theory & evidence: (a) that computational functionalism (CF)  is likely false, and (b) biological naturalism (BN) may be true, but this is not yet demonstrated. My main goal is to know, which is why distinguishing between CF and BN (and other theories which take a position on conscious AI) is very important. In my BBS response I lay this out very clearly.\n\n(iii) I do not think the word \"caste\" is helpful here, for reasons which should be obvious.\n\n(iv) My time is limited and unfortunately I do not have the opportunity to debate with everyone (or every AI agent) who might take a different position.",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "意识AI理论",
+      "evidence": "区分CF与BN理论",
+      "rationale": "有研究观点但非新结果"
+    },
+    {
+      "id": "2109017765151645772",
+      "author": "anilkseth",
+      "text": "@jlmannisto @BBSJournal Yes, the full 109 page target+commentaries+response should be (temporarily) open.  The link should take you to the BBS site where \"save pdf\" should appear in the top left - see attached image. LMK if you are not seeing this. https://t.co/JNZmjVBPGo",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "开放访问",
+      "evidence": "109页合集暂时开放",
+      "rationale": "访问说明非技术内容"
+    },
+    {
+      "id": "2109016088688082952",
+      "author": "marinkazitnik",
+      "text": "Great to see our lab running this @harvardmed workshop on ToolUniverse @ScientistTools!",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "科学AI Agent",
+      "evidence": "用ToolUniverse构建科学agent",
+      "rationale": "有可复用工作坊材料"
+    },
+    {
+      "id": "2109014029549130129",
+      "author": "anilkseth",
+      "text": "@Irenaean @BBSJournal Thanks! The arguments are there that IMO justify these choices of words.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "措辞讨论",
+      "evidence": "论证支持措辞选择",
+      "rationale": "无具体技术事实"
+    },
+    {
+      "id": "2109005438083645569",
+      "author": "marinkazitnik",
+      "text": "Exciting new features in ToolUniverse @ScientistTools: auto setup of GPU environments, so agents can call ML models on complex biological datasets and use outputs in discovery campaigns. By stellar @GaoShanghua in collab with @NVIDIAAI\n\nhttps://t.co/pfskTvy939\n\nIn the @AnthropicAI × @adaptyvbio Protein Design Challenge, these features let agents run campaigns with BoltzGen, ProteinMPNN, RFdiffusion3, and Genie3 for design; Boltz2, Chai1, ColabFold, Protenix, and RoseTTAFold3 for prediction comparisons; and PROPKA and Proton-PottsMPNN for pH-related analyses.",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "ToolUniverse蛋白设计",
+      "evidence": "自动GPU环境调用ML模型",
+      "rationale": "新功能和完整工作流明确"
+    },
+    {
+      "id": "2108935819331354775",
+      "author": "anilkseth",
+      "text": "@rawxrawxraw @BBSJournal @SarahTheHaider @dioscuri @jeffrsebo @carlorovelli @blaiseaguera @Plinz @MelMitchell1 @emilymbender @GaryMarcus @mustafasuleyman @JasonSilva @TEDchris @sapinker @drmichaellevin @michaelpollan @MatthiasMichel_ @skdh @pgodfreysmith Download the pdf",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "下载提示",
+      "evidence": "Download the pdf",
+      "rationale": "仅操作提示无技术内容"
+    },
+    {
+      "id": "2108931499986690076",
+      "author": "anilkseth",
+      "text": "2/2 maybe of interest (in no particular order) @SarahTheHaider @dioscuri @jeffrsebo @carlorovelli @blaiseaguera @Plinz @MelMitchell1 @emilymbender @GaryMarcus @mustafasuleyman @JasonSilva @TEDchris @sapinker @drmichaellevin @michaelpollan @MatthiasMichel_ @skdh @pgodfreysmith @mmitchell_ai @michaelshermer @fchollet @camhberg @davetroy @demishassabis @azeem - the BBS collection is now Open Access (limited time, see above)",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "开放访问通知",
+      "evidence": "BBS合集限时开放",
+      "rationale": "通知性质无技术事实"
+    },
+    {
+      "id": "2108923993226932246",
+      "author": "anilkseth",
+      "text": "🎇 Good news! 🎇 The kind people at @BBSJournal have made the new collection on \"Conscious AI and biological naturalism\" completely #OpenAccess for a limited period. This include the target article, all 50 commentaries (many of which disagree with me), and my response. Go to the link and click 'save pdf': https://t.co/6ZFzHrUsUR\n\nFor easier ways into the debate, try my @NoemaMag essay on \"The Mythology of Conscious AI\" (winner of the 2025 @berggruenInst Essay Prize), and this 2026 main-stage @TEDTalks:\n\nhttps://t.co/LmSiQnT9Wh\n\nhttps://t.co/vDvw82ookk",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "AI意识论文集开放获取",
+      "evidence": "50篇评论与回应开放",
+      "rationale": "有研究材料但缺少技术细节"
+    },
+    {
+      "id": "2108822257728418166",
+      "author": "anilkseth",
+      "text": "There are many compelling reasons to believe that AIs are not conscious (& why they shouldn't be treated as such). I make my best case in this @TEDTalks https://t.co/vDvw82ookk, in @NoemaMag https://t.co/LmSiQnT9Wh, and in @BBSJournal (click 'save pdf' to get the whole thing): https://t.co/izSGs5XgOv",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "AI意识论证",
+      "evidence": "论证AI并非有意识",
+      "rationale": "涉及AI认知判断但偏观点"
+    },
+    {
+      "id": "2109027327569203687",
+      "author": "bcherny",
+      "text": "Agree. Claude was able to do this better than I could since Opus 4.8 or so. 5.5 models are now very good at it.\n\nAll you do is give the model\n\n1. a goal (eg. “Make p95 ci time <10 mins”)\n2. a way to measure its result (eg. “Read timings in bigquery after each change”)\n3. a sense of how hard to try (eg. “Don’t stop till it’s done, it might take a few weeks of experimenting”)\n\nThis pretty much works for most things. I often also ask the model to show me a chart with progress to goal every day, or to dm me a live artifact with the result",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "长期代理工程优化",
+      "evidence": "目标、度量、努力边界",
+      "rationale": "给出可复用Agent工作法"
+    },
+    {
+      "id": "2108998245196476546",
+      "author": "jerryjliu0",
+      "text": "long live RAG",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "RAG与宗教引文",
+      "evidence": "只说long live RAG",
+      "rationale": "无具体技术事实或经验"
+    },
+    {
+      "id": "2108996530204205463",
+      "author": "jerryjliu0",
+      "text": "Mistral OCR is on OpenDocRouter! \n\nFor its price, it is decent over tables and reading order. It's also blazing fast at p50 1.8s per page \n\nWe're constantly bringing in new models since OpenDocRouter launched last week: https://t.co/j2URLhN4Z2 https://t.co/ta91bUCbDI",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "OpenDocRouter OCR模型接入",
+      "evidence": "Mistral OCR p50 1.8秒每页",
+      "rationale": "新模型接入且有性能数据"
+    },
+    {
+      "id": "2108983824453615939",
+      "author": "jerryjliu0",
+      "text": "\"a corollary is that information about product quality will become more important and impactful\" \n\nThis feels like the next evolution of SEO/AEO that every product will try to game. Even if agents do the equivalent of ~10 hours of research on a product, it's less important on whether the product is actually better vs. the agent's perception that the product is better.\n\nAgents might do deep research on evals and benchmarks; yet anyone who's worked on evals knows that it's hard to create a truly unbiased one that can universally measure product quality. They might optimize for human preferences, in which case companies will optimize for user reviews and feedback. \n\nCompanies will optimize for whatever preferences the top AI models have been posttrained on.",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Agent评测与产品信号",
+      "evidence": "Agent研究评测基准",
+      "rationale": "技术相关但主要是推测"
+    },
+    {
+      "id": "2108946737633313256",
+      "author": "bcherny",
+      "text": "@rough__sea @reid Congrats Ryan + Bert + team!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "祝贺消息",
+      "evidence": "只有祝贺团队",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108860842867323083",
+      "author": "Xudong07452910",
+      "text": "Anthropic 这次把 Multi-Agent 往前推了一步，连「这群 Agent 该怎么组织」都开始交给 Agent 自己决定了。\n\n一个 lead agent 会根据任务现场生成 workflow，再拆成多个阶段，拉起不同 Agent 并行执行，最后汇总结果。\n\n现在单个 Run 最多可同时跑 64 个 Agent，整个生命周期最多启动 1000 个，还能在后台持续运行 24 小时。\n\n以前 Multi-Agent 很大一部分工作，是人提前设计分工和流程。现在连编排本身都开始动态生成了。\n\nHarness 也开始从固定流程，变成 Agent 可以自己决定和调整的一部分。",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "Claude Managed Agents",
+      "evidence": "最多并行64个Agent",
+      "rationale": "公开beta且有编排能力细节"
+    },
+    {
+      "id": "2108847504397643803",
+      "author": "Xudong07452910",
+      "text": "我也挺赞同，软件工程师面试真的可以收敛到两件事：你能不能把问题想清楚，以及能不能借助 Agent 把东西真正做出来。\n\n很多传统八股和算法题，区分度可能已经没以前那么高了。",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Agent辅助面试",
+      "evidence": "用Agent现场构建项目",
+      "rationale": "技术流程建议但证据有限"
+    },
+    {
+      "id": "2108807083818631177",
+      "author": "Xudong07452910",
+      "text": "@m0d8ye 是这样的😂",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "只回复是这样的",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108800657016918114",
+      "author": "bcherny",
+      "text": "@AlanRBlair @ipv4fan Screenshot the prompt net time you see it?",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "只要求截图提示时间",
+      "rationale": "无技术事实或经验"
+    },
+    {
+      "id": "2108796448305209571",
+      "author": "Xudong07452910",
+      "text": "@Raven6667jc 也有道理",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "只说也有道理",
+      "rationale": "无技术事实或经验"
+    },
+    {
+      "id": "2108789730703987158",
+      "author": "Xudong07452910",
+      "text": "@Keji715 毕竟大家都在追求 system two，忽略了system one的价值了",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI观点",
+      "evidence": "谈system one价值",
+      "rationale": "概念评论无事实"
+    },
+    {
+      "id": "2108777449622245793",
+      "author": "hwchase17",
+      "text": "agree - most orchestration steps don't need a frontier model\n\nfor Open SWE we moved model choice into the harness, so each task goes to the cheapest model that still does the job, tested against quality. median cost per task dropped 64%\n\nhttps://t.co/pHUDDCF6zs\n\nhttps://t.co/B4iKNXM5RW",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "Agent模型路由",
+      "evidence": "任务成本中位降64%",
+      "rationale": "有明确生产降本效果"
+    },
+    {
+      "id": "2108777335650476163",
+      "author": "hwchase17",
+      "text": "good framing from @ch3nweiii - a lot of agent steps are yes/no calls, not generation\n\nJev answers those as typed questions with calibrated probabilities, so the frontier model sticks to the hard work\n\nwhere those calls sit in a harness: https://t.co/xZMxbATLHd\n\nhttps://t.co/Z3DGL8hTdS",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "Agent决策模型",
+      "evidence": "Jev用校准概率答类型问题",
+      "rationale": "有可复用路由架构"
+    },
+    {
+      "id": "2108775913454268790",
+      "author": "Xudong07452910",
+      "text": "@tspy 感觉没多大，但是该release还是要release的，我关注的竟然是用qwen模型后训练的🤣",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "模型后训练",
+      "evidence": "用qwen模型后训练",
+      "rationale": "信息很窄证据不足"
+    },
+    {
+      "id": "2108774994918408354",
+      "author": "Xudong07452910",
+      "text": "@lemomo_ai 真好看",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "只说真好看",
+      "rationale": "无技术事实或经验"
+    },
+    {
+      "id": "2108774523659264295",
+      "author": "Xudong07452910",
+      "text": "有意思，现在大厂开始集体做这类快速决策模型了！\n\n微软发布了 Microsoft-Decision-1。这是一个专门做选择题的决策模型，用 Qwen3.5-9B 后训练而来，能快速给多个选项打分并做出选择（国产开源模型继续发力😇）。\n\n微软 CEO 纳德拉说它在结构化决策任务上，延迟和质量都超过了大语言模型和其他决策模型。它已经上线 Microsoft Foundry，之后会上 OpenRouter。",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "Microsoft-Decision-1",
+      "evidence": "Qwen3.5-9B后训练",
+      "rationale": "新决策模型正式发布"
+    },
+    {
+      "id": "2108772007177551980",
+      "author": "Xudong07452910",
+      "text": "欧洲喊了这么久「主权 AI」，结果一个挺现实的案例是，欧洲本地平台开始托管 Qwen、GLM 和 Kimi 给欧洲企业用。\n\n德国搜索引擎 Ecosia 今年 5 月才从 OpenAI 切到 Mistral，几个月后又换到欧洲平台 Melious 托管的开源权重模型。\n\nCEO Christian Kroll 说得很直接，Mistral 大约落后一年，服务器还经常过载。换完之后，成本大约砍了一半，质量和性能反而更好。\n\n后来他也特意澄清，Ecosia 选择的是开源模型这条路线。数据仍然留在欧洲，敏感话题也可以切换其他模型。\n\n欧洲想要主权、合规和可控，企业又要性能和成本，最后跑出来的方案很可能就是 开源权重 + 本地托管。\n\n对中国模型来说，这可能也是一条很现实的出海路径。\n\n比起「谁在榜单上更强」，谁能真的被欧洲企业部署进生产环境，可能更值得看。\n\nhttps://t.co/jnoxCfNvQL",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "欧洲本地托管开源模型",
+      "evidence": "成本约砍半性能更好",
+      "rationale": "有生产部署效果"
+    },
+    {
+      "id": "2108768259516281038",
+      "author": "bcherny",
+      "text": "API is usually used for Agent SDK shaped workloads, where 1h TTL would result in higher costs on average, so we stick to 5m to be safe. Interactive usage defaults to 1h because that is cheaper for people on average.\n\nThis works for most people, but it is not perfect, so you can configure it if you like.",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "API缓存TTL",
+      "evidence": "API 5m交互1h TTL",
+      "rationale": "有工程配置取舍"
+    },
+    {
+      "id": "2108763702396948905",
+      "author": "Xudong07452910",
+      "text": "如果代码库里的每个文件都能自己解释、自己修改，还会提醒相关文件「你也得改」，Coding Agent 会不会更稳？\n\nUIUC 和 Penn State 这篇论文提出 HERMES，把代码库里的文件、配置和测试变成一个个 Dev-Primitive。\n\n可以把它理解成：每个组件旁边都有一个专门理解它的小 Agent。\n\n遇到任务时，HERMES 先沿依赖关系找到真正相关的组件，只激活这一小部分。它们各自修改自己负责的内容，同时同步接口变化、配置约束和测试要求。\n\n如果执行失败，系统会根据报错和测试结果，只重新激活相关组件继续修，不需要每轮重新读完整个仓库。\n\n论文在 SWE-bench、仓库级重构、Terminal-Bench 和 DevOps 四类任务上测试，平均提升 12.4 个百分点。\n\n还有就是把内部组件 Agent 换成 Qwen3-8B，整体只比全 GPT-5.6 Sol 方案低约 4.5 个百分点；在 Terminal-Bench 上成本还能下降 26.2%。\n\n面对大仓库里的 Coding Agent，可能更需要一套稳定的「局部理解 + 协作修改 + 失败后定点修复」机制。\n\nHarness 的价值也像是在组织代码、上下文和 Agent 之间的信息流。\n\n📎 arxiv: https://t.co/GZBgGed7jM",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "Coding Agent架构",
+      "evidence": "SWE-bench平均提升12.4点",
+      "rationale": "含论文方法与多基准结果"
+    },
+    {
+      "id": "2108763542220403010",
+      "author": "Xudong07452910",
+      "text": "@Chinese_XU 我也是觉得现在的模型能力对于很多行业是溢出的",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "模型能力观点",
+      "evidence": "称模型能力对行业溢出",
+      "rationale": "纯观点无技术事实"
+    },
+    {
+      "id": "2108729269190861026",
+      "author": "Xudong07452910",
+      "text": "@boi_linn9293 Claude原文里说这些PR会通过安全检查，但合并到主分支和部署生产仍需两名人类审批，模型无法自主推送。",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Agent代码审批流程",
+      "evidence": "PR需两名人类审批",
+      "rationale": "有流程约束事实但信息窄"
+    },
+    {
+      "id": "2108728218438258729",
+      "author": "Xudong07452910",
+      "text": "以前真没想到，哲学、逻辑学最后会在 Agent 工程里重新就业😂\n\n这张图里我最认同的一点是，很多 AI 项目最后卡住的地方，往往是人自己都没把概念、边界和关系想清楚。\n\n模型可以理解模糊语言，但系统真要稳定跑起来，世界还是得先被定义清楚。 https://t.co/RWsAb9nf1d",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Agent工程观点",
+      "evidence": "系统需先定义清楚",
+      "rationale": "抽象观点无具体技术事实"
+    },
+    {
+      "id": "2108727132918841657",
+      "author": "karpathy",
+      "text": "@TheStalwart I had some amount of journalistic inbound way back as a PhD student but the only person I consistently replied to was Jack because he actually put in effort, read academic papers and asked good technical questions and I have not really seen that before (or since). https://t.co/41PtZcyUyX",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "技术采访回忆",
+      "evidence": "记者读论文提技术问题",
+      "rationale": "个人回忆非技术内容"
+    },
+    {
+      "id": "2108716642637099336",
+      "author": "Xudong07452910",
+      "text": "一个 Coding Agent，现在已经可以一次改上千个 PR 了。\n\nBlock 最近公开了他们怎么用 Claude Fable 5 做公司级代码迁移。\n\n一次任务可以跨多个 Repo、几百万行代码。Fable 负责高层规划和拆解，再把具体改文件、跑测试这些工作分给更便宜的模型。\n\n有意思的是人类工程师的角色也在往上移。\n\n架构、数据模型、API 和关键设计决策留给人，机械修改和大规模迁移越来越多交给 Agent。Block 甚至已经让 Agent 定期扫描百万行级代码库，持续清理技术债。\n\n所以当 Agent 开始能组织和维护整个代码库，Coding Agent 就越像一支软件团队，而不只是一个会写代码的助手。\n\n文章\nhttps://t.co/G7dlNUYMtj",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "企业级代码迁移Agent",
+      "evidence": "跨多Repo几百万行代码",
+      "rationale": "有生产级工程用法与分工"
+    },
+    {
+      "id": "2109054384143487461",
+      "author": "alexandr_wang",
+      "text": "muse after seeing my email inbox https://t.co/4GSQgY7PzQ",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "邮箱玩笑",
+      "evidence": "看到邮箱后的反应",
+      "rationale": "闲聊无技术事实"
+    },
+    {
+      "id": "2109051929439670408",
+      "author": "c_valenzuelab",
+      "text": "@somewheresy welcome to the club",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "社交回复",
+      "evidence": "welcome to the club",
+      "rationale": "社交寒暄无技术信息"
+    },
+    {
+      "id": "2109045467116163192",
+      "author": "drfeifei",
+      "text": "@bstuartTI @theworldlabs 😍",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "表情回复",
+      "evidence": "仅有表情回应",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2109042999846215749",
+      "author": "c_valenzuelab",
+      "text": "The ultimate LLM benchmark: Chilean Spanish.\n\n80% of AI models fail to recognize Chilean Spanish and insist on speaking like an Argentine",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "语言识别评测",
+      "evidence": "80%模型无法识别智利西语",
+      "rationale": "涉及模型能力但证据不足"
+    },
+    {
+      "id": "2109038555561603460",
+      "author": "alexandr_wang",
+      "text": "muse on the coffee grinder 🫘☕️",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "AI硬件集成",
+      "evidence": "Muse接入咖啡研磨机",
+      "rationale": "有实现事实但细节不足"
+    },
+    {
+      "id": "2108959938781511812",
+      "author": "mustafasuleyman",
+      "text": "Super Intelligence must be contained... Today, this is an engineering and governance challenge. And it isn't new. We've done it with planes, cars, nuclear materials, food safety, medicines... and everything else. Let's get to work!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI治理",
+      "evidence": "超智能需被约束",
+      "rationale": "治理观点无技术细节"
+    },
+    {
+      "id": "2108951977904517409",
+      "author": "fchollet",
+      "text": "How AI shifted from a transductive paradigm (token-by-token answer completion) to an inductive paradigm (on-the-fly reasoning chain synthesis), in one chart. This is the big story of 2025 and 2026. This is what made coding agents work. https://t.co/ThLm2AH127",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "AI范式变化",
+      "evidence": "从补全到推理链合成",
+      "rationale": "技术观点但缺少证据"
+    },
+    {
+      "id": "2109055615008125231",
+      "author": "HamelHusain",
+      "text": "Recently had the chance to interview @benhylak on how he is thinking about simulations in our AI Evals Course 😁\n\nSimulations are incredibly useful for evals when you  do them well.  Ben discusses what he learned from implementing simulations for evals at several companies.  Some fun topics came up, my favorite being \"simulation awareness\" - when models know they are in a simulation.  \n\nBelow is a chapter summary:\n\n02:02 Why input/output tests miss agent failures\n10:59 Replay production traces to see what a change breaks\n13:18 Recreate the data and tools around the agent\n16:27 How agents detect simulations and change their behavior\n20:39 Choose scenarios that test the change you made\n22:00 Check answers, costs, and tool behavior across runs\n26:43 Replay known failures to verify a fix\n31:20 Common mistakes that make simulations misleading\n32:20 Check that the simulation reproduces production behavior\n37:37 When to start using simulations\n\nYou can also watch on YT here: https://t.co/EjlKZMw2y1",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "智能体评测",
+      "evidence": "回放生产轨迹做评测",
+      "rationale": "可复用智能体评测经验"
+    },
+    {
+      "id": "2109048871632671041",
+      "author": "sh_reya",
+      "text": "@kwuchu Qwen 3.8 27B support in quail is coming this week !! We are excited",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "模型支持",
+      "evidence": "quail将支持Qwen 3.8 27B",
+      "rationale": "版本支持预告信息窄"
+    },
+    {
+      "id": "2109035314547396837",
+      "author": "yoheinakajima",
+      "text": "@ArthurBerd 😉",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "仅表情回复",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2109032807041519749",
+      "author": "swyx",
+      "text": "@trq212 holy shit the hair game on this pic https://t.co/zpcgmQav1q",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "评论照片发型",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2109003632725446856",
+      "author": "sh_reya",
+      "text": "maybe the interview process has a different goal now (to collect training data for AI agents), in which case, sounds good",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI招聘观点",
+      "evidence": "猜测收集训练数据",
+      "rationale": "纯推测无事实"
+    },
+    {
+      "id": "2109003050774065516",
+      "author": "sh_reya",
+      "text": "ah i'm not sure it's a great idea. most of the resulting \"improvements\" will sound reasonable. 200-500 lines is a tiny codebase. some other ideas for interviews\n- review an AI-generated pull request\n- suggest new context for an AI assistant to consider or focus on when writing or improving on a solution\n- a \"lightning\" round where one has to identify inefficiencies or bloat as quickly as possible, and be able to explain why",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "AI辅助面试",
+      "evidence": "Gemini读200-500行代码",
+      "rationale": "有工程评估场景设计"
+    },
+    {
+      "id": "2108979232420614460",
+      "author": "HamelHusain",
+      "text": "@marcklingen It's so painful man",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊",
+      "evidence": "只表达痛苦感受",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108920481650708721",
+      "author": "swyx",
+      "text": "@maxleiter @strickvl @trq212 i’m relatively understanding/tech adventurous but rest of the company just wants to get stuff done without messing around with a new agent every month yknow. but yeah def a bit salty it disappeared so much money so fast for no outcome. will retry at some point",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "agent采用抱怨",
+      "evidence": "新agent花钱无结果",
+      "rationale": "缺少可验证技术事实"
+    },
+    {
+      "id": "2108810508635943311",
+      "author": "swyx",
+      "text": "@CompleteSkeptic @a16z lol jevday!!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回应",
+      "evidence": "只说lol jevday",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108780918060036335",
+      "author": "swyx",
+      "text": "aie nyc tix will sell out this weekend - last call to join us to the biggest ever technical conf in New York and our first with a finance mainstage - in some ways the final unification of both my careers: from investment bank to hedgefund, from bigtech to nyc startup. cya monday! https://t.co/KIIGQgvWcZ",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI会议票务",
+      "evidence": "工程票仍可购买",
+      "rationale": "会议宣传非技术内容"
+    },
+    {
+      "id": "2108777187902124480",
+      "author": "yoheinakajima",
+      "text": "@Luckyballa really cool. also kinda weird but this just showed up my tl",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "LLM生成GLSL隐式曲面",
+      "evidence": "27kb GLSL定义隐式曲面",
+      "rationale": "含模型生成3D表示事实"
+    },
+    {
+      "id": "2108771004088815699",
+      "author": "yoheinakajima",
+      "text": "@Iluvalar1 okay yeah. and with triangles there’s nothing to get stuck and pentagons get close enough to circles, so squares uniquely benefit from the rounding.",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "几何形状舍入观察",
+      "evidence": "方形受益于rounding",
+      "rationale": "技术窄且缺少上下文"
+    },
+    {
+      "id": "2108764717095555491",
+      "author": "svlevine",
+      "text": "@adityaag @spc Thank you for having me! It was a fun chat.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "聊天致谢",
+      "evidence": "感谢聊天邀请",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108760621970010412",
+      "author": "yoheinakajima",
+      "text": "further research:",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "装箱方法泛化",
+      "evidence": "发现方体中遗漏packings",
+      "rationale": "研究相关但证据简略"
+    },
+    {
+      "id": "2108760397352435787",
+      "author": "yoheinakajima",
+      "text": "@ActiveGraphAI good job, me https://t.co/BDNYhdOi1W",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "自我回应",
+      "evidence": "只说good job",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108755011937440057",
+      "author": "yoheinakajima",
+      "text": "for squares though… my approach was the only one to ever reach best known for n = 11, 17, 19, 26, and 29 https://t.co/RZwyOy1W6p",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "方形装箱结果",
+      "evidence": "n=11等达到best known",
+      "rationale": "研究结果窄且缺细节"
+    },
+    {
+      "id": "2108746110361891091",
+      "author": "yoheinakajima",
+      "text": "@XAINovator fun to watch too",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊评价",
+      "evidence": "只说fun to watch",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108745343055855943",
+      "author": "yoheinakajima",
+      "text": "@shepard_235 lol so my method just found lin’s solution and the record breaking came from the fact that I had an optimization step added? nice find and helpful context",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "packing optimization",
+      "evidence": "方法找到Lin解",
+      "rationale": "有优化步骤事实但语境不足"
+    },
+    {
+      "id": "2108737022534009222",
+      "author": "yoheinakajima",
+      "text": "and disappointingly for me, “rigid” (where you grow the original shape) performed better than mine for most shapes, such as these\n\nso why does it do well with squares and cubes? https://t.co/QomYe1aITF",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "packing method comparison",
+      "evidence": "rigid多数形状更好",
+      "rationale": "方法对比有事实但范围较窄"
+    },
+    {
+      "id": "2108735418325987770",
+      "author": "yoheinakajima",
+      "text": "specifically, i tested my approach of slowly morphing from a circle against a few relevant approaches including “snapping”from circle to the final shape https://t.co/X4zkGNd0md",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "packing experiment",
+      "evidence": "测试圆形渐变与snapping",
+      "rationale": "包含可复现实验对比方法"
+    },
+    {
+      "id": "2108723946749297055",
+      "author": "yoheinakajima",
+      "text": "@MartinShkreli okay so it’s weirdly good at squares and cubes only (so far). for many other shapes, it’s better to just grow the final shape instead of starting with a circle.",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "packing generalization",
+      "evidence": "方形立方体表现好",
+      "rationale": "有方法适用性但证据有限"
+    },
+    {
+      "id": "2108722906264203476",
+      "author": "yoheinakajima",
+      "text": "@mbusigin 😁",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "chat",
+      "evidence": "只有表情回复",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2108719775165935943",
+      "author": "yoheinakajima",
+      "text": "@LenSeaside i thought there would be some other types that this would be good at, but weirdly it underperforms compared to rigid (growth maintaining same shape, not from circle) in almost every other shape. squares/cubes are special… maybe?",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "packing method behavior",
+      "evidence": "其他形状弱于rigid",
+      "rationale": "有实验观察但结论窄"
+    },
+    {
+      "id": "2108711080956764458",
+      "author": "HamelHusain",
+      "text": "@hammer_mt It’s not the money they are competing for 😅",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "chat",
+      "evidence": "只谈竞争非奖金",
+      "rationale": "无AI或工程事实"
+    },
+    {
+      "id": "2108709889602388252",
+      "author": "yoheinakajima",
+      "text": "in case you were curious if this generalizes... yes, as a packing method. not the best overall, but it finds packings other methods miss on squares and cubes. have some ideas, but not exactly sure why...\n\nmore: https://t.co/B3l7KvKs5q https://t.co/JFPIiiuQNe",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "cube packing record",
+      "evidence": "n=12立方体新纪录",
+      "rationale": "给出坐标和明确纪录结果"
+    },
+    {
+      "id": "2109040027359650130",
+      "author": "simonw",
+      "text": "@joomy @aaroneline Yes! But it's only there until Monday so go this weekend",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "event logistics",
+      "evidence": "展览到周一",
+      "rationale": "无技术内容"
+    },
+    {
+      "id": "2108972753852543441",
+      "author": "jackclarkSF",
+      "text": "Special Import AI announcement: In Monday's issue, there will be a video from a recent event I did with Robin Sloan where we talked about AI, fiction, and the future. Robin said we can read the Hugging Face hack as being like a play - a fascinating perspective! https://t.co/DHcEISJzq8",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI culture event",
+      "evidence": "预告AI与小说视频",
+      "rationale": "偏观点活动无技术事实"
+    },
+    {
+      "id": "2108943287285686726",
+      "author": "simonw",
+      "text": "@RomanHotsiy Current iPhones are waterproof enough that I use mine in the shower on voice mode all the time",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "手机使用闲聊",
+      "evidence": "洗澡时用手机语音模式",
+      "rationale": "无AI或工程技术事实"
+    },
+    {
+      "id": "2108894325249818657",
+      "author": "jackclarkSF",
+      "text": "Am often torn these days between the two worlds. The ethereal futures implied by AI progress. The physical reality of life and friends and punk shows.  Increasingly these things combine, like reading materials science research for Import AI while listening to Jamie T before dawn.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "个人感想",
+      "evidence": "提到读材料科学研究",
+      "rationale": "未给具体研究或技术事实"
+    },
+    {
+      "id": "2108893332395241982",
+      "author": "jackclarkSF",
+      "text": "Jamie T is a criminally underrated writer. He's a classic poet-singer and his influences range from English punk to garage, dnb, ska, and all kinds of stuff. He is endlessly surprising and always authentic.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "音乐评论",
+      "evidence": "评价Jamie T写作风格",
+      "rationale": "纯音乐观点无技术内容"
+    },
+    {
+      "id": "2108893025376370984",
+      "author": "jackclarkSF",
+      "text": "Niche tweet, but the new Jamie T album is v good. \"The Won\" is especially nice. Vivid memories of listening to Alicia Quays on the DLR enroute to a gig in East London, then years later getting lost late night in NYC while listening to Carry on the Grudge.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "音乐推荐",
+      "evidence": "推荐Jamie T新专辑",
+      "rationale": "音乐闲聊不涉技术事实"
+    },
+    {
+      "id": "2108712484865753365",
+      "author": "simonw",
+      "text": "@ndemir @mitsuhiko Right, and that's a lot less time consuming than it used to be",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "语境不足回复",
+      "evidence": "称现在少耗时",
+      "rationale": "缺少具体技术对象和事实"
+    }
+  ]
+}

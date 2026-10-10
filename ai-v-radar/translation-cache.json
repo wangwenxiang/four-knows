@@ -14528,7 +14528,142 @@
       "source": "@malaysiangovm @artemmurzin tbf we're not trying to make a margin on inference volume, we take a small cut of transctions. we're looking to drive these inference costs down over time",
       "zh": "@malaysiangovm @artemmurzin 公平地说，我们并不是想从推理量里赚差价，我们只是从交易中抽取一小部分。我们希望随着时间推移把这些推理成本降下来",
       "promptVersion": "codex-v1"
+    },
+    "bf1f7d75e4a8e1d9eb05dfbbde6e185fa33417fc3adebfd840870e2c5cdfa49a": {
+      "source": "agree - most orchestration steps don't need a frontier model\n\nfor Open SWE we moved model choice into the harness, so each task goes to the cheapest model that still does the job, tested against quality. median cost per task dropped 64%\n\nhttps://t.co/pHUDDCF6zs\n\nhttps://t.co/B4iKNXM5RW",
+      "zh": "同意——大多数编排步骤并不需要前沿模型\n\n在 Open SWE 中，我们把模型选择移到了 harness 里，因此每个任务都会分配给在质量测试下仍能完成工作的最便宜模型。每个任务的中位成本下降了 64%\n\nhttps://t.co/pHUDDCF6zs\n\nhttps://t.co/B4iKNXM5RW",
+      "promptVersion": "codex-v1"
+    },
+    "f3818c29f4aebb8922252b9c2712ce649e3775a6f88129229cf526c12c8385a5": {
+      "source": "the more i use deepseek v4.1 flash, the harder it is to justify using a frontier model for everything.\n\na few more things i’ve noticed:\n\n1. it’s insanely good as an orchestrator. i can let it coordinate coding tasks, testing, research, and subagents without burning frontier-model money.\n\n2. once the plan is clear, it handles repetitive implementation work extremely well.\n\n3. i’ve started using it for verification too: reviewing code changes, running checks, and catching obvious mistakes is cheap enough to do constantly.\n\ni still bring in opus or sol for harder edge cases...\n\nbut deepseek is doing more and more of the actual work.",
+      "zh": "我越常使用 deepseek v4.1 flash，就越难说服自己所有事情都要用前沿模型。\n\n我还注意到几点：\n\n1. 它作为编排器非常强。我可以让它协调编码任务、测试、研究和 subagents，而不用烧前沿模型的钱。\n\n2. 一旦计划清晰，它处理重复性实现工作非常出色。\n\n3. 我也开始用它做验证：审查代码变更、运行检查、抓明显错误，成本低到可以持续进行。\n\n遇到更难的边缘情况，我仍然会调用 opus 或 sol……\n\n但 deepseek 正在承担越来越多实际工作。",
+      "promptVersion": "codex-v1"
+    },
+    "41c9bae586c88f1bc3b29e0f36464d7c4114e07c7d11560bceb3c7ab3a58741a": {
+      "source": "Mistral OCR is on OpenDocRouter! \n\nFor its price, it is decent over tables and reading order. It's also blazing fast at p50 1.8s per page \n\nWe're constantly bringing in new models since OpenDocRouter launched last week: https://t.co/j2URLhN4Z2 https://t.co/ta91bUCbDI",
+      "zh": "Mistral OCR 已上线 OpenDocRouter！\n\n以它的价格来看，在表格和阅读顺序方面表现不错。速度也非常快，p50 每页 1.8 秒\n\n自 OpenDocRouter 上周发布以来，我们一直在接入新模型：https://t.co/j2URLhN4Z2 https://t.co/ta91bUCbDI",
+      "promptVersion": "codex-v1"
+    },
+    "fd669a189c42723851eb7a831276528013f649e6619027e738e34268ab0c013b": {
+      "source": "Claude Managed Agents dynamic workflows are now available in public beta. It's a new type of multiagent orchestration, built for your most ambitious workloads.\n\nA lead agent writes a plan that runs across many agents in phases, combining the results at the end. https://t.co/hEExShsVku",
+      "zh": "Claude Managed Agents 动态工作流现已开放公开测试版。这是一种新的多智能体编排方式，面向最具挑战性的工作负载。\n\n一个主导 agent 会编写计划，分阶段调度多个 agent 执行，并在最后整合结果。https://t.co/hEExShsVku",
+      "promptVersion": "codex-v1"
+    },
+    "29b35b69a074e50639cf97c8225d5f106e18163ac502b12b309693622e43792f": {
+      "source": "Introducing Microsoft-Decision-1, our new model for fast decision-making.\n\nIt delivers top performance on structured decision tasks, outperforming both LLMs and other decision models in latency and quality.\n\nWe’re already testing it across Microsoft for everything from incident response and quality control to scientific discovery.",
+      "zh": "推出 Microsoft-Decision-1，我们用于快速决策的新模型。\n\n它在结构化决策任务上表现领先，在延迟和质量方面都优于 LLM 和其他决策模型。\n\n我们已经在 Microsoft 内部测试它，应用范围从事件响应、质量控制到科学发现。",
+      "promptVersion": "codex-v1"
+    },
+    "23ca15732678e5aefce95c8376689187a9173a279630dbaf1e0d8d81499cd9d7": {
+      "source": "Exciting new features in ToolUniverse @ScientistTools: auto setup of GPU environments, so agents can call ML models on complex biological datasets and use outputs in discovery campaigns. By stellar @GaoShanghua in collab with @NVIDIAAI\n\nhttps://t.co/pfskTvy939\n\nIn the @AnthropicAI × @adaptyvbio Protein Design Challenge, these features let agents run campaigns with BoltzGen, ProteinMPNN, RFdiffusion3, and Genie3 for design; Boltz2, Chai1, ColabFold, Protenix, and RoseTTAFold3 for prediction comparisons; and PROPKA and Proton-PottsMPNN for pH-related analyses.",
+      "zh": "ToolUniverse @ScientistTools 推出了令人兴奋的新功能：自动配置 GPU 环境，让 agents 可以在复杂生物数据集上调用 ML 模型，并将输出用于发现活动。由出色的 @GaoShanghua 与 @NVIDIAAI 合作完成\n\nhttps://t.co/pfskTvy939\n\n在 @AnthropicAI × @adaptyvbio Protein Design Challenge 中，这些功能让 agents 能够运行活动：使用 BoltzGen、ProteinMPNN、RFdiffusion3 和 Genie3 进行设计；使用 Boltz2、Chai1、ColabFold、Protenix 和 RoseTTAFold3 进行预测对比；并使用 PROPKA 和 Proton-PottsMPNN 进行 pH 相关分析。",
+      "promptVersion": "codex-v1"
+    },
+    "d8e839c5d4e2f09c44c45c7c8448e52bb490db5c66f970dd1a9606b15c3e955b": {
+      "source": "To support researchers participating in the Anthropic × Adaptyv Protein Design Competition, we’re sharing our EGFR design exploration, methods, data, and a reusable ToolUniverse Protein Design Campaign skill.\n\nhttps://t.co/CuRKFVR85h\n\nToolUniverse now brings together 2,900+ scientific tools and 150+ skills, making it easy for agentic AI scientists to connect databases, analysis methods, and models, including models running on researchers’ own GPUs. We’re pleased to see it supporting a growing range of life science research.\n\nIts common interface makes it straightforward to integrate new models, compare predictions, and extend a research workflow as new questions emerge.\n\nToolUniverse’s ML agentic setup skills automate model setup and remote-tool integration, bringing models running on a DGX Spark into the workflow. In this exploration, we used BoltzGen, ProteinMPNN, RFdiffusion3, and Genie3 for design; Boltz2, Chai1, ColabFold, Protenix, and RoseTTAFold3 for prediction comparisons; and PROPKA and Proton-PottsMPNN for pH-related analyses.\n\nToolUniverse connected these calculations with sequence and structure retrieval, glycan checks, and human–mouse comparisons. When results prompted new questions, we could bring in additional tools and continue the investigation with the same candidate records.\n\nWe submitted eight exploratory candidates and are sharing the workflow so others can reuse it, connect their own models, and build on the exploration.\n\nCode and skills:\nhttps://t.co/2oy4WXJjOq\n\nTo get started, give your coding assistant this prompt:\n“Read https://t.co/KvyUdSAm7s (if 403, use https://t.co/pYoe26HR2R) and setup tooluniverse for me.”\n\nGreat work with ToolUniverse Agent (our AI scientist, not a human🙂) @ScientistTools and @marinkazitnik, and thanks to @nvidia for the compute support.",
+      "zh": "为支持参加 Anthropic × Adaptyv Protein Design Competition 的研究人员，我们正在分享我们的 EGFR 设计探索、方法、数据，以及一个可复用的 ToolUniverse Protein Design Campaign skill。\n\nhttps://t.co/CuRKFVR85h\n\nToolUniverse 现在汇集了 2,900+ 个科学工具和 150+ 个 skills，让 agentic AI 科学家可以轻松连接数据库、分析方法和模型，包括运行在研究人员自有 GPU 上的模型。我们很高兴看到它正在支持越来越多的生命科学研究。\n\n它的通用接口让集成新模型、比较预测结果，以及随着新问题出现扩展研究工作流都变得很直接。\n\nToolUniverse 的 ML agentic setup skills 可自动完成模型设置和远程工具集成，把运行在 DGX Spark 上的模型纳入工作流。在这次探索中，我们使用 BoltzGen、ProteinMPNN、RFdiffusion3 和 Genie3 进行设计；使用 Boltz2、Chai1、ColabFold、Protenix 和 RoseTTAFold3 进行预测对比；并使用 PROPKA 和 Proton-PottsMPNN 进行 pH 相关分析。\n\nToolUniverse 将这些计算与序列和结构检索、糖基检查以及人鼠对比连接起来。当结果引出新问题时，我们可以引入更多工具，并基于同一批候选记录继续研究。\n\n我们提交了八个探索性候选，并分享该工作流，方便其他人复用、连接自己的模型，并在此探索基础上继续推进。\n\n代码和 skills：\nhttps://t.co/2oy4WXJjOq\n\n要开始使用，请把这个提示词交给你的编码助手：\n“Read https://t.co/KvyUdSAm7s (if 403, use https://t.co/pYoe26HR2R) and setup tooluniverse for me.”\n\nToolUniverse Agent（我们的 AI 科学家，不是人类🙂）@ScientistTools 和 @marinkazitnik 做得很棒，也感谢 @nvidia 提供算力支持。",
+      "promptVersion": "codex-v1"
+    },
+    "34dfeb5b79413afde03e23560cedb808582fcfc33319ed4c22d2f6334f9e64cb": {
+      "source": "good framing from @ch3nweiii - a lot of agent steps are yes/no calls, not generation\n\nJev answers those as typed questions with calibrated probabilities, so the frontier model sticks to the hard work\n\nwhere those calls sit in a harness: https://t.co/xZMxbATLHd\n\nhttps://t.co/Z3DGL8hTdS",
+      "zh": "@ch3nweiii 的表述很好——很多 agent 步骤是是/否判断，而不是生成\n\nJev 会把这些作为带类型的问题来回答，并给出校准后的概率，因此前沿模型可以专注于困难工作\n\n这些判断在 harness 中的位置：https://t.co/xZMxbATLHd\n\nhttps://t.co/Z3DGL8hTdS",
+      "promptVersion": "codex-v1"
+    },
+    "19ab6df6e16b9adcec19ffa3529c8f1904b48c09d748fab1884752ba6ca78113": {
+      "source": "whoever built this realized we've been using our smartest AI for the dumbest possible jobs\n\nyour $20-$200/mo frontier model is researching, writing code, planning…\n\nand then you're paying that same brain to decide YES / NO.\n\nJev flips that.\n\nit's a tiny decision model that sits in front of the expensive stuff and takes the boring forks:\n\n-> which agent goes next?\n-> is this worth researching?\n-> reply or ignore?\n-> publish, wait or escalate?\n-> BUY / SELL / HOLD?\n-> click this or keep looking?\n\nthen I saw the numbers people are posting and the whole architecture started making a lot more sense.\n\n~1,000 papers classified for around $0.08\n~500 emails sorted for around $0.035\n\nbrowser-agent loops shown at around 7 seconds for ~$0.0039\n\nand at the quoted pricing, roughly 10,000 ~1K-token decisions comes out around $0.42.\n\nthat's not because Jev got smarter than Claude.\n\nit's because nobody asked it to be Claude.\n\nthe setup is stupidly simple:\n\n-> big LLM gets the hard thinking, research and writing\n-> Jev gets the thousands of tiny decisions between those steps\n-> code actually clicks, saves, sends and runs\n\nand suddenly you start seeing these little decisions everywhere.\n\n> your inbox.\n> X feed.\n> support queue.\n> meetings.\n> leads.\n> video clips.\n> browser agents.\n> even paper-trading loops.\n\nthat's the part I think most agent builders are missing.\n\nthe expensive model doesn't need to touch every step just because it's able to touch every step.\n\n> let Claude think.\n> let Jev decide what deserves Claude.\n> let code do the actual work.\n\nI broke down how to wire Jev into your agent + the exact router setup in the article below",
+      "zh": "做出这个东西的人意识到，我们一直在用最聪明的 AI 做最蠢的工作。\n\n你每月花 $20-$200 买的前沿模型，在做研究、写代码、做规划……\n\n然后你还在花钱让同一个大脑来判断 YES / NO。\n\nJev 把这件事反过来了。\n\n它是一个微型决策模型，放在昂贵模型前面，处理那些无聊的分岔：\n\n-> 下一个该哪个 agent 上？\n-> 这件事值得研究吗？\n-> 回复还是忽略？\n-> 发布、等待还是升级处理？\n-> BUY / SELL / HOLD？\n-> 点这个，还是继续找？\n\n后来我看到大家发出来的数据，整个架构就突然合理多了。\n\n约 1,000 篇论文分类，成本大约 $0.08\n约 500 封邮件整理，成本大约 $0.035\n\n浏览器 agent 循环约 7 秒，成本约 $0.0039\n\n按公开报价算，大约 10,000 次约 1K token 的决策，成本约 $0.42。\n\n这不是因为 Jev 比 Claude 更聪明。\n\n而是因为没人要求它成为 Claude。\n\n这个设置简单得离谱：\n\n-> 大 LLM 负责困难的思考、研究和写作\n-> Jev 负责这些步骤之间成千上万个微小决策\n-> 代码真正去点击、保存、发送和运行\n\n然后你会突然发现，这些小决策无处不在。\n\n> 你的收件箱。\n> X 信息流。\n> 支持队列。\n> 会议。\n> 销售线索。\n> 视频片段。\n> 浏览器 agents。\n> 甚至模拟交易循环。\n\n我觉得这正是大多数 agent 构建者漏掉的部分。\n\n昂贵模型没必要因为能参与每一步，就真的参与每一步。\n\n> 让 Claude 思考。\n> 让 Jev 判断什么值得交给 Claude。\n> 让代码完成实际工作。\n\n我在下面这篇文章里拆解了如何把 Jev 接入你的 agent，以及具体的路由器配置。",
+      "promptVersion": "codex-v1"
+    },
+    "08ebf2af313cce3ed03a3b2957114a6d17533581efdd37a72f581c55e36526a3": {
+      "source": "API is usually used for Agent SDK shaped workloads, where 1h TTL would result in higher costs on average, so we stick to 5m to be safe. Interactive usage defaults to 1h because that is cheaper for people on average.\n\nThis works for most people, but it is not perfect, so you can configure it if you like.",
+      "zh": "API 通常用于 Agent SDK 形态的工作负载，1 小时 TTL 平均会带来更高成本，所以我们为了稳妥保持 5 分钟。交互式使用默认是 1 小时，因为这对大多数人来说平均更便宜。\n\n这适用于大多数人，但并不完美，所以你也可以按需配置。",
+      "promptVersion": "codex-v1"
+    },
+    "ede2a15aa8a016098360a8aca58214a74b7b2a027d53236f1f75b9f0f6878772": {
+      "source": "Agree. Claude was able to do this better than I could since Opus 4.8 or so. 5.5 models are now very good at it.\n\nAll you do is give the model\n\n1. a goal (eg. “Make p95 ci time <10 mins”)\n2. a way to measure its result (eg. “Read timings in bigquery after each change”)\n3. a sense of how hard to try (eg. “Don’t stop till it’s done, it might take a few weeks of experimenting”)\n\nThis pretty much works for most things. I often also ask the model to show me a chart with progress to goal every day, or to dm me a live artifact with the result",
+      "zh": "同意。大概从 Opus 4.8 开始，Claude 做这件事就已经比我强了。现在 5.5 模型已经非常擅长了。\n\n你只需要给模型：\n\n1. 一个目标（比如“让 p95 ci 时间 <10 分钟”）\n2. 一个衡量结果的方法（比如“每次变更后读取 bigquery 里的耗时”）\n3. 一个努力程度的预期（比如“没完成就不要停，可能需要几周实验”）\n\n这基本适用于大多数事情。我也经常让模型每天给我展示一张目标进展图，或者私信我一个包含结果的实时 artifact。",
+      "promptVersion": "codex-v1"
+    },
+    "b8f697cf39ed4bb35ca8ddf38a5f338dbd5ffb87f30d7b4c556a4247417839a9": {
+      "source": "Great to see our lab running this @harvardmed workshop on ToolUniverse @ScientistTools!",
+      "zh": "很高兴看到我们实验室在举办这个关于 ToolUniverse 的 @harvardmed 工作坊 @ScientistTools！",
+      "promptVersion": "codex-v1"
+    },
+    "94afb2c7f2220d905ce7da64b5fcdb4a1265104ef213b858317665f93410a72a": {
+      "source": "Great to see a large turnout at the @ScientistTools x @harvardmed workshop on how to build AI agents for science using ToolUniverse\n\nHere are our materials: https://t.co/ephQdPrjdZ\n\nBy @Reza_Shamji, @_yepeng, @xiaorui_su, and Grey Kuling https://t.co/alNQptSgY6",
+      "zh": "很高兴看到 @ScientistTools x @harvardmed 关于如何使用 ToolUniverse 构建科学 AI agents 的工作坊有这么多人参加。\n\n这是我们的材料：https://t.co/ephQdPrjdZ\n\n作者：@Reza_Shamji、@_yepeng、@xiaorui_su 和 Grey Kuling https://t.co/alNQptSgY6",
+      "promptVersion": "codex-v1"
+    },
+    "6796665eb38cc0d9d754f294d6f2c0812f2e55e497d2e8dbecf11b9debf516d4": {
+      "source": "ah i'm not sure it's a great idea. most of the resulting \"improvements\" will sound reasonable. 200-500 lines is a tiny codebase. some other ideas for interviews\n- review an AI-generated pull request\n- suggest new context for an AI assistant to consider or focus on when writing or improving on a solution\n- a \"lightning\" round where one has to identify inefficiencies or bloat as quickly as possible, and be able to explain why",
+      "zh": "啊，我不确定这是个好主意。大多数最终得到的“改进”听起来都会很合理。200-500 行是一个很小的代码库。面试可以考虑一些其他思路：\n- 审查一个 AI 生成的 pull request\n- 建议 AI assistant 在编写或改进方案时应考虑或重点关注的新上下文\n- 一个“闪电”环节，要求尽快识别低效或臃肿之处，并能解释原因",
+      "promptVersion": "codex-v1"
+    },
+    "f2d7b9bd057471918781e1f8b176281f2708e404873bda62c841418cb269854d": {
+      "source": "Goodbye to LeetCode? Google just updated its interview process. AI is now a part of it.\n\nThey have introduced a new round called Code Comprehension.\n\nThe idea behind this round is to drop the candidates into a 200-500-line codebase with Gemini available for use.\n\nThis round evaluates:\n\n- Can you read someone else's code\n- Are you able to debug independently before utilizing AI\n- Can you catch when Gemini is wrong",
+      "zh": "告别 LeetCode？Google 刚刚更新了面试流程。AI 现在也成为其中一部分。\n\n他们引入了一个新环节，叫 Code Comprehension。\n\n这个环节的思路是，让候选人进入一个 200-500 行的代码库，并可以使用 Gemini。\n\n这个环节评估：\n\n- 你能否读懂别人的代码\n- 你是否能在使用 AI 之前先独立调试\n- 你能否发现 Gemini 出错的时候",
+      "promptVersion": "codex-v1"
+    },
+    "e8f619404c3d1c762501648db0b77c1dfd14afd3df8bfdda5763151e4e0af083": {
+      "source": "Recently had the chance to interview @benhylak on how he is thinking about simulations in our AI Evals Course 😁\n\nSimulations are incredibly useful for evals when you  do them well.  Ben discusses what he learned from implementing simulations for evals at several companies.  Some fun topics came up, my favorite being \"simulation awareness\" - when models know they are in a simulation.  \n\nBelow is a chapter summary:\n\n02:02 Why input/output tests miss agent failures\n10:59 Replay production traces to see what a change breaks\n13:18 Recreate the data and tools around the agent\n16:27 How agents detect simulations and change their behavior\n20:39 Choose scenarios that test the change you made\n22:00 Check answers, costs, and tool behavior across runs\n26:43 Replay known failures to verify a fix\n31:20 Common mistakes that make simulations misleading\n32:20 Check that the simulation reproduces production behavior\n37:37 When to start using simulations\n\nYou can also watch on YT here: https://t.co/EjlKZMw2y1",
+      "zh": "最近有机会在我们的 AI Evals Course 中采访 @benhylak，聊他如何思考模拟 😁\n\n如果做得好，模拟对 evals 非常有用。Ben 分享了他在几家公司为 evals 实现模拟时学到的东西。聊到了一些有趣的话题，我最喜欢的是“simulation awareness”，也就是模型知道自己处在模拟中。\n\n下面是章节摘要：\n\n02:02 为什么输入/输出测试会漏掉 agent 故障\n10:59 回放生产 trace，看看一次变更会破坏什么\n13:18 复现 agent 周围的数据和工具\n16:27 agent 如何检测模拟并改变行为\n20:39 选择能测试你所做变更的场景\n22:00 跨多次运行检查答案、成本和工具行为\n26:43 回放已知故障以验证修复\n31:20 会让模拟产生误导的常见错误\n32:20 检查模拟是否复现了生产行为\n37:37 什么时候开始使用模拟\n\n你也可以在 YT 上观看：https://t.co/EjlKZMw2y1",
+      "promptVersion": "codex-v1"
+    },
+    "1143afec9c390604e79d2a949ec81be4dea0e224203f02d385a927531bbdb392": {
+      "source": "Allow me to respectfully nuance a few of things you say here.\n\n(i) My first paper on conscious AI, which was indeed sceptical, goes back to 2009 - long before the current hoohaa developed.  (See https://t.co/VCtZaYIrXJ)\n\n(ii) I do not \"need\" biology to be vital to consciousness\"   This is my current best guess. Based on my reading of  theory & evidence: (a) that computational functionalism (CF)  is likely false, and (b) biological naturalism (BN) may be true, but this is not yet demonstrated. My main goal is to know, which is why distinguishing between CF and BN (and other theories which take a position on conscious AI) is very important. In my BBS response I lay this out very clearly.\n\n(iii) I do not think the word \"caste\" is helpful here, for reasons which should be obvious.\n\n(iv) My time is limited and unfortunately I do not have the opportunity to debate with everyone (or every AI agent) who might take a different position.",
+      "zh": "请允许我谨慎地对你这里说的几点作些细微补充。\n\n(i) 我关于有意识 AI 的第一篇论文确实持怀疑态度，可追溯到 2009 年，远早于当前这波喧嚣。（见 https://t.co/VCtZaYIrXJ）\n\n(ii) 我并不“需要”生物学对意识至关重要。这只是我目前最合理的猜测。基于我对理论与证据的理解：(a) 计算功能主义（CF）很可能是错的，(b) 生物自然主义（BN）可能是对的，但这一点尚未得到证明。我的主要目标是弄清真相，因此区分 CF 与 BN（以及其他对有意识 AI 持立场的理论）非常重要。我在 BBS 回复中对此讲得很清楚。\n\n(iii) 我认为“caste”这个词在这里并不合适，原因应该很明显。\n\n(iv) 我的时间有限，遗憾的是，我没有机会与每一个持不同立场的人（或每一个 AI agent）辩论。",
+      "promptVersion": "codex-v1"
+    },
+    "f6e1bb9bd1f3f45d67f8fa99ec72bb0c4602fa03d073396a6835c1e454426bc7": {
+      "source": "further research:",
+      "zh": "进一步研究：",
+      "promptVersion": "codex-v1"
+    },
+    "e0618d08b4a782455f368f00e694de6a03e58f7f79ff5d8a1eda0a59cd06a835": {
+      "source": "in case you were curious if this generalizes... yes, as a packing method. not the best overall, but it finds packings other methods miss on squares and cubes. have some ideas, but not exactly sure why...\n\nmore: https://t.co/B3l7KvKs5q https://t.co/JFPIiiuQNe",
+      "zh": "如果你好奇这是否能泛化……答案是可以，作为一种装箱方法。总体上不是最优，但它能在正方形和立方体中找到其他方法遗漏的装箱方式。我有一些想法，但还不太确定原因……\n\n更多： https://t.co/B3l7KvKs5q https://t.co/JFPIiiuQNe",
+      "promptVersion": "codex-v1"
+    },
+    "92789d941e0c6264ae9a327a44b59eb150fb04bc7f36da610d4465bb58d16d8f": {
+      "source": "@Luckyballa really cool. also kinda weird but this just showed up my tl",
+      "zh": "@Luckyballa 真酷。也有点怪，但它刚刚出现在我的时间线上",
+      "promptVersion": "codex-v1"
+    },
+    "6dfa7590585f5c76ae36a7b2d92b4eb8d3a7bf928851b9f7b1e3dca048a1afc3": {
+      "source": "With everyone busily using LLMs + Blender/Three.js to make 3D models, I thought I'd try a different geometric representation.\n\nThis dragon isn't a mesh, NeRF, 3DGS, or video model: it's 27kb of GLSL code (generated via LLM), defining a closed-form implicit surface. 🧵 [1/n] https://t.co/o0fMwGk7Id",
+      "zh": "大家都在忙着用 LLM + Blender/Three.js 制作 3D 模型，我想试试一种不同的几何表示。\n\n这条龙不是网格、NeRF、3DGS，也不是视频模型：它是 27kb 的 GLSL 代码（由 LLM 生成），定义了一个闭式隐式曲面。🧵 [1/n] https://t.co/o0fMwGk7Id",
+      "promptVersion": "codex-v1"
+    },
+    "7c1dd310ecb7fb0d6cd7681222289c1149da65b9d21a85e71f088fdb3aaa88ea": {
+      "source": "🎇 Good news! 🎇 The kind people at @BBSJournal have made the new collection on \"Conscious AI and biological naturalism\" completely #OpenAccess for a limited period. This include the target article, all 50 commentaries (many of which disagree with me), and my response. Go to the link and click 'save pdf': https://t.co/6ZFzHrUsUR\n\nFor easier ways into the debate, try my @NoemaMag essay on \"The Mythology of Conscious AI\" (winner of the 2025 @berggruenInst Essay Prize), and this 2026 main-stage @TEDTalks:\n\nhttps://t.co/LmSiQnT9Wh\n\nhttps://t.co/vDvw82ookk",
+      "zh": "🎇 好消息！🎇 @BBSJournal 的好心人把“有意识的 AI 与生物自然主义”新合集限时完全 #OpenAccess 了。其中包括目标论文、全部 50 篇评论文章（许多都不同意我的观点），以及我的回应。打开链接并点击“save pdf”：https://t.co/6ZFzHrUsUR\n\n如果想更轻松地进入这场讨论，可以读我在 @NoemaMag 上的文章《有意识 AI 的神话》（2025 年 @berggruenInst 论文奖获奖作品），以及这场 2026 年主舞台 @TEDTalks：\n\nhttps://t.co/LmSiQnT9Wh\n\nhttps://t.co/vDvw82ookk",
+      "promptVersion": "codex-v1"
+    },
+    "9ba70379ba06253d6f0eadf59b8e97ae1fa16f48857f6ef54c5a62ca81e4ba72": {
+      "source": "How AI shifted from a transductive paradigm (token-by-token answer completion) to an inductive paradigm (on-the-fly reasoning chain synthesis), in one chart. This is the big story of 2025 and 2026. This is what made coding agents work. https://t.co/ThLm2AH127",
+      "zh": "一张图看懂 AI 如何从转导式范式（逐 token 补全答案）转向归纳式范式（即时合成推理链）。这是 2025 和 2026 年的大故事。正是它让编码智能体真正可用。https://t.co/ThLm2AH127",
+      "promptVersion": "codex-v1"
+    },
+    "0639f1bb5a4bc3797e17cba5b846829c64623226b4851b09e31bc7b1d3ffe4f0": {
+      "source": "Assorted things I've been mulling over regarding agents in the economy:\n\n• Companies are in some sense the original superintelligence. It's often the case that they can use their amortized cognitive surplus to advance their interests against those of certain consumers: relative to the optimization capacity of companies, consumers can be inattentive, underinformed, irrational, etc. (Think, say, of some of the classic insurance upsells at the end of a booking process, which is typically priced substantially above what a regular policy would cost.) Herbert Simon introduced the idea of bounded rationality, and firms often end up benefiting from it. Thanks to personal agents, we will probably get somewhat more rational in how we engage with companies.\n\n• How exactly will outcomes change? Well, certain kinds of price discrimination will work less well (how do coupons work if every agent hunts fastidiously for them?), and certain kinds of customer cross-subsidy will change (today, people who forget to cancel subscriptions subsidize those who don't). Taken across the economy as a whole, I'm not sure what the incidence of all of this will be.\n\n• In corporate strategy, people have long debated the relative importance of distribution and product quality. Perhaps you've made something better, but does anyone know about it? Won't people just continue to buy the ACME Corp Mousetraps? Personal agents will, I think, act as a kind of structural subsidy for product quality. How would markets look different if individuals always spent at least 10 hours researching their purchases? On the margin, focusing on making a product better is, I think, going to become a more effective strategy for companies. This is good!\n\n• It true, a corollary is that information about product quality will become more important and impactful. Today, most people have very limited ability to aggregate and integrate such data, but agents will have insatiable thirst for such signals. (It's often said that data is becoming more valuable because it helps in the training of models. That's obviously true, but I think there's a secondary way in which it's more valuable simply as a complement to cheaper intelligence.)\n\n• A big question is whether agents will increase superstar effects (rational agents all settle on the same product) or increase dispersion (because everyone has slightly different tastes and preferences, which agents are good at eliciting, finally overcoming the artificial clustering we've been subjected to).\n\n• Many internet companies have monetized demand routing, which is in turn often predicated on short attention spans. \"I'll click on the first thing I see.\" This has led to some amount of inefficiency, as companies try to propitiate capricious ranking algorithms and incur various placement fees. It's not all deadweight loss (willingness to pay is itself a kind of signal, which is valuable to buyers), but it's not great. How will the nature and value of this routing change in a world of personal agents? I don't know the answer, but I think that the effects might be pretty big.\n\n• Much of what I'm writing hinges on the assumption that personal agents will be on the consumer's side. I suspect that that will be the winning strategy, but whether it's true, and what it means to be true, involves a lot of other questions.\n\nTaken as a whole, the market is a massively parallelized, decentralized, and highly imperfect value attribution machine, and, taking stock of all of the effects, it seems to me that the quality point may well be the biggest: that agents will change the nature of the backpropagation such that the rewards for better products increase. Maybe this is too optimistic, but I suspect (and hope) that companies that make things that they're proud of will feel that the universe is a little more partisan in their favor.",
+      "zh": "关于经济中的智能体，我一直在琢磨一些零散想法：\n\n• 从某种意义上说，公司是最早的超级智能。它们常常能利用摊销后的认知盈余，推进自身利益，哪怕这会损害某些消费者：相对于公司的优化能力，消费者可能注意力不足、信息不足、不够理性，等等。（比如预订流程最后常见的一些经典保险加购，价格通常明显高于普通保单。）Herbert Simon 提出了有限理性的概念，而企业往往会从中受益。多亏个人智能体，我们在与公司打交道时可能会变得更理性一些。\n\n• 结果究竟会如何变化？某些价格歧视会变得不那么有效（如果每个智能体都认真搜寻优惠券，优惠券还怎么运作？），某些客户交叉补贴也会改变（今天，忘记取消订阅的人补贴了那些不会忘的人）。从整个经济来看，我还不确定这些变化最终会落到谁身上。\n\n• 在公司战略中，人们长期争论渠道和产品质量哪个更重要。也许你做出了更好的东西，但有人知道吗？人们难道不会继续购买 ACME Corp Mousetraps 吗？我认为，个人智能体会成为一种偏向产品质量的结构性补贴。如果个人在每次购买前都至少花 10 小时做研究，市场会有什么不同？在边际上，我认为专注于把产品做得更好，会成为公司更有效的策略。这是好事！\n\n• 如果这是真的，一个推论是，关于产品质量的信息会变得更加重要、更有影响力。今天，大多数人聚合和整合这类数据的能力非常有限，但智能体会对这类信号有无止境的渴求。（人们常说数据正变得更有价值，因为它有助于模型训练。这当然没错，但我认为还有另一种次级方式：数据作为更廉价智能的补充，本身也会变得更有价值。）\n\n• 一个大问题是，智能体会增强超级明星效应（理性的智能体都选择同一个产品），还是增加分散度（因为每个人都有略微不同的品味和偏好，而智能体善于挖掘这些偏好，最终克服我们一直被迫接受的人为聚类）。\n\n• 许多互联网公司通过需求路由变现，而这往往又建立在注意力短暂之上。“我会点击我看到的第一个东西。”这带来了一定程度的低效，因为公司试图讨好反复无常的排名算法，并承担各种展示位费用。这并不全是无谓损失（支付意愿本身也是一种信号，对买家有价值），但并不理想。在个人智能体的世界里，这种路由的性质和价值会如何变化？我不知道答案，但我认为影响可能会相当大。\n\n• 我写的许多内容都建立在一个假设之上：个人智能体会站在消费者一边。我怀疑这会是胜出的策略，但它是否为真，以及“为真”意味着什么，还牵涉许多其他问题。\n\n总体来看，市场是一台大规模并行、去中心化且高度不完美的价值归因机器；综合所有影响来看，我觉得产品质量这一点很可能是最重要的：智能体会改变反向传播的性质，让更好产品获得更高回报。也许这太乐观了，但我怀疑（也希望）那些做出自己引以为豪之物的公司，会感觉宇宙稍微更偏向它们一些。",
+      "promptVersion": "codex-v1"
+    },
+    "ebf946be8b3e2083b06823c92309658b751667ca2039e54bb85775472320cc6e": {
+      "source": "The ultimate LLM benchmark: Chilean Spanish.\n\n80% of AI models fail to recognize Chilean Spanish and insist on speaking like an Argentine",
+      "zh": "终极 LLM 基准：智利西班牙语。\n\n80% 的 AI 模型无法识别智利西班牙语，并坚持像阿根廷人一样说话",
+      "promptVersion": "codex-v1"
+    },
+    "ac55c2585696d4c32ab5ff50541f98fcfdbe6f8c1722fd1da541756fe75eebda": {
+      "source": "80% de modelos de IA no logra reconocer el español chileno e insiste en hablar como argentino \n\nhttps://t.co/EElXvbTB1A",
+      "zh": "80% 的 AI 模型无法识别智利西班牙语，并坚持像阿根廷人一样说话\n\nhttps://t.co/EElXvbTB1A",
+      "promptVersion": "codex-v1"
+    },
+    "e100d8093a7f5d57663697bf9baf401a29e3359e65f6444e72cab07eef470a74": {
+      "source": "\"a corollary is that information about product quality will become more important and impactful\" \n\nThis feels like the next evolution of SEO/AEO that every product will try to game. Even if agents do the equivalent of ~10 hours of research on a product, it's less important on whether the product is actually better vs. the agent's perception that the product is better.\n\nAgents might do deep research on evals and benchmarks; yet anyone who's worked on evals knows that it's hard to create a truly unbiased one that can universally measure product quality. They might optimize for human preferences, in which case companies will optimize for user reviews and feedback. \n\nCompanies will optimize for whatever preferences the top AI models have been posttrained on.",
+      "zh": "“一个推论是，关于产品质量的信息会变得更加重要，也更有影响力”\n\n这感觉像是 SEO/AEO 的下一阶段，每个产品都会试图钻这个空子。即使智能体对某个产品做了相当于约 10 小时的研究，产品实际是否更好也不如智能体认为它更好来得重要。\n\n智能体可能会深入研究评测和基准测试；但任何做过评测的人都知道，很难创建一个真正无偏、且能普遍衡量产品质量的评测。它们可能会优化人类偏好，在这种情况下，公司就会优化用户评论和反馈。\n\n公司会针对顶尖 AI 模型在后训练中学到的任何偏好进行优化。",
+      "promptVersion": "codex-v1"
     }
   },
-  "updatedAt": "2026-10-09T23:07:30.557109+00:00"
+  "updatedAt": "2026-10-10T23:08:43.979061+00:00"
 }
