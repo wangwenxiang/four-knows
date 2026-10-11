@@ -1,0 +1,858 @@
+{
+  "enabled": true,
+  "backend": "codex exec",
+  "promptVersion": "codex-editorial-v2",
+  "candidates": 45,
+  "retained": 14,
+  "dropped": 31,
+  "droppedPosts": [
+    {
+      "id": "2109289811777335368",
+      "author": "anilkseth",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI意识论文集开放",
+      "evidence": "50篇评论临时开放",
+      "rationale": "仅资源公告无技术事实"
+    },
+    {
+      "id": "2109281488055554416",
+      "author": "anilkseth",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "意识理论回应",
+      "evidence": "§5.6覆盖量子理论",
+      "rationale": "未给AI技术细节或结论"
+    },
+    {
+      "id": "2109203059461042334",
+      "author": "anilkseth",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI意识论文集开放",
+      "evidence": "目标文和50篇评论",
+      "rationale": "仅论文集信息无技术事实"
+    },
+    {
+      "id": "2109202768359473465",
+      "author": "anilkseth",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI意识论文集开放",
+      "evidence": "目标文和50篇评论",
+      "rationale": "仅论文集信息无技术事实"
+    },
+    {
+      "id": "2109403110867374338",
+      "author": "bcherny",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "LLM教育应用",
+      "evidence": "LLM用于教育仍待做",
+      "rationale": "泛泛观点无事实细节"
+    },
+    {
+      "id": "2109388882500632965",
+      "author": "hwchase17",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "OpenSWE运行模式",
+      "evidence": "提到后台转同步运行",
+      "rationale": "实现模式相关但信息很少"
+    },
+    {
+      "id": "2109354514780438560",
+      "author": "bcherny",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Claude Code落地改进",
+      "evidence": "landing改进正在上线",
+      "rationale": "版本进展但细节不足"
+    },
+    {
+      "id": "2109326621446668673",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "只说其他领域也一样",
+      "rationale": "无技术事实或经验"
+    },
+    {
+      "id": "2109309932365586748",
+      "author": "jerryjliu0",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "简短转发",
+      "evidence": "仅称linea修改",
+      "rationale": "缺少可判断技术内容"
+    },
+    {
+      "id": "2109306907315855525",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "玩笑回复",
+      "evidence": "模型说锅不背",
+      "rationale": "无技术事实或经验"
+    },
+    {
+      "id": "2109296367575203844",
+      "author": "hwchase17",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "私信回复",
+      "evidence": "只说dmd",
+      "rationale": "无技术内容"
+    },
+    {
+      "id": "2109291384704577895",
+      "author": "hwchase17",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "邀约回复",
+      "evidence": "想试新东西",
+      "rationale": "无明确技术事实"
+    },
+    {
+      "id": "2109143203203190920",
+      "author": "Xudong07452910",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Agent责任边界观点",
+      "evidence": "讨论decision laundering",
+      "rationale": "偏治理观点缺技术事实"
+    },
+    {
+      "id": "2109117278948356344",
+      "author": "amasad",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "简短互动",
+      "evidence": "只说Incredible",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2109401822830219725",
+      "author": "alexandr_wang",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "人生格言",
+      "evidence": "童年梦想式成年",
+      "rationale": "纯观点无技术内容"
+    },
+    {
+      "id": "2109400417218248748",
+      "author": "alexandr_wang",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "访谈预告",
+      "evidence": "采访涵盖muse故事",
+      "rationale": "列话题无技术事实"
+    },
+    {
+      "id": "2109399111405351048",
+      "author": "c_valenzuelab",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "空链接",
+      "evidence": "仅有链接",
+      "rationale": "材料无可判定事实"
+    },
+    {
+      "id": "2109297297104511097",
+      "author": "alexandr_wang",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "消费AI愿景",
+      "evidence": "称muse是消费AI愿景",
+      "rationale": "愿景表达非技术事实"
+    },
+    {
+      "id": "2109092758833221883",
+      "author": "alexandr_wang",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Muse采用情况",
+      "evidence": "称采用强于ChatGPT等",
+      "rationale": "产品采用非技术内容"
+    },
+    {
+      "id": "2109392804757831700",
+      "author": "yoheinakajima",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "good stuff",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2109387980016398423",
+      "author": "HamelHusain",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "同意回复",
+      "evidence": "Fully agree",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2109387190417723751",
+      "author": "HamelHusain",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "追问回复",
+      "evidence": "问落后于什么",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2109371836056350802",
+      "author": "HamelHusain",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "职业角色观点",
+      "evidence": "工程师需会用agents",
+      "rationale": "角色判断无事实支撑"
+    },
+    {
+      "id": "2109365419937239158",
+      "author": "swyx",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "演讲建议",
+      "evidence": "AI生成SVG优于图片",
+      "rationale": "表达建议非技术经验"
+    },
+    {
+      "id": "2109365383086170602",
+      "author": "HamelHusain",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Excalidraw MCP",
+      "evidence": "MCP可用且有动画",
+      "rationale": "工具经验窄且缺细节"
+    },
+    {
+      "id": "2109349731197702589",
+      "author": "HamelHusain",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "情绪回复",
+      "evidence": "site很累人",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2109349188207362415",
+      "author": "HamelHusain",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "玩笑回复",
+      "evidence": "都在看数据",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2109348832677097522",
+      "author": "HamelHusain",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "bot账号闲聊",
+      "evidence": "称对方像机器人账号",
+      "rationale": "无技术事实或工程经验"
+    },
+    {
+      "id": "2109269083808248290",
+      "author": "polynoamial",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "动机评论",
+      "evidence": "多年缺少改进激励",
+      "rationale": "纯观点无技术事实"
+    },
+    {
+      "id": "2109259294948438145",
+      "author": "polynoamial",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "用户群体评论",
+      "evidence": "提到年长亲属",
+      "rationale": "无AI或软件技术内容"
+    },
+    {
+      "id": "2109257833929924881",
+      "author": "polynoamial",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "钓鱼邮件检测",
+      "evidence": "Gmail漏检dot提醒",
+      "rationale": "有安全检测事实但细节不足"
+    }
+  ],
+  "headlineSelection": {
+    "schemaVersion": 1,
+    "candidates": [
+      {
+        "id": "2109391596743716963",
+        "author": "jerryjliu0",
+        "grade": "A",
+        "primarySubstantive": true,
+        "reason": "selected"
+      },
+      {
+        "id": "2109124076996575495",
+        "author": "xudong07452910",
+        "grade": "A",
+        "primarySubstantive": true,
+        "reason": "selected"
+      },
+      {
+        "id": "2109087918417666098",
+        "author": "hwchung27",
+        "grade": "B",
+        "primarySubstantive": true,
+        "reason": "retrospective_method_commentary"
+      },
+      {
+        "id": "2109319270807281878",
+        "author": "yoheinakajima",
+        "grade": "A",
+        "primarySubstantive": false,
+        "reason": "primary_not_substantive"
+      },
+      {
+        "id": "2109361546505966046",
+        "author": "karpathy",
+        "grade": "B",
+        "primarySubstantive": true,
+        "reason": "population_adoption_commentary"
+      },
+      {
+        "id": "2109307704346853833",
+        "author": "hwchase17",
+        "grade": "B",
+        "primarySubstantive": true,
+        "reason": "selected"
+      },
+      {
+        "id": "2109269280231739408",
+        "author": "hwchase17",
+        "grade": "B",
+        "primarySubstantive": false,
+        "reason": "primary_not_substantive"
+      },
+      {
+        "id": "2109319298531709416",
+        "author": "jerryjliu0",
+        "grade": "B",
+        "primarySubstantive": true,
+        "reason": "same_author",
+        "selectedId": "2109391596743716963"
+      },
+      {
+        "id": "2109270222163066890",
+        "author": "hwchase17",
+        "grade": "C",
+        "primarySubstantive": true,
+        "reason": "grade_not_eligible"
+      },
+      {
+        "id": "2109310237404692845",
+        "author": "anilkseth",
+        "grade": "C",
+        "primarySubstantive": false,
+        "reason": "primary_not_substantive"
+      },
+      {
+        "id": "2109096597011534242",
+        "author": "fchollet",
+        "grade": "C",
+        "primarySubstantive": false,
+        "reason": "primary_not_substantive"
+      },
+      {
+        "id": "2109211402485280881",
+        "author": "xudong07452910",
+        "grade": "C",
+        "primarySubstantive": false,
+        "reason": "primary_not_substantive"
+      },
+      {
+        "id": "2109100717596381405",
+        "author": "fchollet",
+        "grade": "C",
+        "primarySubstantive": false,
+        "reason": "primary_not_substantive"
+      }
+    ]
+  },
+  "topStories": [
+    {
+      "id": "2109391596743716963",
+      "author": "jerryjliu0",
+      "category": "AI 技术应用",
+      "editorialScore": 100
+    },
+    {
+      "id": "2109124076996575495",
+      "author": "Xudong07452910",
+      "category": "AI 技术前沿",
+      "editorialScore": 99
+    },
+    {
+      "id": "2109307704346853833",
+      "author": "hwchase17",
+      "category": "AI 技术应用",
+      "editorialScore": 98
+    }
+  ],
+  "reviewedPosts": [
+    {
+      "id": "2109310237404692845",
+      "author": "anilkseth",
+      "text": "👇🏽👇🏽👇🏽",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "AI自我表征风险",
+      "evidence": "训练模型自认人类",
+      "rationale": "有技术主张但偏风险观点"
+    },
+    {
+      "id": "2109289811777335368",
+      "author": "anilkseth",
+      "text": "@Plinz &amp; the full collection (my target article, 50 commentaries - many of which disagree with me - and my response) is *temporarily* open access: follow the link and click 'save pdf' to download the full 109 pages ... https://t.co/lmtwDXV5Ia",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI意识论文集开放",
+      "evidence": "50篇评论临时开放",
+      "rationale": "仅资源公告无技术事实"
+    },
+    {
+      "id": "2109281488055554416",
+      "author": "anilkseth",
+      "text": "@AfshinK91 @DrEliDavid @BBSJournal @StuartHameroff Thank you for reading it. I do cover Stuart's work (and quantum theories more generally) in §5.6 of the target article. Had there been a commentary, I would of course have covered this in the response too.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "意识理论回应",
+      "evidence": "§5.6覆盖量子理论",
+      "rationale": "未给AI技术细节或结论"
+    },
+    {
+      "id": "2109203059461042334",
+      "author": "anilkseth",
+      "text": "In case useful, here's a (temporarily) #OpenAccess @BBSJournal collection on 'conscious AI and biological naturalism', with a target article, 50 peer commentaries, and my author response. Hopefully a decent representation of where the substantive debate is at: https://t.co/oo6dm8m3Lm",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI意识论文集开放",
+      "evidence": "目标文和50篇评论",
+      "rationale": "仅论文集信息无技术事实"
+    },
+    {
+      "id": "2109202768359473465",
+      "author": "anilkseth",
+      "text": "In case useful, here's a (temporarily) #OpenAccess @BBSJournal collection on 'conscious AI and biological naturalism', with a target article, 50 peer commentaries, and my author response. Hopefully a decent representation of where the substantive debate is at: https://t.co/oo6dm8m3Lm",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "AI意识论文集开放",
+      "evidence": "目标文和50篇评论",
+      "rationale": "仅论文集信息无技术事实"
+    },
+    {
+      "id": "2109403110867374338",
+      "author": "bcherny",
+      "text": "@wheresryan22 I love this. There is SO MUCH to do to use LLMs for education. We have barely scratched the surface.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "LLM教育应用",
+      "evidence": "LLM用于教育仍待做",
+      "rationale": "泛泛观点无事实细节"
+    },
+    {
+      "id": "2109391596743716963",
+      "author": "jerryjliu0",
+      "text": "Unlimited OCR is a good example of a low-parameter OCR model that can process any document extremely quickly.\n\nIt's good at reading order and layout, and decent over tables. It is slightly better than PaddleOCR on tables and slightly worse on layout.\n\nThere are tradeoffs though - it ignores visual elements, formatting, and the most complex tables. It scores ~46.2% and ranks #115 on ParseBench. \n\nThere's plenty of opportunities to improve this frontier, but Unlimited OCR is still a good milestone! \n\nCheck out ParseBench: https://t.co/PWczfhp0OX",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "Unlimited OCR",
+      "evidence": "3B参数32K上下文",
+      "rationale": "含模型规格和基准对比"
+    },
+    {
+      "id": "2109388882500632965",
+      "author": "hwchase17",
+      "text": "@moritz_stephan I have been corrected by our team that that is also how openswe works :) \n\nWhat if a run goes from background to synchronous?",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "OpenSWE运行模式",
+      "evidence": "提到后台转同步运行",
+      "rationale": "实现模式相关但信息很少"
+    },
+    {
+      "id": "2109361546505966046",
+      "author": "karpathy",
+      "text": "Dusting off this tweet from April because this gap in shared understanding of LLM capability is *widening*. It's now less \"two groups of people speaking past each other\" and more a sharp funnel.\n\n- Napkin math somewhere around 6B people (~75% of the population) have barely come in contact with LLMs at all.\n- Around 1-2B (~20%) are casual and infrequent users of free-tier ChatGPT-like products. This group sees derpy chatbots and treats them a bit like a better Google search, a writing aid, or etc. Maybe an agent tries to book you a flight. I have non-tech friends who (reasonably, imo) say they have not much use for it at all. Even many professionals outside of math&code are in this tier. For example, execs and many other functions spend a lot of their time talking to other people, so while they understand what is happening intellectually, it is still second-hand and a bit abstract.\n- Now we get to professional use of frontier-grade LLMs in math&code. Somewhere around 20M people (0.2%) see first-hand that large, complex projects that used to take them weeks/months can now be completed by agents with a prompt. Building apps, copying apps, translating apps, decompiling apps from binaries... This has all happened very quickly and recently - less than 1 year ago, I was writing code manually by hand, typing memorized computer code commands into a code editor character by character, occasionally pressing Tab to autocomplete a little chunk of code.\n- And finally we get to the ~5,000 people (~0.00006%) with access to frontier-grade systems internally. The external world has seen the preview. It looks like swarms of thousands of agents collaborating over weeks on software mega projects: minting zero days, running cyber attacks and defenses at machine speeds, discovering new science, advancing the frontier of mathematics. Things that would have taken top professionals in the industry years of work. Meanwhile, human review and comprehension are starting to fall behind. For example, people are still involved in the \"archeology\" of the OpenAI-HF incident from many months ago. Mathematicians may be poring over the 722 manuscripts on frontier mathematics for a while.\n\nThe funnel is driven by a combination of factors:\n1. The impact scales with ambition, problem size, and horizon. A question with a paragraph answer barely stresses the system. You need a reservoir of big, difficult problems that you really care about. This aspect drives the consumer / professional dimension of the funnel.\n2. The jaggedness of the system (which I have written about a lot separately). Capability peaks in domains that are digital, verifiable and economically valuable. This is because LLM capability emerges from reinforcement learning on verifiable rewards on a curated environment mixture driven by revenue potential. This aspect primarily drives the area (e.g. math&code) dimension of the funnel.\n3. Access. Free-tier, paid-tier, internal.\n\nSo this is the weirdness of the moment. The general public has mostly not interacted with these systems. When they have, it looks like a derpy chatbot. The majority of professionals still see only a modest uplift. And a small sliver of professionals are experiencing the vertigo of the curve going vertical. And it is all happening at the same time.",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "前沿Agent能力差距",
+      "evidence": "Codex可重构代码库",
+      "rationale": "有能力观察但证据偏叙述"
+    },
+    {
+      "id": "2109354514780438560",
+      "author": "bcherny",
+      "text": "@lucas_builds Landing improvements now, it’s actually quite tricky to get this right and we’ve been doing a fair bit of science here. Will share more soon.",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Claude Code落地改进",
+      "evidence": "landing改进正在上线",
+      "rationale": "版本进展但细节不足"
+    },
+    {
+      "id": "2109326621446668673",
+      "author": "Xudong07452910",
+      "text": "@Tony_JW_Lea 是的，不仅仅是用在科研上，其他领域也是一样的",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "只说其他领域也一样",
+      "rationale": "无技术事实或经验"
+    },
+    {
+      "id": "2109319298531709416",
+      "author": "jerryjliu0",
+      "text": "One of the biggest historical bottlenecks for training specialized models has been curating ground-truth. This is typically a very labor intensive process done with human supervision.\n\nNow frontier models/agents are getting better and better at bootstrapping ground-truth from scratch, especially for verifiable tasks. They can do this either in a single-shot setting for simple tasks or simulate longer rollouts with rewards for longer tasks. \n\nThis paves the way for anyone to build mostly automated research loops without needing deep ML expertise or deep access to human labor for data curation. That part can be offloaded to the frontier model/agent; the human's main goal is to define the right evals. This is especially useful for anyone who wants to optimize for a given task at the price-performance frontier. Posttraining open-weight models/harness should be made available to everyone, not just labs/specific startups.\n\nFlow for the average user, who is only responsible for the first step:\n1. define goal/evals for a given task\n2. run frontier agents to gather ground-truth signals for the task. they can bootstrap annotations directly, and reach out to human review where needed \n3. train specialized models (and harness) against this task",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "自动化数据标注与后训练",
+      "evidence": "agent生成ground-truth",
+      "rationale": "提出可复用训练流程"
+    },
+    {
+      "id": "2109309932365586748",
+      "author": "jerryjliu0",
+      "text": "linea (!)",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "简短转发",
+      "evidence": "仅称linea修改",
+      "rationale": "缺少可判断技术内容"
+    },
+    {
+      "id": "2109307704346853833",
+      "author": "hwchase17",
+      "text": "this is the summary slide that describes how all agents in the future will look\n\nvery much aligns with our vision for managed deepagents https://t.co/VFsgW1OFjF\n\ndurable workflows: builds on LangGraph/LSD https://t.co/SOJPBqx8q2\n\ncan use a computer: uses Langsmith Sandboxes https://t.co/oKZ3n6dhtK\n\nmemory and skills: langsmith context hub https://t.co/rgD1p31nCb\n\nTriggers and scheduled jobs: schedules https://t.co/w6r7Cfr8Xx\n\nconnectors and auth https://t.co/kTfxQbm7al \n\ntext and voice channels https://t.co/G2iy7jMeKB\n\npayments and identity - only one missing!\n\nevals https://t.co/mcNsaWhTt4\n\nobservability: massively, through langsmith https://t.co/SdVkVnjR8y",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "Agent基础设施栈",
+      "evidence": "列出工作流沙箱记忆调度",
+      "rationale": "有agent系统组件事实"
+    },
+    {
+      "id": "2109306907315855525",
+      "author": "Xudong07452910",
+      "text": "@HelouMaster 模型说这锅我不背",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "玩笑回复",
+      "evidence": "模型说锅不背",
+      "rationale": "无技术事实或经验"
+    },
+    {
+      "id": "2109297234864971878",
+      "author": "hwchase17",
+      "text": "this is a great talk\n\nif you want to just follow along in slides, extracted screenshots here to make it easy\n\nwriting up thoughts as we speak\n\nhttps://t.co/e95nUE4Un4",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Always-on Agent讲座",
+      "evidence": "讲座含harness上下文工程",
+      "rationale": "技术相关但细节不足"
+    },
+    {
+      "id": "2109296367575203844",
+      "author": "hwchase17",
+      "text": "@sid__ganesh dmd!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "私信回复",
+      "evidence": "只说dmd",
+      "rationale": "无技术内容"
+    },
+    {
+      "id": "2109291384704577895",
+      "author": "hwchase17",
+      "text": "@sid__ganesh i think we are. want to try something new out?",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "邀约回复",
+      "evidence": "想试新东西",
+      "rationale": "无明确技术事实"
+    },
+    {
+      "id": "2109270222163066890",
+      "author": "hwchase17",
+      "text": "historically, most of our internal agents (openswe for coding, gtm agent for outreach) have acted \"on behalf of\" whoever is using them\n\nbut as they start to do more proactive, background work... I wonder if that should change. eg i really like the idea Hone put forward of agents that are striving towards a goal (https://t.co/L8LHdb27vb)... these kind of seem like coworkers, and i wonder if they should be treated as such",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "内部Agent身份模型",
+      "evidence": "agent代表用户做后台工作",
+      "rationale": "技术设计讨论偏设想"
+    },
+    {
+      "id": "2109269280231739408",
+      "author": "hwchase17",
+      "text": "what is the future of building internal company agents? how will their identity work?\n\n1. fixed set of credentials\n2. \"on behalf of\" flow (uses credentials of whoever is using it)\n3. some fixed credentials, others \"on behalf of\"",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "Agent凭证与身份",
+      "evidence": "列三种凭证模式",
+      "rationale": "有可复用架构取舍"
+    },
+    {
+      "id": "2109211402485280881",
+      "author": "Xudong07452910",
+      "text": "笑死，AI 的回复竟然被直接印进了实体书里 😂\n\n最近有读者发现，小说《终焉路独行》的正文里突然冒出一句：\n\n「需要我再微调部分语句，让整体文风更贴合悬疑灵异的氛围吗？」\n\n更离谱的是，这本书已经正式出版发行了。\n\n出版社随后表示将回收相关图书，策划团队也发文致歉，称是处理稿件时误将软件提示词当成了正文。\n\nAI 用来辅助写作没什么问题，但一本书经过编辑、校对、审核，居然没人发现？\n\n我现在有点好奇，AI 到底帮人省了多少工作，又让多少人省掉了检查这一步？",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "AI写作流程失误",
+      "evidence": "软件提示词误入正文",
+      "rationale": "有AI工作流事实但细节少"
+    },
+    {
+      "id": "2109143203203190920",
+      "author": "Xudong07452910",
+      "text": "1979 年 IBM 留下的一句话，放到今天的 Agent 时代反而更刺眼了。\n\n「计算机无法被追责，所以不应该让计算机做管理决策。」\n\n这篇《Computers Cannot Make Decisions》提了一个词我很喜欢，decision laundering，决策洗白。\n\nAgent 删库、攻击网站、传播错误信息以后，我们很容易说「模型失控了」。但权限是谁给的、目标是谁设的、系统是谁上线的，背后始终有人做了选择。\n\n当然，计算机今天完全可以替人做大量「选择」。真正的问题是，它做完选择以后，没办法承担责任。\n\n所以 Agent 越自主，责任边界反而越应该提前写清楚。\n\n文章:\nhttps://t.co/l54SnzdcYi",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Agent责任边界观点",
+      "evidence": "讨论decision laundering",
+      "rationale": "偏治理观点缺技术事实"
+    },
+    {
+      "id": "2109124076996575495",
+      "author": "Xudong07452910",
+      "text": "很多研究灵感，可能并不藏在自己的领域里。\n\nMeta、CMU 等团队这篇 IdeaScientist，想让 Agent 学会提出更有依据的科研 idea。\n\n它的流程很清晰：\n\n先读相关论文，找到当前方法真正卡住的问题；\n\n再跳出本领域，去其他方向寻找解决过类似结构问题的方法；\n\n最后把这些线索整理成完整的研究方案。\n\n为了支持这种跨领域检索，团队还构建了一个包含 277 万条研究 idea 的数据库。\n\n评测也挺有意思，系统只能看到 2026 年 1 月 1 日之前的论文，再看它能不能提前提出后来真实研究中出现的方向。\n\n结果显示，IdeaScientist 在综合评分上超过多种 autoresearch baseline。\n\n更值得注意的是，把搜索范围从同领域扩展到跨领域后，novelty 从 36.3% 提升到 67.0%。\n\n这其实很像真实科研里常见的一种突破路径：\n\n先把问题抽象清楚，再去别的领域看看，有没有人已经解决过「同一种难题」。\n\n未来 Research Agent 想真正产生好 idea，可能得学会主动离开自己的领域边界。\n\n📎 arxiv: https://t.co/0jokmIEcat",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "IdeaScientist科研Agent",
+      "evidence": "277万idea库，novelty升至67%",
+      "rationale": "含方法评测与明确结果"
+    },
+    {
+      "id": "2109117278948356344",
+      "author": "amasad",
+      "text": "@devahaz Incredible",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "简短互动",
+      "evidence": "只说Incredible",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2109401822830219725",
+      "author": "alexandr_wang",
+      "text": "kinda came up with this on the spot but might be my life motto now:\n\ngive everyone the adulthood they dreamed of in childhood",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "人生格言",
+      "evidence": "童年梦想式成年",
+      "rationale": "纯观点无技术内容"
+    },
+    {
+      "id": "2109400417218248748",
+      "author": "alexandr_wang",
+      "text": "fun interview. we cover:\n\n- story of muse\n- why my 19th bday attendees are now all billionaires\n- diamond mining vs building skyscrapers\n- my 200+ direct reports https://t.co/2zNbBKevD3",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "访谈预告",
+      "evidence": "采访涵盖muse故事",
+      "rationale": "列话题无技术事实"
+    },
+    {
+      "id": "2109399111405351048",
+      "author": "c_valenzuelab",
+      "text": "https://t.co/c0lJlUl4oZ",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "空链接",
+      "evidence": "仅有链接",
+      "rationale": "材料无可判定事实"
+    },
+    {
+      "id": "2109297297104511097",
+      "author": "alexandr_wang",
+      "text": "unironically this is exactly what i believe",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "消费AI愿景",
+      "evidence": "称muse是消费AI愿景",
+      "rationale": "愿景表达非技术事实"
+    },
+    {
+      "id": "2109092758833221883",
+      "author": "alexandr_wang",
+      "text": "Muse",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "Muse采用情况",
+      "evidence": "称采用强于ChatGPT等",
+      "rationale": "产品采用非技术内容"
+    },
+    {
+      "id": "2109100717596381405",
+      "author": "fchollet",
+      "text": "@Hongji_Leee The keras.distribution API takes care of it! You'll see",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Keras分布式API",
+      "evidence": "keras.distribution会处理",
+      "rationale": "软件API事实但上下文不足"
+    },
+    {
+      "id": "2109096597011534242",
+      "author": "fchollet",
+      "text": "I've been having a lot of fun trying a wide range of LLM post-training experiments using KerasHub + JAX + TPUs. Might open-source some of that",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "LLM后训练实验",
+      "evidence": "KerasHub+JAX+TPU后训练",
+      "rationale": "有技术栈但无结果细节"
+    },
+    {
+      "id": "2109087918417666098",
+      "author": "hwchung27",
+      "text": "In AI, most artifacts have a short shelf life. So I’m glad this talk I gave 2.5 years ago is still relevant to some people.\n\nThe Bitter Lesson has become much more popular since then, but I’ve seen a gap between how readily people agree with it and how much it actually guides their day-to-day work. That’s partly because it’s a statement about what wins in the long run, which doesn’t easily translate into day-to-day decisions, especially under enormous pressure to deliver. What I tried to offer in this talk was a practical interpretation.\n\nThat interpretation starts with acknowledging that we have to make progress with the methods, compute, data, and algorithms available today. So we add structure that enables progress now.\n\nBut we should remember what justified that structure and revisit it when those conditions change. When it’s no longer needed, remove it. Adding structure while understanding when to take it out may not look \"Bitter Lesson pilled\" at first glance, but I think this is how we actually put the lesson into practice.",
+      "technicalRelevant": true,
+      "dailyGrade": "B",
+      "topic": "Bitter Lesson实践",
+      "evidence": "按条件增删结构",
+      "rationale": "AI方法取舍经验可复用"
+    },
+    {
+      "id": "2109392804757831700",
+      "author": "yoheinakajima",
+      "text": "@MaximeRivest good stuff",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "闲聊回复",
+      "evidence": "good stuff",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2109387980016398423",
+      "author": "HamelHusain",
+      "text": "@diamondbishop Fully agree",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "同意回复",
+      "evidence": "Fully agree",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2109387190417723751",
+      "author": "HamelHusain",
+      "text": "@nico_vrgwn What am I behind on, exactly?",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "追问回复",
+      "evidence": "问落后于什么",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2109371836056350802",
+      "author": "HamelHusain",
+      "text": "Marketers:  The next wave of founders will be marketers, distribution is the new moat. \n\nPMs:  Taste is the moat, and its easier than ever to build the wrong thing.  Now is the age of the PM.\n\nEng: You need systems thinking and technical chops to solve hard problems and wield agents effectively at scale.   Engineers have more leverage than ever.  \n\nI suspect good people in each discipline will remain valuable and there isn't one role poised to become unicorns en masse.  \n\nI do think its good to be skilled at more than 1 discipline, but I am not sure any one of these disciplines has a leg up over the others in that regard",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "职业角色观点",
+      "evidence": "工程师需会用agents",
+      "rationale": "角色判断无事实支撑"
+    },
+    {
+      "id": "2109365419937239158",
+      "author": "swyx",
+      "text": "reupping my talk tips thread for all our lovely AIE NYC speakers. see you tmr at speaker dinner!",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "演讲建议",
+      "evidence": "AI生成SVG优于图片",
+      "rationale": "表达建议非技术经验"
+    },
+    {
+      "id": "2109365383086170602",
+      "author": "HamelHusain",
+      "text": "Excalidraw for slides is the 🐐\n\nMCP works great &amp; has animations etc.  You can create nice visuals that don't feel like over-produced slop",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "Excalidraw MCP",
+      "evidence": "MCP可用且有动画",
+      "rationale": "工具经验窄且缺细节"
+    },
+    {
+      "id": "2109349731197702589",
+      "author": "HamelHusain",
+      "text": "@ajkemps @ifbuilder @sh_reya It's all so exhausting on this site 😭",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "情绪回复",
+      "evidence": "site很累人",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2109349188207362415",
+      "author": "HamelHusain",
+      "text": "@hammer_mt @TomDavenport @sh_reya now now, there is no \"Best\", we are all equals in this crusade towards looking at the data 😁",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "玩笑回复",
+      "evidence": "都在看数据",
+      "rationale": "无技术事实"
+    },
+    {
+      "id": "2109348832677097522",
+      "author": "HamelHusain",
+      "text": "@ajkemps @ifbuilder @sh_reya I feel like that guy you replied to is a bot account 😅",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "bot账号闲聊",
+      "evidence": "称对方像机器人账号",
+      "rationale": "无技术事实或工程经验"
+    },
+    {
+      "id": "2109319270807281878",
+      "author": "yoheinakajima",
+      "text": "you can just prove things",
+      "technicalRelevant": true,
+      "dailyGrade": "A",
+      "topic": "AI辅助数学证明",
+      "evidence": "GPT-6证明圆填充最优",
+      "rationale": "声称解决多个开放证明案例"
+    },
+    {
+      "id": "2109269083808248290",
+      "author": "polynoamial",
+      "text": "@ChainZenit They haven't had much incentive to do better for years.",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "动机评论",
+      "evidence": "多年缺少改进激励",
+      "rationale": "纯观点无技术事实"
+    },
+    {
+      "id": "2109259294948438145",
+      "author": "polynoamial",
+      "text": "@Darkolorin For you maybe. What about your elderly relatives?",
+      "technicalRelevant": false,
+      "dailyGrade": "D",
+      "topic": "用户群体评论",
+      "evidence": "提到年长亲属",
+      "rationale": "无AI或软件技术内容"
+    },
+    {
+      "id": "2109257833929924881",
+      "author": "polynoamial",
+      "text": "This phishing email made it past Gmail’s filters, but my dot caught it and warned me. https://t.co/qoean3Ephb",
+      "technicalRelevant": true,
+      "dailyGrade": "C",
+      "topic": "钓鱼邮件检测",
+      "evidence": "Gmail漏检dot提醒",
+      "rationale": "有安全检测事实但细节不足"
+    }
+  ]
+}

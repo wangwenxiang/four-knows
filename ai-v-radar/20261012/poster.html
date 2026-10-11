@@ -16,44 +16,53 @@
   h2{display:-webkit-box;max-height:2.12em;margin:0;overflow:hidden;overflow-wrap:anywhere;font-size:var(--headline-size,56px);line-height:1.06;font-weight:950;letter-spacing:-1.8px;-webkit-box-orient:vertical;-webkit-line-clamp:2} .story p{margin:8px 0 0;overflow-wrap:anywhere;color:#5d626b;font-size:30px;line-height:1.25;font-weight:750;white-space:normal}
   .story--sparse p{font-size:34px;line-height:1.22} .story--dense p{font-size:27px;line-height:1.23}
   .story--quote p{display:-webkit-box;max-height:3.75em;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:3}
-</style></head><body><div class="poster"><header><div><h1>硅谷 AI 原声 <span>| 10/5</span></h1><div class="subtitle">全球核心专家动态精选 · 最近 23 小时</div></div><div class="stats"><div class="stat"><strong>62</strong><small>人监控</small></div><div class="stat"><strong>17</strong><small>条精选</small></div></div></header><main><article class="story story--dense story--quote" style="--headline-size:57px">
+</style></head><body><div class="poster"><header><div><h1>硅谷 AI 原声 <span>| 10/12</span></h1><div class="subtitle">全球核心专家动态精选 · 最近 23 小时</div></div><div class="stats"><div class="stat"><strong>62</strong><small>人监控</small></div><div class="stat"><strong>13</strong><small>条精选</small></div></div></header><main><article class="story story--dense story--quote" style="--headline-size:60px">
         <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu"></div><b>1</b></div>
         <div class="story-body">
           <div class="byline"><strong>Jerry Liu</strong><em>AI 技术应用</em><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
-          <h2>Extract v2.5 可逐层抽取扫描表单中的印刷与手写批注</h2>
-          <p>引用｜今天我们推出 Extract v2.5——一系列面向文档抽取调优的前沿智能体。
+          <h2>Unlimited OCR 展示低参数文档解析模型的速度潜力</h2>
+          <p>引用｜🚨 中国刚刚开源了一个能一次读完 100 页 PDF 的 OCR
 
-这些智能体（cost-effective、agentic、agentic plus）针对数值准确性和可溯源性进行了调优。我们的抽取智能体表现优于 Opus 5.5 和 GPT-6 Sol，同时成本低 30% 到 4 倍。
+它叫 Unlimited OCR。只有 3B 参数。可本地运行。
 
-我们在复杂抽取方面取得了大幅提升：
-* 长列表（agentic 档位从 86.1% 提升到 95.5%）
-* 跨页记录（85.5% -&gt; 96.5%）
-* 扫描表单（90.9% -&gt; 95.7%）
+其他 OCR 工具都会把文档切成一页页处理，然后丢失上下文。这个工具能一次连续读完整份文档。
 
-我们还上线了以下功能：
-✅ 高级引用：即使没有精确匹配，我们也能为推断字段定位所有支撑值的边界框。
-✅ 结构化推理：我们会根据文档类型、版式和信息定制文档抽取算法。
+→ 一次性全上下文解析（32K 上下文窗口）
+→ 开箱即用的多语言能力
+→ 标准解析基准上达到 93%（比基线高 6 个点）
+→ 超过 40 页后错误率低于 0.11
+→ 100% 在你自己的硬件上本地运行
+→ 支持 Transformers、vLLM、SGLang、Docker、Ollama、llama.cpp
 
-在 ExtractBench 上，覆盖多个成本区间，我们的抽取智能体在性价比上达到 SOTA。对于任何复杂度的文档，我们都是最佳文档抽取工具。
+传统云 OCR（Textract、Google Vision、Azure Doc Intelligence）每 1,000 页收费 1.50 到 15 美元。
 
-博客：https://t.co/TTlTdECU03
+这个在你的机器上运行。免费。永久免费。
 
-这些都已在 LlamaParse 上可用：https://t.co/XYZmx5TFz8 。欢迎来看看！</p>
+Baidu 明确是为了把 DeepSeek OCR 再向前推进一步而构建了它。它在 Hugging Face 上已经有 190 万次下载，但大多数人还完全不知道它的存在。
+
+100% 开源。</p>
         </div>
-      </article><article class="story story--balanced" style="--headline-size:55px">
-        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/2099903483457703936/U-W6QQk__normal.jpg" alt="Aravind Srinivas"></div><b>2</b></div>
+      </article><article class="story story--balanced" style="--headline-size:60px">
+        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han"></div><b>2</b></div>
         <div class="story-body">
-          <div class="byline"><strong>Aravind Srinivas</strong><em>AI 技术应用</em><span>@AravSrinivas · Perplexity / CEO</span></div>
-          <h2>Perplexity Decisions API 实时通关宝可梦火红四天王</h2>
-          <p>一次通关中完成 137 次实时决策调用，响应中位数 592 毫秒、p95 为 987 毫秒，预计推理成本仅 0.028 美元</p>
+          <div class="byline"><strong>Xudong Han</strong><em>AI 技术前沿</em><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <h2>IdeaScientist 用跨领域检索提升科研想法生成质量</h2>
+          <p>系统基于 277 万条研究 idea 数据库寻找相似结构问题，跨领域搜索将 novelty 从 36.3% 提升到 67.0%</p>
         </div>
-      </article><article class="story story--dense story--quote" style="--headline-size:58px">
-        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/1531702062487965698/a6iO2pRx_normal.jpg" alt="Chelsea Finn"></div><b>3</b></div>
+      </article><article class="story story--dense story--quote" style="--headline-size:66px">
+        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/1569345624935485442/R67C4wCQ_normal.jpg" alt="Harrison Chase"></div><b>3</b></div>
         <div class="story-body">
-          <div class="byline"><strong>Chelsea Finn</strong><em>AI 技术前沿</em><span>@chelseabfinn · Stanford</span></div>
-          <h2>ScholarCatalyst 评测 LLM 识别科研灵感论文的能力</h2>
-          <p>引用｜AI 越来越能够推动 Navier-Stokes 这类开放问题取得进展。然而，定义一个新问题仍依赖人类的研究品味。
+          <div class="byline"><strong>Harrison Chase</strong><em>AI 技术应用</em><span>@hwchase17 · LangChain / CEO</span></div>
+          <h2>LangChain 勾勒托管式深度智能体的完整技术栈</h2>
+          <p>引用｜像 @Bot 这样始终在线、主动式的智能体是如何工作的？
 
-介绍 ScholarCatalyst：一个基于 AI 研究者亲述其工作灵感来源而构建的基准。</p>
+观看我在 Stanford CS146S 的讲座：
+
+2:35 我们如何走到今天
+6:13 模型发生了什么变化
+10:06 始终在线智能体的内部机制
+18:07 运行框架
+27:26 上下文工程
+34:26 未来走向 https://t.co/hrb02c6Tzk</p>
         </div>
       </article></main></div><script>window.scrollTo(0,0);document.documentElement.scrollTop=0;document.body.scrollTop=0;</script></body></html>
