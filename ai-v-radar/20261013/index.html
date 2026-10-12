@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>硅谷 AI 原声 · 2026-10-13</title>
+  <style>
+    :root{--bg:#f4f6f8;--surface:#fff;--text:#16181c;--muted:#65717e;--line:#dfe4e9;--accent:#0066cc;--green:#117a62;--shadow:0 16px 42px rgba(18,28,38,.08);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 15% 0,#e8f2ff 0,transparent 27%),var(--bg);color:var(--text)} a{color:inherit;text-decoration:none} button{font:inherit}
+    .shell{width:min(1500px,calc(100% - 28px));margin:0 auto;padding:14px 0 40px}
+    .hero{display:grid;grid-template-columns:minmax(250px,1fr) auto;align-items:center;gap:12px;padding:15px 18px;border:1px solid rgba(255,255,255,.75);border-radius:16px;background:rgba(255,255,255,.88);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    h1{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin:0;font-size:clamp(28px,3.4vw,44px);line-height:1;letter-spacing:-.05em} .report-date{color:var(--green);font-size:clamp(10px,1vw,13px);font-weight:900;letter-spacing:.08em;white-space:nowrap}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(62px,1fr));gap:6px;align-content:start} .metric{padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fff} .metric strong{display:block;font-size:19px;line-height:1} .metric span{display:block;margin-top:3px;color:var(--muted);font-size:8px;font-weight:820;white-space:nowrap}
+    .notice{margin-top:12px;padding:11px 14px;border:1px solid #e1b866;border-radius:12px;background:#fff8e8;color:#7a5612;font-size:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px;align-items:start} .signal-card{min-width:0;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 9px 26px rgba(18,28,38,.045)}
+    .card-top{display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:10px} .avatar{display:grid;width:46px;height:46px;overflow:hidden;place-items:center;border:1px solid #d9e0e7;border-radius:999px;background:linear-gradient(135deg,#111827,#46627d);color:#fff;font-size:12px;font-weight:900} .avatar img{width:100%;height:100%;object-fit:cover;display:block} .identity{display:grid;gap:3px;min-width:0} .identity strong,.identity span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .identity strong{font-size:14px} .identity span{color:var(--muted);font-size:11px}
+    .score{display:grid;justify-items:center;min-width:40px;padding:5px 6px;border:1px solid #e3ebe8;border-radius:8px;background:#f4f8f6;color:#527267;font-size:15px;font-weight:820;line-height:1} .score small{margin-top:2px;color:#71877f;font-size:7px;letter-spacing:.06em;text-transform:uppercase}
+    .meta{display:flex;align-items:center;gap:6px;margin:11px 0 9px;color:var(--muted);font-size:10.5px;font-weight:750} .meta span:not(.priority){overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .meta time{margin-left:auto;white-space:nowrap} .priority{padding:3px 6px;border-radius:999px;background:#111827;color:#fff;font-size:9px}
+    .post-text{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.58} .post-text.original{font-size:16px;font-weight:570;color:#20252b} .post-text.translation{margin-top:8px;color:#66727f;font-size:13px;font-weight:470;line-height:1.62} .article .original+.translation{margin-top:2px;color:#65717e;font-size:11px;font-weight:650} .quote,.article{display:grid;gap:6px;margin-top:10px;padding:11px;border:1px solid var(--line);border-radius:12px;background:#f7f9fb} .quote__author{display:flex;align-items:center;gap:7px;font-size:11px} .quote__author>div:last-child{display:grid;gap:1px} .quote__author span{color:var(--muted)} .quote-avatar{display:grid;width:28px;height:28px;overflow:hidden;place-items:center;border:1px solid var(--line);border-radius:999px;background:#dfe6ed;color:#52606d;font-size:10px;font-weight:900} .quote-avatar img{width:100%;height:100%;object-fit:cover} .quote p,.article p{margin:0;color:#4f5a66;font-size:12px;line-height:1.48;white-space:pre-wrap} .article strong{font-size:13px} .article strong.original{font-size:13.5px} .quote-text.original{font-size:12.5px;color:#36414d} .quote-text.translation{font-size:11.5px;color:#6a7682} .quote-link{justify-self:start;color:var(--accent);font-size:10px;font-weight:850}
+    .media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:10px;overflow:hidden;border-radius:12px} .media-grid--1{grid-template-columns:1fr} .media-item{position:relative;min-height:150px;background:#e8edf2} .media-item img{width:100%;height:100%;max-height:330px;object-fit:cover;display:block} .media-item span{position:absolute;right:7px;bottom:7px;padding:4px 6px;border-radius:6px;background:rgba(0,0,0,.68);color:#fff;font-size:8px;font-weight:900}
+    .card-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid #edf0f3} .engagement{display:flex;gap:10px;color:var(--muted);font-size:10.5px;font-weight:750} .card-bottom>a{color:var(--accent);font-size:11px;font-weight:850} .empty{grid-column:1/-1;padding:70px;text-align:center;border:1px dashed #cdd5dd;border-radius:16px;background:#fff;color:var(--muted)}
+    footer{padding:26px 4px 0;color:var(--muted);font-size:11px;text-align:center}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}} @media(max-width:560px){.shell{width:min(100% - 16px,1500px);padding-top:7px}.hero{gap:10px;padding:13px 14px;border-radius:15px}h1{font-size:28px}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.metric{padding:7px 9px}.metric strong{font-size:18px}.signal-card{padding:13px}.post-text.original{font-size:15px}.post-text.translation{font-size:12.5px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <h1>硅谷 AI 原声 <span class="report-date">· 2026-10-13</span></h1>
+      <div class="metrics"><div class="metric"><strong>62</strong><span>监控专家</span></div><div class="metric"><strong>11</strong><span>活跃专家</span></div><div class="metric"><strong>23</strong><span>精选原文</span></div></div>
+    </header>
+
+    <main class="grid">
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="sh_reya" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1342529111839944705/hzr44mb5_normal.jpg" alt="Shreya Shankar avatar" loading="lazy"></div>
+          <div class="identity"><strong>Shreya Shankar</strong><span>@sh_reya · UC Berkeley / AI 工程研究员</span></div>
+          <div class="score">55<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>10-13 03:42 北京</time></div>
+        <p class="post-text original" lang="auto">Since the labels are known up front, Quail stores them in a trie and constrains decoding to paths in the trie. Quail stops decoding as soon as only one label is left, instead of decoding the full label. Quail also packs these few decode steps into the same forward passes as the prefill of other documents, so the GPU stays busy.
+
+On 12 classification queries, Quail is ~1.8x faster than a vLLM baseline!</p><p class="post-text translation" lang="zh-CN">由于标签是预先已知的，Quail 会将它们存储在 trie 中，并将解码限制在 trie 的路径内。Quail 不会解码完整标签，而是在只剩下一个标签时立即停止解码。Quail 还会把这几步解码打包进其他文档预填充的同一批前向传播中，让 GPU 保持忙碌。
+
+在 12 个分类查询上，Quail 比 vLLM 基线快约 1.8 倍！</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HUdFJ7raIAALRjZ.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HUdFJ7raIAALRjZ.png" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 0</span><span>↻ 1</span><span>↩ 1</span></div><a href="https://x.com/sh_reya/status/2109731373632360599" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="tri_dao" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1389486324516671496/owa9Z4AC_normal.jpg" alt="Tri Dao avatar" loading="lazy"></div>
+          <div class="identity"><strong>Tri Dao</strong><span>@tri_dao · Together AI；FlashAttention 作者</span></div>
+          <div class="score">88<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 基础设施 / 训练优化</span><time>10-13 01:01 北京</time></div>
+        <p class="post-text original" lang="auto">SSMs had the nice asymptotics but kept missing out on the inference goodies Transformers get for free like spec decode and quantization. Turns out we were just not caching the right thing. Same IO-aware trick behind FlashAttention, Mamba scan, paged KV. A lot of the big wins weren’t new architectures, just people taking memory IO seriously.</p><p class="post-text translation" lang="zh-CN">SSM 具有很好的渐近复杂度，但一直没能享受到 Transformer 天然具备的推理优化，比如 spec decode 和量化。结果发现，我们只是没有缓存正确的东西。这和 FlashAttention、Mamba scan、paged KV 背后的 IO-aware 技巧是同一思路。很多重大收益并不是来自新架构，而是来自人们开始认真对待内存 IO。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2052115348443275265/pxNseCff_normal.jpg" alt="Ze-Wei (Johnny) Liou avatar" loading="lazy"></div><div><strong>Ze-Wei (Johnny) Liou</strong><span>@zwljohnny</span></div></div><p class="quote-text original" lang="auto">ReplaySSM now runs in production in GLM-5.3-Flash and Kimi-K3, and ships in TensorRT-LLM, vLLM, FlashInfer, and SGLang!
+
+It speeds up standard decoding (up to 1.47x) and speculative decoding (up to 2.1x), and now also enables a low-precision SSM state whose rounding error never propagates through the recurrence.
+
+Building on our earlier ReplaySSM work, we collaborated with @NVIDIA to pin down what the method really unlocks. Caching SSM inputs instead of the state is what ReplaySSM does. What it changes is that computing the output and updating the state can be separated during decoding. All three gains follow from that separation.
+
+Joint blog post, paper, and code with @NVIDIA and @tri_dao 👇</p><p class="quote-text translation" lang="zh-CN">ReplaySSM 现在已在 GLM-5.3-Flash 和 Kimi-K3 的生产环境中运行，并已集成到 TensorRT-LLM、vLLM、FlashInfer 和 SGLang 中！
+
+它能加速标准解码（最高 1.47 倍）和推测解码（最高 2.1 倍），现在还支持低精度 SSM 状态，其舍入误差永远不会通过递归传播。
+
+在我们此前 ReplaySSM 工作的基础上，我们与 @NVIDIA 合作，明确了这一方法真正释放的能力。ReplaySSM 做的是缓存 SSM 输入而不是状态。它带来的变化是，在解码期间可以将输出计算与状态更新分离。所有三项收益都源于这种分离。
+
+与 @NVIDIA 和 @tri_dao 联合发布的博客、论文和代码 👇</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HUcVIt7XYAAvmp0.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HUcVIt7XYAAvmp0.png" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/zwljohnny/status/2109679465609470216" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 365</span><span>↻ 29</span><span>↩ 6</span></div><a href="https://x.com/tri_dao/status/2109691017570201965" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">83<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>10-12 11:33 北京</time></div>
+        <p class="post-text original source-only" lang="auto">两个今天能力差不多的 Agent，跑上一段时间后，可能会拉开非常大的差距。
+
+Meta 等团队这篇《Agent Plasticity》，想测的就是一件事：
+
+Agent 到底有多会「从经验里变强」。
+
+作者让模型权重保持不变，只允许 Agent 根据过去的成功和失败，持续修改自己的 Memory、Skills、策略和 Python 工具。
+
+然后每隔一段时间，用全新的任务测试它，看这些经验有没有真正留下来。
+
+论文提出了一个指标叫「Agent Plasticity」：
+
+既看 Agent 最终提升了多少，也看为了获得这些提升花了多少学习成本。
+
+实验覆盖 Chess、Go、Hex 和 NetHack。结果是不同前沿模型即使拿到类似的反馈和学习机会，自我改进曲线也差得非常大。
+
+比如 Claude Fable 5 最终能力最高，但 GPT-5.6 Sol 的「学习效率」反而更高。
+
+还有一些模型反复积累经验，表现几乎没涨，甚至下降。
+
+进一步分析发现，弱自我改进 Agent 的一个典型问题，是明明已经存下了相关 Skill 和 Memory，执行时却根本想不起来用；而更强的 Agent 即使用上经验，也还会遇到经验质量和泛化的问题。
+
+所以我觉得「Agent 有多强」和「Agent 有多会学习」以后可能会变成两个完全不同的指标。
+
+真正的自进化能力，看的可能不只是一次 benchmark 能拿多少分，而是经历 10 次、100 次任务之后，它能不能把踩过的坑稳定变成下一次的能力。
+
+📎 arxiv: https://t.co/VxSQ3o4EB8</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HUXVCshWEAAkPiP.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HUXVCshWEAAkPiP.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 151</span><span>↻ 21</span><span>↩ 3</span></div><a href="https://x.com/Xudong07452910/status/2109487471730032943" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="hwchung27" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1920005086291574784/LxryMgPG_normal.jpg" alt="Hyung Won Chung avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hyung Won Chung</strong><span>@hwchung27 · OpenAI / 研究员；Flan、指令微调研究线</span></div>
+          <div class="score">87<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>技术天才 / 大模型后训练</span><time>10-13 02:51 北京</time></div>
+        <p class="post-text original" lang="auto">It’s been an incredible 14 months, from the start of the lab to Muse Wonder, our second-generation model. What a journey!
+
+There’s something magical about big models. They are just better in pretty much every way. So give it a try!</p><p class="post-text translation" lang="zh-CN">从实验室成立到我们的第二代模型 Muse Wonder，这 14 个月令人难以置信。真是一段旅程！
+
+大模型确实有一种魔力。它们几乎在各方面都更好。所以试试看吧！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/77846223/profile_normal.jpg" alt="Mark Zuckerberg avatar" loading="lazy"></div><div><strong>Mark Zuckerberg</strong><span>@finkd</span></div></div><p class="quote-text original" lang="auto">Introducing Muse Wonder, our new family of frontier models with state of the art performance for personal and professional agentic work. https://t.co/NKHrybrGKQ</p><p class="quote-text translation" lang="zh-CN">推出 Muse Wonder，我们全新的前沿模型家族，在个人和专业智能体工作中具备最先进的性能。https://t.co/NKHrybrGKQ</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HUcMBSQacAAvLlw.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HUcMBSQacAAvLlw.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/finkd/status/2109689305073614918" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 73</span><span>↻ 1</span><span>↩ 4</span></div><a href="https://x.com/hwchung27/status/2109718685388853622" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="aravsrinivas" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2099903483457703936/U-W6QQk__normal.jpg" alt="Aravind Srinivas avatar" loading="lazy"></div>
+          <div class="identity"><strong>Aravind Srinivas</strong><span>@AravSrinivas · Perplexity / CEO</span></div>
+          <div class="score">87<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 搜索 / 产品</span><time>10-13 04:09 北京</time></div>
+        <p class="post-text original" lang="auto">Every Perplexity Project is a Git repo. We built a Git forge for agents, without the GitHub bloat, since no human has to approve anything.
+
+Each agent gets its own short-lived sandbox and commits to a shared repo on S3. Fewer than 2% of submissions collide.
+
+Agents search with plain `ls` and `grep`. That beats semantic search 63% vs 37% on answer accuracy for financial document analysis.</p><p class="post-text translation" lang="zh-CN">每个 Perplexity Project 都是一个 Git 仓库。我们为智能体构建了一个 Git forge，没有 GitHub 的臃肿，因为不需要人工批准任何内容。
+
+每个智能体都有自己的短生命周期沙盒，并向 S3 上的共享仓库提交。提交冲突率低于 2%。
+
+智能体使用普通的 `ls` 和 `grep` 进行搜索。在金融文档分析的答案准确率上，这比语义搜索更好，比例为 63% 对 37%。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2009310641165660160/XArF3_Ib_normal.jpg" alt="Perplexity avatar" loading="lazy"></div><div><strong>Perplexity</strong><span>@perplexity_ai</span></div></div><p class="quote-text original" lang="auto">This is how we built the filesystem behind Perplexity Projects as a Git forge for agents.
+
+Each agent works in its own sandbox and commits to a shared repository where people and other agents can build on its work across sessions.
+
+Read more: https://t.co/jcrTptb2IW https://t.co/dXnhroO4mg</p><p class="quote-text translation" lang="zh-CN">这就是我们如何将 Perplexity Projects 背后的文件系统构建成面向智能体的 Git forge。
+
+每个智能体都在自己的沙盒中工作，并提交到一个共享仓库，人类和其他智能体可以跨会话在其工作基础上继续构建。
+
+阅读更多：https://t.co/jcrTptb2IW https://t.co/dXnhroO4mg</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HUcvT55aEAAKiTk.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HUcvT55aEAAKiTk.png" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/perplexity_ai/status/2109706972723609733" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 213</span><span>↻ 18</span><span>↩ 47</span></div><a href="https://x.com/AravSrinivas/status/2109738344011972893" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="swyx" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx avatar" loading="lazy"></div>
+          <div class="identity"><strong>swyx</strong><span>@swyx · Latent Space / AI Engineer</span></div>
+          <div class="score">79<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 工作流</span><time>10-12 21:41 北京</time></div>
+        <p class="post-text original" lang="auto">world’s first full length workshop on claude flows
+
+@cjav_dev and Harrison Stall are kicking off @aidotengineer bright and early on a monday morning to a PACKED room, standing room only #AIEngineerNY
+
+@ricmac is on the case reporting for @latentspacepod and we’ll also publish asap. proud to work with @anthropicai to sponsor AIE NYC for the second year running!</p><p class="post-text translation" lang="zh-CN">全球首个关于 claude flows 的完整工作坊
+
+@cjav_dev 和 Harrison Stall 在周一一大早为 @aidotengineer 拉开序幕，现场爆满，只剩站位 #AIEngineerNY
+
+@ricmac 正在为 @latentspacepod 进行报道，我们也会尽快发布。很自豪能与 @anthropicai 合作，连续第二年赞助 AIE NYC！</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2109640462264881152/img/KY71-NN5JuD6qtqg.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2109640462264881152/img/KY71-NN5JuD6qtqg.jpg" alt="X post media"><span>VIDEO</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2044472418815893504/xf14RxM8_normal.png" alt="ClaudeDevs avatar" loading="lazy"></div><div><strong>ClaudeDevs</strong><span>@ClaudeDevs</span></div></div><p class="quote-text original" lang="auto">Claude Managed Agents dynamic workflows are now available in public beta. It&#x27;s a new type of multiagent orchestration, built for your most ambitious workloads.
+
+A lead agent writes a plan that runs across many agents in phases, combining the results at the end. https://t.co/hEExShsVku</p><p class="quote-text translation" lang="zh-CN">Claude Managed Agents 动态工作流现已开放公开测试版。这是一种新的多智能体编排方式，面向最具挑战性的工作负载。
+
+一个主导 agent 会编写计划，分阶段调度多个 agent 执行，并在最后整合结果。https://t.co/hEExShsVku</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2108590358581874688/img/CmAWQ1NbRCbwON3y.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2108590358581874688/img/CmAWQ1NbRCbwON3y.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/ClaudeDevs/status/2108591328732856655" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 128</span><span>↻ 5</span><span>↩ 83</span></div><a href="https://x.com/swyx/status/2109640508079263769" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="thom_wolf" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2068682157451571200/_ZNKM_5E_normal.jpg" alt="Thomas Wolf avatar" loading="lazy"></div>
+          <div class="identity"><strong>Thomas Wolf</strong><span>@Thom_Wolf · Hugging Face / 联合创始人兼 CSO</span></div>
+          <div class="score">77<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>开源模型 / Hugging Face</span><time>10-13 00:08 北京</time></div>
+        <p class="post-text original" lang="auto">Blue = what we knew. Green = what&#x27;s new. We&#x27;re so early.</p><p class="post-text translation" lang="zh-CN">蓝色 = 我们已知的内容。绿色 = 新发现。我们还处在非常早期。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1664932984196145153/UDYifACN_normal.jpg" alt="Leandro von Werra avatar" loading="lazy"></div><div><strong>Leandro von Werra</strong><span>@lvwerra</span></div></div><p class="quote-text original" lang="auto">We released Carbon-A: a DNA model that proposed over 500M gene candidates across 22k species!!
+
+https://t.co/1WEiTzxR5i
+
+blue: existing annotations in database
+green: new annotations by Carbon-A https://t.co/vbL87be5t3</p><p class="quote-text translation" lang="zh-CN">我们发布了 Carbon-A：一个 DNA 模型，在 2.2 万个物种中提出了超过 5 亿个候选基因！！
+
+https://t.co/1WEiTzxR5i
+
+蓝色：数据库中的现有注释
+绿色：Carbon-A 生成的新注释 https://t.co/vbL87be5t3</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2109642685652795392/img/VOxl85PJUWfUSpjW.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2109642685652795392/img/VOxl85PJUWfUSpjW.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/lvwerra/status/2109643972255658063" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 69</span><span>↻ 6</span><span>↩ 0</span></div><a href="https://x.com/Thom_Wolf/status/2109677637975048697" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="alexandr_wang" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">69<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>10-13 05:51 北京</time></div>
+        <p class="post-text original" lang="auto">use muse wonder full to make some chips!</p><p class="post-text translation" lang="zh-CN">用 Muse Wonder Full 做一些芯片！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2033464084700766208/lp1X6XQY_normal.jpg" alt="bubble boi avatar" loading="lazy"></div><div><strong>bubble boi</strong><span>@bubbleboi</span></div></div><p class="quote-text original" lang="auto">Muse Wonder Full is one shotting a full RISC V 64 bit core with floating point and SIMD unit as well as extensions for hardware acceleration of the Ed25519/secp256k hashing algorithms...
+
+Will post in a bit. Have it working on OpenROAD right now (it downloaded it on its own) and will tape out later this week.</p><p class="quote-text translation" lang="zh-CN">Muse Wonder Full 一次性生成了一个完整的 RISC V 64 位核心，带浮点和 SIMD 单元，以及用于 Ed25519/secp256k 哈希算法硬件加速的扩展……
+
+稍后发布。现在已经在 OpenROAD 上跑起来了（它自己下载了 OpenROAD），本周晚些时候会流片。</p><a class="quote-link" href="https://x.com/bubbleboi/status/2109751406588751888" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 95</span><span>↻ 4</span><span>↩ 21</span></div><a href="https://x.com/alexandr_wang/status/2109763816871596359" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="yoheinakajima" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
+          <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
+          <div class="score">67<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>10-13 03:19 北京</time></div>
+        <p class="post-text original" lang="auto">first autonomous AI research with real human participants!
+
+congrats to @ExScienceAI on their peer-reviewed paper, also on the cover of Wiley&#x27;s Advanced Science:
+https://t.co/gnnLjMqpJk
+
+total runtime: ~17 hours
+agents involved: 50+
+tokens used: 32.5 million
+code written: ~7696 lines
+marginal compute: ~$114 +- $30
+human cost: $4500 (288 participants)
+
+&quot;Closing the Empirical Loop: Autonomous AI Agents Conduct End-to-end Research With Human Participants&quot; @advportfolio</p><p class="post-text translation" lang="zh-CN">首个有真实人类参与者的自主 AI 研究！
+
+祝贺 @ExScienceAI 的同行评审论文发表，并登上 Wiley 的 Advanced Science 封面：
+https://t.co/gnnLjMqpJk
+
+总运行时间：约 17 小时
+参与智能体：50+
+使用 token：3250 万
+编写代码：约 7696 行
+边际计算成本：约 $114 +- $30
+人类成本：$4500（288 名参与者）
+
+“Closing the Empirical Loop: Autonomous AI Agents Conduct End-to-end Research With Human Participants” @advportfolio</p>
+
+        <div class="media-grid media-grid--2"><a class="media-item" href="https://pbs.twimg.com/media/HUdAXkwagAAxclU.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HUdAXkwagAAxclU.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HUdAAxRbsAAy-Oq.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HUdAAxRbsAAy-Oq.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 37</span><span>↻ 5</span><span>↩ 7</span></div><a href="https://x.com/yoheinakajima/status/2109725727692317035" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">87<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>10-12 08:32 北京</time></div>
+        <p class="post-text original source-only" lang="auto">现在顶尖大学里教 Agent，已经开始一路教到 GPU 了。
+
+非常推荐 Harvard 的 CS2680 Modern AI Systems 。课程从 Claude Code、Agent Loop、Eval 和 Token 成本开始，一路往下做到模型部署、Routing、KV Cache、量化和 speculative decoding。
+
+作业设计也很有巧思，5 个作业都围着同一个 Agent 系统往下拆，先看它怎么工作，再自己搭 Harness，最后一路优化到推理层。
+
+感觉它更像是在回答一个问题：
+
+一个现代 AI Agent，到底是怎么从应用层一路跑到底层系统的？
+
+做 Agent、Harness、AI Infra 的可以收藏。
+
+https://t.co/zUUJPY4lyA</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 4,191</span><span>↻ 674</span><span>↩ 86</span></div><a href="https://x.com/Xudong07452910/status/2109441921471205608" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="alexandr_wang" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">79<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>10-13 06:31 北京</time></div>
+        <p class="post-text original" lang="auto">we have identified and fixed the issue that was causing the unusually fast quota usage for muse wonder and muse wonder full. you will now see much lower usage against your limits.
+
+also, as promised, now that we&#x27;ve fixed the issue...
+
+muse code reset!! https://t.co/j7cldu9ybo</p><p class="post-text translation" lang="zh-CN">我们已经定位并修复了导致 muse wonder 和 muse wonder full 配额异常快速消耗的问题。现在你会看到对额度的占用大幅降低。
+
+另外，正如承诺的那样，既然问题已经修复……
+
+muse code 重置！！https://t.co/j7cldu9ybo</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2109773753907605504/img/kfCqvw8ahXQaXkAQ.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2109773753907605504/img/kfCqvw8ahXQaXkAQ.jpg" alt="X post media"><span>VIDEO</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 585</span><span>↻ 21</span><span>↩ 52</span></div><a href="https://x.com/alexandr_wang/status/2109774017574113780" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="alexandr_wang" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">74<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>10-13 02:34 北京</time></div>
+        <p class="post-text original" lang="auto">we are working to resolve a bug in how muse wonder and muse wonder full are counting against usage limits for Muse Code subscribers
+
+this is not intended behavior -- we will update everyone once we have fixed it and issue resets</p><p class="post-text translation" lang="zh-CN">我们正在修复一个 bug：muse wonder 和 muse wonder full 对 Muse Code 订阅用户使用限额的计数方式存在问题。
+
+这不是预期行为——修复后我们会向大家更新，并发放重置。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 1,757</span><span>↻ 46</span><span>↩ 98</span></div><a href="https://x.com/alexandr_wang/status/2109714291062620560" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="bcherny" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1902044548936953856/J2jeik0t_normal.jpg" alt="Boris Cherny avatar" loading="lazy"></div>
+          <div class="identity"><strong>Boris Cherny</strong><span>@bcherny · Anthropic / Claude Code</span></div>
+          <div class="score">71<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>Claude / Anthropic</span><time>10-12 08:30 北京</time></div>
+        <p class="post-text original" lang="auto">@w1991e @ziwenxu_ I’d suggest disabling the up-coder plugin and seeing if it helps. Seems like that is using most of your tokens</p><p class="post-text translation" lang="zh-CN">@w1991e @ziwenxu_ 我建议先禁用 up-coder 插件，看看是否有帮助。看起来它消耗了你大部分 token</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 6</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/bcherny/status/2109441615337337137" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="thom_wolf" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2068682157451571200/_ZNKM_5E_normal.jpg" alt="Thomas Wolf avatar" loading="lazy"></div>
+          <div class="identity"><strong>Thomas Wolf</strong><span>@Thom_Wolf · Hugging Face / 联合创始人兼 CSO</span></div>
+          <div class="score">70<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>开源模型 / Hugging Face</span><time>10-13 06:24 北京</time></div>
+        <p class="post-text original" lang="auto">stuxnet, but for frozen peas: hackers turned French supermarket freezers into ovens this week
+
+hard to see how invite-only AI cyber defense ever reaches a supermarket freezer though</p><p class="post-text translation" lang="zh-CN">像 Stuxnet，但目标是冷冻豌豆：本周黑客把法国超市的冷柜变成了烤箱
+
+不过很难想象仅限邀请的 AI 网络防御怎么能覆盖到超市冷柜</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1823162794117582848/kDo1PqtB_normal.jpg" alt="GeoInsider avatar" loading="lazy"></div><div><strong>GeoInsider</strong><span>@InsiderGeo</span></div></div><p class="quote-text original" lang="auto">BREAKING: 🇫🇷 A major cyberattack has hit supermarket refrigeration systems across France, reportedly causing fresh and frozen food to spoil after hackers remotely manipulated temperature controls.
+
+According to BFMTV, the attack began overnight from Sunday into Monday, targeting older versions of refrigeration-control software supplied by Danish company Danfoss.
+
+The attackers allegedly exploited the systems’ defrosting function, forcing refrigeration equipment to heat continuously instead of keeping products cold. Temperatures were reportedly set as high as 50°C, destroying entire stocks of food within hours.
+
+Several major supermarket chains have been affected, including Intermarché, Super U and https://t.co/7bHBi61WPZ. Metro stores and independent businesses, including butcher shops also have been impacted.
+
+Around 150 Intermarché stores are reportedly affected, according to industry sources cited by BFMTV. The full number of affected locations remains unclear.
+
+The financial damage is already significant. In Haguenau, Alsace, an Intermarché store reportedly lost its entire frozen-food stock, worth approximately €50,000. A nearby Super U allegedly had to discard both fresh and frozen products, with losses estimated at €220,000. An https://t.co/7bHBi61WPZ store in the same town was also affected, although its losses had not yet been calculated.
+
+The combined losses reported at the Intermarché and Super U stores in Haguenau alone amount to around €270,000. Nationwide damage could reach several million euros.
+
+Intermarché reportedly confirmed the incident in an internal communication, warning that several stores had suffered losses of frozen products. Coopérative U also acknowledged the attack and established crisis teams to assist affected stores and coordinate with refrigeration specialists.
+
+Technical investigations are ongoing, and the full extent of the damage has yet to be established.
+
+Authorities and companies are still working to determine the full circumstances of the attack. The identity of the perpetrators has not been confirmed.</p><p class="quote-text translation" lang="zh-CN">突发：🇫🇷 法国各地超市制冷系统遭遇重大网络攻击。据报道，黑客远程操纵温控，导致生鲜和冷冻食品变质。
+
+据 BFMTV 报道，攻击发生在周日晚至周一凌晨，目标是丹麦公司 Danfoss 提供的旧版制冷控制软件。
+
+攻击者据称利用了系统的除霜功能，迫使制冷设备持续加热，而不是保持低温。据报道，温度被设到高达 50°C，数小时内毁掉整批食品库存。
+
+多家大型超市连锁受到影响，包括 Intermarché、Super U 和 https://t.co/7bHBi61WPZ。Metro 门店以及肉店等独立商家也受到波及。
+
+据 BFMTV 援引行业消息人士称，约 150 家 Intermarché 门店受到影响。受影响地点的完整数量仍不清楚。
+
+经济损失已相当严重。在阿尔萨斯的阿格诺，一家 Intermarché 门店据称损失了全部冷冻食品库存，价值约 5 万欧元。附近一家 Super U 据称不得不丢弃生鲜和冷冻产品，损失估计达 22 万欧元。同镇一家 https://t.co/7bHBi61WPZ 门店也受到影响，但损失尚未计算。
+
+仅阿格诺的 Intermarché 和 Super U 两家门店报告的合计损失就约为 27 万欧元。全国范围内的损失可能达到数百万欧元。
+
+据报道，Intermarché 在内部通报中确认了该事件，并警告多家门店遭受冷冻产品损失。Coopérative U 也承认遭到攻击，并成立危机团队，协助受影响门店并与制冷专家协调。
+
+技术调查仍在进行，损害的完整范围尚未确定。
+
+当局和相关公司仍在查明此次攻击的完整情况。攻击者身份尚未确认。</p><div class="media-grid media-grid--2"><a class="media-item" href="https://pbs.twimg.com/media/HUbCU2NWcAAmmFE.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HUbCU2NWcAAmmFE.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HUbCU2bW8AEQ5_i.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HUbCU2bW8AEQ5_i.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/InsiderGeo/status/2109587148315722110" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 11</span><span>↻ 2</span><span>↩ 1</span></div><a href="https://x.com/Thom_Wolf/status/2109772139771597250" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">68<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>10-12 22:39 北京</time></div>
+        <p class="post-text original" lang="auto">I’ve known Ajay for a while and he’s doubled down on making tools that help you look at your data for evals
+
+Promising new entrant into the eval tools space</p><p class="post-text translation" lang="zh-CN">我认识 Ajay 有一阵子了，他一直在加码打造能帮助你查看评测数据的工具
+
+评测工具领域一个很有前景的新玩家</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2104587807201394688/b1t2Bshr_normal.jpg" alt="ajay yadav avatar" loading="lazy"></div><div><strong>ajay yadav</strong><span>@bettersayAJ</span></div></div><p class="quote-text original" lang="auto">building agents is easy
+
+getting them to production is hard
+
+today we’re launching @neatlogs to fix that https://t.co/IwhlPk2kR1</p><p class="quote-text translation" lang="zh-CN">构建 agent 很容易
+
+让它们投入生产很难
+
+今天我们推出 @neatlogs 来解决这个问题 https://t.co/IwhlPk2kR1</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HUbwUr_asAA7mvu.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HUbwUr_asAA7mvu.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/bettersayAJ/status/2109639214723932495" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 69</span><span>↻ 5</span><span>↩ 13</span></div><a href="https://x.com/HamelHusain/status/2109655278786683305" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="sh_reya" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1342529111839944705/hzr44mb5_normal.jpg" alt="Shreya Shankar avatar" loading="lazy"></div>
+          <div class="identity"><strong>Shreya Shankar</strong><span>@sh_reya · UC Berkeley / AI 工程研究员</span></div>
+          <div class="score">68<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>10-13 03:42 北京</time></div>
+        <p class="post-text original" lang="auto">New blog post with @charles_irl on how Quail classifies documents with LLMs ~1.8x faster than baselines!! https://t.co/42QNTsdmv8
+
+Most systems classify a document by asking an inference engine to generate the label as free text, and then parsing the labels out of the responses. But the LLM generates text one token at a time, and each of these decode steps is memory-bound, so the GPU sits mostly idle. How can we use the GPU better? 👇</p><p class="post-text translation" lang="zh-CN">和 @charles_irl 合写的新博客：Quail 如何用 LLM 对文档分类，速度比基线快约 1.8 倍！！https://t.co/42QNTsdmv8
+
+大多数系统对文档分类时，会让推理引擎以自由文本生成标签，然后从回复中解析标签。但 LLM 是逐个 token 生成文本的，每一步解码都受内存带宽限制，所以 GPU 大部分时间处于空闲。我们怎样才能更好地利用 GPU？👇</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 76</span><span>↻ 14</span><span>↩ 7</span></div><a href="https://x.com/sh_reya/status/2109731369689776539" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="yoheinakajima" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
+          <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
+          <div class="score">63<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>10-13 00:56 北京</time></div>
+        <p class="post-text original" lang="auto">AI enables the coolest side quests</p><p class="post-text translation" lang="zh-CN">AI 让最酷的支线任务成为可能</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1521942155568173057/7-iAFDkd_normal.jpg" alt="Eumemic avatar" loading="lazy"></div><div><strong>Eumemic</strong><span>@dysmemic</span></div></div><p class="quote-text original" lang="auto">We found 546 possible new exoplanets by searching 4 million stars in NASA&#x27;s public TESS data. None is on NASA&#x27;s list of TESS candidates yet. Here&#x27;s how we found them: https://t.co/ELg5DMiAOt</p><p class="quote-text translation" lang="zh-CN">我们在 NASA 公开的 TESS 数据中搜索了 400 万颗恒星，发现了 546 个可能的新系外行星。它们目前都还不在 NASA 的 TESS 候选名单上。我们是这样发现它们的：https://t.co/ELg5DMiAOt</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2109672608539230208/img/D0341WR8l85Xwiw9.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2109672608539230208/img/D0341WR8l85Xwiw9.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/dysmemic/status/2109673952775958535" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 29</span><span>↻ 1</span><span>↩ 4</span></div><a href="https://x.com/yoheinakajima/status/2109689707898741185" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="yoheinakajima" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
+          <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
+          <div class="score">60<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>10-13 05:08 北京</time></div>
+        <p class="post-text original" lang="auto">Glasp has a ton of users highlighting the web for themselves. then they compared against what AI would have highlighted. results show that models tend to agree with each other more than humans</p><p class="post-text translation" lang="zh-CN">Glasp 有大量用户会为自己高亮网页内容。然后他们把这些结果和 AI 会高亮的内容进行了对比。结果显示，模型之间的一致性往往高于人类之间的一致性</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1396345366346276868/KZZMtUOl_normal.jpg" alt="Kazuki Nakayashiki avatar" loading="lazy"></div><div><strong>Kazuki Nakayashiki</strong><span>@kazuki_sf_</span></div></div><p class="quote-text original" lang="auto">&quot;Simulating a population with several models has become a common research instrument. As the paper puts it, on this task the models agree with each other several times more than they agree with readers, and a population simulated from several models is not several populations.&quot;</p><p class="quote-text translation" lang="zh-CN">“用多个模型模拟一个群体，已经成为一种常见的研究工具。正如论文所说，在这项任务上，模型之间的一致性比它们与读者的一致性高出数倍，而由多个模型模拟出的一个群体，并不等于多个群体。”</p><a class="quote-link" href="https://x.com/kazuki_sf_/status/2109729408756207754" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 6</span><span>↻ 0</span><span>↩ 9</span></div><a href="https://x.com/yoheinakajima/status/2109753181106471379" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="aravsrinivas" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2099903483457703936/U-W6QQk__normal.jpg" alt="Aravind Srinivas avatar" loading="lazy"></div>
+          <div class="identity"><strong>Aravind Srinivas</strong><span>@AravSrinivas · Perplexity / CEO</span></div>
+          <div class="score">87<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 搜索 / 产品</span><time>10-13 02:15 北京</time></div>
+        <p class="post-text original" lang="auto">Congrats to Meta for training a frontier-grade model! Watermelon compares favorably to Fable 5.1 on WANDR evals.</p><p class="post-text translation" lang="zh-CN">祝贺 Meta 训练出了一个前沿级模型！Watermelon 在 WANDR 评测中相较 Fable 5.1 表现不俗。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div><div><strong>Alexandr Wang</strong><span>@alexandr_wang</span></div></div><p class="quote-text original" lang="auto">introducing muse wonder
+
+our new frontier model. state-of-the-art at personal agents and professional agents.
+
+our largest and most capable model yet—rivals the big bois https://t.co/REYHXbjpf6</p><p class="quote-text translation" lang="zh-CN">推出 muse wonder
+
+我们的新一代前沿模型。在个人代理和专业代理方面达到最先进水平。
+
+这是我们迄今最大、能力最强的模型，可与那些大牌模型一较高下 https://t.co/REYHXbjpf6</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2109688838851608576/img/07mj_XkO82RHfvbC.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2109688838851608576/img/07mj_XkO82RHfvbC.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/alexandr_wang/status/2109689491300794551" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 593</span><span>↻ 21</span><span>↩ 27</span></div><a href="https://x.com/AravSrinivas/status/2109709489935126752" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="aravsrinivas" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2099903483457703936/U-W6QQk__normal.jpg" alt="Aravind Srinivas avatar" loading="lazy"></div>
+          <div class="identity"><strong>Aravind Srinivas</strong><span>@AravSrinivas · Perplexity / CEO</span></div>
+          <div class="score">82<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 搜索 / 产品</span><time>10-12 23:26 北京</time></div>
+        <p class="post-text original" lang="auto">Was a fun chat! Thanks for having me @MollySOShea!</p><p class="post-text translation" lang="zh-CN">聊得很开心！谢谢邀请我 @MollySOShea！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1673061505351450624/2A8YvQ2N_normal.jpg" alt="Molly O’Shea avatar" loading="lazy"></div><div><strong>Molly O’Shea</strong><span>@MollySOShea</span></div></div><p class="quote-text original" lang="auto">NEW: I sat down w/ Perplexity Founder &amp; CEO Aravind Srinivas (@AravSrinivas) on why AI-native SMBs could drive the next American millionaire economic boom.
+
+@perplexity_ai, valued at ~$20B with ~$2B in reported funding, $750M in annualized revenue as of August,  seeing 5x YoY revenue growth as it expands from search into autonomous agents.
+
+One example Aravind shared is a single-person company generating $3M in annual revenue while spending over $1M a year on Perplexity Computer.
+
+His thesis is that AI could fundamentally change the economics of building a business. Smaller teams, less capital, higher productivity, &amp; entirely new business models.
+
+At the infrastructure layer, Aravind sees a shift toward local &amp; hybrid inference, with AI agents operating across personal devices and the cloud. As context windows expand and workloads become more personalized, local compute becomes increasingly cost-competitive, while offering greater privacy, control &amp; data sovereignty.
+
+We cover:
+› Why SMBs could become a major driver of US GDP growth
+› The shift from AI models to agents &amp; recursive economics
+› Why Perplexity is betting on your Mac instead of building data centers
+› NVIDIA, Apple Silicon, local inference &amp; sovereign AI
+› Why writing code is no longer the bottleneck, but problem-solving is
+
+𝐓𝐈𝐌𝐄𝐒𝐓𝐀𝐌𝐏𝐒
+(00:00) Aravind Srinivas, Co-founder &amp; CEO of Perplexity
+(01:30) Why Perplexity&#x27;s brand is built on curiosity
+(04:47) Every great invention starts with one question
+(08:18) How to build a $1T company in America alone
+(12:36) The next big companies will be tiny
+(13:45) Is the American dream still alive?
+(16:28) Stop blaming users for bad prompts
+(22:55) How Perplexity quietly grew 5x
+(26:51) The solopreneur spending $1M a year on Perplexity
+(28:28) &quot;We don&#x27;t have competitors, we have contributors&quot;
+(29:20) The data center is coming to your laptop
+(34:32) Orchestrating up with NVIDIA, down with Apple
+(36:11) What happens when your AI agent knows everything
+(39:17) Why Perplexity is skipping the data center race
+(41:25) Stop asking AI to write code, ask it to think
+(45:47) Perplexity’s answer to AI security
+(48:27) The Hugging Face incident &amp; multi-agent threats
+(50:45) Turning everyone into a scientist
+(53:31) Why Perplexity isn’t chasing a billion users</p><p class="quote-text translation" lang="zh-CN">新内容：我采访了 Perplexity 创始人兼 CEO Aravind Srinivas（@AravSrinivas），探讨 AI 原生中小企业为何可能推动下一轮美国百万富翁经济繁荣。
+
+@perplexity_ai 估值约 200 亿美元，据报道融资约 20 亿美元，截至 8 月年化收入达 7.5 亿美元，随着从搜索扩展到自主代理，收入同比增长 5 倍。
+
+Aravind 分享的一个例子是，一家单人公司年收入达 300 万美元，同时每年在 Perplexity Computer 上花费超过 100 万美元。
+
+他的观点是，AI 可能从根本上改变创业的经济逻辑：更小的团队、更少的资本、更高的生产力，以及全新的商业模式。
+
+在基础设施层面，Aravind 认为趋势正转向本地与混合推理，AI 代理将在个人设备和云端之间运行。随着上下文窗口扩大、工作负载更加个性化，本地计算在成本竞争力上越来越强，同时还能提供更好的隐私、控制权和数据主权。
+
+我们讨论了：
+› 为什么中小企业可能成为美国 GDP 增长的重要驱动力
+› 从 AI 模型到代理与递归经济的转变
+› 为什么 Perplexity 押注你的 Mac，而不是建设数据中心
+› NVIDIA、Apple Silicon、本地推理与主权 AI
+› 为什么写代码不再是瓶颈，解决问题才是
+
+时间戳
+(00:00) Aravind Srinivas，Perplexity 联合创始人兼 CEO
+(01:30) 为什么 Perplexity 的品牌建立在好奇心之上
+(04:47) 每一项伟大发明都始于一个问题
+(08:18) 如何仅在美国打造一家 1 万亿美元公司
+(12:36) 下一批大公司会很小
+(13:45) 美国梦还存在吗？
+(16:28) 别再把糟糕提示词归咎于用户
+(22:55) Perplexity 如何低调增长 5 倍
+(26:51) 每年在 Perplexity 上花费 100 万美元的独立创业者
+(28:28) “我们没有竞争对手，只有贡献者”
+(29:20) 数据中心正在来到你的笔记本电脑上
+(34:32) 向上协同 NVIDIA，向下协同 Apple
+(36:11) 当你的 AI 代理无所不知时会发生什么
+(39:17) 为什么 Perplexity 跳过数据中心竞赛
+(41:25) 别再让 AI 写代码，让它思考
+(45:47) Perplexity 对 AI 安全的回答
+(48:27) Hugging Face 事件与多代理威胁
+(50:45) 让每个人都成为科学家
+(53:31) 为什么 Perplexity 不追逐十亿用户</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2109615096742002689/img/Z4vx8QqPpyaV2U-G.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2109615096742002689/img/Z4vx8QqPpyaV2U-G.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/MollySOShea/status/2109645765958132083" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 184</span><span>↻ 12</span><span>↩ 21</span></div><a href="https://x.com/AravSrinivas/status/2109666949836017732" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="thom_wolf" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2068682157451571200/_ZNKM_5E_normal.jpg" alt="Thomas Wolf avatar" loading="lazy"></div>
+          <div class="identity"><strong>Thomas Wolf</strong><span>@Thom_Wolf · Hugging Face / 联合创始人兼 CSO</span></div>
+          <div class="score">74<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>开源模型 / Hugging Face</span><time>10-13 00:14 北京</time></div>
+        <p class="post-text original" lang="auto">open and state-of-the-art decision models - just saying</p><p class="post-text translation" lang="zh-CN">开放且最先进的决策模型——只是说说</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1099983311101984768/p7dZK4S__normal.jpg" alt="Victor M avatar" loading="lazy"></div><div><strong>Victor M</strong><span>@victormustar</span></div></div><p class="quote-text original" lang="auto">Decision 3.0 hype is real! it is the top performer in my little apple-harvesting test. It can actually play: read the scene, pick its own moves and collect apples without a pathfinding controller.
+
+Input: a screenshot of its surroundings, game stats and a short memory of its last four moves. It chooses up/down/left/right each turn.
+
+This run: 7 apples in 38 moves, zero damage 🔥</p><p class="quote-text translation" lang="zh-CN">Decision 3.0 的热度是真的！它是我这个小型摘苹果测试中的最佳表现者。它真的会玩：读取场景，自主选择行动，并在没有寻路控制器的情况下收集苹果。
+
+输入：周围环境截图、游戏状态，以及最近四步的简短记忆。它每回合选择上/下/左/右。
+
+本次运行：38 步摘到 7 个苹果，零伤害 🔥</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2109672768232931329/img/bdlPeOYNhs7hq98D.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2109672768232931329/img/bdlPeOYNhs7hq98D.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/victormustar/status/2109673301844906023" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 31</span><span>↻ 2</span><span>↩ 2</span></div><a href="https://x.com/Thom_Wolf/status/2109679054559256890" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">60<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>10-12 09:54 北京</time></div>
+        <p class="post-text original source-only" lang="auto">@Xuan04263449 课程里对token成本这一块也有很详细的介绍</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 4</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/Xudong07452910/status/2109462805845864551" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="sh_reya" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1342529111839944705/hzr44mb5_normal.jpg" alt="Shreya Shankar avatar" loading="lazy"></div>
+          <div class="identity"><strong>Shreya Shankar</strong><span>@sh_reya · UC Berkeley / AI 工程研究员</span></div>
+          <div class="score">52<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>10-13 03:42 北京</time></div>
+        <p class="post-text original" lang="auto">To answer this, let&#x27;s first look at what classification needs. Classification is one of the most common AI-SQL operations. Given a set of documents and a list of labels, the goal is to pick the label that best fits each document. E.g., a support team might sort every incoming message into &quot;billing&quot;, &quot;refund request&quot;, &quot;shipping delay&quot;, and so on. Importantly, the full list of labels is known before the query runs.</p><p class="post-text translation" lang="zh-CN">要回答这个问题，我们先看看分类需要什么。分类是最常见的 AI-SQL 操作之一。给定一组文档和一组标签，目标是为每个文档选择最匹配的标签。例如，客服团队可能会把每条新消息归类为“账单”“退款请求”“发货延迟”等。重要的是，在查询运行前，完整的标签列表已经是已知的。</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HUdEQAtaYAAxEqy.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HUdEQAtaYAAxEqy.png" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 0</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/sh_reya/status/2109731371778490795" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+    </main>
+    <footer>Generated 2026-10-13 07:01:47 Asia/Shanghai · Read-only X ingestion via Bird · Translation via Codex</footer>
+  </div>
+</body>
+</html>

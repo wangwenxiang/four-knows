@@ -16,29 +16,31 @@
   h2{display:-webkit-box;max-height:2.12em;margin:0;overflow:hidden;overflow-wrap:anywhere;font-size:var(--headline-size,56px);line-height:1.06;font-weight:950;letter-spacing:-1.8px;-webkit-box-orient:vertical;-webkit-line-clamp:2} .story p{margin:8px 0 0;overflow-wrap:anywhere;color:#5d626b;font-size:30px;line-height:1.25;font-weight:750;white-space:normal}
   .story--sparse p{font-size:34px;line-height:1.22} .story--dense p{font-size:27px;line-height:1.23}
   .story--quote p{display:-webkit-box;max-height:3.75em;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:3}
-</style></head><body><div class="poster"><header><div><h1>硅谷 AI 原声 <span>| 10/6</span></h1><div class="subtitle">全球核心专家动态精选 · 最近 23 小时</div></div><div class="stats"><div class="stat"><strong>62</strong><small>人监控</small></div><div class="stat"><strong>12</strong><small>条精选</small></div></div></header><main><article class="story story--balanced" style="--headline-size:66px">
-        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han"></div><b>1</b></div>
+</style></head><body><div class="poster"><header><div><h1>硅谷 AI 原声 <span>| 10/13</span></h1><div class="subtitle">全球核心专家动态精选 · 最近 23 小时</div></div><div class="stats"><div class="stat"><strong>62</strong><small>人监控</small></div><div class="stat"><strong>23</strong><small>条精选</small></div></div></header><main><article class="story story--sparse" style="--headline-size:75px">
+        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/1342529111839944705/hzr44mb5_normal.jpg" alt="Shreya Shankar"></div><b>1</b></div>
+        <div class="story-body">
+          <div class="byline"><strong>Shreya Shankar</strong><em>AI 技术应用</em><span>@sh_reya · UC Berkeley / AI 工程研究员</span></div>
+          <h2>Quail 用标签 Trie 约束解码提速分类查询</h2>
+          <p>它在唯一标签确定时提前停止，并把短解码并入文档预填充批次，12 个查询较 vLLM 快约 1.8 倍</p>
+        </div>
+      </article><article class="story story--dense story--quote" style="--headline-size:75px">
+        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/1389486324516671496/owa9Z4AC_normal.jpg" alt="Tri Dao"></div><b>2</b></div>
+        <div class="story-body">
+          <div class="byline"><strong>Tri Dao</strong><em>AI 技术进步</em><span>@tri_dao · Together AI；FlashAttention 作者</span></div>
+          <h2>SSM 推理瓶颈转向内存 IO 与缓存对象选择</h2>
+          <p>引用｜ReplaySSM 现在已在 GLM-5.3-Flash 和 Kimi-K3 的生产环境中运行，并已集成到 TensorRT-LLM、vLLM、FlashInfer 和 SGLang 中！
+
+它能加速标准解码（最高 1.47 倍）和推测解码（最高 2.1 倍），现在还支持低精度 SSM 状态，其舍入误差永远不会通过递归传播。
+
+在我们此前 ReplaySSM 工作的基础上，我们与 @NVIDIA 合作，明确了这一方法真正释放的能力。ReplaySSM 做的是缓存 SSM 输入而不是状态。它带来的变化是，在解码期间可以将输出计算与状态更新分离。所有三项收益都源于这种分离。
+
+与 @NVIDIA 和 @tri_dao 联合发布的博客、论文和代码 👇</p>
+        </div>
+      </article><article class="story story--balanced" style="--headline-size:61px">
+        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han"></div><b>3</b></div>
         <div class="story-body">
           <div class="byline"><strong>Xudong Han</strong><em>AI 技术前沿</em><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
-          <h2>VeriHarness让长时Agent同时质疑分歧与共识</h2>
-          <p>它用Resolver查证多次rollout分歧，用Challenger挑战一致错误，五个Workspace基准平均提升约6分。</p>
-        </div>
-      </article><article class="story story--dense story--quote" style="--headline-size:59px">
-        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/1569345624935485442/R67C4wCQ_normal.jpg" alt="Harrison Chase"></div><b>2</b></div>
-        <div class="story-body">
-          <div class="byline"><strong>Harrison Chase</strong><em>AI 技术进步</em><span>@hwchase17 · LangChain / CEO</span></div>
-          <h2>Cognition Dreaming把Agent记忆维护放到离线循环</h2>
-          <p>引用｜推出 Dreaming：跨会话中，Devin 会构建一个关于你工作偏好的记忆图谱
-
-夜间，Devin 会自我改进其记忆，移除过时记录并发现潜在信息
-
-我们正在创建一个名为 Agent Memory Repo 的 OSS 标准：https://t.co/b6qzEJsaeT https://t.co/G3o1WQqQbN</p>
-        </div>
-      </article><article class="story story--sparse" style="--headline-size:74px">
-        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/1967920417760251904/0ytfduMQ_normal.png" alt="LlamaIndex"></div><b>3</b></div>
-        <div class="story-body">
-          <div class="byline"><strong>LlamaIndex</strong><em>AI 技术应用</em><span>@llama_index · Agent 数据框架</span></div>
-          <h2>Agentic OCR用循环解析取代单遍文字识别</h2>
-          <p>它按版式确定阅读顺序，路由难处理元素，并用多模态解析图表、图像和复杂表格再自检纠错。</p>
+          <h2>Agent Plasticity 衡量智能体从经验中变强的能力</h2>
+          <p>权重不变时仅更新记忆、技能、策略和工具，棋类与 NetHack 测试显示 Claude Fable 5 最强、GPT-5.6 Sol 学习效率更高</p>
         </div>
       </article></main></div><script>window.scrollTo(0,0);document.documentElement.scrollTop=0;document.body.scrollTop=0;</script></body></html>
