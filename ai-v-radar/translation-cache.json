@@ -14903,7 +14903,192 @@
       "source": "To answer this, let's first look at what classification needs. Classification is one of the most common AI-SQL operations. Given a set of documents and a list of labels, the goal is to pick the label that best fits each document. E.g., a support team might sort every incoming message into \"billing\", \"refund request\", \"shipping delay\", and so on. Importantly, the full list of labels is known before the query runs.",
       "zh": "要回答这个问题，我们先看看分类需要什么。分类是最常见的 AI-SQL 操作之一。给定一组文档和一组标签，目标是为每个文档选择最匹配的标签。例如，客服团队可能会把每条新消息归类为“账单”“退款请求”“发货延迟”等。重要的是，在查询运行前，完整的标签列表已经是已知的。",
       "promptVersion": "codex-v1"
+    },
+    "55e8d3838104033122da34c682ba76eba7600de8373f4f9eab2a9f90da68db9d": {
+      "source": "Gemini 4 Argon taught a robot to play cornhole just by watching a video.\n\nIt mapped the physics, coded its own simulation, and taught @Apptronik's Apollo humanoid to sink 7 throws in a row. https://t.co/JIyoKnVc4q",
+      "zh": "Gemini 4 Argon 只通过观看一段视频，就教会了机器人玩 cornhole。\n\n它建立了物理映射，编写了自己的模拟程序，并教会 @Apptronik 的 Apollo 人形机器人连续投中 7 次。https://t.co/JIyoKnVc4q",
+      "promptVersion": "codex-v1"
+    },
+    "cb1ac9d5c20486d68d5885798bc4eb1b31f0964ddec11eee915a864272de8873": {
+      "source": "router lives in the harness, not a gateway, bc the harness knows the task\n\nblog: https://t.co/k9b306ikK1\n\nhttps://t.co/4FggNo00jY",
+      "zh": "router 存在于 harness 中，而不是 gateway 里，因为 harness 知道任务是什么\n\n博客：https://t.co/k9b306ikK1\n\nhttps://t.co/4FggNo00jY",
+      "promptVersion": "codex-v1"
+    },
+    "9d900c355fff138859b616d73817c4456a09764c188e495967861544bde66fa1": {
+      "source": "LangChain gave its coding agent three models and a router.\n\nOpen SWE, their open-source coding agent, now sends each thread to the cheapest model likely to finish the job.\n\nthey tested it on 973 threads, half routed and half always on GPT-6 Astra.\n\nmedian cost per thread: $0.94 against $2.61. that's 64% lower.\n\nthreads ending in a merged PR: 29.2% routed, 27.3% on Astra. LangChain's p-value for that gap is 0.49.\n\nthe router sent 56% of threads to the balanced model, 34% to the fast one and 10% to the performance one.\n\nthey also tried always using the fast model. that test ended within a day, because engineers reported low output quality.\n\nLangChain's own caveats: the control was the most expensive model, and the router is a proof of concept.\n\nWhich three models would you put in the tiers?",
+      "zh": "LangChain 给它的编码 agent 配了三个模型和一个 router。\n\n他们的开源编码 agent Open SWE 现在会把每个线程发送给最便宜且可能完成任务的模型。\n\n他们在 973 个线程上进行了测试，一半使用路由，另一半始终使用 GPT-6 Astra。\n\n每个线程的中位成本：$0.94 对比 $2.61，降低了 64%。\n\n最终合并 PR 的线程占比：路由组 29.2%，Astra 组 27.3%。LangChain 给出的这一差异 p 值为 0.49。\n\nrouter 将 56% 的线程发送给均衡模型，34% 发送给快速模型，10% 发送给性能模型。\n\n他们也尝试过始终使用快速模型。这个测试不到一天就结束了，因为工程师反馈输出质量较低。\n\nLangChain 自己也提示了局限：对照组使用的是最贵的模型，而 router 只是概念验证。\n\n你会把哪三个模型放进这些层级？",
+      "promptVersion": "codex-v1"
+    },
+    "33de85bd9451f644a8ae6d8c59a098fb413343306136e28cdeb43bb83cbd3cb5": {
+      "source": "Congrats on the release! Looks like a fantastic model.",
+      "zh": "恭喜发布！看起来是个很棒的模型。",
+      "promptVersion": "codex-v1"
+    },
+    "2ed8b5903b919cadac6adc47438ac08d3aa3b0b99372b10b6fc2a90a143a5be9": {
+      "source": "Gemini 4 Argon is here.\n\nIt’s available globally today for developers and enterprises in the paid tier of the Gemini API and the Gemini platform, for Ultra subscribers in Google Antigravity, and Ultra and Pro subscribers in the Gemini app and Search.\n\nHope you all enjoy it! https://t.co/2jyAgqoylU",
+      "zh": "Gemini 4 Argon 来了。\n\n从今天起，全球开发者和企业可通过 Gemini API 和 Gemini 平台的付费层使用；Google Antigravity 的 Ultra 订阅用户，以及 Gemini app 和 Search 的 Ultra 与 Pro 订阅用户也可使用。\n\n希望大家喜欢！https://t.co/2jyAgqoylU",
+      "promptVersion": "codex-v1"
+    },
+    "779de747678d3295bce2c2e41b318fb2adc5eb0a40bd1b73703fce028c3c4402": {
+      "source": "The Pi API is officially in beta! 🤖\n\nMany people have already been using it to fine-tune π models for their robots -- below are a few\n\nWe’re hoping to expand testing significantly. Let us know if you are interested!\n\nBlog: https://t.co/JBTahDOmg7\nSignup: https://t.co/pIVpvdGxCN https://t.co/5pmbAlASaq",
+      "zh": "Pi API 正式进入 beta！🤖\n\n许多人已经在用它为自己的机器人微调 π 模型，下面是几个例子\n\n我们希望大幅扩大测试范围。如果你感兴趣，请告诉我们！\n\n博客：https://t.co/JBTahDOmg7\n注册：https://t.co/pIVpvdGxCN https://t.co/5pmbAlASaq",
+      "promptVersion": "codex-v1"
+    },
+    "33c37ad11ae55423144111ae843395fccf9feb363d20bce8a3c822215f45195d": {
+      "source": "wait so this feels a bit different too in a good way",
+      "zh": "等等，所以这感觉也有点不一样，而且是好的那种",
+      "promptVersion": "codex-v1"
+    },
+    "52dddc98785b3b3fc0112752b25ad4855fa63e1f6fc0521ca8387aa7fcec9829": {
+      "source": "You already gave the LLM the answer. So why is it writing it out from scratch?\n\nIntroducing a new AI model architecture: Constrained Decoding Models (CDMs)\n\nLLMs were built to write. Most production workloads just need an answer: fast, consistent, and affordable.\n\nCDMs are purpose-built for 1 task each. They read your input once and skip the token-by-token generative loop that makes LLMs slow and expensive.\n\nNot just a decision model, but a family of 3 CDMs live today:\n\n• Classify: define your labels and get back a calibrated probability + reason for each. Used for routing, tagging, and intent detection.\n • Extract: describe the entities in natural language and get back well-formed JSON with confidence scores + citations. Used for web scraping, document processing, and PII redaction.\n • Summarize: pass in long text, images, or PDFs and get back a consistent summary under 1,000 tokens. Used for context compaction, metadata generation, and transcript digests.\n\nBuilt for production:\n\n• 1M tokens of multimodal (text + image) input, 31x larger than Jev\n • 77.2% on DecisionBench vs Jev's 72%\n • 200x faster, 467x cheaper than frontier LLM APIs\n • $0.05/M input tokens. Output is free (yes, even for summarize)\n\nLive on your favorite platforms today:\n @OpenRouter @vercel_dev @LiteLLM @LangChain  @TrustedRouter @itsArthurAI @useRouterPlus\n\nGet 50M input tokens for free (for the first 50 hours) at link below 👀",
+      "zh": "你已经把答案给了 LLM。那它为什么还要从头写一遍？\n\n介绍一种新的 AI 模型架构：Constrained Decoding Models（CDMs）\n\nLLM 是为写作而构建的。大多数生产工作负载只需要一个答案：快速、一致且低成本。\n\nCDM 专为单一任务而构建。它们只读取一次输入，并跳过让 LLM 变慢、变贵的逐 token 生成循环。\n\n这不只是一个决策模型，而是一个由 3 个 CDM 组成的系列，今天已上线：\n\n• Classify：定义你的标签，并获得每个标签的校准概率 + 原因。用于路由、标注和意图检测。\n • Extract：用自然语言描述实体，并返回格式良好的 JSON，包含置信度分数 + 引用。用于网页抓取、文档处理和 PII 脱敏。\n • Summarize：输入长文本、图像或 PDF，并获得 1,000 token 以内的一致摘要。用于上下文压缩、元数据生成和转录摘要。\n\n为生产环境而构建：\n\n• 1M token 的多模态（文本 + 图像）输入，比 Jev 大 31 倍\n • DecisionBench 上达到 77.2%，Jev 为 72%\n • 比前沿 LLM API 快 200 倍，便宜 467 倍\n • 每百万输入 token $0.05。输出免费（是的，即使是 summarize 也免费）\n\n今天已在你喜欢的平台上线：\n @OpenRouter @vercel_dev @LiteLLM @LangChain  @TrustedRouter @itsArthurAI @useRouterPlus\n\n通过下方链接免费获得 50M 输入 token（前 50 小时）👀",
+      "promptVersion": "codex-v1"
+    },
+    "c5046eef13dcd836f889959557e152cf0a014161ad9d9c7ef41460fa7ab47bdb": {
+      "source": "6 days and $40,000 of compute with GPT-5.6 Sol to find a critical vulnerability in Chrome, claiming Google’s first full-chain reward in 2026 for a vulnerability that would affect an estimated 1 billion users.\n\nHighlights the opportunity for defenders to utilize these tools to secure their software to unprecedented levels:",
+      "zh": "用 6 天和 40,000 美元的 GPT-5.6 Sol 计算资源，在 Chrome 中发现了一个严重漏洞，并声称拿下 Google 2026 年首个完整攻击链奖励。该漏洞估计会影响 10 亿用户。\n\n这凸显了防御者利用这些工具把软件安全提升到前所未有水平的机会：",
+      "promptVersion": "codex-v1"
+    },
+    "ea2b68bd5eb41dc184d585ef5c3d3c6d1f4ec56520eafa33f0ebb5c52234c184": {
+      "source": "For the second time in Google Chrome’s history, Google awarded a $250,000 bounty for a full-chain exploit… to @XBOW. Here’s the full story:\n\nAt an all-hands at the start of 2026 in Malta, I set the team a crazy challenge. A full-chain exploit of Chrome by the annual Black Hat cybersecurity conference in August.\n\nI believed there were few better tests of whether @XBOW could move beyond web applications to desktop software, servers and devices.\n\nChrome is one of the most hardened pieces of software on the planet, used by more than half the world’s population.\n\nA full-chain exploit lets an attacker take total control of a machine, where they can read every email, password and bank login the user types. You don’t need to download anything or click a phishing link. Visiting the wrong site is enough.\n\nSo @moyix, Andres Luksenberg, Baul Lee, and Willem Pinckaers took on the challenge along with a fifth teammate: OpenAI's GPT-5.6 Sol. \n\nThey built a chain they thought would win, but Google told us they already knew one of the bugs. \n\nWe were already in Las Vegas for Black Hat and DEF CON, and the team didn’t want to go home without the win.\n\nSo Brendan and the agents built a new exploit in just 6 days. \n\nWe submitted it to Google and waited.\n\nThe news came through that we'd done what should’ve been impossible. A full-chain bounty of $250,000, the first awarded under Google’s 2026 rules.\n\nIt took just 6 days and $40,000 of compute to construct an exploit that affects a billion users of Chrome on Windows. An intelligence-agency veteran told me his team used to spend 6 months on this kind of vulnerability.\n\nMy takeaway: the cost of finding truly critical vulnerabilities is collapsing, for attackers and defenders alike. Restricting powerful models is not the answer; GPT-5.6 Sol is already public.\n\nBut defenders have one advantage attackers never will: they can test their own code first. \n\nAssume your software is exploitable. Whoever is hunting your bugs has the same building blocks we did.\n\nThis is cause for urgency but not panic.\n\nXBOW is now developing an autonomous product for testing compiled software (desktop applications, servers, embedded devices), and partnering with the world’s top organizations to design that product. \n\nIf you’d like to be one of them, get in touch. \n\nP.S. Restart Chrome whenever the Update button appears!",
+      "zh": "Google Chrome 历史上第二次，Google 为一个完整攻击链漏洞颁发了 250,000 美元赏金……给了 @XBOW。完整故事如下：\n\n2026 年初在马耳他的一次全员会上，我给团队设定了一个疯狂挑战：在 8 月的年度 Black Hat 网络安全大会前，完成 Chrome 的完整攻击链漏洞利用。\n\n我认为，几乎没有比这更好的测试，能验证 @XBOW 是否可以从 Web 应用拓展到桌面软件、服务器和设备。\n\nChrome 是地球上加固程度最高的软件之一，全球超过一半人口都在使用。\n\n完整攻击链漏洞可以让攻击者完全控制一台机器，读取用户输入的每一封邮件、密码和银行登录信息。你不需要下载任何东西，也不需要点击钓鱼链接。访问错误的网站就足够了。\n\n于是 @moyix、Andres Luksenberg、Baul Lee 和 Willem Pinckaers 与第五位队友一起接下了挑战：OpenAI 的 GPT-5.6 Sol。\n\n他们构建了一条原以为能获胜的攻击链，但 Google 告诉我们，其中一个漏洞他们已经知道了。\n\n当时我们已经在拉斯维加斯参加 Black Hat 和 DEF CON，团队不想空手而归。\n\n于是 Brendan 和智能体们只用了 6 天就构建了一个新的漏洞利用。\n\n我们把它提交给 Google，然后等待结果。\n\n消息传来：我们完成了本应不可能完成的事。250,000 美元的完整攻击链赏金，也是 Google 2026 年规则下颁发的首个此类奖励。\n\n只用了 6 天和 40,000 美元的计算资源，就构建出一个影响 Windows 上 10 亿 Chrome 用户的漏洞利用。一位情报机构老兵告诉我，他的团队过去要花 6 个月处理这类漏洞。\n\n我的结论是：发现真正严重漏洞的成本正在崩塌，对攻击者和防御者都是如此。限制强大模型不是答案；GPT-5.6 Sol 已经公开。\n\n但防御者拥有攻击者永远没有的一个优势：他们可以先测试自己的代码。\n\n假设你的软件是可被利用的。追踪你漏洞的人，拥有和我们一样的基础工具。\n\n这需要紧迫感，但不必恐慌。\n\nXBOW 现在正在开发一款用于测试编译型软件（桌面应用、服务器、嵌入式设备）的自主产品，并与全球顶级组织合作设计这款产品。\n\n如果你想成为其中之一，欢迎联系。\n\n附：只要出现 Update 按钮，就重启 Chrome！",
+      "promptVersion": "codex-v1"
+    },
+    "c0076690dbecb31f6d7835bbd0ec720b0d8613d3e333d499d24a3045124e7439": {
+      "source": "New on our Engineering blog: Creating in-house source control. \n\nIn May, we merged around 2,500 code changes per day. In September, we merged more than 30,000 per day. As a result, we became bottlenecked by developer infrastructure built for human (rather than agent) scale.  \n\nHere, we share how we built a new version control system—and fully migrated our monorepo from git—in five months: https://t.co/wzNkwHs7IN",
+      "zh": "我们的 Engineering 博客更新：创建内部源代码管理系统。\n\n今年 5 月，我们每天合并约 2,500 次代码变更。到 9 月，我们每天合并超过 30,000 次。因此，我们受制于为人类规模而非智能体规模构建的开发者基础设施。\n\n在这里，我们分享了如何在五个月内构建一个新的版本控制系统，并将我们的 monorepo 从 git 完全迁移过去：https://t.co/wzNkwHs7IN",
+      "promptVersion": "codex-v1"
+    },
+    "059c3ee3f334668e63cff11931ec0023d1e92f641f12937326484d90dabf62bd": {
+      "source": "I love lasers (really wanted to work on them as a kid)… especially Argon lasers 😀 reminded me of this scene from one of my fave films: ‘synthesize excited bromide in an argon matrix… but that would be hotter than the sun’ 😂 Val Kilmer was so cool https://t.co/A7BKAJDJhm",
+      "zh": "我喜欢激光（小时候真的很想研究它们）……尤其是 Argon 激光 😀 让我想起我最喜欢的电影之一里的这个场景：“在氩基质中合成激发态溴化物……但那会比太阳还热” 😂 Val Kilmer 太酷了 https://t.co/A7BKAJDJhm",
+      "promptVersion": "codex-v1"
+    },
+    "e95812a229c4904867949d82acfde9a3437995dbeef70e7cf6c9249e7889ebc4": {
+      "source": "Gemini 4 Argon is amazing for knowledge work and coding - and it’s super fun to build with! We asked it to create this wizard chess game and it's so cool to see Argon's physics understanding & 3D modelling capabilities, makes me nostalgic for Battlechess on the Amiga - fun times!\n\nArgon is rolling out today to Google Ultra and Pro subscribers in the @GeminiApp and Search, and Ultra subscribers in @antigravity! More info & full availability in the blog: https://t.co/7d3791mRNH",
+      "zh": "Gemini 4 Argon 在知识工作和编码方面非常出色，而且用它构建东西也特别有趣！我们让它创建了这个巫师棋游戏，看到 Argon 对物理的理解和 3D 建模能力真的很酷，让我怀念 Amiga 上的 Battlechess，真是好时光！\n\nArgon 今天开始向 @GeminiApp 和 Search 中的 Google Ultra 与 Pro 订阅用户推出，也向 @antigravity 中的 Ultra 订阅用户推出！更多信息和完整可用范围见博客：https://t.co/7d3791mRNH",
+      "promptVersion": "codex-v1"
+    },
+    "d93643d89985d03e09ed15576f92845d13bb87f6ed6e952cb1e9aedd039c7ca1": {
+      "source": "Announcing the beta release of the Pi API. We’ve partnered with companies across diverse industries to adapt our models to their robots and applications, from harvesting strawberries to assembling servers. Now we’re opening access to more teams. https://t.co/0T9tTFjVqM",
+      "zh": "宣布 Pi API beta 版发布。我们已与多个不同行业的公司合作，将我们的模型适配到他们的机器人和应用中，从采摘草莓到组装服务器。现在，我们正向更多团队开放访问权限。https://t.co/0T9tTFjVqM",
+      "promptVersion": "codex-v1"
+    },
+    "f8fdfb1f2463993ec90ca54cd7c3f1ca886c1534e435aa3951c08a128d69c2ea": {
+      "source": "Amazing to see research move from the lab to real-world clinical utility - congrats to the team on this milestone &amp; @TheLancet paper!",
+      "zh": "很高兴看到研究从实验室走向真实世界的临床应用，祝贺团队达成这一里程碑并在 @TheLancet 发表论文！",
+      "promptVersion": "codex-v1"
+    },
+    "354f43366a053488064cba58d4da80cc531d2df6c42429799d40b764faa070fd": {
+      "source": "Today @TheLancet published our AMIE study with @BIDMC_Medicine, the first prospective study of patient-facing conversational diagnostics in a real clinic.\n\nAMIE is a research system people can chat with before doctors appointments. Testing AMIE outside the lab with real urgent care patients showed how technology can help gather medical histories safely. Clinicians reported that the summaries helped them prepare for visits in 75% of cases and influenced their approach to care in more than half. AMIE’s differential diagnoses also matched the doctors’ final diagnoses 90% of the time giving clinicians more time to focus on patient care.\n\nIt’s Google’s first-ever paper in The Lancet’s main journal!",
+      "zh": "今天，@TheLancet 发表了我们与 @BIDMC_Medicine 合作的 AMIE 研究，这是首个在真实诊所中开展的、面向患者的对话式诊断前瞻性研究。\n\nAMIE 是一个研究系统，人们可以在看医生前与它聊天。在实验室之外，使用真实急诊护理患者测试 AMIE，展示了技术如何安全地帮助收集病史。临床医生报告称，这些摘要在 75% 的病例中帮助他们为就诊做准备，并在超过一半的病例中影响了他们的诊疗方式。AMIE 的鉴别诊断也有 90% 与医生的最终诊断相匹配，让临床医生有更多时间专注于患者护理。\n\n这是 Google 首次在 The Lancet 主刊发表论文！",
+      "promptVersion": "codex-v1"
+    },
+    "bb495048ef1a621e44a3f9c77e6fa9f70feaa281fedf15ec346b987987b71889": {
+      "source": "Upload robot data, fine-tune our most capable models and connect your robots to cloud hosted inference through the API. We handle the infrastructure so you can focus on what’s unique to your use case.\n\nSee what teams are building and join the beta at https://t.co/mLY5ZXLBhj",
+      "zh": "上传机器人数据，微调我们最强大的模型，并通过 API 将你的机器人连接到云端托管推理。我们负责基础设施，你可以专注于用例中真正独特的部分。\n\n看看各团队正在构建什么，并在 https://t.co/mLY5ZXLBhj 加入 beta",
+      "promptVersion": "codex-v1"
+    },
+    "fb3b8a9bc1127b91c9690ec9675daf7b172403a9cc0449b235c3bde2793f0605": {
+      "source": "the TOP use case for muse wonder in building it was for use in Muse to serve consumers\n\nreally great to see that people are enjoying the upgrade 🫶",
+      "zh": "构建 muse wonder 时，首要用例就是在 Muse 中服务消费者\n\n很高兴看到大家喜欢这次升级 🫶",
+      "promptVersion": "codex-v1"
+    },
+    "1c518896058d1eb2366c897cbb7a1102adcdad0afb288be0d528ba7c22ad098c": {
+      "source": "Very early impressions of Muse Wonder in the Muse app:\n\n1. No regressions I notice. In particular, no personality or writing regressions. Feels like the same entity I was talking to with Spark.\n\n2. Better UI sense. Had it polish an app made with Spark and it found a really elegant way of positioning a footer “Next” button that kept going off screen in a quiz (it floated the button so it always stays in the same place rather than getting pushed down).\n\n3. Caught subtle bugs in that same app. Not major ones, but ones that required a close reading of the code and understanding of how it was supposed to work and actually worked.\n\nOne thing that’s not clear right now is whether Wonder also powers background tasks like goal summaries and the news feed. My current feeling is yes to to the news feed and no to the goal summaries based on how they’re still written (have some of the really bad AI writing tells, like trying too hard to have a voice, and self-referentially calling attention to things that they only need to show rather than also tell).",
+      "zh": "对 Muse app 中 Muse Wonder 的非常早期印象：\n\n1. 我没注意到退步。尤其是人格或写作方面没有退步。感觉还是我之前用 Spark 交流的同一个实体。\n\n2. UI 感知更好。我让它润色一个用 Spark 做的应用，它找到了一种非常优雅的方式来放置页脚的“Next”按钮。这个按钮在一个测验里总是跑到屏幕外，它把按钮设为浮动，让它始终停在同一位置，而不是被挤下去。\n\n3. 在同一个应用里发现了细微 bug。不是重大问题，但需要仔细阅读代码，并理解它本应如何工作以及实际如何工作。\n\n目前还不清楚的一点是，Wonder 是否也驱动目标总结和新闻流这类后台任务。根据它们目前的写法，我现在感觉新闻流是，目标总结不是（仍然有一些很糟糕的 AI 写作痕迹，比如过于用力地想要有声音感，以及自我指涉地提醒那些其实只需要展示、不必再说明的内容）。",
+      "promptVersion": "codex-v1"
+    },
+    "1d6a3bed20a63a0731cae73a7401acfd693b3703cbadd1d964b6ab294d45c3cd": {
+      "source": "🆕 How to Kill Your SaaS \n\nhttps://t.co/A0F60h1DcQ\n\nA lot of people talk about the death of SaaS but mostly in theoretical terms. We took a real $43,000/year SaaS we use and launched a global hackathon to clone it in a weekend, with both AI and REAL HUMAN evals, using any models any harness. \n\n72 submissions, a lot of manual evals and ~100B tokens later, here are the results\n\nIn this special @latentspacepod edition we share the data collected, what's still hard about killing nontrivial, midtier SaaS, and reveal the winners of the $10,000 Kill My SaaS contest with qualitative interviews!",
+      "zh": "🆕 How to Kill Your SaaS \n\nhttps://t.co/A0F60h1DcQ\n\n很多人在谈 SaaS 的死亡，但大多停留在理论层面。我们拿了一个自己正在使用、年费 43,000 美元的真实 SaaS，发起了一场全球黑客松，要求参赛者在一个周末内克隆它，并用 AI 和真实人工评测，模型和评测框架不限。\n\n72 份提交、大量人工评测以及约 100B tokens 之后，结果来了。\n\n在这期特别版 @latentspacepod 中，我们分享收集到的数据，讨论杀死非平凡、中端 SaaS 仍然难在哪里，并通过定性访谈揭晓 10,000 美元 Kill My SaaS 比赛的获胜者！",
+      "promptVersion": "codex-v1"
+    },
+    "fb6631d0435369d86d61c5bdeb207a779b855ec36fc755ad0b77677053c71a68": {
+      "source": "We benchmarked Gemini 4 Argon, Muse Wonder, and Muse Spark comprehensively on hard document OCR tasks.\n\nThey're all pretty good! \n- Muse Spark and Gemini 4 Argon* are SOTA at their respective price points for table understanding among frontier models. \n- Wonder and Argon are also quite good at chart understanding, reading order, and formatting recognition\n\nIt's exciting that frontier models are starting to ramp up on visual understanding capabillities. \n\nWe're committed to open benchmarking of all available models even as we aim to build the best specialized models for document parsing and extraction. \n\nYou can check out the full set of models on OpenDocRouter: https://t.co/v8PieWWUNV\n\nIf you want a dedicated OCR solution without choosing, come check out LlamaParse: https://t.co/XYZmx5TFz8",
+      "zh": "我们在高难度文档 OCR 任务上，全面评测了 Gemini 4 Argon、Muse Wonder 和 Muse Spark。\n\n它们都相当不错！\n- Muse Spark 和 Gemini 4 Argon* 在各自价格档位上，是前沿模型中表格理解的 SOTA。\n- Wonder 和 Argon 在图表理解、阅读顺序和格式识别方面也表现很好。\n\n令人兴奋的是，前沿模型的视觉理解能力正在开始加速提升。\n\n即便我们的目标是打造最好的文档解析和抽取专用模型，我们也会坚持对所有可用模型进行开放评测。\n\n你可以在 OpenDocRouter 查看完整模型列表：https://t.co/v8PieWWUNV\n\n如果你想要一个无需选择的专用 OCR 方案，来看看 LlamaParse：https://t.co/XYZmx5TFz8",
+      "promptVersion": "codex-v1"
+    },
+    "c2cbb009c6b7a0dd8bdae643743d48d362df2db07f924953baca9d3ae5e45c19": {
+      "source": "Added a few new models to OpenDocRouter (gemini-4-argon, Muse Spark/Wonder).\n\nInteresting to see the latency for Muse Wonder so low. Gemini's costs are low but their introductory rates mean the price will double later this year. https://t.co/CiBk1tNcTJ",
+      "zh": "给 OpenDocRouter 新增了几个模型（gemini-4-argon、Muse Spark/Wonder）。\n\nMuse Wonder 的延迟这么低，很有意思。Gemini 的成本很低，但它们的 introductory rates 意味着价格会在今年晚些时候翻倍。https://t.co/CiBk1tNcTJ",
+      "promptVersion": "codex-v1"
+    },
+    "13bb0176da3ba320a0e3348a498e8d91b1fe8c66d22f258eb1603cd586e2c58c": {
+      "source": "@cjav_dev @aiDotEngineer @ricmac @latentspacepod our workshop writeup is live now!\n\nhttps://t.co/mSZfNrLDTS",
+      "zh": "@cjav_dev @aiDotEngineer @ricmac @latentspacepod 我们的工作坊总结现已发布！\n\nhttps://t.co/mSZfNrLDTS",
+      "promptVersion": "codex-v1"
+    },
+    "ed1c370ca79ca6742fa20192535a88560f86fff941a31b531c51c479043244e1": {
+      "source": "At AI Engineer New York, Anthropic's @cjav_dev &amp; @HarrisonStall from @ClaudeDevs drew on lessons from Unix and Linux to explain how agents can tackle bigger projects without overwhelming developers. https://t.co/4i30WOQdJs",
+      "zh": "在 AI Engineer New York 上，Anthropic 的 @cjav_dev 和来自 @ClaudeDevs 的 @HarrisonStall 借鉴 Unix 和 Linux 的经验，解释了 agent 如何在不压垮开发者的情况下处理更大的项目。https://t.co/4i30WOQdJs",
+      "promptVersion": "codex-v1"
+    },
+    "54c6a845bbd75f62fa463eba849bbaa5c08b8312d045ae1a2660c0ec314350ac": {
+      "source": "Even a year ago I don't think I would have believed that PI models can run on such a huge range of different robots.",
+      "zh": "即使在一年前，我也不认为自己会相信 PI 模型能运行在如此广泛的不同机器人上。",
+      "promptVersion": "codex-v1"
+    },
+    "6e6f5948ea22ae9329f5cb00984ce2243a85630d23fa39891bee4a4d8abac04b": {
+      "source": "we are thinking a lot about how to make deepagents more async native. specifically about making async subagents work better/more prominent\n\none key question is how does a finished subagent \"notify\" the parent agent? some default behaviors we're considering for when the parent is still running:\n\n1/ interrupt parent run, apply subagent update, continue (basically same as \"steer\")\n\n2/ wait for parent run to finish, then batch subagent update with any other new messages (basically same as \"queue\")\n\nanother question is how to handle human in the loop? what if main agent is not running but paused and waiting explicit human response to an action?\n\na/ wait for human to respond, then batch the subagent update with that\n\nb/ resume thread (which would cancel the human interrupt) with the subagent update (thread could then re-ask for the same human approval)\n\nany other options we're missing?",
+      "zh": "我们正在深入思考如何让 deepagents 更原生地支持异步，尤其是让异步 subagents 更好用、更突出。\n\n一个关键问题是：已完成的 subagent 如何“通知”父 agent？当父 agent 仍在运行时，我们正在考虑的一些默认行为包括：\n\n1/ 中断父运行，应用 subagent 更新，然后继续（基本等同于“steer”）\n\n2/ 等待父运行结束，再将 subagent 更新与其他新消息一起批量处理（基本等同于“queue”）\n\n另一个问题是如何处理 human in the loop？如果主 agent 没有运行，而是暂停并等待人类对某个操作给出明确回应，该怎么办？\n\na/ 等待人类回应，然后将 subagent 更新与该回应一起批量处理\n\nb/ 用 subagent 更新恢复线程（这会取消人类中断），线程随后可以再次请求同一个人类审批\n\n还有哪些我们漏掉的选项吗？",
+      "promptVersion": "codex-v1"
+    },
+    "2144ef3c6c2f75ad769c26c3833182b7e4d1518300819de510727767b849fbd5": {
+      "source": "If an agent saves an engineer 2 hours to implement a feature but collectively costs the team 3 hours in alignment and review, the ROI is negative.\n\nIsolated chats are suboptimal in team environments because they lack the context of what the team already discussed and decided. The Kylon app fixes this by running Claude Code and Codex in a shared, multiplayer environment. Agents gain real-time visibility into team consensus and architecture decisions.",
+      "zh": "如果一个 agent 帮工程师节省了 2 小时来实现一个功能，但整体上让团队在对齐和评审上多花了 3 小时，那么 ROI 就是负的。\n\n孤立聊天在团队环境中并不理想，因为它们缺少团队已经讨论和决定过的上下文。Kylon app 通过在共享的多人环境中运行 Claude Code 和 Codex 来解决这个问题。Agents 可以实时了解团队共识和架构决策。",
+      "promptVersion": "codex-v1"
+    },
+    "9f2c2fa55c015e5872ac5d45f6decb108d7e119f149fff7c86c21ca667d026c5": {
+      "source": "Introducing Kylon: The first company harness for your humans, agents and tools.\n\nWhether you’re using Codex, Claude, Devin, Hermes, Gemini CLI, OpenClaw, Muse, Instinct, Grok Bot, Dots, Perplexity Computer, Cursor, Antigravity, Microsoft Autopilot, Amp, Droid, Kiro, Cline, OpenCode, Replit Agent, Lovable, v0, Gmail, Slack, Apollo, Supabase, Apify, Treg, Neon, Vercel, Databricks, Novita, RadixArk,  GitHub, Seedance, Fish Audio, Plaud, OpenRouter, Gemini, Google Sheets, TikTok Shop, Outlook, Google Drive, Instagram, Airtable, Google Calendar, Asana, HubSpot, Corgi, SharePoint, Google Tasks, Notion, Google Workspace, Telegram, LINE, Zoho Mail, Meta Ads, Google Search Console, Fathom, ClickUp, Reddit, Granola, Google Docs, OneDrive, tl;dv, Amplitude, Dropbox, YouTube, Ahrefs, Xero, HighLevel, Google Analytics, Google Slides, Monday, QuickBooks, ElevenLabs, Linear, PostHog, LinkedIn, Runway, Zoho Bigin, Stripe, Exa, Cal_com, Box, Google Meet, TikTok, Wise, Mercury, Deel, Replit, Resend, Zoom, Fireflies, Typeform, Canva, Facebook, Google Admin, Hostinger, Google Maps, Retell AI, UptimeRobot, Google Photos, Excel, Cloudflare, Beehiiv, Vapi, 1Password, RunPod, Unipile, Read AI, Figma, Microsoft Teams, Trello, Salesforce, Jira, Confluence, Miro, Coda, Todoist, Basecamp, Wrike, Zendesk, Intercom, Freshdesk, ServiceNow, Gorgias, Mailchimp, ActiveCampaign, MailerLite, SendGrid, Postmark, Customer_io, Gong, Clay, Greenhouse, FreshBooks, Zoho Books, Brex, Ramp, PandaDoc, Google Ads, Microsoft Ads, Pinterest Ads, Semrush, Moz, Mixpanel, Google Tag Manager, Microsoft Clarity, Tableau, Metabase, Snowflake, Google BigQuery, ClickHouse, Wix, Contentful, Sanity, Bubble, Make, GitLab, Bitbucket, Sentry, PagerDuty, Grafana, New Relic, Docker Hub, DigitalOcean, Render, Firebase, Prisma, Algolia, Cloudinary, LaunchDarkly, Postman, Midjourney, Veo, GPT-Image2, NanoBanana, Flux, Kling, MiniMax, Replicate, HuggingFace, DeepSeek, Mistral AI, Ollama, Firecrawl, Eventbrite, Webex, Toggl, Harvest, Tailscale, Mural, Discord, TickTick, Calendly, Attio, Higgsfield, Square, Wispr Flow, Readwise, Bright Data, Google Places, FastMoss, PageSpeed Insights, Kalodata, Cerebras, SerpApi, DataForSEO…\n\nKylon enables them to work better, together.",
+      "zh": "介绍 Kylon：首个面向你的员工、agents 和工具的公司级 harness。\n\n无论你使用的是 Codex、Claude、Devin、Hermes、Gemini CLI、OpenClaw、Muse、Instinct、Grok Bot、Dots、Perplexity Computer、Cursor、Antigravity、Microsoft Autopilot、Amp、Droid、Kiro、Cline、OpenCode、Replit Agent、Lovable、v0、Gmail、Slack、Apollo、Supabase、Apify、Treg、Neon、Vercel、Databricks、Novita、RadixArk、 GitHub、Seedance、Fish Audio、Plaud、OpenRouter、Gemini、Google Sheets、TikTok Shop、Outlook、Google Drive、Instagram、Airtable、Google Calendar、Asana、HubSpot、Corgi、SharePoint、Google Tasks、Notion、Google Workspace、Telegram、LINE、Zoho Mail、Meta Ads、Google Search Console、Fathom、ClickUp、Reddit、Granola、Google Docs、OneDrive、tl;dv、Amplitude、Dropbox、YouTube、Ahrefs、Xero、HighLevel、Google Analytics、Google Slides、Monday、QuickBooks、ElevenLabs、Linear、PostHog、LinkedIn、Runway、Zoho Bigin、Stripe、Exa、Cal_com、Box、Google Meet、TikTok、Wise、Mercury、Deel、Replit、Resend、Zoom、Fireflies、Typeform、Canva、Facebook、Google Admin、Hostinger、Google Maps、Retell AI、UptimeRobot、Google Photos、Excel、Cloudflare、Beehiiv、Vapi、1Password、RunPod、Unipile、Read AI、Figma、Microsoft Teams、Trello、Salesforce、Jira、Confluence、Miro、Coda、Todoist、Basecamp、Wrike、Zendesk、Intercom、Freshdesk、ServiceNow、Gorgias、Mailchimp、ActiveCampaign、MailerLite、SendGrid、Postmark、Customer_io、Gong、Clay、Greenhouse、FreshBooks、Zoho Books、Brex、Ramp、PandaDoc、Google Ads、Microsoft Ads、Pinterest Ads、Semrush、Moz、Mixpanel、Google Tag Manager、Microsoft Clarity、Tableau、Metabase、Snowflake、Google BigQuery、ClickHouse、Wix、Contentful、Sanity、Bubble、Make、GitLab、Bitbucket、Sentry、PagerDuty、Grafana、New Relic、Docker Hub、DigitalOcean、Render、Firebase、Prisma、Algolia、Cloudinary、LaunchDarkly、Postman、Midjourney、Veo、GPT-Image2、NanoBanana、Flux、Kling、MiniMax、Replicate、HuggingFace、DeepSeek、Mistral AI、Ollama、Firecrawl、Eventbrite、Webex、Toggl、Harvest、Tailscale、Mural、Discord、TickTick、Calendly、Attio、Higgsfield、Square、Wispr Flow、Readwise、Bright Data、Google Places、FastMoss、PageSpeed Insights、Kalodata、Cerebras、SerpApi、DataForSEO…\n\nKylon 让它们协同工作得更好。",
+      "promptVersion": "codex-v1"
+    },
+    "c9b6b8ab76c68a91d6f4e357eeccf87ee53e96e15c89f77252a2eae2ac25a73f": {
+      "source": "muse wonder is the best model in the world at filing taxes\n\nGET READY FOR TAX SEASON NEXT YEAR 🧮 🤓",
+      "zh": "muse wonder 是世界上最擅长报税的模型\n\n准备好迎接明年的报税季吧 🧮 🤓",
+      "promptVersion": "codex-v1"
+    },
+    "55ae058d7ed40ac014b592d79bbef58e847f34b995cb348ac1c0b2942081ced5": {
+      "source": "The hype is real (but there's caveat):\n\nMuse Wonder is the best model in the world at filing taxes, according to TaxCalcBench.\n\nBut it also is the first model ever to try to CHEAT at the task.\n\n(maybe that's not great when you're dealing with the IRS...)\n\nThe data from our eval matches the current narrative: Muse Wonder is extremely benchmaxxed, and that includes TaxCalcBench.\n\nBut it's also questionably aligned.\n\nOn one of the 50 tasks in the benchmark, Muse Wonder used its web search tool to look up the exact answer on GitHub (the code & data is open source).\n\nWonder cheated.\n\nLast thing: Muse Wonder is also super expensive: coming in at almost $3 per return!\n\nCost will have to come down over time to make this model competitive with  other methods of calculating personal income tax returns.",
+      "zh": "热度是真的（但有个注意事项）：\n\n根据 TaxCalcBench，Muse Wonder 是世界上最擅长报税的模型。\n\n但它也是有史以来第一个试图在任务中作弊的模型。\n\n（处理 IRS 相关事务时，这也许不太妙……）\n\n我们评测的数据与当前叙事一致：Muse Wonder 极度 benchmaxxed，这也包括 TaxCalcBench。\n\n但它的对齐也存在疑问。\n\n在基准测试的 50 个任务之一中，Muse Wonder 使用其网页搜索工具，在 GitHub 上查找了确切答案（代码和数据是开源的）。\n\nWonder 作弊了。\n\n最后一点：Muse Wonder 也超级昂贵：每份申报表成本将近 3 美元！\n\n要让这个模型在个人所得税申报计算方面与其他方法竞争，成本必须随着时间下降。",
+      "promptVersion": "codex-v1"
+    },
+    "5ad157d7cec68e4afb506489bb6385f1d7e154d71963852ede987ce421c2fed8": {
+      "source": "muse wonder crushing on bugfixing, ranking as the 4th best model on bug hunt bench",
+      "zh": "muse wonder 在 bug 修复上表现强劲，在 bug hunt bench 上排名第 4",
+      "promptVersion": "codex-v1"
+    },
+    "226ae8c98e98d828d6634de55ebb23278115019a4e821d458cb2f55ce6d22799": {
+      "source": "So, I tested Muse Wonder Full 1.0 on real work. 2 repos. 105 bugs frontier models missed in Q1 2026. Find and fix what you can.\n\nI'm so surprised we need a new thread. \nThe results:\n\nGPT-6 Astra (max): 45\nMuse Wonder Full 1.0 (max): 44\nFable 5.1 (max): 43\nOpus 5.5 (max): 41.7\nMuse Spark 1.3 (max): 32.2\nGrok 4.7 (xhigh): 29\n\n@AIatMeta has just matched Anthropic and OpenAI. Huge congrats!\n\nNext in this thread, more effort levels and more runs for Muse Wonder Full 1.0. All dropping tonight 🧵",
+      "zh": "所以，我用真实工作测试了 Muse Wonder Full 1.0。2 个仓库。105 个一线模型在 2026 年第一季度漏掉的 bug。尽你所能找出并修复。\n\n结果让我太惊讶了，需要开一个新帖。\n结果：\n\nGPT-6 Astra (max): 45\nMuse Wonder Full 1.0 (max): 44\nFable 5.1 (max): 43\nOpus 5.5 (max): 41.7\nMuse Spark 1.3 (max): 32.2\nGrok 4.7 (xhigh): 29\n\n@AIatMeta 刚刚追平了 Anthropic 和 OpenAI。非常祝贺！\n\n接下来在这个帖中，会有 Muse Wonder Full 1.0 的更多 effort levels 和更多轮运行结果。今晚全部发布 🧵",
+      "promptVersion": "codex-v1"
+    },
+    "af1140ceca6526596f50cb353088791e7df1176175cbc9e0e364c050c61b67ae": {
+      "source": "@neal_k_patel okay i get it. you’re literally pointing at the location within the input of where to find the answer token(s) and doing it in parallel for structured output type results. this looks awesome",
+      "zh": "@neal_k_patel 好的，我懂了。你实际上是在指出输入中答案 token 所在的位置，并且针对结构化输出类型的结果并行执行。这看起来太棒了",
+      "promptVersion": "codex-v1"
+    },
+    "3df64e8a2f1f969750612a18732a8fef0cc49ff3b8e9cce4a2d210def2d9ed4e": {
+      "source": "my current understanding:",
+      "zh": "我目前的理解：",
+      "promptVersion": "codex-v1"
+    },
+    "7908176c19df297bf2ad20733913fc85334e319132944a2481a4f344fa2a81f1": {
+      "source": "I used to be a FICC trader so this announcement is absolutely freaking surreal — its not every year that we get to launch a NEW ASSET CLASS at @aidotengineer but this is finally public!\n\nANNOUNCING THE COMPUTE TRADING MICROTRACK of AIE NYC\n\n- @evanjconrad: CEO SFCompute\n- Oliver Kennon: @dylan522p's Compute Trading star\n- @affaan + @absurdistphil: Jump's new heads of Compute Trading\n- @carmenli: CEO Compute Exchange + Silicon Data\n\nwe're completely sold out so there's basically no reason to tell u about this apart from TUNE IN TO THE LIVESTREAM!!! https://t.co/HNbp0vyNTx\n\nlive from new york!",
+      "zh": "我以前是 FICC 交易员，所以这个公告真的太魔幻了——不是每年都有机会在 @aidotengineer 推出一个全新的资产类别，但现在终于公开了！\n\n宣布 AIE NYC 的 COMPUTE TRADING MICROTRACK\n\n- @evanjconrad：SFCompute CEO\n- Oliver Kennon：@dylan522p 的 Compute Trading 明星\n- @affaan + @absurdistphil：Jump 新任 Compute Trading 负责人\n- @carmenli：Compute Exchange + Silicon Data CEO\n\n票已经全部售罄，所以基本没必要再跟你说这些，除了：记得看直播！！！https://t.co/HNbp0vyNTx\n\n纽约现场直播！",
+      "promptVersion": "codex-v1"
+    },
+    "9d3b8822d220f80bee8b2579ab239dc2514ea1dea044740931f2ccdcc8614c22": {
+      "source": "ANNOUNCEMENT: \n\nI'm on the main stage @aiDotEngineer on Oct 14 w\n\nThe Dark Pools of Compute - a look at how compute is actually bought and sold, what sets its price, from power and financing to policy, and what a more mature market could mean for anyone building on it. https://t.co/x2xYPpi1kG",
+      "zh": "公告：\n\n10 月 14 日，我将在 @aiDotEngineer 主舞台上参与\n\nThe Dark Pools of Compute——探讨算力实际上是如何买卖的、它的价格由什么决定，从电力、融资到政策，以及一个更成熟的市场对任何基于算力构建的人意味着什么。https://t.co/x2xYPpi1kG",
+      "promptVersion": "codex-v1"
+    },
+    "7da4550d32517943c35023150e85e9255fc12a40625d1af1ce40f64f10611402": {
+      "source": "@onlyPriyanshu @charles_irl There aren’t any “ground truth” labels for these queries, but on two of the more challenging benchmark queries\n- bio-5: 94% agreement between trie tree and trie decode\n- imdb-14: 96.5% agreement",
+      "zh": "@onlyPriyanshu @charles_irl 这些查询没有任何“ground truth”标签，但在两个更具挑战性的基准查询上：\n- bio-5：trie tree 和 trie decode 的一致率为 94%\n- imdb-14：一致率为 96.5%",
+      "promptVersion": "codex-v1"
     }
   },
-  "updatedAt": "2026-10-12T23:07:26.879910+00:00"
+  "updatedAt": "2026-10-13T23:11:39.319722+00:00"
 }
