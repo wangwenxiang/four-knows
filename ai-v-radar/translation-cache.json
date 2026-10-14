@@ -15088,7 +15088,212 @@
       "source": "@onlyPriyanshu @charles_irl There aren’t any “ground truth” labels for these queries, but on two of the more challenging benchmark queries\n- bio-5: 94% agreement between trie tree and trie decode\n- imdb-14: 96.5% agreement",
       "zh": "@onlyPriyanshu @charles_irl 这些查询没有任何“ground truth”标签，但在两个更具挑战性的基准查询上：\n- bio-5：trie tree 和 trie decode 的一致率为 94%\n- imdb-14：一致率为 96.5%",
       "promptVersion": "codex-v1"
+    },
+    "7c7ab0192e0ec072a0b1a956b8ccd6945487a40ef1e22adb219f1011a5b72e85": {
+      "source": "We gave Claude and GPT a phone video of a robot wiping. In an hour, each built a full-dynamics digital twin.\nIntroducing RoboSimStudio 🤖: an open and interactive toolkit for Agentic Robotics, enabling Fable, Astra and Argon AI agents to model sponges 🧽, cables 🧵 and cloth 👔. https://t.co/BXf5sLXq51",
+      "zh": "我们给 Claude 和 GPT 看了一段用手机拍摄的机器人擦拭视频。一小时内，它们各自构建了一个包含完整动力学的数字孪生。\n推出 RoboSimStudio 🤖：一款开放、可交互的机器人工具包，让 Fable、Astra 和 Argon AI 智能体能够为海绵 🧽、线缆 🧵 和布料 👔 建模。https://t.co/BXf5sLXq51",
+      "promptVersion": "codex-v1"
+    },
+    "a6dfc6dc3c4450c301e8878064f0010d5b1d0d1cfc70f07384c91df60fa9e889": {
+      "source": "Our agent fleet just took #1 on ClickBench, 1.2× ahead of the next best engine and 3.1× ahead of the codebase it started from. To our knowledge, the first time an autonomous agent fleet has taken first place on a public systems benchmark where correctness is verified independently.",
+      "zh": "我们的智能体集群刚刚登顶 ClickBench，性能达到第二名引擎的 1.2 倍、初始代码库的 3.1 倍。据我们所知，这是自主智能体集群首次在正确性经独立验证的公开系统基准测试中夺冠。",
+      "promptVersion": "codex-v1"
+    },
+    "9b5d9e69d707351975430f499d7d90f6ce755939f78b314be439ace9411f4e10": {
+      "source": "10 new papers in health science research. all written with muse models in under 4 weeks.\n\nhealth is one of the areas where we believe muse is going to have the greatest positive impact on humanity ❤️",
+      "zh": "10 篇健康科学研究新论文，全部借助 muse 模型在不到 4 周内完成。\n\n我们相信，健康将是 muse 为人类带来最大积极影响的领域之一 ❤️",
+      "promptVersion": "codex-v1"
+    },
+    "cda26c9302d873694ddd928f42524a97e4fa8229c7c4705295fcd5228f0ff0fd": {
+      "source": "We’re exploring how AI can accelerate health science research.\n\nWhile AI has made significant breakthroughs in formal sciences like mathematics, health data science depends on imperfect real-world data and consequential choices about cohorts, variables, and causal assumptions.\n\nTo explore how AI can assist health researchers, we built a human-led research scaffold powered by Muse Spark 1.3 and Muse Wonder with access to 5M retrospective de-identified electronic health records and publicly available data. A cohort of medical experts used the system to conduct original research, accelerate hypothesis generation, code execution, and manuscript drafting while maintaining full authority over scientific decisions.\n\nToday, we’re sharing 10 research manuscripts produced through this exploration, spanning cardiology, oncology, infectious disease, emergency medicine, and more.\n\nRead more in our research blog: https://t.co/26l6Du6vIk",
+      "zh": "我们正在探索如何用 AI 加速健康科学研究。\n\nAI 已在数学等形式科学领域取得重大突破，但健康数据科学依赖不完美的真实世界数据，以及对研究队列、变量和因果假设所作的关键选择。\n\n为探索 AI 如何辅助健康研究人员，我们构建了一个由人类主导、由 Muse Spark 1.3 和 Muse Wonder 驱动的研究框架，可访问 500 万份去标识化的回顾性电子健康记录及公开数据。一组医学专家使用该系统开展原创研究，加快假设生成、代码执行和论文起草，同时保留对科学决策的完全主导权。\n\n今天，我们分享此次探索产出的 10 篇研究论文稿件，涵盖心脏病学、肿瘤学、传染病、急诊医学等领域。\n\n更多内容请阅读我们的研究博客：https://t.co/26l6Du6vIk",
+      "promptVersion": "codex-v1"
+    },
+    "85ade119ea58b40acbc0a34e169062ce1dd7f140606037165cfa27f423f4f01f": {
+      "source": "TPUs have different bottlenecks from GPUs: few cores so you don’t need yo think about parallelism as much, large VMEM so easier to fuse kernels, but vector units have lower throughput so anything non matmul require much more care",
+      "zh": "TPU 的瓶颈与 GPU 不同：核心较少，因此不必过多考虑并行；VMEM 较大，更容易融合内核；但向量单元的吞吐量较低，因此矩阵乘法以外的运算都需要格外仔细地优化。",
+      "promptVersion": "codex-v1"
+    },
+    "c0a92224899e2dbc3f3b01637df0dce7d98849631b2d6c185043cb7bd0b37a43": {
+      "source": "Releasing FLAT: Flash Linear Attention on TPUs 🚀\n\nPallas training kernels for Linear Attention, Mamba-2 and GLA. On one TPU v6e, forward + backward is up to 3x faster than FLA on an H100 for GLA, and 1.5x faster for Mamba-2.\n\n🧵 https://t.co/are10bcub8",
+      "zh": "发布 FLAT：TPU 上的 Flash Linear Attention 🚀\n\n为 Linear Attention、Mamba-2 和 GLA 提供 Pallas 训练内核。在单颗 TPU v6e 上，GLA 的前向与反向传播总速度最高可达 H100 上 FLA 的 3 倍，Mamba-2 则可达 1.5 倍。\n\n🧵 https://t.co/are10bcub8",
+      "promptVersion": "codex-v1"
+    },
+    "9bd2b9087367fd804b4ab27b16df40bc9489d7ae75759c4f0eaae2cc71e063cf": {
+      "source": "look at the way this thing generates https://t.co/ZdlJMTNwYI",
+      "zh": "看看它是怎么生成的 https://t.co/ZdlJMTNwYI",
+      "promptVersion": "codex-v1"
+    },
+    "b7eb59a721c1b39de2c7d34f7e6f85fe4042d15a65f0470f77b9a05593f8b909": {
+      "source": "🚀 Introducing Next-Concept Modeling (NCM): our new paradigm for fast, parallel, coarse-to-fine text generation.\n\nCompared to strong diffusion language models (DLMs) at similar parameter size, NCM achieves:\n\n⚡ Up to 31× faster generation on downstream tasks like summarization and machine translation with comparable or better quality.\n\n🏎️ 10–21× faster unconditional generation across TinyStories, LM1B, and OpenWebText, with comparable or better generative perplexity and using  3–5× fewer training tokens.\n\n🧩 Better performance on reasoning tasks like Sudoku, outperforming both AR and diffusion baselines with fewer sampling steps.\n\nWith @ishanskhare, @IddahMlauzi, @ekellbuch, @simran_s_arora, @Azaliamirh, and @HazyResearch.\n\nMore details in the thread 🧵👇",
+      "zh": "🚀 推出 Next-Concept Modeling（NCM）：我们提出的快速、并行、由粗到细的文本生成新范式。\n\n与参数规模相近的强大扩散语言模型（DLM）相比，NCM 实现了：\n\n⚡ 在摘要、机器翻译等下游任务中，生成速度最高可达 31 倍，质量相当或更好。\n\n🏎️ 在 TinyStories、LM1B 和 OpenWebText 上，无条件生成速度达到 10–21 倍，生成困惑度相当或更优，训练所用 token 数仅为其 1/3–1/5。\n\n🧩 在数独等推理任务上表现更好，以更少的采样步数超越自回归（AR）和扩散模型基线。\n\n与 @ishanskhare、@IddahMlauzi、@ekellbuch、@simran_s_arora、@Azaliamirh 和 @HazyResearch 合作完成。\n\n更多详情见帖子串 🧵👇",
+      "promptVersion": "codex-v1"
+    },
+    "7c03ca1c608c6647db45b586636e8f7b3ddacda76991f5c0c79737a48d35c5fc": {
+      "source": "Slow evaluations are a major bottleneck in AI-driven systems optimization. DuoDiscover addresses this by having agents generate fast evaluation proxies (“yardsticks”) alongside the code. The result: a 2.68× speedup for TPU kernels and a 1.92× speedup for vLLM serving!",
+      "zh": "评估速度慢是 AI 驱动系统优化的一大瓶颈。DuoDiscover 让智能体在生成代码的同时，生成快速评估代理（“标尺”），以此解决这一问题。结果：TPU 内核提速 2.68 倍，vLLM 推理服务提速 1.92 倍！",
+      "promptVersion": "codex-v1"
+    },
+    "860f3f966dcc757e206385cca692108720a43b91a6f483ccb23143019a424efa": {
+      "source": "🚀 Excited to introduce 𝐃𝐮𝐨𝐃𝐢𝐬𝐜𝐨𝐯𝐞𝐫!\n\nThis isn’t benchmark gaming. It’s AI agents shipping real PRs and beating human-expert hardware baselines. 🔥\n\n𝐓𝐡𝐞 𝐛𝐫𝐞𝐚𝐤𝐭𝐡𝐫𝐨𝐮𝐠𝐡𝐬 🚀\n\n🛠️ Real optimizations merged into main branches (e.g., FreeToken #619)\n🧠 First superhuman CPU prefetcher: +3.93% | +6.31% overall, outperforming AlphaEvolve\n⚡ 2.68× TPU kernel speedup | 1.92× faster vLLM serving | 🏆 #1 on NVIDIA SOL-ExecBench (B200)\n \n💡 𝐓𝐡𝐞 𝐬𝐞𝐜𝐫𝐞𝐭 𝐬𝐚𝐮𝐜𝐞? Agents co-discover fast evaluation proxies (“yardsticks”) to slash slow eval bottlenecks and compound real performance gains at scale.\n\n🤝 Incredible collaboration across @GoogleCloud, @BerkeleySky & @StanfordAILab!\n\n🔥 We’re pushing the frontier of AI-driven systems optimization. And we’re just getting started. 🚀",
+      "zh": "🚀 很高兴向大家介绍 DuoDiscover！\n\n这不是刷榜，而是 AI 智能体提交真正的 PR，并超越人类专家设计的硬件基准方案。🔥\n\n突破性成果 🚀\n\n🛠️ 实际优化已合入主分支（例如 FreeToken #619）\n🧠 首个超越人类水平的 CPU 预取器：整体性能分别提升 3.93% 和 6.31%，超越 AlphaEvolve\n⚡ TPU 内核提速 2.68 倍 | vLLM 推理服务提速 1.92 倍 | 🏆 NVIDIA SOL-ExecBench（B200）排名第一\n\n💡 秘诀是什么？智能体协同发现快速评估代理（“标尺”），大幅缓解评估缓慢的瓶颈，让实际性能收益在大规模优化中持续累积。\n\n🤝 感谢 @GoogleCloud、@BerkeleySky 和 @StanfordAILab 的精彩合作！\n\n🔥 我们正在推进 AI 驱动系统优化的前沿。这才刚刚开始。🚀",
+      "promptVersion": "codex-v1"
+    },
+    "c3ed65ecd1f793433ae84a5aaef4ad2dbe1da8f6c90d993cbe97157425e73a44": {
+      "source": "Benchmarks are becoming the core competency of any company.\n\nOur company mission is to build the world’s best models for document processing. This also means that we have to build the world’s best benchmarks for doc parsing and extraction.\n\nIt’s been incredible to see the adoption of ParseBench the past few months. We have 26k+ monthly downloads on Hugging Face, 147+ models benchmarked, and has been cited by other labs in the space (Cohere, Mistral, etc.).\n\nWe use this as a benchmark to push our own internal capabilities within LlamaParse, and also to track the advancement of recent frontier/open-weight models (most recently, Gemini 4 Argon and Muse Spark/Wonder).\n\nWe’re happy to help apply this to any company looking at evaluating document processing solutions. Even if you don’t use our docs, you may find our metrics for evaluating various dimensions (e.g. tables, reading order, layout) useful.\n\nCheck out ParseBench: https://t.co/PWczfhp0OX\n\nHugging Face: https://t.co/meFLEzzgD8",
+      "zh": "基准评测正在成为每家公司的核心能力。\n\n我们公司的使命是打造全球最好的文档处理模型。这也意味着，我们必须打造全球最好的文档解析与信息提取基准。\n\n过去几个月，ParseBench 的普及程度令人振奋：在 Hugging Face 上每月下载量超过 2.6 万次，已评测超过 147 个模型，还被同领域的其他实验室引用，包括 Cohere、Mistral 等。\n\n我们用这套基准推动 LlamaParse 内部能力的提升，同时跟踪最新前沿模型和开放权重模型的进展，最近包括 Gemini 4 Argon 和 Muse Spark/Wonder。\n\n我们很乐意帮助任何正在评估文档处理方案的公司应用这套基准。即使你不使用我们的文档产品，我们用于评估表格、阅读顺序、版面布局等不同维度的指标，也可能对你有用。\n\n了解 ParseBench：https://t.co/PWczfhp0OX\n\nHugging Face：https://t.co/meFLEzzgD8",
+      "promptVersion": "codex-v1"
+    },
+    "c7c506c79bf39a7e6731d83ce5e6a32f4111752a2992dbd6a481822f0e1ad83c": {
+      "source": "In a lecture I gave last year (https://t.co/gyBq2vRbvD), I shared a mental model for AI: the convex hull of humanity’s collective knowledge.\n\nHuman expertise is highly specialized and fragmented across people and fields. I hypothesized that there might be a huge overhang of new knowledge accessible through “interpolation”: connecting the dots in this high-dimensional knowledge space.\n\n@_jasonwei  and the team are showing what connecting the dots can look like with an existing trove of health data. Exciting to see AI helping researchers turn that data into new scientific insights!",
+      "zh": "在去年的一次演讲中（https://t.co/gyBq2vRbvD），我分享了一个理解 AI 的思维模型：人类集体知识的凸包。\n\n人类的专业知识高度专门化，分散在不同的人和领域中。我当时提出，通过“插值”，也就是在这个高维知识空间中建立联系，或许能挖掘出大量尚未被发现的新知识。\n\n@_jasonwei 和团队正利用现有的海量健康数据，展示这种融会贯通能带来什么。很高兴看到 AI 帮助研究人员将这些数据转化为新的科学洞见！",
+      "promptVersion": "codex-v1"
+    },
+    "65c9a8d37dc3d37bb54bc93b91a63f3c0c9e37125aef1d805ccf57c800de5d69": {
+      "source": "In our health workstream at Meta we did a project where we wanted to see what research papers medical experts could write using a Muse Wonder coding scaffold that could access a database of 5M electronic health records we licensed from a vendor. The goal is that with 5M patients in this database, AI could do research to answer arbitrary questions like “did people who take statin have higher rates of diabetes later in life”? The thing we were betting on here is on what happens when you put human experts, a strong coding model, and access to data all together\n\nWe worked with a small group of medical experts to help them use this AI tool and the punchline is that they all found that this setup enabled a much faster pace of health research. They generated ten manuscripts in around two weeks, with one researcher (Paddy Ssentongo) generating three. Throughout the process, they collaborated with each other to review manuscripts and write skill files to help our coding scaffold improve at doing research. The medical experts liked how quickly they could test different hypotheses and choose the best ones to continue working on\n\nHealth research is pretty unique in that it is super important to be able to interpret noisy data and have taste to know which variables are important, which was still a significant value add from human researchers. Given that medicine is one of the oldest fields in human history and it is ultimately about humans, keeping a substantial human component in this type of research is probably important. In the near future I see AI primarily as a tool to facilitate human-led research. With the right scaffold I believe health researchers can be 10x or even 100x more productive using AI tools that have appropriate access to the wealth of data that the world has collected about human health\n\nOne way to see this work is through the broader lens of AI for science. You can think of science as two parts: (1) collecting raw data about the world, and (2) synthesizing that raw data into understanding. In this project we already had existing data about the world and we aimed to accelerate part (2) using AI. Eventually, I imagine a world where we have such great AI tools that the time to synthesize raw data into understanding is driven towards zero. In that world, science will be substantially faster and most of the work will be focused on collecting the right raw data via physical experiments\n\nWe did this in a pretty short amount of time (which was the point) and I think the future of scientific research will be more faster and more exciting than ever",
+      "zh": "在 Meta 的健康研究方向，我们开展了一个项目，想看看医学专家借助基于 Muse Wonder 的编程框架，能够撰写出怎样的研究论文。这个框架可以访问我们从供应商处获得授权的一个数据库，其中包含 500 万份电子健康记录。我们的目标是，让 AI 利用数据库中 500 万名患者的数据开展研究，回答各种问题，例如“服用他汀类药物的人，在日后是否更容易患糖尿病？”我们想验证的是：把人类专家、强大的编程模型和数据访问能力结合起来，会发生什么。\n\n我们与一小组医学专家合作，帮助他们使用这款 AI 工具。结果是，他们一致认为，这套工具显著加快了健康研究的进度。他们在大约两周内完成了十篇论文稿，其中一位研究人员 Paddy Ssentongo 完成了三篇。在整个过程中，他们相互审阅论文，并编写技能文件，帮助我们的编程框架提升研究能力。医学专家很喜欢这种工作方式：可以快速检验不同假设，再选择最有潜力的方向继续研究。\n\n健康研究的独特之处在于，解读充满噪声的数据、凭借专业判断识别关键变量至关重要，而这仍是人类研究人员的重要价值所在。医学是人类历史上最古老的领域之一，归根结底研究的也是人，因此在这类研究中保留充分的人类参与可能很重要。在近期，我认为 AI 主要会作为工具，辅助人类主导的研究。我相信，只要有合适的框架，让 AI 工具能够适当地访问世界各地积累的海量人类健康数据，健康研究人员的生产力就有望提高 10 倍，甚至 100 倍。\n\n也可以从更广泛的 AI for science 视角来看这项工作。科学可以分成两个部分：（1）收集关于世界的原始数据；（2）综合分析这些原始数据，形成理解。在这个项目中，我们已经拥有现成的数据，目标是用 AI 加速第二部分。我设想，未来的 AI 工具会强大到让原始数据转化为理解所需的时间趋近于零。届时，科学研究的速度将大幅提升，大部分工作将集中于通过实体实验收集合适的原始数据。\n\n我们在很短的时间内完成了这项工作，这正是项目的初衷。我认为，未来的科学研究将比以往更快，也更令人兴奋。",
+      "promptVersion": "codex-v1"
+    },
+    "b2f48dc88703281ca4fd86f0ea8983c6fa58370b17422a54d8c4123aff6162fc": {
+      "source": "We wrote up how our sandbox platform serving daily traffic on Perplexity handles millions of executions a day with a low error rate while still using multiple machines to lower serving costs.",
+      "zh": "我们撰文介绍了支撑 Perplexity 日常流量的沙箱平台，如何在每天处理数百万次执行的同时保持低错误率，并利用多台机器降低服务成本。",
+      "promptVersion": "codex-v1"
+    },
+    "1b49fc8300d7142527d685ebc3f53dd6db13c3418c02062092368db0ff46b9dc": {
+      "source": "Our sandbox, SPACE, handles millions of executions a day with an error rate below 0.0002%.\n\nWe’re sharing how it uses cryptographic identity to keep requests tied to the right execution as sandboxes pause, resume, and move.\n\nRead more: https://t.co/jH6TX2cgI9",
+      "zh": "我们的沙箱 SPACE 每天处理数百万次执行，错误率低于 0.0002%。\n\n我们将分享它如何利用密码学身份标识，在沙箱暂停、恢复和迁移时，确保请求始终关联到正确的执行任务。\n\n了解更多：https://t.co/jH6TX2cgI9",
+      "promptVersion": "codex-v1"
+    },
+    "bf7b6cb95d05c5df40cc973c9598a386aae4423a2f98c8b368afa36c3636d2f1": {
+      "source": "Excited to release the RoboSimStudio toolkit today to help agents create detailed dynamics Real2Sim for Agentic Robotics.",
+      "zh": "很高兴今天发布 RoboSimStudio 工具包，帮助智能体为智能体驱动的机器人系统创建包含详细动力学特性的 Real2Sim 仿真。",
+      "promptVersion": "codex-v1"
+    },
+    "e3c05653b7e4cf61fca7fc08227f8ed0d2cc729b876155c9d5f96c67988a75a3": {
+      "source": "impressive!",
+      "zh": "真厉害！",
+      "promptVersion": "codex-v1"
+    },
+    "e5c9f8e24ce2145287073baf116577be54fd76b2a17e819dbbbfe394f059cc68": {
+      "source": "We are releasing Ultramarine 1 Flash, a frontier-class model built for knowledge work. It is open-source and achieves similar performance to Fable 5, while being 60x cheaper.\n\nIt was post-trained by a team of 5 for ~$300k all-in. Available on API now, with weights releasing in 2 weeks.",
+      "zh": "我们正式发布 Ultramarine 1 Flash，一款面向知识工作的前沿级模型。它采用开源模式，性能与 Fable 5 相近，成本仅为其 1/60。\n\n后训练由一个 5 人团队完成，总成本约 30 万美元。目前已开放 API，模型权重将在两周后发布。",
+      "promptVersion": "codex-v1"
+    },
+    "e10f715ae0f7b7a80b38223973a23885e7be7373e3243799bd537b3ff1c51a45": {
+      "source": "Baseten 🤝 Runway",
+      "zh": "Baseten 🤝 Runway",
+      "promptVersion": "codex-v1"
+    },
+    "025e332b247c76019d78b993a1240a34ed0e71318a90b5e78f59a5ba194e1e0b": {
+      "source": "We’re excited to announce @runwayml as a Model Labs partner, and to bring their video generation and editing models to Baseten Dedicated Inference!\n\n- Gen-4.5 generates video from text and images, and \n- Aleph 2.0 edits existing footage using text instructions and keyframes.\n\nLearn more on our blog: https://t.co/LmdVVDPLRk",
+      "zh": "我们很高兴宣布 @runwayml 成为 Model Labs 合作伙伴，并将其视频生成和编辑模型引入 Baseten Dedicated Inference！\n\n- Gen-4.5 可根据文本和图像生成视频；\n- Aleph 2.0 可通过文本指令和关键帧编辑现有视频素材。\n\n更多详情请阅读我们的博客：https://t.co/LmdVVDPLRk",
+      "promptVersion": "codex-v1"
+    },
+    "f58261c403bc51fd5d430dc09ac1ab4abab5eb32b7b2e4387cf028064478d1dc": {
+      "source": "@freddier This reminds me of when GPT-5.5 found a bunch of errors in the FrontierMath benchmark. Maybe physics is on a similar trajectory to math. https://t.co/zU5bbo8JXb",
+      "zh": "@freddier 这让我想起 GPT-5.5 曾在 FrontierMath 基准中发现一大批错误。物理学或许也在沿着与数学类似的轨迹发展。https://t.co/zU5bbo8JXb",
+      "promptVersion": "codex-v1"
+    },
+    "982b3d2040ceeafaa5ecf6ff0d9d8c42b799ff8945105d96d5c2a5994c168e2f": {
+      "source": "We are conducting an AI-assisted review of FrontierMath: Tiers 1-4. This has flagged fatal errors in about a third of problems, and we believe most of these flags to be valid. We will release updated scores on a corrected dataset after completing a thorough human review.",
+      "zh": "我们正在借助 AI 审查 FrontierMath 的第 1 至第 4 层级题目。目前约三分之一的题目被标记为存在致命错误，我们认为其中大多数标记是准确的。完成全面的人工复核后，我们将基于修正后的数据集发布更新的分数。",
+      "promptVersion": "codex-v1"
+    },
+    "bad786bd6adafa9104da6aefdc94cca80eb45e33f71b01836eb3510cf56003cc": {
+      "source": "Users are reverse engineering and porting software across platforms with Perplexity Computer. This user's mechanical keyboard app was Windows only, with no Linux support and no documentation. Computer downloaded the binary in its cloud sandbox, decompiled it with headless Ghidra, and ported it to a native Rust app for Linux.\n\nComputer read the decompiled code to learn how the app drives the keyboard, then rebuilt it piece by piece, complete with keyboard lighting that syncs to music over PipeWire, a 3D view, key remapping, macros and profiles.\n\nhttps://t.co/eDZwppdI6c\n\nhttps://t.co/OPmnDMqurt",
+      "zh": "用户正在用 Perplexity Computer 对软件进行逆向工程和跨平台移植。这位用户的机械键盘应用仅支持 Windows，既不支持 Linux，也没有文档。Computer 在云端沙箱中下载了二进制文件，使用无界面的 Ghidra 将其反编译，再移植为原生 Linux Rust 应用。\n\nComputer 通过阅读反编译代码，弄清了应用如何控制键盘，然后逐项重建功能，包括通过 PipeWire 随音乐同步变化的键盘灯光、3D 视图、按键重映射、宏和配置方案。\n\nhttps://t.co/eDZwppdI6c\n\nhttps://t.co/OPmnDMqurt",
+      "promptVersion": "codex-v1"
+    },
+    "cff2e692e8d1bcb4664f0918842c114bd067afd9ba72c200bd356d6c1b4b8479": {
+      "source": "You can't solve real-world physical tasks through autoregressive sampling alone. The physical world is entirely unforgiving to hallucination or approximate pattern matching. If we want actual autonomous robotics we have to engineer causality and discrete reasoning back into the loop.\n\nBiwei and the team at Aether AI is doing exactly the kind of foundational, non-consensus work the field actually needs right now.",
+      "zh": "仅靠自回归采样，无法解决现实世界中的物理任务。物理世界完全容不得幻觉或近似的模式匹配。如果我们想实现真正自主的机器人，就必须在系统设计中将因果机制和离散推理重新纳入运行闭环。\n\nBiwei 和 Aether AI 团队正在开展的，正是这个领域当下真正需要的基础性、非共识研究。",
+      "promptVersion": "codex-v1"
+    },
+    "cf516395580c50f47f16b1bf3854b16e111c929d5baf2a8b9775b53068a09b72": {
+      "source": "I have spent more than a decade studying causality. For me, causality is about understanding the rules that govern how actions change the world, and reasoning about their consequences before acting.\n\nScaling has made today's models remarkably capable at spotting patterns and predicting what comes next. A system that acts in the physical world needs more. It has to ask what will happen if it acts, check the outcome, and adapt when reality doesn't match the plan. In the physical world, trial and error can be costly or unsafe, and an early mistake can carry through the rest of a task.\n\nWhen we started Aether AI, robotics was the obvious place to begin.\n\nCRIS-0 is our first integrated system built on these ideas. It tracks the conditions that matter for a task, predicts how each action will change them, and replans when something unexpected happens. In our demo, that means taking a metal can off a plate before heating it, and telling an empty can from an unfinished drink while tidying a room.\n\nPhysical AI is just our first proving ground. We're building towards causal intelligence that also works for forecasting, scientific discovery, and more.\n\nThe technical write-up is linked in the comments. https://t.co/kY1TuxYS7I",
+      "zh": "我研究因果关系已有十多年。对我而言，因果关系意味着理解行动如何改变世界的规律，并在行动前推演其后果。\n\n规模扩展让如今的模型在识别模式和预测后续发展方面表现出色。但在物理世界中行动的系统需要更多能力。它必须判断采取行动后会发生什么，检查结果，并在现实与计划不符时做出调整。在物理世界中，试错可能代价高昂或存在安全风险，早期的错误也可能影响任务的后续全过程。\n\n创立 Aether AI 时，机器人领域自然成了我们的起点。\n\nCRIS-0 是我们基于这些理念打造的首个集成系统。它跟踪与任务相关的关键状态，预测每个行动会如何改变这些状态，并在发生意外时重新规划。在演示中，这意味着在加热盘子前先移走上面的金属罐，以及在整理房间时区分空罐和还没喝完的饮料。\n\n物理 AI 只是我们的第一个试验场。我们正致力于构建同样适用于预测、科学发现等领域的因果智能。\n\n技术详解链接见评论。https://t.co/kY1TuxYS7I",
+      "promptVersion": "codex-v1"
+    },
+    "410e2228264f73244a626e5957cee72fbd89dacec3df5a6da7d7e9ffdf9ee0f9": {
+      "source": "You can now tag @Polymarket inside Perplexity Computer for market and real time trends research tasks!",
+      "zh": "现在可以在 Perplexity Computer 中标记 @Polymarket，开展市场和实时趋势研究了！",
+      "promptVersion": "codex-v1"
+    },
+    "76ed63e221dafd7ab249a08bcefee8e23a0a99764ff40fd2205f69ca08ff723f": {
+      "source": "Perplexity Computer now pulls real-time data directly from @Polymarket’s API.\n\nMention or @-tag Polymarket in a Computer query for market-implied probabilities, trading volume, and liquidity across 250,000+ active prediction markets. https://t.co/eRSeqwcvMM",
+      "zh": "Perplexity Computer 现在可以直接从 @Polymarket 的 API 获取实时数据。\n\n在 Computer 查询中提及或 @标记 Polymarket，即可获取超过 250,000 个活跃预测市场的市场隐含概率、交易量和流动性数据。https://t.co/eRSeqwcvMM",
+      "promptVersion": "codex-v1"
+    },
+    "d1a05eca211fdc0d80836302b74953c2a1b33320ef80603c4f1d6a14271fb07a": {
+      "source": "muse wonder is super fast and token efficient ⚡️ ⚡️ \n\ngive it a go!",
+      "zh": "muse wonder 速度超快，又省 token ⚡️ ⚡️\n\n快来试试！",
+      "promptVersion": "codex-v1"
+    },
+    "3bb0b9460a7a76ee958c0c91b68ffe8cdf65646210a1d4d5d5d6a14786b2e7d4": {
+      "source": "The two top models on the Intelligence Index take about twice as long per task: Claude Opus 5.5 and Sonnet 5.5 (@AnthropicAI) vs. Muse Wonder (@Meta).\n\nMuse Wonder finishes an average task in 6.8 minutes with a 52.4 score. Opus 5.5 takes 13.2 and Sonnet 5.5 takes 15.3, scoring 57.6 and 56.0. Muse Spark 1.3 and GPT-6 Astra (@OpenAI) follow at 8.1.\n\nWhen someone is waiting on the answer, minutes can matter more than a few index points. Merge Gateway lets you send latency-sensitive requests to the fast model and the hard ones to the strong one, behind one endpoint.\n\nScores via https://t.co/TeTHwS52d4, week of Oct 12.",
+      "zh": "Intelligence Index 排名前两位的模型，完成每项任务所需的时间约为 Muse Wonder（@Meta）的两倍：它们是 Claude Opus 5.5 和 Sonnet 5.5（@AnthropicAI）。\n\nMuse Wonder 完成一项任务平均耗时 6.8 分钟，得分为 52.4。Opus 5.5 耗时 13.2 分钟，Sonnet 5.5 耗时 15.3 分钟，得分分别为 57.6 和 56.0。Muse Spark 1.3 和 GPT-6 Astra（@OpenAI）的耗时紧随其后，均为 8.1 分钟。\n\n当有人在等待答案时，几分钟可能比指数上的几分更重要。Merge Gateway 让你通过同一个端点，将对延迟敏感的请求交给速度快的模型，将困难的请求交给能力强的模型。\n\n评分来自 https://t.co/TeTHwS52d4，统计周期为 10 月 12 日当周。",
+      "promptVersion": "codex-v1"
+    },
+    "ce1987f3b5a4f4194937a107a51af03e036d19021c628bb9e3628478837618da": {
+      "source": "save $1850/yr with a few prompts with muse!\n\nsome are even saying you can save more than 100% off with muse wonder",
+      "zh": "给 muse 几条提示词，每年就能省下 1850 美元！\n\n甚至有人说，用 muse wonder 能省下超过 100% 的费用",
+      "promptVersion": "codex-v1"
+    },
+    "1313851582ca00d44d63503c15947ce5995e31fbaa086ca1c049154022239b96": {
+      "source": "Used Muse to switch my electricity & gas providers this morning.\n\nI gave it my bills, it used a browser to look through various options, then it read through all the T&Cs and filled in the forms.\n\nProbably should have done this a while ago, but it's a much nicer experience with an agent doing it for you!",
+      "zh": "今天早上用 Muse 更换了电力和燃气供应商。\n\n我把账单给它，它用浏览器查看各种方案，然后通读了所有条款并填好了表格。\n\n这事可能早就该做了，不过让智能体代劳，体验确实舒服多了！",
+      "promptVersion": "codex-v1"
+    },
+    "0c9d5d4568e3835bbe2412c9c328ecabd36a5cfe74a1ada510a2d78ee73cf7e5": {
+      "source": "You know when people say they’re visual thinkers? Well, this is kind of the same thing, but for agents. Wild times.",
+      "zh": "你知道有些人说自己习惯用视觉思考吧？这有点像同一回事，只不过发生在智能体身上。这个时代真疯狂。",
+      "promptVersion": "codex-v1"
+    },
+    "ea73a7d16f05be9351ff7fc5b7da59802b5a9a9623585342a02897edc0975d83": {
+      "source": "Agents can now show their reasoning, not just describe it.\n\nVisual Thinking is a new research harness that turns an agent's work into real-time video, so every step is visible and easier to follow, check and trust. https://t.co/XV4XE4eVsv",
+      "zh": "智能体现在可以直观展示推理过程，而不只是用文字描述。\n\nVisual Thinking 是一个全新的研究框架，能将智能体的工作过程转化为实时视频，让每一步都清晰可见，更易于理解、核查和信任。https://t.co/XV4XE4eVsv",
+      "promptVersion": "codex-v1"
+    },
+    "cda64a70816c8a388e9b0f5675077ea766139d64c48cef4ac65976aac9f6c130": {
+      "source": "The agents proposed 397 experiments, each with a design, independent review, correctness gates, then timing against the best build. 98 produced improvement and 289 retired with a written reason. Every outcome went into a shared record the next proposal reads first. https://t.co/fhPyDH0O0H",
+      "zh": "这些智能体提出了 397 项实验，每项都经过方案设计、独立评审和正确性检查，再与最佳构建版本进行耗时对比。其中 98 项带来了改进，289 项被终止，并留下了书面说明。所有结果都录入共享记录，供下一轮提案优先查阅。https://t.co/fhPyDH0O0H",
+      "promptVersion": "codex-v1"
+    },
+    "b1469e116c43db15050145b56c65ee1263b100e9f5366dd7917817c49896506e": {
+      "source": "The fleet also recursively improved its own process. An operations team of agents landed 93 workflow changes while the optimization kept running. After the biggest one, a quick check that retires weak ideas early, experiments per day nearly doubled and the median experiment went from 16 hours to 2.5.",
+      "zh": "这支智能体集群还不断迭代自身的工作流程。在优化持续进行的同时，一支由智能体组成的运维团队落地了 93 项流程改进。其中影响最大的一项，是通过快速检查尽早淘汰潜力不足的想法。此后，每天完成的实验数量接近翻倍，单项实验耗时中位数从 16 小时降至 2.5 小时。",
+      "promptVersion": "codex-v1"
+    },
+    "01fc52431f92afbffccede311810c67af64abcc8b27e58506971bfdf98fb3490": {
+      "source": "after switching our approach to building a \"FirmOS\", I'm increasingly confident that the future of agent collaboration within organizational settings is going to be a \"company operating system\" or CompanyOS, designed for agent and human collaboration\n\ninstead of a \"company brain\" that holds everything, the OS is for storing rules, processes, decisions made, which tools to use and how. it can mirror some data, but the source of truth is often best held in your existing tools (CRM, etc.). it's continuously updated and used by your agents\n\ni think of this as a \"flipped playbook\" where instead of writing down the company rules first and following them (which is kind of like waterfall development), you're constantly updating the playbook as you decide or learn new things day-to-day running the business",
+      "zh": "自从我们转向构建“FirmOS”，我越来越确信，组织内智能体协作的未来将是一个专为智能体与人类协作设计的“公司操作系统”，也就是 CompanyOS。\n\n它并非一个包揽所有信息的“公司大脑”，而是用来存储规则、流程、已作出的决策，以及该用哪些工具、如何使用。它可以同步部分数据，但权威数据源通常最好仍保留在现有工具中，比如 CRM。这个系统会持续更新，并供智能体使用。\n\n我把它看作一本“反向编写的操作手册”：不是先写好公司规则再照着执行（这有点像瀑布式开发），而是在日常经营中，每当作出决策或获得新认识，就不断更新这本手册。",
+      "promptVersion": "codex-v1"
+    },
+    "82a0fc104c090c058dda9a94f1cc2f171f1fed4186de1fe692d6f8d81c824490": {
+      "source": "This semester I am teaching a new course on Agentic Systems, which explores the full stack of AI systems: from building and optimizing agent harnesses to serving and optimizing LLM serving infrastructure. \n\nStudents learn by building, measuring, and optimizing real agents and systems, balancing capability, latency,  and cost. \n\nOur goal is not just to teach today's AI technologies, but to prepare students to build tomorrow's. \n\nAll lectures, readings, and assignments are publicly available at https://t.co/z69r5AwsKX",
+      "zh": "这学期，我开设了一门名为 Agentic Systems 的新课，探索 AI 系统的完整技术栈：从构建和优化智能体运行框架，到部署和优化大语言模型推理服务基础设施。\n\n学生通过构建、测量和优化真实的智能体与系统，在能力、延迟和成本之间寻找平衡。\n\n我们的目标不只是教授当下的 AI 技术，更是让学生具备构建未来技术的能力。\n\n所有讲义、阅读材料和作业均已公开：https://t.co/z69r5AwsKX",
+      "promptVersion": "codex-v1"
+    },
+    "9cd03d44bf83a758fad41a58d5b2b26dd890bd782ff437a1250222645f6f5540": {
+      "source": "What goes into building a humanoid? From custom part to running robot, the Atlas shop floor is built on precision, rapid assembly, and real-time collaboration. By machining parts in-house and streamlining assembly and repair under one roof, we are driving the manufacturing velocity needed to turn complex designs into walking hardware at scale. \n\nWatch the full behind the scenes on YouTube: https://t.co/I2E88yVxS1",
+      "zh": "制造一台人形机器人需要哪些环节？从定制零件到机器人跑起来，Atlas 的生产车间始终围绕精密加工、快速装配和实时协作运转。通过自主加工零件，并在同一厂房内优化装配与维修流程，我们正加快制造速度，将复杂设计规模化地变成能行走的机器人。\n\n前往 YouTube 观看完整幕后视频：https://t.co/I2E88yVxS1",
+      "promptVersion": "codex-v1"
+    },
+    "b8a8ee6a47361d0beee34f8c8444305bc0439ce71ccc61113d131ebc0b3a9b78": {
+      "source": "wat. nanoGPT, but it trains inside a tweet.\nGPU-poor final form\ntap and press train\nhttps://t.co/K9Z6CaZifz",
+      "zh": "啥？nanoGPT 居然能在一条推文里训练。\n缺 GPU 玩家的终极形态\n点开，再按下训练按钮\nhttps://t.co/K9Z6CaZifz",
+      "promptVersion": "codex-v1"
+    },
+    "ccd2b0250b6f3aee7b6c8173f84506cf264566122d032b4256a80925b077a9b4": {
+      "source": "Gemini 4 Argon, Muse Spark 1.3, and Muse Wonder 1.0 are all really good at pdf parsing.\n\nCome check it out on OpenDocRouter! https://t.co/j2URLhN4Z2 https://t.co/9k1GeJqvx0",
+      "zh": "Gemini 4 Argon、Muse Spark 1.3 和 Muse Wonder 1.0 的 PDF 解析能力都很强。\n\n来 OpenDocRouter 试试吧！https://t.co/j2URLhN4Z2 https://t.co/9k1GeJqvx0",
+      "promptVersion": "codex-v1"
+    },
+    "a372339b89c74df00d8cd14f45281c33fbaba79d6e68e62cf9613457791a3511": {
+      "source": "OpenDocRouter makes it dead-simple to start parsing your documents across on ton of frontier Models (gemini, luna) and latest OSS models (LightOnOCR-3, MinerU2.5-pro). Parse your first document in 60 seconds!\n\nhttps://t.co/bKyKxDCbak https://t.co/JeZQX7JKpU",
+      "zh": "OpenDocRouter 让你轻松使用众多前沿模型（gemini、luna）和最新开源模型（LightOnOCR-3、MinerU2.5-pro）解析文档。只需 60 秒，就能完成首份文档的解析！\n\nhttps://t.co/bKyKxDCbak https://t.co/JeZQX7JKpU",
+      "promptVersion": "codex-v1"
     }
   },
-  "updatedAt": "2026-10-13T23:14:41.547382+00:00"
+  "updatedAt": "2026-10-14T23:12:01.068031+00:00"
 }
