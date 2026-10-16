@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-10-17T06:58:52.322357+08:00",
+  "windowHours": 23.0,
+  "monitored": 62,
+  "selected": 27,
+  "inputSha256": "1e75c0a90053f25087230307b22c42ee5c6d75841572f3f43d4030e354208ff5",
+  "copyBackend": "codex",
+  "copyAttempts": 1,
+  "copyRetries": 0,
+  "copyError": "",
+  "stories": [
+    {
+      "id": "2111181956444827695",
+      "author": "Aravind Srinivas",
+      "category": "AI 技术进步",
+      "title": "两款决策模型开放权重，四十亿参数版登顶同规模榜单",
+      "summary": "引用｜我们新一代开放权重的多模态决策模型提供两种规模：pplx-decider-v1.2 和 pplx-decider-flash-v1.2。\n\n文本和视觉得分均有提升。推理速度最高提升至原来的 5 倍：一次前向计算即可处理单个请求中的所有问题。\n\nFlash 是 Decision Index 上排名第一的 4B 模型。https://t.co/Zb1MN36aFi"
+    },
+    {
+      "id": "2111226977265000576",
+      "author": "Jerry Liu",
+      "category": "AI 技术前沿",
+      "title": "ExtractBench Pro 纳入图表与文档联合推理，检验复杂信息提取能力",
+      "summary": "引用｜推出 ExtractBenchPro：面向真实世界文档提取、挑战性最高的基准测试。\n\n客户带来的应用场景中，存在大量复杂文档的长尾需求，从性价比角度看，这些需求仍完全没有得到解决。例如试算平衡表、测井记录、拉票资料册、场地规划审查、关税对账、理赔历史记录等。\n\n前沿模型在大多数现有提取基准上的表现已接近饱和（我们最便宜的模式如今在 ExtractBench 上也能达到 93% 以上）。因此，构建一个反映这类知识工作长尾需求的复杂提取基准，具有巨大的经济价值。\n\n我们花了很长时间，从真实提取场景中筛选出最复杂的要素：\n✅ 文档约定：包含图例或规则，解读文档其余内容时必须遵循\n✅ 内部术语密度：包含特定定义，需要在文档内交叉查阅\n✅ 汇总与推理：不只是返回页面上的原始数值，还要汇总多个信息来源并推导结果\n✅ 图示关系：流程图、电路图等复杂图示\n✅ 文档内图表：精确读取图表中的数据点\n✅ 超长图表页：测井记录等数据序列会将大量数据塞进极长的单页\n\n在需要文档提取的行业中，即使很小的错误也可能造成严重后果。因此，我们的核心评估指标以完全正确的文档为依据：数值 F1 得分达到满分（100%）的文档占比。\n（此外，我们还衡量数值 F1 和有据可依的 F1 得分）\n\n即使对最新的前沿模型而言，这项任务也极其困难。使用 Astra 的 Codex，数值 F1 得分最高也只有约 58%。这个成绩相当不错，但成本极高（每页接近 1 美元！）。我们的 LlamaParse agentic/agentic plus 模式得分为 20%–40%，位于帕累托前沿的低成本一侧，价格适合全面投入生产使用。\n\nExtractBenchPro 今天已通过网站和技术博客发布，同时上线 Github 和 HuggingFace。欢迎查看！\n\n博客：https://t.co/bwxs86iS1d\n网站：https://t.co/uRrFNU1Fqo\nHugging Face：https://t.co/1VImPRTorq\nGithub（仓库名为 ExtractBench）：https://t.co/auzmOGhsaB"
+    },
+    {
+      "id": "2111193969355084011",
+      "author": "Cursor",
+      "category": "AI 技术应用",
+      "title": "Environments API 开放测试，支持编程创建与管理云端智能体环境",
+      "summary": "开发者可通过接口指定环境需要克隆的代码仓库，以及要执行的 environment.json 初始化配置，将云端智能体环境设置纳入程序化管理。"
+    }
+  ]
+}
