@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>硅谷 AI 原声 · 2026-10-18</title>
+  <style>
+    :root{--bg:#f4f6f8;--surface:#fff;--text:#16181c;--muted:#65717e;--line:#dfe4e9;--accent:#0066cc;--green:#117a62;--shadow:0 16px 42px rgba(18,28,38,.08);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 15% 0,#e8f2ff 0,transparent 27%),var(--bg);color:var(--text)} a{color:inherit;text-decoration:none} button{font:inherit}
+    .shell{width:min(1500px,calc(100% - 28px));margin:0 auto;padding:14px 0 40px}
+    .hero{display:grid;grid-template-columns:minmax(250px,1fr) auto;align-items:center;gap:12px;padding:15px 18px;border:1px solid rgba(255,255,255,.75);border-radius:16px;background:rgba(255,255,255,.88);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    h1{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin:0;font-size:clamp(28px,3.4vw,44px);line-height:1;letter-spacing:-.05em} .report-date{color:var(--green);font-size:clamp(10px,1vw,13px);font-weight:900;letter-spacing:.08em;white-space:nowrap}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(62px,1fr));gap:6px;align-content:start} .metric{padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fff} .metric strong{display:block;font-size:19px;line-height:1} .metric span{display:block;margin-top:3px;color:var(--muted);font-size:8px;font-weight:820;white-space:nowrap}
+    .notice{margin-top:12px;padding:11px 14px;border:1px solid #e1b866;border-radius:12px;background:#fff8e8;color:#7a5612;font-size:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px;align-items:start} .signal-card{min-width:0;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 9px 26px rgba(18,28,38,.045)}
+    .card-top{display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:10px} .avatar{display:grid;width:46px;height:46px;overflow:hidden;place-items:center;border:1px solid #d9e0e7;border-radius:999px;background:linear-gradient(135deg,#111827,#46627d);color:#fff;font-size:12px;font-weight:900} .avatar img{width:100%;height:100%;object-fit:cover;display:block} .identity{display:grid;gap:3px;min-width:0} .identity strong,.identity span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .identity strong{font-size:14px} .identity span{color:var(--muted);font-size:11px}
+    .score{display:grid;justify-items:center;min-width:40px;padding:5px 6px;border:1px solid #e3ebe8;border-radius:8px;background:#f4f8f6;color:#527267;font-size:15px;font-weight:820;line-height:1} .score small{margin-top:2px;color:#71877f;font-size:7px;letter-spacing:.06em;text-transform:uppercase}
+    .meta{display:flex;align-items:center;gap:6px;margin:11px 0 9px;color:var(--muted);font-size:10.5px;font-weight:750} .meta span:not(.priority){overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .meta time{margin-left:auto;white-space:nowrap} .priority{padding:3px 6px;border-radius:999px;background:#111827;color:#fff;font-size:9px}
+    .post-text{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.58} .post-text.original{font-size:16px;font-weight:570;color:#20252b} .post-text.translation{margin-top:8px;color:#66727f;font-size:13px;font-weight:470;line-height:1.62} .article .original+.translation{margin-top:2px;color:#65717e;font-size:11px;font-weight:650} .quote,.article{display:grid;gap:6px;margin-top:10px;padding:11px;border:1px solid var(--line);border-radius:12px;background:#f7f9fb} .quote__author{display:flex;align-items:center;gap:7px;font-size:11px} .quote__author>div:last-child{display:grid;gap:1px} .quote__author span{color:var(--muted)} .quote-avatar{display:grid;width:28px;height:28px;overflow:hidden;place-items:center;border:1px solid var(--line);border-radius:999px;background:#dfe6ed;color:#52606d;font-size:10px;font-weight:900} .quote-avatar img{width:100%;height:100%;object-fit:cover} .quote p,.article p{margin:0;color:#4f5a66;font-size:12px;line-height:1.48;white-space:pre-wrap} .article strong{font-size:13px} .article strong.original{font-size:13.5px} .quote-text.original{font-size:12.5px;color:#36414d} .quote-text.translation{font-size:11.5px;color:#6a7682} .quote-link{justify-self:start;color:var(--accent);font-size:10px;font-weight:850}
+    .media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:10px;overflow:hidden;border-radius:12px} .media-grid--1{grid-template-columns:1fr} .media-item{position:relative;min-height:150px;background:#e8edf2} .media-item img{width:100%;height:100%;max-height:330px;object-fit:cover;display:block} .media-item span{position:absolute;right:7px;bottom:7px;padding:4px 6px;border-radius:6px;background:rgba(0,0,0,.68);color:#fff;font-size:8px;font-weight:900}
+    .card-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid #edf0f3} .engagement{display:flex;gap:10px;color:var(--muted);font-size:10.5px;font-weight:750} .card-bottom>a{color:var(--accent);font-size:11px;font-weight:850} .empty{grid-column:1/-1;padding:70px;text-align:center;border:1px dashed #cdd5dd;border-radius:16px;background:#fff;color:var(--muted)}
+    footer{padding:26px 4px 0;color:var(--muted);font-size:11px;text-align:center}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}} @media(max-width:560px){.shell{width:min(100% - 16px,1500px);padding-top:7px}.hero{gap:10px;padding:13px 14px;border-radius:15px}h1{font-size:28px}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.metric{padding:7px 9px}.metric strong{font-size:18px}.signal-card{padding:13px}.post-text.original{font-size:15px}.post-text.translation{font-size:12.5px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <h1>硅谷 AI 原声 <span class="report-date">· 2026-10-18</span></h1>
+      <div class="metrics"><div class="metric"><strong>62</strong><span>监控专家</span></div><div class="metric"><strong>10</strong><span>活跃专家</span></div><div class="metric"><strong>18</strong><span>精选原文</span></div></div>
+    </header>
+
+    <main class="grid">
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="thom_wolf" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2068682157451571200/_ZNKM_5E_normal.jpg" alt="Thomas Wolf avatar" loading="lazy"></div>
+          <div class="identity"><strong>Thomas Wolf</strong><span>@Thom_Wolf · Hugging Face / 联合创始人兼 CSO</span></div>
+          <div class="score">91<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>开源模型 / Hugging Face</span><time>10-17 18:17 北京</time></div>
+        <p class="post-text original" lang="auto">we’re getting used to it by now but DeepSeek calling this a “minor update” while moving Terminal-Bench 4.0 from 31.2 to 42.3 is very funny.
+
+also reports 77.0 on DeepSWE (vs 74.0 for Opus 5 and 73.0 for GPT-5.6 Sol…)
+
+and the most interesting line may be faster task completion with shorter outputs. using fewer tokens is one of the practical way the cost curve collapses often done as an afterthought
+
+all with MIT-licensed weights in DeepSeek tradition
+
+now curious to see how these numbers will hold up outside their own eval setup</p><p class="post-text translation" lang="zh-CN">虽然我们已经习惯了，但 DeepSeek 把 Terminal-Bench 4.0 得分从 31.2 提升到 42.3，却称之为“小更新”，还是挺好笑的。
+
+它还公布了 DeepSWE 得分：77.0（Opus 5 为 74.0，GPT-5.6 Sol 为 73.0……）
+
+最值得关注的可能是：输出更短，任务完成更快。减少 token 用量是大幅降低成本的实用途径之一，却往往到最后才被考虑。
+
+模型权重也延续了 DeepSeek 的传统，采用 MIT 许可证。
+
+现在很好奇，离开他们自己的评测环境后，这些成绩还能保持多少。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1717417613775757312/Uk1zNOj4_normal.jpg" alt="DeepSeek avatar" loading="lazy"></div><div><strong>DeepSeek</strong><span>@deepseek_ai</span></div></div><p class="quote-text original" lang="auto">🚀 DeepSeek-V4.1-Flash-1017 is here!
+
+Stronger benchmark performance, faster task completion, and shorter outputs than the previous version—a Pareto improvement in performance and cost. Now live on our website, app, and API.
+
+🛠️ Optimized for @DeepSeekHarness, Tencent CodeBuddy, WorkBuddy, and more. Upgrade to DeepSeek Harness v0.2.1-rc.1 or later for the best experience with the new model.
+
+1/4</p><p class="quote-text translation" lang="zh-CN">🚀 DeepSeek-V4.1-Flash-1017 来了！
+
+相比上一版本，基准测试表现更强、任务完成更快、输出更短，实现了性能与成本的帕累托改进。现已上线官网、应用和 API。
+
+🛠️ 已针对 @DeepSeekHarness、Tencent CodeBuddy、WorkBuddy 等工具优化。请升级至 DeepSeek Harness v0.2.1-rc.1 或更高版本，以获得新模型的最佳使用体验。
+
+1/4</p><div class="media-grid media-grid--2"><a class="media-item" href="https://pbs.twimg.com/media/HU0b65KbsAAypqr.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HU0b65KbsAAypqr.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HU0b7UfbwAAGXNH.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HU0b7UfbwAAGXNH.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/deepseek_ai/status/2111375640717033777" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 727</span><span>↻ 38</span><span>↩ 60</span></div><a href="https://x.com/Thom_Wolf/status/2111401132840890440" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">81<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>10-17 09:01 北京</time></div>
+        <p class="post-text original source-only" lang="auto">Claude Code 团队称，现在大约 90% 的代码已经由 Claude 写。那这么多代码到底谁来 Review？
+
+Anthropic 最新这篇文章给了一个很这得参考的答案。
+
+他们已经把 Code Review 从 PR 最后的人工关卡，拆成了一条持续验证链。
+
+代码提交前，Agent 自己跑测试，再开一个干净 Context 的 Subagent 看 diff；PR 创建后自动跑 Claude Review 和 Security Review；人主要盯风险、架构和改动意图；合并后还有 Feature Flag、灰度和快速回滚。
+
+按 Anthropic 的内部数据，6 月到 9 月合并的 PR 数量翻了一倍多，回滚率反而下降超过 40%。研究版 AI Review 上线后，有实质性 Review 意见的 PR 也从 16% 提到了 54%。
+
+这里真正值得看的，是 AI Coding 把代码生产速度拉高以后，Code Review 也开始被重新设计。
+
+人以后肯定越少逐行看 diff，把注意力留给意图、系统影响和那些机器很难替你承担的判断。
+
+甚至每次漏掉一个 Bug，都可以继续写回 CLAUDE.md、REVIEW.md 或新的自动检查里，让下一次 Review 更强。
+
+代码可以越写越快，真正要跟着一起扩容的是验证系统。
+
+文章
+https://t.co/3NHUxOMQRV</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 166</span><span>↻ 20</span><span>↩ 18</span></div><a href="https://x.com/Xudong07452910/status/2111261159210815845" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="aravsrinivas" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2099903483457703936/U-W6QQk__normal.jpg" alt="Aravind Srinivas avatar" loading="lazy"></div>
+          <div class="identity"><strong>Aravind Srinivas</strong><span>@AravSrinivas · Perplexity / CEO</span></div>
+          <div class="score">81<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 搜索 / 产品</span><time>10-17 09:21 北京</time></div>
+        <p class="post-text original" lang="auto">Vercel developers can now use Perplexity Decider on AI Gateway!</p><p class="post-text translation" lang="zh-CN">Vercel 开发者现在可以通过 AI Gateway 使用 Perplexity Decider！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1978602411490205696/oLOuP7a2_normal.png" alt="Vercel Developers avatar" loading="lazy"></div><div><strong>Vercel Developers</strong><span>@vercel_dev</span></div></div><p class="quote-text original" lang="auto">Decider V1.2 decision models from @perplexity_ai are on AI Gateway.
+
+• 𝚙𝚎𝚛𝚙𝚕𝚎𝚡𝚒𝚝𝚢/𝚙𝚙𝚕𝚡-𝚍𝚎𝚌𝚒𝚍𝚎𝚛-𝚟𝟷.𝟸 for complex agent workflows
+• 𝚙𝚎𝚛𝚙𝚕𝚎𝚡𝚒𝚝𝚢/𝚙𝚙𝚕𝚡-𝚍𝚎𝚌𝚒𝚍𝚎𝚛-𝚏𝚕𝚊𝚜𝚑-𝚟𝟷.𝟸 for ultra-fast decisions
+
+https://t.co/hWi1i84oAO</p><p class="quote-text translation" lang="zh-CN">@perplexity_ai 的 Decider V1.2 决策模型已上线 AI Gateway。
+
+• 𝚙𝚎𝚛𝚙𝚕𝚎𝚡𝚒𝚝𝚢/𝚙𝚙𝚕𝚡-𝚍𝚎𝚌𝚒𝚍𝚎𝚛-𝚟𝟷.𝟸 适用于复杂的智能体工作流
+• 𝚙𝚎𝚛𝚙𝚕𝚎𝚡𝚒𝚝𝚢/𝚙𝚙𝚕𝚡-𝚍𝚎𝚌𝚒𝚍𝚎𝚛-𝚏𝚕𝚊𝚜𝚑-𝚟𝟷.𝟸 适用于极速决策
+
+https://t.co/hWi1i84oAO</p><a class="quote-link" href="https://x.com/vercel_dev/status/2111211692030152951" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 142</span><span>↻ 4</span><span>↩ 30</span></div><a href="https://x.com/AravSrinivas/status/2111266278610743595" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="amasad" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div>
+          <div class="identity"><strong>Amjad Masad</strong><span>@amasad · Replit / CEO</span></div>
+          <div class="score">86<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 / 开发者平台</span><time>10-17 09:25 北京</time></div>
+        <p class="post-text original" lang="auto">Your data belongs to you! We’ll deploy Replit to your cloud and data never leaves home.
+
+Designed for high stakes environments like governments, finance, and healthcare.</p><p class="post-text translation" lang="zh-CN">你的数据属于你！我们会将 Replit 部署到你的云环境中，让数据始终留在你自己的环境里。
+
+专为政府、金融、医疗等高要求场景设计。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2031733558952464384/ERrHv3jK_normal.jpg" alt="Replit ⠕ avatar" loading="lazy"></div><div><strong>Replit ⠕</strong><span>@Replit</span></div></div><p class="quote-text original" lang="auto">We’re introducing Bring Your Own Cloud (BYOC) for Replit, with options for development and production in your cloud, whether you use @Azure, @GoogleCloud, or @AWScloud.
+
+Our approach gives security and platform teams greater isolation and control while preserving the familiar Replit experience.
+
+Explore BYOC: https://t.co/RkpasiPFzL</p><p class="quote-text translation" lang="zh-CN">我们为 Replit 推出 Bring Your Own Cloud（BYOC，自带云）方案。无论你使用 @Azure、@GoogleCloud 还是 @AWScloud，都可以选择在自己的云环境中进行开发和生产部署。
+
+该方案为安全和平台团队提供更强的隔离能力与控制权，同时保留熟悉的 Replit 使用体验。
+
+了解 BYOC：https://t.co/RkpasiPFzL</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HUx5SYZXYAAXN6l.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HUx5SYZXYAAXN6l.png" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/Replit/status/2111219084352221410" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 351</span><span>↻ 27</span><span>↩ 79</span></div><a href="https://x.com/amasad/status/2111267314012496121" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">84<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>10-17 12:02 北京</time></div>
+        <p class="post-text original source-only" lang="auto">终于解读到一篇关于 FDE 的论文了，对 FDE 感兴趣的可以看看。
+
+相比平时从岗位、公司案例去理解 FDE，这篇《FDE-Gym》更像是在用一套系统评测，研究 AI 到底能不能承担 Forward Deployed Engineer 这类真实企业交付工作。
+
+作者把真实企业项目改造成 95 个任务，覆盖金融、医疗、制造、能源等 18 个行业。
+
+Agent 拿到的通常只有客户最初的一句话需求。它需要自己读文档、查系统、找人确认信息，还要判断客户真正的问题到底是什么。
+
+评分也很有趣：
+
+完成需求本身还不够，最终交付的系统必须真正改善业务指标；乱找人、反复试错和等待都会产生额外成本。
+
+结果是最强模型平均得分只有 0.56，95 个任务里真正解决的只有 14 个。
+
+最大的瓶颈，往往是那些没有写进需求里的业务规则、隐性约束，以及客户自己都没表达清楚的问题。
+
+其实对于 FDE 这个角色，真正难的地方一直都不只是「把东西做出来」。
+
+更难的是在信息不完整、需求模糊、组织复杂的环境里，先判断到底该解决什么，再把结果真正交付出去。
+
+📎 arxiv: https://t.co/eRRRkafPsW</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HUxGiPZXQAAsFME.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HUxGiPZXQAAsFME.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 149</span><span>↻ 36</span><span>↩ 3</span></div><a href="https://x.com/Xudong07452910/status/2111306709318951189" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">66<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>10-17 18:08 北京</time></div>
+        <p class="post-text original source-only" lang="auto">DeepSeek V4.1 Flash 又更新了版本，榜单成绩非常亮眼。
+
+上一版模型我用的很满意，特别是多模态能力不比 Kimi K3 差多少，所以 Kimi 啥时候发布新的版本呀？一直没有动静，还有 GLM，前几天你俩被 Anthropic 点名蒸馏，希望赶紧拿出真东西打他们的脸。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1717417613775757312/Uk1zNOj4_normal.jpg" alt="DeepSeek avatar" loading="lazy"></div><div><strong>DeepSeek</strong><span>@deepseek_ai</span></div></div><p class="quote-text original" lang="auto">🚀 DeepSeek-V4.1-Flash-1017 is here!
+
+Stronger benchmark performance, faster task completion, and shorter outputs than the previous version—a Pareto improvement in performance and cost. Now live on our website, app, and API.
+
+🛠️ Optimized for @DeepSeekHarness, Tencent CodeBuddy, WorkBuddy, and more. Upgrade to DeepSeek Harness v0.2.1-rc.1 or later for the best experience with the new model.
+
+1/4</p><p class="quote-text translation" lang="zh-CN">🚀 DeepSeek-V4.1-Flash-1017 来了！
+
+相比上一版本，基准测试表现更强、任务完成更快、输出更短，实现了性能与成本的帕累托改进。现已上线官网、应用和 API。
+
+🛠️ 已针对 @DeepSeekHarness、Tencent CodeBuddy、WorkBuddy 等工具优化。请升级至 DeepSeek Harness v0.2.1-rc.1 或更高版本，以获得新模型的最佳使用体验。
+
+1/4</p><div class="media-grid media-grid--2"><a class="media-item" href="https://pbs.twimg.com/media/HU0b65KbsAAypqr.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HU0b65KbsAAypqr.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HU0b7UfbwAAGXNH.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HU0b7UfbwAAGXNH.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/deepseek_ai/status/2111375640717033777" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 4</span><span>↻ 1</span><span>↩ 1</span></div><a href="https://x.com/Xudong07452910/status/2111399025324744862" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="amasad" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div>
+          <div class="identity"><strong>Amjad Masad</strong><span>@amasad · Replit / CEO</span></div>
+          <div class="score">82<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 / 开发者平台</span><time>10-17 09:01 北京</time></div>
+        <p class="post-text original" lang="auto">Frontier Slides, super fast ;)</p><p class="post-text translation" lang="zh-CN">Frontier Slides，速度超快 ;)</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1988401101797027844/yZ6rC4I7_normal.jpg" alt="DesignArena avatar" loading="lazy"></div><div><strong>DesignArena</strong><span>@DesignArena</span></div></div><p class="quote-text original" lang="auto">BREAKING: Replit by @Replit ranks at #2 on Slides Arena with an Elo of 1279!
+
+It is the highest-rated slides builder under 8 minutes and generates decks ~24% faster than #1, establishing a new Pareto frontier for Speed vs. Preference. Replit places ahead of Gamma 5 by @GammaApp, Manus 1.6 by @ManusAI, and Claude Opus 4.6 by @Anthropic, trailing only Playyy.
+
+Congrats to the @Replit team!</p><p class="quote-text translation" lang="zh-CN">重磅：@Replit 的 Replit 以 1279 的 Elo 评分位列 Slides Arena 第 2！
+
+在生成耗时低于 8 分钟的幻灯片工具中，它的评分最高，生成演示文稿的速度比榜首快约 24%，在速度与用户偏好之间确立了新的帕累托前沿。Replit 排名领先于 @GammaApp 的 Gamma 5、@ManusAI 的 Manus 1.6 和 @Anthropic 的 Claude Opus 4.6，仅次于 Playyy。
+
+恭喜 @Replit 团队！</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2111258740553052160/img/uxYxzhU5KyyNCZi6.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2111258740553052160/img/uxYxzhU5KyyNCZi6.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/DesignArena/status/2111259231257268651" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 176</span><span>↻ 6</span><span>↩ 22</span></div><a href="https://x.com/amasad/status/2111261373741383712" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="alexandr_wang" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">75<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>10-18 03:28 北京</time></div>
+        <p class="post-text original" lang="auto">muse wonder full on VulcanBench
+
+pretty competitive overall with Astra, Opus 5.5, and Sol 6.1, but definitely slower which is something we’re working on ⚡️</p><p class="post-text translation" lang="zh-CN">Muse Wonder Full 在 VulcanBench 上的表现
+
+整体上与 Astra、Opus 5.5 和 Sol 6.1 相当有竞争力，但速度确实更慢，我们正在努力改进 ⚡️</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2058612692580184064/h0dOdYSc_normal.jpg" alt="Morgan avatar" loading="lazy"></div><div><strong>Morgan</strong><span>@morganlinton</span></div></div><p class="quote-text original" lang="auto">Okay my Muse Wonder Full benchmark is now complete with @VulcanBench - busy weekend so might not get to put all the data and model cards together until next week.
+
+But I wanted to share a quick peek at the combined score and how it compares to other models.
+
+The TL;DR is, with Muse Wonder Full, Medium effort seems to be the sweet spot, but, you need to take tokens-per-task and cost-per-task into account when deciding what model to use.
+
+In the two tables below, first is combined accuracy score, second is time per task.
+
+Right now Muse Wonder Full is quite a bit slower than Opus 5.5, much slower than GPT-6.1 Sol, and way slower than GPT-6 Astra.
+
+Overall, based on what I&#x27;m seeing, I would use Opus 5.5 or GPT-6.1 Sol over Muse Full at this point. You&#x27;ll get the same or better accuracy faster and cheaper.
+
+More to come in model cards and deeper analysis on the site, but it&#x27;s the weekend and I&#x27;m hanging with family more than doing benchmarks so might be a day or two.
+
+You should do the same! 🖖</p><p class="quote-text translation" lang="zh-CN">我用 @VulcanBench 对 Muse Wonder Full 的基准测试已经完成。周末比较忙，可能要到下周才能整理好所有数据和模型卡。
+
+不过，我想先分享一下综合得分，以及它与其他模型的对比。
+
+简单来说，Muse Wonder Full 在 Medium 推理强度下似乎最均衡，但选择模型时，也需要考虑每项任务的 token 用量和成本。
+
+下面两张表，第一张是综合准确率得分，第二张是每项任务的耗时。
+
+目前，Muse Wonder Full 比 Opus 5.5 慢不少，比 GPT-6.1 Sol 慢得多，比 GPT-6 Astra 更是慢了一大截。
+
+总体来看，根据目前的结果，我现阶段会优先选择 Opus 5.5 或 GPT-6.1 Sol，而不是 Muse Full。它们能以更快的速度、更低的成本，达到相同甚至更高的准确率。
+
+后续会在网站上发布模型卡和更深入的分析。不过现在是周末，我会多陪陪家人，少跑些基准测试，所以可能还要一两天。
+
+你也该多陪陪家人！🖖</p><div class="media-grid media-grid--2"><a class="media-item" href="https://pbs.twimg.com/media/HU2VGwUXcAAT0Oz.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HU2VGwUXcAAT0Oz.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HU2VjFNXkAAbhOr.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HU2VjFNXkAAbhOr.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/morganlinton/status/2111509070494450055" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 303</span><span>↻ 13</span><span>↩ 72</span></div><a href="https://x.com/alexandr_wang/status/2111539749022503334" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="simonw" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg" alt="Simon Willison avatar" loading="lazy"></div>
+          <div class="identity"><strong>Simon Willison</strong><span>@simonw · Datasette；独立 AI 工程评论者</span></div>
+          <div class="score">62<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 工程实践</span><time>10-17 21:37 北京</time></div>
+        <p class="post-text original" lang="auto">@manasque @copyconstruct @pantasw2 Most of the SQLite test are open source - there is an additional small closed source compatibility suite which people often misinterpret as meaning the tests re closed source</p><p class="post-text translation" lang="zh-CN">@manasque @copyconstruct @pantasw2 SQLite 的大多数测试都是开源的，另有一小套闭源的兼容性测试。人们常常因此误以为所有测试都是闭源的。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 4</span><span>↻ 0</span><span>↩ 2</span></div><a href="https://x.com/simonw/status/2111451453177163779" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="yoheinakajima" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1452754543217831938/T2O-66Yy_normal.jpg" alt="Yohei Nakajima avatar" loading="lazy"></div>
+          <div class="identity"><strong>Yohei Nakajima</strong><span>@yoheinakajima · Untapped Capital / BabyAGI</span></div>
+          <div class="score">52<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent 创业公司</span><time>10-18 01:24 北京</time></div>
+        <p class="post-text original" lang="auto">@deepfates i would separate persistence from the harness. in our case, we use repos with instructions, learning, code, etc that we can plug any harness into</p><p class="post-text translation" lang="zh-CN">@deepfates 我会把持久化存储与智能体运行框架分开。我们用代码仓库存放指令、学习记录、代码等内容，任何运行框架都可以接入这些仓库。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 5</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/yoheinakajima/status/2111508615345664299" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="thom_wolf" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2068682157451571200/_ZNKM_5E_normal.jpg" alt="Thomas Wolf avatar" loading="lazy"></div>
+          <div class="identity"><strong>Thomas Wolf</strong><span>@Thom_Wolf · Hugging Face / 联合创始人兼 CSO</span></div>
+          <div class="score">91<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>开源模型 / Hugging Face</span><time>10-17 18:01 北京</time></div>
+        <p class="post-text original" lang="auto">&quot;how to avoid brain rot&quot; was a great watch. some of my favorites points:
+- using ai to ask yourself socratic questions instead of giving you the answer makes you feel like you&#x27;re learning less but research shows you&#x27;re actually learning more
+- ai tooling is moving so fast that it&#x27;s better to know 50% of a new tool than to master 90% of an older tool</p><p class="post-text translation" lang="zh-CN">《如何避免脑腐》很值得一看。我最喜欢的几个观点：
+- 让 AI 用苏格拉底式提问引导你思考，而不是直接给出答案，会让你觉得自己学到的更少，但研究表明，你实际上学得更多。
+- AI 工具发展太快，与其把一个旧工具掌握到 90%，不如把一个新工具掌握到 50%。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1075852853737066496/BJa_LO5x_normal.jpg" alt="Miles Cranmer avatar" loading="lazy"></div><div><strong>Miles Cranmer</strong><span>@MilesCranmer</span></div></div><p class="quote-text original" lang="auto">Here is the full talk: https://t.co/CybHdJ3D1c</p><p class="quote-text translation" lang="zh-CN">完整演讲在这里：https://t.co/CybHdJ3D1c</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2111104526816096256/img/akfCN-2_SAnBbNJ6.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2111104526816096256/img/akfCN-2_SAnBbNJ6.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/MilesCranmer/status/2111105654211608847" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 1,810</span><span>↻ 127</span><span>↩ 33</span></div><a href="https://x.com/Thom_Wolf/status/2111397076764438554" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="amasad" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_normal.jpg" alt="Amjad Masad avatar" loading="lazy"></div>
+          <div class="identity"><strong>Amjad Masad</strong><span>@amasad · Replit / CEO</span></div>
+          <div class="score">89<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 编程 / 开发者平台</span><time>10-18 00:29 北京</time></div>
+        <p class="post-text original" lang="auto">To clarify: Replit remains model agnostic. Our users can choose Anthropic models as well as many other supported models.
+
+What I meant at TC Disrupt is that OpenAI is now our preferred partner powering Agent based on performance, cost, and strength of our partnership.
+
+We believe in giving our users model choice while optimizing the default experience for the best performance at the best price.</p><p class="post-text translation" lang="zh-CN">澄清一下：Replit 仍然不绑定特定模型。用户可以选择 Anthropic 的模型，也可以选择我们支持的许多其他模型。
+
+我在 TC Disrupt 上想表达的是，综合性能、成本和双方紧密的合作关系，OpenAI 现已成为我们为 Agent 提供模型支持的首选合作伙伴。
+
+我们坚持让用户自由选择模型，同时优化默认体验，以最优价格提供最佳性能。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1096066608034918401/m8wnTWsX_normal.png" alt="TechCrunch avatar" loading="lazy"></div><div><strong>TechCrunch</strong><span>@TechCrunch</span></div></div><p class="quote-text original" lang="auto">Replit CEO and co-founder Amjad Masad made the comments during TechCrunch Disrupt 2026.
+https://t.co/SkVqnGZe70</p><p class="quote-text translation" lang="zh-CN">Replit 首席执行官兼联合创始人 Amjad Masad 在 TechCrunch Disrupt 2026 大会上发表了上述言论。
+https://t.co/SkVqnGZe70</p><a class="quote-link" href="https://x.com/TechCrunch/status/2111206322381185492" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 316</span><span>↻ 12</span><span>↩ 111</span></div><a href="https://x.com/amasad/status/2111494912562888939" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="jackclarksf" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/726446881547517952/ULhSTKxN_normal.jpg" alt="Jack Clark avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jack Clark</strong><span>@jackclarkSF · Anthropic / 政策与传播；Import AI 作者</span></div>
+          <div class="score">84<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 安全 / Anthropic</span><time>10-17 18:58 北京</time></div>
+        <p class="post-text original" lang="auto">@DeItaone this isn&#x27;t an internal model, it&#x27;s the public economic scenario explorer we published a while ago - and this is under the &quot;extreme&quot; parameter setting https://t.co/DTGOqYFmKa</p><p class="post-text translation" lang="zh-CN">@DeItaone 这不是内部模型，而是我们前段时间发布的公开经济情景探索工具——而且这里用的是“极端”参数设置 https://t.co/DTGOqYFmKa</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 98</span><span>↻ 6</span><span>↩ 6</span></div><a href="https://x.com/jackclarkSF/status/2111411532991177195" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="fchollet" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2006806326140350470/Kd5oZv-f_normal.jpg" alt="Francois Chollet avatar" loading="lazy"></div>
+          <div class="identity"><strong>Francois Chollet</strong><span>@fchollet · ARC Prize；Keras 作者</span></div>
+          <div class="score">77<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 研究 / 评测</span><time>10-18 01:20 北京</time></div>
+        <p class="post-text original" lang="auto">Some observations about the &quot;total&quot; automation of software engineering:
+
+1. There are more software engineers now than in 2025, and demand is growing.
+
+2. Software engineers have never worked harder than they do now.
+
+3. They largely don&#x27;t write code anymore, agents write ~100% of the code.
+
+4. The bottom line of the companies that employs these engineers and agents (i.e. the terminal purpose of all this code) is typically not budging as a result of AI adoption.
+
+This is why you have to think in terms of systems. Automating one aspect of a system creates its own friction and moves the bottlenecks elsewhere.</p><p class="post-text translation" lang="zh-CN">关于软件工程“全面”自动化的一些观察：
+
+1. 现在的软件工程师比 2025 年更多，而且需求还在增长。
+
+2. 软件工程师从未像现在这样忙碌。
+
+3. 他们基本不再亲自写代码，智能体编写了近乎 100% 的代码。
+
+4. 雇用这些工程师和智能体的公司，其利润（也就是编写所有这些代码的最终目的）通常并未因采用 AI 而有所改善。
+
+这就是为什么必须从系统角度思考。将系统中的某个环节自动化，会产生新的摩擦，并将瓶颈转移到其他地方。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 1,466</span><span>↻ 142</span><span>↩ 183</span></div><a href="https://x.com/fchollet/status/2111507711653564543" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="aravsrinivas" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2099903483457703936/U-W6QQk__normal.jpg" alt="Aravind Srinivas avatar" loading="lazy"></div>
+          <div class="identity"><strong>Aravind Srinivas</strong><span>@AravSrinivas · Perplexity / CEO</span></div>
+          <div class="score">65<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 搜索 / 产品</span><time>10-18 02:07 北京</time></div>
+        <p class="post-text original" lang="auto">@NVIDIAAI @perplexity_ai Thanks for the support! Look forward to working together with your team on deploying our sandboxes on Vera!</p><p class="post-text translation" lang="zh-CN">@NVIDIAAI @perplexity_ai 感谢支持！期待与你们的团队合作，将我们的沙箱部署到 Vera 上！</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 11</span><span>↻ 0</span><span>↩ 2</span></div><a href="https://x.com/AravSrinivas/status/2111519366890340718" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="swyx" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx avatar" loading="lazy"></div>
+          <div class="identity"><strong>swyx</strong><span>@swyx · Latent Space / AI Engineer</span></div>
+          <div class="score">59<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 工作流</span><time>10-18 04:48 北京</time></div>
+        <p class="post-text original" lang="auto">harrison would say that :) you also want to take into account kv cache and dreaming optimizations that only harness-model colocation can achieve. ive had my own career ruined by trying to be switzerland without realizing the costs.
+
+truth is his advice probably:
+- low end: doesnt matter
+- mid tier: maybe
+- high end: definitely
+
+and most people are not high end (&gt;2T tokens a month)</p><p class="post-text translation" lang="zh-CN">harrison 当然会这么说 :) 你还得考虑 KV 缓存和 dreaming 优化，这些只有将智能体运行框架与模型部署在一起才能实现。我自己就曾试图保持“瑞士式中立”，却没意识到其中的代价，结果毁了自己的事业。
+
+其实，他的建议大概可以这样看：
+- 低用量：无所谓
+- 中等用量：也许适用
+- 高用量：肯定适用
+
+而大多数人都达不到高用量水平（每月超过 2 万亿 token）</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 15</span><span>↻ 0</span><span>↩ 2</span></div><a href="https://x.com/swyx/status/2111559986249859559" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="aravsrinivas" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2099903483457703936/U-W6QQk__normal.jpg" alt="Aravind Srinivas avatar" loading="lazy"></div>
+          <div class="identity"><strong>Aravind Srinivas</strong><span>@AravSrinivas · Perplexity / CEO</span></div>
+          <div class="score">58<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 搜索 / 产品</span><time>10-18 02:54 北京</time></div>
+        <p class="post-text original" lang="auto">@claudio_aldana @NVIDIAAI @perplexity_ai @vercel Vercel is a great developer platform. We’ve open sourced SPACE to support the whole ecosystem and would love it if ideas there can positively contribute to Vercel sandboxes.</p><p class="post-text translation" lang="zh-CN">@claudio_aldana @NVIDIAAI @perplexity_ai @vercel Vercel 是一个很棒的开发者平台。我们已将 SPACE 开源，以支持整个生态，也很希望其中的思路能为 Vercel 沙箱带来帮助。</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 1</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/AravSrinivas/status/2111531224447766696" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="swyx" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx avatar" loading="lazy"></div>
+          <div class="identity"><strong>swyx</strong><span>@swyx · Latent Space / AI Engineer</span></div>
+          <div class="score">56<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 工作流</span><time>10-17 13:52 北京</time></div>
+        <p class="post-text original" lang="auto">@irl_danB @cjav_dev already out!</p><p class="post-text translation" lang="zh-CN">@irl_danB @cjav_dev 已经上线了！</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_normal.jpg" alt="swyx avatar" loading="lazy"></div><div><strong>swyx</strong><span>@swyx</span></div></div><p class="quote-text original" lang="auto">@cjav_dev @aiDotEngineer @ricmac @latentspacepod and Anthropic&#x27;s Flows/multiagent workshop is live!
+
+thanks so much to @katelyn_lesse for helping set this up, and thanks to CJ and Harrison for an incredible workshop!
+
+ https://t.co/7Fyakm45B9</p><p class="quote-text translation" lang="zh-CN">@cjav_dev @aiDotEngineer @ricmac @latentspacepod 与 Anthropic 的 Flows/多智能体工作坊已上线！
+
+非常感谢 @katelyn_lesse 协助筹备，也感谢 CJ 和 Harrison 带来这场精彩的工作坊！
+
+https://t.co/7Fyakm45B9</p><a class="quote-link" href="https://x.com/swyx/status/2111188568974803248" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 5</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/swyx/status/2111334518640783620" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+    </main>
+    <footer>Generated 2026-10-18 06:56:28 Asia/Shanghai · Read-only X ingestion via Bird · Translation via Codex</footer>
+  </div>
+</body>
+</html>
