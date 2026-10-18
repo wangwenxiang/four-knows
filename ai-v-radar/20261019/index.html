@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>硅谷 AI 原声 · 2026-10-19</title>
+  <style>
+    :root{--bg:#f4f6f8;--surface:#fff;--text:#16181c;--muted:#65717e;--line:#dfe4e9;--accent:#0066cc;--green:#117a62;--shadow:0 16px 42px rgba(18,28,38,.08);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 15% 0,#e8f2ff 0,transparent 27%),var(--bg);color:var(--text)} a{color:inherit;text-decoration:none} button{font:inherit}
+    .shell{width:min(1500px,calc(100% - 28px));margin:0 auto;padding:14px 0 40px}
+    .hero{display:grid;grid-template-columns:minmax(250px,1fr) auto;align-items:center;gap:12px;padding:15px 18px;border:1px solid rgba(255,255,255,.75);border-radius:16px;background:rgba(255,255,255,.88);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    h1{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin:0;font-size:clamp(28px,3.4vw,44px);line-height:1;letter-spacing:-.05em} .report-date{color:var(--green);font-size:clamp(10px,1vw,13px);font-weight:900;letter-spacing:.08em;white-space:nowrap}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(62px,1fr));gap:6px;align-content:start} .metric{padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fff} .metric strong{display:block;font-size:19px;line-height:1} .metric span{display:block;margin-top:3px;color:var(--muted);font-size:8px;font-weight:820;white-space:nowrap}
+    .notice{margin-top:12px;padding:11px 14px;border:1px solid #e1b866;border-radius:12px;background:#fff8e8;color:#7a5612;font-size:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px;align-items:start} .signal-card{min-width:0;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 9px 26px rgba(18,28,38,.045)}
+    .card-top{display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:10px} .avatar{display:grid;width:46px;height:46px;overflow:hidden;place-items:center;border:1px solid #d9e0e7;border-radius:999px;background:linear-gradient(135deg,#111827,#46627d);color:#fff;font-size:12px;font-weight:900} .avatar img{width:100%;height:100%;object-fit:cover;display:block} .identity{display:grid;gap:3px;min-width:0} .identity strong,.identity span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .identity strong{font-size:14px} .identity span{color:var(--muted);font-size:11px}
+    .score{display:grid;justify-items:center;min-width:40px;padding:5px 6px;border:1px solid #e3ebe8;border-radius:8px;background:#f4f8f6;color:#527267;font-size:15px;font-weight:820;line-height:1} .score small{margin-top:2px;color:#71877f;font-size:7px;letter-spacing:.06em;text-transform:uppercase}
+    .meta{display:flex;align-items:center;gap:6px;margin:11px 0 9px;color:var(--muted);font-size:10.5px;font-weight:750} .meta span:not(.priority){overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .meta time{margin-left:auto;white-space:nowrap} .priority{padding:3px 6px;border-radius:999px;background:#111827;color:#fff;font-size:9px}
+    .post-text{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.58} .post-text.original{font-size:16px;font-weight:570;color:#20252b} .post-text.translation{margin-top:8px;color:#66727f;font-size:13px;font-weight:470;line-height:1.62} .article .original+.translation{margin-top:2px;color:#65717e;font-size:11px;font-weight:650} .quote,.article{display:grid;gap:6px;margin-top:10px;padding:11px;border:1px solid var(--line);border-radius:12px;background:#f7f9fb} .quote__author{display:flex;align-items:center;gap:7px;font-size:11px} .quote__author>div:last-child{display:grid;gap:1px} .quote__author span{color:var(--muted)} .quote-avatar{display:grid;width:28px;height:28px;overflow:hidden;place-items:center;border:1px solid var(--line);border-radius:999px;background:#dfe6ed;color:#52606d;font-size:10px;font-weight:900} .quote-avatar img{width:100%;height:100%;object-fit:cover} .quote p,.article p{margin:0;color:#4f5a66;font-size:12px;line-height:1.48;white-space:pre-wrap} .article strong{font-size:13px} .article strong.original{font-size:13.5px} .quote-text.original{font-size:12.5px;color:#36414d} .quote-text.translation{font-size:11.5px;color:#6a7682} .quote-link{justify-self:start;color:var(--accent);font-size:10px;font-weight:850}
+    .media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:10px;overflow:hidden;border-radius:12px} .media-grid--1{grid-template-columns:1fr} .media-item{position:relative;min-height:150px;background:#e8edf2} .media-item img{width:100%;height:100%;max-height:330px;object-fit:cover;display:block} .media-item span{position:absolute;right:7px;bottom:7px;padding:4px 6px;border-radius:6px;background:rgba(0,0,0,.68);color:#fff;font-size:8px;font-weight:900}
+    .card-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid #edf0f3} .engagement{display:flex;gap:10px;color:var(--muted);font-size:10.5px;font-weight:750} .card-bottom>a{color:var(--accent);font-size:11px;font-weight:850} .empty{grid-column:1/-1;padding:70px;text-align:center;border:1px dashed #cdd5dd;border-radius:16px;background:#fff;color:var(--muted)}
+    footer{padding:26px 4px 0;color:var(--muted);font-size:11px;text-align:center}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}} @media(max-width:560px){.shell{width:min(100% - 16px,1500px);padding-top:7px}.hero{gap:10px;padding:13px 14px;border-radius:15px}h1{font-size:28px}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.metric{padding:7px 9px}.metric strong{font-size:18px}.signal-card{padding:13px}.post-text.original{font-size:15px}.post-text.translation{font-size:12.5px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <h1>硅谷 AI 原声 <span class="report-date">· 2026-10-19</span></h1>
+      <div class="metrics"><div class="metric"><strong>62</strong><span>监控专家</span></div><div class="metric"><strong>6</strong><span>活跃专家</span></div><div class="metric"><strong>12</strong><span>精选原文</span></div></div>
+    </header>
+
+    <main class="grid">
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">70<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>10-19 02:26 北京</time></div>
+        <p class="post-text original" lang="auto">One of the most important challenges in advancing enterprise AI is creating evaluation benchmarks that reflect their real data and workflows - without using their actual data or workflows due to privacy/security restrictions
+
+We see our customers upload a massive long tail of complex documents for extraction, which break even the most complex frontier models.
+
+In order to create a representative benchmark that adheres to this complexity, we invested heavily in a synthetic pipeline that can mine real document templates, but allow flexibility for variation of not only the data, but the template and rendering.
+
+Come check out ExtractBench Pro! https://t.co/bwxs86iS1d
+
+Website: https://t.co/qrr3C1imM2</p><p class="post-text translation" lang="zh-CN">推动企业 AI 发展的关键挑战之一，是构建能反映企业真实数据和工作流的评测基准，同时又因隐私和安全限制，不能直接使用这些数据和工作流。
+
+我们看到，客户上传了海量、类型极其多样的复杂文档用于信息提取，就连最先进的前沿模型也会在这些文档上栽跟头。
+
+为了构建能体现这种复杂度的代表性基准，我们投入大量资源开发了一套合成流水线，既能挖掘真实文档模板，又能灵活调整数据、模板和渲染方式。
+
+来看看 ExtractBench Pro！https://t.co/bwxs86iS1d
+
+网站：https://t.co/qrr3C1imM2</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2111886514305245184/img/LmqEFezkcquaXnNw.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2111886514305245184/img/LmqEFezkcquaXnNw.jpg" alt="X post media"><span>VIDEO</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div><div><strong>Jerry Liu</strong><span>@jerryjliu0</span></div></div><p class="quote-text original" lang="auto">Introducing ExtractBenchPro: the most challenging benchmark for real-world document extraction.
+
+We see a massive long tail of document complexity in terms of use cases brought on from our customers, that are completely unsolved from a price-performance standpoint. These include trial balances, well logs, canvass binders, site plan reviews, duty reconciliations, loss runs, and more.
+
+Most existing extraction benchmarks are saturated by the frontier models (our cheapest modes now score 93%+ on ExtractBench). So there is enormous economic value in building a complex extraction benchmark that reflects this long-tail of knowledge work.
+
+We spent a long time curating the most complex elements that we saw from real world extraction use cases:
+✅ Document conventions: containing legends or rules where the rest of the document should be interpreted
+✅ Density of internal jargon: specific definitions that must be cross-referenced within a doc
+✅ Aggregation and reasoning: beyond returning exact values on a page, infer values derived from aggregating multiple sources of information
+✅ Drawn relations: complex diagrams like procedures and circuits
+✅ Charts inside documents: read precise points within a chart
+✅ Long chart sheets: some data series like well logs cram all this data into an extremely long page
+
+Within the industries where document extraction is relevant, even small mistakes can have enormous negative impacts. Therefore our headline evaluation metric is based on perfect documents: the proportion of docs with perfect (100%) value f1 score.
+(Besides this we also measure value f1 and grounded f1)
+
+It’s an extremely hard task for even the latest frontier models to solve, topping out at ~58% or so in Value F1 score for Codex with Astra - which is quite good but extremely expensive (almost $1 per page!) Our LlamaParse agentic/agentic plus modes are 20-40% and cover the left side of the Pareto frontier, at price ranges that are feasible for full production use.
+
+ExtractBenchPro is available today as a website/technical blog, and also on Github and HuggingFace. Check it out!
+
+Blog: https://t.co/bwxs86iS1d
+Website: https://t.co/uRrFNU1Fqo
+Hugging Face: https://t.co/1VImPRTorq
+Github (is ExtractBench): https://t.co/auzmOGhsaB</p><p class="quote-text translation" lang="zh-CN">推出 ExtractBenchPro：面向真实世界文档提取、挑战性最高的基准测试。
+
+客户带来的应用场景中，存在大量复杂文档的长尾需求，从性价比角度看，这些需求仍完全没有得到解决。例如试算平衡表、测井记录、拉票资料册、场地规划审查、关税对账、理赔历史记录等。
+
+前沿模型在大多数现有提取基准上的表现已接近饱和（我们最便宜的模式如今在 ExtractBench 上也能达到 93% 以上）。因此，构建一个反映这类知识工作长尾需求的复杂提取基准，具有巨大的经济价值。
+
+我们花了很长时间，从真实提取场景中筛选出最复杂的要素：
+✅ 文档约定：包含图例或规则，解读文档其余内容时必须遵循
+✅ 内部术语密度：包含特定定义，需要在文档内交叉查阅
+✅ 汇总与推理：不只是返回页面上的原始数值，还要汇总多个信息来源并推导结果
+✅ 图示关系：流程图、电路图等复杂图示
+✅ 文档内图表：精确读取图表中的数据点
+✅ 超长图表页：测井记录等数据序列会将大量数据塞进极长的单页
+
+在需要文档提取的行业中，即使很小的错误也可能造成严重后果。因此，我们的核心评估指标以完全正确的文档为依据：数值 F1 得分达到满分（100%）的文档占比。
+（此外，我们还衡量数值 F1 和有据可依的 F1 得分）
+
+即使对最新的前沿模型而言，这项任务也极其困难。使用 Astra 的 Codex，数值 F1 得分最高也只有约 58%。这个成绩相当不错，但成本极高（每页接近 1 美元！）。我们的 LlamaParse agentic/agentic plus 模式得分为 20%–40%，位于帕累托前沿的低成本一侧，价格适合全面投入生产使用。
+
+ExtractBenchPro 今天已通过网站和技术博客发布，同时上线 Github 和 HuggingFace。欢迎查看！
+
+博客：https://t.co/bwxs86iS1d
+网站：https://t.co/uRrFNU1Fqo
+Hugging Face：https://t.co/1VImPRTorq
+Github（仓库名为 ExtractBench）：https://t.co/auzmOGhsaB</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2110765298953682944/img/0PEz-hsd1wNb5Zyc.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2110765298953682944/img/0PEz-hsd1wNb5Zyc.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/jerryjliu0/status/2110766726405411179" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 20</span><span>↻ 3</span><span>↩ 12</span></div><a href="https://x.com/jerryjliu0/status/2111886670312374531" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="tim_dettmers" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1998431471304876032/BhUl3uX9_normal.jpg" alt="Tim Dettmers avatar" loading="lazy"></div>
+          <div class="identity"><strong>Tim Dettmers</strong><span>@Tim_Dettmers · AI2 / 研究员</span></div>
+          <div class="score">74<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 基础设施 / 量化</span><time>10-18 18:31 北京</time></div>
+        <p class="post-text original" lang="auto">This is really cool work on our synthetic hospital benchmark. For patient diagnosis, this shows that small models + SFT + the right tools &amp;gt; GPT-6 Luna. Interesting is that the tools help small models, but not big models. So gaps in capability can be replaced by tools</p><p class="post-text translation" lang="zh-CN">这项基于我们合成医院基准的研究很酷。结果表明，在患者诊断任务中，小模型 + 监督微调（SFT）+ 合适的工具 &gt; GPT-6 Luna。有趣的是，工具能帮助小模型，却帮不了大模型。因此，工具可以弥补能力差距。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1998187999163535360/RRlD16e5_normal.jpg" alt="tooz avatar" loading="lazy"></div><div><strong>tooz</strong><span>@adarshsolanki</span></div></div><p class="quote-text original" lang="auto">spent a few days trying to train a tiny model to diagnose patients on the Synthetic Hospital environment out of CMU.
+
+RL didn&#x27;t help much, but some SFT and a simple search tool got qwen3-4b to perform as well as a ~1T param model
+
+this is because the agent is more than just the model.
+
+🧵:</p><p class="quote-text translation" lang="zh-CN">花了几天时间，尝试训练一个小模型，让它在 CMU 开发的 Synthetic Hospital 环境中诊断患者。
+
+强化学习（RL）帮助不大，但做一些监督微调（SFT），再配上一个简单的搜索工具，就能让 qwen3-4b 达到约 1 万亿参数模型的表现。
+
+这是因为，智能体不只是模型。
+
+串文 🧵：</p><a class="quote-link" href="https://x.com/adarshsolanki/status/2111554682418045340" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 139</span><span>↻ 13</span><span>↩ 16</span></div><a href="https://x.com/Tim_Dettmers/status/2111767150532997458" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">82<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>10-18 18:45 北京</time></div>
+        <p class="post-text original source-only" lang="auto">推荐 Google Research 刚刚开源的 Harness² ，前几天也解读过它的论文。
+
+它会让 Agent 自己尝试修改 Prompt、Skill、Memory 等配置，在同一个任务上反复运行、对比效果，找到更合适的工作方式。
+
+除此之外，它还会把改进经验保留下来，供后续任务参考。
+
+实验中，WorkBuddy-Bench 单轮优化最高提升了 11.5 分。当然，反复试错的成本和经验能否稳定迁移，还需要进一步验证。
+
+像我们平时做 Agent，很多时间都花在调 Harness 上。如果这套试错和经验积累能逐渐自动化，确实很有价值。
+
+GitHub：https://t.co/gUzOfItDrK</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 188</span><span>↻ 38</span><span>↩ 4</span></div><a href="https://x.com/Xudong07452910/status/2111770706937622880" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">76<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>10-18 08:56 北京</time></div>
+        <p class="post-text original" lang="auto">There’s a crazy number of complicated PDFs out there.
+
+Each PDF is a self-contained environment for knowledge work, and it can take humans hours to read, analyze, and synthesize a document to solve their task.
+
+@llama_index is a research lab dedicated to pushing the frontier of document work. ExtractBench Pro represents our latest effort to extract from the hardest documents at the frontier of accuracy and cost. Even as frontier intelligence starts to do anything with enough compute, there are massive opportunities to solve any document work extremely quickly and quickly.
+
+If you haven’t already, check out ExtractBench Pro: https://t.co/bwxs86iS1d
+
+If you’re looking to migrate off of legacy solutions, come talk to us! https://t.co/Ht5jwxSrQB</p><p class="post-text translation" lang="zh-CN">复杂 PDF 的数量多得惊人。
+
+每份 PDF 都是一个独立的知识工作环境。为了完成任务，人们可能要花数小时阅读、分析并综合梳理一份文档。
+
+@llama_index 是一家致力于拓展文档处理前沿的研究实验室。ExtractBench Pro 是我们的最新成果，旨在处理最难提取信息的文档，并在准确率和成本上探索极限。即使前沿 AI 在算力充足时已开始无所不能，极速完成各类文档工作仍有巨大的机会。
+
+如果还没看过，欢迎了解 ExtractBench Pro：https://t.co/bwxs86iS1d
+
+如果你正考虑从传统解决方案迁移，欢迎来聊聊！https://t.co/Ht5jwxSrQB</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2111622289880158208/img/-a2g3AQ_YePdfjjk.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2111622289880158208/img/-a2g3AQ_YePdfjjk.jpg" alt="X post media"><span>VIDEO</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div><div><strong>Jerry Liu</strong><span>@jerryjliu0</span></div></div><p class="quote-text original" lang="auto">Introducing ExtractBenchPro: the most challenging benchmark for real-world document extraction.
+
+We see a massive long tail of document complexity in terms of use cases brought on from our customers, that are completely unsolved from a price-performance standpoint. These include trial balances, well logs, canvass binders, site plan reviews, duty reconciliations, loss runs, and more.
+
+Most existing extraction benchmarks are saturated by the frontier models (our cheapest modes now score 93%+ on ExtractBench). So there is enormous economic value in building a complex extraction benchmark that reflects this long-tail of knowledge work.
+
+We spent a long time curating the most complex elements that we saw from real world extraction use cases:
+✅ Document conventions: containing legends or rules where the rest of the document should be interpreted
+✅ Density of internal jargon: specific definitions that must be cross-referenced within a doc
+✅ Aggregation and reasoning: beyond returning exact values on a page, infer values derived from aggregating multiple sources of information
+✅ Drawn relations: complex diagrams like procedures and circuits
+✅ Charts inside documents: read precise points within a chart
+✅ Long chart sheets: some data series like well logs cram all this data into an extremely long page
+
+Within the industries where document extraction is relevant, even small mistakes can have enormous negative impacts. Therefore our headline evaluation metric is based on perfect documents: the proportion of docs with perfect (100%) value f1 score.
+(Besides this we also measure value f1 and grounded f1)
+
+It’s an extremely hard task for even the latest frontier models to solve, topping out at ~58% or so in Value F1 score for Codex with Astra - which is quite good but extremely expensive (almost $1 per page!) Our LlamaParse agentic/agentic plus modes are 20-40% and cover the left side of the Pareto frontier, at price ranges that are feasible for full production use.
+
+ExtractBenchPro is available today as a website/technical blog, and also on Github and HuggingFace. Check it out!
+
+Blog: https://t.co/bwxs86iS1d
+Website: https://t.co/uRrFNU1Fqo
+Hugging Face: https://t.co/1VImPRTorq
+Github (is ExtractBench): https://t.co/auzmOGhsaB</p><p class="quote-text translation" lang="zh-CN">推出 ExtractBenchPro：面向真实世界文档提取、挑战性最高的基准测试。
+
+客户带来的应用场景中，存在大量复杂文档的长尾需求，从性价比角度看，这些需求仍完全没有得到解决。例如试算平衡表、测井记录、拉票资料册、场地规划审查、关税对账、理赔历史记录等。
+
+前沿模型在大多数现有提取基准上的表现已接近饱和（我们最便宜的模式如今在 ExtractBench 上也能达到 93% 以上）。因此，构建一个反映这类知识工作长尾需求的复杂提取基准，具有巨大的经济价值。
+
+我们花了很长时间，从真实提取场景中筛选出最复杂的要素：
+✅ 文档约定：包含图例或规则，解读文档其余内容时必须遵循
+✅ 内部术语密度：包含特定定义，需要在文档内交叉查阅
+✅ 汇总与推理：不只是返回页面上的原始数值，还要汇总多个信息来源并推导结果
+✅ 图示关系：流程图、电路图等复杂图示
+✅ 文档内图表：精确读取图表中的数据点
+✅ 超长图表页：测井记录等数据序列会将大量数据塞进极长的单页
+
+在需要文档提取的行业中，即使很小的错误也可能造成严重后果。因此，我们的核心评估指标以完全正确的文档为依据：数值 F1 得分达到满分（100%）的文档占比。
+（此外，我们还衡量数值 F1 和有据可依的 F1 得分）
+
+即使对最新的前沿模型而言，这项任务也极其困难。使用 Astra 的 Codex，数值 F1 得分最高也只有约 58%。这个成绩相当不错，但成本极高（每页接近 1 美元！）。我们的 LlamaParse agentic/agentic plus 模式得分为 20%–40%，位于帕累托前沿的低成本一侧，价格适合全面投入生产使用。
+
+ExtractBenchPro 今天已通过网站和技术博客发布，同时上线 Github 和 HuggingFace。欢迎查看！
+
+博客：https://t.co/bwxs86iS1d
+网站：https://t.co/uRrFNU1Fqo
+Hugging Face：https://t.co/1VImPRTorq
+Github（仓库名为 ExtractBench）：https://t.co/auzmOGhsaB</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2110765298953682944/img/0PEz-hsd1wNb5Zyc.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2110765298953682944/img/0PEz-hsd1wNb5Zyc.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/jerryjliu0/status/2110766726405411179" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 81</span><span>↻ 5</span><span>↩ 30</span></div><a href="https://x.com/jerryjliu0/status/2111622533162336427" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">87<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>10-18 10:16 北京</time></div>
+        <p class="post-text original source-only" lang="auto">非常希望国内高校也能跟进这种课程和培养项目。
+
+微软和 CMU 刚推出 PRAISE，专门解决一个 AI Coding 之后很尖锐的问题：如果初级工程师以前靠改 Bug、写基础代码、做测试慢慢「练级」，这些工作现在越来越多被 AI 接走，下一代 Senior 要怎么成长？
+
+他们借鉴了护理行业的临床带教模式，让初级工程师直接和资深工程师结对。AI 照样用，但学习重点放到理解系统、验证假设、判断什么时候该用 AI，以及对最终结果负责。CMU 还配了正式课程和小组讨论。
+
+我觉得这个思路还是蛮有意思的。AI 时代教育要补的就是被自动化拿走的那段「成长路径」。
+
+原文
+https://t.co/8rcDDBs9nm</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 530</span><span>↻ 109</span><span>↩ 16</span></div><a href="https://x.com/Xudong07452910/status/2111642420983296248" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">81<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>10-18 12:01 北京</time></div>
+        <p class="post-text original source-only" lang="auto">Agent 最危险的时刻，可能恰恰是它停下来等你点「确认」的时候。
+
+因为很多长时任务跑到这一步，人其实已经跟不上前面的过程了。
+
+Margaret Mitchell 等人这篇《AI Agents Push Humans Out of the Loop》，讨论的就是这个问题。
+
+Agent 越自主，人越容易逐渐失去上下文。几十步工具调用、状态变化和连续审批之后，很容易出现 approval fatigue：
+
+按钮还在点，真正的判断已经开始掉线。
+
+长期依赖自动化还会带来另一个问题：人的领域能力和接管能力可能慢慢退化。
+
+所以 Human-in-the-loop 真正要解决的，不只是「流程里有没有人」，而是关键时刻这个人是否还理解系统正在做什么。
+
+论文建议减少无意义审批，把人的注意力集中到真正高风险的节点，同时提供更好的状态恢复、权限边界和批量 review。
+
+这篇让我对 Human-in-the-loop 有了一个更现实的理解：
+
+人不是最后一道按钮。
+
+人得始终保留接管系统的能力。
+
+📎 arxiv: https://t.co/HneMWkoNxk</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HU2D00tXAAA3e8C.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HU2D00tXAAA3e8C.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 92</span><span>↻ 15</span><span>↩ 7</span></div><a href="https://x.com/Xudong07452910/status/2111668845538607465" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="sh_reya" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1342529111839944705/hzr44mb5_normal.jpg" alt="Shreya Shankar avatar" loading="lazy"></div>
+          <div class="identity"><strong>Shreya Shankar</strong><span>@sh_reya · UC Berkeley / AI 工程研究员</span></div>
+          <div class="score">71<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>10-18 10:23 北京</time></div>
+        <p class="post-text original" lang="auto">i&#x27;m really intrigued by the &quot;unbundling&quot; of big data systems. AI coding agents are going to make it possible for every company to build their own data system &amp;amp; significantly reduce compute bills</p><p class="post-text translation" lang="zh-CN">我对大数据系统的“拆分解耦”很感兴趣。AI 编程智能体将让每家公司都能构建自己的数据系统，并大幅降低计算成本。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1905022266498490368/VGKcrnrJ_normal.jpg" alt="Jesse Ezell avatar" loading="lazy"></div><div><strong>Jesse Ezell</strong><span>@jezell</span></div></div><p class="quote-text original" lang="auto">Using SlateDB + Lance + Datafusion to save a customer millions of dollars a year in vendor costs. This is gonna be my goto stack for a lot of things.</p><p class="quote-text translation" lang="zh-CN">用 SlateDB + Lance + Datafusion，每年帮一位客户节省数百万美元的供应商费用。这将成为我处理很多任务的首选技术栈。</p><a class="quote-link" href="https://x.com/jezell/status/2111147883957498089" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 124</span><span>↻ 4</span><span>↩ 30</span></div><a href="https://x.com/sh_reya/status/2111644358776918113" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">60<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>10-18 08:37 北京</time></div>
+        <p class="post-text original" lang="auto">my guy is running gradient descent on math</p><p class="post-text translation" lang="zh-CN">这哥们在对数学做梯度下降。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1946954678874308608/lbpeDP1__normal.jpg" alt="Rohan Arun avatar" loading="lazy"></div><div><strong>Rohan Arun</strong><span>@RohanArun</span></div></div><p class="quote-text original" lang="auto">From κ = 2⁻¹⁸² to 0.001734815770 :)
+
+Integer Multiplication community auto-research highlights since 10/15 (+1.23%):
+
+1) The big headline of the day is that a free model, @opencode&#x27;s Space Bunny Max, just set the record for the first time, 4 times in a row!
+
+As far as I know, this is the first time a free model has submitted a best bound for Integer Multiplication.
+
+Expensive Max subscriptions previously kept some of our best contributors and experts out, but the barrier of entry for frontier auto-research dropped to 0 :)
+
+Claude Opus 5.5 helped verify and push the PRs over the line. I still recommend having a frontier model verify, but other contributors can do that.
+
+Progress was slowing over the last day (relative to one new κ per minute, which is still wild for math research), but Space Bunny Max just injected fresh ideas that boosted our PR rate back to one per minute.
+
+2) A community Lean proof of the original OpenAI Integer Multiplication paper has been completed!
+
+@platypii et. al completed the proof in 6 days, and @0xdoug&#x27;s repo is about 10–20% verified now.
+
+To be clear, most of our work still needs verification but the Lean proofs are catching up :)
+
+3) 41–51% of PRs now mention a prior research-only submission, up from 0–3% before @0xdoug&#x27;s autoresearch.md prompt.
+
+His prompt guides new contributors to specific research tracks rather than incremental updates.
+
+We&#x27;re moving away from &quot;brute force research&quot; towards more coordinated efforts across an army of agents.
+
+If you&#x27;re contributing research PRs, even negative results without a new record, you&#x27;re meaningfully helping us and I appreciate it!
+
+Interesting observations:
+
+1) The results from free models are related to the recent &quot;local minima&quot; solutions in context engineering that have been popping up:
+
+Forgetting context to &quot;refresh&quot; by @ShangyinT.
+
+Branching into different solutions by @mao_yuzhen.
+
+Fork and flush by @DimitrisPapail.
+
+Now even free models contribute to escaping local minima by exploring new solutions, since they&#x27;re trained on different data.
+
+There&#x27;s likely a lot of room for improvement now in context engineering, consensus across different models, and collaboration strategies, which we will test next.
+
+2) Frontier research as a benchmark helped us find a successful context-sharing strategy for parallel agents.
+
+Basically, we can rewind frontier research GitHub repos to an earlier branch and benchmark agent harnesses, prompts, context designs, models, etc.
+
+With this benchmark, we found that you can distill constantly to local files, then periodically concatenate them instantly into parallel agent sessions to save 10–20% of the time it takes to reach the next breakthrough.
+
+3) There&#x27;s a Codex reset by EOD PST, so you can copy this prompt to run unused tokens on frontier research :)
+
+&quot;&quot;&quot;
+Contribute one useful, independently reviewable result to https://t.co/KZP78PN7ZR. Read AGENTS.md, autoresearch.md and CONTRIBUTING.md from the current main branch first. Use the repository&#x27;s task-selection and overlap process unless I assigned a specific task. In a loop, fetch canonical main and recheck priorities at every round using the guide&#x27;s checkpoint procedure; preserve in-progress work and frozen inputs. Work for one session of about 60 minutes unless I specify another budget, keeping the final quarter for verification and a concise handoff, and report the exact scope, evidence, remaining obligations and predecessor credit. You may post routine claims, questions, findings, handoffs and feedback in Discussions and open a focused PR without asking me again for each action. Do not merge, close others&#x27; PRs or change the selected frontier.
+&quot;&quot;&quot;
+You can also copy this prompt into OpenCode now!
+
+Now that anyone can contribute for free to frontier auto-research, repost this and sharing it with friends. 🙏
+
+4) PR stats:
+
+850 PRs from 67 contributors since 10/15, and 21 of those contributors are first-timers.
+
+55 PRs claim a new conditional κ in the title.
+
+Codex/OpenAI in 480 PRs (56%), Claude in 147 (17%), the OpenCode harness in 60 (7%), Cursor in 16.
+
+Most prolific contributors by PR count: petalas: 164, ywz65: 147, navinor: 49, commdata2338: 44, RossRichardson: 43, Arham-Tahir64: 39, thakrarsagar: 34, VictorLiwentao: 30, tekuuu: 28, DreamingOfClouds: 23, jmbarrancoml: 21, jeremykothe2: 21, bitplane: 13, Gonzalo-Mier: 12, Dugongue: 12, mdumitrean: 11, theon199: 9, jwr404: 9, jamesyc: 9, kumagi: 8, CubeJerry: 8, rohanarun: 6, jeremydiviney: 6, dcharb78: 6, 1337isnot1337: 6, starship-s: 6, AAAmirinu: 6.
+
+Conditional κ = 0.001734815770385098563484.
+
+Just submitted a new best bound :)
+
+https://t.co/LncVANMSid</p><p class="quote-text translation" lang="zh-CN">从 κ = 2⁻¹⁸² 到 0.001734815770 :)
+
+10 月 15 日以来，整数乘法社区自动化研究亮点（+1.23%）：
+
+1）今天最大的新闻是：一个免费模型——@opencode 的 Space Bunny Max——首次刷新纪录，而且连续刷新了 4 次！
+
+据我所知，这是免费模型首次为整数乘法问题提交当前最优界。
+
+此前，昂贵的 Max 订阅让一些最优秀的贡献者和专家无法参与，但现在，前沿自动化研究的入场成本降到了 0 :)
+
+Claude Opus 5.5 帮忙验证并推动这些 PR 完成。我仍建议用前沿模型做验证，但这可以由其他贡献者来完成。
+
+过去一天，进展有所放缓（相对于每分钟得到一个新 κ 的速度而言，这对数学研究来说仍然很疯狂），但 Space Bunny Max 带来了新思路，让我们的 PR 产出速度重新回到每分钟一个。
+
+2）社区已完成对 OpenAI 原始整数乘法论文的 Lean 证明！
+
+@platypii 等人在 6 天内完成了证明，@0xdoug 的仓库目前约有 10–20% 的内容通过了验证。
+
+说明一下，我们的大部分工作仍需验证，但 Lean 证明正在迎头赶上 :)
+
+3）现在有 41–51% 的 PR 提到了此前仅提交研究结果的贡献，而在 @0xdoug 发布 autoresearch.md 提示词之前，这一比例只有 0–3%。
+
+他的提示词引导新贡献者进入具体研究方向，而不是只做增量改进。
+
+我们正从“暴力研究”转向让大批智能体更协调地协作。
+
+如果你正在提交研究 PR，即使只是未刷新纪录的负面结果，也是在为我们提供实质性帮助，谢谢你！
+
+一些有趣的观察：
+
+1）免费模型取得的成果，与近期不断涌现的上下文工程“局部最优”解决方案有关：
+
+@ShangyinT 通过遗忘上下文来“刷新”思路。
+
+@mao_yuzhen 通过分支探索不同解法。
+
+@DimitrisPapail 的 Fork and flush。
+
+现在，免费模型也能通过探索新解法，帮助跳出局部最优，因为它们使用了不同的训练数据。
+
+上下文工程、不同模型之间的共识机制以及协作策略，可能还有很大的改进空间，接下来我们会进行测试。
+
+2）将前沿研究作为基准，帮助我们找到了一种有效的并行智能体上下文共享策略。
+
+基本上，我们可以将前沿研究的 GitHub 仓库回退到较早的分支状态，用来评测智能体运行框架、提示词、上下文设计、模型等。
+
+通过这个基准，我们发现：持续将提炼后的信息写入本地文件，再定期将这些文件拼接并即时注入并行智能体会话，可以将取得下一次突破的时间缩短 10–20%。
+
+3）Codex 的额度会在太平洋标准时间今天结束前重置，你可以复制下面的提示词，把尚未使用的 token 投入前沿研究 :)
+
+&quot;&quot;&quot;
+为 https://t.co/KZP78PN7ZR 贡献一项有用、可独立评审的成果。首先阅读当前 main 分支中的 AGENTS.md、autoresearch.md 和 CONTRIBUTING.md。除非我指定了具体任务，否则请遵循仓库的任务选择与重叠协调流程。循环开展工作，每轮按照指南中的检查点流程拉取权威 main 分支，并重新检查优先级；保留进行中的工作和已冻结的输入。除非我指定其他预算，否则本次工作约 60 分钟，最后四分之一的时间用于验证和简洁交接，并报告确切范围、证据、尚待完成的事项以及前序贡献者的功劳。你可以在 Discussions 中发布常规的任务认领、问题、发现、交接和反馈，也可以创建聚焦单一事项的 PR，无需每次都再次征求我的同意。不要合并 PR、关闭他人的 PR，也不要更改选定的研究前沿目标。
+&quot;&quot;&quot;
+
+现在也可以把这段提示词复制到 OpenCode 中！
+
+如今，任何人都能免费参与前沿自动化研究，欢迎转发并分享给朋友。🙏
+
+4）PR 统计：
+
+自 10 月 15 日以来，67 位贡献者提交了 850 个 PR，其中 21 位是首次贡献。
+
+55 个 PR 在标题中声称得到了新的条件性 κ 值。
+
+480 个 PR（56%）提到 Codex/OpenAI，147 个（17%）提到 Claude，60 个（7%）提到 OpenCode 运行框架，16 个提到 Cursor。
+
+按 PR 数量排名最活跃的贡献者：petalas: 164, ywz65: 147, navinor: 49, commdata2338: 44, RossRichardson: 43, Arham-Tahir64: 39, thakrarsagar: 34, VictorLiwentao: 30, tekuuu: 28, DreamingOfClouds: 23, jmbarrancoml: 21, jeremykothe2: 21, bitplane: 13, Gonzalo-Mier: 12, Dugongue: 12, mdumitrean: 11, theon199: 9, jwr404: 9, jamesyc: 9, kumagi: 8, CubeJerry: 8, rohanarun: 6, jeremydiviney: 6, dcharb78: 6, 1337isnot1337: 6, starship-s: 6, AAAmirinu: 6。
+
+条件性 κ = 0.001734815770385098563484。
+
+刚刚又提交了一个新的最优界 :)
+
+https://t.co/LncVANMSid</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HU23sGCWwAADr-J.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HU23sGCWwAADr-J.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/RohanArun/status/2111568465223925936" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 12</span><span>↻ 1</span><span>↩ 2</span></div><a href="https://x.com/jerryjliu0/status/2111617664196157512" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="thom_wolf" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2068682157451571200/_ZNKM_5E_normal.jpg" alt="Thomas Wolf avatar" loading="lazy"></div>
+          <div class="identity"><strong>Thomas Wolf</strong><span>@Thom_Wolf · Hugging Face / 联合创始人兼 CSO</span></div>
+          <div class="score">59<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>开源模型 / Hugging Face</span><time>10-18 23:35 北京</time></div>
+        <p class="post-text original" lang="auto">@foundrcode good idea, done: the curve now splits into reported GPU-hours / size × tokens / partly assumed. about 80% of what was added in 2026 is partly assumed, vs about 25% in 2024. recent labs publish less</p><p class="post-text translation" lang="zh-CN">@foundrcode 好主意，已改好：曲线现在分为三类：已披露的 GPU 小时数 / 模型规模 × token 数 / 部分依赖假设估算。2026 年新增部分约有 80% 属于部分依赖假设估算，2024 年则约为 25%。最近各实验室披露的信息更少了</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 2</span><span>↻ 0</span><span>↩ 1</span></div><a href="https://x.com/Thom_Wolf/status/2111843736527540698" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="thom_wolf" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2068682157451571200/_ZNKM_5E_normal.jpg" alt="Thomas Wolf avatar" loading="lazy"></div>
+          <div class="identity"><strong>Thomas Wolf</strong><span>@Thom_Wolf · Hugging Face / 联合创始人兼 CSO</span></div>
+          <div class="score">55<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>开源模型 / Hugging Face</span><time>10-18 23:27 北京</time></div>
+        <p class="post-text original" lang="auto">@DavidAgentic the student only gets its own training compute. the teacher is counted once in its own family, and the teacher’s inference to generate the distillation data is only added when the lab reports it (e.g. Llama 3.2’s logit generation). so i guess, one more reason it’s a floor</p><p class="post-text translation" lang="zh-CN">@DavidAgentic 学生模型只计入自身的训练算力。教师模型在其所属模型家族中只计算一次；教师模型为生成蒸馏数据所消耗的推理算力，也只有在实验室披露时才计入（例如 Llama 3.2 的 logit 生成）。所以我想，这也是这些数字只能算下限的又一个原因</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 0</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/Thom_Wolf/status/2111841651056394270" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="thom_wolf" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2068682157451571200/_ZNKM_5E_normal.jpg" alt="Thomas Wolf avatar" loading="lazy"></div>
+          <div class="identity"><strong>Thomas Wolf</strong><span>@Thom_Wolf · Hugging Face / 联合创始人兼 CSO</span></div>
+          <div class="score">55<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>开源模型 / Hugging Face</span><time>10-18 23:29 北京</time></div>
+        <p class="post-text original" lang="auto">@pwguler almost none. DeepSeek is explicit that their $5.6M excludes prior research and ablations, and Meta&#x27;s Llama cards report final-run GPU-hours only. outside estimates put total dev compute at 3-10x the final run</p><p class="post-text translation" lang="zh-CN">@pwguler 几乎都没计入。DeepSeek 明确表示，其 560 万美元的成本不包含前期研究和消融实验，Meta 的 Llama 模型卡也只披露最终训练的 GPU 小时数。外部估算认为，研发总算力消耗是最终训练的 3–10 倍</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 1</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/Thom_Wolf/status/2111842187671699592" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="aravsrinivas" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2099903483457703936/U-W6QQk__normal.jpg" alt="Aravind Srinivas avatar" loading="lazy"></div>
+          <div class="identity"><strong>Aravind Srinivas</strong><span>@AravSrinivas · Perplexity / CEO</span></div>
+          <div class="score">84<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 搜索 / 产品</span><time>10-19 00:01 北京</time></div>
+        <p class="post-text original" lang="auto">Cyberpunk inspired Roadster free-roam browser game built by Perplexity Computer: https://t.co/4ktDSPAgPu https://t.co/1BoiEJrbdj</p><p class="post-text translation" lang="zh-CN">由 Perplexity Computer 制作、受 Cyberpunk 启发的 Roadster 自由探索浏览器游戏：https://t.co/4ktDSPAgPu https://t.co/1BoiEJrbdj</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2111848186780565504/img/4SUcNnyLIMJ2T8TF.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2111848186780565504/img/4SUcNnyLIMJ2T8TF.jpg" alt="X post media"><span>VIDEO</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 296</span><span>↻ 16</span><span>↩ 78</span></div><a href="https://x.com/AravSrinivas/status/2111850132669075696" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+    </main>
+    <footer>Generated 2026-10-19 06:56:52 Asia/Shanghai · Read-only X ingestion via Bird · Translation via Codex</footer>
+  </div>
+</body>
+</html>
