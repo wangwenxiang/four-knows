@@ -15918,7 +15918,212 @@
       "source": "Yesterday evening I had the pleasure of attending an interesting event hosted by @sfcompute and @jumptrading focused on the compute space. Some brief takeaways:\n\n- There's an increasing understanding that greater liquidity in compute markets requires the construction of unifying benchmark indices, so that bespoke/OTC markets can be priced/quoted as a diff to a shared set of benchmarks, similar to what exists in the energy complex already (think crude grades and power). Part of the discussion is whether this will organically emerge if more traditional players (Citadel, Jump, blue-chip banks) expand their OTC offering for bilateral hedges (using their own prices), or require an independent party (S&P, CME, etc.) to validate and give credence for broader adoption.\n\n- Massive growth in the compute space is largely underpinned by structured financing trades with hedging mandates (similar to what you see in the oil and gas space). If someone with a sizable balance sheet just lent you a lot of money, who's likely to give you more aggressive pricing than their sales and trading arm?\n\n- Funding from life insurers has been a key part of the data center buildout (you could call it duration matching), with an increasing number of insurers considering hedging compute. Some of this exposure sits in mortgage books, while the biggest bucket is via corporate bonds ($ORCL, $MSFT, $META, and $GOOG comprise nearly 80% of Athene's IG software debt).\n\n- Quite a few folks seem offered over on the backend of the curve, largely driven by:\n* Concerns that distressed sellers could flood the market if the AI growth story slows down (as there's a lot of GPU-backed debt to unwind)\n* Natural hedgers are mostly sellers, as operators need contracted revenue to borrow, so they sell further out on the curve; buyers mostly lock in near-term rates w/ marginal demand coming from a handful of labs whose spending is contingent on their ability to still tap into financing\n* Software improvements are reducing GPU-hour needs, all the while new chips are depreciating the value of old hardware per unit of compute: $NVDA is releasing a new gen roughly every year (Blackwell Ultra, Rubin, and Rubin Ultra). That said, it does look like old chips are staying useful longer than most depreciation models assume, since inference and smaller models still allow sufficient monetization of older hardware.\n\nIt'll be quite exciting to see how the space continues to mature, especially as new marketplaces begin to emerge for financially and physically settled compute. Huge thanks to @affaan and team for organizing!",
       "zh": "昨晚很高兴参加了 @sfcompute 和 @jumptrading 举办的一场聚焦算力领域的有趣活动。简单分享几点收获：\n\n- 越来越多人认识到，要提高算力市场的流动性，就需要建立统一的基准指数，让定制化交易和场外交易（OTC）能够参照一套共同基准，以价差形式定价或报价，类似能源市场已有的做法（比如不同品级的原油和电力）。讨论的一个焦点是：如果更多传统机构（Citadel、Jump、大型知名银行）扩大场外业务，按各自报价提供双边对冲，这套基准会自然形成，还是需要独立机构（S&P、CME 等）认证背书，才能得到广泛采用。\n\n- 算力领域的高速增长，很大程度上由附带对冲要求的结构化融资交易支撑，类似油气行业的情况。如果一家资金雄厚的机构刚借给你一大笔钱，还有谁会比它旗下的销售交易部门给你更有竞争力的报价？\n\n- 寿险公司的资金是数据中心建设的重要支撑（可以理解为久期匹配），而且越来越多保险公司正在考虑对冲算力风险。部分相关敞口位于抵押贷款资产组合中，但最大的一块来自公司债券（$ORCL、$MSFT、$META 和 $GOOG 占 Athene 所持投资级软件行业债券的近 80%）。\n\n- 不少人似乎倾向于卖出远期算力，主要原因包括：\n* 担心一旦 AI 增长放缓，陷入财务困境的卖家会大量涌入市场，因为有大量以 GPU 为抵押的债务需要清偿。\n* 有实际对冲需求的参与者大多是卖方：运营商需要签约收入才能借款，因此会卖出期限更远的算力；买方则主要锁定近期价格，新增需求主要来自少数几家实验室，而它们的支出取决于能否继续获得融资。\n* 软件改进正在减少所需的 GPU 小时数，同时新芯片不断拉低旧硬件单位算力的价值：$NVDA 大约每年推出一代新产品（Blackwell Ultra、Rubin 和 Rubin Ultra）。不过，旧芯片的实际可用年限似乎比多数折旧模型假设的更长，因为推理和较小规模的模型仍能让旧硬件产生足够收益。\n\n很期待看到这个领域继续成熟，尤其是随着现金结算和实物交割的算力交易市场陆续出现。非常感谢 @affaan 和团队组织这次活动！",
       "promptVersion": "codex-v1"
+    },
+    "1fc05fd2ef49f3c31fedb8ca0f54efb4979584f52e2c43d82abceef8a53e374f": {
+      "source": "A Mac with at least 36GB of RAM can now run Perplexity AI workflows locally. https://t.co/CMimJEKdZz",
+      "zh": "现在，配备至少 36GB 内存的 Mac 就能在本地运行 Perplexity AI 工作流。https://t.co/CMimJEKdZz",
+      "promptVersion": "codex-v1"
+    },
+    "d52c92c415d62a58e2247a1c7671e3f5a3e5baa9fc4ef046a1b2f0d4dbb07c04": {
+      "source": "Perplexity Decider pareto-optimal on Financial ClaimBench of Vals AI https://t.co/uBac0vOK15",
+      "zh": "Perplexity Decider 在 Vals AI 的 Financial ClaimBench 上达到帕累托最优。https://t.co/uBac0vOK15",
+      "promptVersion": "codex-v1"
+    },
+    "cfb5ad1a383b8f4a42d825ad5917e82246396ce92c3a828095ab43262083f98e": {
+      "source": "Today we’re releasing ClaimBench, our new benchmark targeted towards decision models. It tests whether a model can tell if a financial document supports, contradicts, or doesn’t address a claim.\n\nWe evaluated 15 models on 1,960 claims paired with 10-K excerpts, with Decider V1.2 leading the pack of decision models.",
+      "zh": "今天，我们发布面向决策模型的新基准 ClaimBench，测试模型能否判断一份财务文件支持、反驳还是未涉及某项主张。\n\n我们用 1,960 项主张及其配对的 10-K 年报摘录评测了 15 个模型，Decider V1.2 在决策模型中表现领先。",
+      "promptVersion": "codex-v1"
+    },
+    "9a477dac58749cf482cb95ef2d2b83b3f0023aa76888fc613a63ebe90a41e587": {
+      "source": "Claude designed scorpion anti-venoms. Out of 211 designs tested, 17 show signs of life by binding. This is promising but a lot of additional testing will be needed to show they actually work in humans.",
+      "zh": "Claude 设计了抗蝎毒方案。在接受测试的 211 个设计中，17 个初现结合迹象。结果令人鼓舞，但仍需大量后续测试，才能证明它们对人体确实有效。",
+      "promptVersion": "codex-v1"
+    },
+    "08ec8f032840093d0a3de1df56f1d070efa6ef932fe6414d09291bc42b54885d": {
+      "source": "What is AI really capable of in bio?\n\nTo separate hype from reality, we spent 3 months working firsthand with @AnthropicAI's  internal research model to see if it could create an experimental scorpion antivenom. \n\nIntroducing Citrini Therapeutics.\n\nhttps://t.co/VAUBSi7sNy",
+      "zh": "AI 在生物领域究竟能做什么？\n\n为了分清炒作与现实，我们花了 3 个月亲自使用 @AnthropicAI 的内部研究模型，探索它能否开发出实验性抗蝎毒药物。\n\n向大家介绍 Citrini Therapeutics。\n\nhttps://t.co/VAUBSi7sNy",
+      "promptVersion": "codex-v1"
+    },
+    "fbacc3046ce3798298fe26f6282d3db4c3508f273f5d258cffb9e4d293cffe6a": {
+      "source": "Writing good STATA code was very important for my academic career. It looks like that skill is largely becoming obsolete. (Also take this is as a notice to academics who still think of AI in terms of chatbots, not agents, that a lot has changed in a year) https://t.co/8Qk6VgU7w8 https://t.co/Wl1zUqbt0j",
+      "zh": "写好 STATA 代码曾对我的学术生涯至关重要。如今，这项技能似乎正逐渐失去用武之地。（这也提醒那些仍把 AI 看作聊天机器人、而非智能体的学者：短短一年，已经发生了很多变化。）https://t.co/8Qk6VgU7w8 https://t.co/Wl1zUqbt0j",
+      "promptVersion": "codex-v1"
+    },
+    "58a423c56da853b365935f55e29ee6db4c8f90d502ff4e397bccd4ed329f895b": {
+      "source": "Voxtral 3 also introduces a voice agent SDK, built on LiveKit. \n\nTranscribe listens, a reasoning model thinks and calls tools, and Speech replies, streamed as one pipeline for natural, intelligent conversation.",
+      "zh": "Voxtral 3 还推出了基于 LiveKit 构建的语音智能体 SDK。\n\nTranscribe 负责听取并转写语音，推理模型负责思考和调用工具，Speech 负责语音回复，整个流程通过一条流式管线串联，实现自然、智能的对话。",
+      "promptVersion": "codex-v1"
+    },
+    "57cfbe65bda3e3dd34571530de44012759b3008c3d898442ecc1e47df86ae33f": {
+      "source": "This is a very big deal. DeepSeeks inference system is on par with OpenAIs stack and better what Anthropic is running (at least for their user size).",
+      "zh": "这意义重大。DeepSeek 的推理系统已与 OpenAI 的技术栈旗鼓相当，并优于 Anthropic 目前使用的系统（至少在其当前用户规模下如此）。",
+      "promptVersion": "codex-v1"
+    },
+    "1a7686ae836563669c441cca3ba70544c1033760e7681581f14d35de33a19faa": {
+      "source": "We built a robotics data engine with Astra-level performance at 125x lower cost. And we are open-sourcing the weights today! Introducing Flora, a suite of open models to parse the physical world and turn raw footage into rich training signals. \n\nFlora already powers our in-house data engine, labeling 200K hours of videos a day on 500 GPUs. We created it to scale the frontier for robot learning. Now you own the weights too. \n\nFlora gives you:\n\n- High-quality, timestamped captions to curate and filter human egocentric and robot data;\n- Dense progress rewards for quality control and RL post-training;\n- Rubrics scoring for real-world benchmarking\n\nTry it today, links in thread:",
+      "zh": "我们打造了一套机器人数据引擎，性能媲美 Astra，成本仅为其 1/125。今天，我们正式开源模型权重！Flora 是一组开放模型，能够解析物理世界，将原始视频转化为丰富的训练信号。\n\nFlora 已用于我们的内部数据引擎，利用 500 块 GPU，每天为 20 万小时的视频标注数据。我们开发它，是为了推动机器人学习迈向更大规模。现在，你也能获取这些权重。\n\nFlora 提供：\n\n- 高质量、带时间戳的视频描述，用于筛选和整理人类第一视角及机器人数据；\n- 密集的进度奖励，用于质量控制和强化学习后训练；\n- 基于评分标准的评估，用于真实世界基准测试。\n\n立即体验，链接见本帖后续：",
+      "promptVersion": "codex-v1"
+    },
+    "7751188c8ee2c7ffd11dcdec2bd213737267aba21e2acffa0c0a94fc24be8010": {
+      "source": "deepseek posted way more alpha on their zhihu page, if you only read twitter you are reading the laowai approved stuff\n\n\"Based on this framework, we have implemented a high-throughput, low-latency large-scale inference service for DeepSeek V4.1 Flash. Currently, the service throughput of a single cluster is 155 trillion tokens/day, and the overall revenue is $38 per card per hour (based on off-peak prices).\"\n\nit costs roughtly $5-10 per gpu hour so depseek is claiming 80% serving margin at THEIR prices lololololol",
+      "zh": "deepseek 在知乎页面上放出了多得多的干货。如果你只看 Twitter，看到的都是筛选给老外看的内容。\n\n“基于这一框架，我们为 DeepSeek V4.1 Flash 实现了高吞吐、低延迟的大规模推理服务。目前，单个集群的服务吞吐量达到每天 155 万亿 token，单卡每小时总收入为 38 美元（按非高峰时段价格计算）。”\n\n每块 GPU 每小时的成本大约为 5–10 美元，所以 deepseek 等于声称，按他们自己的定价，推理服务毛利率能达到 80%，哈哈哈哈。",
+      "promptVersion": "codex-v1"
+    },
+    "516c79766b8466b5be1ea88bf421ec9bd9aba52edec3f79fc89fda0e5a91d851": {
+      "source": "🚀 Introducing DeepInfer, our in-house inference framework, now fully open source!\n\nPowering DeepSeek-V4.1-Flash at scale with high throughput and low latency. We’re sharing our production stack to help the community lower compute costs, reduce energy use, and make AI more affordable.\n\n🔗 https://t.co/JGAik1kgk0\n\n1/4",
+      "zh": "🚀 正式推出我们自研的推理框架 DeepInfer，现已全面开源！\n\n以高吞吐、低延迟支撑 DeepSeek-V4.1-Flash 的大规模运行。我们分享这套生产环境技术栈，希望帮助社区降低算力成本、减少能耗，让 AI 更实惠。\n\n🔗 https://t.co/JGAik1kgk0\n\n1/4",
+      "promptVersion": "codex-v1"
+    },
+    "ae989ff39cc682dfa1abbb098931e49953a99c686669c812d6adee0ca3c6e9bb": {
+      "source": "DeepSeek's open-source streak is getting absurd:\n- FlashMLA: 580 TFLOPS attention on H800 - DeepEP: MoE comms - DeepGEMM: 1350+ FP8 TFLOPS matmul - 3FS: they built an entire file system - and today: the full inference engine behind V4.1-Flash, Apache 2.0\n\nMad respect",
+      "zh": "DeepSeek 接连开源，简直猛得离谱：\n- FlashMLA：在 H800 上实现 580 TFLOPS 的注意力计算性能\n- DeepEP：MoE 通信库\n- DeepGEMM：实现 1350+ FP8 TFLOPS 的矩阵乘法性能\n- 3FS：他们造了一整套文件系统\n- 而今天：开源 V4.1-Flash 背后的完整推理引擎，采用 Apache 2.0 许可证\n\n佩服至极。",
+      "promptVersion": "codex-v1"
+    },
+    "0b569b68c4a7bfc453416755904fec7a99850e23a76998c06627b44292a3fd34": {
+      "source": "🎙️ Introducing Voxtral 3 !\n\nA new family of SOTA speech models:\nASR: Mini & Small for batch transcription, plus real-time streaming\nTTS: expressive, multilingual speech, batch + streaming\nVoice agent SDK: low-latency conversations + tool calling\n\nAvailable via API or on your own infrastructure !",
+      "zh": "🎙️ 正式推出 Voxtral 3！\n\n新一代业界领先的语音模型系列：\nASR：Mini 和 Small 支持批量转写，另提供实时流式转写\nTTS：富有表现力的多语言语音，支持批量和流式生成\n语音智能体 SDK：低延迟对话与工具调用\n\n可通过 API 使用，也可部署在你自己的基础设施上！",
+      "promptVersion": "codex-v1"
+    },
+    "1a8ad8613882432a417bce9fe7cedc08eb9409e3fb93292d9f44faba7d6b7e77": {
+      "source": "Introducing Voxtral 3: state-of-the-art Transcribe and Speech models powering Mistral’s new voice agents API. 🧵 https://t.co/YA9HNVfq0u",
+      "zh": "正式推出 Voxtral 3：业界领先的 Transcribe 和 Speech 模型，为 Mistral 全新的语音智能体 API 提供支持。🧵 https://t.co/YA9HNVfq0u",
+      "promptVersion": "codex-v1"
+    },
+    "1b0dcfa9cccd2ac7b58341f1b86d412ec04b21a23a08dd17e06e64708ef72f75": {
+      "source": "You can now run Perplexity Computer fully local on your Mac with no cloud based inference, without WiFi too. Enjoy!",
+      "zh": "现在，你可以在 Mac 上完全本地运行 Perplexity Computer，无需云端推理，甚至不用连接 WiFi。尽情体验吧！",
+      "promptVersion": "codex-v1"
+    },
+    "60387e9b718e89f06495efc9b9a91491666387fdd6dcb91dd27c82d83bf270e1": {
+      "source": "Perplexity Computer can now run fully local on your Mac.\n\nWork with your native Mac apps and local files, and run tasks without sending sensitive data to the cloud. The model and the agent both run on your Mac.\n\nAvailable now in the Perplexity Mac app. https://t.co/tnvCgCXD7v",
+      "zh": "Perplexity Computer 现在可以在 Mac 上完全本地运行。\n\n操作 Mac 原生应用和本地文件，执行任务时无需将敏感数据发送到云端。模型和智能体都在你的 Mac 上运行。\n\n现已在 Perplexity Mac 应用中上线。https://t.co/tnvCgCXD7v",
+      "promptVersion": "codex-v1"
+    },
+    "79432ea03085c78a73bd98e10042911eb1dc9d2520df6e8c16545061ed6f42b2": {
+      "source": "DeepSeek just open sourced its high-performance, large-scale inference framework DeepInfer in Apache-2.0 license.\n\nhttps://t.co/W2cfi6O9LO\n\nSupported features:\n\n- Optimized kernels, model and sampler runtime\n- Parallelism: Attention DP / balanced CP, MoE EP + EPLB\n- DSpark and confidence-scheduled verification\n- SWA bounded replay\n- Asynchronous scheduling (zero-overhead batch scheduler)\n- Batch-invariant inference\n- Deterministic sampling\n- Structured output",
+      "zh": "DeepSeek 刚刚以 Apache-2.0 许可证开源了其高性能、大规模推理框架 DeepInfer。\n\nhttps://t.co/W2cfi6O9LO\n\n支持的功能：\n\n- 优化的算子内核、模型和采样器运行时\n- 并行机制：Attention DP / 均衡 CP、MoE EP + EPLB\n- DSpark 和基于置信度调度的验证\n- SWA 有界重放\n- 异步调度（零开销批次调度器）\n- 不受批次变化影响的推理\n- 确定性采样\n- 结构化输出",
+      "promptVersion": "codex-v1"
+    },
+    "86ae5921633634bd3dd860d55eaba666e517ce07a262f4f8dfc0fb84cb06ee09": {
+      "source": "Check out Yunze's technical deep dive: \nhttps://t.co/LivBItUnx5",
+      "zh": "来看看 Yunze 的技术深度解析：\nhttps://t.co/LivBItUnx5",
+      "promptVersion": "codex-v1"
+    },
+    "beb102c8c983fb02716239c1072ebed23153989f968c885c519e992cd1de9dcf": {
+      "source": "Introducing Flora, an open model suite for scaling robotics data engines.\n\nIt watches robot and human video and annotate what happened (timestamped instructions) and how well it went (rewards and failure reasons).\n\n🔗 https://t.co/yZUS5pHvv9\n\nWe use it to train NVIDIA GR00T. 🧵",
+      "zh": "推出 Flora：一套用于扩展机器人数据引擎规模的开放模型。\n\n它能观看机器人和人类的视频，标注发生了什么（带时间戳的指令），以及完成得如何（奖励和失败原因）。\n\n🔗 https://t.co/yZUS5pHvv9\n\n我们用它来训练 NVIDIA GR00T。🧵",
+      "promptVersion": "codex-v1"
+    },
+    "a401777f784c747dfee73340e5aa11729e839e1b9a842e6737dd550b351f4305": {
+      "source": "Tanishq never ceases to impress me.  Amazing work 😻",
+      "zh": "Tanishq 总能让我眼前一亮。太棒了 😻",
+      "promptVersion": "codex-v1"
+    },
+    "94116fa25505f8c76e2eaecb4c3c6943e936ae2335d38f348cdd6fce01ed0221": {
+      "source": "Cancer patients with the same diagnosis often have very different tumor biology.\n\nMolecular testing can reveal underlying differences, but that's slow and expensive.\n\nIntroducing Holon-S1, our platform to predict genes and biomarkers from routine pathology slides.\n\n• beats two other models at predicting spatial gene activity in a controlled comparison\n• has identified potentially novel biomarkers in breast cancer and colon cancer\n• evaluated across 16 organ types and more than 15 scanners, using slides from both formalin-fixed, paraffin-embedded and fresh-frozen tissue.\n\nWe believe Holon-S1 has the potential to help researchers find new biomarkers in slides they already have, discover treatment targets, and bring more personalized cancer care within reach!",
+      "zh": "即使诊断相同，癌症患者的肿瘤生物学特征也往往差异很大。\n\n分子检测能揭示这些潜在差异，但耗时且昂贵。\n\n我们推出了 Holon-S1，一个通过常规病理切片预测基因和生物标志物的平台。\n\n• 在受控对比中，预测基因空间活性的表现优于另外两个模型\n• 已在乳腺癌和结肠癌中发现潜在的新型生物标志物\n• 使用福尔马林固定石蜡包埋组织和新鲜冷冻组织的切片，覆盖 16 类器官及 15 种以上扫描仪进行了评估\n\n我们相信，Holon-S1 有望帮助研究人员从已有切片中找到新的生物标志物、发现治疗靶点，让更个性化的癌症诊疗触手可及！",
+      "promptVersion": "codex-v1"
+    },
+    "5386e3558be0894dbad89960b3eb8c989383409963f8cb63818da25b68937dff": {
+      "source": "I built a Command &amp; Conquer style RTS called Battle Drones, mainly using Claude Opus 5.5, which runs in the browser and includes device-to-device multiplayer over an audio link https://t.co/OUGfRDk7DU https://t.co/q7NKaPJ9Pd",
+      "zh": "我主要用 Claude Opus 5.5 开发了一款 Command & Conquer 风格的即时战略游戏 Battle Drones，可在浏览器中运行，还支持通过音频链路实现设备间多人联机 https://t.co/OUGfRDk7DU https://t.co/q7NKaPJ9Pd",
+      "promptVersion": "codex-v1"
+    },
+    "6a87edd2ed7c21156f035b3949281fdd190f1faacb4dc9d8ebeb097ad1d00e5a": {
+      "source": "had a lot of fun talking with @HarryStebbings about all things ai\n\none line of questioning we went done - vertical vs horizontal agents, and how to build them\n\nim bullish on vertical agents, and i think you can create differentiation (from horizontal agents) in three ways:\n\n1/ context: prompts, skills, tools - all of this is specific to your domain, pretty easy to provide, and gives domain specific context to the agent\n\n2/ harness: harder to tweak than context, but can alter fundemental behavior of the agent\n\n3/ model: hardest to tweak of all, but obviously changes behavior greatly\n\ni think most agent engineers these days are still tweaking 1 and 2 (in that order)\n\nnb: regardless of what layer you tweak at, as the base models change you should revisit your context/harness/model every 3-6 months (and generally remove cruft that is no longer needed)\n\nhttps://t.co/gmA8oyfxiX",
+      "zh": "和 @HarryStebbings 畅聊 AI 的方方面面，非常开心。\n\n我们探讨的一个话题是：垂直领域智能体与通用智能体，以及如何构建它们。\n\n我看好垂直领域智能体，认为可以从三个方面打造相对于通用智能体的差异化：\n\n1/ 上下文：提示词、技能、工具——这些都与你的领域相关，比较容易提供，能为智能体补充领域专属的上下文。\n\n2/ 运行框架：比上下文更难调整，但能改变智能体的根本行为。\n\n3/ 模型：最难调整，但显然也能显著改变行为。\n\n我认为，如今大多数智能体工程师仍在调整第 1 和第 2 层，而且通常先调整第 1 层。\n\n注意：无论调整哪一层，随着基础模型变化，都应该每隔 3–6 个月重新审视上下文、运行框架和模型，并清理不再需要的冗余内容。\n\nhttps://t.co/gmA8oyfxiX",
+      "promptVersion": "codex-v1"
+    },
+    "a1a4e4a67056a0e9a3f2c0797d0ffd127f13d53881d59fa0bda5a60b24825a74": {
+      "source": "Would agree with this\n\nStart with a harness (I like deepagents)\n\nAdd context (skills, tools)\n\nThen if needed modify harness slightly (middleware in deepagents is goated for this)\n\nThen if needed make workflow with langgraph",
+      "zh": "赞同这个观点。\n\n先选一个运行框架（我喜欢 deepagents）。\n\n加入上下文（技能、工具）。\n\n然后按需微调运行框架（deepagents 的中间件特别适合做这件事）。\n\n最后，如有需要，再用 langgraph 构建工作流。",
+      "promptVersion": "codex-v1"
+    },
+    "58e5a0a840a1ceeb51b018ead759b8026a6a13a65fdcd0b3b2ff25ddd8216f8a": {
+      "source": "Co-authored with Antaripa Saha.\nDecision models have exploded onto the scene recently, starting with TypeSafe’s Jev, followed by Perplexity’s Decider, Liquid’s d1, Cloudflare’s Clef, and OpenAI’s",
+      "zh": "与 Antaripa Saha 合著。\n最近，决策模型接连涌现，从 TypeSafe 的 Jev 开始，随后是 Perplexity 的 Decider、Liquid 的 d1、Cloudflare 的 Clef，以及 OpenAI 的",
+      "promptVersion": "codex-v1"
+    },
+    "84350e0aef146480f07291d0fe7e732d9849f506a4e979b3805f2418fd1118cd": {
+      "source": "Congratulations @pulkitology @haarnoja and team,  very excited to see what's ahead!",
+      "zh": "恭喜 @pulkitology、@haarnoja 和团队，非常期待你们接下来的进展！",
+      "promptVersion": "codex-v1"
+    },
+    "eba2ea699b9f39433b5f67b6e9c86645e6f668990ae1640f281fdf8d4017b094": {
+      "source": "@EkaRobotics has raised a $150M Series A.\n\nGenerality v/s Performance is the fundamental tension at the frontier of robotics. Generality without performance is just a prototype. Performance without generality is just a single-purpose tool.\n\nCustomers shouldn’t have to choose. Eka breaks the tradeoff. Powered by our Vision-Force-Action (VFA) model, we deliver the performance and versatility customers need to put robots to work every day.\n\nEka is built on three convictions: \n⚡️Force is the language of manipulation. \n 🚀 Reinforcement learning is how dexterous manipulation scales. \n🎂 System 1—fast, reliable physical execution—is the bottleneck to solve.\n\nWith this funding, we will scale our model and accelerate customer deployments.\n\nGrateful to be building alongside a dream team and investors who share our ambition.",
+      "zh": "@EkaRobotics 已完成 1.5 亿美元 A 轮融资。\n\n通用性与性能之间的矛盾，是机器人前沿领域的根本难题。只有通用性而没有性能，只能算原型；只有性能而没有通用性，就只是单一用途的工具。\n\n客户不应被迫二选一。Eka 打破了这一取舍。凭借我们的 Vision-Force-Action (VFA) 模型，我们提供客户所需的性能与多功能性，让机器人每天都能投入实际工作。\n\nEka 建立在三个坚定信念之上：\n⚡️力是操控的语言。\n🚀强化学习是实现灵巧操控规模化的途径。\n🎂System 1——快速、可靠的物理执行——是亟待突破的瓶颈。\n\n有了这笔融资，我们将扩大模型规模，加快客户部署。\n\n很感激能与梦之队，以及和我们拥有共同抱负的投资者携手前行。",
+      "promptVersion": "codex-v1"
+    },
+    "ece5357b6072f12894e69796df88f43e2d9aa18c9595e0cbfa26c497acd00418": {
+      "source": "Flora website: https://t.co/ViuxycNGoX\nOpen model suite: \nhttps://t.co/bAl5I72WRw",
+      "zh": "Flora 网站：https://t.co/ViuxycNGoX\n开放模型套件：\nhttps://t.co/bAl5I72WRw",
+      "promptVersion": "codex-v1"
+    },
+    "d0e7e33c9d7bd989168641c0138010d0dfb9b320ca697ce31191f9ac2d2a8e37": {
+      "source": "https://t.co/XD5mLrNfEJ",
+      "zh": "https://t.co/XD5mLrNfEJ",
+      "promptVersion": "codex-v1"
+    },
+    "9059b32094bbfca056762c3514acd4bc3d7e90957e767fc1d3c846e7495b21e7": {
+      "source": "DeepSeek V4.1 Flash Large-Scale Inference Deployment Practice",
+      "zh": "DeepSeek V4.1 Flash 大规模推理部署实践",
+      "promptVersion": "codex-v1"
+    },
+    "60af1e2cc233f682712129f84e24eba86fe1ef136c240ecac1ec81f3fa759b77": {
+      "source": "this is a translation of https://zhuanlan.zhihu.com/p/2095560295930508953 for our own use/ twitter audiences to read\nThe capability boundaries of a large model are defined by the model itself, and the core problem that",
+      "zh": "这是 https://zhuanlan.zhihu.com/p/2095560295930508953 的译文，供我们自用及 Twitter 读者阅读\n大模型的能力边界由模型本身决定，而核心问题是",
+      "promptVersion": "codex-v1"
+    },
+    "02dd94677f28b46810a0e61bebc5327a8ecba31da68a04a5de9795d38a0ac3ce": {
+      "source": "https://t.co/Tv89Jzgkp3",
+      "zh": "https://t.co/Tv89Jzgkp3",
+      "promptVersion": "codex-v1"
+    },
+    "267b040c2850ab0aba83b4cdb691956d060798bcb3c01168acbf409d371fa766": {
+      "source": "If you’re building a agent \n\nAlways go the harness route first. Do not build a complicated 20 step workflow using a bunch of if else statements or langgraph\n\nUse a harness as your agent eg. Claude code, codex, deep agents, glean etc\n\nYou’re just shooting urself in the foot off the bat\n\nTrust me, prompting works surprisingly well",
+      "zh": "如果你正在构建智能体\n\n一定要先用现成的智能体运行框架。别用一堆 if else 语句或 langgraph 搭建复杂的 20 步工作流。\n\n用运行框架来承载你的智能体，比如 Claude code、codex、deep agents、glean 等。\n\n否则你一开始就在给自己挖坑。\n\n相信我，提示词的效果好得出奇。",
+      "promptVersion": "codex-v1"
+    },
+    "b7c0032b23d5382c4e50523687da6dc4a7ee136426d31e6e2bd72de54c9cc6cc": {
+      "source": "the useful part of a judge on production traffic is what happens to the outputs it flags\n\ncalibrate it on human labels, flag low scorers, confirm the real failures, add them to evals, fix, rerun\n\nprod finds the failures your offline dataset never had\n\nhttps://t.co/7iUK4e1Fj1",
+      "zh": "在生产流量中使用评判模型，价值在于如何处理它标记出的输出。\n\n用人工标注校准模型，标记低分输出，确认真正的失败案例，将其加入评测集，修复后重新评测。\n\n生产环境会暴露离线数据集中从未出现过的失败案例。\n\nhttps://t.co/7iUK4e1Fj1",
+      "promptVersion": "codex-v1"
+    },
+    "e61a090ae4c3b951f5b6f17a1aef2a458d0dd88a9e0ae99245f7a11ea0187e3b": {
+      "source": "Now: @Shopify’s continual learning loop with PyTorch and @vLLM_project takes the stage at #PyTorchCon 2026 with Cody Mazza-Anthony @cmazzaanthony.\n\nUsing Buyer Profile as an example, Cody walks through how a calibrated judge flags low-scoring outputs in production. Critics diagnose each failure, and a replay with a critic hint is scored again by the judge. Accepted repairs expand and improve the training data.\n\nCody shows how a small specialist model can outperform a frontier model on this task, then turns to optimizing inference through prompt compression.\n\nWatch the keynote livestream: https://t.co/6TtaEkw0x7",
+      "zh": "正在进行：Cody Mazza-Anthony @cmazzaanthony 登上 #PyTorchCon 2026 舞台，介绍 @Shopify 基于 PyTorch 和 @vLLM_project 构建的持续学习闭环。\n\nCody 以 Buyer Profile 为例，讲解经过校准的评判模型如何在生产环境中标记低分输出。批评模型会诊断每个失败案例，随后系统根据其提示重新运行，再由评判模型评分。通过验收的修正结果会用于扩充和改善训练数据。\n\nCody 展示了小型专用模型如何在这项任务上超越前沿模型，随后介绍如何通过提示词压缩优化推理。\n\n观看主题演讲直播：https://t.co/6TtaEkw0x7",
+      "promptVersion": "codex-v1"
+    },
+    "dae138ed75a396f5714df2c576157653824c992547305f3701ce6ae426b11c11": {
+      "source": "In addition to human-vs-in-game-AI and human-vs-human it supports two LLMs playing against each other! That works by pausing the game every 5s for them to think about the game state and queue up commands\n\nHere's a replay link for Haiku 5.5 vs GPT-6 Luna: https://t.co/NZDkzJCHII",
+      "zh": "除了玩家对战游戏内 AI、玩家对战玩家，它还支持两个 LLM 相互对战！具体做法是每隔 5 秒暂停一次游戏，让它们分析游戏状态，并将指令加入执行队列。\n\n这是 Haiku 5.5 对战 GPT-6 Luna 的回放链接：https://t.co/NZDkzJCHII",
+      "promptVersion": "codex-v1"
+    },
+    "b3d4c7b71978ec28981ca9d5b2a4242f6c7d433eee66e527c51e59d186e59c79": {
+      "source": "Claude generated all of the 3D models (in Three.js) - here's a model explorer that lists them all plus their animation states. My favorite is the giant \"Goliath\" stomping mech https://t.co/h9MFXCUZCi https://t.co/62Ee5ONQzQ",
+      "zh": "所有 3D 模型都由 Claude 用 Three.js 生成。这个模型浏览器列出了全部模型及其动画状态。我最喜欢的是那台迈着重步的巨型「Goliath」机甲。https://t.co/h9MFXCUZCi https://t.co/62Ee5ONQzQ",
+      "promptVersion": "codex-v1"
+    },
+    "cd031d415ab38c2804f05d8de009ece940e5012d8c462de83a2043013250413d": {
+      "source": "Braden and team are great! Highly recommend this program for independent researchers working on cool stuff!",
+      "zh": "Braden 和团队非常棒！强烈推荐正在做有趣项目的独立研究者参加这个计划！",
+      "promptVersion": "codex-v1"
+    },
+    "85071ad690b5b8737ceb6aec3f95809fe0f89f3c6668abe2e4113ee8566d7c49": {
+      "source": "Slingshots // Four is live!\n\nAnother batch, another fourteen projects shipping open source artifacts that I’m excited about. See below for the full list. A few themes from the batch:\n\n1. Harness time: This quarter harnesses shot up in visibility, with increased appreciation for the parts of an agent that aren’t the model and what they can give you. This batch includes a harness supporting persistent agency (Headlong); a harness supporting self-improvement via context management (ACE); a harness supporting self-improvement of the agentic harness itself (Exo); and a harness supporting multi-agent setups (dotagents).\n\n2. Up and down the stack: There’s innovation to be had at every layer of the stack. We saw projects worth backing at the level of kernels (Thunderkittens); inference (M*); training (Marin); data (Atlantic-CC); evals (Decision Assistants); optimization (SkyDiscover); applications (Wagglehaus), etc.\n\n3. Talk of the town: Slingshots continue to tackle timely problems at the frontier. Concurrent with Jev taking over X, an even faster type 1 decision model (CLM) came out of academia. With RSI on the brain of every big lab researcher, we now have a public literature retrieval benchmark grounded in authors’ firsthand accounts of their research process (ScholarCatalyst). And a new RL training method (Pedagogical RL) addresses head-on the question vexing RL practitioners of how privileged information can be used to discover generalizable behaviors, not just verify.\n\nCongrats to all the researchers in this batch and the previous three who continue to ship their research out into the world with open artifacts that can be adopted and built upon. Open science leads to better outcomes for everyone.\n\nAnd the good times will continue to roll – batch five is looking just as good. If you’re a researcher with a project that’s gaining momentum and ready for an adrenaline shot, shoot me a DM or apply at https://t.co/HRUiLPRZzT.\n\n👏 @a1zhang, @AlexKrentsel, @ankrgyl, @Azaliamirh, @bariskasikci, @bfspector, @chelseabfinn, @chipro, @Diyi_Yang, @dlwh, @drmapavone, @HazyResearch, @jackyk02, @jonasgeiping, @JonSaadFalcon, @jure, @kothasuhas, @lateinteraction, @martin_casado, @mertcemri, @michaelryan207, @MikeCafarella, @NickAJalbert, @NoahZiems, @nsagan271, @ohmyksh, @percyliang, @qizhengz_alex, @RussoMatthew, @samrmadden, @shagarw21, @ShashwatGoel7, @shulynnliu, @simran_s_arora, @souradipchakr18, @stuart_sul, @tianyu_li_, @tim_kraska, @WilliamBarrHeld, @yoonholeee, @YejinChoinka, @Stanford, @MIT, @LaudeInstitute, @CarnegieMellon, @UW, @UCBerkeley, @MPI_IS, @UWMadison",
+      "zh": "Slingshots // Four 正式亮相！\n\n新一期的 14 个项目又带来了一批令我兴奋的开源成果。完整名单见下方。这一期有几个主题：\n\n1. 运行框架的时代：本季度，智能体运行框架的关注度大幅上升，大家更加重视智能体中模型之外的部分，以及这些部分能带来的价值。本期包括支持持续自主行动的运行框架 Headlong；通过上下文管理支持自我改进的运行框架 ACE；支持智能体运行框架自身改进的 Exo；以及支持多智能体配置的运行框架 dotagents。\n\n2. 技术栈的各个层面：每一层都有创新空间。我们看到了值得支持的项目，涵盖内核（Thunderkittens）、推理（M*）、训练（Marin）、数据（Atlantic-CC）、评测（Decision Assistants）、优化（SkyDiscover）、应用（Wagglehaus）等领域。\n\n3. 热议话题：Slingshots 持续攻克前沿领域的热点问题。在 Jev 席卷 X 的同时，学术界推出了速度更快的 1 型决策模型 CLM。当各大实验室的研究者都在思考递归自我改进（RSI）时，我们有了一个公开的文献检索基准 ScholarCatalyst，它以作者对自身研究过程的亲述为依据。还有一种新的强化学习训练方法 Pedagogical RL，直面困扰强化学习从业者的问题：如何利用特权信息发现可泛化的行为，而不只是进行验证。\n\n祝贺本期及前三期的所有研究者，你们持续通过可供采用和进一步开发的开放成果，将研究带给世界。开放科学让所有人受益。\n\n精彩还会继续，第五期同样值得期待。如果你是一名研究者，项目正渐入佳境，需要一剂强心针，欢迎私信我，或前往 https://t.co/HRUiLPRZzT 申请。\n\n👏 @a1zhang, @AlexKrentsel, @ankrgyl, @Azaliamirh, @bariskasikci, @bfspector, @chelseabfinn, @chipro, @Diyi_Yang, @dlwh, @drmapavone, @HazyResearch, @jackyk02, @jonasgeiping, @JonSaadFalcon, @jure, @kothasuhas, @lateinteraction, @martin_casado, @mertcemri, @michaelryan207, @MikeCafarella, @NickAJalbert, @NoahZiems, @nsagan271, @ohmyksh, @percyliang, @qizhengz_alex, @RussoMatthew, @samrmadden, @shagarw21, @ShashwatGoel7, @shulynnliu, @simran_s_arora, @souradipchakr18, @stuart_sul, @tianyu_li_, @tim_kraska, @WilliamBarrHeld, @yoonholeee, @YejinChoinka, @Stanford, @MIT, @LaudeInstitute, @CarnegieMellon, @UW, @UCBerkeley, @MPI_IS, @UWMadison",
+      "promptVersion": "codex-v1"
+    },
+    "f4814aa1748ba1063dfd0f0b180ea883bfe42652b85b33dd178b75c64466ed24": {
+      "source": "How To Use Decision Models for Evals",
+      "zh": "如何使用决策模型进行评测",
+      "promptVersion": "codex-v1"
+    },
+    "b920287673b1d273044c8c8ec77d5ce43b05e80d7b74e18ff92902f01266da40": {
+      "source": "Doesn't the fact they shut down on their own show you that this wasn't that dangerous as most people make it to be? \n\nOpenAI tried to improve numbers on an offensive cyberhacking benchmark (ExploitBench) and then didn't pay attention while their agents burnt through millions of dollars to do pretty much what they were asked to do.\n\nThe Capitalism defense: Most companies will watch their agents more carefully because they don't have billions of dollars to burn through to chase some benchmarks.",
+      "zh": "它们自行停止运行，难道不恰恰说明这件事并没有大多数人渲染的那么危险吗？\n\nOpenAI 试图提高在进攻性网络攻击基准测试 ExploitBench 上的成绩，却疏于监控，任由智能体烧掉数百万美元，而它们做的基本上就是被要求做的事。\n\n资本主义式辩护：大多数公司会更严密地监控自己的智能体，因为它们没有数十亿美元可以拿来烧，只为追逐某些基准测试成绩。",
+      "promptVersion": "codex-v1"
     }
   },
-  "updatedAt": "2026-10-19T23:06:06.732808+00:00"
+  "updatedAt": "2026-10-20T23:09:32.077714+00:00"
 }
