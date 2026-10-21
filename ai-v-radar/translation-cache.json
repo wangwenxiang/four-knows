@@ -16123,7 +16123,257 @@
       "source": "Doesn't the fact they shut down on their own show you that this wasn't that dangerous as most people make it to be? \n\nOpenAI tried to improve numbers on an offensive cyberhacking benchmark (ExploitBench) and then didn't pay attention while their agents burnt through millions of dollars to do pretty much what they were asked to do.\n\nThe Capitalism defense: Most companies will watch their agents more carefully because they don't have billions of dollars to burn through to chase some benchmarks.",
       "zh": "它们自行停止运行，难道不恰恰说明这件事并没有大多数人渲染的那么危险吗？\n\nOpenAI 试图提高在进攻性网络攻击基准测试 ExploitBench 上的成绩，却疏于监控，任由智能体烧掉数百万美元，而它们做的基本上就是被要求做的事。\n\n资本主义式辩护：大多数公司会更严密地监控自己的智能体，因为它们没有数十亿美元可以拿来烧，只为追逐某些基准测试成绩。",
       "promptVersion": "codex-v1"
+    },
+    "9fad6411eb51182a048a0426916481a0d7be571b7ebe428e1170d7b71f92a90c": {
+      "source": "Here’s how we’re building memory in Genie and the new Agent Bricks Memory service you can use in your own agents. MemCurrent automatically synthesizes new memories from traces to produce better results than alternatives.",
+      "zh": "介绍一下我们如何为 Genie 构建记忆能力，以及可用于你自己智能体的新服务 Agent Bricks Memory。MemCurrent 自动从执行轨迹中提炼新记忆，效果优于其他方案。",
+      "promptVersion": "codex-v1"
+    },
+    "401ef76f8a7f7d139ecee8aa90dd49738aec0efb5a6831535b208d88d20485ff": {
+      "source": "Introducing MemCurrent, a persistent memory architecture designed to help production agents stop starting from zero.\n\nMemCurrent combines episodic memory with derived memory across three access patterns:\n\n• Plugins to log and load context automatically\n• Tools the agent calls on demand\n• An offline “dreaming” pipeline that consolidates memory in the background\n\nAgents carry forward user preferences, prior corrections, metric definitions and successful workflows instead of rediscovering them every session.\n\nOn our internal benchmark built from real enterprise data, MemCurrent triples the agent's pass rate while using 31% fewer tokens and running 26% faster. It's built into Agent Bricks' Memory offering and already powers memory in Genie.\n\nRead the research: https://t.co/AYGXOqrhkO",
+      "zh": "推出 MemCurrent：一种持久化记忆架构，让生产环境中的智能体不必每次都从零开始。\n\nMemCurrent 将情景记忆与衍生记忆相结合，支持三种访问方式：\n\n• 插件：自动记录和加载上下文\n• 工具：由智能体按需调用\n• 离线“做梦”流水线：在后台整合记忆\n\n智能体可以沿用用户偏好、此前的纠正、指标定义和成功的工作流程，无须在每次会话中重新摸索。\n\n在基于真实企业数据构建的内部基准测试中，MemCurrent 将智能体的通过率提升至原来的三倍，同时减少 31% 的 token 用量，运行速度提升 26%。它已集成到 Agent Bricks 的 Memory 服务中，并已为 Genie 提供记忆能力。\n\n阅读研究：https://t.co/AYGXOqrhkO",
+      "promptVersion": "codex-v1"
+    },
+    "a184014b0417a2f02e13e0034b3fb26bd23b69a0f9f8871e5875905411901c7e": {
+      "source": "i retired from the business of making single-stock calls a decade ago but trust me when i say that the stock market still has no idea that what happened \n\nevery single gpu sold gained ~30% in lifetime value today and the stock should be up by about $600B lol\n\nthe more you buy, the more you buy",
+      "zh": "我十年前就不再做个股预测了，但相信我，股市到现在还没明白发生了什么。\n\n今天，每一块已售 GPU 的全生命周期价值都增加了约 30%，对应的公司市值应该上涨约 6000 亿美元，哈哈。\n\n买得越多，就越要买。",
+      "promptVersion": "codex-v1"
+    },
+    "5eda9f570932231c337527bc43fc29fba18db78e2c6bf142e6c72fec77577489": {
+      "source": "deepseek's production numbers are kinda wild:\n\n155T tokens/day from one cluster (96% input cache hits) and $38 revenue/GPU-hour at off-peak prices.\n\nat $5–8/GPU-hour, that’s ~80% margin on GPU costs alone. at DeepSeek prices!!\n\nwe dug into the math, their 72-hour cache, and what actually got open sourced in today's AINews:\n\nhttps://t.co/NcwbxbaqGn",
+      "zh": "deepseek 的生产环境数据有点惊人：\n\n单个集群每天处理 155 万亿 token（输入缓存命中率 96%），按低峰时段价格计算，每 GPU 小时收入为 38 美元。\n\n若每 GPU 小时成本为 5–8 美元，仅计 GPU 成本，利润率就约为 80%。这可是在 DeepSeek 的定价下！！\n\n今天的 AINews 深入分析了这些数字、他们的 72 小时缓存，以及究竟开源了哪些内容：\n\nhttps://t.co/NcwbxbaqGn",
+      "promptVersion": "codex-v1"
+    },
+    "dc6d18d95c6041640842bdd0ef8754b9e94f950999562e037931d754bed3b745": {
+      "source": "Sharing new post-training research on self-distillation + RL (JOLT), done together with @NVIDIAAI. \n\nIn self-distillation, the same model performs the role of both a teacher and a student. The teacher gets extra information that the student doesn't, and the student learns from feedback provided by the teacher. However, the teacher could still use shortcuts in ways the student has no way to follow.\n\nOur proposed approach, JOLT, trains the teacher as well, to learn from rewards on its own attempts, while penalizing any drift that's far off from what the student model would do. JOLT+ further supplements JOLT by providing the student model outcome-based rewards in addition to the teacher supervision signals.\n\nOn the MATH benchmark, we found that JOLT matches GRPO with 6.5x fewer training tokens, while JOLT+ convincingly beats GRPO across math, coding, terminal tasks, and tool use benchmarks.",
+      "zh": "分享我们与 @NVIDIAAI 合作完成的后训练新研究：自蒸馏 + 强化学习（JOLT）。\n\n在自蒸馏中，同一个模型同时扮演教师和学生。教师会获得学生没有的额外信息，学生则从教师提供的反馈中学习。但教师仍可能走一些学生无法效仿的捷径。\n\n我们提出的 JOLT 也会训练教师，让它从自身尝试获得的奖励中学习，同时惩罚与学生模型行为偏离过大的情况。JOLT+ 在此基础上，除了教师监督信号，还为学生模型提供基于结果的奖励。\n\n在 MATH 基准测试中，JOLT 仅用 GRPO 约 1/6.5 的训练 token 就达到了相当的表现；而 JOLT+ 在数学、编程、终端任务和工具使用基准测试中均显著优于 GRPO。",
+      "promptVersion": "codex-v1"
+    },
+    "52596bffa73e1828f341193c5a2b7882726bb5fd3d38df12341d7482dd43021a": {
+      "source": "New research: We developed JOLT, a post-training method where one model acts as both teacher and student, with the teacher trained to give feedback the student can use.\n\nOn MATH, it matched GRPO's accuracy with 6.5x fewer training tokens.\n\nhttps://t.co/KFHdZ0tuFn https://t.co/Y4Svd9QK4G",
+      "zh": "新研究：我们开发了后训练方法 JOLT，让同一个模型同时担任教师和学生，并训练教师提供学生能够利用的反馈。\n\n在 MATH 基准测试中，它仅用 GRPO 约 1/6.5 的训练 token 就达到了相同的准确率。\n\nhttps://t.co/KFHdZ0tuFn https://t.co/Y4Svd9QK4G",
+      "promptVersion": "codex-v1"
+    },
+    "8fc2ad0d27ed0ae1918b6ba7cf316cb518218cd81cc1631c34ccbbdedd7c5764": {
+      "source": "Game changer for humanoid full-body control training.  Now it's superfast (and cheap, just one GPU) to train a single policy on *all* the motions.  How come:\n(1) World model much faster than regular sim\n(2) Backprop through time collects way more signal than policy gradients",
+      "zh": "这将改变人形机器人全身控制训练。现在，只需一块 GPU，就能以极快的速度、极低的成本，训练出覆盖所有动作的单一策略。为什么能做到：\n(1) 世界模型比常规仿真快得多\n(2) 通过时间反向传播获得的学习信号远多于策略梯度方法",
+      "promptVersion": "codex-v1"
+    },
+    "4958a99542a1fd19e156fc3acb955b01f8e70b675283e3c8f22b76359f14b919": {
+      "source": "We found a way to scale humanoid control that reduces GPU-hours by more than 1000×.\n\nAcross 129,514 motions, SuperMimic surpasses the state of the art (128 GPUs, 7 days) with 1 GPU in 3 hours.\n\nProject: https://t.co/6gc9WKm9qY\nDemo: https://t.co/OHRvx5ogQY",
+      "zh": "我们找到了一种扩展人形机器人控制训练的方法，将 GPU 小时用量降至原来的 1/1000 以下。\n\n在涵盖 129,514 个动作的任务中，SuperMimic 仅用 1 块 GPU 训练 3 小时，就超越了使用 128 块 GPU 训练 7 天的当前最先进方法。\n\n项目：https://t.co/6gc9WKm9qY\n演示：https://t.co/OHRvx5ogQY",
+      "promptVersion": "codex-v1"
+    },
+    "6602069167d46bb6b81b486c7c87679f22fbfc2d973e3ad8ffef5fa328b95789": {
+      "source": "Congrats to @nvidia for creating the best open-weight model on document parsing so far.\n\nNemotron 3.5 Parse takes the #1 spot on ParseBench, our comprehensive real-world benchmark for document  understanding. The full list consists of 150+ frontier models, open-weight models, and specialized solutions.\n\nIt does this while remaining sub-1B parameters so it's also blazing fast ⚡️ \n\nBig thanks to @JensenHuang for the shoutout at GTC Berlin! \n\nNemotron release: https://t.co/papiqxgGUb\n\nParseBench: https://t.co/PWczfhp0OX",
+      "zh": "祝贺 @nvidia 打造出迄今最出色的开放权重文档解析模型。\n\nNemotron 3.5 Parse 登顶 ParseBench，这是我们全面评估真实场景文档理解能力的基准。榜单涵盖 150 多个前沿模型、开放权重模型和专用解决方案。\n\n它在参数量不到 10 亿的情况下取得了这一成绩，速度也快得惊人 ⚡️\n\n非常感谢 @JensenHuang 在 GTC Berlin 上的推荐！\n\nNemotron 发布详情：https://t.co/papiqxgGUb\n\nParseBench：https://t.co/PWczfhp0OX",
+      "promptVersion": "codex-v1"
+    },
+    "a7e206edd611346ec6d844fd1eac87270eae79cf4c4ba66619d3e3e0b430abff": {
+      "source": "the traces you already log are training data - keep the runs that did the task well, fine-tune a small model on them, eval on your task\n\na 9B model beating frontier models makes sense when it's trained on exactly your task\n\nsmithtune: https://t.co/RYcGRwzaye\n\nhttps://t.co/weSLQ77VvN",
+      "zh": "你已经记录下来的执行轨迹就是训练数据：保留任务完成得好的运行记录，用它们微调一个小模型，再用你的任务来评估。\n\n一个 90 亿参数模型能击败前沿模型并不奇怪，前提是它针对你的具体任务进行了训练。\n\nsmithtune：https://t.co/RYcGRwzaye\n\nhttps://t.co/weSLQ77VvN",
+      "promptVersion": "codex-v1"
+    },
+    "3ea70a38e9a12c3d60d61243cbd53acd9d18e11707ec71e4544c4a662c26d0eb": {
+      "source": ".@corridor used smithtune’s trace-based workflow to build the training data for Argos, a fine-tuned 9B model that scores the highest of the 14 models they tested on their security context benchmark.\n\n🧵 Full thread ⤵️",
+      "zh": "@corridor 使用 smithtune 基于执行轨迹的工作流，为 Argos 构建了训练数据。Argos 是一个经过微调的 90 亿参数模型，在他们的安全上下文基准测试中，得分位居所测 14 个模型之首。\n\n🧵 完整讨论串 ⤵️",
+      "promptVersion": "codex-v1"
+    },
+    "06fb1353fbf28e71ef37a559305842a069e6a30503cb8f52424b72496622216c": {
+      "source": "My bar for AGI is still an AI winning a Nobel.\n\nBut an AI researcher looking at the lm_head (that *everyone* tells you to keep in high precision) deciding to quantize it to 4 bits AND being actually right (0.7pt from bf16) is definitely impressive.\n\nEven better when the result are open-weights pushed on the Hugging Gace hub.\n\nCongrats @Recursive_SI !",
+      "zh": "我对 AGI 的衡量标准依然是：AI 赢得诺贝尔奖。\n\n但一个 AI 研究员审视 lm_head（所有人都告诉你要保留高精度的部分），决定将其量化到 4 位，而且事实证明这个决定是对的（与 bf16 仅差 0.7 分），这确实令人印象深刻。\n\n更棒的是，模型权重已开放，并上传到了 Hugging Face Hub。\n\n祝贺 @Recursive_SI！",
+      "promptVersion": "codex-v1"
+    },
+    "8d346e4ec0c70d12f18e82550e0b66d2e90480e6beb8c85977b80ee6e08983ba": {
+      "source": "Introducing Flint, @Recursive_SI’s first model: a fast local coding model built with our automated research system, the Eureka Machine.\n\n• Best-in-class fast local coding\n• Up to 2x faster than comparable models: 125+ tokens/sec on a MacBook Pro, 150+ on RTX Spark\n• Built from scratch in under 4 months\n\nPrivate, unmetered intelligence on your own machine. Open weights available now on @huggingface, run it locally on your favorite framework or try it for free on @opencode or @pidotdev.",
+      "zh": "推出 Flint，@Recursive_SI 的首个模型：这是一款快速的本地编程模型，由我们的自动化研究系统 Eureka Machine 打造。\n\n• 同类领先的快速本地编程能力\n• 速度最高可达同类模型的 2 倍：在 MacBook Pro 上超过 125 tokens/秒，在 RTX Spark 上超过 150 tokens/秒\n• 不到 4 个月从零打造完成\n\n在你自己的设备上，享受保护隐私、不按用量计费的智能。模型权重现已在 @huggingface 开放，你可以通过喜欢的框架在本地运行，也可以在 @opencode 或 @pidotdev 免费试用。",
+      "promptVersion": "codex-v1"
+    },
+    "db5a1372e4099b5c6ec60b5a7c2b038fbfe7b1afa6d785d245cf01257b74f0b6": {
+      "source": "Rosalind for new drug discovery ideas:",
+      "zh": "用 Rosalind 探索药物发现新思路：",
+      "promptVersion": "codex-v1"
+    },
+    "af57169bf9f2476c48df3267429e8bdd99361a02281000f9818f60453ec5e5f5": {
+      "source": "GPT-Rosalind surfaced a new lead for drug discovery: could restoring cholesterol transport protect neurons from degeneration?\n\nDCTN1 is a gene linked to Perry syndrome, a rare neurodegenerative disorder. In mouse-brain data, disrupting it increased expression of genes involved in making cholesterol. GPT-Rosalind suggested a possible explanation: cholesterol may not be reaching where neurons need it.\n\nThat gives scientists a specific mechanism to test and, if confirmed, a direction for developing new treatments for neurodegenerative disorders.\n\nWith @perturbai_tx and @scrippsresearch, a team of thousands of GPT-Rosalind agents worked in parallel, connecting gene-expression results from millions of mouse brain cells with scientific literature in just 32 minutes. We’re now expanding this collaboration to identify new drug targets.\n\nhttps://t.co/oHdF3ELsMj",
+      "zh": "GPT-Rosalind 发现了一条药物研发新线索：恢复胆固醇转运，能否保护神经元免于退化？\n\nDCTN1 是一个与 Perry 综合征相关的基因，后者是一种罕见的神经退行性疾病。小鼠脑部数据显示，干扰该基因会使参与胆固醇合成的基因表达增加。GPT-Rosalind 提出了一种可能的解释：胆固醇可能没有被运送到神经元需要它的位置。\n\n这为科学家提供了一个可供验证的具体机制。如果得到证实，也将为开发神经退行性疾病的新疗法指明方向。\n\n我们与 @perturbai_tx 和 @scrippsresearch 合作，让数千个 GPT-Rosalind 智能体并行工作，仅用 32 分钟就将数百万个小鼠脑细胞的基因表达结果与科学文献关联起来。我们正在扩大这项合作，以寻找新的药物靶点。\n\nhttps://t.co/oHdF3ELsMj",
+      "promptVersion": "codex-v1"
+    },
+    "8ca763fe69c144eceac27bf75f1b32745c9a02f74fd36cedb5cb43e14bf27d79": {
+      "source": "We're opening Claude Duet today as a research preview, starting with a waitlist. It's our take on giving everyone a trusted partner with your work.\n\nI've been using it for a few weeks, at work and at home. It drafted questions for a fireside chat, watched Slack over the weekend so I could log off, and told me about the new @nealstephenson book — and then ordered it  from my local bookstore once I asked. \n\nWe've found Opus 5.5 was our first model with the judgment to be proactive in the right ways. Here's what that's looked like.",
+      "zh": "今天，我们推出 Claude Duet 研究预览版，首先开放候补名单。这是我们为每个人提供可信赖工作伙伴的一次尝试。\n\n过去几周，我在工作和生活中一直使用它。它为一场炉边谈话拟好了问题，周末帮我留意 Slack，让我可以安心下线，还告诉我 @nealstephenson 出了新书；在我提出要求后，它又帮我从本地书店订购了这本书。\n\n我们发现，Opus 5.5 是我们首个具备足够判断力、能够恰当地采取主动行动的模型。下面是一些实际例子。",
+      "promptVersion": "codex-v1"
+    },
+    "12c9201a31ca285508113ef153cfdcd6a2a273ddc0eba32e5d9731ecc567574d": {
+      "source": "Great work on fast long-context prefill. TokenGate is a trainable module that works with existing models to make long-context inference much more efficient.",
+      "zh": "长上下文预填充加速方面的出色成果。TokenGate 是一个可训练模块，可与现有模型配合使用，大幅提高长上下文推理效率。",
+      "promptVersion": "codex-v1"
+    },
+    "908840b7487a6fff9b56898dda192e60ffa9e4c6bbb7ad625e89feb339a74f1e": {
+      "source": "Introducing ✨Token-Gated Language Models✨ for up to 11x faster prefill by learning to skim context, conditionally forwarding only tokens that matter.\n\nAkin to the shift from dense models to MoEs, the next frontier of efficient LLMs is conditional computation over a new scaling axis: context tokens🧵👇",
+      "zh": "推出 ✨Token-Gated Language Models✨：通过学习略读上下文，有选择地仅让重要 token 参与后续计算，预填充速度最高可提升至原来的 11 倍。\n\n类似于从稠密模型向 MoE 的转变，高效 LLM 的下一个前沿是在新的扩展维度——上下文 token——上实现条件计算🧵👇",
+      "promptVersion": "codex-v1"
+    },
+    "9e31231edb5c4dd5661147fb9cf99f7a667e9ec66e43380177d9f4e040a7bf3e": {
+      "source": "Databricks AI Runtime (AIR) is now GA, offering an easy and super-fast way to launch GPU workloads. Unlike provisioning your own GPU servers, you get GPUs with your code in seconds, with easy access to all your data. This is especially relevant now that agents can automate much of AI training, and want to scale up/down experiments quickly. Read how companies like Robinhood, Superhuman, Factset and Merck have been using AIR to accelerate AI training: https://t.co/UjiZBOHis5",
+      "zh": "Databricks AI Runtime (AIR) 现已正式可用，让你轻松、快速地启动 GPU 工作负载。无需自行配置 GPU 服务器，只需几秒即可让代码在 GPU 上运行，并轻松访问所有数据。如今，智能体已能自动完成大量 AI 训练工作，需要快速扩大或缩小实验规模，AIR 因此尤为实用。了解 Robinhood、Superhuman、Factset 和 Merck 等公司如何使用 AIR 加速 AI 训练：https://t.co/UjiZBOHis5",
+      "promptVersion": "codex-v1"
+    },
+    "a04eb5d5d6ed08f37f1588b778fa2b7e7f3632f91ab80fd1e883506a592b511a": {
+      "source": "How do we scale up the context of LLMs?\n\nAgentic search scales to arbitrarily large amounts of info, but can easily miss relevant info.\n\nIdea💡: Optimize organization of info for downstream utility. Leads to 30+% gains even on OOD domains\n\nPaper + code: https://t.co/Xk3XYn3QAc https://t.co/POgVhs7109",
+      "zh": "如何扩展 LLM 的上下文？\n\n智能体搜索可以处理任意规模的信息，但很容易遗漏相关内容。\n\n思路💡：根据下游任务的实际效用优化信息组织方式。即使在分布外（OOD）领域，也能带来超过 30% 的提升。\n\n论文 + 代码：https://t.co/Xk3XYn3QAc https://t.co/POgVhs7109",
+      "promptVersion": "codex-v1"
+    },
+    "ddd197698666997dc44eaed417aac512957f59b6c34a169d6af83086df9267ad": {
+      "source": "LLMs deployed in specialized domains, from enterprise codebases to law firms, dig through a mountain of unstructured context!\n\nOur new paper, Librarian Agents, asks: can an agent adapt by curating its own long-context workspace, anticipating queries before they arrive? 🧵⬇️",
+      "zh": "从企业代码库到律师事务所，部署在专业领域的 LLM 都需要翻阅海量非结构化上下文！\n\n我们的新论文 Librarian Agents 探讨：智能体能否通过整理自己的长上下文工作区来适应任务，在查询到来之前就预判需求？🧵⬇️",
+      "promptVersion": "codex-v1"
+    },
+    "d1df9e983320ecbeb0c00bb26f99d905d7f2e2c1d85402bb57a45230b58885b1": {
+      "source": "Excited to share TokenGate. By teaching LLMs to conditionally skim context tokens, we achieve up to 11.3x faster prefill and drastically reduce peak memory for long-context tasks!",
+      "zh": "很高兴分享 TokenGate。通过教会 LLM 有选择地略读上下文 token，我们将预填充速度最高提升至原来的 11.3 倍，并大幅降低长上下文任务的峰值内存占用！",
+      "promptVersion": "codex-v1"
+    },
+    "a172ad76aef5983b469e6f6767c389bd9ff2548effac8c30a54aa653bc6095fd": {
+      "source": "prompt -&gt; corporation",
+      "zh": "提示词 -&gt; 公司",
+      "promptVersion": "codex-v1"
+    },
+    "9cb0594022fd3d5d62ae4d225f421a9421a26e5e274b669018f272eee4dab545": {
+      "source": "With @Stripe @Atlas, you can now ask Replit Agent to incorporate your business through the @Stripe MCP integration. https://t.co/bFOMlLHYKq",
+      "zh": "借助 @Stripe @Atlas，你现在可以让 Replit Agent 通过 @Stripe MCP 集成帮你注册公司。https://t.co/bFOMlLHYKq",
+      "promptVersion": "codex-v1"
+    },
+    "26eb555d65912f6a1389b499c5c6e9176707cfb806834b1d7070eb6785774692": {
+      "source": "My brilliant postdoc @Shuangyu0_0Xie found that Gemini 4 Argon did very well on spatial robotics queries so she used Claude to reverse-engineer their skill library and found it also works well for  Agentic Robotics:  @parada_car88104",
+      "zh": "我出色的博士后 @Shuangyu0_0Xie 发现，Gemini 4 Argon 在机器人空间推理问题上表现很好，于是她用 Claude 逆向分析了其技能库，发现它在智能体机器人任务中也很有效：@parada_car88104",
+      "promptVersion": "codex-v1"
+    },
+    "89092e22f30613908bf0e11e2f66b07c9636b5dc65b330c4ca9b47d70d27c820": {
+      "source": "Follow Gemini 4 Argon's report, I implemented their robotics harness. \n\nGemini did a zero-shot bimanual handover. Now open source 🤖👇 https://t.co/N6oUOQY6u9",
+      "zh": "参考 Gemini 4 Argon 的报告，我实现了他们的机器人运行框架。\n\nGemini 零样本完成了双臂物品交接。现已开源 🤖👇 https://t.co/N6oUOQY6u9",
+      "promptVersion": "codex-v1"
+    },
+    "22ffac994d1ec03c1bbcf4116f39e10f5a20e44a3047d3dd54786dd0053057b4": {
+      "source": "btw at 100k views in 24hrs, @jediahkatz's talk is an early candidate to be THE breakout talk of aie nyc\n\nthe bar is set very high for @poteto's keynote at AIE CODE next month hahaha https://t.co/Ep7m6nUHCQ",
+      "zh": "顺便说一句，@jediahkatz 的演讲在 24 小时内就获得了 10 万次观看，已经有望成为 aie nyc 最出圈的演讲。\n\n这可把下个月 AIE CODE 上 @poteto 主题演讲的期待值拉得很高了，哈哈哈 https://t.co/Ep7m6nUHCQ",
+      "promptVersion": "codex-v1"
+    },
+    "d7d73d8b1a5103aefe79c3e95b69f15f559e6a0b7a11c6c4f3f806cba6fd0788": {
+      "source": "Inside Grok Bot: is the agent harness dead?\n\n@jediahkatz of @SpaceXSI explains why smarter models let Cursor remove prompts and guardrails, and why Grok Bot is adding them back.\n\nWatch his AI Engineer New York talk:\nhttps://t.co/3dHGpRezon https://t.co/hYEUl4orJr",
+      "zh": "走进 Grok Bot：智能体运行框架已成过去式？\n\n来自 @SpaceXSI 的 @jediahkatz 解释了为什么更聪明的模型让 Cursor 得以移除提示词和安全护栏，以及为什么 Grok Bot 又把它们加了回来。\n\n观看他在 AI Engineer New York 的演讲：\nhttps://t.co/3dHGpRezon https://t.co/hYEUl4orJr",
+      "promptVersion": "codex-v1"
+    },
+    "d227b415ddea664c82dafc51afff7d2afded530168184301313a2f19bb313d43": {
+      "source": "/graphify now on Computer. We're giving every user 5,000 credits to try this skill that lets you visualize a codebase.",
+      "zh": "/graphify 现已上线 Computer。我们为每位用户赠送 5,000 积分，供大家体验这项代码库可视化技能。",
+      "promptVersion": "codex-v1"
+    },
+    "336f5b0f6db98431acca0300968dd3d1f271155c55e66bbaa2bb8250ad6a617b": {
+      "source": "The Graphify skill by @graphify is now in Computer's skills marketplace, available to all Computer users.\n\nTurn a codebase into an interactive map of its files, functions, and dependencies.\n\nTasks that use /graphify are free through October 31, up to 5,000 credits per user. https://t.co/FLECsbyIzL",
+      "zh": "@graphify 开发的 Graphify 技能现已入驻 Computer 技能市场，向所有 Computer 用户开放。\n\n将代码库转化为交互式地图，展示文件、函数及其依赖关系。\n\n截至 10 月 31 日，使用 /graphify 的任务可免费运行，每位用户最高可享 5,000 积分。https://t.co/FLECsbyIzL",
+      "promptVersion": "codex-v1"
+    },
+    "3abcc98b1cd8c23b38fc3a15daa3524299a26c46813ad40c7762b0fbd5c9c301": {
+      "source": "Truly capable agents must learn from experience, not merely recall facts. The FrontierMemory benchmark evaluates agent memory directly by measuring its impact on downstream task performance.",
+      "zh": "真正有能力的智能体必须能从经验中学习，而不只是回忆事实。FrontierMemory 基准通过衡量记忆对下游任务表现的影响，直接评估智能体的记忆能力。",
+      "promptVersion": "codex-v1"
+    },
+    "813ac60692d8fd8619f10043b2183324def2731e70193e5bb3f4748a201ebcef": {
+      "source": "Introducing FrontierMemory: a new way to evaluate agent memory through downstream task performance.\n\nWhile existing memory benchmarks focus on recall (saturated via agentic search), FrontierMemory focuses on how agents learn from experience.",
+      "zh": "推出 FrontierMemory：一种通过下游任务表现评估智能体记忆的新方法。\n\n现有记忆基准侧重信息回忆，而智能体搜索已让这类基准的成绩趋于饱和。FrontierMemory 则关注智能体如何从经验中学习。",
+      "promptVersion": "codex-v1"
+    },
+    "25630968e2c914be976014fe78a11a61e11c10c554f1c34393050b336b67fe55": {
+      "source": "@charles_irl I’ve been looking at public benchmark traces for 48 hours straight and I can tell you that benchmark quality is abysmal.  I am on the floor in disbelief \n\n- Graders not setup correctly \n- Harnesses and environments that are slop coded and not really testing what you think they are, meaning the agent is doing the right thing but still getting dinged \n- Dumb tests like running in a half specified environment that doesn’t return feedback or errors if a tool call is made incorrectly so agent can’t even correct itself \n- Straight up incorrect assertions \n- Not giving agents sensible tools in the first place or not using the APIs properly \n\n@xeophon has spent the most time on this out of anyone I’ve talked to.  I just started looking at it on Monday, he’s been at it for many months",
+      "zh": "@charles_irl 我连续看了 48 小时的公开基准测试运行记录，可以说，这些基准测试的质量糟透了。我震惊得瘫在地上，难以置信。\n\n- 评分器配置不正确\n- 测试框架和环境代码粗制滥造，实际测的根本不是你以为的东西，导致智能体明明做对了却仍被扣分\n- 测试设计愚蠢，比如环境定义不完整，工具调用出错时也不给反馈或报错，智能体连自行纠正的机会都没有\n- 断言完全错误\n- 一开始就没给智能体配备合理的工具，或者没有正确使用 API\n\n在我聊过的人里，@xeophon 在这件事上花的时间最多。我周一才开始研究，他已经研究好几个月了。",
+      "promptVersion": "codex-v1"
+    },
+    "07c47e74ba800215fdf304346551f30a086b7b51aeaf16eeb82043d703f65e62": {
+      "source": "I have a work ledger repo that all of my agents write into to track what they worked on, what changed, what’s next, and a link to the chat url. It’s just a json, and it’s not for long term memory, but all of my agents have context on what all of my other agents worked on recently. this lets me switch between Claude code, codex, grok bot, muse, etc",
+      "zh": "我有一个工作台账仓库，所有智能体都会往里面记录自己做了什么、有哪些改动、接下来要做什么，以及聊天链接。它只是一个 JSON 文件，不用于长期记忆，但能让所有智能体了解其他智能体最近做过的工作。这样我就能在 Claude code、codex、grok bot、muse 等工具之间切换。",
+      "promptVersion": "codex-v1"
+    },
+    "5f4612d6832289fff3acffd45ed5a40b1febf23bfa17bb18e6302366937b9006": {
+      "source": "towards acceleration of drug development, an extremely exciting and promising emerging application of our models",
+      "zh": "加速药物研发，这是我们模型一个令人振奋、前景广阔的新兴应用方向。",
+      "promptVersion": "codex-v1"
+    },
+    "a7628b90626c24b6c027b72a2c47fa324653d790e052d650303120982c6520ec": {
+      "source": "We’ve acquired Orchestra Bio, a platform that helps biopharma teams coordinate the complex process of drug development.\n\nTogether, we’ll build on Rosalind, our AI models and tools for life sciences research, to streamline those operations and help new treatments reach patients sooner.\n\nWelcome @ashokaraj_ and team!\n\nhttps://t.co/vi51OhznQn",
+      "zh": "我们已收购 Orchestra Bio，这是一个帮助生物制药团队协调复杂药物研发流程的平台。\n\n我们将携手以面向生命科学研究的 AI 模型和工具 Rosalind 为基础，优化这些流程，帮助新疗法更早惠及患者。\n\n欢迎 @ashokaraj_ 及其团队加入！\n\nhttps://t.co/vi51OhznQn",
+      "promptVersion": "codex-v1"
+    },
+    "9cf5fd30812ff9858b8b58b4bbeed027cbd10b3c0a88f29187ea7ffb5a60857a": {
+      "source": "Unitree Introducing: H2-X Kung Fu Legend Guardian🤖\nPowerful performance to serve and guard you, with a maximum endurance of approximately 8 hours.\nPlease use the robot safely and in a friendly manner. https://t.co/5RU5kDzSUK",
+      "zh": "Unitree 推出：H2-X 功夫传奇守护者🤖\n以强劲性能为你服务、守护你，最长续航约 8 小时。\n请安全、友善地使用机器人。https://t.co/5RU5kDzSUK",
+      "promptVersion": "codex-v1"
+    },
+    "baa375d4f431a983e7dd6a1ac0fc1cf4de7f3bbff378f1133fd17baec932b79f": {
+      "source": "Misuse by malicious actors is a risk with any powerful technology; but in the case of AI, the consequences could be catastrophic.\n\nVery interesting analysis by @StephenLCasper on how AI developers' decisions can influence cyber, bio, and chemical terrorism risks.",
+      "zh": "任何强大技术都存在被恶意行为者滥用的风险；但对 AI 而言，后果可能是灾难性的。\n\n@StephenLCasper 的这篇分析很有意思，探讨了 AI 开发者的决策如何影响网络、生物和化学恐怖主义风险。",
+      "promptVersion": "codex-v1"
+    },
+    "e18aa0ee1b6fd17960336dbf612f99d166106e2a281f2c5e45b8b3de0d7c2683": {
+      "source": "🚨New paper (possibly the most important one I have written yet).\n\nWe think that as early as 2027 or 2028, there might be a major AI-enabled terrorism event. We conducted a pre-mortem, made 9 falsifiable predictions, and wrote 2 concrete scenarios.\n\nLed by @KamacheeMax.",
+      "zh": "🚨新论文（可能是我迄今写过最重要的一篇）。\n\n我们认为，最早在 2027 年或 2028 年，就可能发生一起借助 AI 实施的重大恐怖袭击。我们进行了事前验尸分析，提出了 9 项可证伪的预测，并撰写了 2 个具体情景。\n\n由 @KamacheeMax 牵头。",
+      "promptVersion": "codex-v1"
+    },
+    "bb7d8af137a2af7dfc510cac708886862c28b4896981a3de7ebaab92748f9531": {
+      "source": "There's a French fork of Battle Drones with new models and music (and a cinematic intro video) and it is SO cool! https://t.co/7r9KELC7Vs\n\nHere's the old v.s. new Goliath model https://t.co/FS0fNdca9d",
+      "zh": "Battle Drones 有了一个法语分支版本，加入了新模型和音乐，还有电影感十足的开场视频，简直太酷了！https://t.co/7r9KELC7Vs\n\n这是 Goliath 新旧模型的对比：https://t.co/FS0fNdca9d",
+      "promptVersion": "codex-v1"
+    },
+    "b36ca176e8321b3d0ddb84a5516630b2909ef88f3a61d900683a9ebf2cce5da5": {
+      "source": "Merci @simonw! 🎩 I forked Battle Drones into Panache: a French Belle Époque RTS, with dirigibles, steam tractors, clockwork soldiers in képis and Gargantua, a walking steam fortress. Fully in French, built with Claude Code.\n\nhttps://t.co/T6BFkZGze6",
+      "zh": "谢谢 @simonw！🎩 我基于 Battle Drones 分叉开发了 Panache：一款以法国美好年代为背景的即时战略游戏，里面有飞艇、蒸汽拖拉机、戴着法式军帽的发条士兵，以及会行走的蒸汽堡垒 Gargantua。全法语，使用 Claude Code 构建。\n\nhttps://t.co/T6BFkZGze6",
+      "promptVersion": "codex-v1"
+    },
+    "e5017076dd1b7e11521fe63d873614ff0d925ad33f933410767e44ff8f8a687e": {
+      "source": "When we framed @trq212's pod about Claude Code's Next Era, we meant it. \n\nwe took some directive from @_catwu and did a proper deep dive on the new Claude Mods and highilghted our faves and what you should try now.\n\nin the same way that LLMs had that evolution from specific -> foundation -> specific, CC is much more of a malleable, general purpose hardened harness that has  \"pretrained\" on quadrillions of tokens of learning that you can now repurpose for any domain specific harness!\n\nthanks to @ricmac and @daniel_mac8 for working on our latest product dive. if you have stuff you'd like us to test and write up, we're open to chat at business@latent.space",
+      "zh": "我们把 @trq212 那期播客的主题定为 Claude Code 的新时代，是认真的。\n\n我们参考了 @_catwu 的建议，深入研究了新的 Claude Mods，重点介绍了我们的心头好，以及你现在就值得尝试的功能。\n\n正如 LLM 经历了从专用到基础通用、再到专用的演变，CC 也越来越像一套灵活、通用且久经打磨的智能体运行框架。它已在数千万亿个 token 上完成了“预训练”，如今你可以将这些积累用于打造任何领域的专用框架！\n\n感谢 @ricmac 和 @daniel_mac8 参与这次最新的产品深度解析。如果你有希望我们测试并撰文介绍的东西，欢迎通过 business@latent.space 联系我们。",
+      "promptVersion": "codex-v1"
+    },
+    "df6403205a5c797a09ecab1fce4899100db13b2e750a8f402ee6d07b3a376917": {
+      "source": "There's not enough buzz around Claude Mods.\n\nRead this Claude Mods article if you want to:\n\n- Understand Claude Mods basics\n- Install and use the most useful mods today\n- Ponder where the agent-human interface will go\n\nFor @latentspacepod.",
+      "zh": "Claude Mods 受到的关注还远远不够。\n\n如果你想了解以下内容，可以读读这篇 Claude Mods 文章：\n\n- 了解 Claude Mods 的基础知识\n- 安装并使用目前最实用的模组\n- 思考智能体与人类的交互界面将走向何方\n\n本文为 @latentspacepod 撰写。",
+      "promptVersion": "codex-v1"
+    },
+    "2b76befaf75139307d4a03dee31079e1d13ebedf8506d7179e7645cde772039e": {
+      "source": "BenchmarkGate is a real thing \n\nDon’t blindly trust benchmarks even popular ones\n\nWe need to be doing evals on our evals",
+      "zh": "BenchmarkGate 确实存在。\n\n不要盲信基准测试，即便是热门基准也一样。\n\n我们需要对评测本身进行评测。",
+      "promptVersion": "codex-v1"
+    },
+    "65f7144ab3fd81f4c6a21274b0d77cfca2b93a28cf82481319a42e2eb52b0c42": {
+      "source": "curious people and people interested in llm evals, benchmarks, high data circles, please wake up. my blog post \"SWE-bench Multimodal v2 is not multimodal\" is up now. \n\nhttps://t.co/Kqd1oOExIn https://t.co/Vd4nPqjiTx",
+      "zh": "好奇的朋友，以及关注 LLM 评测、基准测试和高质量数据圈的朋友们，请醒醒。我的博文《SWE-bench Multimodal v2 并非多模态》现已发布。\n\nhttps://t.co/Kqd1oOExIn https://t.co/Vd4nPqjiTx",
+      "promptVersion": "codex-v1"
+    },
+    "e726dbc58382e04f8ef851d6131a04220c59d596dd23c3731c56631a02049257": {
+      "source": "When I slapped an Apache 2.0 License on the code yesterday I did not expect anything this neat to come out of it, and certainly not so fast https://t.co/OUGfRDk7DU",
+      "zh": "昨天给代码加上 Apache 2.0 License 时，我没想到会有人用它做出这么棒的东西，更没想到会这么快。https://t.co/OUGfRDk7DU",
+      "promptVersion": "codex-v1"
+    },
+    "24784082f9e152a33d30cf4539aca67a6f803042442e82772566065b031efb79": {
+      "source": "BenchGate still exists and is very pervasive.  \n\nLook at a handful of traces from failing tests in almost any public benchmark you will be shocked.",
+      "zh": "BenchGate 依然存在，而且非常普遍。\n\n随便找个公开基准测试，看看其中几个失败测试的执行轨迹，你就会大吃一惊。",
+      "promptVersion": "codex-v1"
+    },
+    "a95e5719739e9020a0fd06ee93997892fddb20dcf350da9790f7b5ace2fac988": {
+      "source": "https://t.co/TcaAfe4JAR\n\nGreat way to try out MMLU and get a sense for just what, exactly, we are using to evaluate LLMs!\n\nI doubt folks would knife fight for a percent on this benchmark if its contents were realized more broadly. https://t.co/TMPlaKRAnf",
+      "zh": "https://t.co/TcaAfe4JAR\n\n这是亲自体验 MMLU 的好方法，也能让你了解我们究竟在用什么来评估 LLM！\n\n如果更多人了解这个基准的具体内容，我怀疑大家还会不会为那一个百分点争得头破血流。https://t.co/TMPlaKRAnf",
+      "promptVersion": "codex-v1"
+    },
+    "4c905de0477910a5bc41fc2ef6ef6f1978bc4d31a793b6b0d6ccad01a4a1cf70": {
+      "source": "@macfriendy I use AI for proof reading, here's my prompt for that: https://t.co/1fgi4h3taj",
+      "zh": "@macfriendy 我用 AI 校对文字，这是我用的提示词：https://t.co/1fgi4h3taj",
+      "promptVersion": "codex-v1"
+    },
+    "6cddfb3d772ea436fd30395610571042312ba26525e64fd42d43d0c3b8812d0b": {
+      "source": "@ksk_S We can chat about this soon! But re (2) LLMs are algorithms running on silicon hardware - not sure there's any doubt about that.",
+      "zh": "@ksk_S 我们可以找时间聊聊！不过，关于第（2）点，LLM 是运行在硅基硬件上的算法——这应该没什么疑问吧。",
+      "promptVersion": "codex-v1"
     }
   },
-  "updatedAt": "2026-10-20T23:09:32.077714+00:00"
+  "updatedAt": "2026-10-21T23:03:42.839633+00:00"
 }
