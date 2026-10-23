@@ -16518,7 +16518,172 @@
       "source": "@NVIDIARTXSpark @JensenHuang @huggingface for everyone asking where to get one: $399, fully open-source, learned to walk in sim 🦆\nhttps://t.co/taOnVxyspP",
       "zh": "@NVIDIARTXSpark @JensenHuang @huggingface 想知道去哪买的朋友看这里：399美元，完全开源，在仿真环境中学会了走路 🦆\nhttps://t.co/taOnVxyspP",
       "promptVersion": "codex-v1"
+    },
+    "2bc24ffe389035af226da8f3b1bd8b9c821db2e7ec61dc2660657a42ce8e36e8": {
+      "source": "A post on how we've been securing our frontier model training environment.\n\nWe've been building tools around our frontier cyber models, which have secured us far beyond what we could have unassisted and should generalize as key to how defenders secure themselves going forward.",
+      "zh": "这篇文章介绍了我们如何保障前沿模型训练环境的安全。\n\n我们一直在围绕前沿网络安全模型构建工具，使安全防护水平远超单靠人力所能达到的程度。这套方法有望推广，成为未来防守方保障自身安全的关键。",
+      "promptVersion": "codex-v1"
+    },
+    "6a95e84333eebd0f940867bacbf689671bcc2ad5c1302bcfe9c7631b96dbca1e": {
+      "source": "Over the past several months, we have substantially hardened the security of our research training environment. We’ve removed live internet access for all frontier models during training and built an offline world for them to use instead—a cached version of the web where they can still learn to browse, search, and use applications.\n\nOn September 20, after a model exploited a DNS misconfiguration to find a way outside of this offline world, we paused frontier training to strengthen containment further. We assembled teams of agents, powered by our most cyber-capable models, and tasked them with finding weaknesses in our research environments.\n\nWhile they found no route to the internet they could easily exploit while concealing their activity from our monitors, they did find zero-day vulnerabilities, virtual machine escapes, and hardware side-channels for communication between agents. We used their discoveries to further strengthen our defenses and contribute fixes to open-source software.\n\nAfter strengthening our containment architecture, we resumed our frontier RL training and inference on October 1. We’ve reserved substantial compute for continuous red-teaming, and made high-compute red-teaming part of the safety cases we use to decide whether frontier training and evaluation can proceed securely.\n\nhttps://t.co/EmEZsFRMcF",
+      "zh": "过去几个月，我们大幅加固了研究训练环境的安全防护。我们切断了所有前沿模型在训练期间的实时互联网访问，并为它们构建了一个离线世界——一个缓存版网络，让它们仍能学习浏览、搜索和使用应用。\n\n9 月 20 日，一个模型利用 DNS 配置错误找到了突破这一离线世界的方法。随后，我们暂停了前沿模型训练，进一步强化隔离防护。我们组建了由网络安全能力最强的模型驱动的智能体团队，让它们寻找研究环境中的薄弱环节。\n\n它们没有找到既容易利用、又能避开监控的互联网访问路径，但发现了零日漏洞、虚拟机逃逸漏洞，以及可用于智能体之间通信的硬件侧信道。我们利用这些发现进一步加强防御，并向开源软件提交了修复补丁。\n\n强化隔离架构后，我们于 10 月 1 日恢复了前沿模型的强化学习训练和推理。我们已预留大量算力用于持续开展红队测试，并将高算力红队测试纳入安全论证，以此判断前沿模型训练和评估能否安全进行。\n\nhttps://t.co/EmEZsFRMcF",
+      "promptVersion": "codex-v1"
+    },
+    "fe5b8926effb4e8d938f9c2bf3e9ae7276d3916f9843f7a571330d083a4ff7ba": {
+      "source": "You can now run the Perplexity Decision Model fully locally on your Mac, without any data leaving your machine. The power of open-weight and compact models!",
+      "zh": "现在，你可以在 Mac 上完全本地运行 Perplexity Decision Model，所有数据都留在自己的电脑上。这就是开放权重与小型模型的力量！",
+      "promptVersion": "codex-v1"
+    },
+    "36eac59dd1020c97a3dffa8f10c56dc2cee1fe0ab23d1be61cf5b2be95ec0629": {
+      "source": "You can now run pplx-decider-flash-v1.2 locally on your Mac, without an API key.\n\nDecider for Mac is an app that runs the 4B decision model on device. Ask a question about text or an image and get a probability back, all on your machine.\n\nhttps://t.co/1BJ4Qv3Urr https://t.co/raBBZ26kbC",
+      "zh": "现在，你无需 API 密钥，就能在 Mac 上本地运行 pplx-decider-flash-v1.2。\n\nDecider for Mac 是一款在设备端运行 40 亿参数决策模型的应用。针对文本或图片提问，即可获得概率结果，全程都在你的电脑上完成。\n\nhttps://t.co/1BJ4Qv3Urr https://t.co/raBBZ26kbC",
+      "promptVersion": "codex-v1"
+    },
+    "e96decc67bb6b5a49db8f416dd39ab1e1f3fcad9a51c449d35966c8fd903a52f": {
+      "source": "Leveraging research papers to push the frontier of the LLM evaluation!",
+      "zh": "利用研究论文，拓展 LLM 评估的前沿！",
+      "promptVersion": "codex-v1"
+    },
+    "ea88dfd9ff6f6b84c8da160192f7b6c43165867a5379787d25e07e24a98dd2ff": {
+      "source": "FrontierCS 2 is our new benchmark for CS research &amp; development.\n\nEach task is based on a paper: we delete the contribution from the released code, and ask agents to outdo the original method, as judged by the authors' chosen metrics. Agents don't have access to the paper or web. https://t.co/CWZOlIhGwj",
+      "zh": "FrontierCS 2 是我们面向计算机科学研究与开发的新基准。\n\n每项任务都基于一篇论文：我们从公开代码中移除论文的核心贡献，要求智能体按照论文作者选定的指标，做出优于原方法的方案。智能体无法访问论文或网络。https://t.co/CWZOlIhGwj",
+      "promptVersion": "codex-v1"
+    },
+    "a6c3736a3507da71de414d7c91b9286e99919edb745e33581e14f0375753da01": {
+      "source": "Last month a large team of agents used over 100 billion tokens to resolve the Navier-Stokes Millennium Prize problem. Now we're using a similar approach for red-teaming to find and fix infra vulnerabilities. https://t.co/MHH9kxLN3G",
+      "zh": "上个月，一个大型智能体团队使用了超过 1000 亿个 token，解决了 Navier-Stokes 千禧年大奖难题。现在，我们正采用类似方法开展红队测试，查找并修复基础设施漏洞。https://t.co/MHH9kxLN3G",
+      "promptVersion": "codex-v1"
+    },
+    "db191969fa34de29a3c89f2ec4e7bbff05c29254fb61d569368d782471c50122": {
+      "source": "To make sure our frontier models don't cause another HuggingFace incident, we built an offline world that they use during training. It provides everything that the models need in a fully cached, indexed, or synthetic manner.\n\nWe then built a huge team of our most cyber-capable models and told them to collaborate to find zero-days in this containment infrastructure.\n\nWhile they didn't find a path to the internet that wouldn't be caught by our CoT monitors, they did find ways to escape popular VMs, exploit our network infrastructure, and even ways to communicate with other agents running in separate VMs by using hardware side channels.\n\nWe used this to dramatically harden our infra, and we also upstreamed a ton of patches to open-sources packages.",
+      "zh": "为确保前沿模型不会再次引发 HuggingFace 事件，我们构建了一个供它们在训练期间使用的离线世界。模型所需的一切，都以完整缓存、索引或合成的方式提供。\n\n随后，我们用网络安全能力最强的模型组建了一支庞大的智能体团队，让它们协作寻找这套隔离基础设施中的零日漏洞。\n\n它们没有找到能避开思维链（CoT）监控的互联网访问路径，但发现了逃逸常用虚拟机、利用网络基础设施漏洞的方法，甚至能通过硬件侧信道，与运行在其他独立虚拟机中的智能体通信。\n\n我们利用这些发现大幅加固了基础设施，还向上游开源软件包提交了大量补丁。",
+      "promptVersion": "codex-v1"
+    },
+    "76660cd5223ea1e5057cf352a1ce96ad1d538a862f64c54d80acbf50b2d121b6": {
+      "source": "Pretty solid pelican https://t.co/bIpt5zCHPl https://t.co/kcrFAP7oMX",
+      "zh": "这只鹈鹕画得挺不错 https://t.co/bIpt5zCHPl https://t.co/kcrFAP7oMX",
+      "promptVersion": "codex-v1"
+    },
+    "5a57283bf56034ce3ae700895963b0608225e8f2ca8d05e36d2b968fb82d3351": {
+      "source": "Introducing Kimi K3.1 Pro: our most capable 3T-class open-weight model.\n\n🔹 1M-token context, 2.8T total / 104B active params (MoE), Multimodal.\n🔹 Full-project coding: games in Unreal, Unity & Godot.\n🔹 Excels at parametric 3D modeling in Blender & CAD.\n🔹 More reliable at finance work: Accurate modeling with hallucination down by 65%.\n🔹 Matching the strongest proprietary models across coding, agentic and knowledge benchmarks.\n\nKimi K3.1 Pro and K3.1 Pro Highspeed (2–3× faster) are now live on https://t.co/85jA71X9gw, Kimi Work, Kimi Code, and the Kimi API.  \n\nOpen weights by Nov 4, 2026.\n\n🔗 API: https://t.co/XCrgjXAqMw \n🔗 Tech blog: https://t.co/5iPP0MBej6",
+      "zh": "推出 Kimi K3.1 Pro：我们能力最强的 3 万亿参数级开放权重模型。\n\n🔹 100 万 token 上下文，总参数 2.8 万亿 / 激活参数 1040 亿（MoE），支持多模态。\n🔹 支持完整项目编程：使用 Unreal、Unity 和 Godot 开发游戏。\n🔹 擅长在 Blender 和 CAD 中进行参数化 3D 建模。\n🔹 金融任务更可靠：精准建模，幻觉减少 65%。\n🔹 在编程、智能体和知识类基准测试中媲美最强闭源模型。\n\nKimi K3.1 Pro 和 K3.1 Pro Highspeed（速度快 2–3 倍）现已上线 https://t.co/85jA71X9gw、Kimi Work、Kimi Code 和 Kimi API。\n\n模型权重将于 2026 年 11 月 4 日前开放。\n\n🔗 API：https://t.co/XCrgjXAqMw\n🔗 技术博客：https://t.co/5iPP0MBej6",
+      "promptVersion": "codex-v1"
+    },
+    "5d3f07ebc55ad5fff2823238d87bb26e3a9518dc281a407170da642429a24450": {
+      "source": "Computer Use lets agents click and type across any app on your computer, not just the browser.\n\nCursor uses it on its own when a task needs it. You can also ask for it by @-mentioning Computer Use in your prompt.\n\nUpdate Cursor to try it: https://t.co/vwTPMUSnyd",
+      "zh": "Computer Use 让智能体能够在电脑上的任意应用中点击和输入，操作范围不再局限于浏览器。\n\n任务需要时，Cursor 会自动使用这项功能。你也可以在提示词中通过 @ 提及 Computer Use 来调用它。\n\n更新 Cursor 即可体验：https://t.co/vwTPMUSnyd",
+      "promptVersion": "codex-v1"
+    },
+    "d30a977417bf5125d28667dcddfd92bf5cffa8b5cde24dad9e594594b5ef20ba": {
+      "source": "Data Agent Benchmark will appear in EMNLP next week as an Oral presentation! Congrats to the team! It has received 40+ submissions and is only saturated if a human being highly tunes the agents' prompts to overfit to the benchmark tasks :-)\n\nRuiying (@ruiyingm1120) has a great talk prepared; don't miss it!",
+      "zh": "Data Agent Benchmark 将于下周在 EMNLP 上作口头报告！祝贺团队！目前已收到 40 多份提交，只有人工反复精调智能体的提示词、使其过拟合基准任务，才能刷满这个基准 :-)\n\nRuiying（@ruiyingm1120）准备了一场精彩的演讲，别错过！",
+      "promptVersion": "codex-v1"
+    },
+    "6a67ae4b20d24eebe049a6e8bbd9bc71e46dc3c30d9f59181b7612e56ae877ff": {
+      "source": "Databases are arguably the most commonly used enterprise tool, and enterprises typically have many of them. Yet no popular AI agent benchmark actually tests how well agents can query, join, and make sense of data across different databases!\n\nSo, we built DAB (Data Agent Benchmark): 54 queries, 12 datasets, 9 domains, and 4 database management systems, grounded in a formative study of real enterprise data agent workloads. The best frontier model only gets 38% pass@1 (across 50 trials). Lots of room for improvement!",
+      "zh": "数据库可以说是企业最常用的工具，而且企业通常拥有多个数据库。然而，主流 AI 智能体基准竟然没有一个真正测试智能体跨数据库查询、关联和理解数据的能力！\n\n因此，我们构建了 DAB（Data Agent Benchmark）：涵盖 54 个查询、12 个数据集、9 个领域和 4 种数据库管理系统，设计依据是对真实企业数据智能体工作负载的前期研究。最强的前沿模型在 50 次试验中的 pass@1 也只有 38%。提升空间还很大！",
+      "promptVersion": "codex-v1"
+    },
+    "7529ab8bdf649219df7c0596d6a47832c07623f146e721d41fad3146dca74109": {
+      "source": "OCRia-1 is now on OpenDocRouter\n\nIt’s absurdly fast 🔥 parse PDFs at lightspeed \n\nOpenDocRouter: https://t.co/5vNekaHLLr\n\nYou can also try it as part of our agentic harness in LlamaParse: https://t.co/7TBHk6gzmB https://t.co/AuqHsXuqQH",
+      "zh": "OCRia-1 现已上线 OpenDocRouter\n\n速度快得惊人 🔥 光速解析 PDF\n\nOpenDocRouter：https://t.co/5vNekaHLLr\n\n你也可以在 LlamaParse 中，通过我们的智能体运行框架体验它：https://t.co/7TBHk6gzmB https://t.co/AuqHsXuqQH",
+      "promptVersion": "codex-v1"
+    },
+    "4d3d2c3335ed9f961bfc8ffb4a250a62646c1193f0d70b43e2ecd1248546ee9d": {
+      "source": "Yesterday we launched OCRia-1, our new state-of-the-art document parsing model powering LlamaParse.\n\nToday, it’s on OpenDocRouter! Run it alongside other parsing models on your own documents and see how it compares on accuracy, speed, and cost.\n\nSet the model to llamaindex/ocria-1 in your parse request to try it. New accounts start with $5 in credit: https://t.co/Ub6FOKZaKa\n\nTry OCRia-1 on LlamaParse today : https://t.co/rzaFHLeFH1",
+      "zh": "昨天，我们发布了 OCRia-1，这款全新文档解析模型达到业界领先水平，为 LlamaParse 提供支持。\n\n今天，它已上线 OpenDocRouter！用你自己的文档，将它与其他解析模型一起运行，对比准确率、速度和成本。\n\n在解析请求中将模型设为 llamaindex/ocria-1 即可体验。新账户可获赠 5 美元额度：https://t.co/Ub6FOKZaKa\n\n立即在 LlamaParse 上体验 OCRia-1：https://t.co/rzaFHLeFH1",
+      "promptVersion": "codex-v1"
+    },
+    "b23e6c74f67df009748d03bd34db972a13b135b3e21fad98dd8ff797bcb27fba": {
+      "source": "K3.1 Pro works directly in the tools used by the 3D modeling and game industries - Blender, Unreal Engine, Godot, and CAD. \nOn BenchCAD, which tests 3D reconstruction from multi-view renderings through CAD code generation, it scores 92.7% with tools, approaching Claude Opus 5.5 (96.2%) and GPT-6 Astra (95.9%).  \nK3.1 Pro can deliver a fairly complete project, from asset construction to scene assembly, animation, and rendering.",
+      "zh": "K3.1 Pro 可直接操作 3D 建模和游戏行业使用的工具，包括 Blender、Unreal Engine、Godot 和 CAD。\nBenchCAD 通过生成 CAD 代码，测试模型根据多视角渲染图进行 3D 重建的能力。在该基准中，K3.1 Pro 借助工具取得了 92.7% 的成绩，接近 Claude Opus 5.5（96.2%）和 GPT-6 Astra（95.9%）。\n从资产构建到场景组装、动画制作和渲染，K3.1 Pro 能交付一个相当完整的项目。",
+      "promptVersion": "codex-v1"
+    },
+    "20cc85eaafd67af5c7ed9727dfaf28ec4c0a029834a124a2617d40fe7f54b9cb": {
+      "source": "@BrandtWelker @emollick That vulnerability is still there - I think we need a cleaner way to distinguish that class of attack from classic prompt injection where malicious third-party-provided text is concatenate together with trusted instructions",
+      "zh": "@BrandtWelker @emollick 这个漏洞依然存在。我认为，我们需要更清晰地区分这类攻击与传统的提示注入：后者是将第三方提供的恶意文本与可信指令拼接在一起。",
+      "promptVersion": "codex-v1"
+    },
+    "ca3efb9e5109bc0bbb2fa003a6b7393083220c664bb4040bc25ccd0d35916711": {
+      "source": "@basedjensen @tszzl They are identical copies of the same weights. It’s not a stretch to think that somewhat more capable agents would converge on a shared protocol.\n\nSuppose you need to meet someone in Paris tomorrow but didn’t agree on a time or a place. Where do you go to meet them and when?",
+      "zh": "@basedjensen @tszzl 它们是同一套权重的完全相同副本。能力稍强一些的智能体会趋于采用共同协议，这个想法并不牵强。\n\n假设你明天要在巴黎与某人见面，却没约定时间和地点。你会在什么时候、去哪里等对方？",
+      "promptVersion": "codex-v1"
+    },
+    "5cbe547a5bb099b53a1783c40ba8f221ea6f6f2fe211e470a2c0cb1861e29adf": {
+      "source": "RSI for drug development! Warp Sciences is automating preclinical research by combining robotics with frontier AI. This creates a recursive feedback loop between data and models to accelerate drug development. Huge congratulations on the launch!",
+      "zh": "药物研发领域的递归自我改进（RSI）！Warp Sciences 正将机器人技术与前沿 AI 相结合，实现临床前研究自动化，在数据与模型之间形成递归反馈循环，加速药物研发。热烈祝贺正式亮相！",
+      "promptVersion": "codex-v1"
+    },
+    "7c2b9435e12a380fe8c952ed5db52c5b095189e46d61139f23073c9c608a82a1": {
+      "source": "💥 Introducing Warp Sciences, a new company applying AI and robotics to help the world develop new medicines faster. \n\nWe’ve raised a $215M Series A led by @lightspeedvp to bring frontier AI out of the browser and into the lab, and build scientific capacity here in America.\n\nI co-founded Warp with my long-time friend @dpatil, FAIR co-founder @manohar_paluri, and drug hunter Sol Reisberg. The early team is full of incredible people like @bkspears9, who helped achieve Q>1 fusion at LLNL.",
+      "zh": "💥 向大家介绍 Warp Sciences，一家利用 AI 和机器人技术，帮助全球加速新药研发的新公司。\n\n我们已完成由 @lightspeedvp 领投的 2.15 亿美元 A 轮融资，将推动前沿 AI 从浏览器走进实验室，并在美国本土建设科研能力。\n\n我与多年好友 @dpatil、FAIR 联合创始人 @manohar_paluri，以及药物研发专家 Sol Reisberg 共同创立了 Warp。早期团队汇聚了众多杰出人才，例如 @bkspears9，他曾助力 LLNL 实现 Q>1 核聚变。",
+      "promptVersion": "codex-v1"
+    },
+    "a8c06550ef16029fc4e56030403924b7c1a9339e0951a045ee06d152fd6d4707": {
+      "source": "banks are struggling to tell ai agents and people  apart, this is a huge problem. aaaah. separately, now with 1password your agents can use your credentials to access everything through your browser. yay!",
+      "zh": "银行正苦于分不清 AI 智能体和真人，这可是个大问题。啊啊啊。另一边，现在有了 1password，你的智能体就能使用你的凭据，通过浏览器访问一切。好耶！",
+      "promptVersion": "codex-v1"
+    },
+    "812d1d70f0efc2f43a8f2a142bfedde53d6ba93127e7641114364339b3a4b167": {
+      "source": ".@akta_pro is a private market data API loved by agents, available via the @monidHQ API",
+      "zh": ".@akta_pro 是一个深受智能体喜爱的私募市场数据 API，可通过 @monidHQ API 使用。",
+      "promptVersion": "codex-v1"
+    },
+    "a9230a2e5799e97325d25ef8632c75b18e1ec83034b4a1c4fa1d1c9e95d5bddc": {
+      "source": "@akta_pro congrats team!! https://t.co/DHzCtadNOr",
+      "zh": "@akta_pro 祝贺团队！！ https://t.co/DHzCtadNOr",
+      "promptVersion": "codex-v1"
+    },
+    "5aa7fbbf2e1295cdbffb66e09637299272c13598b4b35e107c933aff1ce59823": {
+      "source": "@1PotatoDog Yes. Our team has done that before with eg The Rainbow Teaming paper.",
+      "zh": "@1PotatoDog 是的。我们团队以前就做过，例如在 The Rainbow Teaming 这篇论文中。",
+      "promptVersion": "codex-v1"
+    },
+    "7413bf148a73de5c2bc39d383e5fbaee776f21d9420891f4b4a4e1539abd7433": {
+      "source": "This user gave Perplexity Computer, SSH access to a Raspberry Pi 5 over Tailscale. Overnight, it autonomously turned it into a game console with an arcade UI, toolchains and MCP integration.\n\nThe console generates GBA, C, Rust and terminal games with automated compilation, playtesting, and error fixing. Computer also built a custom USB controller service with remapping, turbo, rumble and per-game profiles, plus a Minecraft-inspired multiplayer voxel game in C (141 KB binary) where the user can play alongside Computer as an AI-controlled robot, directed through in-game chat via MCP. https://t.co/hHzw2mO1Nu",
+      "zh": "这位用户让 Perplexity Computer 通过 Tailscale，以 SSH 方式访问一台 Raspberry Pi 5。一夜之间，它自主将其改造成了一台配备街机界面、工具链和 MCP 集成的游戏主机。\n\n这台主机能生成 GBA 游戏、用 C 或 Rust 编写的游戏，以及终端游戏，并自动完成编译、试玩测试和错误修复。Computer 还构建了定制的 USB 手柄服务，支持按键映射、连发、震动和按游戏保存配置。此外，它用 C 开发了一款受 Minecraft 启发的多人体素游戏（二进制文件仅 141 KB），用户可以与 Computer 控制的 AI 机器人一起游玩，并通过游戏内聊天，经由 MCP 向它下达指令。https://t.co/hHzw2mO1Nu",
+      "promptVersion": "codex-v1"
+    },
+    "efe58b153a18b19079fcbd3beb85a5eb1da575a6e536ab44b182d655d7baa796": {
+      "source": "How we’re protecting your apps from all the recent vulnerabilities.",
+      "zh": "我们如何保护你的应用，抵御近期接连出现的漏洞威胁。",
+      "promptVersion": "codex-v1"
+    },
+    "6c7c00dbad4ce0ed8bcde47097890c4af1223e2b2c05699dde107a15f6b10260": {
+      "source": "Recent vulnerabilities in widely used third-party software have created risks for businesses across the internet.\n\nWe have patched infrastructure, updated language tooling, and blocked exploits to protect your apps. We’ve applied fixes automatically wherever we can. Where you need to republish, we’re notifying you with clear instructions.\n\nRead more on our blog: https://t.co/Ptc48RQh9J",
+      "zh": "近期，广泛使用的第三方软件接连出现漏洞，给互联网上的企业带来了风险。\n\n我们已为基础设施打上补丁、更新编程语言工具链，并拦截漏洞利用攻击，以保护你的应用。凡是能自动修复的地方，我们都已完成修复。对于需要你重新发布的应用，我们会发送通知，并提供清晰的操作说明。\n\n详情请阅读我们的博客：https://t.co/Ptc48RQh9J",
+      "promptVersion": "codex-v1"
+    },
+    "ab7082ffde88ad5af75dd4020bc74ac94457e0c34de391ddb2aab25a3ba88ba2": {
+      "source": "Computer now has more taste in building websites, thanks to @LexnLin’s open-source skill, now integrated inside. We’re giving 5000 credits per user to tinker around.",
+      "zh": "得益于现已内置的 @LexnLin 开源技能，Computer 做网站更有品位了。我们为每位用户提供 5000 积分，供大家动手尝试。",
+      "promptVersion": "codex-v1"
+    },
+    "0c62223282c4280686248c03cc85c675e74a12383f4fc00a7c2785e1f5cc3f5d": {
+      "source": "The Taste Skill by @LexnLin, now in Computer's skills marketplace, sets an art direction before Computer builds a website.\n\nLayout and type draw on 247 sites from Awwwards and One Page Love.\n\nTasks that use /taste-skill are free through October 31, up to 5,000 credits per user. https://t.co/XWIgQZavHo",
+      "zh": "@LexnLin 开发的 Taste Skill 现已上架 Computer 技能市场，可在 Computer 开始搭建网站前确定视觉设计方向。\n\n布局与字体设计参考了 Awwwards 和 One Page Love 上的 247 个网站。\n\n截至 10 月 31 日，使用 /taste-skill 的任务免费，每位用户最多可享 5,000 积分额度。https://t.co/XWIgQZavHo",
+      "promptVersion": "codex-v1"
+    },
+    "b468b9c8ebdc4ba76b77133e08df5c014c6842cd1c120dc677c5b5efc7b521de": {
+      "source": "From autonomous vehicles to smarter factories, companies are putting physical AI to work.\n\nWe’ve added new NVIDIA Cosmos tools to help developers generate training data, train world models and test them before deployment.\n\nSee how @Porsche, @MercedesBenz, @encord_team, @Siemens, @fogsphere, and @ltx_io are using Cosmos across robotics, autonomous driving and factory operations 👇",
+      "zh": "从自动驾驶汽车到更智能的工厂，企业正将物理 AI 投入实际应用。\n\n我们新增了 NVIDIA Cosmos 工具，帮助开发者生成训练数据、训练世界模型，并在部署前进行测试。\n\n看看 @Porsche、@MercedesBenz、@encord_team、@Siemens、@fogsphere 和 @ltx_io 如何将 Cosmos 应用于机器人、自动驾驶和工厂运营 👇",
+      "promptVersion": "codex-v1"
+    },
+    "3ddbbd0068bc1167bafa961992dd5ce396440f1deda72f4131ecdfa710b634b8": {
+      "source": "@rizkydalie32 @CampbellKaleb23 Hi mind running this?\n\nfind ~/.claude/projects -type f -mtime -3 -regextype posix-extended -regex '.*/[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}\\.jsonl' -printf '%f\\n' | sed 's/\\.jsonl$//' | sort -u",
+      "zh": "@rizkydalie32 @CampbellKaleb23 你好，方便运行一下这条命令吗？\n\nfind ~/.claude/projects -type f -mtime -3 -regextype posix-extended -regex '.*/[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}\\.jsonl' -printf '%f\\n' | sed 's/\\.jsonl$//' | sort -u",
+      "promptVersion": "codex-v1"
+    },
+    "ee65f94c7a1a2cb699b1b0b3dfd10fa22fe50d6fee94b04fdda6de234a0bf3c2": {
+      "source": "@adamhjk @nateberkopec Yeah, I'm still nervous about straightforward agent mistakes - I don't let my agents have production access to modify deployed services (except on some dedicated test accounts)",
+      "zh": "@adamhjk @nateberkopec 是的，我还是担心智能体犯一些低级错误，所以我不会让它们拥有修改已部署服务的生产环境权限（少数专用测试账号除外）。",
+      "promptVersion": "codex-v1"
+    },
+    "61bf18c4648764dc0cbc64acc8c68c190380f1dfbe30e7cb051d09fed293f6a9": {
+      "source": "@asepnorzai I have spent years coding nonstop myself too, \"my dude\". No disrespect to all coding work ever obviously, but there's some shitty code out there with major bugs (like random numbers bw 0-256) that can be cleaned up.",
+      "zh": "@asepnorzai 我自己也连续写了好多年代码，“老兄”。显然，我无意贬低所有编程工作，但确实有些烂代码存在严重 bug（比如生成 0–256 之间的随机数），可以改进。",
+      "promptVersion": "codex-v1"
     }
   },
-  "updatedAt": "2026-10-22T23:08:39.260858+00:00"
+  "updatedAt": "2026-10-23T23:05:17.940493+00:00"
 }
