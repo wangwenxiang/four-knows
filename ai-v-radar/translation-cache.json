@@ -16683,7 +16683,122 @@
       "source": "@asepnorzai I have spent years coding nonstop myself too, \"my dude\". No disrespect to all coding work ever obviously, but there's some shitty code out there with major bugs (like random numbers bw 0-256) that can be cleaned up.",
       "zh": "@asepnorzai 我自己也连续写了好多年代码，“老兄”。显然，我无意贬低所有编程工作，但确实有些烂代码存在严重 bug（比如生成 0–256 之间的随机数），可以改进。",
       "promptVersion": "codex-v1"
+    },
+    "6ddeb4fafb3d6ae9b91d2ecd81d3b00aae79a99ecd64df1537ba5ff4d51aec93": {
+      "source": "In language models, turning a generative model into a critic is simple: pass in the output and prompt for a score. Robot policies can't do this - they output physical actions & there's no built-in vocabulary to predict scores.\n\nSo when it comes to RL on robot policies, we typically train a separate critic from sparse rewards - blind to everything the policy learned from the actions in the pretraining data.\n\nWe think this has it backwards - can a critic learn from those actions the way the policy does? (1/n)",
+      "zh": "对于语言模型，把生成模型变成评估器很简单：输入生成结果，再提示它打分。机器人策略做不到这一点——它们输出的是物理动作，也没有用于预测评分的内置词表。\n\n因此，对机器人策略进行强化学习时，我们通常会用稀疏奖励单独训练一个评估器，而它无法利用策略从预训练数据的动作中学到的知识。\n\n我们认为这个思路反了：评估器能否像策略一样，从这些动作中学习？（1/n）",
+      "promptVersion": "codex-v1"
+    },
+    "bb4c24355911b665251a9046ca46118f913e1c6101036ba2b3b32bc644ea7c1f": {
+      "source": "Most perturbation models predict responses for dissociated cells. CONCERT works directly on spatial transcriptomics and learns a spatial kernel for each perturbation with a Gaussian process variational autoencoder\n\nThe kernel describes how far an effect extends from the perturbed cells and how it depends on the surrounding niche\n\nWith a trained model, you can swap the perturbation, move a perturbed patch into another niche, or extend time after perturbation, in 2D slides or across 3D sections",
+      "zh": "大多数扰动模型预测的是解离细胞的响应。CONCERT 直接处理空间转录组数据，并通过高斯过程变分自编码器，为每种扰动学习一个空间核。\n\n这个核描述了扰动效应从受扰动细胞向外延伸的范围，以及它如何受周围微环境影响。\n\n模型训练完成后，你可以在二维切片或跨三维切片中，更换扰动、将受扰动区域移到另一种微环境，或推演扰动后更长时间的变化。",
+      "promptVersion": "codex-v1"
+    },
+    "768a1689e84c3046fa283c4f76b296cbe1e1f25cc47b3feb496c3d781971156f": {
+      "source": "The five components of building a \"company harness\"",
+      "zh": "构建“企业级智能体运行框架”的五个组成部分",
+      "promptVersion": "codex-v1"
+    },
+    "1b572bf046e3be4643812c9849ca2c60ee61d479705ce5ded061c12701b09e29": {
+      "source": "How do you build a company harness?\nWe've built internal agents at LangChain across marketing, sales, and engineering, and they have completely changed how those teams work. They weren't easy to get",
+      "zh": "如何构建企业级智能体运行框架？\n我们在 LangChain 为营销、销售和工程团队开发了内部智能体，彻底改变了这些团队的工作方式。构建这些智能体并不容易……",
+      "promptVersion": "codex-v1"
+    },
+    "f301bb0128a4d8890ef04d0d154d3b33418802750292aaab6163b8f016483b78": {
+      "source": "many people still sleeping on Muse Wonder Full\n\nall good, we have better models on the way 🔜 👿",
+      "zh": "很多人还没意识到 Muse Wonder Full 有多强。\n\n没关系，更强的模型也快来了 🔜 👿",
+      "promptVersion": "codex-v1"
+    },
+    "90f5021107dfac127bf88286a13d3c6d94bdea61892881684657115c9d751454": {
+      "source": "I still think you guys are severely underrating Muse Wonder Full.\n\nBeen using it a ton for orchestration and drafting rewrites of docs, skills, mcp descriptions and more.\n\nIt's so much more pleasant to talk to AND it's great at steering models (as such, decent at skill writing!)",
+      "zh": "我还是觉得你们严重低估了 Muse Wonder Full。\n\n最近我大量用它做编排，以及起草文档、skills、mcp 描述等内容的改写稿。\n\n和它交流舒服多了，而且它很擅长引导其他模型（所以写 skill 也挺在行！）",
+      "promptVersion": "codex-v1"
+    },
+    "a96ec934eadf08c3ce60786f1adf17a2845c3f6eb7d832e930347df027694963": {
+      "source": "Computer mapped all 92 places Johnny Cash names in \"I've Been Everywhere,\" pinning each one as he sings it.\n\nSound on. https://t.co/d1EZAkwcYL",
+      "zh": "Computer 把 Johnny Cash 在《I've Been Everywhere》中唱到的全部 92 个地点都标在了地图上，唱到哪里就标到哪里。\n\n打开声音。https://t.co/d1EZAkwcYL",
+      "promptVersion": "codex-v1"
+    },
+    "86e56583c43eb8bdc1d3812be99d36767921ed173b078c52a7bf4c48744f8f65": {
+      "source": "We’ve seen pretty widespread adoption of agents internally across all teams",
+      "zh": "我们内部各团队已经相当广泛地采用了智能体。",
+      "promptVersion": "codex-v1"
+    },
+    "b1ef357458f597df59f937427e855e7fee1ae414d1e11d9e105d314c3990cbf9": {
+      "source": "OCRia-1 is the best general purpose model for document parsing.\n\nModel card below 🃏\n\nhttps://t.co/mImFsmTlVe https://t.co/KBHbTZ4O26",
+      "zh": "OCRia-1 是文档解析领域最好的通用模型。\n\n模型卡见下方 🃏\n\nhttps://t.co/mImFsmTlVe https://t.co/KBHbTZ4O26",
+      "promptVersion": "codex-v1"
+    },
+    "d72bea470df13994c2400a23b1b15c631eaedf034a27fe40239565fc2b93653a": {
+      "source": "We first asked whether CONCERT can predict how a perturbation response unfolds over time\n\nDSS colitis is a standard mouse model of inflammatory bowel disease. Mice drink dextran sodium sulfate, which damages the colon lining and causes inflammation that later resolves. Profiling the tissue requires collecting it, so each mouse contributes a single time point\n\nCONCERT takes one day 0 slide and predicts the same colon at days 3, 9 and 21. Inflammatory markers such as Il1b and Cxcl10 peak at day 9 and decline by day 21, in line with measured mice, and the predictions show which mice respond more strongly\n\nThis is counterfactual generation along time that generates a longitudinal view of each mouse from one sample",
+      "zh": "我们首先研究 CONCERT 能否预测扰动引发的响应如何随时间变化。\n\nDSS 结肠炎是研究炎症性肠病的标准小鼠模型。小鼠饮用葡聚糖硫酸钠后，结肠黏膜受损并引发炎症，随后炎症逐渐消退。组织分析需要取材，因此每只小鼠只能提供一个时间点的数据。\n\nCONCERT 只需一张第 0 天的组织切片，就能预测同一结肠在第 3、9 和 21 天的状态。Il1b 和 Cxcl10 等炎症标志物在第 9 天达到峰值，到第 21 天下降，与小鼠实测结果一致；预测还能显示哪些小鼠的反应更强烈。\n\n这种沿时间维度的反事实生成，能从一个样本生成每只小鼠的纵向变化图景。",
+      "promptVersion": "codex-v1"
+    },
+    "31754f69253f93e5d698da6b9ca56b5348a714f8559f23f48ccac67dfd4d3be7": {
+      "source": "We next asked whether CONCERT can predict how the response to a gene knockout depends on where it occurs in a tumor.\n\nPerturb-Map uses CRISPR to knock out genes in mouse lung tumors and tags each tumor, so you can identify the knockout in every lesion while spatial transcriptomics measures gene expression across the tissue. We studied Tgfbr2, Ifngr2 and Jak2, genes in the TGF-β and interferon pathways.\n\nWhen we place a Jak2 knockout patch into the tumor core or into normal tissue, the predicted spots move toward the measured Jak2 knockout profile. CONCERT predicts that Tgfbr2 responses depend most on the surrounding niche and Jak2 responses least, and it outperforms five baselines.\n\nSpatial models let us choose where in a tissue to perturb as well as which gene to target.\n\nGreat work by Xiang Lin, @ZKong50693, @Boyang1995, Soumya Ghosh, Manolis Kellis, Marinka Zitnik @harvard @harvardmed @broadinstitute @KempnerInst \n\nhttps://t.co/07t2TqYwc4",
+      "zh": "接下来，我们研究 CONCERT 能否预测基因敲除引发的响应如何取决于敲除在肿瘤中的位置。\n\nPerturb-Map 使用 CRISPR 敲除小鼠肺部肿瘤中的基因，并为每个肿瘤添加标签，以识别每处病灶中的敲除基因，同时通过空间转录组学测量整个组织中的基因表达。我们研究了 TGF-β 和干扰素通路中的 Tgfbr2、Ifngr2 和 Jak2 基因。\n\n当我们将一块 Jak2 敲除区域置于肿瘤核心或正常组织中时，预测位点的表达谱会向实测的 Jak2 敲除表达谱靠近。CONCERT 预测，Tgfbr2 敲除响应对周围微环境的依赖最强，Jak2 最弱，其表现优于五种基线方法。\n\n空间模型让我们既能选择靶向哪个基因，也能选择在组织中的哪个位置施加扰动。\n\n感谢 Xiang Lin、@ZKong50693、@Boyang1995、Soumya Ghosh、Manolis Kellis、Marinka Zitnik 的出色工作 @harvard @harvardmed @broadinstitute @KempnerInst\n\nhttps://t.co/07t2TqYwc4",
+      "promptVersion": "codex-v1"
+    },
+    "02752b125b54dbc74199372ac2a7396f9eb39f1223c1f54e3156ce9252b93aa9": {
+      "source": "/impeccable is now a skill inside Computer. It’s an open-source skill built by @pbakaus to let you build interfaces that don’t look like AI-generated slop. We’re offering 5000 credits per user to get started with the skill.",
+      "zh": "/impeccable 现已成为 Computer 内置的一项技能。这项开源技能由 @pbakaus 开发，帮助你构建摆脱 AI 粗制滥造感的界面。我们为每位用户提供 5000 积分，助你开始使用这项技能。",
+      "promptVersion": "codex-v1"
+    },
+    "534a39294fc737ab1067996bb9e2997c6cddd1951e7b2184450e6c9492c30442": {
+      "source": "The Impeccable skill by @pbakaus, now in Computer's skills marketplace, reviews an interface and fixes what a designer would flag.\n\nIt checks layout, type, contrast and accessibility.\n\nTasks that use /impeccable are free through October 31, up to 5,000 credits per user. https://t.co/cL1jHrsc2T",
+      "zh": "@pbakaus 开发的 Impeccable 技能现已上架 Computer 技能市场，能够审查界面，并修复设计师会指出的问题。\n\n它会检查布局、字体排版、对比度和无障碍设计。\n\n截至 10 月 31 日，使用 /impeccable 的任务免费，每位用户最多可享 5,000 积分额度。https://t.co/cL1jHrsc2T",
+      "promptVersion": "codex-v1"
+    },
+    "3569a4eaa9a111d68288404e172c6e77274c4dee0cccd06a26cc58d745e2ad77": {
+      "source": "muse wonder full and muse wonder are sota on lisanbench",
+      "zh": "muse wonder full 和 muse wonder 在 lisanbench 上达到了当前最高水平。",
+      "promptVersion": "codex-v1"
+    },
+    "38b269d2a3c39edfb5d9846fb84231a7cfc6a9d1aa68ade0c897b293ca755595": {
+      "source": "Ad - Meta provided free access to Muse Wonder models. The tests and conclusions are my own.\n\nThis is a massive update for LisanBench:\n- I finally bit the bullet and tested multiple reasoning levels. We now have some sweet sweet data.\n\n - Muse Wonder Full and Muse Wonder perform extremely well on LisanBench and have crazy scaling and very even spacing between reasoning efforts. Just based on scores both Muse models with max reasoning effort rank #1 and #2. However, they are still slightly less efficient than Anthropic's Opus 5.5\n\n - DeepSeek-V4.1-Flash 1017 is also very impressive and on the perf-cost frontier together with Haiku 5.5.\n\n - Notably Gemini 4 Argon low and medium, as well as Sonnet 5.5 low and medium produce no reasoning tokens and respond instantly, but still score high.\nGemini 4 Argon low takes the #1 spot on the non-thinking leaderboard (it's a dirty looper).\n\n - Interestingly GPT-6.1-Sol, and GPT-6 models perform poorly as they are not good at following the edit-distance one rule. Argon high shows similar behavior.\nFor GPT models I think the reason could be related to their very terse reasoning style. But since I haven't seen Gemini 4 Argon's raw reasoning I'm not super confident in that theory. Another explanation could be that it's related to dirty loopers.\n\n- When scoring the models without the edit-distance one rule (all the other rules still active) the ranking changes completely:\n1. GPT 6 Astra medium:    56,140    (+659%)\n2. Gemini 4 Argon high:     51,312    (+579%)\n3. GPT 6.1 Sol medium:     49,887   (+731%)\n\n - The worst offenders in terms of cheating are Gemini 4 Argon and DeepSeek V4.1 Flash 1017.\nGemini exposes an entirely new bug in the scorer using non-ASCII characters and DeepSeek has multiple longer chains with up to 64 consecutive two-letter words. When I deliberately RL-hillclimbed LisanBench I saw the same behavior of collapsing word lengths.\nAnthropic models also seem very optimized for this game, but in less obvious ways. They keep reusing the same long chains across multiple different starting words.\n\n- The minimum cost of reaching 2000, 5000 and 10000 LisanBench points has declined by 22-25% per month or halving every 2.4-2.8 months",
+      "zh": "广告声明：Meta 提供了 Muse Wonder 模型的免费使用权限。测试和结论均由我独立完成。\n\nLisanBench 迎来了一次重大更新：\n- 我终于下定决心测试了多个推理级别。现在，我们有了一批非常棒的数据。\n\n- Muse Wonder Full 和 Muse Wonder 在 LisanBench 上表现极为出色，增加推理投入带来的提升惊人，而且各推理档位之间的提升非常均匀。单看分数，两个 Muse 模型在最高推理投入下分列第 1、第 2。不过，它们的效率仍略逊于 Anthropic 的 Opus 5.5。\n\n- DeepSeek-V4.1-Flash 1017 也非常亮眼，与 Haiku 5.5 一同处于性能与成本的帕累托前沿。\n\n- 值得关注的是，Gemini 4 Argon 的低、中推理档，以及 Sonnet 5.5 的低、中推理档，都不生成推理 token，能即时响应，但得分依然很高。\nGemini 4 Argon 低推理档登顶非思考模型榜单（它会通过违规循环刷分）。\n\n- 有趣的是，GPT-6.1-Sol 和 GPT-6 模型表现不佳，因为它们不擅长遵守“编辑距离为 1”的规则。Argon 高推理档也有类似表现。\n对于 GPT 模型，我认为原因可能与其极为简短的推理风格有关。但由于我没看过 Gemini 4 Argon 的原始推理过程，对这个猜测并没有太大把握。另一种解释是，这可能与违规循环有关。\n\n- 去掉“编辑距离为 1”的规则后再评分（其余规则仍然有效），排名彻底改变：\n1. GPT 6 Astra 中推理档：56,140（+659%）\n2. Gemini 4 Argon 高推理档：51,312（+579%）\n3. GPT 6.1 Sol 中推理档：49,887（+731%）\n\n- 作弊最严重的是 Gemini 4 Argon 和 DeepSeek V4.1 Flash 1017。\nGemini 利用非 ASCII 字符暴露了评分器的一个全新漏洞；DeepSeek 则生成了多条较长的词链，其中连续的双字母单词最多达 64 个。我曾刻意用强化学习对 LisanBench 进行爬山优化，也观察到了单词长度不断缩短的相同行为。\nAnthropic 模型似乎也针对这个游戏做了大量优化，只是方式没那么明显。它们会在多个不同的起始词下，反复使用相同的长词链。\n\n- 达到 2000、5000 和 10000 个 LisanBench 积分所需的最低成本，每月下降 22%—25%，即每 2.4—2.8 个月减半。",
+      "promptVersion": "codex-v1"
+    },
+    "5d62d437547f4341605a05de786f923c98745c15c05d626efbd051bda1df39ce": {
+      "source": "Generative value classifiers are a new parametrization of Q-functions that don't require action conditioning.\n\nWe think these may combine gracefully with large, pre-trained policies and learn/generalize better from a richer output signal.\n\nPaper: https://t.co/pNphW8m0uf",
+      "zh": "生成式价值分类器是一种新的 Q 函数参数化方式，无需以动作为条件。\n\n我们认为，它们有望与大规模预训练策略自然结合，并通过更丰富的输出信号提升学习和泛化能力。\n\n论文：https://t.co/pNphW8m0uf",
+      "promptVersion": "codex-v1"
+    },
+    "15229538b77bcbec263d3c157de01cde6c5e47c630d3aeded937522449a80689": {
+      "source": "@hwchase17 which team fought the agents hardest, sales or eng?",
+      "zh": "@hwchase17 哪个团队对智能体的抵触最强，销售还是工程？",
+      "promptVersion": "codex-v1"
+    },
+    "118ed60ab41c85e1554818b28624571c6ad8e388f080007e0aa818620b859390": {
+      "source": "if you want to play along with autonomous research agents, this weekend i'm challenging myself with these...\n\nSquares in Squares [Kaggle]\nhttps://t.co/Ih88011uQi\n- currently 62/432 with 22.365...\n\nQuantum Circuit Compilation [Google/Kaggle]\nhttps://t.co/rl8KqgeZYp\n- currently 295/493 with 3.908...\n\nOpen Kernel Challenge [Meta/Paradigm]\nhttps://t.co/a4G4Tiq2K1\ncurrently:\n- projections: 1.206x (206/580)\n- MoE experts: 1.276x (333/453)\n- attention: 1.129x (366/397)\n- full decoder: 1.147x (287/348)\n\ni still don't know exactly what i'm doing with the latter two (or the first one really), but it's a great way to learn everything in the wrong order 🙃",
+      "zh": "如果你也想和自主研究智能体一起玩，这个周末我打算挑战这几项……\n\nSquares in Squares [Kaggle]\nhttps://t.co/Ih88011uQi\n- 目前排名 62/432，得分 22.365……\n\nQuantum Circuit Compilation [Google/Kaggle]\nhttps://t.co/rl8KqgeZYp\n- 目前排名 295/493，得分 3.908……\n\nOpen Kernel Challenge [Meta/Paradigm]\nhttps://t.co/a4G4Tiq2K1\n目前成绩：\n- 投影：1.206 倍加速（206/580）\n- MoE 专家：1.276 倍加速（333/453）\n- 注意力：1.129 倍加速（366/397）\n- 完整解码器：1.147 倍加速（287/348）\n\n后两项我到现在还不太清楚自己究竟在做什么（其实第一项也差不多），不过这倒是个把所有知识都学反顺序的好办法 🙃",
+      "promptVersion": "codex-v1"
+    },
+    "e27c570b94ff65e060db6862f138faaeeeedaa6626e27e5b31cc59ff26b90a9d": {
+      "source": "It doesn’t seem so far-fetched to believe: we will have different models and systems for work done by agents alone/agent swarms; and for work done by humans + agents together. Teaching software engineers about the former is going to be like teaching a foreign language. As for the latter, it's a great research problem — there’s a lot of room for models and systems built for humans + agents to increase the effective bandwidth of communication between people and AI",
+      "zh": "这样的判断似乎并不离谱：由智能体独立完成或由智能体群协作完成的工作，与人和智能体共同完成的工作，将采用不同的模型和系统。向软件工程师讲授前者，会像教一门外语。至于后者，这是一个很值得研究的问题——专为人和智能体协作打造的模型和系统，在提升人与 AI 之间的有效沟通带宽方面还有很大空间。",
+      "promptVersion": "codex-v1"
+    },
+    "7235d6986379d4023f506d1d1ade5dfc4dadd3dbf8a285e7e6444f0c05f50aa0": {
+      "source": "If you've noticed a distinct dialect emerging in frontier AI models and struggled to understand what they're talking about, you're not crazy!\n\nWe turned to psycholinguistics to investigate what makes the writing style so weird, and why this might be happening\n\n🚨New preprint! 🧵 https://t.co/Tu1Yx3230X",
+      "zh": "如果你注意到前沿 AI 模型正在形成一种独特的方言，而且很难理解它们在说什么，那不是你的错觉！\n\n我们借助心理语言学，研究这种写作风格究竟怪在哪里，以及为什么会出现这种现象。\n\n🚨新预印本发布！🧵 https://t.co/Tu1Yx3230X",
+      "promptVersion": "codex-v1"
+    },
+    "d7e214cf4ee92196264cec63b797e00ac218c89413a75ba2c0bb0b679cea59f7": {
+      "source": "@RedhaMoulla Easy",
+      "zh": "@RedhaMoulla 简单",
+      "promptVersion": "codex-v1"
+    },
+    "f241867fee51c36e93262ff538b8758a049ff1dde35d09f6e3a5f81076116f3d": {
+      "source": "improvement in a few places on the open kernel, still a total noob... https://t.co/U3rCxbKzdk",
+      "zh": "在 Open Kernel Challenge 的几个项目上有了些进步，但我还是个十足的新手…… https://t.co/U3rCxbKzdk",
+      "promptVersion": "codex-v1"
+    },
+    "fd3bdbfa33de5c934e8f974ae800734f8c576a1865d98f89c8f5cc488a225a49": {
+      "source": "@RohanArun that’s awesome that you’re seeing results, very validating after spending time on it! as you said, intuition is amazing.\n\ni am just asking my agents to tackle it, while explaining to me simply what it’s doing, and slowly picking up on what it means over time",
+      "zh": "@RohanArun 看到你取得成果真好，花了这么多时间之后，这无疑是很大的肯定！正如你所说，直觉很神奇。\n\n我只是让我的智能体去解决问题，同时用简单的话向我解释它在做什么，自己再随着时间慢慢理解其中的含义。",
+      "promptVersion": "codex-v1"
     }
   },
-  "updatedAt": "2026-10-23T23:05:17.940493+00:00"
+  "updatedAt": "2026-10-24T23:06:44.929475+00:00"
 }
