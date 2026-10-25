@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>硅谷 AI 原声 · 2026-10-26</title>
+  <style>
+    :root{--bg:#f4f6f8;--surface:#fff;--text:#16181c;--muted:#65717e;--line:#dfe4e9;--accent:#0066cc;--green:#117a62;--shadow:0 16px 42px rgba(18,28,38,.08);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 15% 0,#e8f2ff 0,transparent 27%),var(--bg);color:var(--text)} a{color:inherit;text-decoration:none} button{font:inherit}
+    .shell{width:min(1500px,calc(100% - 28px));margin:0 auto;padding:14px 0 40px}
+    .hero{display:grid;grid-template-columns:minmax(250px,1fr) auto;align-items:center;gap:12px;padding:15px 18px;border:1px solid rgba(255,255,255,.75);border-radius:16px;background:rgba(255,255,255,.88);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    h1{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin:0;font-size:clamp(28px,3.4vw,44px);line-height:1;letter-spacing:-.05em} .report-date{color:var(--green);font-size:clamp(10px,1vw,13px);font-weight:900;letter-spacing:.08em;white-space:nowrap}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(62px,1fr));gap:6px;align-content:start} .metric{padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fff} .metric strong{display:block;font-size:19px;line-height:1} .metric span{display:block;margin-top:3px;color:var(--muted);font-size:8px;font-weight:820;white-space:nowrap}
+    .notice{margin-top:12px;padding:11px 14px;border:1px solid #e1b866;border-radius:12px;background:#fff8e8;color:#7a5612;font-size:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px;align-items:start} .signal-card{min-width:0;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 9px 26px rgba(18,28,38,.045)}
+    .card-top{display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:10px} .avatar{display:grid;width:46px;height:46px;overflow:hidden;place-items:center;border:1px solid #d9e0e7;border-radius:999px;background:linear-gradient(135deg,#111827,#46627d);color:#fff;font-size:12px;font-weight:900} .avatar img{width:100%;height:100%;object-fit:cover;display:block} .identity{display:grid;gap:3px;min-width:0} .identity strong,.identity span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .identity strong{font-size:14px} .identity span{color:var(--muted);font-size:11px}
+    .score{display:grid;justify-items:center;min-width:40px;padding:5px 6px;border:1px solid #e3ebe8;border-radius:8px;background:#f4f8f6;color:#527267;font-size:15px;font-weight:820;line-height:1} .score small{margin-top:2px;color:#71877f;font-size:7px;letter-spacing:.06em;text-transform:uppercase}
+    .meta{display:flex;align-items:center;gap:6px;margin:11px 0 9px;color:var(--muted);font-size:10.5px;font-weight:750} .meta span:not(.priority){overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .meta time{margin-left:auto;white-space:nowrap} .priority{padding:3px 6px;border-radius:999px;background:#111827;color:#fff;font-size:9px}
+    .post-text{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.58} .post-text.original{font-size:16px;font-weight:570;color:#20252b} .post-text.translation{margin-top:8px;color:#66727f;font-size:13px;font-weight:470;line-height:1.62} .article .original+.translation{margin-top:2px;color:#65717e;font-size:11px;font-weight:650} .quote,.article{display:grid;gap:6px;margin-top:10px;padding:11px;border:1px solid var(--line);border-radius:12px;background:#f7f9fb} .quote__author{display:flex;align-items:center;gap:7px;font-size:11px} .quote__author>div:last-child{display:grid;gap:1px} .quote__author span{color:var(--muted)} .quote-avatar{display:grid;width:28px;height:28px;overflow:hidden;place-items:center;border:1px solid var(--line);border-radius:999px;background:#dfe6ed;color:#52606d;font-size:10px;font-weight:900} .quote-avatar img{width:100%;height:100%;object-fit:cover} .quote p,.article p{margin:0;color:#4f5a66;font-size:12px;line-height:1.48;white-space:pre-wrap} .article strong{font-size:13px} .article strong.original{font-size:13.5px} .quote-text.original{font-size:12.5px;color:#36414d} .quote-text.translation{font-size:11.5px;color:#6a7682} .quote-link{justify-self:start;color:var(--accent);font-size:10px;font-weight:850}
+    .media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:10px;overflow:hidden;border-radius:12px} .media-grid--1{grid-template-columns:1fr} .media-item{position:relative;min-height:150px;background:#e8edf2} .media-item img{width:100%;height:100%;max-height:330px;object-fit:cover;display:block} .media-item span{position:absolute;right:7px;bottom:7px;padding:4px 6px;border-radius:6px;background:rgba(0,0,0,.68);color:#fff;font-size:8px;font-weight:900}
+    .card-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid #edf0f3} .engagement{display:flex;gap:10px;color:var(--muted);font-size:10.5px;font-weight:750} .card-bottom>a{color:var(--accent);font-size:11px;font-weight:850} .empty{grid-column:1/-1;padding:70px;text-align:center;border:1px dashed #cdd5dd;border-radius:16px;background:#fff;color:var(--muted)}
+    footer{padding:26px 4px 0;color:var(--muted);font-size:11px;text-align:center}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}} @media(max-width:560px){.shell{width:min(100% - 16px,1500px);padding-top:7px}.hero{gap:10px;padding:13px 14px;border-radius:15px}h1{font-size:28px}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.metric{padding:7px 9px}.metric strong{font-size:18px}.signal-card{padding:13px}.post-text.original{font-size:15px}.post-text.translation{font-size:12.5px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <h1>硅谷 AI 原声 <span class="report-date">· 2026-10-26</span></h1>
+      <div class="metrics"><div class="metric"><strong>62</strong><span>监控专家</span></div><div class="metric"><strong>7</strong><span>活跃专家</span></div><div class="metric"><strong>10</strong><span>精选原文</span></div></div>
+    </header>
+
+    <main class="grid">
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">75<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>10-26 01:11 北京</time></div>
+        <p class="post-text original" lang="auto">We wrote a 37-page technical report on OCRia-1, our SOTA model for document parsing.
+
+✅ It contains comprehensive evals against most other major open-weight OCR models (e.g. Infinity-Parser, LightOnOCR 3, Chandra 2, dots.mocr) on multiple OCR benchmarks: ParseBench, olmOCR-bench, PulseBench-Tab, fr-bench-pdf2md.
+
+✅ It contains detailed visibility into our data and training pipeline, to give a glimpse into how we’re able to curate the right document datasets to push the evaluation metrics within dimensions that matter for doc parsing.
+
+✅ It is blazing fast ⚡️ decoding 2x-4x+ faster than the latest open-weight models.
+
+✅ If you’re building your own vision models, there are 24 pages worth of appendix details (!!) that showcase all of our experimental findings from training to evals!
+
+Check it out: https://t.co/DX1bSISNP1
+
+Other links are in our blog! https://t.co/PRxvOFmlVH</p><p class="post-text translation" lang="zh-CN">我们为 OCRia-1 撰写了一份 37 页的技术报告。这是我们达到业界领先水平的文档解析模型。
+
+✅ 在 ParseBench、olmOCR-bench、PulseBench-Tab、fr-bench-pdf2md 等多个 OCR 基准上，与大多数主流开放权重 OCR 模型（如 Infinity-Parser、LightOnOCR 3、Chandra 2、dots.mocr）进行了全面对比评测。
+
+✅ 详细披露了我们的数据和训练流程，让大家了解我们如何精选合适的文档数据集，提升文档解析关键维度上的评测指标。
+
+✅ 速度极快 ⚡️ 解码速度达到最新开放权重模型的 2 至 4 倍以上。
+
+✅ 如果你正在构建自己的视觉模型，附录中还有足足 24 页的详细内容（！！），展示了我们从训练到评测的全部实验发现！
+
+查看报告：https://t.co/DX1bSISNP1
+
+其他链接都在我们的博客里！https://t.co/PRxvOFmlVH</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2114404413582282752/img/upvdHmJq5_nj66kr.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2114404413582282752/img/upvdHmJq5_nj66kr.jpg" alt="X post media"><span>VIDEO</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div><div><strong>Jerry Liu</strong><span>@jerryjliu0</span></div></div><p class="quote-text original" lang="auto">Today we’re releasing OCRia-1, a frontier VLM for document parsing that sets a new SOTA in accuracy, cost, and latency.
+
+It not only sets a new high score on ParseBench (87.4), but also leads in three 3rd-party benchmarks: olmOCR-bench* (83.5 overall, 92.9 on tables!), PulseBench-Tab (84.1), and fr-bench-pdf2md (72.1).
+
+OCRia-1 is really, really good at parsing complex tables: nested headers, merged cells, irregular grids, scanned tables, and more. It is also fantastic at parsing complex unlabeled charts (line, bar, pie, technical diagrams), and preserving complex formatting. Most real-world enterprise documents contain at least one of the these, whether it’s a big tax withholding table or a public economic report.
+
+It is a 4B model and outperforms all other models within a similar parameter class: LightOnOCR-3, Chandra-OCR 2, Mistral OCR 4.1, and more. It is also extremely fast.
+
+All credit goes to our research team, who spent countless hours on curating a diverse dataset, tuning our training pipeline, and squeezing every last drop out of model optimization so that it can process billions of pages at scale.
+
+OCRia-1 as a base is powering all of our modes within LlamaParse (cost-effective, agentic, agentic plus), so you can access its capabilities today!
+
+If you’re processing millions/billions of documents at scale, we’re offering enterprises that book a demo up to $3k in credits for a guided evaluation.**
+
+*olmOCR-bench scores are adjusted based on unifying rendering at 1,288px for all models
+**enterprise POC credits apply to eligible organizations that book a demo</p><p class="quote-text translation" lang="zh-CN">今天，我们发布 OCRia-1，这是一款面向文档解析的前沿视觉语言模型，在准确率、成本和延迟方面树立了新标杆。
+
+它不仅刷新了 ParseBench 的最高分（87.4），还在三项第三方基准测试中领先：olmOCR-bench*（总分 83.5，表格项高达 92.9！）、PulseBench-Tab（84.1）和 fr-bench-pdf2md（72.1）。
+
+OCRia-1 极其擅长解析复杂表格，包括嵌套表头、合并单元格、不规则网格、扫描表格等。它也非常擅长解析复杂的无标签图表（折线图、柱状图、饼图、技术示意图），并保留复杂格式。现实中的企业文档大多至少包含其中一种，无论是大型代扣税款表，还是公开的经济报告。
+
+这是一款 4B 模型，表现超越了所有同等参数规模的其他模型，包括 LightOnOCR-3、Chandra-OCR 2、Mistral OCR 4.1 等，而且速度极快。
+
+这一切都归功于我们的研究团队。他们投入了无数时间，精心整理多样化数据集、调优训练流程，并将模型优化做到极致，使其能够大规模处理数十亿页文档。
+
+OCRia-1 已作为底层模型，为 LlamaParse 的所有模式（cost-effective、agentic、agentic plus）提供支持，今天就能体验它的能力！
+
+如果你需要大规模处理数百万乃至数十亿份文档，我们将为预约演示的企业提供最高 3,000 美元的额度，用于在指导下开展评估。**
+
+*olmOCR-bench 分数经过调整，所有模型均统一以 1,288px 渲染。
+**企业概念验证（POC）额度适用于预约演示且符合条件的机构。</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/ext_tw_video_thumb/2113291822562721792/pu/img/aFE0Q04DhH_id6Io.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/ext_tw_video_thumb/2113291822562721792/pu/img/aFE0Q04DhH_id6Io.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/jerryjliu0/status/2113291928292790725" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 83</span><span>↻ 5</span><span>↩ 23</span></div><a href="https://x.com/jerryjliu0/status/2114404538652217370" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">90<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>10-25 13:04 北京</time></div>
+        <p class="post-text original source-only" lang="auto">Claude Opus 做科研时，会把一个几乎人人都在用的调参技巧，当成「创意突破」。
+
+Anthropic 这篇新论文里讲的这个细节很能说明今天的 Research Agent，实验做得越来越好，但还分不清什么才算真正的新想法。
+
+Agent4Sci 把 Claude Code、Codex、Gemini 放进 20 个真实 ML for Science benchmark，让它们直接读论文、改代码、跑实验，再尝试超过论文原本的最好结果。
+
+结果前沿 Agent 在所有 benchmark 上都找到了提升，Claude Opus 平均相对提升 10.4%。
+
+但作者把轨迹拆开后发现，大部分提升来自熟悉的 ML 工程技巧：调超参、换优化器、ensemble、反复局部搜索。
+
+真正的科研判断还比较弱。
+
+它们经常高估一个想法的新颖性，GPU 放着不用，或者很快找到一个有效方向后，就一直在附近刷参数。
+
+作者后来只加了三个很轻量的 Skill：科研构思、实验管理和定时自检。
+
+Claude Opus 的平均提升从 10.4% 涨到 20.1%，Codex 也从 4.4% 涨到 8.1%。
+
+所以 Research Agent 现在的瓶颈不在执行，在判断。三个轻量 Skill 就让提升翻倍，说明比起给它更多算力，先给它科研习惯更划算。
+
+对于经常用 Claude Code 或 Codex 跑实验的朋友非常推荐阅读。
+
+📎 arxiv: https://t.co/QPyDM8zVqF</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HVaJIqqW0AALFMO.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HVaJIqqW0AALFMO.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 726</span><span>↻ 94</span><span>↩ 31</span></div><a href="https://x.com/Xudong07452910/status/2114221415012442598" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="aravsrinivas" data-top-story="true">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/2099903483457703936/U-W6QQk__normal.jpg" alt="Aravind Srinivas avatar" loading="lazy"></div>
+          <div class="identity"><strong>Aravind Srinivas</strong><span>@AravSrinivas · Perplexity / CEO</span></div>
+          <div class="score">89<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>AI 搜索 / 产品</span><time>10-25 23:02 北京</time></div>
+        <p class="post-text original" lang="auto">SF 2049 is bigger now, and it&#x27;s multiplayer. Computer added:
+
+Race rooms on Cloudflare Durable Objects. Create a room, share a six-letter code, meet on the Embarcadero grid, race through gate halos with server-side lap timing. Rooms close themselves when empty.
+
+10 new player cars generated with image-to-3D, a studio garage to pick them, and a Blade Runner-style Spinner that flies.
+Rapier vehicle physics with handbrake powerslides, a fullscreen city map, time trials, collision sounds, and a rebaked map loyal to the real SF street layout.
+
+The trailer was shot by three agents in parallel: fixed-step 1080p60 capture, a real two-player race on a second GPU, and sound rebuilt from the game&#x27;s own engine loops. Everything in it is captured gameplay.
+
+https://t.co/VgXOUGpsHF</p><p class="post-text translation" lang="zh-CN">SF 2049 的规模更大了，现在还支持多人模式。Computer 新增了：
+
+基于 Cloudflare Durable Objects 的竞速房间。创建房间，分享六字母代码，在 Embarcadero 发车区会合，穿越光环检查点竞速，由服务端记录单圈用时。房间无人时会自动关闭。
+
+10 辆通过图生 3D 生成的新玩家赛车、用于选车的展示车库，以及一辆《银翼杀手》风格、能够飞行的 Spinner。
+基于 Rapier 的车辆物理效果，支持手刹漂移，另有全屏城市地图、计时赛、碰撞音效，以及重新烘焙、忠实还原旧金山真实街道布局的地图。
+
+预告片由三个智能体并行制作：以固定时间步长录制 1080p60 画面，在第二块 GPU 上进行真实的双人竞速，并用游戏自身的引擎循环音效重建声音。片中全部画面均为实机录制。
+
+https://t.co/VgXOUGpsHF</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2114371944523186177/img/wtmV9MyKgRlm112f.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2114371944523186177/img/wtmV9MyKgRlm112f.jpg" alt="X post media"><span>VIDEO</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2099903483457703936/U-W6QQk__normal.jpg" alt="Aravind Srinivas avatar" loading="lazy"></div><div><strong>Aravind Srinivas</strong><span>@AravSrinivas</span></div></div><p class="quote-text original" lang="auto">Cyberpunk inspired Roadster free-roam browser game built by Perplexity Computer: https://t.co/4ktDSPAgPu https://t.co/1BoiEJrbdj</p><p class="quote-text translation" lang="zh-CN">由 Perplexity Computer 制作、受 Cyberpunk 启发的 Roadster 自由探索浏览器游戏：https://t.co/4ktDSPAgPu https://t.co/1BoiEJrbdj</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/amplify_video_thumb/2111848186780565504/img/4SUcNnyLIMJ2T8TF.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/amplify_video_thumb/2111848186780565504/img/4SUcNnyLIMJ2T8TF.jpg" alt="X post media"><span>VIDEO</span></a></div><a class="quote-link" href="https://x.com/AravSrinivas/status/2111850132669075696" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 158</span><span>↻ 11</span><span>↩ 77</span></div><a href="https://x.com/AravSrinivas/status/2114372064866169210" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">76<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>10-25 14:53 北京</time></div>
+        <p class="post-text original source-only" lang="auto">周末了，大家对技术帖还这么热情。
+
+今早发现我应该是最早带火这个“推荐使用 Single Agent”话题的，都上了 X 的新闻趋势榜 🙃。
+
+日区、英区的大量转发，引用和点赞都涌过来了，真的很开心。
+
+上一次这种感觉，还是三个月前那条介绍 Codex 修网络的百万帖。 https://t.co/FYDSlPAhuU</p>
+
+        <div class="media-grid media-grid--2"><a class="media-item" href="https://pbs.twimg.com/media/HVcIaCWWQAALvlW.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HVcIaCWWQAALvlW.jpg" alt="X post media"><span>IMAGE</span></a><a class="media-item" href="https://pbs.twimg.com/media/HVcHvBtXUAAhdSX.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HVcHvBtXUAAhdSX.jpg" alt="X post media"><span>IMAGE</span></a></div>
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div><div><strong>Xudong Han</strong><span>@Xudong07452910</span></div></div><p class="quote-text original source-only" lang="auto">Anthropic 最近开始建议企业「少用点 Subagent」，甚至把一些专家 Agent 重新合并回主 Agent Loop。
+
+他们在多个企业项目中发现，单 Agent + Skills 的效果经常比复杂的多 Agent 架构更好。有个客户改成单 Loop 后，运行速度甚至快了约 2 倍。
+
+原因很容易理解。
+
+多个 Agent 之间反复交接任务，每次都要传递和总结 Context，信息容易丢失，延迟和成本也跟着增加。
+
+Anthropic 现在更推荐让一个主 Agent 负责规划和执行，需要时再动态加载 Skills 和 Tools，把业务流程和领域知识留在可复用的组件里。
+
+不过文章里有个细节值得关注。
+
+他们曾把客服系统里的 Subagent 合并，延迟确实降低了，却让一个原本能完成的任务失败了，因为主 Agent 漏掉了向物流专家确认送达时间这一步。
+
+所以作者强调，每合并一个 Subagent，都要用端到端 Eval 验证，尤其要检查哪些原本通过的任务突然失败了。
+
+当然，并行研究、独立验证、Context 隔离这些场景，Subagent 依然有价值。
+
+这样看来以后设计 Multi-Agent，可能得先问问自己，每个 Subagent 真的需要独立的 Context 和执行循环吗？
+
+Anthropic 还开源了一套迁移工具，可以帮你分析现有架构，逐步合并 Subagent，并比较改动前后的质量、成本和延迟。很推荐做 Agent 工程的朋友试试。
+
+原文：https://t.co/0CPabUlmF7</p><a class="quote-link" href="https://x.com/Xudong07452910/status/2113800139005460534" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 26</span><span>↻ 1</span><span>↩ 6</span></div><a href="https://x.com/Xudong07452910/status/2114248845194588646" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="gdb" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_normal.jpg" alt="Greg Brockman avatar" loading="lazy"></div>
+          <div class="identity"><strong>Greg Brockman</strong><span>@gdb · OpenAI / 联合创始人</span></div>
+          <div class="score">91<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>基座模型 / OpenAI</span><time>10-26 06:23 北京</time></div>
+        <p class="post-text original" lang="auto">“On a technical level, the paper is unbelievable, maybe beyond what a human could have come up with but not beyond human understanding”</p><p class="post-text translation" lang="zh-CN">“从技术层面看，这篇论文令人难以置信，或许超出了人类所能构想的范围，但并未超出人类的理解能力。”</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2021179406778073088/rT1rgpxI_normal.jpg" alt="Scott Armstrong avatar" loading="lazy"></div><div><strong>Scott Armstrong</strong><span>@scottnarmstrong</span></div></div><p class="quote-text original" lang="auto">Since I&#x27;m now blocked by bluey from replying to this thread, I answer here by quote tweet
+
+the openAI construction has more to do with convex integration than anything else.
+
+In convex integration, the oscillations are typically built by hand and the iteration procedure creates wild weak solutions. The non-uniqueness construction of Albritton–Brué–Colombo used an unstable vortex to split solutions apart. The Córdoba–Martínez-Zoroa singularities amplify vorticity across scales by strain. In the openAI paper, a fluid instability is clever made so that the flow itself generates the oscillations: they grow by drawing energy from the background shear. The Reynolds stress then becomes the force that creates the collapsing smooth vortex. Using a physical instability to create the stress in this way has no precedent, and it is what produces a smooth force rather than a merely rough one.
+
+Some on these ideas are in the literature (e.g. Leibovich-Stewartson 1983) but the way they are combined is definitely insane and definitely nowhere in the literature previously.
+
+I also don&#x27;t know of anyone suggesting that convex integration would play a role in the creation of a blow-up solution like this.
+
+On a technical level, the paper is unbelievable, maybe beyond what a human could have come up with but not beyond human understanding: there are several different groups of pde experts working on understanding it who say that they more or less understand now. I expect digestions soon
+
+td;lr: anyone saying that this OAI result is unsurprising is bullshitting
+
+sorry!</p><p class="quote-text translation" lang="zh-CN">bluey 现在把我拉黑了，我无法回复这条讨论，所以在这里引用推文作答。
+
+OpenAI 的构造方法与凸积分的关系最为密切。
+
+在凸积分中，振荡通常是手工构造的，迭代过程会产生极不规则的弱解。Albritton–Brué–Colombo 的非唯一性构造利用不稳定涡旋，使解彼此分离。Córdoba–Martínez-Zoroa 的奇点构造通过应变作用，跨尺度放大涡量。在 OpenAI 的论文中，研究者巧妙地设计了一种流体不稳定性，让流动自身产生振荡：振荡从背景剪切流中汲取能量并增长。随后，雷诺应力成为促使光滑涡旋塌缩的作用力。以这种方式利用物理不稳定性产生应力，尚无先例，也正因此，最终得到的外力是光滑的，而非仅具粗糙正则性的。
+
+其中一些思路在文献中出现过（如 Leibovich-Stewartson 1983），但这种组合方式绝对疯狂，此前的文献中绝对没有。
+
+据我所知，也从未有人提出，凸积分会在构造这样的爆破解中发挥作用。
+
+从技术层面看，这篇论文令人难以置信，或许超出了人类所能构想的范围，但并未超出人类的理解能力：目前有几个偏微分方程专家团队正在研究理解它，他们表示，现在已经大致理解了。我预计很快就会有解读文章。
+
+太长不看版：谁要是说 OAI 这个成果没什么意外，那就是在胡扯。
+
+抱歉！</p><a class="quote-link" href="https://x.com/scottnarmstrong/status/2114412308185100522" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 135</span><span>↻ 9</span><span>↩ 24</span></div><a href="https://x.com/gdb/status/2114483026608755082" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="xudong07452910" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han avatar" loading="lazy"></div>
+          <div class="identity"><strong>Xudong Han</strong><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <div class="score">81<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>LLM / AI Agents</span><time>10-25 09:50 北京</time></div>
+        <p class="post-text original source-only" lang="auto">Sebastian Raschka  @rasbt 又整了套硬核教程，这次直接教你从代码层面搞懂「推理模型是怎么训练出来的」。
+
+他给新书《Build a Reasoning Model (From Scratch)》配了 8 节免费视频课，总计 11 个多小时。
+
+从一个预训练的 Qwen3 0.6B 出发，用 PyTorch 一步步实现答案验证器、推理时计算扩展、GRPO 强化学习和知识蒸馏，最后还能自己评估模型效果。
+
+这套课程的设计很巧妙，尤其是先写 Verifier 评估模型，再把它变成强化学习的奖励信号，整个训练逻辑一下就串起来了。
+
+作者还专门解释了推理模型和 Agent 的关系。如果你平时主要做 Agent 和 Harness，想进一步理解底层模型的推理能力是怎么来的，这套书 + 视频 + 代码真的值得收藏，跟着敲一遍应该很有收获。
+
+文章及免费视频：https://t.co/dWOzItFp1e
+
+新书：https://t.co/uJ9Prv27Eb
+
+GitHub：https://t.co/vQ0opZZTZR</p>
+
+
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 172</span><span>↻ 27</span><span>↩ 4</span></div><a href="https://x.com/Xudong07452910/status/2114172655435751547" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="hamelhusain" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1287206199088173057/ixE4fKy1_normal.jpg" alt="Hamel Husain avatar" loading="lazy"></div>
+          <div class="identity"><strong>Hamel Husain</strong><span>@HamelHusain · 独立 AI 工程实践者</span></div>
+          <div class="score">76<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>Agent / 评测</span><time>10-26 03:09 北京</time></div>
+        <p class="post-text original" lang="auto">I&#x27;ve been looking into public benchmarks and am astounded by the poor quality vs. how much we rely on them as an industry.
+
+@xeophon pointed me to this excellent site https://t.co/xt5uUSyrcA which is an independent third party which scrutinizes benchmarks and &quot;looks at the data&quot; 💪
+
+For example, here are some popular benchmarks we all rely on.   Before trusting a benchmark its worth running them and inspecting examples the grader failed carefully, to get a sense of the quality.
+
+I&#x27;m continuing to look more into this, and will write something up eventually once I&#x27;ve collected more data, but I think this is an important subject.</p><p class="post-text translation" lang="zh-CN">我最近在研究公开基准，震惊地发现它们的质量如此之差，而整个行业却又如此依赖它们。
+
+@xeophon 向我推荐了这个很棒的网站 https://t.co/xt5uUSyrcA，这是一个独立第三方网站，专门审视基准，认真“查看数据” 💪
+
+比如，下面这些都是我们普遍依赖的热门基准。在信任某个基准之前，值得先跑一遍，仔细检查评分器判错的样例，了解它的质量。
+
+我会继续深入研究，等收集到更多数据后再写篇文章，不过我认为这是一个重要议题。</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HVf5Q0ZbwAAz2Xl.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HVf5Q0ZbwAAz2Xl.jpg" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 259</span><span>↻ 21</span><span>↩ 51</span></div><a href="https://x.com/HamelHusain/status/2114434195854684330" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="alexandr_wang" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1631421210205749248/uohbT_40_normal.jpg" alt="Alexandr Wang avatar" loading="lazy"></div>
+          <div class="identity"><strong>Alexandr Wang</strong><span>@alexandr_wang · Scale AI / 创始人兼 CEO</span></div>
+          <div class="score">74<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>AI 数据 / 基础设施</span><time>10-26 02:10 北京</time></div>
+        <p class="post-text original" lang="auto">muse + muse wonder built this store you can source artisinal graphic tees from the world
+
+cop a few and thank muse for the fit 🙏</p><p class="post-text translation" lang="zh-CN">muse + muse wonder 搭建了这家店，让你能淘到世界各地匠心制作的图案 T 恤。
+
+入手几件，穿搭有型了记得感谢 muse 🙏</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/2078997344704434176/k-RFy5pr_normal.jpg" alt="robpoz avatar" loading="lazy"></div><div><strong>robpoz</strong><span>@robpoz</span></div></div><p class="quote-text original" lang="auto">watched Zuck and @alexandr_wang on Cheeky Pint. fun episode, recommend.
+
+i like picking random ideas to test new models and agents on, so this time i thought I make a store for most obscure t-shirts (inspired by @alexandr_wang)
+
+had a Guinness myself the next day too.
+
+anyway, wangtees. for fun,  no profit
+
+https://t.co/oBRRqebfpt</p><p class="quote-text translation" lang="zh-CN">看了 Zuck 和 @alexandr_wang 做客 Cheeky Pint 的那期节目。很有趣，推荐。
+
+我喜欢随手挑些点子来测试新模型和智能体，所以这次我想做一家专卖冷门 T 恤的店（灵感来自 @alexandr_wang）。
+
+第二天我自己也喝了杯 Guinness。
+
+总之，就是 wangtees。纯属好玩，不为盈利。
+
+https://t.co/oBRRqebfpt</p><div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HVe8JiqWEAAyflF.jpg" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HVe8JiqWEAAyflF.jpg" alt="X post media"><span>IMAGE</span></a></div><a class="quote-link" href="https://x.com/robpoz/status/2114368246459650464" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 272</span><span>↻ 18</span><span>↩ 42</span></div><a href="https://x.com/alexandr_wang/status/2114419262131691702" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P1" data-expert="jerryjliu0" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu avatar" loading="lazy"></div>
+          <div class="identity"><strong>Jerry Liu</strong><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <div class="score">60<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P1</span><span>RAG / Agent 基础设施</span><time>10-25 10:52 北京</time></div>
+        <p class="post-text original" lang="auto">👇 this
+
+There’s always a meta, you just have to be really good at the meta</p><p class="post-text translation" lang="zh-CN">👇 就是这个意思
+
+总有一套主流制胜打法，你得真正精通它。</p>
+
+
+        <div class="quote"><div class="quote__author"><div class="quote-avatar"><img src="https://pbs.twimg.com/profile_images/1084928207814565890/KlHpW1-g_normal.jpg" alt="Robert Yang avatar" loading="lazy"></div><div><strong>Robert Yang</strong><span>@GuangyuRobert</span></div></div><p class="quote-text original" lang="auto">i figured out how to do this
+
+the game is to draw 8 cards and combines them arithmetically to get any 4 digit number
+
+consider one puzzle with 1, 4, 5, 6, 8, 9, 11, 12 and target 7217
+
+a solution is 7217=9*(6*(11*12)+5*8/4)-1
+
+first step is to realize that this problem is not only mostly solvable (98% of puzzle has a solution), there are usually many ways to solve it
+
+for example,
+7217=(12×9-5)×(11×6+4)+8-1
+         =11×8×(12×6+9+5-4)+1
+         =11×(12+4)×(9×6-8-5)+1
+
+in fact, most puzzles each has 100+ unique solutions (here a+b*c and c*b+a count as one solution)
+
+i know this by writing code to analyze large amount of puzzles, but you can just play the game long enough to notice as well
+
+once you build the confidence, here&#x27;s one practical methodology i found by playing a bit
+
+a typical solution consists of the main multiplicative stem and some corrections along the way
+
+you can typically get 3-4 out of the largest 5 numbers form the stem, say the numbers are a1, a2, ..., a8 ranked from large to small
+
+so final solution typically looks something like
+a1 * a2 * a3 with some corrections along the way like
+((a1 + a5) * a3 + a7) * a8 + a4 + a2
+
+now you do need to be familiar with how to factorize numbers, there are simply tricks like the sum of digits of a number can be divided by 9 then that number can be divided by 9 as well, like 783 can be divided by 9 because 7+8+3=18 can be divided by 9
+
+then you work your work backwards to see what correction is needed on the original target to divide it down
+
+you typically already have a rough sense of what the main multiplicative trunk could be
+
+take this hand as an example 1, 4, 5, 6, 8, 9, 11, 12 and target 7217
+
+6*8*9*11 = 6*8*99 ~ 4800 which is far from 7217, which means you&#x27;ll most likely need 11 &amp; 12 in the trunk
+
+in fact 6*9*11*12 = 72*99 ~ 7200 looks close!
+
+now we work backwards and try to correct it a bit so it can be divided by 9, 11, or 12
+
+here&#x27;s where there&#x27;s a bit trial &amp; error but because there&#x27;re many possible solutions, it tends to work out
+
+7217 digits sum up to 7+2+1+7 = 17, which means with a correction of 1 it&#x27;s dividable by 9
+
+so (7217+1)/9 = 802 (you need to be able to do this kind of math in your head, which is not very hard but needs practice)
+
+now we are left with 4, 5, 6, 8, 11, 12 and we need to make 802
+
+we try to find correction again, for example, what&#x27;s the correction that makes it dividable by 12? it needs to be dividable by both 3 and 4, it&#x27;s not hard to tell you can add 2
+802 + 2 = 804/12 = 67
+once you have that, you know you can make a 66 as well
+802 - 10 = 792/12 = 66
+
+once you have 66 we have 6 * 11, then we need to make a 10 from 4, 5, 8, so you can do 5*8/4
+
+the last part might look like luck, but really you can try the divider number exhaustively, and because there are typically many solutions, you&#x27;ll find a valid solution relatively fast
+
+this method almost always works
+
+now the deeper reason that there&#x27;s nearly always a solution is related to percolation theory in math
+
+consider a sponge, it&#x27;s full of holes and water can flow through it. but if the holes are sparser, then at some point it becomes very unlikely for water to flow through
+
+there&#x27;s a &quot;phase transition&quot; at which point the sponge goes from water-permeating to not
+
+when it is water-permeating, there&#x27;s many path for water to flow through
+
+in this card game, the number of cards is critical, if you can too few cards, then the probability of finding a right solution decreases dramatically
+
+but with enough cards, there&#x27;s almost certainly a solution, and when there&#x27;s a solution, there are typically many</p><p class="quote-text translation" lang="zh-CN">我想明白该怎么玩了
+
+这个游戏是抽取 8 张牌，通过算术运算将它们组合起来，得到任意指定的四位数
+
+比如一道题，牌面是 1、4、5、6、8、9、11、12，目标是 7217
+
+一种解法是 7217=9*(6*(11*12)+5*8/4)-1
+
+第一步是认识到，这类题不仅绝大多数都有解（98% 的题目有解），而且通常有很多种解法
+
+例如：
+7217=(12×9-5)×(11×6+4)+8-1
+         =11×8×(12×6+9+5-4)+1
+         =11×(12+4)×(9×6-8-5)+1
+
+事实上，大多数题目都有 100 多种不同的解法（这里将 a+b*c 和 c*b+a 算作同一种解法）
+
+我是通过编写代码分析大量题目得知这一点的，不过只要玩得够久，你也能发现
+
+有了这个信心，下面是我玩了一阵后总结出的一套实用方法
+
+典型的解法由一个乘法主干，加上沿途的一些调整组成
+
+通常可以从最大的 5 个数中选出 3 到 4 个，组成主干。假设这 8 个数按从大到小排列为 a1、a2、……、a8
+
+最终解法通常就是以 a1 * a2 * a3 为基础，穿插一些调整，例如：
+((a1 + a5) * a3 + a7) * a8 + a4 + a2
+
+你确实需要熟悉如何分解因数。这里有一些简单技巧，比如一个数的各位数字之和能被 9 整除，这个数就也能被 9 整除。例如，783 能被 9 整除，因为 7+8+3=18 能被 9 整除
+
+然后从目标数倒推，看看需要对它做什么调整，才能逐步除下去
+
+通常，你已经大致知道乘法主干可能是什么
+
+就拿这手牌为例：1、4、5、6、8、9、11、12，目标是 7217
+
+6*8*9*11 = 6*8*99 ~ 4800，离 7217 很远，这意味着主干里很可能需要同时用上 11 和 12
+
+而 6*9*11*12 = 72*99 ~ 7200，看起来就很接近了！
+
+现在我们倒着推，试着稍作调整，让目标数能被 9、11 或 12 整除
+
+这一步需要一点试错，但因为可行解很多，通常都能找到出路
+
+7217 的各位数字之和是 7+2+1+7 = 17，这意味着加上 1 后就能被 9 整除
+
+所以 (7217+1)/9 = 802（你需要能心算这类运算，难度不大，但需要练习）
+
+现在剩下 4、5、6、8、11、12，需要凑出 802
+
+我们再次寻找调整方法。例如，怎样调整才能让它被 12 整除？它需要同时被 3 和 4 整除，不难看出可以加 2
+802 + 2 = 804，804/12 = 67
+想到这里，你也会意识到可以凑出 66
+802 - 10 = 792，792/12 = 66
+
+66 可以用 6 * 11 得到，接下来只需用 4、5、8 凑出 10，也就是 5*8/4
+
+最后这一步可能看起来靠运气，但实际上你可以逐一尝试所有可用的除数。由于通常有很多种解法，你会比较快地找到一个有效解
+
+这个方法几乎总能奏效
+
+至于为什么几乎总是有解，背后更深层的原因与数学中的渗流理论有关
+
+想象一块海绵，里面布满孔洞，水可以流过去。但如果孔洞变得稀疏，到某个程度，水就很难流过去了
+
+这里存在一个“相变”临界点，海绵会从透水变为不透水
+
+当海绵能够透水时，水通常有很多条路径可以通过
+
+在这个纸牌游戏里，牌的数量至关重要。如果牌太少，找到正确解法的概率就会急剧下降
+
+但只要牌足够多，就几乎肯定有解；而一旦有解，通常就会有很多解</p><a class="quote-link" href="https://x.com/GuangyuRobert/status/2114097996229214684" target="_blank" rel="noreferrer">查看引用动态 ↗</a></div>
+        <div class="card-bottom"><div class="engagement"><span>♡ 11</span><span>↻ 1</span><span>↩ 2</span></div><a href="https://x.com/jerryjliu0/status/2114188380997300263" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+
+      <article class="signal-card" data-theme="editorial" data-priority="P0" data-expert="anilkseth" data-top-story="false">
+        <div class="card-top">
+          <div class="avatar"><img src="https://pbs.twimg.com/profile_images/1479788727346118657/MkLkGnOk_normal.jpg" alt="Anil Seth avatar" loading="lazy"></div>
+          <div class="identity"><strong>Anil Seth</strong><span>@anilkseth · 权威意识研究者</span></div>
+          <div class="score">58<small>signal</small></div>
+        </div>
+        <div class="meta"><span class="priority">P0</span><span>意识科学与神经科学</span><time>10-26 05:16 北京</time></div>
+        <p class="post-text original" lang="auto">Thanks for the thoughts @pgodfreysmith - much appreciated 🙏🏽
+
+Re (i) the title - we didn&#x27;t choose it, but we did approve it.  I still think its appropriate: we give reasons why we think that (current AI)  is not conscious. We do not claim to have proven this. But anyway, its just the title, not the substance.
+
+Re (ii) we surely agree that biological necessity is plausible (in my view highly) but unestablished. But this section also raised independent arguments against computational functionalism (CF; as I also did in the @BBSJournal paper).
+
+Re (iii) &quot;consensus among leading theories&quot; (not a quote) is not what we had in mind, which is why we didn&#x27;t say it :-).  Rather, we wanted to emphasise that at least some prominent theories of consciousness would, if on track, exclude conscious AI for silicon-digital systems.
+
+Re &quot;workspace theory&quot;, we didn&#x27;t focus on this partly for space limitations, but also because it is only friendlier to conscious AI *if* one assumes CF (&amp; there are non-computational interpretations of workspace theory which would not be friendly to conscious AI).
+
+Finally, I  agree that the J-space has been over-interpreted in terms of similarity to a global workspace. I wrote about this, rather informally, here (&amp; snippet below): https://t.co/nd9rXMU4L1</p><p class="post-text translation" lang="zh-CN">感谢你的思考，@pgodfreysmith，非常受用 🙏🏽
+
+关于（i）标题：标题不是我们选的，但我们确实认可了。我仍然认为它是恰当的：我们给出了理由，说明为什么我们认为（当前的 AI）没有意识。我们并未声称已经证明了这一点。不过，这终究只是标题，并非文章的实质内容。
+
+关于（ii），我们当然同意，意识必须依赖生物基础这一观点是合理的（在我看来非常合理），但尚未得到证实。不过，这一节也提出了反对计算功能主义（CF）的独立论据（我在 @BBSJournal 的论文中也提出过）。
+
+关于（iii），“主流理论之间的共识”（并非原文引述）并不是我们想表达的意思，所以我们也没有这么说 :-)。我们想强调的是，至少有一些重要的意识理论，如果方向正确，就会排除硅基数字系统中的 AI 具有意识的可能性。
+
+关于“工作空间理论”，我们没有重点讨论，一部分原因是篇幅有限，另一部分原因是，只有在假定 CF 成立的情况下，它才更支持 AI 可能具有意识（而工作空间理论也存在非计算式的解释，这些解释并不支持 AI 具有意识）。
+
+最后，我同意，人们过度解读了 J-space 与全局工作空间的相似性。我曾在这里比较随意地写过这个问题（下方也附有节选）：https://t.co/nd9rXMU4L1</p>
+
+        <div class="media-grid media-grid--1"><a class="media-item" href="https://pbs.twimg.com/media/HVgXshaWsAA-E3P.png" target="_blank" rel="noreferrer"><img loading="lazy" src="https://pbs.twimg.com/media/HVgXshaWsAA-E3P.png" alt="X post media"><span>IMAGE</span></a></div>
+
+        <div class="card-bottom"><div class="engagement"><span>♡ 0</span><span>↻ 0</span><span>↩ 0</span></div><a href="https://x.com/anilkseth/status/2114466165749592177" target="_blank" rel="noreferrer">Open on X ↗</a></div>
+      </article>
+    </main>
+    <footer>Generated 2026-10-26 07:00:33 Asia/Shanghai · Read-only X ingestion via Bird · Translation via Codex</footer>
+  </div>
+</body>
+</html>
