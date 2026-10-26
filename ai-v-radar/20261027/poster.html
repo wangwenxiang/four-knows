@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=1744,initial-scale=1"><title>硅谷 AI 原声海报</title>
+<style>
+  *{box-sizing:border-box} html,body{margin:0;width:1744px;height:960px;overflow:hidden;background:#f8f8fa;color:#121216;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+  .poster{width:1744px;height:960px;padding:10px 20px 14px;border:1px solid #d8dae0;border-radius:22px;background:linear-gradient(145deg,#fff 0%,#f8f8fa 68%,#f2f5f8 100%)}
+  header{height:90px;display:flex;align-items:flex-start;justify-content:space-between;border-bottom:4px solid #141418}
+  h1{margin:0;font-size:58px;line-height:1;font-weight:950;letter-spacing:-2.8px} h1 span{font-weight:850}
+  .subtitle{margin-top:1px;color:#5d616a;font-size:20px;font-weight:800;letter-spacing:.1px}
+  .stats{display:flex;gap:8px} .stat{display:grid;place-items:center;min-width:96px;height:56px;padding:4px 12px;border:2px solid #151519;border-radius:15px;background:#fff;font-weight:900}
+  .stat:first-child{background:#151519;color:#fff} .stat strong{font-size:28px;line-height:.8} .stat small{font-size:12px;line-height:1}
+  main{height:842px;padding-top:10px;display:grid;grid-template-rows:292px 288px 232px;gap:10px}
+  .story{display:grid;grid-template-columns:118px minmax(0,1fr);align-items:center;min-height:0;padding:8px 30px 8px 20px;border:2px solid #e0e2e7;border-radius:18px;background:rgba(255,255,255,.76)}
+  .portrait{position:relative;display:grid;place-items:center} .avatar{display:grid;place-items:center;width:92px;height:92px;overflow:hidden;border:4px solid #151519;border-radius:50%;background:#111827;color:#fff;font-size:32px;font-weight:900}
+  .avatar img{width:100%;height:100%;object-fit:cover;transform:scale(1.08)} .portrait b{position:absolute;right:0;bottom:-5px;display:grid;place-items:center;width:35px;height:35px;border:3px solid #151519;border-radius:50%;background:#fff;font-size:18px}
+  .story-body{min-width:0;max-height:100%;overflow:hidden} .byline{display:flex;align-items:center;gap:10px;min-width:0;margin-bottom:3px} .byline strong{font-size:29px;line-height:1;white-space:nowrap} .byline em{padding:7px 13px;border-radius:999px;background:#151519;color:#fff;font-size:17px;font-style:normal;font-weight:850;white-space:nowrap} .byline span{overflow:hidden;color:#666b74;font-size:18px;font-weight:750;text-overflow:ellipsis;white-space:nowrap}
+  h2{display:-webkit-box;max-height:2.12em;margin:0;overflow:hidden;overflow-wrap:anywhere;font-size:var(--headline-size,56px);line-height:1.06;font-weight:950;letter-spacing:-1.8px;-webkit-box-orient:vertical;-webkit-line-clamp:2} .story p{margin:3px 0 0;overflow-wrap:anywhere;color:#5d626b;font-size:30px;line-height:1.1;font-weight:750;white-space:normal}
+  .story--sparse p{font-size:34px;line-height:1.1} .story--dense p{font-size:27px;line-height:1.08}
+  .story--quote p{white-space:normal}
+</style></head><body><div class="poster"><header><div><h1>硅谷 AI 原声 <span>| 10/27</span></h1><div class="subtitle">全球核心专家动态精选 · 最近 23 小时</div></div><div class="stats"><div class="stat"><strong>62</strong><small>人监控</small></div><div class="stat"><strong>18</strong><small>条精选</small></div></div></header><main><article class="story story--dense story--quote" style="--headline-size:52px">
+        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/1889424820821172228/OKFe0cdL_normal.jpg" alt="Ion Stoica"></div><b>1</b></div>
+        <div class="story-body">
+          <div class="byline"><strong>Ion Stoica</strong><em>AI 技术前沿</em><span>@istoica05 · Berkeley；Anyscale 联合创始人</span></div>
+          <h2>从零训练千亿级以上参数模型：耗时仅3.5个月、成本不足千万美元</h2>
+          <p>引用｜我们正式宣布成立 Mirendil 至今还不到 4 个月。今天，我很高兴分享一个重要里程碑：
+
+无需预训练团队，也能开展大规模预训练。
+
+Mirendil 的使命是攻克递归自我改进（RSI），并借此让更多人能够开发前沿 AI，最终加速科技进步。在 Mirendil，我们从整体角度思考 RSI：将公司视为一个智能实体，不断自我改进以实现目标。从这个角度看，最有力的加速，就是减少实现宏大目标所需的时间和资源，包括专家人数、算力及其他成本。
+
+预训练或许是前沿 AI 开发中最重要、也最具挑战的环节，因此我们决定开展一项雄心勃勃的对照实验：完全从零开始，我们能否显著减少所需的时间、专家人数和算力资源，最终成功完成一个强大编程模型的大规模预训练？
+
+Mirendil-Base 就是这项实验的成果。我们的首个预训练模型由一名研究员在 3.5 个月内完成，算力成本不到 1000 万美元。这涵盖了前期所有研究、小规模实验以及最终的训练运行。
+
+随着模型规模扩大，这套方法依然有效。供参考，Mirendil-Base 的参数规模在 1000 亿至 5000 亿之间，Mirendil-Base-Large 在 5000 亿至 2 万亿之间，Mirendil-Base-XL 在 2 万亿至 10 万亿之间。
+
+我们正开始看到这样一个世界：一名研究员在 AI 的助力下，就能承担过去需要整个研究机构才能完成的工作。随着这些系统不断改进，瓶颈将从团队规模转向指挥它们的人的志向与判断力。这将深刻影响谁有机会构建 AI，以及最终谁能推动科技前沿向前发展。
+
+独立评估、后训练基准测试和 API 访问将比你想象中更早公布，敬请期待！</p>
+        </div>
+      </article><article class="story story--dense story--quote" style="--headline-size:58px">
+        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/1283610285031460864/1Q4zYhtb_normal.jpg" alt="Jerry Liu"></div><b>2</b></div>
+        <div class="story-body">
+          <div class="byline"><strong>Jerry Liu</strong><em>AI 技术进步</em><span>@jerryjliu0 · LlamaIndex / CEO</span></div>
+          <h2>OCRia-1解析PDF复杂表格，多项基准表格准确率登顶</h2>
+          <p>引用｜今天，我们发布 OCRia-1，这是一款面向文档解析的前沿视觉语言模型，在准确率、成本和延迟方面树立了新标杆。
+
+它不仅刷新了 ParseBench 的最高分（87.4），还在三项第三方基准测试中领先：olmOCR-bench*（总分 83.5，表格项高达 92.9！）、PulseBench-Tab（84.1）和 fr-bench-pdf2md（72.1）。
+
+OCRia-1 极其擅长解析复杂表格，包括嵌套表头、合并单元格、不规则网格、扫描表格等。它也非常擅长解析复杂的无标签图表（折线图、柱状图、饼图、技术示意图），并保留复杂格式。现实中的企业文档大多至少包含其中一种，无论是大型代扣税款表，还是公开的经济报告。
+
+这是一款 4B 模型，表现超越了所有同等参数规模的其他模型，包括 LightOnOCR-3、Chandra-OCR 2、Mistral OCR 4.1 等，而且速度极快。
+
+这一切都归功于我们的研究团队。他们投入了无数时间，精心整理多样化数据集、调优训练流程，并将模型优化做到极致，使其能够大规模处理数十亿页文档。
+
+OCRia-1 已作为底层模型，为 LlamaParse 的所有模式（cost-effective、agentic、agentic plus）提供支持，今天就能体验它的能力！
+
+如果你需要大规模处理数百万乃至数十亿份文档，我们将为预约演示的企业提供最高 3,000 美元的额度，用于在指导下开展评估。**
+
+*olmOCR-bench 分数经过调整，所有模型均统一以 1,288px 渲染。
+**企业概念验证（POC）额度适用于预约演示且符合条件的机构。</p>
+        </div>
+      </article><article class="story story--dense story--quote" style="--headline-size:52px">
+        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/2068682157451571200/_ZNKM_5E_normal.jpg" alt="Thomas Wolf"></div><b>3</b></div>
+        <div class="story-body">
+          <div class="byline"><strong>Thomas Wolf</strong><em>AI 技术前沿</em><span>@Thom_Wolf · Hugging Face / 联合创始人兼 CSO</span></div>
+          <h2>开放权重模型复现共享硬件隐蔽通信，助力智能体隔离安全研究</h2>
+          <p>引用｜我构建了 𝚌𝚙𝚞-𝚌𝚑𝚊𝚝，复现了 @openai 关于利用 CPU 进行隐蔽通信的发现。
+
+它可以在普通主机上运行，使用两个或更多无法访问互联网的 Firecracker microVM。支持 x86，甚至也能在我的 M5 芯片上运行。
+
+我通过三种不同机制实现了聊天：
+① CPU 资源争用
+② 缓存逐出时序
+③ DRAM 带宽争用
+
+……这些方法在多款 CPU 上都能奏效，即使遵循 Firecracker 的全部生产环境建议，也无法阻止通信：禁用 SMT、禁用 KSM，并将不同租户绑定到不同核心。
+
+基本上，只要涉及共享硬件，你的智能体就很可能能够进行隐蔽通信，而且延迟相当低。
+
+好消息是：这与智能体可借此窃取信息的“侧信道攻击”（如 Meltdown/Spectre）有明显区别，Vercel Sandbox 等服务商会针对后者采取缓解措施。此外，在我们的实际环境中，这些“窃窃私语”技术更难实施，也更容易被我们监控和检测到，方法包括对硬件计数器采样，以及分析大量规模化统计数据。
+
+值得关注的是，讽刺的是，OpenAI 和 Anthropic 的模型拒绝完成这项工作，开放权重模型却做到了。我担心这些实验室的立场可能适得其反，妨碍开发者构建正确、安全的系统。例如，构建安全的沙箱就需要这类分析；缺少它，世界反而会更不安全。</p>
+        </div>
+      </article></main></div><script>
+  // Full source translations take precedence over the usual subtitle size.
+  // Fit the real browser layout, which depends on the installed CJK font.
+  function fitPosterQuotes() {
+    for (const card of document.querySelectorAll('.story--quote')) {
+      const body = card.querySelector('.story-body');
+      const subtitle = body.querySelector('p');
+      let size = 27;
+      subtitle.style.fontSize = size + 'px';
+      while (size > 12 && body.scrollHeight > body.clientHeight + 1) {
+        size -= 1;
+        subtitle.style.fontSize = size + 'px';
+        subtitle.style.lineHeight = '1.12';
+      }
+    }
+  }
+  fitPosterQuotes();
+  document.fonts.ready.then(fitPosterQuotes);
+  window.addEventListener('load', fitPosterQuotes);
+  window.scrollTo(0,0);
+</script></body></html>
