@@ -6,7 +6,7 @@ from tempfile import TemporaryDirectory
 from unittest.mock import patch
 
 from scripts import render_ai_v_poster as poster
-from scripts.render_ai_v_poster import clip_title, editorial_copy_with_metadata, fallback_copy, fit_subtitle, headline_font_size, poster_subtitle, render_story
+from scripts.render_ai_v_poster import clip_title, editorial_copy_with_metadata, fallback_copy, fit_subtitle, headline_font_size, poster_subtitle, render_story, unsupported_organization_claims
 
 
 def sample_post():
@@ -20,6 +20,15 @@ def sample_post():
 
 
 class PosterDensityTest(unittest.TestCase):
+    def test_anthropic_card_rejects_openai_attribution_from_neighboring_card(self):
+        post = sample_post() | {
+            "text": "New on our Engineering blog: Creating in-house source control. We built a new version control system.",
+            "author": {"name": "Anthropic", "username": "AnthropicAI"},
+            "expert": {"name": "Anthropic", "handle": "AnthropicAI", "role": "基础模型机构"},
+        }
+        self.assertEqual(unsupported_organization_claims("OpenAI五个月自建版本控制系统", post), ["OpenAI"])
+        self.assertEqual(unsupported_organization_claims("Anthropic五个月自建版本控制系统", post), [])
+
     def test_rendered_poster_resets_scroll_before_native_capture(self):
         posts = {
             "fetchStartedAt": "2026-10-05T00:00:00+00:00",
@@ -93,6 +102,17 @@ class PosterDensityTest(unittest.TestCase):
         quote = "引用帖完整中文翻译。" * 20
         post = sample_post() | {"quotedTweet": {"translationZh": quote}}
         self.assertEqual(poster_subtitle(post, "备用摘要"), "引用｜" + quote)
+
+    def test_long_quote_receives_space_without_cutting_the_other_cards(self):
+        copies = [
+            {"title": "OCRia-1技术报告披露文档解析数据训练流程与多基准对比评测", "summary": "引用｜" + "完整的技术说明。" * 88},
+            {"title": "三项轻量技能提升科研智能体实验成绩", "summary": "20项基准的完整说明。" * 3},
+            {"title": "SF2049新增多人竞速与图生三维赛车", "summary": "引用｜浏览器游戏技术说明。" * 5},
+        ]
+        rows = poster.poster_row_heights(copies)
+        self.assertEqual(sum(rows), 812)
+        self.assertGreaterEqual(rows[0], 450)
+        self.assertGreaterEqual(min(rows[1:]), 175)
 
 
 if __name__ == "__main__":

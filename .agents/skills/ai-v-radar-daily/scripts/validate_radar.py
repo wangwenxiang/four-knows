@@ -39,6 +39,7 @@ def parse_report_dir_date(name: str):
 INDEPENDENT_RECRUITMENT_AUDIT_PATTERNS = (
     re.compile(r"\bapply to (?:be(?:come)?|join|work)\b", re.IGNORECASE),
     re.compile(r"\bapply\b.{0,80}\b(?:campus lead|fellow|intern|role|position|program)\b", re.IGNORECASE),
+    re.compile(r"\bapply at\s+https?://", re.IGNORECASE),
 )
 
 # This must remain independent from the production selector.  It rejects
@@ -127,6 +128,11 @@ def main() -> int:
             )
         raise SystemExit(f"No posts.json in {output_dir.name}; report is incomplete")
     posts_payload = json.loads((output_dir / "data/posts.json").read_text(encoding="utf-8"))
+    if posts_payload.get("layout") == "mobile":
+        from scripts.validate_ai_v_mobile import validate
+        result = validate(output_dir, publication=True)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return 0 if result["ok"] else 1
     report = json.loads((output_dir / "data/run-report.json").read_text(encoding="utf-8"))
     html = (output_dir / "index.html").read_text(encoding="utf-8")
     posts = posts_payload.get("posts") or []

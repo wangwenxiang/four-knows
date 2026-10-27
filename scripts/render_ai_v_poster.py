@@ -7,8 +7,11 @@ import argparse
 import hashlib
 import html
 import json
+import math
+import os
 import re
 import subprocess
+import sys
 import tempfile
 from datetime import datetime
 from pathlib import Path
@@ -20,7 +23,9 @@ ROOT = Path(__file__).resolve().parents[1]
 SHANGHAI = ZoneInfo("Asia/Shanghai")
 ANSI_ESCAPE = re.compile(r"\x1b\[[0-?]*[ -/]*[@-~]")
 CODEX_POSTER_COMMAND = [
-    "codex",
+    os.environ.get("CODEX_CLI_PATH", "codex"),
+    "-m",
+    os.environ.get("AI_V_RADAR_CODEX_MODEL", "gpt-6.1-sol"),
     "-a",
     "never",
     "--sandbox",
@@ -232,7 +237,7 @@ def compact_title_sentence(sentence: str) -> str:
 def fallback_copy(post: dict[str, Any]) -> dict[str, str]:
     primary = primary_text(post)
     quoted = quoted_text(post)
-    material = quoted if primary_is_brief_endorsement(primary) and quoted else primary
+    material = primary
     sentences = [part.strip() for part in re.split(r"(?<=[。！？!?])|\n+", material) if part.strip()]
     title_sentence = max(
         enumerate(sentences),
@@ -283,6 +288,19 @@ def required_copy_keys(count: int) -> set[str]:
     }
 
 
+def unsupported_organization_claims(title: str, post: dict[str, Any]) -> list[str]:
+    """Reject organization names borrowed from another poster card."""
+    author = post.get("author") or {}
+    expert = post.get("expert") or {}
+    source = " ".join((
+        primary_text(post), str(author.get("name") or ""),
+        str(author.get("username") or ""), str(expert.get("role") or ""),
+        str(expert.get("domain") or ""),
+    )).casefold()
+    names = ("OpenAI", "Anthropic", "Google", "Meta", "Microsoft")
+    return [name for name in names if name.casefold() in title.casefold() and name.casefold() not in source]
+
+
 def editorial_copy_with_metadata(
     posts: list[dict[str, Any]], use_codex: bool
 ) -> tuple[list[dict[str, str]], dict[str, Any]]:
@@ -300,6 +318,8 @@ def editorial_copy_with_metadata(
 
     source = {
         f"p{index + 1}": {
+            "author": str((post.get("author") or {}).get("name") or ""),
+            "handle": author_key(post),
             "primary": primary_text(post),
             "quoted": quoted_text(post),
             "article": article_text(post),
@@ -309,7 +329,8 @@ def editorial_copy_with_metadata(
     prompt = (
         "你是硅谷 AI 技术日报的海报编辑。基于 INPUT 的结构化原始材料，为每条生成准确、有信息量的中文标题和副标题。"
         "主标题只能概括 primary 主帖；不得把 quoted 引用帖或 article 的内容当作主标题。"
-        "只有当 primary 是不含技术事实的简短转发/附和时，才可用 quoted 补足标题。"
+        "每条只使用该条作者和原文，不要把其他卡片的机构或事实串入本条。"
+        "即使 primary 很短，标题也不能引入仅出现在 quoted 或 article 中的产品名、版本号或事实；这些内容只用于副标题。"
         "标题 20-42 个汉字，突出具体技术进步、前沿或应用；副标题 36-64 个汉字，用第二层事实补充能力、数字、效果、约束或意义。"
         "材料较短时仍须覆盖其中全部关键事实，但不得同义反复来凑字数。"
         "不得编造，不写空泛宣传，不加引号或 Markdown。只返回扁平 JSON，例如 "
@@ -348,6 +369,14 @@ def editorial_copy_with_metadata(
         missing = expected_keys - set(candidate)
         if missing:
             errors.append(f"Codex omitted {len(missing)} required copy fields")
+            continue
+        unsupported = [
+            (index, names)
+            for index, post in enumerate(posts, start=1)
+            if (names := unsupported_organization_claims(candidate[f"p{index}_title"], post))
+        ]
+        if unsupported:
+            errors.append("Codex poster title used an unsupported organization")
             continue
         generated = candidate
         break
@@ -409,14 +438,51 @@ def select_poster_posts(all_posts: list[dict[str, Any]]) -> list[dict[str, Any]]
     return posts
 
 
+def poster_row_heights(copies: list[dict[str, str]]) -> list[int]:
+    """Give a full quoted translation room before reserving shorter cards."""
+    weights = [
+        80 + (2 if len(copy["title"]) > 33 else 1) * 54
+        + math.ceil(len(copy["summary"]) / 55) * 29
+        + max(0, len(copy["summary"]) - 250)
+        for copy in copies
+    ]
+    total_weight = sum(weights)
+    rows = [round(812 * weight / total_weight) for weight in weights]
+    rows[-1] += 812 - sum(rows)
+    has_long_quote = any(len(copy["summary"]) > 500 for copy in copies)
+    for index, height in enumerate(rows):
+        minimum = (190 if len(copies[index]["title"]) > 33 else 175) if has_long_quote else (245 if len(copies[index]["title"]) > 33 else 201)
+        if height < minimum:
+            deficit = minimum - height
+            rows[index] = minimum
+            donor = max((other for other in range(3) if other != index), key=lambda other: rows[other])
+            rows[donor] -= deficit
+    return rows
+
+
 def main() -> int:
     args = parse_args()
     posts_path = (args.input or latest_posts_path()).resolve()
     input_bytes = posts_path.read_bytes()
     payload = json.loads(input_bytes)
     all_posts = [post for post in payload.get("posts", []) if isinstance(post, dict)]
-    posts = select_poster_posts(all_posts)
-    copies, copy_metadata = editorial_copy_with_metadata(posts, use_codex=not args.no_codex)
+    if payload.get("layout") == "mobile":
+        if str(ROOT) not in sys.path:
+            sys.path.insert(0, str(ROOT))
+        from scripts.select_ai_v_mobile_poster import validate_selection, selection_fingerprint
+        selection = payload.get("posterSelection") or {}
+        rows = validate_selection(payload, selection)
+        if selection.get("inputPostsSha256") != selection_fingerprint(all_posts):
+            raise RuntimeError("Poster selection is stale; rerun the separate poster selection step")
+        by_id = {p["id"]: p for p in all_posts}
+        posts = [dict(by_id[r["id"]], isTopStory=True, topStoryEligible=True,
+                      topStoryCategory=r["category"]) for r in rows]
+        copies = [{"title":r["title"], "summary":r["summary"]} for r in rows]
+        copy_metadata = {"copyBackend":selection["backend"], "copyAttempts":1,
+                         "copyRetries":0, "copyError":"", "selectionVersion":selection["version"]}
+    else:
+        posts = select_poster_posts(all_posts)
+        copies, copy_metadata = editorial_copy_with_metadata(posts, use_codex=not args.no_codex)
     generated = datetime.fromisoformat(str(payload["fetchStartedAt"]).replace("Z", "+00:00")).astimezone(SHANGHAI)
     window_hours = float(payload.get("windowHours") or 23)
     monitored = len(payload.get("experts") or [])
@@ -444,6 +510,10 @@ def main() -> int:
         json.dumps(poster_data, ensure_ascii=False, indent=2),
     )
     stories_html = "".join(render_story(post, copy, index) for index, (post, copy) in enumerate(zip(posts, copies), start=1))
+    # Distribute the fixed 812px card budget by estimated wrapped text lines.
+    # Full quoted translations remain visible, including their URLs.
+    rows = poster_row_heights(copies)
+    poster_rows = " ".join(f"{height}px" for height in rows)
     page = f"""<!doctype html>
 <html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=1744,initial-scale=1"><title>硅谷 AI 原声海报</title>
 <style>
@@ -454,15 +524,35 @@ def main() -> int:
   .subtitle{{margin-top:1px;color:#5d616a;font-size:20px;font-weight:800;letter-spacing:.1px}}
   .stats{{display:flex;gap:8px}} .stat{{display:grid;place-items:center;min-width:96px;height:56px;padding:4px 12px;border:2px solid #151519;border-radius:15px;background:#fff;font-weight:900}}
   .stat:first-child{{background:#151519;color:#fff}} .stat strong{{font-size:28px;line-height:.8}} .stat small{{font-size:12px;line-height:1}}
-  main{{height:842px;padding-top:10px;display:grid;grid-template-rows:repeat(3,1fr);gap:10px}}
-  .story{{display:grid;grid-template-columns:118px minmax(0,1fr);align-items:center;min-height:0;padding:14px 30px 14px 20px;border:2px solid #e0e2e7;border-radius:18px;background:rgba(255,255,255,.76)}}
+  main{{height:842px;padding-top:10px;display:grid;grid-template-rows:{poster_rows};gap:10px}}
+  .story{{display:grid;grid-template-columns:118px minmax(0,1fr);align-items:center;min-height:0;padding:8px 30px 8px 20px;border:2px solid #e0e2e7;border-radius:18px;background:rgba(255,255,255,.76)}}
   .portrait{{position:relative;display:grid;place-items:center}} .avatar{{display:grid;place-items:center;width:92px;height:92px;overflow:hidden;border:4px solid #151519;border-radius:50%;background:#111827;color:#fff;font-size:32px;font-weight:900}}
   .avatar img{{width:100%;height:100%;object-fit:cover;transform:scale(1.08)}} .portrait b{{position:absolute;right:0;bottom:-5px;display:grid;place-items:center;width:35px;height:35px;border:3px solid #151519;border-radius:50%;background:#fff;font-size:18px}}
-  .story-body{{min-width:0}} .byline{{display:flex;align-items:center;gap:10px;min-width:0;margin-bottom:6px}} .byline strong{{font-size:29px;line-height:1;white-space:nowrap}} .byline em{{padding:7px 13px;border-radius:999px;background:#151519;color:#fff;font-size:17px;font-style:normal;font-weight:850;white-space:nowrap}} .byline span{{overflow:hidden;color:#666b74;font-size:18px;font-weight:750;text-overflow:ellipsis;white-space:nowrap}}
-  h2{{display:-webkit-box;max-height:2.12em;margin:0;overflow:hidden;overflow-wrap:anywhere;font-size:var(--headline-size,56px);line-height:1.06;font-weight:950;letter-spacing:-1.8px;-webkit-box-orient:vertical;-webkit-line-clamp:2}} .story p{{margin:8px 0 0;overflow-wrap:anywhere;color:#5d626b;font-size:30px;line-height:1.25;font-weight:750;white-space:normal}}
-  .story--sparse p{{font-size:34px;line-height:1.22}} .story--dense p{{font-size:27px;line-height:1.23}}
-  .story--quote p{{display:-webkit-box;max-height:3.75em;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:3}}
-</style></head><body><div class="poster"><header><div><h1>硅谷 AI 原声 <span>| {generated.month}/{generated.day}</span></h1><div class="subtitle">全球核心专家动态精选 · 最近 {window_hours:g} 小时</div></div><div class="stats"><div class="stat"><strong>{monitored}</strong><small>人监控</small></div><div class="stat"><strong>{selected_count}</strong><small>条精选</small></div></div></header><main>{stories_html}</main></div><script>window.scrollTo(0,0);document.documentElement.scrollTop=0;document.body.scrollTop=0;</script></body></html>"""
+  .story-body{{min-width:0;max-height:100%;overflow:hidden}} .byline{{display:flex;align-items:center;gap:10px;min-width:0;margin-bottom:3px}} .byline strong{{font-size:29px;line-height:1;white-space:nowrap}} .byline em{{padding:7px 13px;border-radius:999px;background:#151519;color:#fff;font-size:17px;font-style:normal;font-weight:850;white-space:nowrap}} .byline span{{overflow:hidden;color:#666b74;font-size:18px;font-weight:750;text-overflow:ellipsis;white-space:nowrap}}
+  h2{{display:-webkit-box;max-height:2.12em;margin:0;overflow:hidden;overflow-wrap:anywhere;font-size:var(--headline-size,56px);line-height:1.06;font-weight:950;letter-spacing:-1.8px;-webkit-box-orient:vertical;-webkit-line-clamp:2}} .story p{{margin:3px 0 0;overflow-wrap:anywhere;color:#5d626b;font-size:30px;line-height:1.1;font-weight:750;white-space:normal}}
+  .story--sparse p{{font-size:34px;line-height:1.1}} .story--dense p{{font-size:27px;line-height:1.08}}
+  .story--quote p{{white-space:normal}}
+</style></head><body><div class="poster"><header><div><h1>硅谷 AI 原声 <span>| {generated.month}/{generated.day}</span></h1><div class="subtitle">全球核心专家动态精选 · 最近 {window_hours:g} 小时</div></div><div class="stats"><div class="stat"><strong>{monitored}</strong><small>人监控</small></div><div class="stat"><strong>{selected_count}</strong><small>条精选</small></div></div></header><main>{stories_html}</main></div><script>
+  // Full source translations take precedence over the usual subtitle size.
+  // Fit the real browser layout, which depends on the installed CJK font.
+  function fitPosterQuotes() {{
+    for (const card of document.querySelectorAll('.story--quote')) {{
+      const body = card.querySelector('.story-body');
+      const subtitle = body.querySelector('p');
+      let size = 27;
+      subtitle.style.fontSize = size + 'px';
+      while (size > 12 && body.scrollHeight > body.clientHeight + 1) {{
+        size -= 1;
+        subtitle.style.fontSize = size + 'px';
+        subtitle.style.lineHeight = '1.12';
+      }}
+    }}
+  }}
+  fitPosterQuotes();
+  document.fonts.ready.then(fitPosterQuotes);
+  window.addEventListener('load', fitPosterQuotes);
+  window.scrollTo(0,0);
+</script></body></html>"""
     poster_path = output_dir / "poster.html"
     write_text_atomic(poster_path, page)
     print(json.dumps({"posterHtml": str(poster_path), "posterData": str(output_dir / "data/poster.json"), **poster_data}, ensure_ascii=False, indent=2))

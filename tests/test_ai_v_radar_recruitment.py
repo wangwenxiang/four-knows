@@ -3,6 +3,7 @@ import unittest
 
 from scripts.fetch_ai_v_radar import (
     Expert,
+    accumulated_recruitment_drops,
     collect_editorial_candidates,
     is_excluded_author,
     is_recruitment_post,
@@ -15,6 +16,15 @@ EXPERT = Expert("P0", "AI", "OpenAI", "Research", "test", "openai")
 
 
 class RecruitmentFilterTests(unittest.TestCase):
+    def test_same_window_rebuild_preserves_prior_recruitment_drop(self) -> None:
+        first = accumulated_recruitment_drops({"dropped": {"recruitment": 0}}, 1)
+        self.assertEqual(first, (1, 1))
+        second = accumulated_recruitment_drops({
+            "rebuildDroppedRecruitment": first[0],
+            "dropped": {"recruitment": first[1]},
+        }, 0)
+        self.assertEqual(second, (1, 1))
+
     def test_apply_to_be_role_is_excluded(self) -> None:
         raw = {
             "id": "campus-lead",
@@ -28,6 +38,21 @@ class RecruitmentFilterTests(unittest.TestCase):
             [{"source": "search", "tweets": [raw]}], [EXPERT], NOW - timedelta(hours=23), NOW, 10
         )
 
+        self.assertEqual(posts, [])
+        self.assertEqual(dropped["recruitment"], 1)
+
+    def test_application_link_in_quoted_research_program_is_excluded(self) -> None:
+        raw = {
+            "id": "research-program-wrapper",
+            "text": "Highly recommend this program for independent researchers working on cool stuff!",
+            "quotedTweet": {"text": "If you're a researcher with a project, shoot me a DM or apply at https://t.co/HRUiLPRZzT."},
+            "createdAt": (NOW - timedelta(hours=1)).isoformat(),
+            "author": {"username": "openai", "name": "OpenAI"},
+        }
+        self.assertTrue(is_recruitment_post(raw))
+        posts, dropped = normalize_posts(
+            [{"source": "search", "tweets": [raw]}], [EXPERT], NOW - timedelta(hours=23), NOW, 10
+        )
         self.assertEqual(posts, [])
         self.assertEqual(dropped["recruitment"], 1)
 

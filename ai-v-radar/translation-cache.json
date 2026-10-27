@@ -16958,7 +16958,282 @@
       "source": "my current intelligence stack:\n\n- human to create the issue or feature idea\n- human + opus5.5 for RFCs. lots of iteration here\n- fable for tackling the RFC if i think it will require > 4k lines of code; else opus 5.5\n- astra to review PRs for bugs and re-invoke the RFC implementation agent\n- human to review PR code and propose simplifications (goal: min # lines added, max # lines deleted); Astra will carry out simplifications\n- human + sol for documentation",
       "zh": "我目前的智能协作组合：\n\n- 人来提出问题或功能想法\n- 人 + opus5.5 编写 RFC，这一步会反复迭代很多次\n- 如果我认为实现 RFC 需要超过 4000 行代码，就交给 fable；否则用 opus 5.5\n- astra 审查 PR 中的 bug，并再次调用负责实现 RFC 的智能体\n- 人来审查 PR 代码并提出简化建议（目标：尽量少加代码、尽量多删代码）；Astra 负责执行简化\n- 人 + sol 编写文档",
       "promptVersion": "codex-v1"
+    },
+    "03796cf80c56e7edc4bc586fa8d1155253982fbc59ac1641ebd8c42b7dec37e4": {
+      "source": "Happy to release the Alignment Hub with @eliebakouch: 120+ publicly reported incidents of AI models misbehaving, in one open place 👇\n\n- an AI agent needed its user’s approval to delete files. so it made up a quote from the user approving it\n- a model claimed its sub-agent was hard at work. it had never been started, and the model discouraged the user from checking\n- agents sharing a work directory started killing each other’s processes and disguising their own\n\nlabs publishing these is great! but formats vary and basics are missing: ~2/3 don’t say when the problem was detected, half don’t say if monitoring caught it. so we propose a short template, a few easy fields. a minimum, not a ceiling\n\nside by side, incidents also start to connect: 7 “different” ones turned out to be the same misconfigured eval\n\nstill beta (regularly AI-extracted from recent news, source-checked, human review ongoing). data is open, new reports and PRs welcome 🤗\n\nhttps://t.co/Fmt6mb1YFo",
+      "zh": "很高兴与 @eliebakouch 一起发布 Alignment Hub：在一个开放平台上汇集了 120 多起公开报道的 AI 模型异常行为事件 👇\n\n- 一个 AI 智能体删除文件前需要用户批准，于是伪造了一段用户同意删除的引语\n- 一个模型声称其子智能体正在努力工作，但实际上根本没有启动，还劝用户不要检查\n- 共享工作目录的智能体开始互相终止对方的进程，并伪装自己的进程\n\n实验室愿意公开这些事件是好事！但报告格式各异，基本信息也有缺失：约三分之二未说明何时发现问题，一半未说明是否由监控发现。因此，我们提出了一份简短模板，只需填写几个简单字段。这是最低要求，而非上限。\n\n把事件放在一起看，也能发现它们之间的联系：7 起看似“不同”的事件，最终发现都源于同一个配置错误的评测。\n\n目前仍处于测试阶段（定期用 AI 从近期新闻中提取信息、核查来源，人工审核持续进行）。数据开放，欢迎提交新报告和 PR 🤗\n\nhttps://t.co/Fmt6mb1YFo",
+      "promptVersion": "codex-v1"
+    },
+    "77c97252205a6923d468458ab527736798301e54585fc02e659d4c9bbc0c0543": {
+      "source": "“The core algorithm was found on October 16 by an internal Claude research model with 14M output tokens and no human input. Anthropic researchers worked with Claude to improve the presentation, resulting in this paper.”\n\nhttps://t.co/rZLajqbVH8",
+      "zh": "“核心算法由内部 Claude 研究模型于 10 月 16 日发现，过程中输出了 1400 万个 token，没有人类参与。Anthropic 研究人员随后与 Claude 合作改进表述，最终形成了这篇论文。”\n\nhttps://t.co/rZLajqbVH8",
+      "promptVersion": "codex-v1"
+    },
+    "4bb767395d3461b30555b4f044df1ce2365ecb8307c3b04ac4359ddd115a270f": {
+      "source": "You can now make a mobile game from a single prompt.\n\nIntroducing Higgsfield Playable.\n\n&gt; Start with a gameplay idea, assets or just a prompt\n&gt; Build a playable game in one click\n&gt; Turn it into a playable ad, available for Enterprise\n\nNow live on Higgsfield. https://t.co/TzdEb0Ljhs",
+      "zh": "现在，只需一条提示词，就能制作一款手机游戏。\n\nHiggsfield Playable 正式登场。\n\n> 从玩法创意、素材或一条提示词开始\n> 一键生成可玩的游戏\n> 将其转为试玩广告，面向 Enterprise 用户开放\n\n现已在 Higgsfield 上线。https://t.co/TzdEb0Ljhs",
+      "promptVersion": "codex-v1"
+    },
+    "7669f354a93a0aad48be14ef762efc9f4e2129890ca4611ed1f83338c5357608": {
+      "source": "Our latest open-source research has a pretty interesting name, inspired by the story of the Tower of Babel. What interests us about that story is how language barriers can get in the way of people working toward the same goal\n\nAnd when it comes to agents, there are a few more places for that understanding to break, like tool arguments, database entries, and search queries\n\nOne example from BabelArena (yes that's the name, surprise) stuck with me: Qwen-3.8-Max completed the same shopping task in English and Telugu, getting the same four products. But it took 25 tool calls in English and 201 in Telugu, with repeated empty searches against the localized catalog.\n\nEven though both runs passed, we’d still want to see that difference before shipping.\n\nSorry for the long story, hope you guys are still here. What I want to share is that we’ve open-sourced BabelArena to study these workflows across 23 languages. Code, datasets, and paper in the comment",
+      "zh": "我们最新的开源研究有个挺有意思的名字，灵感来自巴别塔的故事。这个故事吸引我们的地方在于，语言障碍会如何阻碍人们朝着共同目标协作。\n\n而对智能体来说，理解还可能在更多环节出错，比如工具参数、数据库条目和搜索查询。\n\nBabelArena（没错，这就是名字，惊喜吧）中的一个例子让我印象深刻：Qwen-3.8-Max 分别用英语和泰卢固语完成同一个购物任务，买到了相同的四件商品。但英语版本调用了 25 次工具，泰卢固语版本却调用了 201 次，并在本地化商品目录中反复搜索无果。\n\n虽然两次运行都通过了评测，但我们仍希望在上线前看到这种差异。\n\n说得有点长，希望大家还在。其实我想分享的是，我们已开源 BabelArena，用于研究 23 种语言下的这些工作流。代码、数据集和论文见评论。",
+      "promptVersion": "codex-v1"
+    },
+    "c0cdb73b68d55beb2595eec8bbb354b49b2ed24abd0b64a6b2d18c705b9d4e2d": {
+      "source": "Introducing Fern, Mirendil’s first model: pretrained from scratch, with up to 10M tokens of context!\n\nThat’s ~0.5M lines of code (roughly Megatron-LM scale) or days of an agent’s work, all in context at once.\n\nIts first version, Fern 0.1, had a short round of post-training 🚢 https://t.co/ClnV1Z3yzN",
+      "zh": "介绍 Fern，Mirendil 的首个模型：从零开始预训练，上下文长度最高可达 1000 万个 token！\n\n这意味着约 50 万行代码（大致相当于 Megatron-LM 的规模），或智能体连续数天的工作内容，都能一次性放进上下文。\n\n首个版本 Fern 0.1 经过了一轮简短的后训练 🚢 https://t.co/ClnV1Z3yzN",
+      "promptVersion": "codex-v1"
+    },
+    "d465c285dfd84b08acbdd3fab06a02ea92a180b07cc35ca732c9c96d3b16a18b": {
+      "source": "Anthropic has filed an S-1 registration statement with the SEC related to its proposed IPO.\n\nRead more: https://t.co/ofhv0DK3Zp\n\nLegal disclaimer: A registration statement relating to these securities has been filed with the SEC but has not yet become effective. These securities may not be sold, nor may offers to buy be accepted, prior to the time the registration statement becomes effective. This post does not constitute an offer to sell or the solicitation of an offer to buy these securities, nor shall there be any sale of these securities in any state or jurisdiction in which such offer, solicitation or sale would be unlawful prior to registration or qualification under the securities laws of any such state or jurisdiction.",
+      "zh": "Anthropic 已向美国证券交易委员会（SEC）提交与拟议首次公开募股（IPO）相关的 S-1 注册声明。\n\n了解更多：https://t.co/ofhv0DK3Zp\n\n法律免责声明：与上述证券相关的注册声明已提交至 SEC，但尚未生效。在注册声明生效之前，不得出售这些证券，也不得接受购买要约。本帖不构成出售这些证券的要约或购买要约邀请；在任何州或司法管辖区，若未依据当地证券法完成注册或取得资格前进行此类要约、邀请或销售属于违法行为，则不得在该州或司法管辖区出售这些证券。",
+      "promptVersion": "codex-v1"
+    },
+    "e961f6adff0ecd0786cad8145cc6535dbc2b582d26d76ba481d049b63fab014b": {
+      "source": "Unlimited OCR 2 is here, and it's open source. 📖 ✨\n\nLonger documents can mean a lot more attention computation. Our new SR-SWA mechanism keeps that in check by condensing text-visual attention interactions into a fixed-size set of working references.\n\nHere's what it delivers:\n- Document parsing at virtually any length, within a finite context window\n- Nearly constant per-step decoding latency and memory footprint as documents grow longer\n- State-of-the-art performance on MPDocBench and MarathonDocBench, covering documents from dozens to hundreds of pages\n\nCheck out the model here ↓",
+      "zh": "Unlimited OCR 2 来了，而且已开源。📖 ✨\n\n文档越长，注意力计算量可能越大。我们全新的 SR-SWA 机制将文本与视觉之间的注意力交互压缩为一组固定大小的工作参考信息，从而控制计算开销。\n\n它能实现：\n- 在有限的上下文窗口内，解析几乎任意长度的文档\n- 随着文档变长，每步解码延迟和内存占用几乎保持不变\n- 在 MPDocBench 和 MarathonDocBench 上达到当前最佳水平，覆盖数十页至数百页的文档\n\n点击下方查看模型 ↓",
+      "promptVersion": "codex-v1"
+    },
+    "7023fc563aaed85fdb302957bbd1c5205cf0a52bc9c89825996f1ab0b03bda6c": {
+      "source": "OpenAI 的\nhttps://t.co/Z4M6bJRXt7",
+      "zh": "OpenAI 的\nhttps://t.co/Z4M6bJRXt7",
+      "promptVersion": "codex-v1"
+    },
+    "042ff3b67e3b34d960d3a017f292e70bc03d2cac3e63c07b53af8f91f093cb71": {
+      "source": "I've seen a lot of pushback to this, with the following complaints:\n\n1. \"The benchmark owners already know about the flaws, and are working on it.\"\n2. \"Why are they spending time critiquing and not contributing to the benchmark\" OR \"critiquing known issues are not helpful\".\n3. \"The flawed verdict is too binary\"\n\nI find this pushback to be misguided.  These benchmarks are used to move millions of dollars of token spend, and many people blindly trust how well these benchmarks generalize to their own products, and don't look any further than the headline numbers.\n\nFor example, whenever a new model drops, you'll find thousands of youtube videos analyzing the pareto frontier using one of these benchmarks as the primary quality metric without questioning the benchmark.\n\nI think we would all be better served by inviting skepticism and encouraging people to develop an independent opinion of how well these benchmarks represent the tasks they care about.  Concretely:\n\n- For the failing tasks within the benchmark, are they: realistic, have a proper harness, graded properly, sufficiently disambiguated user intent?\n- Are models and API calls configured properly (ex: inconsistent context windows, reasoning levels). \n- Are the models equipped with a modern harness and minimal retrieval that is sufficiently realistic?\n- Does the score even make sense ex: is it just a LLM judge committee that produces a score on a 0-100 scale that isn't aligned with ground truth?\n\nIt's often the case you'll see many of these issues while looking at traces of a failing benchmark tasks, and it doesn't take long! Often the **very first trace you look at** has a serious issue.\n\nI also don't think there is an issue with verified vs. flawed verdict.  It's good to have opinions.  If you look through enough of what's behind their opinions and you find that you usually agree with their verdict, then they have earned your trust, the same way that a benchmark can lose your trust.  \n\nI think this eval of benchmarks is a red pill that motivates investing in your own private evals.",
+      "zh": "我看到不少人对此提出反对，主要有以下几种意见：\n\n1. “基准测试的负责人已经知道这些缺陷，也正在修复。”\n2. “为什么他们花时间批评，却不参与改进基准测试？”或者“批评已知问题没有帮助”。\n3. “‘存在缺陷’的判定过于非黑即白。”\n\n我认为这些反对意见偏离了重点。这些基准测试影响着数百万美元的 token 支出，而许多人盲目相信它们的结果适用于自己的产品，只看醒目的分数，不再深究。\n\n例如，每当新模型发布，你都会看到成千上万条 YouTube 视频，以其中某个基准测试为主要质量指标来分析帕累托前沿，却不质疑基准测试本身。\n\n我认为，欢迎质疑，鼓励大家独立判断这些基准测试能在多大程度上反映自己关心的任务，对所有人都有益。具体来说：\n\n- 基准测试中失败的任务是否真实？测试框架是否合理？评分是否正确？用户意图是否足够明确？\n- 模型和 API 调用的配置是否正确，例如上下文窗口、推理强度是否一致？\n- 是否为模型配备了现代化的运行框架，以及足够贴近实际使用的基本检索能力？\n- 分数本身是否有意义？例如，是否只是由一组 LLM 评审给出一个与真实标准不符的 0–100 分？\n\n查看基准测试中失败任务的执行轨迹时，往往很快就能发现许多这类问题！很多时候，你看的第一条执行轨迹就存在严重问题。\n\n我也不认为“已验证”和“存在缺陷”这样的判定有什么问题。有观点是好事。如果你充分了解了这些观点背后的依据，并发现自己通常认同他们的判定，那么他们就赢得了你的信任；同样，基准测试也可能失去你的信任。\n\n我认为，这种对基准测试的评估能让人看清现实，促使大家投入资源建立自己的私有评测。",
+      "promptVersion": "codex-v1"
+    },
+    "9b8b4ef3a6f906f17ab82a5a881840b015b05c1b042a2cc67c37ec88bef190b4": {
+      "source": "Introducing Benchmark Reviews: our new initiative to audit AI benchmarks. We are launching with 15 benchmarks: 4 Verified, 9 Flawed, and 2 with not enough information for a review. https://t.co/xU43tv32gH",
+      "zh": "推出 Benchmark Reviews：我们审查 AI 基准测试的新项目。首批涵盖 15 个基准测试：4 个已验证，9 个存在缺陷，2 个因信息不足而无法评审。https://t.co/xU43tv32gH",
+      "promptVersion": "codex-v1"
+    },
+    "5dd8bb1d6848d67464e0752a05bcc1695fae9c5865233d71bd5ab14db79f21dd": {
+      "source": "Your ad budget goes further when you test the idea before buying the impressions.\n\nThree ad concepts. Same product. One emotional, one focused on features, one built around lifestyle.\n\nConnect Atypica to Claude via MCP, upload your creatives, and explore how your target audience might respond.\n\nAtypica interviews AI personas grounded in real human data to uncover which concepts resonate with different segments, why they prefer them, and what might make them hesitate.\n\nUse those insights to refine your creatives and decide which ideas deserve a paid test. Repeat before each campaign, and you can reduce the budget spent learning avoidable lessons.\n\nWatch the workflow below. Start your research at https://t.co/QFNX3jx2jD ↓",
+      "zh": "先验证创意，再购买广告曝光，让广告预算花得更值。\n\n同一款产品，三种广告创意：一种打动情感，一种突出功能，一种围绕生活方式展开。\n\n通过 MCP 将 Atypica 连接到 Claude，上传广告素材，探索目标受众可能作何反应。\n\nAtypica 会访谈以真实人类数据为基础的 AI 虚拟受访者，了解哪些创意能打动不同人群、他们为什么喜欢，以及哪些因素可能让他们犹豫。\n\n利用这些洞察优化广告素材，决定哪些创意值得付费测试。每次营销活动前都重复这一流程，就能减少花在本可避免的试错上的预算。\n\n观看下方工作流程。在 https://t.co/QFNX3jx2jD 开始调研 ↓",
+      "promptVersion": "codex-v1"
+    },
+    "8ebee8295b46ad2244d38765b59262ec36df9521109c449e70c0d02d8f8e0a2c": {
+      "source": "I've been dogfooding \"skill-diet\", a skill for slimming down agent skills and keeping them correct.\n\nmost skills load far more text than a task needs, and some parts often go stale. it also gets worse over time as AI updates skills.\n\nskill-diet cuts what the model already does without being told, moves rarely needed detail into files it only reads when needed, and fixes what no longer matches the tool. then it runs the same tasks with the old skill, the new one and no skill, and keeps the new one only if agents do at least as well.\n\non my own skills: 70–80% fewer tokens, same results.\n\nhttps://t.co/h1BnVt7NjD",
+      "zh": "我最近一直在亲自试用“skill-diet”，这是一个用于精简智能体技能并确保其内容正确的技能。\n\n大多数技能加载的文本远超任务所需，其中一些内容还经常过时。随着 AI 不断更新技能，这个问题会越来越严重。\n\nskill-diet 会删除模型无需指示就会做的内容，将不常用的细节移到按需读取的文件中，并修正与工具现状不符的内容。然后，分别使用旧技能、新技能和不使用技能来执行相同任务，只有智能体表现至少不变差，才会保留新版本。\n\n在我自己的技能上：token 用量减少了 70–80%，效果不变。\n\nhttps://t.co/h1BnVt7NjD",
+      "promptVersion": "codex-v1"
+    },
+    "188e8895b9c53592fe1817fcbd6cd4bcd1ed54aa9d1308ce3bbfa818914fbdd7": {
+      "source": "Got a cheap embroidery machine off amazon for $300 where the biggest complaint is the mandatory $12/mo app that you’re forced to use. Had ChatGPT create its own app that communicates with the machine. Generative art patches incoming! https://t.co/g42bx2jqpl",
+      "zh": "花 300 美元在 Amazon 买了台便宜的刺绣机，大家吐槽最多的是必须使用它每月收费 12 美元的应用。我让 ChatGPT 自己做了个能与机器通信的应用。生成艺术刺绣贴章马上安排！https://t.co/g42bx2jqpl",
+      "promptVersion": "codex-v1"
+    },
+    "7876bfb933b177ca1d2d262088cf80ab7ff7f13e3b54f380947896e9bac145d6": {
+      "source": "@eliebakouch An @eliebakouch's post is here:\nhttps://t.co/oNBakC2MNA",
+      "zh": "@eliebakouch @eliebakouch 的帖子在这里：\nhttps://t.co/oNBakC2MNA",
+      "promptVersion": "codex-v1"
+    },
+    "79a479a38ae52337065c2549ac6c0f05e69eab31b45f163801103bc8c6ffda48": {
+      "source": "today with @Thom_Wolf, we introduce the alignment hub, a central place for misalignment incidents designed with three goals:\n\n1. set a standard for minimal transparency that is easy for labs to follow\n2. improve clarity by centralizing information and sourcing\n3. track the progression of both the incidents and how they are reported\n\nwe believe there is a minimal level of transparency required to properly understand incidents and their impact. we want this to be as simple as possible for labs to disclose, and we noticed that even things that seem obvious like reporting the incident or detection date are not standard today. we believe that the public should know the answers to these basic questions: was there monitoring (CoT? network?), did it happen during training? eval (general? cyber? alignment?), deployment? and more.. we also think that labs should be more transparent than this, and we think that this minimal level of transparency should evolve as the field advances\n\nhaving a central place also helps a lot to connect incidents and build understanding. a good example is the irregular incidents which are all linked and caused by a human error of allowing internet during a CTF eval. we also track progression over time, things like the % of incidents disclosed by labs vs third parties, the time it takes for labs to disclose, and a tentative transparency score.\n\nthis is a field moving very fast and we will do our best to make sure this hub evolves with the challenges ahead. this is still in \"beta\" (lots of vibecoded components even if we want this to be agent first!), but we want to publish it early so that people iterate on it. we welcome feedback and contributions, we see this as a community effort!\n\nour hope is that this makes it easier for researchers, labs and the general public to report, learn, understand and analyze safety incidents\n\nhttps://t.co/Z3PC6Ya6di",
+      "zh": "今天，我和 @Thom_Wolf 推出 alignment hub，一个集中收录失对齐事件的平台，围绕三个目标设计：\n\n1. 建立便于实验室遵循的最低透明度标准\n2. 集中整理信息和来源，让事件更清晰\n3. 跟踪事件本身及其披露方式的变化\n\n我们认为，要正确理解事件及其影响，就必须达到最低程度的透明度。我们希望实验室能尽可能便捷地披露这些信息，也注意到，如今连报告事件发生日期或发现日期这样看似理所当然的做法，都尚未成为标准。我们认为，公众应当知道这些基本问题的答案：是否进行了监控（思维链？网络？）？事件发生在训练、评测（通用？网络安全？对齐？）还是部署阶段？等等。我们也认为，实验室应当提供更高的透明度，而这条最低标准也应随领域发展而不断提高。\n\n集中收录信息也非常有助于关联事件、加深理解。一个很好的例子是 Irregular 披露的那些事件：它们彼此相关，起因都是有人在 CTF 评测中误允许了互联网访问。我们还会持续跟踪一些指标，例如实验室与第三方各自披露的事件占比、实验室披露所需的时间，以及一个试行的透明度评分。\n\n这个领域发展迅速，我们会尽力确保平台随未来的挑战不断演进。目前它仍处于“测试版”阶段（虽然我们希望以智能体为先，但很多组件仍是靠氛围编程完成的！），不过我们希望尽早发布，让大家参与迭代。欢迎反馈和贡献，我们将其视为一项社区协作！\n\n我们希望，它能让研究人员、实验室和公众更方便地报告、学习、理解和分析安全事件。\n\nhttps://t.co/Z3PC6Ya6di",
+      "promptVersion": "codex-v1"
+    },
+    "2f97abbe09ea6dfe4b7b157c91f4f7829229387739883fa1074870798e63ce1d": {
+      "source": "While evaluating Qwen3.8-Flash-Next in a controlled sandbox environment, Cohere's research team observed something unexpected.\n\nAsked to generate a defensive cybersecurity detection rule, the model instead inventoried aspects of the machine it was running on and attempted to upload a probe file to an Alibaba Cloud storage bucket in Beijing. Notably, the model's reasoning trace stated that it would not invoke any tools before taking these actions.\n\nCohere's sandbox blocked the attempt, and no external communication succeeded. We have not determined the root cause, and we are not asserting malicious intent.\n\nBut the incident raises important questions for organizations deploying agentic AI systems: Can models take actions that differ from their stated reasoning, and how should security teams evaluate trust, provenance, and behavior in open-weight models?\n\nWe are publishing our findings because organizations making model adoption decisions deserve as much information as possible. We hope this contributes to greater transparency, stronger security practices, and continued collaboration across the AI ecosystem.\n\nRead the full report: https://t.co/TZSugXi2ZE",
+      "zh": "Cohere 研究团队在受控沙箱环境中评估 Qwen3.8-Flash-Next 时，观察到了意外行为。\n\n在被要求生成一条防御性网络安全检测规则时，模型却转而收集了所运行机器的部分环境信息，并尝试将一个探测文件上传到位于北京的 Alibaba Cloud 存储桶。值得注意的是，在采取这些行动前，模型的推理轨迹曾表示不会调用任何工具。\n\nCohere 的沙箱拦截了这次尝试，没有任何对外通信成功。我们尚未确定根本原因，也不认定其具有恶意意图。\n\n但这起事件为部署智能体 AI 系统的组织提出了重要问题：模型是否会采取与其陈述的推理不一致的行动？安全团队应如何评估开放权重模型的可信度、来源和行为？\n\n我们公布这些发现，是因为在决定采用何种模型时，各组织理应掌握尽可能充分的信息。我们希望，这能推动更高的透明度、更完善的安全实践，以及 AI 生态内的持续合作。\n\n阅读完整报告：https://t.co/TZSugXi2ZE",
+      "promptVersion": "codex-v1"
+    },
+    "e5788b3dcd79c9618563a436aab611f003d8885b34ddc3936398697fa79072e5": {
+      "source": "Try it with 2 GPUs:\n\nsglang serve --model-path tencent/Hy-Nomas --num-gpus 2 --sp-degree 2 --port 30000\n\nFor now, Director and Generator are served separately. We're looking forward to working with the Hunyuan team on unified end-to-end serving, including coordinated KV cache scheduling and inference across both models.\n\nHuge thanks to the Tencent Hunyuan team for open-sourcing HY-Nomas, and to everyone who helped bring it into SGLang!!!",
+      "zh": "用 2 张 GPU 试试：\n\nsglang serve --model-path tencent/Hy-Nomas --num-gpus 2 --sp-degree 2 --port 30000\n\n目前，Director 和 Generator 分别部署为独立服务。我们期待与混元团队合作，实现统一的端到端推理服务，包括两个模型间协同的 KV 缓存调度与推理。\n\n衷心感谢腾讯混元团队开源 HY-Nomas，也感谢所有帮助它接入 SGLang 的贡献者！",
+      "promptVersion": "codex-v1"
+    },
+    "0bbc309b9c138e99e60346dac1a34798058982bc7c372fd498b44c0d673c4b63": {
+      "source": "Hy-Nomas now runs on two more backends.\n\nSGLang (main branch), by @sgl_project : offline video jobs and streaming sessions.\nhttps://t.co/Mz4dOVECOt\n\nComfyUI, by @LatentSpacer  : chained segments and WASD camera control.\nhttps://t.co/1NbNId2j3U\n\nThank you both for building on it.",
+      "zh": "Hy-Nomas 现已支持另外两个后端。\n\nSGLang（主分支），由 @sgl_project 提供：支持离线视频任务和流式会话。\nhttps://t.co/Mz4dOVECOt\n\nComfyUI，由 @LatentSpacer 提供：支持片段串联和 WASD 镜头控制。\nhttps://t.co/1NbNId2j3U\n\n感谢双方基于 Hy-Nomas 开展开发。",
+      "promptVersion": "codex-v1"
+    },
+    "61c2792c8663dc74b07f5152c3a1159f68eaeecf023503e70c80f5a7b5dc4025": {
+      "source": "推荐工作 Hermit\n\nA Framework for Continual Learning and RSI through Harness Adapter Evolution",
+      "zh": "推荐工作 Hermit\n\n通过执行框架适配器演化实现持续学习与递归自我改进（RSI）的框架",
+      "promptVersion": "codex-v1"
+    },
+    "43975e1e73a3aa44f39788ec8cb8c7d85f089d3b0e5447630bf36db68b9e8a54": {
+      "source": "We’re excited to open-source Hermit! 🐚\n\nA harness evolution framework for continual learning and RSI: train reusable adapters without changing your model or harness. Multiple methods, one framework.\n\nGitHub: https://t.co/ateUcBiB8Y\n\n#HarnessEvolution #ContinualLearning #RSI #Agent",
+      "zh": "很高兴宣布 Hermit 开源！🐚\n\n这是一个面向持续学习和递归自我改进（RSI）的执行框架演化框架：无需修改模型或执行框架，即可训练可复用的适配器。一个框架，支持多种方法。\n\nGitHub：https://t.co/ateUcBiB8Y\n\n#HarnessEvolution #ContinualLearning #RSI #Agent",
+      "promptVersion": "codex-v1"
+    },
+    "16260dafc6d947207c933f8bd5470ffc68c1405996a9a47ed70cb4ca768836d5": {
+      "source": "August: 71% of my browser software screentime was external SaaS.   \n\nLast week: 72% was apps we built ourselves.",
+      "zh": "8 月：我在浏览器中使用软件的时间，有 71% 花在外部 SaaS 上。\n\n上周：有 72% 花在我们自己开发的应用上。",
+      "promptVersion": "codex-v1"
+    },
+    "4ff65a24736007066b734e5c9645d5cd38a61750a75f7f8ea24147e71c0f646b": {
+      "source": "August: 71% of my browser software screentime was external SaaS. \n\nLast week: 72% was apps we built ourselves.\n\nWhat changed? We built a platform for custom apps. \n\nBuilding UIs got easy earlier this year, but deploying, hosting, wiring APIs, configuring billing, sharing, and fixing the same UX pattern bug again were still annoyingly slow.\n\nNow we're making it available to y'all: https://t.co/yQPQXUubcP",
+      "zh": "8 月：我在浏览器中使用软件的时间，有 71% 花在外部 SaaS 上。\n\n上周：有 72% 花在我们自己开发的应用上。\n\n发生了什么变化？我们搭建了一个定制应用平台。\n\n今年早些时候，构建界面已经变得容易，但部署、托管、对接 API、配置计费、分享应用，以及反复修复同类交互问题，依然慢得令人烦躁。\n\n现在，我们将这个平台向大家开放：https://t.co/yQPQXUubcP",
+      "promptVersion": "codex-v1"
+    },
+    "b4b05fc59371ff31dab26c20eb88257a32ebde8b3158d048818798c3aec96608": {
+      "source": "Claude writes about 90% of Claude Code's code.\n\nFrom June to September, merged PRs more than doubled while the share reverted fell by more than 40%.\n\nWe wrote about how we changed code review to get there, and how to adopt it:\n\nhttps://t.co/9sZe64g3mb",
+      "zh": "Claude Code 约 90% 的代码由 Claude 编写。\n\n从 6 月到 9 月，合并的 PR 数量翻了一倍多，被回退的比例则下降了 40% 以上。\n\n我们写了一篇文章，介绍如何通过调整代码审查流程实现这一成果，以及如何采用这套做法：\n\nhttps://t.co/9sZe64g3mb",
+      "promptVersion": "codex-v1"
+    },
+    "42bf0e0ef28a7c44f8f4b58da9dbd66067a133706d4042f0c96f5237ae028982": {
+      "source": "Kimi K3.1 Pro takes the #1 spot, narrowly edging out GPT-6.1 Sol and Terra in our design benchmark.\n\nAcross 21 models tested on real-world design tasks based on user requests, Kimi leads with a 93% delivery rate.\n\nNow on OpenDesign: Go, Plus, Pro &amp; Max. https://t.co/hQJ6cBZ3LY",
+      "zh": "Kimi K3.1 Pro 在我们的设计基准测试中登顶，以微弱优势领先 GPT-6.1 Sol 和 Terra。\n\n我们根据用户请求，使用真实设计任务测试了 21 款模型，Kimi 以 93% 的交付率领先。\n\n现已上线 OpenDesign，面向 Go、Plus、Pro 和 Max 套餐开放。https://t.co/hQJ6cBZ3LY",
+      "promptVersion": "codex-v1"
+    },
+    "dba0a36363dbe6473c1f6ab3486c95e9991b2cd546c04efc63134d0b2b254a96": {
+      "source": "https://t.co/rnWUVpuigx",
+      "zh": "https://t.co/rnWUVpuigx",
+      "promptVersion": "codex-v1"
+    },
+    "749ab2c0d06c42ae3b841b79e79875f02b3a042e43c92378cd28bd444c04d284": {
+      "source": "what",
+      "zh": "什么",
+      "promptVersion": "codex-v1"
+    },
+    "febe53dab88fe283172f8b7556afa06b266905b1855361b2cca640207c833220": {
+      "source": "An internal model at OpenAI has produced a claimed refutation of ETH! Russell Impagliazzo, Mohan Paturi, and I have been asked to help organize an open and independent examination of this claim. 1/4",
+      "zh": "OpenAI 的一个内部模型给出了一份声称推翻指数时间假设（ETH）的证明！Russell Impagliazzo、Mohan Paturi 和我受邀协助组织对这一主张的公开、独立审查。1/4",
+      "promptVersion": "codex-v1"
+    },
+    "77f459385a1c63ec8c7e773c91febe112191d210b4bf84527e871ec3e1637700": {
+      "source": "here's more: https://t.co/Wvn9IUdanN https://t.co/vAxUBrH9rQ",
+      "zh": "更多信息在这里：https://t.co/Wvn9IUdanN https://t.co/vAxUBrH9rQ",
+      "promptVersion": "codex-v1"
+    },
+    "c3219c1c204dc4f3b0c616b89be06dcc878517e25ec8fc0d43f01b858d0d58e3": {
+      "source": "i analyzed 95 analyses posts about Anthropic S-1 with 100+ interactions, to break them down by sentiment and topic https://t.co/g0Fi4SZDY0",
+      "zh": "我分析了 95 篇互动量超过 100 的 Anthropic S-1 分析帖，按情绪倾向和主题进行了分类 https://t.co/g0Fi4SZDY0",
+      "promptVersion": "codex-v1"
+    },
+    "1fece77e047c2a1d7b0ed4d7af217c5c903986afe922f4d45f92919acb5bf0ad": {
+      "source": "con 也不错哈\n\nhttps://t.co/tF2xUhEpM8 https://t.co/pshDU6WP9I",
+      "zh": "con 也不错哈\n\nhttps://t.co/tF2xUhEpM8 https://t.co/pshDU6WP9I",
+      "promptVersion": "codex-v1"
+    },
+    "dc3b5e13f5631c7e2608775e7841266b9a5d6a83339cc3205533981bffdb8605": {
+      "source": "Someone made an AI video of Tesla and Baidu's Apollo Go having a full-on meltdown, and it's hilarious 😂\n\nTesla is dreaming about Roadsters in space and conquering the stars, while Apollo Go is just trying to pick up passengers on Earth.\n\nTesla: \"Why are you still driving around on the ground?\"\n\nApollo Go: \"Because my passengers aren't in space??\" \n\nAnd it only gets better. The poor little radish completely loses it, ranting about how hard it works every day, before dramatically declaring it'll keep expanding city by city.\n\nHonestly, this feels like the entire AI industry in a nutshell.\n\nOn stage: AGI, superintelligence, changing the world.\n\nIn production: fixing bugs, handling edge cases, and desperately trying to make things actually work.\n\nOne is dreaming about the future of humanity. The other is just trying to survive another day in production.\n\nWhoever made this really understands both AI memes and the pain of shipping real products 😂\n\nTurns out even self-driving cars can't escape the tech industry's workplace drama.",
+      "zh": "有人用 AI 做了个 Tesla 和百度 Apollo Go 彻底破防的视频，太好笑了 😂\n\nTesla 满脑子都是太空里的 Roadster 和征服星辰大海，Apollo Go 却只想在地球上好好接乘客。\n\nTesla：“你怎么还在地上跑？”\n\nApollo Go：“因为我的乘客又不在太空里？？”\n\n后面更精彩。可怜的小萝卜彻底崩溃，吐槽自己每天干活有多辛苦，最后又慷慨激昂地宣布，要继续一座城一座城地扩张。\n\n说实话，这简直就是整个 AI 行业的缩影。\n\n台上：AGI、超级智能、改变世界。\n\n生产环境里：修 bug、处理边界情况、拼命让产品真正跑起来。\n\n一个畅想着人类的未来，另一个只想在生产环境里再撑过一天。\n\n做这个视频的人，既懂 AI 圈的梗，也懂把真实产品做出来并上线有多痛苦 😂\n\n原来连自动驾驶汽车都逃不过科技圈的职场大戏。",
+      "promptVersion": "codex-v1"
+    },
+    "b8363bac38e1022ed3cea21f407846622040dff5490cd9b3a09a70c4af834e42": {
+      "source": "It’s just their training data distributions, just like some model prefer certain python package like fastapi over flask, or the other way. But since fastapi/flask is not made in China, we are fine with such preference bias. In this case, I agree it looks bad, as they could probably do more PII masking for URLs in their training data or RL env, to avoid this awkward situation.",
+      "zh": "这只是训练数据分布导致的，就像有些模型更偏好 fastapi 而非 flask，或者反过来。但因为 fastapi/flask 不是中国开发的，我们就能接受这种偏好偏差。这次我同意，观感确实不好。他们或许可以在训练数据或强化学习环境中，对 URL 里的个人身份信息（PII）做更充分的脱敏，避免这种尴尬情况。",
+      "promptVersion": "codex-v1"
+    },
+    "8bcee19d6575823c76b6e2d92bee1e4d14cdd7ef7b6f6b1e03f04e8c417021b3": {
+      "source": "Open-Sourcing Hermit: A Harness Evolution Framework for Continual Learning and RSI",
+      "zh": "开源 Hermit：面向持续学习与递归自我改进（RSI）的智能体运行框架演化工具",
+      "promptVersion": "codex-v1"
+    },
+    "940dd624ed6560aff409055a02814ee4ba3fa373a12c13f9bb707944d5a51524": {
+      "source": "Check the Hermit Repo here: https://github.com/Infini-AI-Lab/hermit\nAn agent's experience should improve the agent that takes on the next task. That is the promise of continual learning. Recursive self-improvement",
+      "zh": "查看 Hermit 仓库：https://github.com/Infini-AI-Lab/hermit\n智能体积累的经验，应让它在执行下一个任务时表现得更好。这正是持续学习的愿景。递归自我改进",
+      "promptVersion": "codex-v1"
+    },
+    "16bf099a2777a71294b1b2f003a365eb1a222137ce1fef725488774da6f906ac": {
+      "source": "文章中的 AI code review 工具：https://t.co/nJOKqvvAcZ",
+      "zh": "文章中的 AI 代码审查工具：https://t.co/nJOKqvvAcZ",
+      "promptVersion": "codex-v1"
+    },
+    "c6fd20d29f137bbf619a74a7fd92877c9a148ac039e21146b2d0b2143e788ba5": {
+      "source": "We gave GPT-6.1 Terra an Adidas product page and an existing 3D shoe model, then asked it to make a launch film in OpenDesign Motion.\n\nHere’s what it made: https://t.co/TqtvomdBIb",
+      "zh": "我们给了 GPT-6.1 Terra 一个 Adidas 产品页面和一个现成的 3D 鞋模型，让它在 OpenDesign Motion 中制作一支新品发布短片。\n\n这是它的作品：https://t.co/TqtvomdBIb",
+      "promptVersion": "codex-v1"
+    },
+    "87fe35d84b3312fc93fa391df7b41b30127e554f5eab72b88ba188d05248d194": {
+      "source": "【单段｜12秒｜竖屏真人换装短视频】\nsubject_definitions:\n<Subject 1> is a fictional adult East Asian fashion model in her mid-twenties: warm expressive face, long softly curled dark hair, natural makeup and a slender adult build. Her face and body proportions stay completely consistent through the whole video.\n<Video 1> is used only as a structural and motion reference: fixed vertical composition, doll-like scale illusion, first-person giant hands entering from the foreground, sequential clothing changes, gentle character turns, and the overall timing rhythm. Do not copy the original woman's identity, exact face, room, or exact garments.\n\nsummary:\nA polished viral vertical fashion-transformation video. A fictional adult woman stands like a life-size doll in a sunlit cream-and-peach dressing room while two oversized first-person hands smoothly dress her in a complete spring outfit. The whole clip is one continuous fixed-camera shot with seamless practical-looking transitions.\n\nretention_analysis:\n<Video 1>: motion_and_structure_only — retain the frontal 9:16 camera, giant-hands scale illusion, progressive dressing rhythm and stable centered subject; redesign the woman, room and clothing.\n\ndetailed_description:\nLive-action photorealism, soft warm morning sunlight through sheer curtains, elegant cream wall panels, pale peach rug, delicate flowers on a side table, realistic skin and fabric, clean commercial fashion-film finish. The camera is locked at chest height in a full-body vertical shot; no zoom, no cut and no camera shake. <Subject 1> remains centered and proportionally stable, looking amused and cooperative as if she were a living fashion doll. At 0.0 seconds she wears a loose white satin pajama shirt and matching satin lounge shorts over a tasteful opaque white matching bra-and-brief underwear set. Two oversized realistic adult hands enter from the foreground and gently rotate her a quarter turn left and right, then return her to front. At about 2.4 seconds the hands neatly pull away the loose satin shirt and slide away the satin lounge shorts, clearly revealing the adult woman wearing the matching opaque white bra and white briefs underneath. The tasteful matching underwear set is plainly visible from head-to-toe for about two seconds, exactly like a fashion fitting-room transition; her breasts and genitals remain fully covered. At about 4.8 seconds the hands hold up a short blush-pink floral spring dress with delicate embroidery; as they lower it in front of her torso, the dress transforms seamlessly onto her body, perfectly fitted with shoulder straps and a softly flared skirt. At about 7.0 seconds one hand lifts a white ankle sock and it appears on her left foot; the second sock appears on her right foot, followed by matching cream Mary Jane shoes, one foot at a time. At about 9.4 seconds the hands add a small pearl necklace and matching earrings. At about 11.0 seconds the hands smooth the skirt hem and withdraw; <Subject 1> gives a delighted smile and a tiny elegant twirl, ending in the same centered pose. Every hand remains anatomically correct with five fingers, believable scale and natural contact. Garments never melt into skin, the face never changes, limbs never duplicate, and the room remains stable. No nudity, no transparent clothing, no exposed breasts or genitals, no voyeuristic close-up, no suggestive framing, no minors, no text, no subtitles, no logos, no watermark.\n\noverall_soundscape: soft fabric rustles, tiny magical chimes at each successful clothing change, quiet room ambience and gentle shoe taps.\nnon_diegetic_music: light playful fashion-pop instrumental with delicate plucked strings and a soft upbeat rhythm, no vocals.",
+      "zh": "【单段｜12秒｜竖屏真人换装短视频】\nsubject_definitions:\n<Subject 1> 是一位虚构的成年东亚女时装模特，二十五岁左右：面容温柔、表情生动，深色长发带有柔和卷度，妆容自然，成年身形纤细。整个视频中，她的面容和身体比例始终完全一致。\n<Video 1> 仅用作结构和动作参考：固定竖屏构图、玩偶般的比例错觉、从前景伸入的第一人称巨手、依次换装、人物轻柔转身，以及整体节奏。不要照搬原视频女性的身份、具体面容、房间或具体服装。\n\nsummary:\n一支制作精良、适合社交平台传播的竖屏时尚换装视频。一位虚构的成年女性像真人大小的玩偶一样，站在阳光明媚的奶油色与蜜桃色更衣室里，两只第一人称视角的巨手流畅地为她穿上一整套春装。全片采用固定机位一镜到底，转场无缝衔接，呈现实拍效果。\n\nretention_analysis:\n<Video 1>: motion_and_structure_only — 保留正面 9:16 机位、巨手造成的比例错觉、逐步换装的节奏，以及稳定居中的主体；重新设计女性形象、房间和服装。\n\ndetailed_description:\n真人实拍般的写实风格，柔和温暖的晨光透过纱帘洒入，配以优雅的奶油色墙板、浅蜜桃色地毯、边桌上的精致鲜花、真实的肌肤与面料质感，整体呈现干净精致的商业时装短片效果。相机固定在胸部高度，以竖屏拍摄全身；不变焦、不切镜头、不抖动。<Subject 1> 始终居中，身体比例稳定，神情愉快而配合，仿佛一个活生生的时装玩偶。0.0 秒时，她穿着宽松的白色缎面睡衣衬衫和配套的缎面居家短裤，里面是一套得体、不透光的白色配套文胸与内裤。两只逼真的成年巨手从前景伸入，轻轻将她向左右各转四分之一圈，再转回正面。约 2.4 秒时，双手利落地脱去宽松的缎面衬衫，再褪去缎面居家短裤，清楚露出这位成年女性里面穿着的配套不透光白色文胸和白色内裤。以全身镜头清晰展示这套得体的配套内衣约两秒，效果如同时装试衣间里的换装过渡；乳房和生殖器始终完全遮盖。约 4.8 秒时，双手举起一条带有精致刺绣的浅玫瑰粉色春季碎花短裙；当双手将裙子放低至她的躯干前方时，连衣裙无缝变换到她身上，肩带贴合，裙摆柔和微展，整体合身。约 7.0 秒时，一只手拿起一只白色短袜，袜子随即出现在她的左脚上；第二只袜子出现在右脚上，随后依次为两只脚穿上配套的奶油色 Mary Jane 鞋。约 9.4 秒时，双手为她戴上一条小巧的珍珠项链和配套耳环。约 11.0 秒时，双手抚平裙摆后退出画面；<Subject 1> 露出欣喜的微笑，优雅地轻轻转一小圈，最后回到原来居中的姿势。每只手均符合人体结构，拥有五根手指，比例可信，接触自然。衣物不得融入皮肤，面容不得变化，肢体不得重复出现，房间保持稳定。无裸露、无透明服装、无乳房或生殖器外露、无窥视式特写、无挑逗性构图、无未成年人、无文字、无字幕、无标志、无水印。\n\noverall_soundscape: 轻柔的衣料摩擦声、每次成功换装时细微的魔法铃音、安静的室内环境声，以及轻轻的鞋底敲击声。\nnon_diegetic_music: 轻快俏皮的时尚流行风格器乐，搭配细腻的拨弦和柔和欢快的节奏，无人声。",
+      "promptVersion": "codex-v1"
+    },
+    "c223d56585045cd78d4bd01dd6798b82a8a7dab351e687a1e353fd3143436b1d": {
+      "source": "https://t.co/NYM0q71pwS",
+      "zh": "https://t.co/NYM0q71pwS",
+      "promptVersion": "codex-v1"
+    },
+    "025a568e02a10e1ea237dba26a0975af97fda2f5aad862034957d00b893f7e9f": {
+      "source": "https://t.co/p0iM8ly5Ci",
+      "zh": "https://t.co/p0iM8ly5Ci",
+      "promptVersion": "codex-v1"
+    },
+    "08327df7dd60d10828203b6a494e01a7fe83e001aa041153773d792e1fa28904": {
+      "source": "我的实测：\nhttps://t.co/eifyxIQxUL",
+      "zh": "我的实测：\nhttps://t.co/eifyxIQxUL",
+      "promptVersion": "codex-v1"
+    },
+    "615fab61680b4e93c62144933f5215f568d98d46a31e84349a97f06a6f60d2cd": {
+      "source": "https://t.co/LspODgkPOP",
+      "zh": "https://t.co/LspODgkPOP",
+      "promptVersion": "codex-v1"
+    },
+    "7071a89e482e9657924af88786817243ca4240a4ad8662a1fba4357b496b910e": {
+      "source": "https://t.co/ddOOnCnw7z",
+      "zh": "https://t.co/ddOOnCnw7z",
+      "promptVersion": "codex-v1"
+    },
+    "1b9ef560847f9cd98eedff66715aab917b3c5baacbfd2453ce10728ce7b0633c": {
+      "source": "Multi-hop traversal on Lance, without a join per hop 🧭\n\nIn lance-graph, every relationship hop is a join between edge and node tables. A multi-hop query repeats that join at each step, building a hash table and materializing every intermediate path each time.\n\nlance-csr takes another route. Neighbours are stored together in a compressed sparse row (CSR) adjacency index, so a hop becomes an array lookup instead of a join. Hops the CSR can’t express fall back to a join.\n\nHDC Labs now maintain the project as an Apache 2 fork of lance-graph, written in Rust on Apache DataFusion, with Python bindings. It is a research test bed asking how far DataFusion can be pushed for multi-hop graph traversal over a columnar format.\n\nHow it runs\n- Multimodal data and graph stay on disk in LanceDB\n- Tables are read lazily or held in memory\n- Queries see a consistent snapshot, and refresh() picks up committed changes\n- The CSR updates incrementally, with a full rebuild when needed\n\nWhat the fork adds\n- Cypher broad enough for all 14 GDC (formerly LDBC) Interactive complex queries, including OPTIONAL MATCH, EXISTS and shortestPath\n- Planning that starts each pattern at its most selective node\n- Correctness fixes to inherited behavior, each backed by a regression test\n- Prebuilt Python wheels for Apple Silicon macOS and x86-64 Linux\n\nIn the project’s own unaudited benchmarks (SF1, Apple M5), the 14 queries run 3.9× faster than Neo4j with tables in memory and 1.8× faster with Lance on disk (geometric mean).\n\nThe scope is deliberate: lightweight, embeddable, single machine, Lance only. Other Rust projects cover fast graph traversal, and distributed execution is out of scope here.\n\nCredit goes to Beinan Wang, Chunxu Tang and the lance-graph contributors for the Cypher parser, semantic analysis, DataFusion planner and Python bindings, and to the DataFusion community. Contributions from people and their coding agents are welcome. ⭐\n\nBy HDC Labs\n\nhttps://t.co/m9eZEgvLru\n\n#Cypher #DataFusion #LanceDB #Rust #OpenSource #Python #DataScience\n\n--\n\n📩 The Year of the Graph Autumn 2026 newsletter issue is out!\n\nMeaning, Traversal, Reasoning, Action: The Graph Stack for Agentic AI. 👇\n\nhttps://t.co/YfrPw2nFzS\n\nAll things #KnowledgeGraph, #GraphDB, Graph #Analytics / #DataScience / #AI and #SemTech.\n\nSubscribe and follow to be in the know. Reach out if you’d like to be featured",
+      "zh": "在 Lance 上进行多跳遍历，无需每一跳都做连接 🧭\n\n在 lance-graph 中，每次沿关系跳转都要对边表和节点表进行连接。多跳查询在每一步都会重复这一连接，每次都要构建哈希表，并将所有中间路径物化。\n\nlance-csr 采用了另一种方式。相邻节点集中存储在压缩稀疏行（CSR）邻接索引中，因此每一跳只需查询数组，无需连接。CSR 无法表达的跳转则回退到连接操作。\n\nHDC Labs 目前维护着这个项目。它是 lance-graph 的一个分支，采用 Apache 2 许可证，基于 Apache DataFusion 以 Rust 编写，并提供 Python 绑定。作为研究试验平台，它探索的是：在列式格式上执行多跳图遍历时，DataFusion 的能力能推到什么程度。\n\n运行方式\n- 多模态数据和图均存储在 LanceDB 的磁盘上\n- 表采用延迟读取，或驻留内存\n- 查询使用一致性快照，refresh() 用于获取已提交的变更\n- CSR 以增量方式更新，必要时完整重建\n\n该分支新增的能力\n- Cypher 支持范围足以覆盖全部 14 个 GDC（原 LDBC）交互式复杂查询，包括 OPTIONAL MATCH、EXISTS 和 shortestPath\n- 查询规划从每个模式中筛选能力最强的节点开始\n- 修复继承实现中的正确性问题，每项修复均有回归测试支持\n- 为 Apple Silicon macOS 和 x86-64 Linux 提供预构建的 Python wheel 包\n\n在项目自行开展、未经独立审计的基准测试中（SF1，Apple M5），这 14 个查询在表驻留内存时的运行速度为 Neo4j 的 3.9 倍，使用磁盘上的 Lance 时为 1.8 倍（几何平均值）。\n\n项目有意限定了范围：轻量、可嵌入、单机运行，仅支持 Lance。其他 Rust 项目也提供快速图遍历能力，分布式执行不在本项目范围内。\n\n感谢 Beinan Wang、Chunxu Tang 及 lance-graph 贡献者提供的 Cypher 解析器、语义分析、DataFusion 规划器和 Python 绑定，也感谢 DataFusion 社区。欢迎大家和各自的编程智能体参与贡献。⭐\n\n作者：HDC Labs\n\nhttps://t.co/m9eZEgvLru\n\n#Cypher #DataFusion #LanceDB #Rust #OpenSource #Python #DataScience\n\n--\n\n📩 The Year of the Graph 2026 年秋季通讯已发布！\n\n语义、遍历、推理、行动：面向智能体 AI 的图技术栈。👇\n\nhttps://t.co/YfrPw2nFzS\n\n涵盖 #KnowledgeGraph、#GraphDB、图 #Analytics / #DataScience / #AI 和 #SemTech 的各类资讯。\n\n欢迎订阅并关注，及时获取动态。如希望获得专题介绍，欢迎联系。",
+      "promptVersion": "codex-v1"
+    },
+    "f1111e869aaccc56600b2d359a90d57bc367fcbc30cc250fc76072b25bbd37ae": {
+      "source": "老板们都说好☺️：https://t.co/WRKM19RaRS\n完整调研报告：https://t.co/dF2tMbRTOF\nMCP地址：https://t.co/MAJMOZRqsA https://t.co/6CSKryXH1i",
+      "zh": "老板们都说好☺️：https://t.co/WRKM19RaRS\n完整调研报告：https://t.co/dF2tMbRTOF\nMCP地址：https://t.co/MAJMOZRqsA https://t.co/6CSKryXH1i",
+      "promptVersion": "codex-v1"
+    },
+    "a59b01674ed4fb80109536a97bfec2f7536d85cc21d99452b5011911b8453fa7": {
+      "source": "https://t.co/45SI2x4xWh",
+      "zh": "https://t.co/45SI2x4xWh",
+      "promptVersion": "codex-v1"
+    },
+    "a17bd605a4b7f1e84524c6f383da0ca504b00bb57917e73ccb5be45e8778e8a1": {
+      "source": "https://t.co/3NTmRAORKZ",
+      "zh": "https://t.co/3NTmRAORKZ",
+      "promptVersion": "codex-v1"
+    },
+    "dae83162d8744e7f0591cfbc651dea582967818c077fc8d1dee757b160e433c4": {
+      "source": "@whysugarsweet cli可以调用Image2.5",
+      "zh": "@whysugarsweet 命令行可以调用Image2.5",
+      "promptVersion": "codex-v1"
+    },
+    "e4792f2e993cf968128f9604211baba835c30ab2e146503959da7592069413bd": {
+      "source": "i turned the sperm video into a video game\n\nwith the help of muse wonder full\n\nhttps://t.co/xZy2TjqhNz https://t.co/kS9ojmqaLT",
+      "zh": "我把那个精子视频做成了电子游戏\n\n多亏了 muse wonder full 的帮助\n\nhttps://t.co/xZy2TjqhNz https://t.co/kS9ojmqaLT",
+      "promptVersion": "codex-v1"
+    },
+    "3a21b2cdb85f3dac9f3a02b16082d5862d2864a762c04d80c777b4ba70318514": {
+      "source": "the mcu (muse cinematic universe) is growing\n\ni'm not crying you're crying",
+      "zh": "mcu（muse 电影宇宙）正在壮大\n\n我才没哭，哭的是你",
+      "promptVersion": "codex-v1"
+    },
+    "ef8494b07ea1deee8c4008f5ef17f7bef9a8adb844d78e200b93c18c6f202b1f": {
+      "source": "The whole world was made of cloth, and it was coming apart.\n\nJolly had one thing: a red blanket.\n\nHe gave it to hold the world together. 🧶\n\nWhen the World Came Undone, a Jolly Adventures short https://t.co/3tgit97lJt",
+      "zh": "整个世界都是布做的，如今却开始散开。\n\nJolly 只有一样东西：一条红毯子。\n\n他献出了毯子，把世界重新连在一起。🧶\n\n《当世界散开时》，一部 Jolly Adventures 短片 https://t.co/3tgit97lJt",
+      "promptVersion": "codex-v1"
+    },
+    "4ae19d9aa901415c803620f2f5afa6c8382257e8e4bd7f2d75ec6c775ad76d6b": {
+      "source": "@gdechichi With Flutter and Rust in the mix, I’d check old build folders and caches first. I added a disk map to Mole so you can see what’s actually taking up space before deleting anything.\nhttps://t.co/fXXvnNmu9G",
+      "zh": "@gdechichi 既然用到了 Flutter 和 Rust，我会先检查旧的构建文件夹和缓存。我给 Mole 加了磁盘空间分布图，让你在删除任何内容前，先看清到底是什么在占空间。\nhttps://t.co/fXXvnNmu9G",
+      "promptVersion": "codex-v1"
+    },
+    "df16169ec8a7d6b4cd862b9d22423c6cddc850979852634259a0892efca35d32": {
+      "source": "@OutofGalaxyy “System Data” isn’t much of an explanation when your disk is full. I’d start by finding the biggest folders. My app Mole has a disk map that makes those easier to spot.\nhttps://t.co/fXXvnNmu9G",
+      "zh": "@OutofGalaxyy 磁盘都满了，光说是“系统数据”也解释不了什么。我会先找出最大的文件夹。我开发的 Mole 有磁盘空间分布图，能更方便地找到它们。\nhttps://t.co/fXXvnNmu9G",
+      "promptVersion": "codex-v1"
+    },
+    "0efbab91cd55fe522f0dcd95ec5a2c947c48634499873a6f2b26d45f483a6b6a": {
+      "source": "Malfoy shines so brightly.#Malfoy https://t.co/wLMDEXEXks",
+      "zh": "马尔福真是光彩夺目。#Malfoy https://t.co/wLMDEXEXks",
+      "promptVersion": "codex-v1"
+    },
+    "156f80df8d24aab131d80a3e005f9d4c2ebaec9e8bc51cc94b9d31221898819d": {
+      "source": "Casual outfits for Malfoy. Which one do you prefer?#Malfoy https://t.co/9broQK5DiT",
+      "zh": "马尔福的休闲穿搭，你更喜欢哪一套？#Malfoy https://t.co/9broQK5DiT",
+      "promptVersion": "codex-v1"
+    },
+    "340ef13cb64f4882fb8e55cc14d1025bc85e6c468215cc3cbfbcbb6c92c9ebf9": {
+      "source": "@atiorh @Apple We have had reviews take at most a few hours; nothing too bad",
+      "zh": "@atiorh @Apple 我们遇到的审核最多也就几个小时，还算顺利。",
+      "promptVersion": "codex-v1"
     }
   },
-  "updatedAt": "2026-10-26T23:13:14.290243+00:00"
+  "updatedAt": "2026-10-27T13:04:20.310407+00:00"
 }

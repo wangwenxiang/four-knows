@@ -19,6 +19,13 @@ class ValidatorRecruitmentGuardTests(unittest.TestCase):
         post = {"text": "We released an AI security benchmark and open-source evaluation tooling."}
         self.assertFalse(validator.independently_flags_recruitment(post))
 
+    def test_quoted_application_link_is_blocked(self) -> None:
+        post = {
+            "text": "Highly recommend this program for independent researchers working on cool stuff!",
+            "quotedTweet": {"text": "If you're a researcher with a project, shoot me a DM or apply at https://t.co/HRUiLPRZzT."},
+        }
+        self.assertTrue(validator.independently_flags_recruitment(post))
+
     def test_cultural_ai_playlist_is_blocked_independently_of_selector(self) -> None:
         post = {
             "text": "Honolulu airport has started playing AI-generated island-themed songs on rotation.",

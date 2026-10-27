@@ -223,6 +223,15 @@ def terminate_chrome_process_group(process: subprocess.Popen[Any]) -> None:
         os.killpg(process.pid, signal.SIGTERM)
     except ProcessLookupError:
         return
+    except PermissionError:
+        # macOS can deny signaling Chrome's process group after the native
+        # screenshot has been written. Let an exiting Chrome finish, then
+        # terminate the direct child if it remains alive.
+        try:
+            process.wait(timeout=5)
+            return
+        except subprocess.TimeoutExpired:
+            process.terminate()
     try:
         process.wait(timeout=5)
     except subprocess.TimeoutExpired:
