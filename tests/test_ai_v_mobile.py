@@ -66,6 +66,15 @@ class MobileRadarTests(unittest.TestCase):
             result = radar.fetch_search_full(people, now-timedelta(hours=23), now, 'test', 5, 0, seed)
         self.assertFalse(result['ok'])
 
+    def test_same_window_recovery_reuses_only_complete_account_scan(self):
+        people = [radar.Expert('P1','AI','One','research','test','one'), radar.Expert('P1','AI','Two','research','test','two')]
+        first = {'source':'search', 'ok':True, 'experts':[{'handle':'one'}], 'tweets':[{'id':'1'}]}
+        second = {'source':'timeline', 'ok':True, 'experts':[{'handle':'two'}], 'tweets':[{'id':'2'}]}
+        hotspot = {'source':'x-hotspot-search', 'ok':False, 'experts':[]}
+        self.assertEqual(radar.complete_snapshot_account_results({'results':[first, second, hotspot]}, people), [first, second])
+        self.assertIsNone(radar.complete_snapshot_account_results({'results':[first, first, hotspot]}, people))
+        self.assertIsNone(radar.complete_snapshot_account_results({'results':[first, dict(second, ok=False)]}, people))
+
 
 if __name__ == '__main__':
     unittest.main()

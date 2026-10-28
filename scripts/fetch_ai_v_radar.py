@@ -1013,6 +1013,20 @@ def fetch_search_full(experts, cutoff, until, session, max_pages, retries, seed=
                 splitQueries=sum(child.get('splitQueries', 0) + 1 for child in children))
 
 
+def complete_snapshot_account_results(snapshot, experts):
+    """Reuse a proven complete same-window account scan during recovery."""
+    if not snapshot:
+        return None
+    results = [r for r in snapshot.get('results', []) if r.get('source') != 'x-hotspot-search']
+    expected = {expert.handle.casefold() for expert in experts}
+    seen = []
+    for result in results:
+        if not result.get('ok'):
+            return None
+        seen.extend(str(expert.get('handle') or '').casefold() for expert in result.get('experts', []))
+    return results if len(seen) == len(expected) and set(seen) == expected else None
+
+
 def fetch_hotspot_direction(
     direction: dict[str, Any],
     cutoff: datetime,
@@ -2967,37 +2981,42 @@ def main() -> int:
         ]
     else:
         work_items = experts
-    with concurrent.futures.ThreadPoolExecutor(max_workers=max(1, args.workers)) as pool:
-        if args.fetch_mode == "search":
-            future_map = {
-                pool.submit(
-                    fetch_search_full if MOBILE_REPORT else fetch_search_batch,
-                    batch,
-                    cutoff,
-                    *([now, bird_session, args.search_max_pages, args.retries,
-                       saved_batches.get(tuple(x.handle.casefold() for x in batch))]
-                      if MOBILE_REPORT else [bird_session, args.search_max_pages, args.retries]),
-                ): batch
-                for batch in work_items
-            }
-        else:
-            future_map = {
-                pool.submit(fetch_expert, expert, args.count_per_user, bird_session, args.retries): expert
-                for expert in work_items
-            }
-        completed_count = 0
-        for future in concurrent.futures.as_completed(future_map):
-            result = future.result()
-            results.append(result)
-            completed_count += 1
-            status = "ok" if result["ok"] else "failed"
-            tweet_count = len(result.get("tweets", []))
-            item = future_map[future]
-            label = result["label"] if args.fetch_mode == "timeline" else f"{len(item)} accounts"
-            print(f"[{completed_count:02d}/{len(work_items):02d}] {label}: {status} ({tweet_count} fetched)", flush=True)
+    saved_account_results = complete_snapshot_account_results(snapshot, experts)
+    if saved_account_results is not None:
+        results = saved_account_results
+        print(f"Reusing complete same-window account scan: {len(experts)} accounts", flush=True)
+    else:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max(1, args.workers)) as pool:
+            if args.fetch_mode == "search":
+                future_map = {
+                    pool.submit(
+                        fetch_search_full if MOBILE_REPORT else fetch_search_batch,
+                        batch,
+                        cutoff,
+                        *([now, bird_session, args.search_max_pages, args.retries,
+                           saved_batches.get(tuple(x.handle.casefold() for x in batch))]
+                          if MOBILE_REPORT else [bird_session, args.search_max_pages, args.retries]),
+                    ): batch
+                    for batch in work_items
+                }
+            else:
+                future_map = {
+                    pool.submit(fetch_expert, expert, args.count_per_user, bird_session, args.retries): expert
+                    for expert in work_items
+                }
+            completed_count = 0
+            for future in concurrent.futures.as_completed(future_map):
+                result = future.result()
+                results.append(result)
+                completed_count += 1
+                status = "ok" if result["ok"] else "failed"
+                tweet_count = len(result.get("tweets", []))
+                item = future_map[future]
+                label = result["label"] if args.fetch_mode == "timeline" else f"{len(item)} accounts"
+                print(f"[{completed_count:02d}/{len(work_items):02d}] {label}: {status} ({tweet_count} fetched)", flush=True)
 
     search_fallbacks: list[dict[str, Any]] = []
-    if args.fetch_mode == "search":
+    if args.fetch_mode == "search" and saved_account_results is None:
         if args.search_fallback == "timeline":
             results, search_fallbacks = recover_failed_search_batches(
                 results,
