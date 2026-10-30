@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-10-31T07:00:17.037920+08:00",
+  "windowHours": 23.0,
+  "monitored": 122,
+  "selected": 39,
+  "inputSha256": "ffa05eec187440972cf798c76b91ca9b587a8fd851999f7f7d3ac5f343656765",
+  "copyBackend": "codex exec",
+  "copyAttempts": 1,
+  "copyRetries": 0,
+  "copyError": "",
+  "selectionVersion": "mobile-poster-three-v1",
+  "stories": [
+    {
+      "id": "2116008943126552615",
+      "author": "Xudong Han",
+      "category": "Agent记忆",
+      "title": "Agent记忆越复杂越好？先与原始历史RAG对照",
+      "summary": "据论文转述，部分记忆系统加工历史后反而丢失细节，在所测基准上不及原始历史RAG。建议先做简单基线；使用记忆时保留原文检索通道，再合并重排，结论不宜外推所有任务。"
+    },
+    {
+      "id": "2116059027021172900",
+      "author": "karminski-牙医",
+      "category": "语音工程",
+      "title": "游戏AI队友如何快开口：缓存语音与短决策输出",
+      "summary": "作者实践：常用语音预录、重复回复命中缓存，让模型只输出决策编号后播放对应语音；队列超限时丢弃旧消息，优先播报新战况。约2秒开口为作者自述，未提供统一延迟评测。"
+    },
+    {
+      "id": "2116034909923934396",
+      "author": "姚金刚",
+      "category": "GEO增长",
+      "title": "GEOInflow：把AI抓取、搜索引荐与转化放一起看",
+      "summary": "作者介绍的MIT开源系统，将爬虫日志、内容目录、AI搜索引荐与转化汇总分析；本轮修正访客计数、改善Cloudflare日志接入，支持Docker部署。核心统计无需模型密钥，抓取记录不等于收录或推荐。"
+    }
+  ]
+}
