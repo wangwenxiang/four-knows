@@ -3037,10 +3037,22 @@ def main() -> int:
             ]
     results.sort(key=lambda item: item["label"].casefold())
     hotspot_results: list[dict[str, Any]] = []
-    if snapshot:
-        hotspot_results = [r for r in snapshot['results'] if r.get('source') == 'x-hotspot-search']
-    if hotspot_directions and not snapshot:
-        print(f"Searching X hotspots in {len(hotspot_directions)} directions with Bird...", flush=True)
+    saved_hotspots = {
+        str(r.get('hotspotDirection')): r
+        for r in (snapshot or {}).get('results', [])
+        if r.get('source') == 'x-hotspot-search'
+    }
+    pending_hotspots = [
+        direction for direction in hotspot_directions
+        if not saved_hotspots.get(str(direction['id']), {}).get('ok')
+    ]
+    hotspot_results.extend(
+        saved_hotspots[str(direction['id'])]
+        for direction in hotspot_directions
+        if saved_hotspots.get(str(direction['id']), {}).get('ok')
+    )
+    if pending_hotspots:
+        print(f"Searching X hotspots in {len(pending_hotspots)} directions with Bird...", flush=True)
         with concurrent.futures.ThreadPoolExecutor(max_workers=min(5, max(1, args.workers))) as pool:
             future_map = {
                 pool.submit(
@@ -3051,10 +3063,17 @@ def main() -> int:
                     args.hotspot_max_pages,
                     args.retries,
                 ): direction
-                for direction in hotspot_directions
+                for direction in pending_hotspots
             }
             for future in concurrent.futures.as_completed(future_map):
                 result = future.result()
+                previous = saved_hotspots.get(str(result['hotspotDirection']))
+                if previous:
+                    result['recoveryAttempts'] = list(previous.get('recoveryAttempts') or []) + [{
+                        'ok': previous.get('ok'),
+                        'error': previous.get('error'),
+                        'attempts': previous.get('attempts'),
+                    }]
                 hotspot_results.append(result)
                 status = "ok" if result["ok"] else "failed"
                 print(f"[hotspot] {result['label']}: {status} ({len(result.get('tweets', []))} fetched)", flush=True)
@@ -3068,6 +3087,25 @@ def main() -> int:
         "fetchStartedAt": now.isoformat(), "windowStart": cutoff.isoformat(),
         "results": candidate_results,
     })
+    if any(not result.get('ok') for result in results) or any(not result.get('ok') for result in hotspot_results):
+        output_dir = args.output_root / now.astimezone(SHANGHAI).strftime("%Y%m%d")
+        output_dir.joinpath('data').mkdir(parents=True, exist_ok=True)
+        write_json_atomic(output_dir / 'data' / 'failed-run-report.json', {
+            'fetchStartedAt': now.isoformat(),
+            'windowStart': cutoff.isoformat(),
+            'windowHours': args.hours,
+            'status': 'blocked',
+            'blockedStage': 'acquisition',
+            'accountsRequested': len(experts),
+            'accountsSucceeded': sum(len(result.get('experts', [])) for result in results if result.get('ok')),
+            'accountsFailed': sum(len(result.get('experts', [])) for result in results if not result.get('ok')),
+            'xHotspotSearch': {
+                'directionsRequested': len(hotspot_directions),
+                'directionsSucceeded': sum(bool(result.get('ok')) for result in hotspot_results),
+                'directionsFailed': sum(not result.get('ok') for result in hotspot_results),
+            },
+        })
+        raise RuntimeError('Acquisition incomplete; saved snapshot for same-window recovery')
     editorial_audit: dict[str, Any] = {"enabled": False}
     final_quality: dict[str, Any] | None = None
     if args.editorial_ai:

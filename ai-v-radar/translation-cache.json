@@ -17838,7 +17838,77 @@
       "source": "We just released a technical report on the training of ML4",
       "zh": "我们刚刚发布了一份关于 ML4 训练的技术报告",
       "promptVersion": "codex-v1"
+    },
+    "28e7884b060da33ebc2708665e0845caabad8c2f0089212b44c1d5e9720bf95f": {
+      "source": "OCRia-1 is one of the fastest models ever for doc parsing. We sped up OCRia-1 by 10x on a single B200 (285 tok/s  --> 2800 tok/s). \n\nthere are a ton of useful learnings in this extremely detailed blog post for anyone looking to optimize models!\n\n* we made use of established practices, like quantization and spec decoding (dflash2), to simultaneously reduce memory usage and increase tokens per second\n* we made 17 other optimizations - replaySSM, kernel fusion, vLLM changes, and more.\n\nHuge shoutout to our research team. They've made it possible for us to serve billions of pages at scale. We've continuing to make massive improvements to bring down latency across the board in LlamaParse. \n\nCheck it out: https://t.co/WTvW4mFMfR",
+      "zh": "OCRia-1 是迄今文档解析速度最快的模型之一。我们在单张 B200 上将 OCRia-1 提速了 10 倍（285 tok/s → 2800 tok/s）。\n\n这篇极其详尽的博文为所有想优化模型的人提供了大量实用经验！\n\n* 我们采用了量化、推测解码（dflash2）等成熟方法，同时降低内存占用并提高每秒生成的 token 数。\n* 我们还进行了另外 17 项优化，包括 replaySSM、内核融合、vLLM 改进等。\n\n特别感谢我们的研究团队，让我们能够大规模处理数十亿页文档。我们还在持续大幅改进，全面降低 LlamaParse 的延迟。\n\n详情：https://t.co/WTvW4mFMfR",
+      "promptVersion": "codex-v1"
+    },
+    "cfcffff6f2c9958ab5c26f01e5e1729d140aff95a74b81a7115f5f8e98911022": {
+      "source": "We got OCRia-1 generating tokens nearly 10× faster on a single B200.\n\nGetting there meant making much better use of the same GPU. We tuned how OCRia-1 runs for the demands of document parsing, testing every change for both speed and accuracy.\n\nSome improvements were only 2–5%. Seventeen smaller optimizations later, “just a few percent” starts adding up.\n\nOur infrastructure team wrote up what worked, how they tested the changes, and what they learned about making document models run faster.\n\nWe also plan to contribute some of these optimizations back to the open-source vLLM project. Read the full breakdown →\nhttps://t.co/mBKLljd5MF\n\nWatch the video below to see OCRia-1’s token generation before and after the optimizations.",
+      "zh": "我们让 OCRia-1 在单张 B200 上的 token 生成速度提升了近 10 倍。\n\n实现这一提升，靠的是更充分地利用同一张 GPU。我们针对文档解析的需求调整了 OCRia-1 的运行方式，并对每项改动的速度和准确性进行了测试。\n\n有些改进只能提速 2%–5%。但经过 17 项小优化后，这些“区区几个百分点”也积累出了显著效果。\n\n我们的基础设施团队撰文介绍了哪些方法有效、如何测试这些改动，以及在加速文档模型方面获得的经验。\n\n我们还计划将其中部分优化贡献给开源 vLLM 项目。阅读全文 →\nhttps://t.co/mBKLljd5MF\n\n观看下方视频，对比 OCRia-1 优化前后的 token 生成速度。",
+      "promptVersion": "codex-v1"
+    },
+    "5667ab682210901e0c212e5dcbcff4e7f59e60565b4182a374d845329604cb6b": {
+      "source": "Critical thinking when agents do the work",
+      "zh": "当智能体代劳时，如何保持批判性思维",
+      "promptVersion": "codex-v1"
+    },
+    "b671062c3f1fd014771c680db61f3567ad4d80417e56a0644b17df4c01751b2c": {
+      "source": "Back in the day, critical thinking was taught as approaching new info with humble curiosity and a healthy dose of skepticism - take in different views, form your own opinion. Still true, but",
+      "zh": "过去，我们学到的批判性思维，是以谦逊、好奇和适度怀疑的态度看待新信息——听取不同观点，形成自己的判断。这依然适用，但",
+      "promptVersion": "codex-v1"
+    },
+    "618f3302f727e35494553e7c478aba1df6efd13ec823f8252a94e3b50ae5a2f3": {
+      "source": "Perplexity's agent harness (Computer) now supports Agent Plugins. This lets you operate at an abstraction level above individual connectors to app bundles and their corresponding skills.",
+      "zh": "Perplexity 的智能体运行框架 Computer 现已支持 Agent Plugins。这让你可以在更高的抽象层级上操作，直接使用应用组合及其配套技能。",
+      "promptVersion": "codex-v1"
+    },
+    "9def703a28173ac02f22ced3793c4308232b4d223f0a832e1f1d0fed9d57060a": {
+      "source": "Computer now supports Agent Plugins, packaging app connections and skills to get work done.\n\nBrowse plugins or bring your own by importing from GitHub or a .zip file, compatible across other agents.\n\nTry it: https://t.co/JZyI5oywh2 https://t.co/wlNCMH55W6",
+      "zh": "Computer 现已支持 Agent Plugins，将应用连接和技能打包，帮助你完成工作。\n\n你可以浏览现有插件，也可以从 GitHub 或 .zip 文件导入自己的插件，并在其他智能体中兼容使用。\n\n立即体验：https://t.co/JZyI5oywh2 https://t.co/wlNCMH55W6",
+      "promptVersion": "codex-v1"
+    },
+    "e7a9945ff84efd3e6b67caa256268fc1ca852d153224c84c0749e03ac54f7246": {
+      "source": "We built Pando, a new Git backend for our monorepo, to handle more pushes and fetches without changing how our engineers and agents use Git.\n\nPando cut push latency by ~80% and now serves nearly a petabyte of Git data a day. We can grow Git capacity alongside agent usage. https://t.co/4c0YXOfKqK",
+      "zh": "我们为 monorepo 构建了新的 Git 后端 Pando，在不改变工程师和智能体使用 Git 方式的前提下，支持更多推送和拉取操作。\n\nPando 将推送延迟降低了约 80%，目前每天提供近 1 PB 的 Git 数据。我们可以随着智能体使用量的增长，同步扩展 Git 容量。https://t.co/4c0YXOfKqK",
+      "promptVersion": "codex-v1"
+    },
+    "59c5987f22a71c49a38214662b1440e35f1fc3ef429a4c363b897e838292ac65": {
+      "source": "we gave our AI an eye for detail. 👀\n\nMeet WeVisOne-VL, an open-source 2B/4B model from our Weixin Vision team.\n\nIt finds and counts objects, reads text, and makes precise masks and cutouts—no separate SAM needed.\n\nNot in the image? \"None.\"\n\nhttps://t.co/3czUQ4Fu5m",
+      "zh": "我们让 AI 拥有了洞察细节的眼力。👀\n\n认识一下 WeVisOne-VL：微信视觉团队推出的开源模型，提供 2B/4B 两种规模。\n\n它能查找和统计物体、识别文字，还能生成精确的掩码并抠图，无需额外使用 SAM。\n\n图中没有目标？它会回答“没有”。\n\nhttps://t.co/3czUQ4Fu5m",
+      "promptVersion": "codex-v1"
+    },
+    "1ca10d80dc29cbb9238da2aebde384c6d366ee589f7c8769614072094f9800d9": {
+      "source": "Amazing BenchmarkGate [1] reveal by @xeophon where he found serious (even comical) problems in popular benchmarks:\n\nAutomationBench: \"[forces the models to] describe their request bodies in prose rather than in JSON Schema\" 😅\n\nHe also fixed a number issues with the grader, which when combined with the above result in a near saturation of the benchmark!\n\nOfficeQA Pro v2:  the grader uses a regex and Python-based extraction, which results in rejecting many valid answers.  Additionally, there is evidence of models using web access to retrieve the answer key from HuggingFace (receipts are in the post). \n\nWith these and other fixes, this again results in near saturation of the benchmark!\n\nIt's very impt to look at data and not trust metrics from third parties.  Better yet, you should rely on your own private evals.\n\n[1] BenchmarkGate: the gap between the  [un]trustworthiness of benchmarks and the extent to which people rely on them.",
+      "zh": "@xeophon 对 BenchmarkGate [1] 的揭露令人震惊：他发现，一些热门基准测试存在严重、甚至荒唐的问题：\n\nAutomationBench：“[强制模型]用自然语言描述请求体，而不是使用 JSON Schema。”😅\n\n他还修复了评分器的多个问题。这些修复加上上述问题的解决，让模型在这项基准测试上的得分接近满分！\n\nOfficeQA Pro v2：评分器使用正则表达式和 Python 提取答案，导致许多有效答案被判错。此外，还有证据表明，模型通过联网从 HuggingFace 获取了标准答案（帖子中附有证据）。\n\n修复这些及其他问题后，模型在这项基准测试上的得分也接近满分！\n\n查看实际数据非常重要，不能盲信第三方指标。更好的做法是依靠自己的私有评测。\n\n[1] BenchmarkGate：基准测试的可信程度与人们对它的依赖程度之间的落差。",
+      "promptVersion": "codex-v1"
+    },
+    "8478fbe87f2fe6490a7236d141c466f98858fea63a603ff6f7ce4367c5487256": {
+      "source": "Public evaluations are foundational for assessing model capabilities.\n\nWe looked at some popular evaluations and found issues, which we fixed.\n\nSharing our findings: https://t.co/jHQc7jxcDR",
+      "zh": "公开评测是衡量模型能力的基础。\n\n我们检查了一些热门评测，发现并修复了其中的问题。\n\n这里分享我们的发现：https://t.co/jHQc7jxcDR",
+      "promptVersion": "codex-v1"
+    },
+    "1e67d2b7e5a075329989da4f5d683889519417f2cecedf26cc8f105c94d0ef61": {
+      "source": "Are Agents soon going to have only 1 tool? We went from a handful of tools, to dynamic tool search, and now to collapsing everything into code mode. \n\nWrote down how Code Mode works, why a typed JS/Python sandbox can beat raw bash, and why MCP is going to go back strong in 2027.  With an a minimal example for Gemini 4 Argon.\n\nhttps://t.co/IsS9QfEmuD\n\nIf you plan to explore code mode i can recommend testing with pi! Easily hackable and comes with strong foundation.",
+      "zh": "智能体很快就只需要一个工具了吗？我们从少量工具发展到动态工具搜索，如今又把一切整合进代码模式。\n\n我写了一篇文章，介绍 Code Mode 如何工作、为什么带类型的 JS/Python 沙箱能胜过直接使用 bash，以及为什么 MCP 将在 2027 年强势回归。文中还附有一个适用于 Gemini 4 Argon 的最简示例。\n\nhttps://t.co/IsS9QfEmuD\n\n如果你打算探索代码模式，我推荐用 pi 试试！它易于修改扩展，基础也很扎实。",
+      "promptVersion": "codex-v1"
+    },
+    "515e47298548b982aad51e6b83865b8da3cccd15fb9102f161ae474aac3bf0e9": {
+      "source": "Users can now auto-connect plugins when they log in to Claude, with MCP servers that accept Claude as a trusted issuer.\n\nIf you’re building plugins for Claude, add support so users get started faster and stay connected without re-authorizing. https://t.co/ZHoBKoXHlc",
+      "zh": "只要 MCP 服务器将 Claude 视为可信的签发方，用户现在就能在登录 Claude 时自动连接插件。\n\n如果你正在为 Claude 开发插件，请添加这项支持，让用户更快上手，并持续保持连接，无需重新授权。https://t.co/ZHoBKoXHlc",
+      "promptVersion": "codex-v1"
+    },
+    "59d383c5275121078ada7da4649751b6848ff3bc69640be88017f72f2a12e153": {
+      "source": "i've reproduced the results from the MIT blog post today on weight-space programming. but one additional result i have to add: this is a new, step-change emerging capability that's appeared in just the latest set of models. https://t.co/EhMsQaaOkL",
+      "zh": "我复现了 MIT 今天关于权重空间编程的博文中的结果。但我还要补充一个发现：这是一项新涌现的能力，带来了跃迁式提升，而且只出现在最新一批模型中。https://t.co/EhMsQaaOkL",
+      "promptVersion": "codex-v1"
+    },
+    "957fc43c05e92ad91f5d4c480bbd2e427b822c436026aecdc9a78b4d4521e904": {
+      "source": "New Anthropic research: progress on provable inference for large language models.\n\nHere, we introduce FlashProve. Building on established cryptographic techniques, FlashProve allows developers to verify whether a given response came from a given AI model. It’s substantially more efficient than prior open-source methods for doing so. \n\nThese proofs have a range of applications. They can, for instance, make it harder for attackers to hijack a chat, or enable safety evaluators to verify that the model they’re testing is the same one being served to customers.\n\nFor our full write-up, see here: https://t.co/OIZWPb6QZa\n\nFurther progress in provable inference will likely be an important part of improving trust in AI deployment. To that end, we're open-sourcing FlashProve’s code, here: https://t.co/7ky3Ir8V06\n\nWe’re grateful to our collaborators: Alessandro Chiesa, @GiacomoFenzi, @gwberg95, @miranda__christ, Rahul Dalal (https://t.co/pjWKLHWXyz) and Ben Mayer (@transmissions11).",
+      "zh": "Anthropic 最新研究：大语言模型可证明推理取得进展。\n\n我们推出了 FlashProve。它基于成熟的密码学技术，让开发者能够验证某个回答是否确实来自指定的 AI 模型，效率显著高于此前的同类开源方法。\n\n这些证明有多种用途。例如，它们可以增加攻击者劫持对话的难度，也能帮助安全评测人员确认，自己测试的模型与实际向客户提供服务的模型一致。\n\n完整文章见：https://t.co/OIZWPb6QZa\n\n可证明推理的进一步发展，很可能成为提升 AI 部署可信度的重要一环。为此，我们开源了 FlashProve 的代码：https://t.co/7ky3Ir8V06\n\n感谢我们的合作者：Alessandro Chiesa、@GiacomoFenzi、@gwberg95、@miranda__christ、Rahul Dalal（https://t.co/pjWKLHWXyz）和 Ben Mayer（@transmissions11）。",
+      "promptVersion": "codex-v1"
     }
   },
-  "updatedAt": "2026-11-02T23:20:25.710922+00:00"
+  "updatedAt": "2026-11-03T23:24:47.635698+00:00"
 }
