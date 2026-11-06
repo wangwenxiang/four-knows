@@ -8,7 +8,7 @@
   .subtitle{margin-top:1px;color:#5d616a;font-size:20px;font-weight:800;letter-spacing:.1px}
   .stats{display:flex;gap:8px} .stat{display:grid;place-items:center;min-width:96px;height:56px;padding:4px 12px;border:2px solid #151519;border-radius:15px;background:#fff;font-weight:900}
   .stat:first-child{background:#151519;color:#fff} .stat strong{font-size:28px;line-height:.8} .stat small{font-size:12px;line-height:1}
-  main{height:842px;padding-top:10px;display:grid;grid-template-rows:271px 271px 270px;gap:10px}
+  main{height:842px;padding-top:10px;display:grid;grid-template-rows:247px 317px 248px;gap:10px}
   .story{display:grid;grid-template-columns:118px minmax(0,1fr);align-items:center;min-height:0;padding:8px 30px 8px 20px;border:2px solid #e0e2e7;border-radius:18px;background:rgba(255,255,255,.76)}
   .portrait{position:relative;display:grid;place-items:center} .avatar{display:grid;place-items:center;width:92px;height:92px;overflow:hidden;border:4px solid #151519;border-radius:50%;background:#111827;color:#fff;font-size:32px;font-weight:900}
   .avatar img{width:100%;height:100%;object-fit:cover;transform:scale(1.08)} .portrait b{position:absolute;right:0;bottom:-5px;display:grid;place-items:center;width:35px;height:35px;border:3px solid #151519;border-radius:50%;background:#fff;font-size:18px}
@@ -16,26 +16,26 @@
   h2{display:-webkit-box;max-height:2.12em;margin:0;overflow:hidden;overflow-wrap:anywhere;font-size:var(--headline-size,56px);line-height:1.06;font-weight:950;letter-spacing:-1.8px;-webkit-box-orient:vertical;-webkit-line-clamp:2} .story p{margin:3px 0 0;overflow-wrap:anywhere;color:#5d626b;font-size:30px;line-height:1.1;font-weight:750;white-space:normal}
   .story--sparse p{font-size:34px;line-height:1.1} .story--dense p{font-size:27px;line-height:1.08}
   .story--quote p{white-space:normal}
-</style></head><body><div class="poster"><header><div><h1>硅谷 AI 原声 <span>| 10/31</span></h1><div class="subtitle">全球核心专家动态精选 · 最近 23 小时</div></div><div class="stats"><div class="stat"><strong>122</strong><small>人监控</small></div><div class="stat"><strong>39</strong><small>条精选</small></div></div></header><main><article class="story story--balanced" style="--headline-size:68px">
+</style></head><body><div class="poster"><header><div><h1>硅谷 AI 原声 <span>| 11/7</span></h1><div class="subtitle">全球核心专家动态精选 · 最近 23 小时</div></div><div class="stats"><div class="stat"><strong>122</strong><small>人监控</small></div><div class="stat"><strong>34</strong><small>条精选</small></div></div></header><main><article class="story story--balanced" style="--headline-size:75px">
         <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/1327292688736034816/vJTxjjLU_normal.jpg" alt="Xudong Han"></div><b>1</b></div>
         <div class="story-body">
-          <div class="byline"><strong>Xudong Han</strong><em>Agent记忆</em><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
-          <h2>Agent记忆越复杂越好？先与原始历史RAG对照</h2>
-          <p>据论文转述，部分记忆系统加工历史后反而丢失细节，在所测基准上不及原始历史RAG。建议先做简单基线；使用记忆时保留原文检索通道，再合并重排，结论不宜外推所有任务。</p>
+          <div class="byline"><strong>Xudong Han</strong><em>Agent研究</em><span>@Xudong07452910 · University of Sussex 博士生；LLM 与 AI Agents</span></div>
+          <h2>长时Agent不必背全历史？先压缩当前状态</h2>
+          <p>据论文转述，将进度、发现与计划压成短状态，原始历史按需读取；在6个长时任务上准确率基本稳定，估算推理成本最高降约8.8倍，结论限于所测模型与任务。</p>
+        </div>
+      </article><article class="story story--balanced story--quote" style="--headline-size:60px">
+        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/1963499609017495553/kuzkS82V_normal.jpg" alt="木马人"></div><b>2</b></div>
+        <div class="story-body">
+          <div class="byline"><strong>木马人</strong><em>远程协作</em><span>@cnyzgkc · 内容、视觉与多模态实践与观察</span></div>
+          <h2>Agents Anywhere 2.1：手机接管Codex原会话审批</h2>
+          <p>据作者介绍，手机可跟随电脑上已有的Codex桌面端或IDE会话处理审批，并查看文件与终端；支持Docker自托管。任务仍在电脑运行，须保持在线，不同Agent接管深度有差异。</p>
         </div>
       </article><article class="story story--balanced" style="--headline-size:67px">
-        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/1071225168360427520/2tY0hY6b_normal.jpg" alt="karminski-牙医"></div><b>2</b></div>
+        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/1998970271458537475/jcT0J2z6_normal.jpg" alt="huangserva"></div><b>3</b></div>
         <div class="story-body">
-          <div class="byline"><strong>karminski-牙医</strong><em>语音工程</em><span>@karminski3 · 模型、研究与推理实践与观察</span></div>
-          <h2>游戏AI队友如何快开口：缓存语音与短决策输出</h2>
-          <p>作者实践：常用语音预录、重复回复命中缓存，让模型只输出决策编号后播放对应语音；队列超限时丢弃旧消息，优先播报新战况。约2秒开口为作者自述，未提供统一延迟评测。</p>
-        </div>
-      </article><article class="story story--balanced story--quote" style="--headline-size:62px">
-        <div class="portrait"><div class="avatar"><img src="https://pbs.twimg.com/profile_images/2039226063088463872/_zw7eSeM_normal.jpg" alt="姚金刚"></div><b>3</b></div>
-        <div class="story-body">
-          <div class="byline"><strong>姚金刚</strong><em>GEO增长</em><span>@yaojingang · 出海、SEO 与增长实践与观察</span></div>
-          <h2>GEOInflow：把AI抓取、搜索引荐与转化放一起看</h2>
-          <p>作者介绍的MIT开源系统，将爬虫日志、内容目录、AI搜索引荐与转化汇总分析；本轮修正访客计数、改善Cloudflare日志接入，支持Docker部署。核心统计无需模型密钥，抓取记录不等于收录或推荐。</p>
+          <div class="byline"><strong>huangserva</strong><em>视觉制作</em><span>@servasyy_ai · 出海、SEO 与增长实践与观察</span></div>
+          <h2>ComfyUI角色制作：换脸、姿势、服装分段控制</h2>
+          <p>三路参考图按换头、换姿势、换装串联，各设独立开关，附可复用工作流JSON。作者实测换装偶有色差；代码虽为MIT开源，第三方图库另有授权限制，商用与分发须核对。</p>
         </div>
       </article></main></div><script>
   // Full source translations take precedence over the usual subtitle size.

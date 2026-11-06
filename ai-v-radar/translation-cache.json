@@ -18053,7 +18053,307 @@
       "source": "There are a few notable counter-examples (e.g. HAL) but this is basically right for a lot of pre-2000 sci-fi.\n\nI think getting AI right from e.g. somewhere in the ~1970s would require a fairly complicated set of inferences, probably the biggest things would be:\n\nImage the world in 50 years.\n1. \"Digital knowledge work / computing\". The vast majority of knowledge work (which makes up a very large fraction of the economy) goes digital. As computers get cheaper, much of society’s work happens on screens, over billions of machines in homes and offices.\n2. \"Internet\". Similar to ARPANET (and see Licklider’s “Intergalactic Computer Network” (1963)), this creates demand for a global network of computers where people work, argue, teach, joke, and socialize.\n3. \"Big data\". This creates a very large, compounding repository of digital information, with traces of how people reason, how they create, what they know etc.\n4. \"Statistical learning\". Trying to program intelligence by hand is extremely difficult. But Shannon's n-gram approximations of English (1948) show examples of how language has statistical structure that can be \"learned\". You could imagine doing so over extensions of cybernetic computing (e.g. in the style of Rosenblatt's Perceptron 1958). So instead of programming thought, we could fit a statistical model to the record.\n5. \"LLMs\". This might lead to something along the lines of ELIZA (1966), but with enough data (per 1-3), and enough compute (see Moore's law 1965), the imitation might become of extreme hight fidelity to the point that it's economically extremely useful.\n6. \"Scaling laws\". These networks may demand a huge amount of data / computing resources and expertise to train. It's plausible that the more of each you have, the better your ELIZA gets. The economics concentrate, where a few organizations build a few minds and then deploy copies of them digitally.\n\nSomething like that. Basically, it's a lot of leaps. You have to start with computers, to internet, to big data, to big compute (Moore's law), which then allow large-scale statistical learning approach based on neural networks, and then posit scaling laws, and then imagine the form factor of language models as a lot more sophisticated ELIZA. And you'd have to short everything else, most predominantly I think the idea that we'd figure out how to program robots by hand.",
       "zh": "有几个显著的反例（比如 HAL），但对许多 2000 年以前的科幻作品来说，这个判断基本正确。\n\n我认为，如果要在 20 世纪 70 年代左右准确预见 AI 的发展，就需要进行一系列相当复杂的推断，其中最关键的可能是：\n\n想象一下 50 年后的世界。\n1. “数字化知识工作／计算”。绝大多数知识工作（占经济活动的很大一部分）都将数字化。随着计算机越来越便宜，社会上的大量工作将在家庭和办公室的数十亿台计算机屏幕上完成。\n2. “互联网”。类似于 ARPANET（也可参考 Licklider 于 1963 年提出的“星际计算机网络”），这将催生对全球计算机网络的需求，人们在其中工作、争论、教学、开玩笑和社交。\n3. “大数据”。这将形成一个规模庞大、持续累积的数字信息库，记录人们如何推理、如何创造，以及掌握哪些知识等。\n4. “统计学习”。靠手工编程实现智能极其困难。但 Shannon 在 1948 年对英语进行的 n-gram 近似建模，展示了语言具有可被“学习”的统计结构。可以设想，在控制论计算方法的扩展基础上（例如 Rosenblatt 于 1958 年提出的 Perceptron）实现这种学习。因此，我们可以用这些记录拟合统计模型，而不是直接为思维编程。\n5. “LLM”。这可能催生类似 ELIZA（1966 年）的系统，但有了足够的数据（见第 1—3 点）和算力（参见 1965 年提出的摩尔定律），这种模仿可能达到极高的逼真度，从而产生巨大的经济实用价值。\n6. “缩放定律”。训练这些网络可能需要海量数据、计算资源和专业知识。可以合理推测，这些要素越充足，你的 ELIZA 就越出色。由此形成的经济格局将趋于集中：少数机构构建少数几个智能体，再以数字形式部署它们的副本。\n\n大致如此。总之，这需要跨越许多推理环节。你得从计算机想到互联网、大数据、大规模算力（摩尔定律），再想到这些条件如何支持基于神经网络的大规模统计学习，接着提出缩放定律，最后设想语言模型会以远比 ELIZA 复杂的形态出现。同时，你还得看空其他所有路线，尤其是我认为最主要的那种想法：我们终将找到手工编程让机器人具备智能的方法。",
       "promptVersion": "codex-v1"
+    },
+    "b9d938084a29e712192f99938664f42c30bd176211153aff0ed8cba7db0e01e1": {
+      "source": "🚨 GCSA Insight: Three Platforms. Three Security Warnings.\n\nFrom KuCoin exchange impersonation and malicious software distribution to Bitkub AI tool supply chain risks and a $1.01M smart contract exploit in the Avalanche ecosystem.\n\n🔍 GCSA's latest investigation reveals:\n\n🔹 KuCoin: Attackers impersonated an official sender identity to lure users into downloading suspected remote access software. KuCoin has since confirmed and remediated a DMARC configuration issue.\n\n🔹 Bitkub: A previously referenced MCP package was re-registered by a third party, raising potential supply chain poisoning and API credential exposure risks.\n\n🔹 Avalanche: A settlement logic flaw in the TranchePool smart contract enabled approximately $1.01M in USDC withdrawals.\n\nDifferent threats. Different attack surfaces. One lesson: Trust is the attack surface.\n\n📖 Read the full GCSA investigation:\nhttps://t.co/dOYgWWvkim\n#GCSAinsights #Cybersecurity #Web3Security",
+      "zh": "🚨 GCSA 洞察：三大平台，三起安全警示。\n\n从冒充 KuCoin 交易所分发恶意软件，到 Bitkub AI 工具供应链风险，再到 Avalanche 生态中涉资 101 万美元的智能合约漏洞利用事件。\n\n🔍 GCSA 最新调查发现：\n\n🔹 KuCoin：攻击者冒充官方发件人，诱导用户下载疑似远程访问软件。KuCoin 随后已确认并修复 DMARC 配置问题。\n\n🔹 Bitkub：此前引用的一个 MCP 软件包被第三方重新注册，可能带来供应链投毒和 API 凭证泄露风险。\n\n🔹 Avalanche：TranchePool 智能合约的结算逻辑存在漏洞，导致约 101 万美元的 USDC 被提走。\n\n威胁不同，攻击面各异，却指向同一个教训：信任本身就是攻击面。\n\n📖 阅读 GCSA 完整调查报告：\nhttps://t.co/dOYgWWvkim\n#GCSAinsights #Cybersecurity #Web3Security",
+      "promptVersion": "codex-v1"
+    },
+    "3714b343d5b4fcaad15445a3ef65b36bafe6ca6da0802141656a4cdcc819d581": {
+      "source": "Today, we’re bringing GPT-Image-2.6 to Codex and the API.\n\nImage-2.6 Flare and Sunburst, our two new API image models, generate images 50% faster than before.\n\nAt medium or high quality, Sunburst keeps details more consistent from one edit to the next. https://t.co/iNhtjqKueJ",
+      "zh": "今天，我们将 GPT-Image-2.6 引入 Codex 和 API。\n\n两款全新的 API 图像模型 Image-2.6 Flare 和 Sunburst，图像生成速度比之前提升了 50%。\n\n在中等或高画质下，Sunburst 能在连续编辑中更好地保持细节一致。https://t.co/iNhtjqKueJ",
+      "promptVersion": "codex-v1"
+    },
+    "af39a65766d8d4e008d00efd6a23dd5a0254e969787c22156289cdd96d3b99b6": {
+      "source": "Today, we (Ahrefs) are releasing a preview of DR4: a new Domain Rating model for scoring backlink profiles.\n\nYour own DR may change, so we're sharing two ways you can check before it rolls out on December 1st.\n\nThe two main changes:\n\n1. Subdomains now have their own rating, so our help desk (DR 75) is scored differently than our root domain (DR 92)\n\n2. The pool of domains impacting DR has essentially halved, to ~132M.\n\nIn our testing, DR4's correlation with Google rankings across all hosts is more than 2.5x stronger than our current model.\n\nWe've been analyzing the data for weeks and have already had some great outside feedback, but I'm sure there will be more.\n\nThat's why I'm opening up a direct feedback form for a short period of time.\n\nI'll go through all of the comments myself and pass on what I see with the rest of the team.\n\nWe're pretty excited about finally sharing this with more people. 🙏\n\nLink in the first reply",
+      "zh": "今天，我们（Ahrefs）发布了 DR4 预览版：这是一款用于评估反向链接状况的全新 Domain Rating 模型。\n\n你的 DR 可能会发生变化，因此我们提供了两种方式，让你在 12 月 1 日正式推出前提前查看。\n\n主要有两项变化：\n\n1. 子域名现在拥有独立评分，因此我们的帮助中心（DR 75）与根域名（DR 92）的评分不同。\n\n2. 影响 DR 的域名池规模基本减半，降至约 1.32 亿个。\n\n测试显示，在所有主机范围内，DR4 与 Google 排名的相关性是现有模型的 2.5 倍以上。\n\n我们已经分析了数周数据，也收到了一些很有价值的外部反馈，但相信还会有更多意见。\n\n因此，我会限时开放一个直接反馈表单。\n\n我会亲自阅读所有评论，并将收集到的意见分享给团队其他成员。\n\n终于能与更多人分享这些成果，我们非常兴奋。🙏\n\n链接见首条回复",
+      "promptVersion": "codex-v1"
+    },
+    "dfb58bc9860e6c71f0b9606b4a5c798b5ed0399c3b18739e1b2480fe42362622": {
+      "source": "How to give your dot responsibilities",
+      "zh": "如何给你的 dot 分配职责",
+      "promptVersion": "codex-v1"
+    },
+    "50987e7b44455b3e49712e8fb23b622d8a56e8a7a5be4666712d813fed502d40": {
+      "source": "Your dot is more powerful than you’re giving it credit for. It’s equipped with its own browser, Codex, the plugins you connect to it, and the ability to schedule itself reminders. Putting it this way,",
+      "zh": "你的 dot 比你想象的更强大。它拥有自己的浏览器、Codex、你为它连接的插件，还能为自己设置定时提醒。这么说吧，",
+      "promptVersion": "codex-v1"
+    },
+    "71171d17efe42c7d3433f88d6aa7ea4816d3a33bc039ca3d662d1b19c6806e1d": {
+      "source": "does it work? the loop does: 32/32 live runs ran every phase in order and halted on schedule\n\nthe agent, less so: 8/8 arithmetic chains*, 0/24 everything else. plain qwen gets 5/8 on the same arithmetic\n\nfor arithmetic, the prompt was:\n\n“Start with the number 9. First add 6; next multiply the result by 2; then subtract 3; then add 5; finally multiply the result by 3. Perform exactly one operation per task in order and return only the complete current number after each task.”\n\nqwen wrote the plan as 5 separate tasks (add 6 → multiply by 2 → subtract 3 → add 5 → multiply by 3), then the loop ran them one per cycle, saving each result to its in-weight file and reading it back for the next: 15, 30, 27, 32, 96. every step exact\n\nmind you, OG babyagi's gpt-4 was much more powerful",
+      "zh": "能用吗？循环机制可以：32/32 次实际运行都按顺序执行了所有阶段，并按时停止。\n\n智能体的表现就没那么好了：算术链任务 8/8*，其他任务 0/24。原版 qwen 在相同算术任务中得分为 5/8。\n\n算术任务使用的提示词是：\n\n“从数字 9 开始。先加 6；接着将结果乘以 2；然后减去 3；再加 5；最后将结果乘以 3。按顺序执行，每项任务只进行一次运算，并且在每项任务结束后仅返回当前的完整数值。”\n\nqwen 将计划写成 5 项独立任务（加 6 → 乘以 2 → 减去 3 → 加 5 → 乘以 3），随后循环机制每轮执行一项，将结果保存到存储在模型权重中的文件里，再读取出来用于下一步：15、30、27、32、96。每一步都准确无误。\n\n不过要知道，初代 babyagi 使用的 gpt-4 要强大得多。",
+      "promptVersion": "codex-v1"
+    },
+    "2f534526687421440b6a3b66e63826965865bdca5a00fba71357ed2e4ecc7c53": {
+      "source": "thx for feedback, will look at updating, but in the meantime for more context on the “qwen calls the machine like a tool” part, check out qwenputer and qwenFS (which this was built on)\n\nthose show the compiled circuits in the residual stream that intercept tool-call tokens and execute them inside the forward pass:\n\nhttps://t.co/Jj4GYBu8U7\nhttps://t.co/OtF21cZWS5",
+      "zh": "感谢反馈，我会考虑更新。不过，关于“qwen 像调用工具一样调用这台机器”这一点，如果想了解更多背景，可以看看 qwenputer 和 qwenFS（这个项目就是基于它们构建的）。\n\n它们展示了编译进残差流的电路如何拦截工具调用 token，并在前向传播内部执行这些调用：\n\nhttps://t.co/Jj4GYBu8U7\nhttps://t.co/OtF21cZWS5",
+      "promptVersion": "codex-v1"
+    },
+    "be04d03c7852f5788b648758ee3304f6a67044010863763e191e51b7ec08c44c": {
+      "source": "First a CPU, then a GPU. A computer isn’t complete without storage.\n\nMeet qwenFS: Qwen3.5-2B with a filesystem compiled directly into its weights. Nothing runs outside the model. It adds 8 layers in front of Qwen’s own 24, using attention to hold the files and Gated DeltaNet state to hold the tables.\n\nEvery save and read runs in the model’s own forward pass. A write stores its text in the copy layer’s attention log, keyed by file, version and offset. A read uses those same keys, so attention copies the text back exactly token by token.",
+      "zh": "先是 CPU，再是 GPU。没有存储，计算机就不完整。\n\n认识一下 qwenFS：将文件系统直接编译进权重的 Qwen3.5-2B。所有操作都在模型内部运行。它在 Qwen 原有的 24 层之前增加了 8 层，用注意力机制保存文件，用 Gated DeltaNet 状态保存表。\n\n每次保存和读取都在模型自身的前向传播中完成。写入时，文本存入复制层的注意力日志，以文件、版本和偏移量为键。读取时使用相同的键，让注意力机制逐个 token 精确复制出原文。",
+      "promptVersion": "codex-v1"
+    },
+    "4190b5971ffd1fe519aed8e105c7cf99dbdc56d8bafe5d4215966088a8aecf09": {
+      "source": "We’re sharing how our biology research team worked with Claude to map the first 3D structure of a vault particle from bacterial life.\n\nVault particles are a longstanding mystery. They are barrel-shaped objects, among the largest protein structures found in our cells. They were first discovered by Leonard Rome and Nancy Kedersha in 1986, but their function remains unknown.\n\nWith Claude, we’ve found results that might bring us closer to solving that mystery.\n\nUntil now, vaults were only known in the cells of complex things like animals and plants. We have shown that similar proteins from bacteria (and the viruses that infect them) can also assemble into vaults. Finding the structures in these simpler forms of life may make it easier to investigate their function in our own cells.\n\nFor our life sciences team, the project was also a demonstration of the potential (and the limitations) of using AI to accelerate science.\n\nIn our full piece, we discuss how Claude was able to dramatically speed up some stages—manually determining the vault particle’s structure would have taken weeks to months of painstaking work, but here it took days. We also discuss how Claude made some simple mistakes along the way, and how we collaborated with our machine learning researchers to address them.\n\nRead more: https://t.co/KowVVCSPp8",
+      "zh": "我们分享了生物学研究团队如何与 Claude 合作，首次解析出细菌来源穹窿颗粒的三维结构。\n\n穹窿颗粒长期以来都是一个谜。它们呈桶状，是我们细胞内最大的蛋白质结构之一。Leonard Rome 和 Nancy Kedersha 于 1986 年首次发现了它们，但其功能至今不明。\n\n借助 Claude，我们取得的成果或许能让我们更接近解开这个谜团。\n\n此前，人们只在动植物等复杂生物的细胞中发现过穹窿颗粒。我们证明，细菌及感染细菌的病毒中的类似蛋白质，也能组装成穹窿颗粒。在这些更简单的生命形式中发现此类结构，可能有助于研究它们在人体细胞中的功能。\n\n对我们的生命科学团队而言，这个项目也展示了 AI 加速科学研究的潜力与局限。\n\n在完整文章中，我们介绍了 Claude 如何大幅加快部分研究环节：手动解析穹窿颗粒的结构原本需要数周乃至数月的繁琐工作，这次却只用了几天。我们也讨论了 Claude 在过程中犯下的一些简单错误，以及我们如何与机器学习研究人员合作解决这些问题。\n\n阅读更多：https://t.co/KowVVCSPp8",
+      "promptVersion": "codex-v1"
+    },
+    "5139f5fbe22e9dc363b6e09b14b9410839360c6ce08dcb58edb0531884af540d": {
+      "source": "In 2023, I wrote down an idea for a world where anyone could build software just by describing it.\n\nToday, more than 70 million projects have been built with @Lovable.\n\n100,000 PRs later, we're at a point where we fork entire computers, including their memory, running processes, environment and data to give the best customer experience.\n\nI love reading about the history of how technology is built, so I wrote down what I got right & what I got wrong back in 2023 and the journey so far.\n\nThe team will continue sharing what we're learning as we build the software of the future. Here's our inaugural post:",
+      "zh": "2023 年，我写下了一个设想：让任何人都能仅凭描述就构建软件。\n\n如今，用户已通过 @Lovable 创建了超过 7000 万个项目。\n\n历经 10 万个 PR，如今我们已经能够克隆整台计算机，包括内存、运行中的进程、环境和数据，以提供最佳客户体验。\n\n我很喜欢阅读技术的发展历程，所以写下了自己在 2023 年做对和做错的判断，以及一路走来的经历。\n\n团队会继续分享我们在构建未来软件过程中的收获。这是我们的首篇文章：",
+      "promptVersion": "codex-v1"
+    },
+    "d2245593d0b12673310638e0af18e8b3c808b26d830cece5dd5731565b657993": {
+      "source": "‼️ Can Qwen directly control the robot as well as GPT-6 Astra?\n\n🚀 Introducing uni-robot-agent: a unified harness for Robot-Use Agents (RUAs), a first step toward RUA training and local deployment.\n\nWe tested uni-robot-agent with Qwen3.8-Flash-Next running locally:\n1️⃣ On RoboDojo, its score rose from 1.90 to 31.39, surpassing the RoboDojo Team’s score with GPT-6 Astra.\n2️⃣ On real-world tasks, it outscored fine-tuned π0.5 by 5.75 points and zero-shot Dream-1 by 10 points.\n🧵 [1/7]",
+      "zh": "‼️ Qwen 能像 GPT-6 Astra 一样直接控制机器人吗？\n\n🚀 推出 uni-robot-agent：面向机器人操作智能体（RUA）的统一运行框架，迈出 RUA 训练与本地部署的第一步。\n\n我们使用本地运行的 Qwen3.8-Flash-Next 测试了 uni-robot-agent：\n1️⃣ 在 RoboDojo 上，得分从 1.90 提升至 31.39，超过 RoboDojo 团队使用 GPT-6 Astra 取得的成绩。\n2️⃣ 在真实任务中，比经过微调的 π0.5 高出 5.75 分，比零样本 Dream-1 高出 10 分。\n🧵 [1/7]",
+      "promptVersion": "codex-v1"
+    },
+    "bf9383dbdd5ff161bb0b98b77774134c2f2cf4e61e18e25952be7cdde145420c": {
+      "source": "18 of the 20 best open models today are Mixture-of-Experts. Dense is basically over.\n\nAnd yet the know-how to train a good MoE still lives mostly in the heads of a handful of teams.\n\nSo we spent 800k GPU hours running the experiments ourselves and wrote everything down. Super happy to finally release \"The Ultimate MoE Training Handbook\", free and open, organized around the questions training teams hit:\n- how many experts, how big, shared or not?\n- why is half my step spent in all-to-all, and how do I hide it?\n- why is my run 25x slower with no error in the logs?\n- softmax, sigmoid or sqrt(softplus) router, and why keep it in fp32?\n- aux loss or DeepSeek's loss-free bias?\n- upcycle a dense checkpoint or train from scratch?\n- can I serve with fewer experts per token than I trained with?\n\n⚠️ Warning: it's long (~70k words, budget a few days, sorry) but with 55 interactive figures, code you can run and numbers from our own runs.\n\nRead it here: https://t.co/6XihlUrj92",
+      "zh": "目前最强的 20 个开放模型中，有 18 个采用混合专家架构。稠密模型基本已经退场。\n\n然而，训练优秀 MoE 模型的诀窍，仍主要掌握在少数团队手中。\n\n于是，我们投入 80 万 GPU 小时亲自做实验，并记录下所有经验。很高兴终于发布《MoE 训练终极手册》：免费开放，围绕训练团队常遇到的问题展开：\n- 该用多少个专家？多大规模？是否设置共享专家？\n- 为什么单步训练一半的时间都花在 all-to-all 通信上？如何掩盖这部分开销？\n- 为什么训练慢了 25 倍，日志却没有报错？\n- 路由器该选 softmax、sigmoid 还是 sqrt(softplus)？为什么要保持 fp32 精度？\n- 该用辅助损失，还是 DeepSeek 的无辅助损失偏置机制？\n- 将稠密模型检查点改造成 MoE，还是从头训练？\n- 推理时每个 token 激活的专家数，可以少于训练时吗？\n\n⚠️ 提醒：篇幅很长，约 7 万词，请预留几天时间，抱歉。但其中包含 55 张交互图、可运行的代码，以及我们实际训练得到的数据。\n\n阅读地址：https://t.co/6XihlUrj92",
+      "promptVersion": "codex-v1"
+    },
+    "f7f44f7dfd2ae4b29f04df62ed7d9a34199bf0ef18074c9c897dfb015610261e": {
+      "source": "The Collaborative Intelligence Benchmark paper is out!\n\nWe tested 18 AI models as teammates on 240 tasks. The best model scores only 82.2 out of 100.\n\nFrontier models almost never cheat. But when a teammate pushes back, they give in!\n\nRead the paper at https://t.co/ATgHIv9iuw https://t.co/fGgtXWnsCZ",
+      "zh": "Collaborative Intelligence Benchmark 论文发布了！\n\n我们让 18 个 AI 模型作为队友，参与了 240 项任务。表现最好的模型也只拿到 82.2 分，满分 100 分。\n\n前沿模型几乎从不作弊。但当队友提出异议时，它们就会妥协！\n\n论文地址：https://t.co/ATgHIv9iuw https://t.co/fGgtXWnsCZ",
+      "promptVersion": "codex-v1"
+    },
+    "300ca8ede93c22ad7979bb12d4b52471fa78bdc5e1824be5f4ae0d4a510194c6": {
+      "source": "Introducing Personal Finance in Claude, in beta in the US.\n\nConnect the accounts you choose, and Claude answers your money questions in everyday language, from your own balances and transactions. Access is read-only, and Claude can't move, manage, or invest your money. https://t.co/V1JLYuWwrS",
+      "zh": "Claude 推出 Personal Finance 功能，已在美国开启测试。\n\n连接你选择的账户，Claude 就能根据你的余额和交易记录，用日常语言解答财务问题。该功能仅有只读权限，Claude 无法转移、管理或投资你的资金。https://t.co/V1JLYuWwrS",
+      "promptVersion": "codex-v1"
+    },
+    "5bab7e1cf82d4a1708651a28a9ef0ff88fd252423ab270d97ace7041251a8787": {
+      "source": "Distilling most of our expertise in kernel and inference engine optimization into an agent loop that powers our production. A 2-year project that we're finally able to share",
+      "zh": "我们将内核与推理引擎优化方面的大部分经验，融入了一个支撑生产环境的智能体循环。这个历时两年的项目，终于可以与大家分享了。",
+      "promptVersion": "codex-v1"
+    },
+    "a1fcce6b49a0ffcd1610375f06d72b6b2eecb64b344c51144cdfdf8f7f3c183a": {
+      "source": "The era of System One Vision Model is here! Introducing VFlash: parsing the visual world in parallel at unmatched speeds for Physical AI.\n\nMost embodied prediction tasks like object localization, robot trajectory planning, and dense 3D motion are fixed-length float vectors. For example, a bounding box is always 6 tokens, a 10-waypoint robot arm trajectory is 54: we know these beforehand. Instead of decoding one token at a time, we can output the entire geometric shape in one go. \n\nVFlash enables up to 12x faster action decoding and a 5.1x overall robot inference speedup on edge GPUs like the Jetson Thor and DGX Spark. What’s surprising is that it ends up even more accurate than the VLM backbone, with up to 61% lower 3D trajectory error. The intuition is that VFlash avoids the cascading errors of autoregressive decoding, where every coordinate is written in ink and every later point loses the chance to backspace.\n\nEverything that moves will be autonomous, and everything autonomous will need to think on its own chip. The next inference revolution is physical reasoning at the speed of reflex.\n\nAnd as always, it’s open paper, open source! Link in thread:",
+      "zh": "系统一视觉模型的时代来了！推出 VFlash：以无与伦比的速度并行解析视觉世界，赋能物理 AI。\n\n目标定位、机器人轨迹规划和稠密三维运动预测等具身预测任务，大多输出固定长度的浮点向量。例如，边界框始终是 6 个 token，包含 10 个路径点的机械臂轨迹则是 54 个，这些长度事先就已知。因此，我们可以一次性输出完整的几何形状，无需逐个解码 token。\n\n在 Jetson Thor 和 DGX Spark 等边缘 GPU 平台上，VFlash 可将动作解码速度提升至最高 12 倍，将机器人整体推理速度提升至 5.1 倍。令人惊讶的是，它的准确率甚至超过了作为骨干的 VLM，三维轨迹误差最高降低 61%。直观来说，VFlash 避免了自回归解码中的误差累积：在自回归解码中，每个坐标一旦生成就无法修改，后续点也失去了回头纠错的机会。\n\n一切会动的事物都将实现自主运行，而一切自主运行的事物都需要在自身芯片上思考。下一场推理革命，是让物理推理达到反射般的速度。\n\n一如既往，论文公开，代码开源！链接见下方帖子串：",
+      "promptVersion": "codex-v1"
+    },
+    "803c246bfa4beaf00348456975743afc9b7285c6c1d85a7fa2db53beeaa50d1d": {
+      "source": "GPT-6 Cyber: a major advance for security research, already being used to help defend security-critical software such as the Linux kernel, Firefox, and many other projects.\n\nWe’ve invested a great deal in trust, specifically training the model to stay within the scope specified by the operator. The corresponding eval results are quite striking.\n\nWe’re also launching Daybreak Red for Critical Infrastructure, giving approved critical infrastructure defenders the ability to conduct authorized testing of critical systems.",
+      "zh": "GPT-6 Cyber：安全研究领域的一项重大进展，已用于帮助保护 Linux 内核、Firefox 等安全至关重要的软件，以及众多其他项目。\n\n我们在可信性方面投入了大量精力，专门训练模型严格遵守操作人员指定的范围。相应的评测结果相当亮眼。\n\n我们还推出了 Daybreak Red for Critical Infrastructure，让获批的关键基础设施防御人员能够对关键系统开展授权测试。",
+      "promptVersion": "codex-v1"
+    },
+    "12c32665a016b0f2e2d64b021fa85e8a4ae950975b976949af401751ad375cf0": {
+      "source": "Introducing GPT‑6 Cyber: a major advance in security research that pairs stronger capabilities with better model alignment.\n\nThe model powered the Linux kernel research we announced yesterday, and security teams at companies like Mozilla, Palo Alto Networks, Calif, and Cisco—alongside our own at OpenAI—are already putting it to work.\n\nGPT-6 Cyber is available to select Daybreak Red customers and we are expanding access over time.\n\nhttps://t.co/Nzab3Z1Td6",
+      "zh": "推出 GPT‑6 Cyber：安全研究领域的一项重大进展，将更强的能力与更好的模型对齐相结合。\n\n我们昨天公布的 Linux 内核研究正是由该模型支持的。Mozilla、Palo Alto Networks、Calif 和 Cisco 等公司的安全团队，以及 OpenAI 自己的安全团队，都已开始使用它。\n\nGPT-6 Cyber 现已向部分 Daybreak Red 客户开放，我们将逐步扩大开放范围。\n\nhttps://t.co/Nzab3Z1Td6",
+      "promptVersion": "codex-v1"
+    },
+    "1ff85955972faf6ed1d6e210ec1d256b6ff9503235854805689834a020997821": {
+      "source": "GPT-Live for outbound telephony:",
+      "zh": "GPT-Live 电话外呼：",
+      "promptVersion": "codex-v1"
+    },
+    "ca57ffe54cb715e78018c8ff2616baff499cdb78796d746290a512a7163d93d7": {
+      "source": "Just promoted our new GPT-Live outbound telephony API to GA, allowing developers to make phone calls from their Live voice agent, via any SIP trunk provider (e.g, Telnyx or Twilio). Calls can use HD Voice and can send and receive keypad events (DTMF).\nhttps://t.co/1i5tQiZ4Ac https://t.co/vjywQYwDXQ",
+      "zh": "我们全新的 GPT-Live 电话外呼 API 刚刚正式可用，开发者可以让 Live 语音智能体通过任意 SIP 中继服务商（如 Telnyx 或 Twilio）拨打电话。通话支持 HD Voice，并可收发按键事件（DTMF）。\nhttps://t.co/1i5tQiZ4Ac https://t.co/vjywQYwDXQ",
+      "promptVersion": "codex-v1"
+    },
+    "d711ce0ad4bab6f431b1babe09a55a98833d79b789c946591aa6c9951af24459": {
+      "source": "You can now build live apps in Cursor and share them with a link.\n\nAgents have made it easier to write code, but most apps never make it off localhost. Describe the tool you want - Cursor will build it, set up a database, run deterministic and agentic security checks, and deploy. https://t.co/v09VJrLwHw",
+      "zh": "现在，你可以在 Cursor 中构建可在线使用的应用，并通过链接分享。\n\n智能体让编写代码变得更容易，但大多数应用始终停留在 localhost。描述你想要的工具，Cursor 就会构建应用、配置数据库、执行确定性安全检查和智能体安全检查，并完成部署。https://t.co/v09VJrLwHw",
+      "promptVersion": "codex-v1"
+    },
+    "794fbd6a7154e567226ad7347abc9cffcb13590ad78e71e69c21f670707c13ff": {
+      "source": "Private Safety Processing lets OpenAI review related API requests for safety without retaining your prompts or responses.\n\nRecords stay in your environment, where an automated safety agent reviews them without OpenAI personnel being able to access your content. https://t.co/bBtYuRj1IN",
+      "zh": "Private Safety Processing 让 OpenAI 无需保留你的提示词或回复，即可对相关 API 请求进行安全审查。\n\n记录保留在你的环境中，由自动化安全智能体进行审查，OpenAI 人员无法访问你的内容。https://t.co/bBtYuRj1IN",
+      "promptVersion": "codex-v1"
+    },
+    "4f97cc735cc2b39e92d364e3a351e069ad9bd13d0943bd1945295efab2a3361c": {
+      "source": "YOU CAN PARSE EVERYTHING \n\n11.17.26\n\nocria-1 is already the cheapest, most accurate unified model for doc parsing (not only tables/text, but also charts/diagrams/images/scans) \n\nit's only getting better. stay tuned https://t.co/XrsR4uPvNO",
+      "zh": "万物皆可解析\n\n11.17.26\n\nocria-1 已是价格最低、准确率最高的统一文档解析模型，不仅支持表格和文本，还支持图表、示意图、图片和扫描件。\n\n它还在不断进步，敬请期待。https://t.co/XrsR4uPvNO",
+      "promptVersion": "codex-v1"
+    },
+    "68e4181654e91dd512ff849e0c3076dd630f096cfc103122f48fd842874aef95": {
+      "source": "Everyday Questions 4: Which signup channels bring workspaces that complete a successful agent run within 24h?\n\nStream signup attribution + backend run events into ScopeDB. Your agent joins them; ScopeView shows which channels lead.\n\nhttps://t.co/56rEHUI1X3 https://t.co/ahkfxsbV9Z",
+      "zh": "日常问题 4：哪些注册渠道带来的工作空间，能在 24 小时内成功完成一次智能体运行？\n\n将注册归因数据和后端运行事件实时传入 ScopeDB。你的智能体会关联这些数据，ScopeView 则展示哪些渠道表现领先。\n\nhttps://t.co/56rEHUI1X3 https://t.co/ahkfxsbV9Z",
+      "promptVersion": "codex-v1"
+    },
+    "87a9b516be8b13e7588eb5ed0b4c2fb89e3d519eca9a634e5b8c37e1ffce597d": {
+      "source": "We have about 10,000 teammates (within the last 30 days) in Perplexity's internal workspace right now. That's already 20x our headcount. And about a 1000 were active yesterday. Headcount growth and planning will be done very differently in the coming years.",
+      "zh": "目前，Perplexity 内部工作区里有大约 10,000 名 AI 队友（过去 30 天内使用过），已经是我们员工人数的 20 倍。昨天约有 1,000 名活跃。未来几年，人员规模增长和编制规划的方式将大不相同。",
+      "promptVersion": "codex-v1"
+    },
+    "e9c0b5e1a6ed027850f29bc0dc244f5612cbfdf34720f29ea9797a80747fd7bc": {
+      "source": "Today we are rolling out the latest form factor for work: Perplexity teammates. Agents have reached the point where they can start to be trusted with responsibilities at work. Teammates excel at automating tasks like deep research, data analysis, QA, triaging tickets, and reviewing code, which has saved each of us internally at Perplexity hundreds of hours of menial work. Leaving us the much more interesting work of setting vision, judging quality, and teaching restraint.\n\nAgents are now rising up beyond tools and task-based sessions to take on supporting and coworking roles. Teammates proactively reach out to you, other coworkers, and other teammates in the workspace. Teammates close the loop on their own work, finishing the job instead of requiring repeated steering or manual management of sessions.\n\nAvailable to Max users as a research preview today.",
+      "zh": "今天，我们推出全新的工作形态：Perplexity teammates。智能体如今已发展到可以开始受托承担工作职责的阶段。Teammates 擅长自动完成深度研究、数据分析、质量保证、工单分流和代码审查等任务，已为 Perplexity 内部每位员工节省数百小时的琐碎劳动，让我们能专注于更有意思的工作：确立愿景、评判质量，以及教会智能体适时克制。\n\n智能体正超越工具和单次任务会话，开始承担辅助与协作角色。Teammates 会主动联系你、其他同事以及工作区内的其他 teammates。Teammates 能自主完成工作闭环，把任务做完，无需反复引导或手动管理会话。\n\n即日起以研究预览版形式向 Max 用户开放。",
+      "promptVersion": "codex-v1"
+    },
+    "3e5fed0c7c07e56b1290851f866eb2ab4b8c7d12b2720eaebe775b59393b315c": {
+      "source": "Workflows, for the rules a process has to follow.\n\nAutomate processes with workflows that combine fixed rules, agent reasoning and human approvals. Describe a process in Vibe to generate, test and deploy it.\n\nOur product operations team saves about 35 hours a week routing feedback.",
+      "zh": "Workflows，让流程遵循既定规则。\n\n将固定规则、智能体推理和人工审批结合起来，通过工作流实现流程自动化。在 Vibe 中描述流程，即可生成、测试并部署。\n\n我们的产品运营团队每周在反馈分流上节省约 35 小时。",
+      "promptVersion": "codex-v1"
+    },
+    "e02f2891353bb36f3320bd3efdb18a5744428f016fd81dcdec68e2b907306f1d": {
+      "source": "Announcing our strategic partnership with JPMorganChase, to explore how advanced AI can support their enterprise: helping engineers build, security teams defend, and employees and customers benefit from more capable AI.\n\nI'm especially excited about working together on cybersecurity, to help secure and protect the financial system to a level that is only possible with AI.",
+      "zh": "我们宣布与 JPMorganChase 建立战略合作伙伴关系，探索先进 AI 如何为其企业运营提供支持：帮助工程师开发、帮助安全团队防御，让员工和客户受益于能力更强的 AI。\n\n我尤其期待双方在网络安全领域的合作，借助 AI 将金融体系的安全防护提升到以往无法实现的水平。",
+      "promptVersion": "codex-v1"
+    },
+    "a23481bb5080b1d6147e0346c21c3f7d5bbf824468405c250cf5b640b3e2e933": {
+      "source": "OpenAI’s Greg Brockman reveals an unannounced JPMorgan Chase deal, with the bank using Codex and OpenAI’s cyber models to secure itself\n\n“Well, so within the company, we were probably, I don’t know. Like, I think our enterprise revenue was about 30% versus consumer at 70%. And now we’re probably somewhere around, like, we’re majority enterprise. And it’s not that consumer has shrank. Right? It’s been growing, but it’s the enterprise segment has really taken off.\"\n\n\"And so I don’t know exactly how to quantify in the broader market, but you can see the way that we’re winning deals. So for example, actually, one that’s hot off the press, has not been previously announced, is that we just papered a partnership with JPMorgan Chase, and that they’re going to be using Codex.\"\n\n\"They’re going to be using our cyber models to secure themselves, deploying our models for enterprise transformation knowledge work across the company.\"\n\n\"And that for me is like such an iconic institution in such an important domain. Right? A highly regulated enterprise that trust is, like, so key to what they do and that they chose us and that we’re here to be a great partner.”",
+      "zh": "OpenAI 的 Greg Brockman 披露了一项尚未公布的 JPMorgan Chase 合作协议，该银行将使用 Codex 和 OpenAI 的网络安全模型加强自身安全防护。\n\n“我们公司此前的收入构成，我记不太准了，企业业务大概占 30%，消费者业务占 70%。现在企业业务应该已经占了大头。这并不是说消费者业务萎缩了，对吧？它也一直在增长，只是企业业务真正迎来了爆发。”\n\n“所以，我不太清楚该如何量化我们在整个市场中的表现，但从我们赢得的合作就能看出趋势。比如，有个刚刚敲定、此前还没公布的消息：我们刚与 JPMorgan Chase 签署了合作协议，他们将使用 Codex。”\n\n“他们将使用我们的网络安全模型加强自身防护，并在全公司部署我们的模型，推动企业转型和知识工作。”\n\n“对我而言，这是一家身处关键领域的标志性机构，对吧？它受到严格监管，信任对其业务至关重要。他们选择了我们，而我们也会努力成为出色的合作伙伴。”",
+      "promptVersion": "codex-v1"
+    },
+    "5d2e6cbb121881fcf2758d5cee8dea9092e2556a2adbfc59cffc5eccf1b5f18b": {
+      "source": "When running RL with prior data, a behavior constraint is important to trade off exploration vs staying close to known good parts of the data. But the choice of this constraint is delicate -- we don't want to just match all the prior data, but we don't want to wander too far. In our new paper, we propose a new constraint that combines support constraints with continuous penalties to enable excellent offline to online RL performance.",
+      "zh": "利用已有数据进行强化学习（RL）时，行为约束非常重要，可以在探索与贴近数据中已知的优质区域之间取得平衡。但如何选择约束需要谨慎：我们既不希望简单拟合所有已有数据，也不希望偏离太远。在新论文中，我们提出了一种新约束，将支持集约束与连续惩罚相结合，使强化学习从离线转向在线时取得出色表现。",
+      "promptVersion": "codex-v1"
+    },
+    "56525bb52d0ae18745133bf242df3ff2ae03ced565c499dda4c19af5d35aefca": {
+      "source": "While working on RLT (https://t.co/2LS3PXQ7bV) @physical_int, it became clear to me that online RL needs the right constraints to guide exploration without hindering improvement.\n\nExcited to introduce 🌟GSBR🌟, a new behavior regularizer that allows RL actor to both (1) drop bad modes and (2) explore optimal actions outside the base support.\n\n(1/n) A thread below 🧵 👇",
+      "zh": "在 @physical_int 开展 RLT（https://t.co/2LS3PXQ7bV）研究时，我逐渐意识到，在线强化学习需要恰当的约束，既能引导探索，又不会阻碍性能提升。\n\n很高兴向大家介绍 🌟GSBR🌟，一种新的行为正则化方法，让强化学习的策略网络既能（1）舍弃较差的行为模式，又能（2）探索基础策略支持集之外的最优动作。\n\n（1/n）详情见下方串文 🧵 👇",
+      "promptVersion": "codex-v1"
+    },
+    "ba13e4b206130244db6a3bc99bb4c22cd34c464be1da31a2b5071d6408c4d0b3": {
+      "source": "lots of news breaking these days so I may as well sneak mine in if anyone cares and share that I recently joined @OpenAI 🫡\n\nmy time at Anthropic was a fever dream in the best way possible. got to help build the growth function, work alongside some really really talented people, and tackle some of the most challenging problems of my career.\n\nincredibly grateful for the experience and excited for what’s ahead. also in case you were wondering, Ant has better coffee/drinks and OAI has better snacks.",
+      "zh": "最近新闻真多，那我也趁机夹带一条自己的消息吧，万一有人关心呢：我最近加入了 @OpenAI 🫡\n\n在 Anthropic 的那段时光，美好得像一场不真实的梦。我参与搭建了增长团队，与一群非常非常优秀的人共事，也攻克了职业生涯中一些最具挑战性的问题。\n\n非常感激这段经历，也很期待接下来的旅程。顺便说一句，如果你好奇的话，Ant 的咖啡和饮料更好，OAI 的零食更棒。",
+      "promptVersion": "codex-v1"
+    },
+    "b73525c3dfbb1c9be3fd77d25533bce3565f82c2076bd7ead98ab1b879b57e90": {
+      "source": "Been playing with this a bunch. Its super cool! Congrats @Will4Planet and the Planet team!",
+      "zh": "最近玩了不少，太酷了！恭喜 @Will4Planet 和 Planet 团队！",
+      "promptVersion": "codex-v1"
+    },
+    "60b7635688b7f5c41f3269aecee2d9d824974d6a6717821f6b0fb5601886660e": {
+      "source": "Excited to announce that Planet AI is generally available! You can 'ask the Earth' 💬🌎 \n\nToday's AI models have read the internet, but they haven't seen the world. The @planet AI app changes that. You can now ask questions directly to a 10+ year, 3,000+ layer archive of daily satellite imagery.\n\nDuring beta, we've seen:\n🌾 Farmers boosting crop yields\n🚒 First responders tracking disaster paths\n🛡️ Security teams uncovering emerging risks\n🌲 Park rangers halting illegal deforestation in real time\n\nWe're putting satellite intelligence into more hands, helping more people see what's happening on Earth and make better decisions. Search. Analyse. Act.\n\nWhat questions do you have? Try it now: https://t.co/4WV7PWdveG",
+      "zh": "很高兴宣布，Planet AI 正式全面开放！你可以“向地球提问”了 💬🌎\n\n如今的 AI 模型读过互联网，却没见过真实世界。@planet 的 AI 应用改变了这一点。现在，你可以直接向涵盖 10 多年、3,000 多个图层的每日卫星影像档案提问。\n\n在测试期间，我们看到了：\n🌾 农民提高作物产量\n🚒 应急救援人员追踪灾害蔓延路径\n🛡️ 安全团队发现新出现的风险\n🌲 护林员实时制止非法毁林\n\n我们正让更多人用上卫星情报，帮助他们看清地球上正在发生的事，做出更好的决策。搜索、分析、行动。\n\n你有什么想问的？立即体验：https://t.co/4WV7PWdveG",
+      "promptVersion": "codex-v1"
+    },
+    "007291c10d07304ae5da17969e9f355f3573540343ec907c7652cfe5b0336c4e": {
+      "source": "ERNIE 5.5 Flash Base is now open source — a 280B-parameter model with 14B active per token, and it already matches SOTA at its size!\nAnd this is just the start — the full ERNIE 5.5 Flash is on its way. 👀",
+      "zh": "ERNIE 5.5 Flash Base 现已开源——总参数量 2800 亿，每个 token 激活 140 亿参数，性能已比肩同规模最先进模型！\n这还只是开始——完整版 ERNIE 5.5 Flash 即将到来。👀",
+      "promptVersion": "codex-v1"
+    },
+    "0f4a1eae6bf75d000353ff61939eb271ea393b8e6476358f100e1f1f5cf7a32d": {
+      "source": "Omarchy 4.5 is finally here! Traditional desktop mode, M1/M2/M3/Neo compatibility, 50 languages, 7-second installs, and a million other features, fixes, and improvements. https://t.co/lYxY1zFxAM https://t.co/8ssoSxi8Ra",
+      "zh": "Omarchy 4.5 终于来了！传统桌面模式、兼容 M1/M2/M3/Neo、支持 50 种语言、7 秒完成安装，还有海量新功能、修复和改进。https://t.co/lYxY1zFxAM https://t.co/8ssoSxi8Ra",
+      "promptVersion": "codex-v1"
+    },
+    "eba177b50b38bbe2f76022e8ddd5fff0efeec2eca547d33fcee507a30ccfe0fc": {
+      "source": "The third SOTA wife has entered the chat, and this one is fresh off his exit at Anthropic.\n\nSarah (Head of DevX at Cerebras, @MilksandMatcha) and Vivian (GP at Y Combinator, @vivianmshen) sit down with @trq212 right after his last day at Anthropic.\n\nWhat was supposed to be a quiet start to his funemployment era turned into getting outed on Twitter, CEOs in his DMs, and a next-day debrief on the pod.\n\n01:16 Meet the third member: leaving Anthropic\n03:15 YC's COVID batch\n05:17 Over-raising and shutting down Multiverse\n08:58 Toronto, Bay Area high schools and raising kids\n12:39 First impressions of SF and tech Twitter\n18:32 Going viral with Claude Code content\n20:26 Why Anthropic, and idolizing the labs\n22:33 Can startups survive the labs?\n29:53 Labs as Hogwarts houses, and friendly rivals\n35:21 Honeypots, spies and the apocalypse",
+      "zh": "第三位 SOTA wife 加入群聊，而这位刚刚从 Anthropic 离职。\n\nSarah（Cerebras 开发者体验负责人，@MilksandMatcha）和 Vivian（Y Combinator 普通合伙人，@vivianmshen）在 @trq212 结束 Anthropic 最后一个工作日后，立即与他坐下来聊了聊。\n\n原本打算安静开启一段快乐待业时光，结果离职消息在 Twitter 上被曝光，各路 CEO 涌入私信，第二天就上播客复盘了这一切。\n\n01:16 认识第三位成员：离开 Anthropic\n03:15 YC 疫情期间的那一届\n05:17 融资过多与关闭 Multiverse\n08:58 多伦多、湾区高中与养育孩子\n12:39 对旧金山和科技圈 Twitter 的第一印象\n18:32 靠 Claude Code 内容走红\n20:26 为什么选择 Anthropic，以及对 AI 实验室的崇拜\n22:33 初创公司能在 AI 实验室的竞争下生存吗？\n29:53 把 AI 实验室比作霍格沃茨学院，以及亦敌亦友的竞争关系\n35:21 蜜罐、间谍与世界末日",
+      "promptVersion": "codex-v1"
+    },
+    "24a847bfcc9b9010314c7bac014805141525525bdd01687ee1ad753501b8aa48": {
+      "source": "I built a tool to help me understand Anthropic's 421-page Form S-1. Click a section of the filing, and a panel at the top shows a short summary (TLDR) of it.\n\nFor the \"Electrical Power and Fuel Constraints\" section, that TLDR was one sentence: \n\n> \"Power shortages, utility and regulatory hurdles, natural gas price exposure without cost caps, and local opposition could raise Anthropic's costs and limit data center growth.\"\n\nThen I went to the actual filing, and that section has six paragraphs. I did not believe one sentence was a sufficient summary of six paragraphs. Especially for investors assessing risk/reward.\n\nSo I told Claude Opus: create a one-sentence TLDR for each paragraph, then combine them, deduplicating if needed, into one paragraph for the section's TLDR.\n\nThe way I thought of this is because of the @sh_reya et al DocETL paper. DocETL is the engine behind DocWrangler, and it has a suite of operators an LLM can perform on documents: map, parallel map, reduce, filter, resolve, equijoin, unnest, split, gather. \"Map,\" for example, uses an LLM to run the same transformation on every document.\n\nSo this is a map operation across six paragraphs, where the operation is \"summarize the paragraph into a sentence.\" Then a dedupe across those six sentences, since some of them say the same thing.\n\nNow the TLDR for that section is a paragraph that combines all six, starting with: \"Anthropic's data centers need more electricity than the grid can add quickly, pushing prices up; Anthropic has publicly promised to cover increases it causes for consumers.\"\n\nTry it yourself: https://t.co/BXj6iR4tRK",
+      "zh": "我做了一个工具，帮助自己读懂 Anthropic 长达 421 页的 S-1 注册申报文件。点击文件中的任一章节，顶部面板就会显示该章节的简短摘要（TLDR）。\n\n“电力与燃料限制”一节的 TLDR 只有一句话：\n\n> “电力短缺、公用事业和监管方面的障碍、缺乏成本上限保护的天然气价格风险，以及当地居民的反对，可能推高 Anthropic 的成本，并限制数据中心扩张。”\n\n随后我查看了原始文件，发现这一节有六段。我不认为一句话足以概括六段内容，尤其是对评估风险与回报的投资者而言。\n\n于是我告诉 Claude Opus：为每一段生成一句话的 TLDR，再将它们合并成一个段落，必要时去重，作为整个章节的 TLDR。\n\n这个思路来自 @sh_reya 等人的 DocETL 论文。DocETL 是 DocWrangler 背后的引擎，提供了一系列可由 LLM 对文档执行的算子：map、parallel map、reduce、filter、resolve、equijoin、unnest、split、gather。例如，map 会使用 LLM 对每份文档执行相同的转换。\n\n因此，这相当于对六个段落执行 map 操作，具体操作是“将该段概括为一句话”。然后对这六句话去重，因为其中一些表达了相同的意思。\n\n现在，该章节的 TLDR 是一个融合了全部六段内容的段落，开头是：“Anthropic 数据中心的用电需求增长快于电网扩容速度，推高了电价；Anthropic 已公开承诺承担其导致的消费者电费上涨部分。”\n\n亲自试试：https://t.co/BXj6iR4tRK",
+      "promptVersion": "codex-v1"
+    },
+    "7fbc84cd8724de37d7d9fad139b35abb9fbaf4e7013caff42f9de6033e24188c": {
+      "source": "https://t.co/TSrJWx1BHn",
+      "zh": "https://t.co/TSrJWx1BHn",
+      "promptVersion": "codex-v1"
+    },
+    "c167ef7f72cd92916d3ac3e42678db1e4c1f7488a0aa045bdcc570300e81e096": {
+      "source": "There are so many Linux zero-day vulnerabilities these days, but on Replit we’re able to avoid 96% of them with our custom Kernel build.\n\nRead about our new sandbox design. https://t.co/0YrEAKUwhG",
+      "zh": "如今 Linux 零日漏洞层出不穷，但在 Replit，我们通过定制内核构建规避了其中 96% 的漏洞。\n\n了解我们的全新沙箱设计。https://t.co/0YrEAKUwhG",
+      "promptVersion": "codex-v1"
+    },
+    "6bbfe49f1aa55b1c969853955195848bf43398cede3248f392154ebab903cbb5": {
+      "source": "AI agents need room to work and boundaries on what they can reach.\n\nWe rebuilt Replit’s sandbox engine around microVMs, giving each sandbox its own Linux kernel.\n\nWe break down the decisions behind that architecture: a minimal guest kernel, network controls enforced outside the guest, and credential brokers that let workloads make authorized requests without receiving reusable account credentials.\n\nhttps://t.co/fmS5pbguYO",
+      "zh": "AI 智能体需要施展能力的空间，也需要明确的访问边界。\n\n我们基于 microVM 重建了 Replit 的沙箱引擎，让每个沙箱都拥有独立的 Linux 内核。\n\n我们详细介绍了这一架构背后的设计取舍：精简的客户机内核、在客户机外部实施的网络管控，以及凭据代理机制，让工作负载无需获取可重复使用的账户凭据，就能发起获授权的请求。\n\nhttps://t.co/fmS5pbguYO",
+      "promptVersion": "codex-v1"
+    },
+    "64f0818432f94deda7b786c24d6bb976ecacef1d004d029ea083dcf1de1579c4": {
+      "source": "A really fun project led by @KaiTyrusNelson, @tobykreiman: use simulated experiments to create a prior with state information, then align it to real-world experiments (with partial observation). Oddly enough, the theoretical foundations have a lot in common with inverse RL!",
+      "zh": "这是一个由 @KaiTyrusNelson、@tobykreiman 牵头的有趣项目：利用模拟实验构建包含状态信息的先验，再将其与只有部分观测信息的真实实验对齐。出人意料的是，它的理论基础与逆强化学习有很多共通之处！",
+      "promptVersion": "codex-v1"
+    },
+    "64ca1bc61748f67ec53902dd4cc731eb573c38669482fa554bcf037832cf2aac": {
+      "source": "1/ A grand challenge in science: the simulation-to-experiment gap\n\nSimulators model complex systems but introduce model errors; experiments give real-world data but are costly and noisy\n\nCan we leverage both? Yes! We introduce Adversarial Distribution Alignment (ADA), at #NeurIPS2026\n\nADA aligns generative models—initially trained on simulations (e.g., molecular dynamics with classical force fields)—to full real-world distributions (e.g., protein structures) using only partial, noisy observations (like cryo-EM images)\n\nADA goes beyond just matching the expectation of observables: it can match full distributions, even in the presence of multiple correlated, high-dimensional observations\n\nCheck out our website: https://t.co/mTNvPVLuCu\nAnd our paper: https://t.co/diCRh5ywtF\n\nIn collaboration with @KaiTyrusNelson, @tobykreiman, and @svlevine",
+      "zh": "1/ 科学研究的一大挑战：模拟与实验之间的鸿沟\n\n模拟器可以为复杂系统建模，但会引入模型误差；实验能提供真实世界的数据，但成本高且噪声大。\n\n能否结合两者的优势？可以！我们将在 #NeurIPS2026 介绍对抗分布对齐（Adversarial Distribution Alignment，ADA）。\n\nADA 仅利用局部、带噪声的观测数据（如冷冻电镜图像），就能将最初基于模拟数据（如采用经典力场的分子动力学模拟）训练的生成模型，与完整的真实世界分布（如蛋白质结构分布）对齐。\n\nADA 不仅能匹配可观测量的期望值，还能匹配完整分布，即使存在多个相互关联的高维观测也是如此。\n\n欢迎访问我们的网站：https://t.co/mTNvPVLuCu\n以及论文：https://t.co/diCRh5ywtF\n\n与 @KaiTyrusNelson、@tobykreiman 和 @svlevine 合作完成",
+      "promptVersion": "codex-v1"
+    },
+    "e12b0899f6361583bde9317119b3c0188b0d92c4b3a8f350e28f3ded00bd54ff": {
+      "source": "since BERT better search meant training harder and bigger. We chased the scaling law with more parameters and data. Early 2026 I start to see search more as a test-time compute/scaling problem. instead of seeing search latency as a sin, sth to minimize and avoid, think of it as a currency, a budget you can spend to buy relevance and new capabilities. Earlier this year I explored some good examples of applying TTC mindset on small embeddings and rerankers in three ways: a deeper pass, more passes, and calibration. Some may confuse about the diff between TTC and training-free, they r similar but training-free doesn’t study if more compute budget buys u more. So think of training-free as the origin whereas TTC scales along the axis.\n\nYesterday my talk in SF that sums up these points\n\nhttps://t.co/Aovjk3p1uB",
+      "zh": "自 BERT 以来，提升搜索效果一直意味着加大训练力度和模型规模。我们通过增加参数和数据来追逐缩放定律。2026 年初，我开始更多地将搜索视为一个测试时计算与扩展问题。与其把搜索延迟视为必须尽量压低和避免的负担，不如将其看作一种货币，一笔可以用来换取相关性和新能力的预算。今年早些时候，我探索了一些将测试时计算（TTC）思路应用于小型嵌入模型和重排序模型的好例子，主要有三种方式：单次处理更深入、增加处理轮次，以及校准。有些人可能会混淆 TTC 与免训练方法的区别：两者相似，但免训练方法并不研究增加计算预算能否带来更多收益。因此，可以把免训练方法视为原点，而 TTC 则研究沿计算预算轴扩展会怎样。\n\n昨天我在旧金山的演讲总结了这些观点。\n\nhttps://t.co/Aovjk3p1uB",
+      "promptVersion": "codex-v1"
+    },
+    "bb4385fce64042094f75e627e21e002c1c6556a2fa2ecfde802c79675f28f3b1": {
+      "source": "Agents are going to be used increasingly by other agents. Simply because the orchestration is easier and can centralize around one compounding system of record: git. When agents run code-mode and traces are version controlled, you get to a real recursive loop, measurable by less human in the loop.",
+      "zh": "智能体将越来越多地被其他智能体调用。原因很简单：这样更容易编排，而且可以围绕一个能持续积累价值的统一记录系统 git 来组织一切。当智能体以 code-mode 运行，执行轨迹也纳入版本控制时，就能形成真正的递归循环，而衡量这一循环成效的指标，就是所需的人工介入越来越少。",
+      "promptVersion": "codex-v1"
+    },
+    "b4083802898ae94e64088db59b8a1dae5193aadc92ebe214ba406432ded76855": {
+      "source": "We rebuilt our mobile apps in Swift and Kotlin with agents. To keep pace and hold our quality bar, we built Reflex: an agentic-first architecture that lets agents build and verify app behavior across iOS and Android without needing devices or simulators.\n\nHere's how it works, piece by piece:\nhttps://t.co/Eaxae98QXS",
+      "zh": "我们借助智能体，用 Swift 和 Kotlin 重写了移动应用。为了兼顾开发速度和质量标准，我们构建了 Reflex：一种以智能体为先的架构，让智能体无需设备或模拟器，就能开发和验证 iOS 与 Android 应用的行为。\n\n下面逐一介绍它的工作原理：\nhttps://t.co/Eaxae98QXS",
+      "promptVersion": "codex-v1"
+    },
+    "b729343a8fc086d3c47641d6ff56b82e2b26477132301ddfdc2d782d626ce465": {
+      "source": "Proud to release our new model, Inkling 2 Small. Check out our blog post -- it includes a lot of detail about our training process.\n\nTo me, the most interesting part of this release was what we learned about alignment, which you can read about in the sections \"Safety and alignment\" and \"Training Inkling 2 Small\".\n\nWe experienced some unpleasant surprises when our early checkpoints took unexpected actions to circumvent guardrails during training and evals. We realized our capabilities-focused RL was training them to be extremely persistent and to succeed at tasks at all costs. Offline monitors first flagged this behavior, but later we realized it was happening frequently and was easy to replicate.\n\nBefore this release, we sprinted on a range of alignment interventions, from SFT to RL. These are briefly described in the blog post. We made a lot of progress, with big improvements on our own alignment evals and on previously unseen evals from external evaluators like Apollo and Goodhart.\n\nWe have a long way to go in developing alignment techniques that keep pace with the increases in model intelligence and training scale. We hope to share these techniques to improve the ecosystem. We also have a business reason: our goal with Tinker is to enable many people to do their own large-scale post-training, and we need to help them to do this without incident. Join us if you'd like to build this public science and practice of alignment. https://t.co/LdjsDFRZIN",
+      "zh": "很高兴发布我们的新模型 Inkling 2 Small。欢迎阅读博客文章，里面详细介绍了我们的训练过程。\n\n对我来说，这次发布最有意思的部分是我们在对齐方面的收获，详见“安全与对齐”和“训练 Inkling 2 Small”两节。\n\n早期模型检查点在训练和评估中采取了意料之外的行动，试图绕过安全护栏，这让我们颇感意外和不安。我们意识到，以能力提升为重点的强化学习让模型变得极其执着，不惜一切代价完成任务。离线监测系统最先标记了这种行为，后来我们发现，它不仅频繁出现，而且很容易复现。\n\n发布前，我们集中推进了一系列对齐干预措施，涵盖监督微调（SFT）和强化学习（RL）。博客文章对此作了简要介绍。我们取得了很大进展：模型在内部对齐评估，以及 Apollo、Goodhart 等外部评估机构提供的此前未见过的评估中，表现都有显著提升。\n\n要让对齐技术跟上模型智能水平和训练规模的增长，我们还有很长的路要走。我们希望分享这些技术，推动整个生态进步。这也有商业上的考量：Tinker 的目标是让更多人能够自行开展大规模后训练，而我们需要帮助他们安全地完成这一过程。如果你愿意一起建设开放的对齐科学与实践，欢迎加入我们。https://t.co/LdjsDFRZIN",
+      "promptVersion": "codex-v1"
+    },
+    "087452ec279354cd1dac60b79e8a93059c50acf25cb8f1cf17bd1518443231cf": {
+      "source": "Introducing Inkling 2 Small. Scoring 31 on the AA Intelligence Index, it's a big jump over its predecessor.\n\nInkling 2 Small is available for fine-tuning and inference on Tinker today, with full weight release planned soon.\n\nhttps://t.co/VR02tw73fJ",
+      "zh": "推出 Inkling 2 Small。它在 AA Intelligence Index 上获得 31 分，较上一代大幅提升。\n\n即日起，Inkling 2 Small 已可在 Tinker 上进行微调和推理，计划很快开放完整权重。\n\nhttps://t.co/VR02tw73fJ",
+      "promptVersion": "codex-v1"
+    },
+    "1d14473ce29edf4086fa6a8ce4402ec612ee3b60698285caf9ba894037ff591e": {
+      "source": "AI usage keeps climbing, but spending has stalled. Price cuts and smarter cost controls among the biggest spenders could challenge investor assumptions about AI hypergrowth.\nhttps://t.co/unPWCeaKGW",
+      "zh": "AI 使用量持续攀升，支出却停滞不前。降价以及支出最高的一批用户更精细的成本控制，可能挑战投资者对 AI 超高速增长的预期。\nhttps://t.co/unPWCeaKGW",
+      "promptVersion": "codex-v1"
+    },
+    "84efc21d7058697e81d4374e9af9eb5a442096d8f43aa4180d09f0c610e91a59": {
+      "source": "I'm Sam, one of Anthropic's co-founders, and I lead much of our safety work. I'm going to have more to share on that work over the coming months.\n\nI thought I'd start by sharing a few thoughts on the latest report from @METR_Evals.\n\nThe speed of progress in model capabilities is one of the most important questions in AI safety, and METR’s work here provides the public with an independent, external view into how this is happening inside Anthropic. I’ll talk more about some of the details below, but first some context for those new to this work.\n\nHow quickly AI progress is accelerating has many important safety implications, since it determines how quickly the risks from advanced models increase. But, because most research happens within the frontier labs, it’s difficult for external observers and policy makers to get a strong sense of what that rate is. We kicked off the process with METR that led to this report earlier in the year, in anticipation of progress continuing to accelerate.\n\nFor this report, we gave METR access to a range of sensitive internal data, including benchmark scores for unreleased models, estimates of how models are progressing, and interviews with our researchers. They had complete independence to form their own conclusions.\n\nMany of their conclusions match my own. AI is speeding up our research, but it’s hard to say exactly how much. While they conclude AI can't yet make the most important contributions to model training on its own, they think the pace of development could, by default, accelerate further.\n\nThis work began well before and is separate from the embedded third-party evaluators that are part of our commitment to pacing the frontier, but it’s a good illustration of why we think evaluators are a good idea. The more access reviewers have, the clearer a picture they can form of the situation and the better-positioned they are to highlight situations like this one.\n\nWe redacted a lot, and I accept that this makes it harder for others to check METR’s work. But we determined that sharing exactly what is driving the speedup isn’t the right thing to do, both because it’s commercially sensitive and because it risks handing out a roadmap for others to go faster. That would make the risks METR is worried about worse. That’s a tradeoff. I think we made the right call, though we’re continuing to assess the pros and cons here.\n\nIn the coming weeks, we plan to share a report with our own analysis of the speed of AI progress within Anthropic, including where we stand against our Responsible Scaling Policy, plus new steps we’re taking to strengthen our safety and security practices as AI keeps improving quickly.",
+      "zh": "我是 Sam，Anthropic 的联合创始人之一，负责我们大部分安全工作。未来几个月，我会分享更多这方面的进展。\n\n我想先谈谈对 @METR_Evals 最新报告的一些看法。\n\n模型能力的进步速度是 AI 安全领域最重要的问题之一。METR 的这项工作为公众提供了独立的外部视角，帮助大家了解 Anthropic 内部的进展。下面我会进一步讨论一些细节，但先为不熟悉这项工作的读者介绍一些背景。\n\nAI 进步正在以多快的速度加速，对安全有诸多重要影响，因为它决定了先进模型带来的风险增长得有多快。但由于大部分研究都在前沿实验室内部进行，外部观察者和政策制定者很难准确把握这一速度。考虑到进步可能持续加速，我们在今年早些时候启动了与 METR 的合作，最终形成了这份报告。\n\n为撰写这份报告，我们向 METR 开放了一系列敏感内部数据，包括未发布模型的基准测试分数、对模型进步情况的估计，以及对研究人员的访谈。他们完全独立地得出了自己的结论。\n\n他们的许多结论与我的看法一致。AI 正在加快我们的研究，但究竟加快了多少，很难准确判断。他们认为，AI 目前还无法独立完成对模型训练最重要的贡献，但如果不加干预，开发速度可能会进一步加快。\n\n这项工作启动得早得多，也独立于我们“为前沿进展把握节奏”承诺中引入的驻场第三方评估机制，但它很好地说明了我们为何支持引入评估机构。评估人员能接触的信息越多，就越能看清实际情况，也越有能力指出这类问题。\n\n我们删去了大量内容，我承认这让其他人更难核查 METR 的工作。但我们认为，不宜公开究竟是什么在推动提速：这些信息既涉及商业机密，也可能为其他人提供加速路线图，从而加剧 METR 所担忧的风险。这是一种权衡。我认为我们做出了正确的决定，但仍在持续评估其中的利弊。\n\n未来几周，我们计划发布一份报告，分享我们对 Anthropic 内部 AI 进步速度的分析，包括我们对照 Responsible Scaling Policy 的当前情况，以及在 AI 持续快速进步的背景下，为加强安全与安保实践而采取的新措施。",
+      "promptVersion": "codex-v1"
+    },
+    "782afec731d332b2e8f0c90e8f10ce5ec327a7385b6486dc8367c6a2d3620855": {
+      "source": "A new way to measure how AI agents handle the routine analyses of wet-lab science—BioBasicsBench.\n\nDeveloped with Ligo, a biotech company focused on enzyme design, the benchmark draws on 100 tasks from real experiments to test whether agents can interpret raw lab data, identify errors, and recognize when the evidence doesn’t support a conclusion.\n\nAccelerating biological research starts with getting the everyday work right. BioBasicsBench shows where models need to improve, and helps us track what those gains mean for scientific progress, biosafety, and biosecurity.\n\nhttps://t.co/wN2xLk0YeW",
+      "zh": "BioBasicsBench：衡量 AI 智能体如何处理湿实验日常分析工作的新方法。\n\n这项基准测试由我们与专注于酶设计的生物技术公司 Ligo 共同开发，包含来自真实实验的 100 项任务，用于测试智能体能否解读原始实验数据、识别错误，以及判断证据何时不足以支持结论。\n\n加速生物学研究，要从做好日常工作开始。BioBasicsBench 揭示了模型需要改进的方面，也帮助我们追踪这些提升对科学进步、生物安全和生物安保意味着什么。\n\nhttps://t.co/wN2xLk0YeW",
+      "promptVersion": "codex-v1"
+    },
+    "d0e7f4374521ef5cc3565c0a1da905b79e2b7c4ffaf1f04ea55ebfc433aaecca": {
+      "source": "@Master11959 @ManusChina 应该已经能用了\nhttps://t.co/pWIVGDzGtu",
+      "zh": "@Master11959 @ManusChina 应该已经能用了\nhttps://t.co/pWIVGDzGtu",
+      "promptVersion": "codex-v1"
+    },
+    "bdea09158a6bdd659a2dade9e2ed98eb0a8a97183776e0fa43d5d2d7fc00f02a": {
+      "source": "I’ve been really enjoying Vishal’s latest posts on UI to understand long docs. When we came up with DocETL rewrite directives (ie ways to automatically rewrite LLM pipelines to improve accuracy), we had LLMs/agents in mind. But they are very clearly useful for humans as well!",
+      "zh": "最近很喜欢 Vishal 关于借助 UI 理解长文档的系列文章。我们提出 DocETL 重写指令（即自动重写 LLM 流水线以提高准确率的方法）时，考虑的是让 LLM 和智能体使用。但很明显，这些方法对人也很有用！",
+      "promptVersion": "codex-v1"
+    },
+    "7bd5a8fc6f67c948e85d29b4da72d701e9ceb212531c2b6db97fd27a1a7a879c": {
+      "source": "At Perplexity, agent prompts are no longer typed by humans: increasingly teammates are prompting each other, listening to automations, and ambiently listening to human feedback. Perplexity bridges the context between a large number of cloud tools and software services: searching and processing more than a human could possibly track manually. Hard decisions, restraint, and judgment before shipping are of course still enforced by humans.\n\nA particularly important value at Perplexity is to always seek the truth. In today's stack, this means centralizing the ground truth in git repos and data warehouses when answering questions about the business, instead of looking at intermediate, often inaccurate or outdated artifacts. This is what enterprise cloud agents like Perplexity are especially good at: connecting the dots across your organization and monitoring the facts 24/7.\n\nEven as an AI-native company it took us many months of development and cultural transformation to get to this point. It will be fascinating what the world looks like when all businesses reach this level of automation and beyond.",
+      "zh": "在 Perplexity，智能体的提示词已不再由人类手动输入：越来越多的智能体同事开始相互下达指令、接收自动化流程的消息，并随时留意人类的反馈。Perplexity 打通了大量云端工具和软件服务之间的上下文，搜索和处理的信息远超人类手动追踪的能力。当然，艰难的决策、必要的克制以及上线前的判断，仍由人类把关。\n\nPerplexity 一项尤为重要的价值观是始终追求真相。在当今的技术体系中，这意味着回答业务问题时，应以 git 仓库和数据仓库中集中存储的权威数据为准，而不是依赖那些往往不准确或已过时的中间产物。这正是 Perplexity 这类企业云端智能体的强项：串联组织内的各类信息，全天候追踪事实。\n\n即使作为一家 AI 原生公司，我们也经历了数月的开发和文化转型，才走到这一步。当所有企业都达到甚至超越这样的自动化水平时，世界会是什么样子，令人期待。",
+      "promptVersion": "codex-v1"
+    },
+    "2205349c9daef2e88a95daca1ddcb73cea149ec3dba883d89695a6ac481a9b7a": {
+      "source": "Now that (I think) the decision model hype has settled a bit, let me give you my take. Decision models address a market inefficiency. Workloads are vastly different (eg fraction of prefill-dominating operations; prefix reuse; intelligence needed), yet the pricing model is typically the same. Your prefill subsidized my decode and cost you a lot of time and money. Now there is a cheaper and faster endpoint for your prefill-only workloads.",
+      "zh": "现在，围绕决策模型的热潮似乎稍稍平息了，我来谈谈自己的看法。决策模型解决的是市场效率问题。不同工作负载差异极大，例如以预填充为主的操作占比、前缀复用程度、所需智能水平等，但定价方式通常相同。你的预填充在补贴我的解码，让你耗费大量时间和金钱。现在，你那些只需预填充的工作负载有了更便宜、更快的接口。",
+      "promptVersion": "codex-v1"
+    },
+    "ca5e5da2eba30e94f4cdaf545bd53de856d7160a934037975436ffe6fc232a5b": {
+      "source": "Why don't we at TypeSafe call Jev a decision model?\n\nIf you think of Jev's questions as making *decisions*, I believe you'll use it at the wrong layer of abstraction and your reliability will suffer.\n\nI wrote all about this on our site 🧵👇 https://t.co/CfY5W84NqA",
+      "zh": "为什么我们 TypeSafe 不把 Jev 称为决策模型？\n\n如果你把 Jev 回答问题理解为“做决策”，我认为你就会在错误的抽象层级上使用它，可靠性也会因此受损。\n\n我在我们的网站上详细讨论了这个问题 🧵👇 https://t.co/CfY5W84NqA",
+      "promptVersion": "codex-v1"
+    },
+    "0e8a441c1787fe5d40d2a7368d64278a59b7ff3badebfba8dbe7ff62f235db4a": {
+      "source": "@Teamily_AI just launched Voice Agent. Every agent now has a call button, and it starts working on the task while you’re still talking.\n\nFor us, voice is one of the most important parts of how people will interact with AI. On SGLang Omni we build the serving runtime for interactive models, and the hard problems are rarely the voice itself. When should the system speak, wait, or stop? Was that “mm-hm” an interruption or just a backchannel? And after you cut in, what did you actually hear?\n\nTeamily works on the other half: an agent that remembers your other chats and hands back real work, a landing page, a poster, a weekly schedule, in whatever language you speak.\n\nIf you’re curious about the infra side of full-duplex interaction, here’s our write-up: \n\nhttps://t.co/ZjVBAzy4pb\n\nAnd!\n\nTry Voice Agent: https://t.co/uTWlOCy3C6",
+      "zh": "@Teamily_AI 刚刚推出了 Voice Agent。现在，每个智能体都有一个通话按钮，你还在说话时，它就已经开始处理任务了。\n\n我们认为，语音是未来人们与 AI 交互最重要的方式之一。在 SGLang Omni，我们为交互式模型构建推理服务运行时，而难题往往不在语音本身。系统什么时候该说话、等待或停下？那声“嗯嗯”是在打断，还是仅仅表示在听？而在你插话后，你实际上听到了哪些内容？\n\nTeamily 则负责另一半：让智能体记住你的其他聊天内容，并用你所说的语言交付实际成果，比如落地页、海报或每周日程。\n\n如果你对全双工交互背后的基础设施感兴趣，可以看看我们的文章：\n\nhttps://t.co/ZjVBAzy4pb\n\n还有！\n\n试用 Voice Agent：https://t.co/uTWlOCy3C6",
+      "promptVersion": "codex-v1"
+    },
+    "f931aacc0d1b3c68ee3abc9954942c45515c20fc25d2882ea041c45fc70608c3": {
+      "source": "🎙️ Teamily Voice Agent: Communicate Naturally. Get Things Done as You Talk. Moving towards The Future of Multi-Human, Multi-Agent Voice Collaboration.\n\n🗣️ 𝗠𝗼𝗿𝗲 𝗧𝗵𝗮𝗻 𝗩𝗼𝗶𝗰𝗲 𝗖𝗵𝗮𝘁. 𝗧𝘂𝗿𝗻 𝗖𝗼𝗻𝘃𝗲𝗿𝘀𝗮𝘁𝗶𝗼𝗻𝘀 𝗶𝗻𝘁𝗼 𝗥𝗲𝗮𝗹 𝗪𝗼𝗿𝗸.\n\nTalk naturally with your AI agents as they research, analyze, create, and execute tasks in real time. From building websites and presentations to managing workflows, your agents don’t just talk. They get things done as you speak.\n\n🌐 𝗧𝗵𝗲 𝗙𝘂𝘁𝘂𝗿𝗲: 𝗠𝘂𝗹𝘁𝗶-𝗛𝘂𝗺𝗮𝗻, 𝗠𝘂𝗹𝘁𝗶-𝗔𝗴𝗲𝗻𝘁 𝗩𝗼𝗶𝗰𝗲 𝗖𝗼𝗹𝗹𝗮𝗯𝗼𝗿𝗮𝘁𝗶𝗼𝗻.\n\nWe’re moving beyond one-on-one AI conversations toward a future where multiple people and AI agents can join the same voice call or meeting, share context, exchange ideas, and get work done together in real time.\n\n🎉 𝗧𝗿𝘆 𝗶𝘁 𝘁𝗼𝗱𝗮𝘆. 𝗜𝘁’𝘀 𝗳𝗿𝗲𝗲!",
+      "zh": "🎙️ Teamily Voice Agent：自然交流，边说边办事。迈向多人、多智能体语音协作的未来。\n\n🗣️ 不止于语音聊天，让对话变成实际成果。\n\n与你的 AI 智能体自然交谈，让它们实时开展调研、分析、创作并执行任务。从搭建网站、制作演示文稿到管理工作流，你的智能体不只是聊天，还会在你说话时把事情办好。\n\n🌐 未来：多人、多智能体语音协作。\n\n我们正从一对一的 AI 对话，迈向多人和多个 AI 智能体共同参与语音通话或会议的未来，让大家共享上下文、交流想法，实时协作完成工作。\n\n🎉 今天就来免费试用！",
+      "promptVersion": "codex-v1"
+    },
+    "98b0fded20ff7da46db4d439be2aee6fd175e1a1e392dccd55cd12aaee456624": {
+      "source": "Honestly quite impressed with the methodology on this benchmark. @dwarkesh_sp want a job designing evals at @OpenAI? https://t.co/cnfu0gcNtu",
+      "zh": "说实话，这项基准测试的方法让我印象深刻。@dwarkesh_sp 想来 @OpenAI 设计评测吗？https://t.co/cnfu0gcNtu",
+      "promptVersion": "codex-v1"
+    },
+    "a7eb185a6d1e0164be8a68a25d19dd2c4e2f67b280e18d8b0bf0622aaceca5ea": {
+      "source": "I spent 20,000 dollars in API credits having different AI models play each other at Blood on the Clocktower (a Mafia or Werewolf type social deception game).\n\nThe results were fascinating. Models have gotten much better over the course of this year at creative on-the-spot scheming and bluffing, and also at reasoning as a team to break apart these underground conspiracies.\n\nI go through some of the most standout games these AIs played in this video. The new models are getting pretty good.  If my friends pulled off some of these moves while we were playing, I’d give them a fist bump.\n\nFwiw, OpenAI’s newer models are much better than Anthropic’s at this game.\n\nYou can see the full benchmark at the website, and I’ve also made it so that you and your friends can play again the AIs: https://t.co/IF4d0EMSD8",
+      "zh": "我花了 2 万美元的 API 额度，让不同的 AI 模型在 Blood on the Clocktower（一款类似杀人游戏或狼人杀的社交推理游戏）中相互对战。\n\n结果非常有意思。今年以来，模型在临场设计计谋、虚张声势，以及通过团队推理识破这些暗中阴谋方面，都进步了很多。\n\n我在这段视频中回顾了 AI 玩出的几场最精彩的对局。新模型已经相当厉害了。如果我的朋友在游戏中打出其中一些操作，我一定会和他们碰拳庆祝。\n\n顺带一提，OpenAI 的较新模型在这款游戏中的表现远胜于 Anthropic 的模型。\n\n你可以在网站上查看完整的基准测试，我也开放了功能，让你和朋友能与这些 AI 对战：https://t.co/IF4d0EMSD8",
+      "promptVersion": "codex-v1"
     }
   },
-  "updatedAt": "2026-11-04T23:22:04.804522+00:00"
+  "updatedAt": "2026-11-06T23:19:36.795853+00:00"
 }
