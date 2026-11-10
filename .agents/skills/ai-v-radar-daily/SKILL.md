@@ -117,6 +117,8 @@ python3 .agents/skills/ai-v-radar-daily/scripts/validate_radar.py --project . --
 
 It must verify account/hotspot coverage, exact window, source identity, per-post review ledger, <=50 high-quality selected posts, complete avatars, translation status, three distinct selected authors/events, matching poster input SHA and image dimensions/size. A zero fetch exit code is not completion. Check the real page at 375/390px and the rendered image; no clipped titles, tiny long-quote blocks or stale counts.
 
+For Browser-based mobile QA, serve the dated report over loopback HTTP and open the HTTP URL on the first browser call. The Browser connector rejects `file://` URLs. If its URL policy rejects a request, do not retry the same visual check through another browser surface or shell browser command; preserve the validated artifacts and request a manual viewport check.
+
 Fresh production keeps current Beijing day plus six prior dates:
 
 ```sh
