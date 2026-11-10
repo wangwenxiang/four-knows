@@ -18538,7 +18538,172 @@
       "source": "New paper❗\n\nDoes understanding how AI models work actually make them safer?\n\nThis assumption often underlines interpretability research, but different subfields operationalise this intuition in very different ways. Our survey of mechanistic interpretability (MI) for safety provides an opinionated guide to the field of MI, detailing conceptual approaches and techniques under this broad banner and how different types of work relates to the mission of making AI model safer.  🧵",
       "zh": "新论文❗\n\n理解 AI 模型如何运作，真的能让它们更安全吗？\n\n可解释性研究往往以这一假设为基础，但不同子领域将这一直觉转化为具体研究的方式却大相径庭。我们关于面向安全的机制可解释性（MI）的综述，为 MI 领域提供了一份带有明确观点的指南，详细梳理了这一宽泛范畴下的概念思路与技术，以及不同类型的研究如何服务于提升 AI 模型安全性的目标。🧵",
       "promptVersion": "codex-v1"
+    },
+    "afa6eefb986e9716cf4364333def7a06fd6b0232b4ed3c4ce703d41447b2c1c8": {
+      "source": "How do you improve your agents? @divyasan0 from the LangChain Academy team walks through how the three steps of eval-driven development, a strategy for using evals to help build agents that improve over time.  https://t.co/on8UYaP0pt?",
+      "zh": "怎样让智能体持续改进？LangChain Academy 团队的 @divyasan0 讲解了评估驱动开发的三个步骤，介绍如何利用评估来构建能够持续改进的智能体。https://t.co/on8UYaP0pt?",
+      "promptVersion": "codex-v1"
+    },
+    "3c10716b4b6d7e0820fe7a76d9cfae5ef050e4113f8c09373310b829e3bf56e8": {
+      "source": "“68% lower cost” reads like a discount. It isn’t. It’s a capability unlock.\n\nHere’s the logic. @ByteAsk runs hundreds of agents in parallel, each trying a different fix on its own machine, and ships back the one that passes every test. That search only works if each attempt is cheap. At Codex-level token spend, a swarm is a line item nobody approves. At a third of it, breadth becomes affordable, and breadth is what finds the fix.\n\nWhy C++ specifically? Because in C++ a wrong guess still compiles. One call can land on a different function depending on overloads, templates, virtual overrides, #ifdef branches and build flags. grep matches all of them by name. Only one actually runs. Read the code as text and you burn tokens re-reading headers to recover what the build already knows. ByteAsk reads through the real build instead, which is where most of the savings come from.\n\nThe numbers, same model on both sides (GPT-6.1 Sol), 72 real GitHub bugs across 19 C++ repos including nlohmann/json, fmt and simdjson:\n\n→ Same fixes, 68% lower cost, 78% fewer tokens\n→ Cheaper on every single project, from 49% (googletest) to 84% (fast_float)\n→ 2,115 model calls vs 4,934, less than half the back-and-forth\n→ One fix, nlohmann/json PR #5692: 233K tokens vs 570K\nThe per-project floor is the part I’d point at. A headline average can hide one lucky repo. “Cheaper on all 19, worst case 49%” is a much harder number to produce.\nAnd it runs on your own machines, on-prem or air-gapped, which is the only version trading firms and chip teams would ever consider for code that doesn’t leave the building.\nSame model. Same fixes. A third of the bill. The model didn’t change, only what it was shown.",
+      "zh": "“成本降低 68%”听起来像打折，却让原本负担不起的做法变得可行。\n\n@ByteAsk 并行运行数百个智能体，每个都在自己的机器上尝试不同的修复方案，最终交付通过全部测试的那一个。每次尝试的成本够低，这种搜索方式才行得通。按 Codex 的 token 开销来算，没人会批准同时跑这么多智能体的预算。成本降到三分之一，就能尝试更多方案，而扩大搜索范围正是找到修复方案的关键。\n\n为什么专门做 C++？因为在 C++ 里，猜错了也照样可能编译通过。同一处调用可能因重载、模板、虚函数重写、#ifdef 分支和编译选项而落到不同的函数上。grep 按名称能把它们全找出来，实际执行的却只有一个。把代码当纯文本读，就得反复翻头文件，花费 token 重新推导构建过程早已掌握的信息。ByteAsk 直接利用实际构建中的信息，大部分节省都来自这里。\n\n对比双方使用同一模型（GPT-6.1 Sol），测试覆盖 19 个 C++ 仓库中的 72 个真实 GitHub 缺陷，涉及 nlohmann/json、fmt 和 simdjson 等项目。\n\n→ 修复结果相同，成本降低 68%，token 用量减少 78%\n→ 所有项目的成本均有下降，降幅从 49%（googletest）到 84%（fast_float）\n→ 模型调用次数为 2,115 次，对照组为 4,934 次，往返次数不到一半\n→ 单个修复案例 nlohmann/json PR #5692 的 token 用量为 23.3 万，对照组为 57 万\n\n我最看重的是各项目降幅的下限。一个碰巧表现特别好的仓库就能拉高平均值。“19 个项目全部降本，最低也降了 49%”要难做到得多。\n\n它还能在你自己的机器上运行，支持本地或物理隔离部署。对交易公司和芯片团队来说，涉及不能外传的代码，这样的部署方式才会进入考虑范围。\n\n同样的模型，同样的修复，账单只有三分之一。唯一变化的是模型看到的信息。",
+      "promptVersion": "codex-v1"
+    },
+    "90db43081f49e22b9c463402817e981e92bcb4ec4541a52282402a539e148115": {
+      "source": "Introducing @ByteAsk \n\nYour AI C++ engineer, and a swarm of them\n\n&gt; SOTA on multi SWE bench (C/C++)\n&gt; 60% fewer tokens wrt cc/codex\n&gt; auto debug/perf/optimize/test with native C/C++ tools\n\nFree plan. Open Source.\nhttps://t.co/FhvdqMcdtp https://t.co/pGNxndCYEK",
+      "zh": "推出 @ByteAsk\n\n你的 AI C++ 工程师，也是一整队能并行工作的 AI 工程师。\n\n&gt; 在 multi SWE bench（C/C++）上达到当前最佳水平（SOTA）\n&gt; 相比 cc/codex，token 用量减少 60%\n&gt; 使用原生 C/C++ 工具自动调试、分析性能、优化和测试\n\n提供免费方案，代码开源。\nhttps://t.co/FhvdqMcdtp https://t.co/pGNxndCYEK",
+      "promptVersion": "codex-v1"
+    },
+    "7e1c8796a8f872c16b1c3e05ad529c6030c2baf60b048586660348efe414ed93": {
+      "source": "Congrats @FishAudio on Live 3. \n\n“Knows when to shut up” sounds like a joke feature. It’s the hardest thing in the stack.\n\nWe build SGLang Omni, the serving runtime for interactive models, so this is the part of the problem I stare at. Generating good speech is largely solved. What isn’t solved is everything around the speech:\n\n→ When should the system speak, wait, or stop? Every millisecond you wait is either politeness or lag, and you have to decide before you know which.\n\n→ Was that “mm-hmm” an interruption or a backchannel? Humans do this effortlessly. A model that gets it wrong is either a steamroller or a doormat.\n\n→ After the user cuts in, what did the system actually say? Not what it generated. What came out of the speaker before you killed the stream. If your conversation history records the generated text, the model now believes it said things the user never heard, and the rest of the call is built on a lie.\n\nThat third one is a runtime problem, not a model problem. It lives in how you handle streaming, cancellation, and state, which is exactly the layer we work on.\n\nLive 3 shipping all three behaviors in one model is a real milestone for this space. Nice work @rissa_cao and team.\n\nIf you’re curious about the infra side of full-duplex interaction, our write-up is here: \n\nhttps://t.co/ZjVBAzy4pb",
+      "zh": "恭喜 @FishAudio 发布 Live 3。\n\n“知道什么时候该闭嘴”听起来像个玩笑，却是整个技术栈里最难实现的功能。\n\n我们在开发面向交互式模型的推理服务运行时 SGLang Omni，所以一直关注这部分问题。生成高质量语音基本已经解决，难的是语音交互中的这些细节。\n\n→ 系统什么时候该说话、等待或停下来？多等的每一毫秒，都可能被用户感受为礼貌或卡顿。系统得在知道是哪一种之前就作出决定。\n\n→ 刚才那声“嗯嗯”是想打断，还是在表示自己在听？人几乎不用想就能分辨。模型一旦判断错了，要么抢着说个不停，要么动不动就让出话头。\n\n→ 用户插话后，系统究竟已经说了什么？要看的是音频流被切断前，扬声器实际播出了什么。如果对话历史直接记录生成的文本，模型就会以为自己说过用户根本没听到的话，后续通话也会建立在错误的前提上。\n\n第三个问题需要在运行时解决，涉及流式传输、取消和状态管理，正是我们负责的那一层。\n\nLive 3 把这三种能力集成到同一个模型里并正式推出，是这个领域的一个里程碑。@rissa_cao 和团队干得漂亮。\n\n如果你对全双工交互背后的基础设施感兴趣，可以看看我们的文章。\n\nhttps://t.co/ZjVBAzy4pb",
+      "promptVersion": "codex-v1"
+    },
+    "39c57e79964bf7d2eb5ccbaca796e6432873f9efccd4858cc806ad26443f65f6": {
+      "source": "Introducing @FishAudio  Live 3: a full-duplex voice model that listens, says \"mm-hmm,\" and knows when to shut up.\n\nEnterprise? Book a demo for your free custom agent: https://t.co/2kyRhcFMxM \n\nReply with your use case - we'll build it free for the first 1,000 people. https://t.co/RAKpwVd0OM",
+      "zh": "推出 @FishAudio 的 Live 3。这款全双工语音模型会听你说话，会用“嗯嗯”回应，也知道什么时候该闭嘴。\n\n企业用户可预约演示，免费定制专属智能体。https://t.co/2kyRhcFMxM\n\n回复你的使用场景，我们会为前 1,000 位回复者免费搭建智能体。https://t.co/RAKpwVd0OM",
+      "promptVersion": "codex-v1"
+    },
+    "d0e53aa7a205bca63ed885d986b80ef200d703d119861545acf79d456729cf7e": {
+      "source": "Which Claude model should you build with? \n\nOur new guide breaks down when to use Fable 5.2, Opus 5.5, Sonnet or Haiku. It also covers when to adjust effort instead of switching models, and how to save cost by putting subagents on smaller models.\n\nhttps://t.co/1VmXqhkZB0",
+      "zh": "开发时该选哪款 Claude 模型？\n\n我们的新指南介绍了 Fable 5.2、Opus 5.5、Sonnet 和 Haiku 各自适用的场景，也说明了什么时候只需调整推理强度就能满足需求，以及如何让子智能体使用更小的模型来降低成本。\n\nhttps://t.co/1VmXqhkZB0",
+      "promptVersion": "codex-v1"
+    },
+    "5f115a16067d9f9408953513932a96284f9a6cb03711bd84dc4d3d7422a050fb": {
+      "source": "https://t.co/C0j3MQWrMR",
+      "zh": "https://t.co/C0j3MQWrMR",
+      "promptVersion": "codex-v1"
+    },
+    "927fec472a1500bd2e7d8ee61b1556f7349c9b361fb5e7fffbd7e8f1bba2bfd9": {
+      "source": "Thanks for sharing, this one came from a real case where an agent piped the suite into tail and reported a red run as green. pipefail fixes the exit code too, but agents often skip it, and a truncated log still hides the actual failure, so in Mole I just ban it and capture to a file instead.",
+      "zh": "谢谢分享。这源于一个真实案例：智能体把测试套件的输出通过管道传给 tail，结果测试明明失败了，却被报告为通过。pipefail 也能让管道返回正确的退出码，但智能体经常忘记启用它，而且截断日志仍可能掩盖实际的失败原因。所以我在 Mole 里直接禁止这种用法，把完整输出保存到文件。",
+      "promptVersion": "codex-v1"
+    },
+    "de0a014f4dd7f85d690fd73e676ac36f2c9e197014194677c8744316e19f15d5": {
+      "source": "What if you could get frontier-level AI classification at 1% of the cost?\n\nAirbnb engineers fine-tuned a small language model to deliver comparable accuracy in under 100ms. Here’s how. 👇\n\nhttps://t.co/84lMBi1CrA",
+      "zh": "如果只花 1% 的成本，就能达到前沿 AI 模型的分类水平呢？\n\nAirbnb 工程师微调了一个小型语言模型，在不到 100 毫秒内就能完成分类，准确率也与前沿模型相当。具体做法见下文。👇\n\nhttps://t.co/84lMBi1CrA",
+      "promptVersion": "codex-v1"
+    },
+    "4c40638c156a250cdf1179911349149b7fa762295b10559e852d7656a044583c": {
+      "source": "🧠 Most AI bug-catching tools review your code the way a human reviewer would, only faster. What if the AI wrote a test that proved the bug instead?\n\nThat’s Catching Just-in-Time Tests (JiTTests) — a novel approach where LLMs generate executable tests designed to fail, surfacing behavioral changes in a code change before it lands.\n\nAfter a year of research, it’s now part of Meta’s infrastructure.\n\n✅ 589 engineers have engaged with it, reporting a 60% true-positive rate\n\n📈 In the first half of 2026, it helped catch 74 privacy SEVs at the diff stage, lowering overall privacy SEV occurrence by 20%\n\n🔗 Read how it works: https://t.co/dxVljpTmyB\n\n📄 Read our FSE 2026 paper, “Just-in-Time Catching Test Generation at Meta”: https://t.co/YKnj30xOn6\n\n#AI #SoftwareEngineering #SoftwareTesting #DeveloperTools #Engineering",
+      "zh": "🧠 大多数 AI 缺陷检测工具沿用人工代码审查的思路，只是速度更快。如果让 AI 写一个测试来证实缺陷呢？\n\n这就是即时缺陷捕获测试（JiTTests）。这种新方法让大语言模型生成可执行的测试，利用预期的测试失败，在代码合入前暴露行为变化。\n\n经过一年的研究，这项技术已成为 Meta 基础设施的一部分。\n\n✅ 已有 589 名工程师参与，报告的真阳性率为 60%。\n\n📈 2026 年上半年，它帮助团队在代码差异审查阶段发现了 74 起隐私 SEV，使隐私 SEV 的总体发生率下降了 20%。\n\n🔗 了解工作原理：https://t.co/dxVljpTmyB\n\n📄 阅读我们在 FSE 2026 发表的论文《Just-in-Time Catching Test Generation at Meta》：https://t.co/YKnj30xOn6\n\n#AI #SoftwareEngineering #SoftwareTesting #DeveloperTools #Engineering",
+      "promptVersion": "codex-v1"
+    },
+    "f61e21155e7d8a59be2a4b8ac60b5af8b91755ead47474bf5c5651eb7dd07057": {
+      "source": "We replaced our third-party browser analytics script with a single Cloudflare Tail Worker streaming into ScopeDB Cloud.\n\nLooking at a single 24-hour window (9,658 Worker invocations) made it obvious why raw edge counters and browser-only scripts tell such different stories. Almost half of all requests (4,537) were background Next.js link prefetches, 912 carried AI bot signals, and 347 fetched raw Markdown docs or /llms.txt directly, while only 162 were actual browser document navigations (Sec-Fetch-Mode: navigate).\n\nWe also switched URL query capture to store the full decoded parameter map inside a ScopeDB Variant column while redacting secret-like tokens in both request and Referer paths. Whenever a new campaign parameter or product filter shows up in production, we can query it on the fly in ScopeQL without migrating tables or redeploying the collector.",
+      "zh": "我们用一个 Cloudflare Tail Worker 替换了第三方浏览器分析脚本，将数据实时传入 ScopeDB Cloud。\n\n只看一个 24 小时窗口内的 9,658 次 Worker 调用，就能看出为什么边缘节点的原始计数和仅在浏览器运行的脚本会得出截然不同的结果。近一半请求（4,537 次）来自 Next.js 在后台预取链接，912 次带有 AI 机器人特征，347 次直接获取原始 Markdown 文档或 /llms.txt，真正由浏览器导航触发的文档请求只有 162 次（Sec-Fetch-Mode: navigate）。\n\n我们还调整了 URL 查询参数的采集方式，将解码后的完整参数映射存入 ScopeDB 的 Variant 列，并对请求路径和 Referer 路径中疑似敏感的令牌做脱敏处理。每当线上出现新的营销活动参数或产品筛选条件，我们都能直接用 ScopeQL 查询，无需迁移表或重新部署采集器。",
+      "promptVersion": "codex-v1"
+    },
+    "1223953c512d3910c024fcb5778fb0f5d71e8ef1803103ce4c6f095132484cc3": {
+      "source": "In 24 hours on our site and docs, our Cloudflare Worker logged 9,658 requests: 4,537 were background SPA prefetches, 912 carried AI bot signals, and only 162 were browser document navigations.\n\nStream Workers into ScopeDB via one Tail Worker to query them all: https://t.co/Q2Bhj43Hsl",
+      "zh": "在 24 小时内，我们的 Cloudflare Worker 为网站和文档站记录了 9,658 次请求。其中 4,537 次来自单页应用（SPA）的后台预取，912 次带有 AI 机器人特征，只有 162 次是由浏览器导航触发的文档请求。\n\n通过一个 Tail Worker 将各个 Worker 的日志实时传入 ScopeDB，即可统一查询：https://t.co/Q2Bhj43Hsl",
+      "promptVersion": "codex-v1"
+    },
+    "1836c77abf66e13f9e6fdd679063552d2a8938edd451a8959b3232aa70e50cba": {
+      "source": "Gemini 4 Carbon is rolling out today. It’s built for sustained, long-horizon tasks, reasoning deeply through complex software engineering, cybersecurity, and scientific discovery.\n\nComing globally via the Gemini API in @GoogleAIStudio and Gemini for business, and for Ultra subscribers in @antigravity, the @GeminiApp, and AI Mode in Search.",
+      "zh": "Gemini 4 Carbon 今日开始推出。它专为需要持续推进的长程任务打造，能在复杂的软件工程、网络安全和科学发现任务中进行深度推理。\n\n该模型将通过 @GoogleAIStudio 中的 Gemini API 和 Gemini for business 面向全球开放。Ultra 订阅用户也可在 @antigravity、@GeminiApp 和 Google 搜索的 AI Mode 中使用。",
+      "promptVersion": "codex-v1"
+    },
+    "3a76aefa1174748a60ec843373441cb2436511fa299da08df114f509d19a3ee9": {
+      "source": "Everyone’s reading this as “new model beats AlphaFold 3.” The more interesting line is buried in the thread.\n\nTop-1 accuracy goes from 74.3% with 1 seed to 83.1% with 100 seeds on the same 172 antibody–antigen interfaces.\n\nThat’s test-time scaling arriving in structural biology. Accuracy is no longer a fixed property of the model. It’s a dial you turn with GPU-hours, and the model’s own ranking score is what makes the dial work.\n\nWhich reframes the question for drug discovery teams. Not “which model is best,” but “how much compute is this target worth?” An early-stage screen and a lead candidate you’re about to spend six months on are not the same spend.\n\nInference cost per wet-lab experiment avoided is going to become a real metric.\n\nOne caveat worth noting: the AlphaFold 3 baseline runs on n=167 vs n=172 for the others. Small, but I’d want the matched subset before quoting the 30-point gap too confidently.",
+      "zh": "大家都把这条消息解读成“新模型超越 AlphaFold 3”。还有一个更值得关注的数字，藏在帖子串里。\n\n在同一组 172 个抗体–抗原界面上，随机种子从 1 个增加到 100 个，Top-1 准确率就从 74.3% 提高到了 83.1%。\n\n推理时扩展已经进入结构生物学。准确率可以随投入的 GPU 小时数提高，前提是模型能用自己的排序分数选出更好的预测结果。\n\n对药物研发团队来说，问题也随之变成“这个靶点值得投入多少算力？”早期筛选和即将投入半年研究的先导候选物，值得投入的算力不同。\n\n每省去一次湿实验所需的推理成本，将成为一项实际的衡量指标。\n\n有个细节值得留意：AlphaFold 3 基线用了 167 个样本（n=167），其他模型用了 172 个（n=172）。样本数差得不多，但在引用约 30 个百分点的差距前，我会先看同一批样本上的对比结果。",
+      "promptVersion": "codex-v1"
+    },
+    "fc86bdbfda42900512d5a50dded931d8a698b549a74ff257f1be5a63384649d0": {
+      "source": "Introducing NovaAtom-Lite, an all-atom structure prediction model for drug discovery.\n\nIt predicts the structures of proteins, nucleic acids, and the molecules they bind, including how they fit together.\n\nNovaAtom-Lite outperforms both IsoDDE and AlphaFold 3 on FoldBench antibody–antigen structure prediction (DockQ ≥ 0.23):\n\nNovaAtom-Lite: 79.07% (n=172)\n\nIsoDDE: 75.58%\n\nAlphaFold 3: 47.90% (n=167)\n\nOur evaluation uses 5 seeds × 5 samples, with the top-1 prediction selected by the model's own ranking score.\n\nBetter structure prediction. A stronger starting point for your next experiment.\n\nLive today via Geodesic API and NovaDDE.\n\n🔗 API: https://t.co/mBdzq3sA2s\n\n🔗 NovaDDE: https://t.co/hoCwjST34V\n\n🔗 Model Card: https://t.co/p4aoXHuc7B",
+      "zh": "推出 NovaAtom-Lite，一款面向药物研发的全原子结构预测模型。\n\n它能预测蛋白质、核酸及其结合分子的结构，也能预测这些分子如何结合。\n\n在 FoldBench 抗体–抗原结构预测任务中，以 DockQ ≥ 0.23 为达标标准，NovaAtom-Lite 的表现优于 IsoDDE 和 AlphaFold 3：\n\nNovaAtom-Lite：79.07%（n=172）\n\nIsoDDE：75.58%\n\nAlphaFold 3：47.90%（n=167）\n\n评估采用 5 个随机种子，每个种子生成 5 个样本，再根据模型自身的排序分数选出 Top-1 预测。\n\n更准确的结构预测，为下一次实验提供更可靠的起点。\n\n即日起可通过 Geodesic API 和 NovaDDE 使用。\n\n🔗 API：https://t.co/mBdzq3sA2s\n\n🔗 NovaDDE：https://t.co/hoCwjST34V\n\n🔗 模型卡：https://t.co/p4aoXHuc7B",
+      "promptVersion": "codex-v1"
+    },
+    "de1d24f18beb2013f2519281224d4ef912a2f3a41b541ffba02e52e1dd1107a1": {
+      "source": "Introducing GR00T 2: our most advanced, open System One model for robotics. It runs entirely on your robot’s onboard compute, fully untethered, and you own every weight of it. GR00T 2 features: \n\n1. Long-horizon tasks: dexterous manipulation and whole-body control chained over 20+ steps and 5+ minutes, such as performing chemistry lab experiments or assembling model airplanes end to end.\n2. X-Adapt: adapting from easy data sources (human wearables and simulation) and deploying zero-shot to diverse real robots.\n3. Unified Cognition: native integrations with frontier agents for advanced physical reasoning, robust error recovery, and safety monitoring.\n\nIt's an open-source buffet! We are releasing not only the model weights and X-Adapt recipes (coming December), but also our agentic framework, simulation engine, annotation engine, hardware design, and even training data (100K hours, that's ~11 yrs of experience), all available today! \n\nEverything that moves will be autonomous. Anyone can become a roboticist. \n\nLock in, build with us! \n\nDeep dive in thread:",
+      "zh": "推出 GR00T 2，我们最先进的开放式机器人 System One 模型。它完全在机器人本机运行，无需外部计算设备，所有模型权重均由你掌握。GR00T 2 的主要能力包括：\n\n1. 长程任务：将灵巧操作与全身控制串联起来，完成超过 20 步、持续 5 分钟以上的任务，例如从头到尾做一次化学实验或组装一架模型飞机。\n2. X-Adapt：利用易获取的数据源（如人体穿戴设备和仿真数据）进行适配，并以零样本方式部署到多种实体机器人上。\n3. Unified Cognition：原生集成前沿智能体，支持高级物理推理、稳健的错误恢复和安全监控。\n\n我们将于 12 月开放模型权重和 X-Adapt 方案。智能体框架、仿真引擎、标注引擎、硬件设计和训练数据今天就已开放。训练数据共 10 万小时，相当于约 11 年的经验。\n\n一切能动的设备都将实现自主运行。人人都能参与机器人研发。\n\n动手加入，和我们一起开发！\n\n技术细节见下方帖子串：",
+      "promptVersion": "codex-v1"
+    },
+    "2129e16d7ce208684aae358d45a4f57962e95ef9cab6fcc765599eb2c127fd8e": {
+      "source": "grep is not all you need, but it's 85%. I went through 3,710 requests my personal agents over the last few months and plotted how they search. 43.2% of those requests involved local search. 85.5% of first searches are grep/rg. Filename search is 5.2%, hybrid (embedding + BM25) 7.5%, pure embedding 1.7%.\n\nThe first search usually works 93.5% return results. But only 36.8% of requests stop there. The average search request runs 3.75 searches. And when a search fails, the agent doesn't change tools, it just changes queries. After an empty search, 75% try again, and 89% of those retries are grep. Even start with semantic, hybrid, or filename search, and 55–64% of the next searches still go back to grep.\n\nSo in short: grep fails -> do more grep. other search fails -> do more grep. grep is not just a default, it's the fallback as well.\n\nNote that I didn't count web search here as apparently it's not meaningful to compare against grep.",
+      "zh": "grep 能搞定大约 85% 的搜索。我分析了过去几个月个人智能体处理的 3,710 条请求，并把它们的搜索方式画成了图。43.2% 的请求涉及本地搜索。首次搜索中，85.5% 用的是 grep/rg，5.2% 按文件名搜索，7.5% 使用混合搜索（向量嵌入 + BM25），1.7% 只用向量嵌入搜索。\n\n首次搜索有 93.5% 能返回结果，但只有 36.8% 的请求搜一次就结束。每条涉及搜索的请求平均会执行 3.75 次搜索。搜不到结果时，智能体通常只换查询词。首次搜索无结果后，75% 会重试，其中 89% 用的是 grep。即使一开始用语义搜索、混合搜索或文件名搜索，下一次搜索也有 55%–64% 会转向 grep。\n\ngrep 搜不到 → 继续用 grep。其他方式搜不到 → 也用 grep。grep 既是默认选择，也是兜底工具。\n\n这里没统计网页搜索，因为它和 grep 放在一起比较意义不大。",
+      "promptVersion": "codex-v1"
+    },
+    "7954be8dd6fe9f5ab057ececfcfee085460468d78a232d3cc29d4f00c509eec7": {
+      "source": "Clipping is here 🎬\n\nGrab your favorite moment from any video, add your take, and post it without leaving X. \n\nCreators: every clip credits your original video and links back to it, so new viewers can find your work and keep watching.\n\nClippers: you now have an easy, native way to share moments from your favorite creators directly on X.\n\nThe best part? Both the original creator and the clipper can earn from views on the clip through Original Content Rewards.\n\nEveryone wins when great moments travel. Clipping is one more step toward making X the best place to create, grow and earn.",
+      "zh": "视频剪辑功能上线了 🎬\n\n从任意视频截取你喜欢的片段，加上自己的点评，直接在 X 上发布。\n\n原创作者的每条剪辑都会注明原视频出处并附上链接，方便新观众找到原作、继续观看。\n\n剪辑者现在可以用 X 的内置功能，直接分享自己喜欢的创作者的视频片段。\n\n通过 Original Content Rewards，原创作者和剪辑者都能从剪辑的播放量中获得收益。\n\n精彩片段传得越广，大家越受益。剪辑功能让 X 朝着成为创作、积累受众和赚取收入的最佳平台又迈进了一步。",
+      "promptVersion": "codex-v1"
+    },
+    "d4f06578988e80f316e93cb05639c19cbb4be5b3c820e2874dd84842fafe4f53": {
+      "source": "Very fun to see the team both ship new native artifact types like sheets and whiteboards today, and also open up the platform for developers to build full experiences into Claude as well.",
+      "zh": "很高兴看到团队今天推出了电子表格和白板等新的原生 Artifact 类型，同时开放平台，让开发者也能在 Claude 内构建完整的应用体验。",
+      "promptVersion": "codex-v1"
+    },
+    "daef74dddd3b8f7fa4751809851e4de9e0b496c0cbb03e4560f790a696445c25": {
+      "source": "Also new: with interactive connectors, you can now open the full version of a tool inside Claude. Work in Adobe, Atlassian, and Box beside your conversation. Make changes yourself, or ask Claude to make them with you.\n\nRolling out on web and desktop. https://t.co/m2x0tcHlLn",
+      "zh": "还有一项新功能。借助交互式连接器，你现在可以在 Claude 内打开完整版工具，在对话旁使用 Adobe、Atlassian 和 Box。你可以自己修改，也可以请 Claude 一起改。\n\n正陆续在网页版和桌面端上线。https://t.co/m2x0tcHlLn",
+      "promptVersion": "codex-v1"
+    },
+    "f8ed88c6e0a4473fbfd5a5740069e458c203377a064e72402bf4cea9899ca144": {
+      "source": "HTML-in-Canvas launches in Chrome 157 to let you create UIs never before possible on the web → https://t.co/tJ11eThkLp\n\nKey end-user benefits:\n🔠 Keep the content fully interactable while painting into canvas, including texture for 3D scenes \n♿ Fully accessible to screen readers and AI agents \n🔍 Browser functionality like translation & \"find in page\" stay working",
+      "zh": "HTML-in-Canvas 随 Chrome 157 上线，让你能打造此前在网页上无法实现的界面 → https://t.co/tJ11eThkLp\n\n用户可以获得这些体验：\n🔠 内容绘制到 canvas 后仍可完整交互，即使用作 3D 场景的纹理也一样\n♿ 屏幕阅读器和 AI 智能体均可完整访问内容\n🔍 浏览器翻译和「在页面中查找」等功能照常可用",
+      "promptVersion": "codex-v1"
+    },
+    "11c226ae945a6dd8b36c4d8019f8064dfe6741ff5caed8fdfbe7ed482bd05050": {
+      "source": "I wanted to test Fable 5.2's quality with one-shot prompts without human feedback.\n\nEverything in this game is from scratch: models, sounds, textures. ~$550 at API pricing, ~2.7M output and 445M input tokens, heavily cached. Took 8 hours!\n\nPlay it here: https://t.co/fazOCcyNIH https://t.co/GoCitQ9EVe",
+      "zh": "我想用一次性提示词测试 Fable 5.2 在没有人工反馈时的表现。\n\n这款游戏里的模型、音效和纹理全是从零做的。按 API 价格算约花了 550 美元，输出约 270 万个 token，输入约 4.45 亿个 token，大量使用了缓存。总共花了 8 小时！\n\n试玩地址：https://t.co/fazOCcyNIH https://t.co/GoCitQ9EVe",
+      "promptVersion": "codex-v1"
+    },
+    "57f6c98ba8e94e16e086890674ae654067852a4ad5ee15c21f9c4684821bd2ee": {
+      "source": "claim your business on ChatGPT and engage with customers in new ways:",
+      "zh": "在 ChatGPT 上认领你的商家档案，以新的方式与客户互动。",
+      "promptVersion": "codex-v1"
+    },
+    "7ec3e6212270c577a954f598f9100ea9d9f9a8848c0b3bb0e46ecb0ca06c43af": {
+      "source": "Now in beta: Businesses in ChatGPT.\n\nClaim your business, manage your information, and get insights on how people engage with you.\n\nEligible businesses can also build a Business Agent to answer customers’ questions and help them explore what you offer.\n\nhttps://t.co/N2GEZX0mFT https://t.co/lYj2Z48fhQ",
+      "zh": "Businesses in ChatGPT 现已开启测试。\n\n认领你的商家档案，管理商家信息，并了解用户如何与你的商家互动。\n\n符合条件的商家还可以创建 Business Agent，回答客户的问题，并帮助他们了解你提供的产品和服务。\n\nhttps://t.co/N2GEZX0mFT https://t.co/lYj2Z48fhQ",
+      "promptVersion": "codex-v1"
+    },
+    "3766425c4743a56ea00b81f110ac036ff8a88895eb22b89b7a73385661823512": {
+      "source": "Incredible progress of robotic learning! Check out the BEHAVIOR Challenge at #CoRL2026 👇",
+      "zh": "机器人学习的进展太惊人了！来看看 #CoRL2026 上的 BEHAVIOR Challenge 👇",
+      "promptVersion": "codex-v1"
+    },
+    "66eca50c068794b677f953386cbd40f81fcb874e210ca55e33079571404b0961": {
+      "source": "The results for the 2nd BEHAVIOR Challenge at CoRL 2026 are out! 🚀 In just one year, here's how far we've come together:\n\n🏠 2× benchmark scale: 50 → 100 tasks, 3 → 7 scenes\n👥 3× participation: 96 → 265 participants, 18 → 57 submissions\n📈 4× full-task success: 12% → 48%\n\nCongratulations to our winners!\n\n🥇 The North Star, Huawei Noah EAI Team\n🥈 IF1001, Intellifusion\n🥉 Cyber, Xiaomi Robotics\n\nThank you to every team, from academia, industry, and independent labs worldwide, for making this year's challenge exceptional! 🙌\n\n📝 Challenge description: https://t.co/4B13hRzrHy\n(1/N)",
+      "zh": "CoRL 2026 第二届 BEHAVIOR Challenge 的结果出炉了！🚀 短短一年，我们一起取得了这些进展：\n\n🏠 基准测试规模翻倍：任务从 50 项增至 100 项，场景从 3 个增至 7 个\n👥 参与规模约为去年的 3 倍：参赛人数从 96 增至 265，提交数从 18 增至 57\n📈 完整任务成功率达到去年的 4 倍：从 12% 升至 48%\n\n恭喜获奖队伍！\n\n🥇 The North Star（华为诺亚 EAI 团队）\n🥈 IF1001（云天励飞）\n🥉 Cyber（小米机器人团队）\n\n感谢全球学术界、产业界和独立实验室的每支参赛队伍，是你们让今年的挑战赛如此精彩！🙌\n\n📝 赛事说明：https://t.co/4B13hRzrHy\n(1/N)",
+      "promptVersion": "codex-v1"
+    },
+    "2bafff0f07a0b59851149cdf121174de085850c9d9b8be0c5d7fb4c4087039e1": {
+      "source": "New paper:\nAdding clean data to your dataset is assumed to weaken poison data. We show the opposite can occur. Clean data can *strengthen* backdoor misalignment, if the poison has an identifying trigger. We call this homeopathic learning. https://t.co/Ameebo0g7o",
+      "zh": "新论文：\n人们通常认为，向数据集加入干净数据会削弱投毒数据的影响。我们发现，有时结果恰好相反。如果投毒数据带有可识别的触发器，干净数据反而可能加剧后门引发的失对齐。我们把这种现象称为「顺势疗法式学习」。https://t.co/Ameebo0g7o",
+      "promptVersion": "codex-v1"
+    },
+    "989a012909b0696e91c0aa5c49d16f5422b0a5765964171493867cd50c6b798d": {
+      "source": "Gemini 4 Argon helped build Gemini Robotics 2.5, speeding up months of training.\n\nIt creates virtual practice spaces from a single camera view, and watches replays of its own mistakes to fix its technique, driving stronger performance on the real robot.",
+      "zh": "Gemini 4 Argon 助力开发 Gemini Robotics 2.5，加快了原本需要数月的训练。\n\n它只用单个摄像头视角就能搭建虚拟训练环境，还会回看自己的失误来改进动作，从而提升实体机器人的表现。",
+      "promptVersion": "codex-v1"
+    },
+    "c80e2ec98e8ffa842282df96f4a12c32f88cd72c43ed1833049f7fb926355d64": {
+      "source": "this is a really good prompt you can use to feel the power of fable 5.2 btw!\n\ni'd send it as - \n\n\"audit and find implicit state machines in this <codebase/directory/module> that would drive concrete improvements if made explicit. explain before/after of each one and discuss with me in lavish-axi. fewer words, big visuals\"\n\nlavish-axi is optional, but it makes the results a lot easier for you to understand and decide on. https://t.co/QIHTACW7PV \n\nfable 5.2 is really good at identifying real problems and ignore noise, and it explains them in a very intuitive way\n\nexample of a good clean up identified in firstmate repo here",
+      "zh": "顺带一提，这条提示词很好用，能让你感受到 fable 5.2 的实力！\n\n我会这样发：\n\n\"审查这个 <codebase/directory/module>，找出显式化后能带来具体改进的隐式状态机。说明每一处改动前后的差异，并用 lavish-axi 和我讨论。文字少一点，图画大一点。\"\n\nlavish-axi 可以省略，但用了它，结果更容易看懂，也更方便做决定。https://t.co/QIHTACW7PV\n\nfable 5.2 很擅长过滤噪音、找出真正的问题，解释起来也很直观。\n\n这里有个例子，是它在 firstmate 仓库里发现的一处值得整理的代码。",
+      "promptVersion": "codex-v1"
+    },
+    "1c30b08e0c3b2b755f68c7bd52b110569c28133fa313aec423daf8057c20924a": {
+      "source": "I finally asked @zenorocha, the CEO of AEO, why tf my agents keep choosing Resend even when I don't want them to https://t.co/K823AQNd4W",
+      "zh": "我终于问了 AEO 的 CEO @zenorocha：我明明不想让智能体用 Resend，它们到底为什么老选 Resend？https://t.co/K823AQNd4W",
+      "promptVersion": "codex-v1"
+    },
+    "28659090218ad5e1ce6a30f6dea0bfafef6cef20a27de748460ba54cfb9d87a3": {
+      "source": "🆕 Designing for Agents\n\nAgent Experience is one of the most hotly contested topics of 2026, and increasingly critical for devtools/infra companies to get right. @ZenoRocha has been writing and thinking about this since 2024 and came on the pod to spill @Resend secrets!\n\nhttps://t.co/gX41gVxXTe\n\nKey themes include:\n\n- Answer Engine Optimization (AEO): how AI models like Claude Code recommend email services and how product teams can design for these agents\n- Deliverability and Trust: The discussion delves into the complexities of getting mail into the inbox, including handling bursts, managing Gmail throttling, and the importance of domain reputation and anti-abuse measures\n- Developer Experience & MCP: A major focus is on building for both humans and machines. Resend utilizes the Model Context Protocol (MCP) to provide agents with over 80 named tools, allowing them to autonomously set up accounts, check pricing in Markdown, and send emails\n- Technical Infrastructure: React Email as a wedge for adoption and but Resend's commitment to owning the mail stack, including managing complex DNS hurdles and providing enterprise-level visibility",
+      "zh": "🆕 为智能体设计\n\n智能体体验是 2026 年争论最激烈的话题之一。对开发者工具和基础设施公司来说，做好这一点也越来越重要。@ZenoRocha 从 2024 年起就在思考和撰写相关内容，这次他来播客分享了 @Resend 的一些秘诀！\n\nhttps://t.co/gX41gVxXTe\n\n主要话题包括：\n\n- 答案引擎优化（AEO）：Claude Code 等 AI 工具如何推荐邮件服务，以及产品团队如何为这些智能体设计产品\n- 邮件送达与信任：深入讨论怎样让邮件顺利进入收件箱，包括应对发送量骤增、处理 Gmail 限流，以及域名信誉和反滥用措施的重要性\n- 开发者体验与 MCP：重点是同时服务人类和机器。Resend 通过模型上下文协议（MCP）提供 80 多个具名工具，让智能体自主设置账号、查看 Markdown 格式的定价信息并发送邮件\n- 技术基础设施：Resend 借 React Email 吸引用户，同时坚持自主掌控邮件技术栈，包括处理复杂的 DNS 问题，并提供企业级可观测性",
+      "promptVersion": "codex-v1"
+    },
+    "7f51626e54a97d57e05515f29273ea6df59a88be1f1deb1e9185c1e6246fc70d": {
+      "source": "Fly verification is evil... it greatly speeds up decoding but introduces very sneaky errors, because it accepts drafts that are semantically correct but not token-exact... so I've seen errors like \"Mountain View\" -> \"Mile View\", \"SGLang, Fly\" -> \"Flang\", \"100%\" -> \"500%\", \"tps\" -> \"tok/speed\". it's a disaster to read. But it is fast, i give that. I wonder what kind of application can tolerate this kind of error and yet still be useful. https://t.co/w7eX7AQsqh",
+      "zh": "Fly 验证太邪门了……它大幅加快了解码，却会引入很隐蔽的错误，因为它会接受语义正确但 token 并未逐一匹配的草稿……我见过这样的错误：\"Mountain View\" -> \"Mile View\"、\"SGLang, Fly\" -> \"Flang\"、\"100%\" -> \"500%\"、\"tps\" -> \"tok/speed\"。读起来简直是灾难。速度确实快，这点我承认。我想知道，什么应用能容忍这类错误，同时还有实用价值。https://t.co/w7eX7AQsqh",
+      "promptVersion": "codex-v1"
+    },
+    "cbc827f7ed501e02460819e2e6a33e2d8ee3bd9b4e2590162b5fcf4f3ece6208": {
+      "source": "We've given all Pro, Max, Ultra, and Team users one free full reset, across all models and limits. Use it anytime before December 10 at 2:00PM PT.\n\nWe recently fixed a few small issues that used more limits than intended, and the Fable resets didn't do much for those of you who'd already hit your weekly limits for all models. While these issues didn't affect everyone, we want to make up for the trouble.\n\nYou'll find it in Settings > Usage, or at https://t.co/5YRzheAZyQ.",
+      "zh": "我们为所有 Pro、Max、Ultra 和 Team 用户提供了一次免费重置机会，涵盖所有模型的全部用量限额。请在太平洋时间 12 月 10 日下午 2 点前使用。\n\n我们最近修复了几个导致额度消耗超出预期的小问题。对于已经用完所有模型每周额度的用户，此前的 Fable 额度重置帮助有限。虽然这些问题只影响了部分用户，我们还是希望弥补给大家带来的不便。\n\n你可以在「设置 > 用量」中使用这次重置机会，也可以直接访问 https://t.co/5YRzheAZyQ。",
+      "promptVersion": "codex-v1"
     }
   },
-  "updatedAt": "2026-11-09T23:21:45.153290+00:00"
+  "updatedAt": "2026-11-10T23:42:00.232993+00:00"
 }
