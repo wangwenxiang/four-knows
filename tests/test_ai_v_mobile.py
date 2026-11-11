@@ -7,6 +7,23 @@ from scripts.render_ai_v_mobile import render_mobile
 
 
 class MobileRadarTests(unittest.TestCase):
+    def test_editorial_missing_id_gets_targeted_review(self):
+        def response(post_id):
+            return type('Result', (), {'returncode': 0, 'stdout': json.dumps({'items': [
+                {'id': post_id, 'technicalRelevant': True, 'dailyGrade': 'B',
+                 'channel': 'growth', 'evidence': '具体方法', 'rationale': '可复用'}
+            ]})})()
+
+        batch = [{'id': '1', 'text': '方法一'}, {'id': '2', 'text': '方法二'}]
+        with patch.object(radar, 'MOBILE_REPORT', True), patch.object(
+            radar.subprocess, 'run', side_effect=[response('1'), response('2')]
+        ) as run:
+            reviewed, error = radar.review_editorial_batch(batch, 0)
+        self.assertEqual(error, '')
+        self.assertEqual(set(reviewed), {'1', '2'})
+        self.assertIn('"id": "2"', run.call_args.kwargs['input'])
+        self.assertNotIn('"id": "1"', run.call_args.kwargs['input'])
+
     def test_semantic_chinese_growth_is_not_rejected_by_old_keyword_gate(self):
         post = {'text': '新站要先做低竞争长尾词，站点权重不足时难排核心词。', 'editorial': {'technicalRelevant': True, 'channel': 'growth', 'evidence': '新站长尾词与权重策略'}}
         with patch.object(radar, 'MOBILE_REPORT', True), patch.object(radar, 'is_radar_post', return_value=False):

@@ -1846,6 +1846,7 @@ dailyGrade A=重要发布/研究/具体成果，B=有价值的实践/方法/工�
 INPUT:
 """ + json.dumps([editorial_source(post) for post in batch], ensure_ascii=False)
     last_error = ""
+    best_reviews: dict[str, dict[str, Any]] = {}
     for attempt in range(max(0, retries) + 1):
         try:
             completed = subprocess.run(CODEX_EXEC_COMMAND, input=prompt, capture_output=True, text=True, timeout=360, check=False)
@@ -1857,15 +1858,17 @@ INPUT:
                     payload = parse_editorial_json(completed.stdout)
                     rows = payload.get("items") if isinstance(payload.get("items"), list) else []
                     reviews = {str(row.get("id")): row for row in rows if isinstance(row, dict) and str(row.get("id")) in expected_ids}
+                    for review in reviews.values():
+                        review["technicalRelevant"] = review.get("technicalRelevant") is True
+                        if MOBILE_REPORT and review.get("channel") not in {"research", "agent", "enterprise", "growth", "creative", "tools"}:
+                            raise ValueError("Editorial review omitted a valid channel")
+                        review["dailyGrade"] = str(review.get("dailyGrade") or "D").upper()
+                        if review["dailyGrade"] not in {"A", "B", "C", "D"}:
+                            review["dailyGrade"] = "D"
                     if set(reviews) == expected_ids:
-                        for review in reviews.values():
-                            review["technicalRelevant"] = review.get("technicalRelevant") is True
-                            if MOBILE_REPORT and review.get("channel") not in {"research", "agent", "enterprise", "growth", "creative", "tools"}:
-                                raise ValueError("Editorial review omitted a valid channel")
-                            review["dailyGrade"] = str(review.get("dailyGrade") or "D").upper()
-                            if review["dailyGrade"] not in {"A", "B", "C", "D"}:
-                                review["dailyGrade"] = "D"
                         return reviews, ""
+                    if len(reviews) > len(best_reviews):
+                        best_reviews = reviews
                     last_error = f"Codex omitted {len(expected_ids - set(reviews))} editorial ids"
                 except ValueError as exc:
                     last_error = str(exc)
@@ -1873,6 +1876,12 @@ INPUT:
                 last_error = redact(completed.stderr or completed.stdout or f"exit {completed.returncode}")
         if attempt < retries:
             time.sleep(2 ** attempt)
+    if best_reviews and len(best_reviews) < len(batch):
+        missing = [post for post in batch if str(post["id"]) not in best_reviews]
+        recovered, error = review_editorial_batch(missing, retries)
+        if not error and len(recovered) == len(missing):
+            return {**best_reviews, **recovered}, ""
+        last_error = f"{last_error}; missing-ID review failed: {error}"
     return {}, last_error
 
 
