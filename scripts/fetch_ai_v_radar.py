@@ -1027,6 +1027,22 @@ def complete_snapshot_account_results(snapshot, experts):
     return results if len(seen) == len(expected) and set(seen) == expected else None
 
 
+def partial_snapshot_account_results(snapshot, experts):
+    """Keep successful account reads and return only accounts still needing recovery."""
+    if not snapshot:
+        return [], experts
+    expected = {expert.handle.casefold() for expert in experts}
+    retained, covered = [], set()
+    for result in snapshot.get('results', []):
+        if result.get('source') == 'x-hotspot-search' or not result.get('ok'):
+            continue
+        handles = {str(item.get('handle') or '').casefold() for item in result.get('experts', [])}
+        if handles and handles <= expected and not handles & covered:
+            retained.append(result)
+            covered.update(handles)
+    return retained, [expert for expert in experts if expert.handle.casefold() not in covered]
+
+
 def fetch_hotspot_direction(
     direction: dict[str, Any],
     cutoff: datetime,
@@ -2982,19 +2998,23 @@ def main() -> int:
         tuple(x['handle'].casefold() for x in r.get('experts', [])): r
         for r in (snapshot or {}).get('results', []) if r.get('experts')
     }
+    saved_account_results = complete_snapshot_account_results(snapshot, experts)
+    retained_account_results, pending_experts = partial_snapshot_account_results(snapshot, experts)
     if args.fetch_mode == "search":
         batch_size = max(1, args.search_batch_size)
         work_items: list[Any] = [
-            experts[index : index + batch_size]
-            for index in range(0, len(experts), batch_size)
+            pending_experts[index : index + batch_size]
+            for index in range(0, len(pending_experts), batch_size)
         ]
     else:
-        work_items = experts
-    saved_account_results = complete_snapshot_account_results(snapshot, experts)
+        work_items = pending_experts
     if saved_account_results is not None:
         results = saved_account_results
         print(f"Reusing complete same-window account scan: {len(experts)} accounts", flush=True)
     else:
+        results = retained_account_results
+        if retained_account_results:
+            print(f"Reusing {len(experts) - len(pending_experts)} successful same-window accounts; retrying {len(pending_experts)}", flush=True)
         with concurrent.futures.ThreadPoolExecutor(max_workers=max(1, args.workers)) as pool:
             if args.fetch_mode == "search":
                 future_map = {
