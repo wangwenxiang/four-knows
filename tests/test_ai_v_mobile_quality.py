@@ -44,6 +44,24 @@ class FinalQualityTests(unittest.TestCase):
     def test_source_edit_invalidates_audit_fingerprint(self):
         self.assertNotEqual(quality.fingerprint([post('1','旧文')]),quality.fingerprint([post('1','新文')]))
 
+    def test_context_only_quote_or_reply_has_no_daily_increment(self):
+        link_only = post('1', 'https://t.co/example') | {'quotedTweet': {'id': 'old', 'text': '完整旧教程'}}
+        assent = post('2', 'LGTM') | {'quotedTweet': {'id': 'new', 'text': '完整新教程'}}
+        substantive = post('3', '今天补充了新的测试条件、失败案例和具体验收步骤') | {'quotedTweet': {'id': 'old'}}
+        self.assertTrue(quality.context_only_wrapper(link_only))
+        self.assertTrue(quality.context_only_wrapper(assent))
+        self.assertFalse(quality.context_only_wrapper(substantive))
+
+    def test_saved_review_policy_adjustment_reselects_without_rereview(self):
+        posts=[post('1','LGTM') | {'quotedTweet':{'id':'old','text':'完整教程'}}, post('2')]
+        response={'selected':[{'id':'2','reason':'独立增量'}], 'omitted':[]}
+        with tempfile.TemporaryDirectory() as folder, patch.object(quality,'review_batch',return_value=[review('1'),review('2')]), patch.object(quality,'model_json',return_value=response):
+            retained,audit=quality.quality_review(posts,Path(folder)/'audit.json')
+            self.assertEqual([p['id'] for p in retained],['2'])
+            self.assertEqual(audit['reviewed'],2)
+            self.assertEqual(audit['policyAdjustments'][0]['id'],'1')
+            self.assertFalse(audit['decisions'][0]['qualified'])
+
 
 if __name__=='__main__':
     unittest.main()

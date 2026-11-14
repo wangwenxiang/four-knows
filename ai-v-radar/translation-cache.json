@@ -19068,7 +19068,77 @@
       "source": "Huge. We have to start figuring out how to navigate this newfound mess of post-AGI peer review. Thank you Ian for leading this effort!",
       "zh": "意义重大。我们得开始摸索，如何应对后 AGI 时代同行评审出现的新乱局。感谢 Ian 牵头推动这项工作！",
       "promptVersion": "codex-v1"
+    },
+    "1300255f1b04bd01ce5891e97bd7c8442c13d48ab3e917aec5644b4168470067": {
+      "source": "OCR folks are having a heated debate about particular benchmarks in this thread.  Much of the frustration stems from the unreasonable sway benchmarks have on vendor selection: nobody looks behind the top level score!\n\nThis invites moral hazard when publishing a benchmark, and understandably shines a light on motivations and incentives at play, even if there are good intentions.  \n\nAs a consumer of models, if you are relying on benchmarks the least you should do is look at the traces from 3-5 failing tasks and try to make an informed decision yourself.  Vik has a checklist as well below.\n\nDon't make up your mind based on twitter arguments either!  Look at the data.  Also sometimes \"benchmarks of benchmarks\" are slop.  You really need to look at the data yourself if you are making large purchasing decisions based on the numbers.",
+      "zh": "OCR 圈正在这个讨论串里激烈争论一些具体的基准测试。大家的不满很大程度上源于基准测试对供应商选择的影响大得不合理：没人去看总分背后的细节！\n\n这给基准测试的发布带来了道德风险，也难免让人审视其中的动机和利益驱动，即使初衷是好的。\n\n作为模型用户，如果你依赖基准测试，至少应该查看 3–5 个失败任务的执行记录，自己做出有依据的判断。Vik 也在下方提供了一份检查清单。\n\n也别根据 Twitter 上的争论就下结论！去看数据。另外，有些“基准测试的基准测试”也是粗制滥造的东西。如果你要根据这些数字做出大额采购决策，就真的需要亲自查看数据。",
+      "promptVersion": "codex-v1"
+    },
+    "5efe0055b0f31d2c3a0be2ec58f68d5c236eb5bf64de1a5df5c11a22aad7c3d8": {
+      "source": "There are so many flawed OCR benchmarks, and more come out every week.\n\nI gave a talk on how to evaluate them in @HamelHusain's course. Here are common issues, how to spot them, and a guide on evaluation 🧵 https://t.co/YbUMLhAOkA",
+      "zh": "有缺陷的 OCR 基准测试实在太多了，而且每周都有新的冒出来。\n\n我在 @HamelHusain 的课程中讲过如何评估它们。下面介绍常见问题、识别方法和评估指南 🧵 https://t.co/YbUMLhAOkA",
+      "promptVersion": "codex-v1"
+    },
+    "be4b3d91e203e93bde6393ce41b9c9578eb9051951e1b2df69642085423770e7": {
+      "source": "LGTM",
+      "zh": "看起来没问题",
+      "promptVersion": "codex-v1"
+    },
+    "d6d511c0a0a1be1c2aa68de496447c678d90c0e77d191bf572b50d5fedbb7fec": {
+      "source": "Everyone's hyping how accurate Gemini 4 Carbon's plans are this week. In my own tests 𝗚𝗲𝗺𝗶𝗻𝗶 𝟰 𝗔𝗿𝗴𝗼𝗻 𝗶𝘀 𝗲𝗻𝗼𝘂𝗴𝗵 and Carbon thinks too long: on the same three tasks Argon answered in 34 to 104 seconds, Carbon took 203 to 304, and they flagged pretty much the same problems.\n\nHow I split it in my project right now:\n→ Fable 5.2: the most expensive one. I have it split up the tasks and check the results, and I don't let it write feature code\n→ Opus 5.5: writes the code. Four workstreams at once, one worker each\n→ Sonnet 5.5: no-brainer work like running checks and splitting up CI\n→ Gemini 4 Argon: 𝘀𝗲𝗰𝗼𝗻𝗱 𝗼𝗽𝗶𝗻𝗶𝗼𝗻𝘀 𝗼𝗻𝗹𝘆, never touches a file\n\nLast time I was settling on a design plan, I had Gemini look at it for two rounds. It cost $0.10 and knocked down five things in Fable 5.2's first draft. I still double-check every fact it gives me. I once had it guess whether 10 domains were available and it got 2 right.\n\nPut this in your CLAUDE.md, or make it a slash command:\n\n\"Before committing to a big plan, when the same error shows up a second time, and before calling a long task done, first run gemini -p '<question + file paths>' to get its opinion, and don't let it edit any files. Put its answer next to yours and tell me where they differ.\"",
+      "zh": "这周大家都在吹 Gemini 4 Carbon 的方案有多准确。但我自己测试下来，Gemini 4 Argon 就够用了，Carbon 思考得太久：同样三个任务，Argon 用了 34–104 秒，Carbon 用了 203–304 秒，两者指出的问题几乎一样。\n\n我目前在项目中这样分工：\n→ Fable 5.2：最贵的那个。让它拆分任务、检查结果，不让它写功能代码\n→ Opus 5.5：负责写代码。四条工作线同时推进，每条各配一个执行代理\n→ Sonnet 5.5：负责跑检查、拆分 CI 这类不用费脑子的工作\n→ Gemini 4 Argon：只提供第二意见，绝不修改文件\n\n上次敲定设计方案时，我让 Gemini 看了两轮。花了 0.10 美元，指出了 Fable 5.2 初稿中的五处问题。它提供的每个事实，我仍然会核实。有一次我让它猜 10 个域名是否可注册，它只猜对了 2 个。\n\n把下面这段放进你的 CLAUDE.md，或者做成斜杠命令：\n\n“在敲定重大方案前、同一个错误第二次出现时，以及宣布一项耗时任务完成前，先运行 gemini -p '<question + file paths>' 征求意见，不要让它编辑任何文件。把它的回答和你的回答放在一起，告诉我两者有哪些分歧。”",
+      "promptVersion": "codex-v1"
+    },
+    "cdecf0a64814188e411bab0719a2f8c30e5cfa6a58b3b946ca8f5e3293473e6b": {
+      "source": "If your forest feels lifeless, check out traveling waves https://t.co/CP6WxyZLLD",
+      "zh": "如果你的森林显得死气沉沉，不妨看看行波 https://t.co/CP6WxyZLLD",
+      "promptVersion": "codex-v1"
+    },
+    "fa0caebb764babb49662a36a5582a97cd4ecba369182115a4b2eb38c0a6221cf": {
+      "source": "Prawie cały zespół Grok Imagine został zwolniony\n\n@grok czy to prawda",
+      "zh": "Grok Imagine 团队几乎全员被裁\n\n@grok 这是真的吗",
+      "promptVersion": "codex-v1"
+    },
+    "bf050296d0c21c315c1561f5abd14a5eadbafb67a2020497f7959dde9e8b3694": {
+      "source": "Safety evaluations are critical for understanding whether a model is ready to deploy, which safeguards to build for it, and where to focus training and research.\n\nOn our Engineering Blog, we offer 10 recommendations for how to design, run and report them.\n\nhttps://t.co/MtSQmqqi2D",
+      "zh": "安全评估至关重要，能帮助我们判断模型是否已具备部署条件、需要构建哪些防护措施，以及训练和研究应重点关注哪些方向。\n\n我们在工程博客中提出了关于如何设计、开展和报告安全评估的 10 条建议。\n\nhttps://t.co/MtSQmqqi2D",
+      "promptVersion": "codex-v1"
+    },
+    "a9d6deb1b3e56e69d8538f0773b8940404cae28df9fd68b63ae4c24ab2bb4f69": {
+      "source": "Tens of thousands of offensive engagements, dozens of impactful security findings, no outages or incidents caused so far.\n\nMeet Shopify’s Cyber Chaos Monkey 🐒, our agentic vulnerability hunter. \n\nhttps://t.co/1kvl4aPQda",
+      "zh": "已开展数万次进攻性安全测试，发现数十个重要安全问题，迄今未造成任何服务中断或安全事件。\n\n认识一下 Shopify 的 Cyber Chaos Monkey 🐒，我们的自主漏洞挖掘智能体。\n\nhttps://t.co/1kvl4aPQda",
+      "promptVersion": "codex-v1"
+    },
+    "f903d3d6cc344e55f5b3ed11693b0c6f43d726f3fa33a3eedaea15fc63661a66": {
+      "source": "Today we’re releasing Personal Agent Protocol (Poppy) v1.0.\n\nIt’s on for everyone who uses Muse, @Meta's AI agent, enabled for every merchant on @Shopify, and backed by more than 100 design partners. https://t.co/0CrPrTUWEy",
+      "zh": "今天，我们发布 Personal Agent Protocol (Poppy) v1.0。\n\n该协议已向 @Meta 的 AI 智能体 Muse 的所有用户开放，为 @Shopify 上的每一家商户启用，并获得了 100 多家设计合作伙伴的支持。https://t.co/0CrPrTUWEy",
+      "promptVersion": "codex-v1"
+    },
+    "9fbd5e7d045a3dff9f540570b261beea42b44e618b76e46b431a980bf1087871": {
+      "source": "One of the hardest parts around document parsing is parsing complex tables.\n\nBesides the task itself being difficult, it is also hard to measure what ‘good’ looks like. Ultimately it comes down to intuition around what is a catastrophic error for downstream knowledge work.\n* Formatting differences (markdown vs. html tags) are harmless\n* Making the header row a “data” row is also probably harmless (any human/model can interpret it as the header anyways)\n* Swapping the signs on a number, particular in financial reporting, is much more severe.\n\nIt is hard to encode what “good” looks like in a quantifiable way. Existing deterministic tests/metrics (OmniDocBench/OlmOCR-Bench/ParseBench-1) use some variant of edit distance, or an average over binary tests, making it hard to distinguish severe errors from normal ones.\n\nWith our recent release of ParseBench-2, our answer is to tune any deterministic metric by a severity policy, where you can explicitly state how good or bad different errors are.\n* For instance, in a finance setting, dropping digits/flipping signs is really bad! Our default severity weighting is 10, but you might decide 25 - the policy is meant to be customizable by the user.\n* Check out the examples below highlighting this. You can compare the impact of “actually bad” or “harmless” perturbations on a few different benchmarks incl. ParseBench-2.\n\nWe have a taxonomy of 330+ error types, a big subset of which is defined around table errors, categorizing them from 5 severity levels:\n* most severe: wrong digits, decimals misplaced, values swapped, column missing\n* medium severe: body rows reordered, one cell split into two, etc.\n* harmless: formatting errors, html markup\n\nMore details around table methodology in blog/tech report.\nBlog: https://t.co/xtgxfln8Wc\nTech report: https://t.co/f6SxkKIlme",
+      "zh": "文档解析中最难的环节之一，就是解析复杂表格。\n\n这项任务本身很难，衡量什么才算“解析得好”也同样困难。归根结底，我们往往只能凭直觉判断，哪些错误会给后续知识工作带来灾难性影响。\n* 格式差异（markdown 与 html 标签）无伤大雅\n* 把表头行当成“数据”行，可能也无伤大雅（人或模型都能看出它其实是表头）\n* 把数字的正负号弄反，尤其是在财务报告中，后果就严重得多。\n\n很难用可量化的方式定义什么才算“好”。现有的确定性测试和指标（OmniDocBench/OlmOCR-Bench/ParseBench-1）使用某种编辑距离，或对多项二元测试取平均值，因此难以区分严重错误和普通错误。\n\n在最近发布的 ParseBench-2 中，我们的解决办法是通过严重程度策略来调整确定性指标，让你可以明确规定不同错误的影响有多大。\n* 例如，在财务场景中，漏掉数字或弄反正负号都非常严重！我们的默认严重程度权重为 10，但你也可以设为 25——这套策略本就支持用户自定义。\n* 请看下面的示例。你可以比较“确实有害”和“无伤大雅”的扰动对多个基准测试的影响，其中包括 ParseBench-2。\n\n我们建立了涵盖 330 多种错误的分类体系，其中很大一部分针对表格错误，并将其划分为 5 个严重等级：\n* 最严重：数字错误、小数点错位、数值互换、整列缺失\n* 中等严重：正文行顺序被打乱、一个单元格被拆成两个等\n* 无害：格式错误、html 标记\n\n关于表格评估方法的更多细节，请参阅博客和技术报告。\n博客：https://t.co/xtgxfln8Wc\n技术报告：https://t.co/f6SxkKIlme",
+      "promptVersion": "codex-v1"
+    },
+    "510d761e1c5e95fef0a31cc850c6976d9361d0bd722eef467b7ec8b60658cbdc": {
+      "source": "Today's release marks the first major version of llama.cpp and ggml.\n\nWe have created a strong foundation for the future of local AI. Looking forward to what you will build on top of it! https://t.co/f8huLdRbhI",
+      "zh": "今天，llama.cpp 和 ggml 迎来了首个大版本发布。\n\n我们已为本地 AI 的未来打下坚实基础。期待看到你们在此基础上创造出的成果！https://t.co/f8huLdRbhI",
+      "promptVersion": "codex-v1"
+    },
+    "756f37d1fcc65bd7d789da649846c0966d573399ae5ada3feda27e8efeccb146": {
+      "source": "Tired of walls of markdown? Try an /animatic.\n\nI'm working on two skills:\n\n- /setup-animatic, that chooses the tooling and sets it up on your machine (or a remote machine)\n- /animatic, that creates a video ready for upload\n\nI've been using them for a while. Here's a preview:",
+      "zh": "看腻了大段 markdown？试试 /animatic。\n\n我正在开发两个技能：\n\n- /setup-animatic：选择工具，并在你的电脑（或远程机器）上完成配置\n- /animatic：生成可直接上传的视频\n\n我已经用了它们一段时间。先给大家预览一下：",
+      "promptVersion": "codex-v1"
+    },
+    "eba4d544baaff22458401a18961fcc7ed9949eb8c921d8cf6af6c099d0f89f8e": {
+      "source": "Resizable panels that learn your preferred width and snap to it when you resize. \n\n- weighted for recency \n- snap unlocks for precise resizing https://t.co/BbhPX0y0Rz",
+      "zh": "可调节大小的面板会学习你偏好的宽度，并在你调整时自动吸附到该宽度。\n\n- 越近期的偏好，权重越高\n- 可解除吸附，方便精确调整大小 https://t.co/BbhPX0y0Rz",
+      "promptVersion": "codex-v1"
+    },
+    "e56cc14cd099c38a6c597760c778bfc9637513d43242509875c63af525a4736b": {
+      "source": "https://t.co/AK6dYbRTED",
+      "zh": "https://t.co/AK6dYbRTED",
+      "promptVersion": "codex-v1"
     }
   },
-  "updatedAt": "2026-11-13T23:21:11.793721+00:00"
+  "updatedAt": "2026-11-14T23:17:00.521976+00:00"
 }
