@@ -19168,7 +19168,82 @@
       "source": "Moved Inktown from ThreeJs to @PixiJS 3D\n\nRunning on WebGPU, pixel-perfect migration, better performance 🪄 https://t.co/MV8Rqyk2sk",
       "zh": "将 Inktown 从 ThreeJs 迁移到了 @PixiJS 3D\n\n基于 WebGPU 运行，像素级还原，性能更好 🪄 https://t.co/MV8Rqyk2sk",
       "promptVersion": "codex-v1"
+    },
+    "3456f7f937179cee48b3bc3fef8dbce3b8dc86372d5a4ff95d8cdac58428e7ea": {
+      "source": "Parsing forms is a hard problem, whether with specialized OCR or frontier models.\n\nThere is no standardization across various form templates. There are multiple form elements (e.g. checkboxes, signatures, text fields) that need to be represented in various ways. A good parser needs to both extract empty/filled form values along with exact bounding boxes.\n\nWe’ve spent time carefully crafting a forms dataset within ParseBench-2. It consists of 600 pages from 244 government form templates across 30 countries, with 20K annotated fields (text, checkboxes, signatures).\n\nWe also designed a forms metric that’s weighted by severity policies, like the following:\n- Blank fields have to stay blank\n- Formatting changes cost nothing\n- A lost signature counts 5\n- A wrong number costs min 10\n\nDifferent form extraction use cases will prioritize different errors more, and we encourage you to tune your own severity policies for form parsing.\n\nMore details in our blog / tech report: https://t.co/xtgxfln8Wc\nBenchmark: https://t.co/PWczfhp0OX\nAvailable on Hugging Face! https://t.co/T1FLO2V2xd",
+      "zh": "无论使用专用 OCR 还是前沿模型，表单解析都是个难题。\n\n不同表单模板之间缺乏统一标准。表单包含多种元素（如复选框、签名、文本字段），需要以不同方式表示。好的解析器既要提取空白和已填写字段的值，也要给出精确的边界框。\n\n我们在 ParseBench-2 中精心构建了一个表单数据集，涵盖来自 30 个国家的 244 种政府表单模板，共 600 页，包含 2 万个已标注字段（文本、复选框、签名）。\n\n我们还设计了一项表单评估指标，根据错误严重程度赋予不同权重，例如：\n- 空白字段必须保持空白\n- 格式变化不扣分\n- 丢失一个签名扣 5 分\n- 一个数字出错至少扣 10 分\n\n不同表单提取场景对各类错误的重视程度不同，我们建议你根据自身需求调整表单解析的错误严重程度规则。\n\n更多详情见博客／技术报告：https://t.co/xtgxfln8Wc\n基准测试：https://t.co/PWczfhp0OX\n现已上线 Hugging Face！https://t.co/T1FLO2V2xd",
+      "promptVersion": "codex-v1"
+    },
+    "cf271ed24f41fe5c88f25684ee258ce51ab38294420d3fd7a7f45cf9e98ae399": {
+      "source": "Evals Explained, From First Principles",
+      "zh": "从第一性原理理解模型评估",
+      "promptVersion": "codex-v1"
+    },
+    "b9cf6e72d874e70686d9b5053601f9f3b80bedd66b3c965b9ef46ad6cb066b86": {
+      "source": "Whenever any frontier lab says its new model is better at coding, it means the model scored higher on some set of coding tasks graded in some particular way. When you change those tasks or infact, the",
+      "zh": "每当前沿 AI 实验室声称新模型的编程能力更强，意思都是：模型在一组按特定方式评分的编程任务中取得了更高分。当你改变这些任务，或者实际上，改变……",
+      "promptVersion": "codex-v1"
+    },
+    "02310f35204244acb5f9d12c4aad734eb97c77971b19946e5f00d3d37eeb4d12": {
+      "source": "Two very useful prompts to try with Fable 5.2:\n\n\"/doctor prompt-audit\": Audits your Claude Code setup (Claude md, skills, commands) and proposes fixes.\n\n\"/claude-api prompt-audit [skill name]\": Audits one skill in depth.\n\nI wish Claude Code auto-suggested running these every time Anthropic releases a new model.\n\n📌 Watch my full tutorial on how I use Fable and Opus here: https://t.co/slyEbWvvqA",
+      "zh": "两个非常实用的提示词，可以在 Fable 5.2 中试试：\n\n\"/doctor prompt-audit\"：审查你的 Claude Code 配置（Claude md、技能、命令），并提出修复建议。\n\n\"/claude-api prompt-audit [skill name]\"：深入审查某个技能。\n\n希望每次 Anthropic 发布新模型时，Claude Code 都能自动建议运行这两条命令。\n\n📌 完整教程在这里，看看我如何使用 Fable 和 Opus：https://t.co/slyEbWvvqA",
+      "promptVersion": "codex-v1"
+    },
+    "e24b24559626e3c3a0c1bbc0ed89afe8ab7a3a061ec9aacf503469141d2df68c": {
+      "source": "DeepSeek-v4.1-Flash FP8 thinking=high on 4x RTX6k pro: single-stream 500~700 tps! 40 hours hillclimbing with Gemini4-Carbon, 1B total tokens. Many ridiculous tps reports from wild have thinking off, (bc thinking is an enemy of speculative decoding) and test on high deterministic task. This one is pretty solid, going to be my daily productivity. Can we reach 1000tps tho?",
+      "zh": "DeepSeek-v4.1-Flash FP8 在 4 张 RTX6k pro 上以 thinking=high 运行：单流达到 500～700 tokens/秒！用 Gemini4-Carbon 做了 40 小时爬山优化，总计消耗 10 亿 tokens。网上很多夸张的速度报告都关闭了思考（因为思考不利于推测解码），而且测试的是确定性很高的任务。这次的结果相当扎实，我准备拿它当日常生产力工具。不过，能冲到 1000 tokens/秒吗？",
+      "promptVersion": "codex-v1"
+    },
+    "055a8643baee3a38b1d3f326fea0fccc83af614c75e204630a21a9fe905d90af": {
+      "source": "gemini-4-carbon hillclimbing kernel for 15h in a simple RSI loop, with a basic binary reviewer nudges its progress (e.g. met the goal/not yet).\n1. no safeguard triggered, really make meaningful progress\n2. turns are evenly distributed over last 15h, about 3h per turn, no procrastination or short turns (https://t.co/LyIx7ZHS73) \n3. a bit slow, on avg 80tps, even unstable with some retry connections\n4. if you read the summarized thoughts given by gemini-4-carbon, a lot of \"im super excited/thrilled\" when RSI just started, feels like carbon was trained to have a happy mood on every small progress, but as hillclimbing goes deeper, the happy mood is gone... and it becomes \"I'm now hit with a sobering reality check...\"",
+      "zh": "让 gemini-4-carbon 在一个简单的 RSI 循环中对内核进行爬山优化，持续了 15 小时，并用一个基础的二元评审器推动进展（例如：已达标／尚未达标）。\n1. 没有触发任何安全防护，确实取得了实质进展。\n2. 过去 15 小时内，各轮耗时均匀，每轮约 3 小时，没有拖延，也没有草草结束的轮次（https://t.co/LyIx7ZHS73）。\n3. 速度有点慢，平均 80 tokens/秒，连接也有些不稳定，需要重试。\n4. 如果你读过 gemini-4-carbon 给出的思考摘要，会发现 RSI 刚开始时，它经常说“我超级兴奋／激动”。感觉 carbon 被训练得每取得一点进展就很开心，但随着爬山优化不断深入，这种开心逐渐消失了……变成了“现实给了我当头一棒，让我清醒了……”",
+      "promptVersion": "codex-v1"
+    },
+    "bc56be291224b6343ed0b9b33590366f43d801e24127ac2ca635c3b8d94938e8": {
+      "source": "Announcing Perplexity Monitor: an API that lets you track any event or topic or changes to webpages and set up webhooks to update you. Costs a $1 for 1000 runs.",
+      "zh": "推出 Perplexity Monitor：一个可追踪任何事件、话题或网页变化的 API，还能设置 webhook 向你推送更新。每运行 1000 次收费 1 美元。",
+      "promptVersion": "codex-v1"
+    },
+    "7e6e3e7677da21ccf385ac53aa61a5da183e3e8ae7bb497c571fad8a70d62f60": {
+      "source": "Today we're introducing the Perplexity Monitor API.\n\nMonitor API tracks new developments on a topic or changes to specific pages on a schedule, then sends relevant updates to your application through webhooks.\n\nAvailable now at $1/1k runs or URLs fetched.\n\nhttps://t.co/vDf51RZGfz https://t.co/NhIiKbnzpe",
+      "zh": "今天，我们正式推出 Perplexity Monitor API。\n\nMonitor API 会按计划追踪某个话题的新进展或指定页面的变化，再通过 webhook 将相关更新发送到你的应用。\n\n现已开放使用，每运行 1000 次或抓取 1000 个 URL 收费 1 美元。\n\nhttps://t.co/vDf51RZGfz https://t.co/NhIiKbnzpe",
+      "promptVersion": "codex-v1"
+    },
+    "8ca9e7bd8903614f8d6af9966caf4cccc85bbb192ae8561515a45d3d72053e1a": {
+      "source": "Announcing Perplexity Frontier Research. We are committing at least 10,000 GPUs to work on multi-agent orchestration and continual learning systems with the goal of building an automated researcher. We will publish evals, papers, blogs and open source our models and tooling. We’re actively hiring!",
+      "zh": "正式推出 Perplexity Frontier Research。我们将投入至少 10,000 块 GPU，研究多智能体编排和持续学习系统，目标是打造自动化研究员。我们将发布评测、论文和博客，并开源模型与工具。正在积极招聘！",
+      "promptVersion": "codex-v1"
+    },
+    "b3c6a51253baae6fff21c9314b143bc7da814e492190f144c923b03c299af7c5": {
+      "source": "Today we're launching Perplexity Frontier Research.\n\nThe goal of Perplexity Frontier Research is to create a system that can perform autonomous research.\n\nThe work will focus on multi-agent orchestration, reinforcement learning, continual learning, systems, and pre-training.\n\nWe will develop algorithms, models, and evaluations, released openly, and tested in Perplexity products. Our work will be supported by more than 10,000 GPUs.\n\nThe Frontier Research team will regularly publish papers, models, data, and benchmarks.\n\nWe're actively hiring researchers and engineers for Perplexity Frontier Research in San Francisco, Palo Alto, New York, and London.\n\nhttps://t.co/QjaWJ0vrpI",
+      "zh": "今天，我们正式推出 Perplexity Frontier Research。\n\nPerplexity Frontier Research 的目标是创建能够自主开展研究的系统。\n\n研究将聚焦于多智能体编排、强化学习、持续学习、系统和预训练。\n\n我们将开发算法、模型和评测，公开发布，并在 Perplexity 产品中进行检验。超过 10,000 块 GPU 将为研究提供支持。\n\nFrontier Research 团队将定期发布论文、模型、数据和基准测试。\n\n我们正在旧金山、帕洛阿尔托、纽约和伦敦积极招聘研究员和工程师，加入 Perplexity Frontier Research。\n\nhttps://t.co/QjaWJ0vrpI",
+      "promptVersion": "codex-v1"
+    },
+    "a9db14d42356da94163edada7e8b77412ae229ee4e2516227d59bc1d4ee655ba": {
+      "source": "📢 Meet Qwen4-Max, your new AI teammate for work, creativity, and discovery!\n\nQwen4-Max is built on a new MoE architecture with native vision and a 1M-token context window.\n\nHighlights:\n- Outperforms Qwen3.8-Max with up to ~50% fewer tokens, while average cost per task drops over 60% in our internal evaluation.\n- Advances real-world productivity through greater proficiency with professional tools, stronger long-horizon execution, and higher-quality deliverables.\n- Handles real tasks, including 3D modeling, game development, manufacturing, finance, law, healthcare, and frontier scientific discovery.\n- $1.5/M tokens for input, $4.5/M tokens for output, and $0.075/M tokens for implicit caching — all lower than Qwen3.8-Max, with implicit caching down by 70%.\n\nThe API is live on QwenCloud. You can also try Qwen4-Max on Qwen Studio, QwenWork and Qoder. \n\nStart building today! 🚀\n- Blog: https://t.co/AuiWxugjE6\n- API: https://t.co/aS1QEkS8nu\n- Token Plan: https://t.co/YRvcGdB9Bv\n\nMore to come! The open weights of smaller Qwen4 models will be released. Stay tuned. 👀",
+      "zh": "📢 认识 Qwen4-Max，你在工作、创作和探索中的全新 AI 队友！\n\nQwen4-Max 采用全新 MoE 架构，具备原生视觉能力和 100 万 token 的上下文窗口。\n\n亮点：\n- 内部评测显示，表现超越 Qwen3.8-Max，token 用量最多减少约 50%，每项任务的平均成本降低超过 60%。\n- 更熟练地使用专业工具，更强地执行长程任务，交付更高质量的成果，提升实际工作效率。\n- 能处理 3D 建模、游戏开发、制造、金融、法律、医疗和前沿科学发现等领域的实际任务。\n- 输入价格为每百万 token 1.5 美元，输出为每百万 token 4.5 美元，隐式缓存为每百万 token 0.075 美元，均低于 Qwen3.8-Max，其中隐式缓存价格降低 70%。\n\nAPI 已在 QwenCloud 上线。你也可以在 Qwen Studio、QwenWork 和 Qoder 中体验 Qwen4-Max。\n\n即刻开始构建！🚀\n- 博客：https://t.co/AuiWxugjE6\n- API：https://t.co/aS1QEkS8nu\n- Token Plan：https://t.co/YRvcGdB9Bv\n\n更多精彩即将到来！较小规模 Qwen4 模型的权重也将开放，敬请期待。👀",
+      "promptVersion": "codex-v1"
+    },
+    "d6ae6cfdca8dce2e2d769c42755dcfc3c9d3b5f10be1cb93813e3e195e74adf2": {
+      "source": "Our frontend CI is now under 2 minutes. What we did:\n\n- tsc to bun check\n- oxlint, every rule we can turn on\n- shards filled by recorded test time\n- PRs run only the tests the diff can reach\n- lint, typecheck, build and tests all run in parallel",
+      "zh": "我们的前端 CI 现在不到 2 分钟就能完成。我们做了这些调整：\n\n- 将 tsc 换成 bun check\n- 使用 oxlint，开启所有能开启的规则\n- 根据记录的测试耗时分配测试分片\n- PR 只运行代码变更可能影响到的测试\n- lint、类型检查、构建和测试全部并行运行",
+      "promptVersion": "codex-v1"
+    },
+    "7a29c560dc92528cd2cf05a3c4f3f30234373a71a6db35dc0198ccc0fae82b19": {
+      "source": "Quail now supports models with hybrid architectures! Hybrid architectures are the future. With fewer attention layers, KV sizes are smaller, which improves reuse for future Quail queries.\n\nArnav wrote a blog post on how we adapted our cost models, extended Quail’s caching to save the recurrent state, and got a >3x speedup over vLLM: https://t.co/1dflsQzWPl",
+      "zh": "Quail 现已支持混合架构模型！混合架构是未来趋势。注意力层更少，KV 缓存就更小，也更便于后续 Quail 查询复用。\n\nArnav 写了一篇博客，介绍我们如何调整成本模型、扩展 Quail 缓存以保存循环状态，以及如何实现超过 vLLM 3 倍的速度：https://t.co/1dflsQzWPl",
+      "promptVersion": "codex-v1"
+    },
+    "c5f592512c171c6e7231f105885a4bca4f797fd6b7ba561666c068d5e3210819": {
+      "source": "Teammate on Fable 5.2 built an open-world driving game set in a neon 1986 Miami that runs in your browser at https://t.co/oIeUkHjWof. No game engine, no Three.js and no external assets: Teammate wrote its own WebGL2 renderer, and the city, cars, garage, rain and engine sounds are all generated by code. About 63,000 lines of JavaScript, 9 MB. This 40-second film was rendered by Teammate on a rented cloud GPU at 1080p60.",
+      "zh": "基于 Fable 5.2 的 Teammate 打造了一款开放世界驾驶游戏，以霓虹闪耀的 1986 年迈阿密为背景，可直接在浏览器中运行：https://t.co/oIeUkHjWof。没有游戏引擎，没有 Three.js，也没有外部素材：Teammate 自行编写了 WebGL2 渲染器，城市、汽车、车库、雨景和引擎声全部由代码生成。约 63,000 行 JavaScript，体积 9 MB。这段 40 秒的短片由 Teammate 在租用的云端 GPU 上以 1080p、60 帧每秒渲染完成。",
+      "promptVersion": "codex-v1"
+    },
+    "9d2ef5bdbc39312ab54cf0c2eb17bc577e80e1ebbf234dbc6a36a931484f093b": {
+      "source": "a few days ago we published the \"No AI Slop Manifesto\" at @aiDotEngineer Code Summit in SF, written in collaboration with many of the speakers and attendees\n\nIt already hit the front page of hacker news, has 300+ signatures including folks from Baseten, SpaceX, OpenAI, PostHog, Shopify, Glean, ZoomInfo, and legendary builders including \n\n@swyx \n@poteto \n@kentcdodds \n@mihail_eric \n@audreyt  \n@altryne \n@traviscline \n@philipkiely \n@TejasKumar_\n\nread and sign it at slopmanifesto dot com\n\nsome of my favorite points \n\n> AI cannot replace human judgement, it can only amplify our judgement (or lack thereof).\n\n> We own the intent, taste, and consequences of what we ship, however much AI helps us make it.\n\n> There will always be alpha in reviewing *something*. As models improve, we may stop reading most of the code. We may still review a plan, design, or result, because if we don't, we just get the same output as everyone else.",
+      "zh": "几天前，我们在旧金山的 @aiDotEngineer Code Summit 上发布了《拒绝 AI 垃圾内容宣言》，由多位演讲嘉宾和参会者共同撰写。\n\n它已经登上 Hacker News 首页，获得 300 多人签名，其中包括来自 Baseten、SpaceX、OpenAI、PostHog、Shopify、Glean、ZoomInfo 的从业者，以及这些知名开发者：\n\n@swyx \n@poteto \n@kentcdodds \n@mihail_eric \n@audreyt  \n@altryne \n@traviscline \n@philipkiely \n@TejasKumar_\n\n前往 slopmanifesto dot com 阅读并签名。\n\n我最喜欢的几条观点：\n\n> AI 无法取代人类的判断力，只能放大我们的判断力，或放大我们在判断力上的欠缺。\n\n> 无论 AI 在制作过程中提供了多少帮助，我们都要对交付成果的意图、品味和后果负责。\n\n> 审查某些东西，始终能带来额外优势。随着模型进步，我们或许不再阅读大部分代码，但仍可能审查计划、设计或结果。否则，我们得到的就只是和所有人一样的输出。",
+      "promptVersion": "codex-v1"
     }
   },
-  "updatedAt": "2026-11-15T23:14:35.442036+00:00"
+  "updatedAt": "2026-11-16T23:16:43.238407+00:00"
 }
