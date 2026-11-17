@@ -91,6 +91,8 @@ class MobileRadarTests(unittest.TestCase):
         self.assertEqual(radar.complete_snapshot_account_results({'results':[first, second, hotspot]}, people), [first, second])
         self.assertIsNone(radar.complete_snapshot_account_results({'results':[first, first, hotspot]}, people))
         self.assertIsNone(radar.complete_snapshot_account_results({'results':[first, dict(second, ok=False)]}, people))
+        incomplete = dict(second, source='timeline-fallback', ok=True)
+        self.assertIsNone(radar.complete_snapshot_account_results({'results':[first, incomplete, hotspot]}, people))
 
     def test_partial_same_window_recovery_retries_only_failed_accounts(self):
         people = [radar.Expert('P1','AI',handle,'research','test',handle) for handle in ('one','two','three')]
@@ -98,6 +100,10 @@ class MobileRadarTests(unittest.TestCase):
         failed = {'source':'timeline-fallback', 'ok':False, 'experts':[{'handle':'three'}], 'tweets':[]}
         hotspot = {'source':'x-hotspot-search', 'ok':True, 'experts':[], 'tweets':[]}
         retained, pending = radar.partial_snapshot_account_results({'results':[successful_batch, failed, hotspot]}, people)
+        self.assertEqual(retained, [successful_batch])
+        self.assertEqual([expert.handle for expert in pending], ['three'])
+        retained, pending = radar.partial_snapshot_account_results(
+            {'results':[successful_batch, dict(failed, ok=True), hotspot]}, people)
         self.assertEqual(retained, [successful_batch])
         self.assertEqual([expert.handle for expert in pending], ['three'])
 

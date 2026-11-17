@@ -31,7 +31,7 @@ DEFAULT_HOTSPOT_QUERIES = ROOT / "config" / "ai_x_hotspot_queries.json"
 DEFAULT_OUTPUT_ROOT = ROOT / "ai-v-radar"
 DEFAULT_AVATAR_CACHE = DEFAULT_OUTPUT_ROOT / "avatar-cache.json"
 MOBILE_REPORT = False
-COOKIE_MANAGER_BRIDGE = Path.home() / ".agents" / "skills" / "cookie-manager" / "scripts" / "cookie_bridge.py"
+DSH_COOKIE_CLI = Path.home() / ".agents" / "skills" / "cookie-manager" / "scripts" / "dsh_cookie.py"
 SHANGHAI = ZoneInfo("Asia/Shanghai")
 TWITTER_DATE = "%a %b %d %H:%M:%S %z %Y"
 
@@ -78,31 +78,17 @@ class Expert:
     handle: str
 
 
-@dataclasses.dataclass(frozen=True)
-class CookieManagerBirdSession:
+@dataclasses.dataclass(frozen=True, repr=False)
+class BirdCookieSession:
     """Ephemeral X session material; never serialize, log, or put in argv."""
 
     auth_token: str
     ct0: str
+    source: str
 
 
-def cookie_manager_bird_session() -> CookieManagerBirdSession:
-    """Fetch a fresh x.com session from the Chrome extension, only in memory."""
-    if not COOKIE_MANAGER_BRIDGE.is_file():
-        raise RuntimeError("Cookie Manager bridge is unavailable")
-    try:
-        completed = subprocess.run(
-            [sys.executable, str(COOKIE_MANAGER_BRIDGE), "get", "x.com", "--format", "header"],
-            capture_output=True,
-            text=True,
-            timeout=45,
-            check=False,
-        )
-    except (OSError, subprocess.TimeoutExpired) as exc:
-        raise RuntimeError("Cookie Manager session request failed") from exc
-    if completed.returncode != 0:
-        raise RuntimeError(f"Cookie Manager session request failed (exit {completed.returncode})")
-    header = completed.stdout.strip()
+def bird_cookie_session(header: str, source: str) -> BirdCookieSession:
+    """Extract only Bird's required cookies without retaining the full header."""
     if header.casefold().startswith("cookie:"):
         header = header.split(":", 1)[1].strip()
     cookies: dict[str, str] = {}
@@ -111,28 +97,49 @@ def cookie_manager_bird_session() -> CookieManagerBirdSession:
         if separator and name in {"auth_token", "ct0"} and value:
             cookies[name] = value
     if not cookies.get("auth_token") or not cookies.get("ct0"):
-        raise RuntimeError("Cookie Manager returned an incomplete x.com session")
-    return CookieManagerBirdSession(cookies["auth_token"], cookies["ct0"])
+        raise RuntimeError(f"{source} returned an incomplete x.com session")
+    return BirdCookieSession(cookies["auth_token"], cookies["ct0"], source)
 
 
-def prepare_bird_session(cookie_source: str) -> str | CookieManagerBirdSession:
+def dsh_bird_session() -> BirdCookieSession:
+    """Request a fresh x.com session through the global Cookie Manager CLI."""
+    if not DSH_COOKIE_CLI.is_file():
+        raise RuntimeError("Global DSH Cookie Manager CLI is unavailable")
+    try:
+        completed = subprocess.run(
+            [sys.executable, str(DSH_COOKIE_CLI), "get", "x.com", "--format", "header"],
+            capture_output=True,
+            text=True,
+            timeout=15,
+            check=False,
+        )
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        raise RuntimeError("DSH x.com session request failed") from exc
+    if completed.returncode != 0:
+        raise RuntimeError(f"DSH x.com session request failed (exit {completed.returncode})")
+    return bird_cookie_session(completed.stdout.strip(), "dsh")
+
+
+def prepare_bird_session(cookie_source: str) -> str | BirdCookieSession:
     """Resolve the configured Bird authentication source once per fresh scan."""
-    return cookie_manager_bird_session() if cookie_source == "cookie-manager" else cookie_source
+    if cookie_source != "dsh":
+        raise ValueError("This daily only supports the DSH x.com session source")
+    return dsh_bird_session()
 
 
-def bird_command(cookie_source: str | CookieManagerBirdSession, *arguments: str) -> list[str]:
-    """Build a read-only Bird command without placing Cookie Manager values in argv."""
-    if isinstance(cookie_source, CookieManagerBirdSession):
+def bird_command(cookie_source: str | BirdCookieSession, *arguments: str) -> list[str]:
+    """Build a read-only Bird command without placing session values in argv."""
+    if isinstance(cookie_source, BirdCookieSession):
         return ["bird", *arguments]
     return ["bird", "--cookie-source", cookie_source, *arguments]
 
 
 def run_bird(
-    command: list[str], cookie_source: str | CookieManagerBirdSession, timeout: int
+    command: list[str], cookie_source: str | BirdCookieSession, timeout: int
 ) -> subprocess.CompletedProcess[str]:
     """Run Bird with optional one-process credential environment and no persistence."""
     environment = None
-    if isinstance(cookie_source, CookieManagerBirdSession):
+    if isinstance(cookie_source, BirdCookieSession):
         environment = os.environ.copy()
         environment["AUTH_TOKEN"] = cookie_source.auth_token
         environment["CT0"] = cookie_source.ct0
@@ -471,8 +478,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--editorial-retries", type=int, default=1)
     parser.add_argument(
         "--cookie-source",
-        default="cookie-manager",
-        help="Bird session source: cookie-manager (default, live Chrome extension) or a Bird browser source such as chrome",
+        default="dsh",
+        choices=("dsh",),
+        help="Bird session source: dsh (local x.com Cookie endpoint)",
     )
     parser.add_argument("--no-translate", dest="translate", action="store_false", help="Skip Codex translation")
     parser.set_defaults(translate=True)
@@ -731,7 +739,7 @@ def avatar_from_truncated_json(output: str, handle: str) -> str:
     return ""
 
 
-def fetch_profile_avatar(handle: str, cookie_source: str | CookieManagerBirdSession, retries: int) -> tuple[str, str, str]:
+def fetch_profile_avatar(handle: str, cookie_source: str | BirdCookieSession, retries: int) -> tuple[str, str, str]:
     command = bird_command(cookie_source, "user-tweets", handle, "-n", "1", "--json-full")
     last_error = ""
     for attempt in range(max(0, retries) + 1):
@@ -764,7 +772,7 @@ def fetch_profile_avatar(handle: str, cookie_source: str | CookieManagerBirdSess
 def hydrate_post_avatars(
     posts: list[dict[str, Any]],
     cache_path: Path,
-    cookie_source: str | CookieManagerBirdSession,
+    cookie_source: str | BirdCookieSession,
     workers: int,
     retries: int,
 ) -> dict[str, Any]:
@@ -780,11 +788,11 @@ def hydrate_post_avatars(
     inline_cached = seed_avatar_cache_from_posts(posts, cached_avatars)
     missing = [handle for handle in all_handles if not avatar_cache_url(cached_avatars.get(handle.casefold()))]
     # A reuse-data repair can expose a missing avatar after the fresh scan has
-    # ended. Resolve Cookie Manager lazily here so Bird receives the ephemeral
-    # in-memory session rather than the unsupported literal "cookie-manager".
+    # ended. Resolve DSH lazily so Bird receives ephemeral credentials rather
+    # than the unsupported literal source name.
     profile_cookie_source = (
         prepare_bird_session(cookie_source)
-        if missing and cookie_source == "cookie-manager"
+        if missing and cookie_source == "dsh"
         else cookie_source
     )
     errors: list[dict[str, str]] = []
@@ -866,7 +874,7 @@ def hydrate_post_avatars(
 def fetch_expert(
     expert: Expert,
     count: int,
-    cookie_source: str | CookieManagerBirdSession,
+    cookie_source: str | BirdCookieSession,
     retries: int,
 ) -> dict[str, Any]:
     command = bird_command(cookie_source, "user-tweets", expert.handle, "-n", str(count), "--json")
@@ -936,7 +944,7 @@ def finish_search_pagination(payload: Any, command: list[str], session: Any) -> 
 def fetch_search_batch(
     experts: list[Expert],
     cutoff: datetime,
-    cookie_source: str | CookieManagerBirdSession,
+    cookie_source: str | BirdCookieSession,
     max_pages: int,
     retries: int,
     until: datetime | None = None,
@@ -1021,7 +1029,7 @@ def complete_snapshot_account_results(snapshot, experts):
     expected = {expert.handle.casefold() for expert in experts}
     seen = []
     for result in results:
-        if not result.get('ok'):
+        if not result.get('ok') or result.get('source') == 'timeline-fallback':
             return None
         seen.extend(str(expert.get('handle') or '').casefold() for expert in result.get('experts', []))
     return results if len(seen) == len(expected) and set(seen) == expected else None
@@ -1034,7 +1042,7 @@ def partial_snapshot_account_results(snapshot, experts):
     expected = {expert.handle.casefold() for expert in experts}
     retained, covered = [], set()
     for result in snapshot.get('results', []):
-        if result.get('source') == 'x-hotspot-search' or not result.get('ok'):
+        if result.get('source') in ('x-hotspot-search', 'timeline-fallback') or not result.get('ok'):
             continue
         handles = {str(item.get('handle') or '').casefold() for item in result.get('experts', [])}
         if handles and handles <= expected and not handles & covered:
@@ -1046,7 +1054,7 @@ def partial_snapshot_account_results(snapshot, experts):
 def fetch_hotspot_direction(
     direction: dict[str, Any],
     cutoff: datetime,
-    cookie_source: str | CookieManagerBirdSession,
+    cookie_source: str | BirdCookieSession,
     max_pages: int,
     retries: int,
 ) -> dict[str, Any]:
@@ -1111,7 +1119,7 @@ def fetch_hotspot_direction(
 def recover_failed_search_batches(
     results: list[dict[str, Any]],
     count: int,
-    cookie_source: str | CookieManagerBirdSession,
+    cookie_source: str | BirdCookieSession,
     retries: int,
     workers: int,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
@@ -2991,7 +2999,7 @@ def main() -> int:
 
     bird_session = prepare_bird_session(args.cookie_source)
 
-    session_source = "cookie-manager" if isinstance(bird_session, CookieManagerBirdSession) else str(bird_session)
+    session_source = bird_session.source if isinstance(bird_session, BirdCookieSession) else str(bird_session)
     print(f"Fetching {len(experts)} X accounts with Bird ({args.fetch_mode}; session={session_source})...", flush=True)
     results: list[dict[str, Any]] = []
     saved_batches = {
@@ -3046,7 +3054,7 @@ def main() -> int:
 
     search_fallbacks: list[dict[str, Any]] = []
     if args.fetch_mode == "search" and saved_account_results is None:
-        if args.search_fallback == "timeline":
+        if args.search_fallback == "timeline" and not MOBILE_REPORT:
             results, search_fallbacks = recover_failed_search_batches(
                 results,
                 args.count_per_user,

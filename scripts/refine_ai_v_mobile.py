@@ -190,7 +190,7 @@ def rebuild(input_path):
     posts, quality = quality_review(data['posts'], data_dir/'quality-review.json')
     # A fresh-run full pool predates enrichment; repairs can select a different
     # item, so resolve its actual missing translations/avatars from the caches.
-    radar.hydrate_post_avatars(posts, ROOT/'ai-v-radar/avatar-cache.json', 'cookie-manager', 1, 0)
+    radar.hydrate_post_avatars(posts, ROOT/'ai-v-radar/avatar-cache.json', 'dsh', 1, 0)
     radar.translate_posts(posts, ROOT/'ai-v-radar/translation-cache.json', 8, 2, 1)
     data['posts'] = posts
     data['selectionLimits'] = {'perAuthor':0, 'total':LIMIT}
