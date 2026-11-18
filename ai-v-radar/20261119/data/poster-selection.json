@@ -1,0 +1,32 @@
+{
+  "stories": [
+    {
+      "id": "2122849770196590859",
+      "event": "Vercel咖啡下单CLI评测暴露验证器漏洞",
+      "category": "Agent评测",
+      "reason": "用具体误判揭示评测盲区，群友可直接借鉴验证器与Trace检查方法；主帖为当天实践介绍，与近期海报事件不同。",
+      "title": "Agent没搜索就放弃，评测为何仍判通过？",
+      "summary": "据Vercel案例，约九成通过记录中，Agent未搜索就放弃。验证器只检查“没下单”，漏验必要搜索过程；搭评测应结合任务条件与Trace核查。"
+    },
+    {
+      "id": "2122957621263302910",
+      "event": "Airbnb将Presidio去标识接入模型训练流程",
+      "category": "企业数据治理",
+      "reason": "提供识别、替换、版本追踪和部署把关的完整落地方法，实用价值高；与Agent评测、图像工具形成不同层面的组合。",
+      "title": "Airbnb训练前去标识：用自然假值替换个人信息",
+      "summary": "团队介绍，以Presidio识别个人信息，用自然假值替换，并记录版本与配置以把关部署。同轮替换保持一致、不存对照表；日语和波兰语姓名、地址识别仍偏弱。"
+    },
+    {
+      "id": "2122974351985451046",
+      "event": "MiniMax H3 Image推出ncnn Vulkan实现",
+      "category": "本地图像工具",
+      "reason": "当天独立实现带来明确运行门槛与部署路径，区别于此前H3权重和视频案例；低显存、跨平台特点适合海报表达，补充视觉工具方向。",
+      "title": "H3 Image有了免CUDA的跨平台本地实现",
+      "summary": "作者称，ncnn Vulkan实现支持文生图与多参考图编辑，完整BF16无需量化，4GB内存、2GB显存可运行；无需CUDA、Torch或Python，速度与兼容性仍待实测。"
+    }
+  ],
+  "version": "mobile-poster-three-v1",
+  "inputPostsSha256": "8893d6c77e57c88a8e4dcb97be2c9beddaf55889521adcd3309bb4879d56eb15",
+  "backend": "codex exec",
+  "selectedAt": "2026-11-18T23:23:59.862397+00:00"
+}

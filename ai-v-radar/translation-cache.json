@@ -19378,7 +19378,157 @@
       "source": "devin bots are multi-agent teams done right:\n- always on, proactive (but tuned for ROI)\n- own outcomes not tasks (but can collab w others)\n- manages teams of subagents (and reviews itself)\n- available everywhere (call text slack whatever hello @interaction)\n- consistent reporting thru interactive artifacts aka devinapps not long chats (HTML is all you need™ @trq212)\n\nthis is the preview that @walden_yan gave at AIE. i've been trialing them for a week and i've been able to hand over my AEO, QA, cross-platform app porting, personal admin automation, and video editing work (also simultaneously moving from local agent worktree hell to cloud because ofc this is all cloud based thank god)\n\nhyped concepts this replaces:\n- /goal\n- \"ultracode\" / \"ultra mode\"\n- \"loop engineering\"\n- \"agent to agent\"\n- \"agent swarms\"\n- AI employees (see below)\n\nmy main aha moment is that you don't want \"AI Employees\", we do not have agi yet and you will just fail if you overpromise/overexpect. what you want is the \"just\" the next level of abstraction above single tasks, and the overwhelming consensus I've had talking to everyone at the frontier of agents (yes incl cog competitors) is agent managers that own outcomes. \n\nincidentally, as an employer of humans it's also how i distinguish between someone who \"has agency\" (owns a problem area, finds issues and researches/brings solutions not problems) and who doesn't (only does precisely what i asked, not proactive, doesn't come up with suggestions i didn't think about). guess which one i value more lol.\n\nif youre a startup, reminder that Devin for Startups offers 65k in credits. apply via clanker",
       "zh": "devin bots 把多智能体团队做对了：\n- 全天候在线、主动行动（同时兼顾投入产出比）\n- 对结果负责，而不只是执行任务（也能与他人协作）\n- 管理子智能体团队（还会自我审查）\n- 随处可用（电话、短信、Slack，什么渠道都行，哈喽 @interaction）\n- 通过交互式产物，也就是 devinapps，持续汇报，而不是冗长聊天（HTML 就够了™ @trq212）\n\n这是 @walden_yan 在 AIE 上展示的预览。我已经试用了一周，把 AEO、QA、跨平台应用移植、个人事务自动化和视频剪辑工作都交给了它们（同时也终于从本地智能体 worktree 的折腾中转向云端，因为这些当然全都在云上运行，谢天谢地）。\n\n它取代了这些被热炒的概念：\n- /goal\n- “ultracode” / “ultra mode”\n- “循环工程”\n- “智能体间协作”\n- “智能体群”\n- AI 员工（见下文）\n\n我最大的顿悟是：你想要的并不是“AI 员工”。我们还没有 AGI，承诺过头或期望过高，只会失败。你需要的“只是”比单个任务高一层的抽象。我和智能体领域前沿的从业者聊过，绝大多数人的共识都是：需要对结果负责的智能体管理者（对，也包括 cog 的竞争对手）。\n\n顺便说一句，作为雇主，我也是这样区分一个人是否“有主观能动性”的：有的人会负责一个问题领域，主动发现问题、研究并带来解决方案，而不是只抛出问题；有的人只会严格按我的要求做事，不主动，也提不出我没想到的建议。猜猜我更看重哪一种，哈哈。\n\n如果你在创业，提醒一下：Devin for Startups 提供 6.5 万美元的使用额度。可通过 clanker 申请。",
       "promptVersion": "codex-v1"
+    },
+    "c26a2d90665f7642a8925c2c5addc8e58b595c15001b50cd66deb8c50847c10c": {
+      "source": "Introducing: Self-Improving Memory 🧠✨📈\n\nWe let the model discover its own memory skills, then train them into its weights:\n\n- Meta-optimizes memory from the model's own runs with large gains.\n- Distilling these gains works too.\n\nBlog post: 📝 https://t.co/3fNsF13zZ2\n🧵1/6 https://t.co/TV4RtN38Zl",
+      "zh": "推出：Self-Improving Memory 🧠✨📈\n\n我们让模型自行探索记忆技巧，再通过训练将这些技巧融入模型权重：\n\n- 基于模型自身的运行过程，对记忆进行元优化，效果显著提升。\n- 这些提升也可以通过蒸馏实现。\n\n博客文章：📝 https://t.co/3fNsF13zZ2\n🧵1/6 https://t.co/TV4RtN38Zl",
+      "promptVersion": "codex-v1"
+    },
+    "359007f0d360110652aabe13bddf0b81932739c0a4d47736c75a94d3a4175bf9": {
+      "source": "Open-sourcing the Parallel Search Eval Harness",
+      "zh": "开源 Parallel Search 评测框架",
+      "promptVersion": "codex-v1"
+    },
+    "7ebc181e1dd70168ecb59964ed30335d26ca3d6ad2f3a7abf5265194a9f68e60": {
+      "source": "This article is also available to read on the Parallel blog.\nToday we're open-sourcing parallel-search-evals, the eval harness we use to measure Parallel Search performance, assess new models we",
+      "zh": "本文也可在 Parallel 博客上阅读。\n今天，我们开源了 parallel-search-evals，这是我们用于衡量 Parallel Search 性能、评估新模型的评测框架……",
+      "promptVersion": "codex-v1"
+    },
+    "bb17cd4d9f04f64404e34374538c6d5b4a19aae6e67e0921ce4c338e295185eb": {
+      "source": "Before: 4 days to build & verify a complex frontend screen.\nNow: A few hours, with automated QA reports attached. ⏱️\n\n@policybazaar and @pensionbazaar fixed that with Modern Web Guidance + Chrome DevTools for agents:\n\n📉 92% less perf-audit effort\n⏱️ ~4 days → a few hours per screen\n🐞 90%+ fewer UI bugs\n\nFull case study → https://t.co/r1OlqJBSWT",
+      "zh": "以前：开发并验证一个复杂的前端页面需要 4 天。\n现在：只需几小时，还附有自动化 QA 报告。⏱️\n\n@policybazaar 和 @pensionbazaar 借助 Modern Web Guidance + 面向智能体的 Chrome DevTools 实现了这一转变：\n\n📉 性能审计工作量减少 92%\n⏱️ 每个页面从约 4 天缩短至几小时\n🐞 UI 缺陷减少 90% 以上\n\n完整案例 → https://t.co/r1OlqJBSWT",
+      "promptVersion": "codex-v1"
+    },
+    "d371715374bf9732480251f531072b847b3546a4003779fbc7eda1848c441e65": {
+      "source": "What We’ve Learned Building Proactive Agents",
+      "zh": "构建主动型智能体的经验心得",
+      "promptVersion": "codex-v1"
+    },
+    "653a3da8b75d9d6bf0ef555dc53eb3bb836071b7802a32cc92dea7be16765fe9": {
+      "source": "Think about how you work with a new hire. In their first week, you give them small, well-scoped tasks, like triaging a bug report or updating a doc. Soon you're giving them bigger tasks, and",
+      "zh": "想想你如何与新员工共事。第一周，你会给他们安排范围明确的小任务，比如对缺陷报告进行分类处理，或更新文档。很快，你开始交给他们更大的任务，然后……",
+      "promptVersion": "codex-v1"
+    },
+    "4aa32863b31429ca6f8131bf46e3e8d1ac2d262f2d7d2395b878a25894c0c8dd": {
+      "source": "Tobi Lütke (@tobi), Shopify CEO, at Vercel Ship SF: \"we are now all verification engineers. We are building harnesses, we are building acceptance tests, and we are building… verifiables.\"\n\nWhen agents write the code, the work moves to the checks:\n→ harnesses that make agent output repeatable\n→ acceptance tests that define \"done\"\n→ anything a machine can verify without a dev squinting at a diff\n\nFull fireside with @rauchg in the reply 👇",
+      "zh": "Shopify 首席执行官 Tobi Lütke（@tobi）在 Vercel Ship SF 上表示：“我们现在都是验证工程师。我们在构建测试框架、编写验收测试，以及构建……可验证的东西。”\n\n当智能体负责编写代码，工作重心就转向了验证：\n→ 让智能体输出可复现的测试框架\n→ 定义何为“完成”的验收测试\n→ 任何无需开发者紧盯代码差异、机器就能验证的内容\n\n与 @rauchg 的完整炉边对谈见回复 👇",
+      "promptVersion": "codex-v1"
+    },
+    "694ec72163e39b14d9a40cb1340d2c9616ad99c3d6a7f5ddd054177217a7dd42": {
+      "source": "I linked the api prompt guide earlier, and while it has a lot of great content in it, its wisdom is already baked into the system prompt in codex!\n\nIf you’re looking for best practices for working with 6.2 Astra and Sol in codex, give this a read instead.\nhttps://t.co/trwhwZBwLN",
+      "zh": "我之前分享过 API 提示词指南。虽然里面有很多精彩内容，但其中的经验已经融入了 codex 的系统提示词！\n\n如果你想了解在 codex 中使用 6.2 Astra 和 Sol 的最佳实践，请改看这篇。\nhttps://t.co/trwhwZBwLN",
+      "promptVersion": "codex-v1"
+    },
+    "4a4507199b855b481787e477d1972451e254bbe4996345ba7df47a4612737d13": {
+      "source": "roughly an additional year of progress on @AMD's chip achieved in less than 5 months using our models, with some of these results included in a design that's recently been taped out — unprecedented results at the frontier of chip design.",
+      "zh": "借助我们的模型，@AMD 的芯片在不到 5 个月内取得了相当于额外一年研发的进展，其中部分成果已用于最近完成流片的设计——这是芯片设计前沿领域前所未有的成果。",
+      "promptVersion": "codex-v1"
+    },
+    "038012cbe324453c9baaabe6e8b32d05d465112ada1bf6156cbeae3d44078445": {
+      "source": "Working with @AMD, our models identified up to 14% PPA improvement on flagship GPU IP in less than five months—building on designs AMD’s engineers had already spent years optimizing.\n\nThe same approach helped improve Jalapeño, our first custom inference chip, with gains verified on real silicon.\n\nNew evaluations also show our models getting better at certain chip design tasks.\n\nWe’re sharing these results and how we’re working with @Synopsys to bring our model capabilities and their trusted EDA design and validation tools to more chip designers.\n\nhttps://t.co/4BNcPIqfIQ",
+      "zh": "在与 @AMD 的合作中，我们的模型在不到五个月内，为旗舰 GPU IP 找到了最高 14% 的 PPA（功耗、性能与面积）优化空间，而 AMD 工程师此前已为这些设计投入了数年的优化工作。\n\n同样的方法也帮助改进了我们的首款定制推理芯片 Jalapeño，提升效果已在真实芯片上得到验证。\n\n最新评测还显示，我们的模型在某些芯片设计任务上的能力持续提升。\n\n我们正在分享这些成果，以及如何与 @Synopsys 合作，将我们的模型能力与其备受信赖的 EDA 设计和验证工具带给更多芯片设计人员。\n\nhttps://t.co/4BNcPIqfIQ",
+      "promptVersion": "codex-v1"
+    },
+    "a3c722b7f5b91f51b583f45452c871be8ee2d9db7bbe71f5257fbd554e650f5c": {
+      "source": "Today we’re introducing OCRia-1.5\n\nIt’s a new family of document parsing models that push the boundaries of accuracy and cost across multiple document parsing dimensions.\n\nWe had just released OCRia-1 a month ago, which set a new SOTA in unified document parsing, but we've only released even more improvements since then.\n✅ Tables: Table scores rose from 86.5 -> 90.1 on agentic, 83.2 -> 87.5 on cost-effective\n✅ Charts: 74.9->76.8 on agentic, 67.3 -> 73.0 on cost-effective\n✅ Forms: +2.6 on agentic, +4.2 on cost-effective\n✅ Visual Grounding: +4.1 on agentic, and +11 (!!) points on cost-effective\n\nTogether, these models set a new Pareto frontier for document parsing. Our cost-effective OCRia-1.5 is the cheapest and most accurate model for parsing all of tables, charts, forms, handwriting, with high-quality layout.\n\nBlog: https://t.co/9NlhPd6E1s\n\nThese scores for all our modes (cost-effective, agentic, agentic plus) reflected within ParseBench-2: https://t.co/PWczfhp0OX",
+      "zh": "今天，我们推出 OCRia-1.5。\n\n这是一个全新的文档解析模型系列，在多项文档解析任务中进一步突破准确率与成本的边界。\n\n一个月前，我们刚刚发布了 OCRia-1，刷新了统一文档解析的最佳水平；此后，我们又陆续推出了更多改进。\n✅ 表格：agentic 模式得分从 86.5 升至 90.1，cost-effective 模式从 83.2 升至 87.5\n✅ 图表：agentic 模式从 74.9 升至 76.8，cost-effective 模式从 67.3 升至 73.0\n✅ 表单：agentic 模式提升 2.6 分，cost-effective 模式提升 4.2 分\n✅ 视觉定位：agentic 模式提升 4.1 分，cost-effective 模式提升了 11 分（！！）\n\n这些模型共同确立了文档解析领域新的帕累托前沿。我们的 cost-effective 版 OCRia-1.5 在表格、图表、表单和手写内容的综合解析上，兼具最低成本与最高准确率，并能提供高质量的版面解析。\n\n博客：https://t.co/9NlhPd6E1s\n\n我们所有模式（cost-effective、agentic、agentic plus）的这些成绩均已收录于 ParseBench-2：https://t.co/PWczfhp0OX",
+      "promptVersion": "codex-v1"
+    },
+    "dad811e7d9904195a8a232c52472be098bb196b2b318cfb2dff1300eb4451520": {
+      "source": "Today we’re introducing OCRia-1.5. It is more accurate than OCRia-1 on complex tables, charts and forms, and it places bounding boxes more precisely.\n\nOCRia-1.5 comes in two sizes now:\n\n→ OCRia-1.5-2B runs Cost Effective, built for parsing at scale\n→ OCRia-1.5-4B, our upgraded flagship, runs Agentic for the hardest pages\n\nSame tiers, same prices, better models underneath.\n\nHere’s what changed on ParseBench-2 👇️",
+      "zh": "今天，我们推出 OCRia-1.5。相比 OCRia-1，它在解析复杂表格、图表和表单时更加准确，边界框定位也更精确。\n\nOCRia-1.5 现提供两种规模：\n\n→ OCRia-1.5-2B 用于 Cost Effective 模式，专为大规模解析打造\n→ OCRia-1.5-4B 是我们升级后的旗舰模型，用于 Agentic 模式，应对最复杂的页面\n\n档位不变，价格不变，底层模型更强。\n\n以下是 ParseBench-2 上的表现变化 👇️",
+      "promptVersion": "codex-v1"
+    },
+    "c6fc0f04bbb092493ba78974af32e7d45d308250f996ce7def5dd02a24163015": {
+      "source": "Introducing Perplexity Context API: allows you to fetch useful content from a list of webpages in whatever target format you seek. Usable inside any agentic harness. Outperforms anything else out there on performance, latency, and costs.",
+      "zh": "推出 Perplexity Context API：可从一组网页中提取有用内容，并按你需要的目标格式返回。可集成到任何智能体运行框架中，在性能、延迟和成本方面均优于现有其他方案。",
+      "promptVersion": "codex-v1"
+    },
+    "1f7beef7647f9bd6926405661dd98b6ab2bd68ea1dcfdd385fcfaf5581edca77": {
+      "source": "Perplexity Context API is live.\n\nContext API reads up to 10 URLs per call and returns clean .md, HTML, links, and snippets per page.\n\nIt returns usable content for 92.3% of URLs, 87.9% fact recall, and 80.3% content precision at $1/1000 URLs fetched.\n\nhttps://t.co/9hoEcePh1B https://t.co/OJ5gvRdq2B",
+      "zh": "Perplexity Context API 正式上线。\n\nContext API 每次调用最多可读取 10 个 URL，并返回每个页面整理后的 .md、HTML、链接和内容片段。\n\n它能从 92.3% 的 URL 中获取可用内容，事实召回率达 87.9%，内容精确率达 80.3%，每抓取 1,000 个 URL 收费 1 美元。\n\nhttps://t.co/9hoEcePh1B https://t.co/OJ5gvRdq2B",
+      "promptVersion": "codex-v1"
+    },
+    "f32b89c71e95bed62d6eb3fcf1e8a2ef8ba26e02cbbc4dd39794df31095f7d42": {
+      "source": "Per-seat pricing isn’t priced on the data. It’s priced on the assumption that a human is the bottleneck.\n\nOne analyst, one screen, a few dozen lookups a week. The vendor can’t meter value per query, so it meters the person. $25k/yr works because an analyst’s time is worth far more than that, and because no analyst will ever query hard enough to make the math hurt.\n\nAgents break every part of that assumption.\n\nAn agent doesn’t do a few dozen lookups a week. It does a few hundred to answer one question, most of them dead ends, because breadth is how search works once thinking is cheap. Under a seat license, every one of those is free, which means the vendor is now subsidizing an unbounded consumer. At $0.10 per request, you suddenly care whether a query was worth making.\n\nThat’s the part the replies are underselling. Per-request pricing isn’t just cheaper. It changes what you build. A seat license tells you nothing about which lookups mattered. A per-call bill is a profiler for your agent. You find out that 80% of your spend went to one retry loop, the same way you find out 80% of your latency sits in one kernel.\n\nInfra went through this years ago. Capacity priced on headcount lost to per-token billing for exactly this reason: when the consumer is a program, you can finally meter the work instead of the worker.\n\nThe question I’d want answered before building on it: what happens at 10M requests? Per-unit pricing is wonderful until someone’s agent finds a loop. Rate limits, caching semantics, and a freshness guarantee you’d put in writing matter more than the headline number.\n\nStill, the direction is right. Software priced per person was always a proxy. Agents removed the person.",
+      "zh": "按席位定价的依据并不是数据，而是一个假设：人是瓶颈。\n\n一名分析师、一块屏幕、每周几十次查询。供应商无法按每次查询的价值计费，于是就按人头收费。每年 2.5 万美元之所以行得通，是因为分析师的时间价值远高于此，而且没有分析师会高频查询到让这笔账变得不划算。\n\n智能体打破了这一假设的每个环节。\n\n智能体并非每周只查询几十次。为了回答一个问题，它会查询几百次，其中大部分都没有结果，因为当思考成本足够低时，搜索就会依靠广泛探索。按席位授权时，这些查询全部免费，意味着供应商正在补贴一个用量没有上限的消费者。而当每次请求收费 0.10 美元时，你就会突然开始在意一次查询是否值得发起。\n\n回复中低估的正是这一点。按请求定价不只是更便宜，还会改变你构建的东西。席位授权无法告诉你哪些查询真正有用；按调用计费的账单则是智能体的性能分析工具。你会发现，80% 的开销都花在了某个重试循环上，就像你会发现 80% 的延迟都集中在某个内核函数中一样。\n\n基础设施领域多年前就经历过这一转变。按人头定价的容量方案输给了按 token 计费，原因正是如此：当消费者是程序时，你终于可以按工作量，而非工作人员来计费。\n\n在基于它开发之前，我最想弄清楚的问题是：请求量达到 1,000 万次时会怎样？按量计费很美好，直到某个智能体陷入循环。限流规则、缓存机制，以及愿意写进协议的内容时效性保证，比宣传中的单价更重要。\n\n不过，方向是对的。软件按人收费，一直只是间接衡量用量的办法。智能体让人退出了这个计费等式。",
+      "promptVersion": "codex-v1"
+    },
+    "b27699ac590e08283a5992883db6bdbe3d80899c77b6659867ec4e259ebfeb96": {
+      "source": "We just killed PitchBook.\n\nIntroducing Monid for private market data. Your agent can now read 20M+ private companies, right inside Claude.\n\nPitchBook: $25k/yr per seat.\nMonid: $0.10 per request.\n\n0 markup. No subscription. Pay as you go.\n\n#MonidKilledPitchBook https://t.co/a0wLHqrcWI",
+      "zh": "我们刚刚终结了 PitchBook。\n\n推出私募市场数据服务 Monid。现在，你的智能体可以直接在 Claude 中读取超过 2,000 万家非上市公司的数据。\n\nPitchBook：每席位每年 2.5 万美元。\nMonid：每次请求 0.10 美元。\n\n零加价，无需订阅，按量付费。\n\n#MonidKilledPitchBook https://t.co/a0wLHqrcWI",
+      "promptVersion": "codex-v1"
+    },
+    "ec1eb378abd2c269dbc9d2482dfcadcb37bcdd08749fce60168460aadfebb4a5": {
+      "source": "🧪 Start with a driving clip, a robot task, a store scene, or a circuit board. \n\nNVIDIA Cosmos Data Factory blueprints generate variations, including rare events and defects, check the results, and prepare training data.\n\nOne prompt sets up the environment; a second runs your chosen workflow.\n\nRead the technical walkthrough → https://t.co/PnQK3ZfxON",
+      "zh": "🧪 从一段驾驶视频、一项机器人任务、一个商店场景或一块电路板开始。\n\nNVIDIA Cosmos Data Factory 蓝图可生成多种变体，包括罕见事件和缺陷，检查结果，并准备训练数据。\n\n用一条提示词搭建环境，再用第二条运行你选择的工作流。\n\n阅读技术详解 → https://t.co/PnQK3ZfxON",
+      "promptVersion": "codex-v1"
+    },
+    "0a9cb9d6f5dd83f76829fda8d2b03d3d98545c8d4bbbb055f8ed6638625b2496": {
+      "source": "After an amazing year at Meta’s TBD lab, I am very excited to join Mercor as Chief Scientist. Data will shape the next frontier as more companies train AI models than ever before. Mercor is incredible and I look forward to building the future with Brendan, Adarsh, and team!",
+      "zh": "在 Meta 的 TBD 实验室度过精彩的一年后，我非常激动地宣布，将加入 Mercor 担任首席科学家。随着越来越多的公司训练 AI 模型，数据将塑造下一个前沿。Mercor 非常出色，我期待与 Brendan、Adarsh 和团队一起创造未来！",
+      "promptVersion": "codex-v1"
+    },
+    "88176ea74072efe8b75b03d047a926bf132b69e099adc4ef9b7f00eb9c893b66": {
+      "source": "Our fifth annual Runway AI Festival is coming to New York, Los Angeles and Tokyo next year, celebrating artists and creatives experimenting at the forefront of art and technology.\n\nJoin us.\n\nhttps://t.co/XcSHlitRdK",
+      "zh": "第五届 Runway AI Festival 将于明年在纽约、洛杉矶和东京举行，致敬在艺术与科技前沿不断探索的艺术家和创作者。\n\n欢迎加入我们。\n\nhttps://t.co/XcSHlitRdK",
+      "promptVersion": "codex-v1"
+    },
+    "5d8e6ed84acde05f8530c190b314e10853f45cba458fb488604ed57ab42adff1": {
+      "source": "The world’s premier AI Festival returns.\n\nAIF 2027 will once again celebrate the work being made with AI across Film, Design, Fashion, Advertising and Gaming. With gala screenings in New York, Los Angeles and Tokyo.\n\nSubmissions are now open at https://t.co/YgXwT8sUXB https://t.co/e2CvcAkSCO",
+      "zh": "全球顶级 AI 艺术节再度归来。\n\nAIF 2027 将再次聚焦电影、设计、时尚、广告和游戏领域的 AI 创作，并在纽约、洛杉矶和东京举办盛大展映。\n\n现已开放投稿：https://t.co/YgXwT8sUXB https://t.co/e2CvcAkSCO",
+      "promptVersion": "codex-v1"
+    },
+    "f9c2f8fca7954341254351c6c06f5c738cca1ce73c7140ea0a8179e66e5307f3": {
+      "source": "Rolling out Teammates and Multiagent effort on iOS and Android. With Teammates, your Perplexity mobile app turns into a mini workOS in your pocket. Enjoy!",
+      "zh": "Teammates 和 Multiagent 正陆续上线 iOS 和 Android。有了 Teammates，你的 Perplexity 移动应用就成了口袋里的迷你工作操作系统。尽情体验吧！",
+      "promptVersion": "codex-v1"
+    },
+    "c028331b5aa7bc21df353a3caa491b5e32cb550133323244da80c4cb6e51ac95": {
+      "source": "Teammates and Multiagent are now in the Perplexity app on iOS and Android, with voice for Teammates.\n\nAbout a third of the most demanding Computer work already starts on iPhone. Now control Teammates with voice.\n\nAvailable today for Max subscribers.",
+      "zh": "Teammates 和 Multiagent 现已上线 iOS 和 Android 版 Perplexity 应用，Teammates 还支持语音交互。\n\n在最复杂的 Computer 任务中，已有约三分之一从 iPhone 发起。现在，你可以用语音操控 Teammates。\n\n即日起向 Max 订阅用户开放。",
+      "promptVersion": "codex-v1"
+    },
+    "a9195140d79651c43fdd51f5e8f173e2f73dda9f4441d511c789ae7263dd324f": {
+      "source": "I do think any good benchmark should be customizable by the user to weigh towards what they care about the most.\n\nThis is typically hard to do for benchmarks measured with deterministic metrics. That's why in ParseBench-2, we treated metric design as a goal-oriented optimization problem! \n\n1. Let the user specify a severity policy for different scenarios\n2. Optimize metrics to fit that objective. \n\nMore details in the paper: https://t.co/syVMKqGMBP",
+      "zh": "我确实认为，好的基准测试都应该允许用户自定义权重，侧重自己最关心的方面。\n\n对于采用确定性指标的基准测试，这通常很难做到。因此，在 ParseBench-2 中，我们把指标设计视为一个以目标为导向的优化问题！\n\n1. 让用户为不同场景指定错误严重程度策略\n2. 优化指标，使其符合这一目标。\n\n更多细节见论文：https://t.co/syVMKqGMBP",
+      "promptVersion": "codex-v1"
+    },
+    "03b450e8260c54b0533fe0e135c663dff8bd0395f60b43a859f543bf05a35cad": {
+      "source": "I agree with @jerryjliu0's sentiment.\n\n[Rant on]\n\nSome of the reactions to ParseBench 2 from competitors have been pretty disappointing.\n\nWe've seen personal attacks, bad-faith interpretations of the benchmark, and criticisms that suggest some people haven't actually taken the time to understand what we built.\n\nOne example that stood out:\n\n\"Look, there's underlined text in a table cell, and if our parser misses the underline, the benchmark penalizes us. This is scandalous!\"\n\nWell... yes? If the dataset evaluates underline preservation, missing underlines gets penalized. That's kind of the point.\n\nAnother interesting one: calling for an end to benchmarks, only to release two new closed benchmarks a few days later, while promoting a proprietary \"LLM-as-a-judge\" evaluation that conveniently ranks your own parser first.\n\n(Surprise: vendor preferences can be embedded in evaluation prompts too!)\n\nThere have been dozens of takes like these, often from people who clearly haven't looked into how ParseBench 2 actually works. At times, it's felt more like a coordinated effort to discredit the benchmark than a genuine technical discussion.\n\n[/Rant off]\n\nHere's the thing: every vendor will continue publishing benchmarks. That's how this industry works.\n\nAnd every benchmark, including ours, will have flaws and biases. We naturally measure the things we care about.\n\nThat's fine. It's worth discussing. It doesn't justify personal attacks.\n\nI'll continue taking valid feedback seriously and improving and expanding ParseBench. I genuinely want us to get closer to a fairer, more useful benchmark.\n\nBecause ultimately, I care about the quality of what we ship, not winning a marketing argument.\n\nAnd with ParseBench 2, we actually built some pretty cool things that I think deserve more attention:\n\n1. User-defined evaluation policies\n\nTo our knowledge, ParseBench 2 is the first parsing benchmark that lets users define their own penalty policies, instead of blindly accepting the benchmark creator's preferences (including ours).\n\nTry it: https://t.co/aExXILK3xM\n\nWe're working on making this easier to use, customize, and export.\n\n2. Metrics designed to reflect what actually matters\n\nWe spent a lot of effort making sure different models get a fair evaluation, without unnecessarily penalizing formatting differences or model-specific quirks.\n\nWe also developed a technique to better align scoring metrics with the user's chosen evaluation policy.\n\nThis means we can distinguish between errors based on their actual severity, rather than relying purely on traditional edit-distance metrics that may treat very different mistakes similarly.\n\nYou can explore the metrics, different severity policies, and our analysis of dozens of other benchmarks here:\n\nhttps://t.co/cNuyoE6RVd\n\nI'm genuinely impressed by the technical work coming out of some of our competitors. Some teams are doing incredible things, and I have a lot of respect for that.\n\nI'd love to see more technical discussions, more reproducible evaluations, and less high-school-level drama.\n\nAnyway, back to building.",
+      "zh": "我赞同 @jerryjliu0 的看法。\n\n[吐槽开始]\n\n一些竞争对手对 ParseBench 2 的反应相当令人失望。\n\n我们看到了人身攻击、对基准测试的恶意曲解，还有一些批评，表明某些人根本没有花时间了解我们做了什么。\n\n有个例子尤其突出：\n\n“看，表格单元格里有带下划线的文字，如果我们的解析器漏掉了下划线，基准测试就会扣分。太离谱了！”\n\n嗯……没错啊？如果数据集考查的是下划线保留情况，漏掉下划线当然要扣分。这本来就是测试的目的。\n\n另一个有意思的例子是：一边呼吁停止做基准测试，几天后却又发布两个新的封闭基准测试，同时推广一套专有的“LLM-as-a-judge”评估，恰好把自家解析器排在第一。\n\n（惊不惊喜：评估提示词里也可以夹带厂商偏好！）\n\n类似的言论有几十条，发表者往往明显没有研究过 ParseBench 2 到底如何运作。有时，这更像是一场有组织的抹黑行动，而非真正的技术讨论。\n\n[吐槽结束]\n\n事实是：每家厂商都会继续发布基准测试。这个行业就是这样运作的。\n\n而每个基准测试，包括我们的，都会有缺陷和偏差。我们自然会衡量自己关心的东西。\n\n这没问题，也值得讨论。但这不能成为人身攻击的理由。\n\n我会继续认真对待合理反馈，改进并扩展 ParseBench。我真心希望我们能做出更公平、更实用的基准测试。\n\n因为归根结底，我在乎的是交付成果的质量，而不是赢下一场营销争论。\n\n而且，我们在 ParseBench 2 中确实做出了一些很棒的东西，我认为值得更多关注：\n\n1. 用户自定义评估策略\n\n据我们所知，ParseBench 2 是首个允许用户自行定义扣分策略的解析基准测试，用户无需盲目接受基准创建者的偏好，包括我们的偏好。\n\n试试看：https://t.co/aExXILK3xM\n\n我们正在让它更便于使用、自定义和导出。\n\n2. 反映实际重要性的指标设计\n\n我们投入了大量精力，确保不同模型都能得到公平评估，避免因格式差异或模型自身特点而产生不必要的扣分。\n\n我们还开发了一种方法，让评分指标更好地契合用户选择的评估策略。\n\n这意味着，我们可以根据错误的实际严重程度加以区分，而不是完全依赖传统编辑距离指标，后者可能会对差异很大的错误给出相近的判定。\n\n你可以在这里查看各项指标、不同的严重程度策略，以及我们对其他几十个基准测试的分析：\n\nhttps://t.co/cNuyoE6RVd\n\n一些竞争对手的技术成果确实让我印象深刻。有些团队做得非常出色，我对此十分尊重。\n\n我希望看到更多技术讨论、更多可复现的评估，少一些高中生式的闹剧。\n\n好了，继续干活。",
+      "promptVersion": "codex-v1"
+    },
+    "ff8ea7aa6ddae15289ddfcf4a5be46b961c06847f17205e693a6ed435bd44b7c": {
+      "source": "Check out Code Mode, a new, experimental way for Claude Code to work with tools. Claude writes scripts that chain your tools together in sophisticated ways, and it can answer you while long commands are still running. \n\nOpt in with CLAUDE_CODE_EXPERIMENTAL_CODE_MODE=1 https://t.co/Aj5ofLiK1y",
+      "zh": "来看看 Code Mode，这是 Claude Code 使用工具的一种全新实验性方式。Claude 会编写脚本，以复杂灵活的方式串联你的工具，还能在耗时命令运行期间回复你。\n\n设置 CLAUDE_CODE_EXPERIMENTAL_CODE_MODE=1 即可启用 https://t.co/Aj5ofLiK1y",
+      "promptVersion": "codex-v1"
+    },
+    "08cf8d19732d431730c6111ed582f6d2eaa1baa9110246080007a5e991314f48": {
+      "source": "MiniMax H3 Image ncnn vulkan\n✔️Full BF16, No quant/distil\n✔️4G RAM &amp; 2G VRAM works\n✔️Any Vulkan GPU works\n✔️No CUDA/Torch/Python\n✔️Single tiny binary for Windows/Linux/macOS\n✔️Text-to-image\n✔️Multi-reference image editting\n\nhttps://t.co/LPlb0UJ1LH\n\nhttps://t.co/sud4kGOuF0 https://t.co/KYMnAFJNHU",
+      "zh": "MiniMax H3 Image ncnn vulkan\n✔️全程 BF16，无量化、无蒸馏\n✔️4G 内存、2G 显存即可运行\n✔️支持任何兼容 Vulkan 的 GPU\n✔️无需 CUDA/Torch/Python\n✔️单个小巧的二进制文件，支持 Windows/Linux/macOS\n✔️文生图\n✔️多参考图编辑\n\nhttps://t.co/LPlb0UJ1LH\n\nhttps://t.co/sud4kGOuF0 https://t.co/KYMnAFJNHU",
+      "promptVersion": "codex-v1"
+    },
+    "5cdf0b40598cbca4f45c8dea3ff3dcea7196a3fe886220cddf466cf0a59355d9": {
+      "source": "The world's best motion videos are now open source.\n\nI gave OpenAI's MOTION.md the GPT-6.2 Astra topic, and this is motion porn.\n\n~300 templates from 100+ top companies, open source (Apache 2.0):\n• AI model launches\n• product demos + UI animations\n• brand films + logo reveals\n\nHow to use it:\n1. Open Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot, DeepSeek TUI, WorkBuddy, or 15 more agents\n2. Say: \"Install and set up OpenMotion\" + the GitHub link below👇\n3. Pick a template, or paste any video link",
+      "zh": "全球顶尖的动态设计视频，如今已开源。\n\n我把 GPT-6.2 Astra 这个主题交给 OpenAI 的 MOTION.md，做出来的动效简直是视觉盛宴。\n\n来自 100 多家顶尖公司的约 300 个模板，采用 Apache 2.0 协议开源：\n• AI 模型发布\n• 产品演示 + UI 动画\n• 品牌宣传片 + 标志揭幕动画\n\n使用方法：\n1. 打开 Claude Code、Codex、Cursor、Gemini CLI、GitHub Copilot、DeepSeek TUI、WorkBuddy 或其他 15 种智能体\n2. 输入：“安装并配置 OpenMotion”，再附上下方的 GitHub 链接👇\n3. 选择一个模板，或粘贴任意视频链接",
+      "promptVersion": "codex-v1"
+    },
+    "e78cbfbb3688bc2881cb17db48c8681dba05a2960ff736bbef213e2869996251": {
+      "source": "Meet Allo! 👋\n\nYour friendly neighborhood font, with variable weight and roundness, automatic optical sizing, true obliques, clever and stylish alternates, and loads more thoughtful features and details.\n\nFree &amp; open source: https://t.co/09nncEN9WS https://t.co/WHf86xrMR5",
+      "zh": "认识一下 Allo！👋\n\n这款亲切随和的字体支持可变字重与圆润度、自动光学尺寸调整、真正的倾斜字形、巧妙又时髦的替代字形，还有许多精心设计的功能与细节。\n\n免费开源：https://t.co/09nncEN9WS https://t.co/WHf86xrMR5",
+      "promptVersion": "codex-v1"
+    },
+    "8483280c7f824c7fc2051831511a6359684735807dfbbd02838e62c816b728bc": {
+      "source": "Genie 4 is available! Looks like it is turtles all the way down then… Eligible Ultra subs can try it in Project Genie - excited to see what you’ll build with it. More info in the blog: https://t.co/ZWAi93TesH https://t.co/I0YYMd0ACh",
+      "zh": "Genie 4 已上线！看来真是层层嵌套、无穷无尽了……符合条件的 Ultra 订阅用户可以在 Project Genie 中体验，期待看到你们用它创造的作品。更多信息见博客：https://t.co/ZWAi93TesH https://t.co/I0YYMd0ACh",
+      "promptVersion": "codex-v1"
+    },
+    "78f14184069ac39cd91377bd35afc6807d27ee54088d64be4680e8c28f4860ff": {
+      "source": "Very excited to share Genie 4, our incredible interactive world model, bringing together real-time physics, reasoning, and audio! Simulations within simulations, makes you wonder just how deep the rabbit hole goes... I have a feeling we will be finding out soon enough...",
+      "zh": "非常兴奋地向大家介绍 Genie 4，我们出色的交互式世界模型，融合了实时物理模拟、推理和音频！模拟之中还有模拟，让人不禁好奇，这个兔子洞究竟有多深……我有预感，我们很快就会知道答案……",
+      "promptVersion": "codex-v1"
     }
   },
-  "updatedAt": "2026-11-17T23:32:27.602631+00:00"
+  "updatedAt": "2026-11-18T23:23:14.820725+00:00"
 }
