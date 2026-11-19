@@ -83,6 +83,19 @@ class MobileRadarTests(unittest.TestCase):
             result = radar.fetch_search_full(people, now-timedelta(hours=23), now, 'test', 5, 0, seed)
         self.assertFalse(result['ok'])
 
+    def test_same_window_recovery_requeries_a_failed_batch_with_the_same_handles(self):
+        end = datetime(2026, 10, 27, tzinfo=timezone.utc)
+        start = end - timedelta(hours=23)
+        experts = [radar.Expert('P1', 'AI', 'One', 'research', 'test', 'one')]
+        failed = {'ok': False, 'tweets': [], 'error': 'HTTP 429'}
+        recovered = {'ok': True, 'tweets': [{'id': '1'}]}
+
+        with patch.object(radar, 'fetch_search_batch', return_value=recovered) as fetch:
+            result = radar.fetch_search_full(experts, start, end, 'test', 5, 0, failed)
+
+        fetch.assert_called_once_with(experts, start, 'test', 5, 0, end)
+        self.assertEqual(result, recovered)
+
     def test_same_window_recovery_reuses_only_complete_account_scan(self):
         people = [radar.Expert('P1','AI','One','research','test','one'), radar.Expert('P1','AI','Two','research','test','two')]
         first = {'source':'search', 'ok':True, 'experts':[{'handle':'one'}], 'tweets':[{'id':'1'}]}

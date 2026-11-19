@@ -1000,7 +1000,9 @@ def fetch_search_batch(
 
 def fetch_search_full(experts, cutoff, until, session, max_pages, retries, seed=None):
     """X may end a cursor after 40 hits. Split saturated groups, then time ranges."""
-    result = seed or fetch_search_batch(experts, cutoff, session, max_pages, retries, until)
+    result = seed
+    if not result or not result.get("ok"):
+        result = fetch_search_batch(experts, cutoff, session, max_pages, retries, until)
     if not result.get("ok") or len(result.get("tweets", [])) < 40:
         return result
     if len(experts) > 1:

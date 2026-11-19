@@ -19528,7 +19528,112 @@
       "source": "Very excited to share Genie 4, our incredible interactive world model, bringing together real-time physics, reasoning, and audio! Simulations within simulations, makes you wonder just how deep the rabbit hole goes... I have a feeling we will be finding out soon enough...",
       "zh": "非常兴奋地向大家介绍 Genie 4，我们出色的交互式世界模型，融合了实时物理模拟、推理和音频！模拟之中还有模拟，让人不禁好奇，这个兔子洞究竟有多深……我有预感，我们很快就会知道答案……",
       "promptVersion": "codex-v1"
+    },
+    "2414c586171feeb45e8f76f0b1d92d2da734abceed9b6de8278e8d4e9ae7d06b": {
+      "source": "We think we’ve found a better path to continual post-training: merging models in input space.\n\n🔹 A 256-token soft prompt (~0.01% of params) matches full-parameter RL\n🔹 Plug-and-play composition: prompts trained separately just stack, with no joint training, and the combo beats the experts. No more MOPD!\n🔹 Better OOD generalization, almost no forgetting\n🔹 ~0 inference overhead, even with a different prompt per request. Built for personalization.",
+      "zh": "我们认为，我们找到了一条更好的持续后训练路径：在输入空间中合并模型。\n\n🔹 仅用 256 个 token 的软提示（约占参数量的 0.01%），就能媲美全参数强化学习\n🔹 即插即用的组合：单独训练的提示直接叠加，无需联合训练，组合效果就能超越各个专家模型。再也不需要 MOPD！\n🔹 分布外泛化更好，几乎没有遗忘\n🔹 推理开销几乎为零，即使每个请求使用不同的提示也一样。专为个性化打造。",
+      "promptVersion": "codex-v1"
+    },
+    "232173b6bc4a605ec5265645d7d7ce2f667a5985c8793f579f04e27e387ad8dc": {
+      "source": "Each task keeps its state and findings, so work can pass between agents and engineers and resume after a code review or deployment.\n\nEngineers define the workflow in the task service. A dispatch loop periodically checks which tasks are ready for the next step. It assigns an agent to each task by starting a Codex turn with the instructions for the task’s current state.\n\nFor example, a task waiting on a pull request review can subscribe to review comments. The agent doesn’t need to keep running while an engineer reviews the fix. When a matching comment arrives, the task becomes ready again and the dispatch loop can assign an agent to address the feedback.\n\nAfter deployment, another agent picks up the same task to check whether performance has returned to baseline.",
+      "zh": "每个任务都会保留自身状态和已有发现，因此工作可以在智能体与工程师之间交接，并在代码审查或部署后继续推进。\n\n工程师在任务服务中定义工作流。调度循环会定期检查哪些任务已准备好进入下一步，并为每个任务启动一轮 Codex 交互，传入对应当前状态的指令，从而分配智能体。\n\n例如，等待拉取请求审查的任务可以订阅审查评论。工程师审查修复方案时，智能体无需持续运行。收到符合条件的评论后，任务会重新就绪，调度循环便可分配智能体处理反馈。\n\n部署后，另一个智能体会接手同一任务，检查性能是否已恢复到基线水平。",
+      "promptVersion": "codex-v1"
+    },
+    "b29d5d53a6e173ab35a60edcf5b56ab563ff5d77c5f3e20851fbbbb61b3a6167": {
+      "source": "Automate Anything with Grok Bot",
+      "zh": "用 Grok Bot 自动化处理任何事",
+      "promptVersion": "codex-v1"
+    },
+    "7c3e037d0473c5772fc4f7cc75d3e05e79397f113fd2c487ee5a0707d8c896d4": {
+      "source": "Automation can be surprisingly hard to get right, even for people who do it every day. I’d like to share how I approach it, at work and in my personal life, and how Grok Bot can help you take on more",
+      "zh": "即使每天都在做自动化，要把它做好也可能难得出乎意料。我想分享自己在工作和生活中处理自动化的方法，以及 Grok Bot 如何帮你完成更多事情。",
+      "promptVersion": "codex-v1"
+    },
+    "a9ae0073c47c66045177c46b46eaff8496532ef2c14b57c8457ba9b31c11b2f4": {
+      "source": "In the 1960s, computing was centralized until the PC put power into everyone's hands. Now Al is trained in datacenters and rented back to you token by token.\n\nToday we open source Linger (@HeyLingerAl), your personal agent living on your own computer. \n\nWe believe intelligence should be distributed. Your context, your data, and the intelligence that powers them should be owned entirely by you. \n\nGithub: https://t.co/CS1Rj8H8yJ Homepage: https://t.co/R7clDJdc6i",
+      "zh": "20 世纪 60 年代，计算集中在大型计算中心，直到 PC 将计算能力带到每个人手中。如今，AI 在数据中心训练，再按 token 租给你使用。\n\n今天，我们开源了 Linger（@HeyLingerAl），一个运行在你自己电脑上的个人智能体。\n\n我们相信，智能应该是分布式的。你的上下文、你的数据，以及处理它们的智能，都应完全归你所有。\n\nGithub：https://t.co/CS1Rj8H8yJ 主页：https://t.co/R7clDJdc6i",
+      "promptVersion": "codex-v1"
+    },
+    "476ec84e364c2b0094a87b40eb2ecdfc7cc8fb3a1ee78a3050576433894535c2": {
+      "source": "We've made it even easier to reduce coding agent costs with Unity Gateway! The new Unity Gateway Insights automatically finds cost saving opportunities once you pass your LLM traffic through Unity Gateway, including misconfigured tools/MCPs, off-topic use of coding agents, and opportunities for routing work to smaller models. It works with Claude Code, Codex, GitHub Copilot and any existing agent, on your existing LLM capacity. Just pass the traffic through Unity Gateway and hit analyze to get a report.\n\nWe're continually updating this product with new cost saving opportunities we find internally at Databricks (e.g. wasteful Claude settings) and in our work with customers.\n\nhttps://t.co/yQxPHDH3Y9",
+      "zh": "我们让通过 Unity Gateway 降低编程智能体成本变得更简单了！只需将 LLM 流量接入 Unity Gateway，全新的 Unity Gateway Insights 就会自动发现节省成本的机会，包括配置不当的工具/MCP、将编程智能体用于无关任务，以及可以交给更小模型处理的工作。它支持 Claude Code、Codex、GitHub Copilot 及任何现有智能体，可直接使用你现有的 LLM 资源。只需将流量接入 Unity Gateway，再点击分析，即可获取报告。\n\n我们持续将 Databricks 内部及客户合作中发现的新节省机会加入产品，例如造成浪费的 Claude 设置。\n\nhttps://t.co/yQxPHDH3Y9",
+      "promptVersion": "codex-v1"
+    },
+    "e549b4770018797abc164a43305bcd3a1ca20a97a854d840910800ff27690bae": {
+      "source": "Today we’re launching a new Netlify. New brand, new website, new app experience, rebuilt from first principles.\n\nIt’s the biggest change in our decade-long history, and it comes from a bet we made on ourselves.\n\nThis is just the beginning.\n\nhttps://t.co/DpuU1WAIu0",
+      "zh": "今天，我们推出焕然一新的 Netlify。全新品牌、全新网站、全新应用体验，一切从第一性原理出发重新打造。\n\n这是我们十年历史中最大的一次变革，源于我们对自身的一次押注。\n\n这仅仅是开始。\n\nhttps://t.co/DpuU1WAIu0",
+      "promptVersion": "codex-v1"
+    },
+    "e5eaa6409abdd4a06c811e14e28f0b10908cdfc0bd48af275b11af480347abba": {
+      "source": "New skill: modern-web-guidance\n\nYour agent looks up Chrome's Modern Web Guidance, applies it to your code, then checks the result in a real browser\n\nLayout shift, reduced motion, dark mode, dialog focus, more\n\nStart here:\nnpx skills add vercel-labs/agent-browser https://t.co/SObV8fLNzh",
+      "zh": "新技能：modern-web-guidance\n\n你的智能体会查阅 Chrome 的 Modern Web Guidance，将其中的指导应用到代码中，再在真实浏览器里检查结果。\n\n涵盖布局偏移、减少动态效果、深色模式、对话框焦点等。\n\n从这里开始：\nnpx skills add vercel-labs/agent-browser https://t.co/SObV8fLNzh",
+      "promptVersion": "codex-v1"
+    },
+    "6bafd2a3d434840d6c4e74a573574f164077fe274f4c0706a3921dade55feaea": {
+      "source": "Android's source code is huge. 1k git repos, 1.62 million files, and it takes 300GB for a built workspace.\n\nHow did we reduce checkout time from 36 minutes to 8 seconds? Full builds from 80 minutes to 2 minutes?\n\nWe just open sourced the solution.\nhttps://t.co/8lcqRmd5FI https://t.co/zEMmPATKgL",
+      "zh": "Android 的源代码规模庞大：1000 个 git 仓库、162 万个文件，构建后的工作区占用 300GB。\n\n我们如何将代码检出时间从 36 分钟缩短到 8 秒，将完整构建时间从 80 分钟缩短到 2 分钟？\n\n我们刚刚开源了这套解决方案。\nhttps://t.co/8lcqRmd5FI https://t.co/zEMmPATKgL",
+      "promptVersion": "codex-v1"
+    },
+    "bf6700ee2284c06815d34b6d00310043108f57699dfeab998f271e6b9a8fdb0a": {
+      "source": "Our code throughput has increased by 11x in the past year, so we’ve had to quickly evolve how we keep our apps secure \n\nhttps://t.co/aahyqGDTKV",
+      "zh": "过去一年，我们的代码产出量增至原来的 11 倍，因此必须迅速改进应用安全保障方式。\n\nhttps://t.co/aahyqGDTKV",
+      "promptVersion": "codex-v1"
+    },
+    "e26480c24d6023d7a40ba602f75f284a97e18408d15cc8c18e1c43b5107bff80": {
+      "source": "Sharing new research on self-improving skills in Perplexity Computer. Brain, which already maintains a knowledge wiki about your work, now also writes and updates agent skills for you based on your past sessions. An improvement agent reads the full session trajectories (tool calls, reasoning, results), finds recurring patterns, and only proposes a new skill or an update when there’s enough evidence. Built-in skills that every user gets go through paired replay on failure scenarios and engineer review before any change goes live. In an 8-week randomized test on production traffic, 72.9% of users got at least one new personal skill vs 6.5% who added one manually. Tool call failures dropped 11% and dissatisfied threads dropped 7.6%, with no measurable change in cost or latency.",
+      "zh": "分享一项关于 Perplexity Computer 技能自我改进的新研究。Brain 原本就会维护记录你工作内容的知识 Wiki，现在还能根据过往会话，为你编写和更新智能体技能。改进智能体会读取完整的会话轨迹（工具调用、推理和结果），识别反复出现的模式，并且只在证据充分时才提出新增或更新技能。所有用户共享的内置技能，在任何变更上线前，都要针对失败场景进行配对回放测试，并接受工程师审核。在一项基于生产流量、持续 8 周的随机试验中，72.9% 的用户获得了至少一项新的个人技能，而手动添加技能的用户比例仅为 6.5%。工具调用失败减少了 11%，用户不满意的对话减少了 7.6%，成本和延迟则没有可测量的变化。",
+      "promptVersion": "codex-v1"
+    },
+    "719ce51d87d998cbecd90313dddb0d97b3e0fc3540e4056c2d40ba2985e3b37d": {
+      "source": "Computer's personalized self-improvement agent, Brain, now automatically creates self-improving agent skills for you.\n\nBrain learns how you work from past sessions and memory, then writes and updates personalized skills for future tasks. https://t.co/6SUi3AakVi",
+      "zh": "Computer 的个性化自我改进智能体 Brain，现在会自动为你创建能够持续自我改进的智能体技能。\n\nBrain 会结合过往会话和记忆，学习你的工作方式，进而编写和更新个性化技能，用于今后的任务。https://t.co/6SUi3AakVi",
+      "promptVersion": "codex-v1"
+    },
+    "15d33d868b63f70424b4a13c3274fb7da981929e1bcef5c5ef6c89161cc0be1c": {
+      "source": "Gemini 4 Neon: frontier-level intelligence with fast end-to-end task completion across complex software engineering, knowledge work, and science workflows.\n\nBegins rolling out today in the Gemini API in @GoogleAIStudio, Gemini for business, for paid Google AI Pro and Ultra subscribers in Google @Antigravity, and for Google AI Pro and Ultra subscribers in the @GeminiApp.",
+      "zh": "Gemini 4 Neon：具备前沿水平的智能，能够在复杂软件工程、知识工作和科学工作流中，快速完成端到端任务。\n\n即日起陆续向以下渠道和用户开放：@GoogleAIStudio 中的 Gemini API、Gemini for business、Google @Antigravity 中的 Google AI Pro 和 Ultra 付费订阅用户，以及 @GeminiApp 中的 Google AI Pro 和 Ultra 订阅用户。",
+      "promptVersion": "codex-v1"
+    },
+    "49fe8d6c9bcafd64231cbf085cce68c8f979f4460b14babbc359c1a45d5134a1": {
+      "source": "Building a great benchmark is challenging, building a perfect benchmark is near impossible. This especially holds true in the world of document parsing.\n\nI wrote a blog post that details the core design criteria needed for a document parsing benchmark, and the historical attempts to get there - from those based on static deterministic metrics to LLM as a judge approaches.\n\nBuilding a “great” benchmark requires at least the following:\n1. Representative data\n2. Granularity\n3. Quantifiable\n4. Repeatable\n5. Controllable\n6. Aligned with human judgment\n\nExisting benchmarks based on deterministic metrics are oftentimes granular/repeatable, but not controllable or aligned with human judgment. Those based on LLM as a judge are not granular, quantifiable, repeatable, and can obscure how human judgment is encoded.\n\nLast week we launched ParseBench-2 in an attempt to tackle all of these dimensions. It contains a taxonomy of metrics across 6 dimensions (tables, charts, layout, formatting, text, and forms) that precisely measure document parsing failures and quantifies their impact. It’s certainly not perfect, but does make an honest attempt towards advancing every design criteria. It’s also designed to be customizable by the user (see our metric lab!)\n\nWe’re rapidly shipping new iterations of this benchmark to improve annotations, metric quality, and customizability. If you do check it out, would love to hear your thoughts.\n\nBlog: https://t.co/NAchVsDfVC\n\nParseBench-2: https://t.co/PWczfhp0OX",
+      "zh": "打造优秀的基准测试很难，打造完美的基准测试则几乎不可能。在文档解析领域尤其如此。\n\n我写了一篇博客，详细介绍文档解析基准测试的核心设计标准，以及以往为实现这些标准所做的尝试——从基于静态确定性指标的方法，到由 LLM 担任评判的方法。\n\n一套“优秀”的基准测试至少需要满足以下条件：\n1. 数据具有代表性\n2. 评估粒度足够细\n3. 可量化\n4. 可重复\n5. 可控\n6. 与人类判断一致\n\n现有基于确定性指标的基准测试，往往粒度够细、可重复，但缺乏可控性，也难以与人类判断一致。由 LLM 担任评判的基准测试，则缺乏细粒度、可量化和可重复的评估，也可能让人难以看清人类判断是如何被编码进评估体系的。\n\n上周，我们推出了 ParseBench-2，尝试兼顾上述所有要求。它建立了覆盖 6 个维度（表格、图表、版面、格式、文本和表单）的指标分类体系，精确衡量文档解析错误，并量化其影响。它当然并不完美，但确实认真尝试在每项设计标准上取得进步。它还支持用户自定义（欢迎看看我们的指标实验室！）。\n\n我们正在快速迭代这套基准测试，改进标注、指标质量和可定制性。如果你试用了，欢迎分享想法。\n\n博客：https://t.co/NAchVsDfVC\n\nParseBench-2：https://t.co/PWczfhp0OX",
+      "promptVersion": "codex-v1"
+    },
+    "3f06e6a2f97a3ade8fae4bc817a2f8ffc30d8652223c6dc9bad3b70ae7742023": {
+      "source": "ParseBench has been cited by NVIDIA, Cohere and Perplexity. It still isn’t a perfect benchmark.\n\nPart of getting closer meant owning where ParseBench-1 got things wrong. On one McDonald’s financial statement, it scored a parser that broke a dollar amount above one that got every number right.\n\nSo for ParseBench-2, we changed how we build the metric. We decide how much each kind of error should matter first, then test and tune the scoring until it agrees.\n\n→ 330 perturbation types to check that scores move by the right amount\n→ 4,317 pages across six dimensions, now including forms\n→ Full reference tables for all 1,025 charts\n→ A Metric Lab to set scoring priorities for your own workload\n\nThere’s still more to do, and we wanted to be open about that too.\n\nRead more about how we’re building toward a perfect document parsing benchmark in the reply below.",
+      "zh": "ParseBench 已被 NVIDIA、Cohere 和 Perplexity 引用，但它仍不是一套完美的基准测试。\n\n要更接近这个目标，就得先承认 ParseBench-1 的不足。在一份麦当劳财务报表上，它给一个解析错美元金额的解析器打出的分数，竟然高于另一个正确解析所有数字的解析器。\n\n因此，在 ParseBench-2 中，我们改变了指标构建方式：先确定每类错误应有多大影响，再测试并调整评分，直到评分符合这一设定。\n\n→ 330 种扰动类型，用于检查分数变化幅度是否合理\n→ 4,317 页文档，覆盖六个维度，现已包含表单\n→ 为全部 1,025 张图表提供完整的参考数据表\n→ 提供 Metric Lab，可根据自己的工作负载设置评分优先级\n\n还有很多工作要做，我们也希望坦诚说明这一点。\n\n下方回复中介绍了我们如何朝着完美的文档解析基准测试迈进，欢迎阅读。",
+      "promptVersion": "codex-v1"
+    },
+    "16685c24bbf65d4888f9ee07c8d1c2755dc0a015118d0dc835c8d41dccc8aad3": {
+      "source": "Everyone’s reacting to “256 tokens matches full-parameter RL.” Fair. But the result that would change how I build a serving stack is the one further down the thread.\n\nA different adapter per request, throughput within 1.5% of the bare model, 2.40× LoRA, P95 TTFT down 56%.\n\nHere’s why that number is the interesting one. Per-request customization has always been possible and always been expensive. With LoRA you’re swapping weights, which means your batch is no longer one model. You either group requests by adapter and pay in queueing delay, or you fuse at runtime and pay in throughput. Either way, personalization becomes a scheduling constraint, and scheduling constraints are what kill serving efficiency.\n\nA soft prompt doesn’t have this problem, because it isn’t a weight at all. It’s tokens. The model is bit-identical across every request in the batch, and the per-user part lives in the prefix, where your serving stack already has machinery: prefix caching, continuous batching, all of it applies unchanged. You don’t need a new system. You need the thing you already built to stop treating customization as a special case.\n\nThat reframes the economics. Today, per-user adaptation is a feature you ration, offered to enterprise tiers because the serving cost is real. If the marginal cost genuinely approaches zero, it stops being a tier and becomes a default. Every user gets their own prefix. Every agent gets its own.\n\nTwo things I’d want to see before believing it at scale: how the prefix cost behaves as you stack more experts, since four concatenated prompts is already 1K tokens of every context window and that’s not free at long context, and whether composition stays additive at ten experts or starts interfering. The curve from 50.4 to 67.7 is four points on a line. I’d like to see where it bends.\n\nBut if it holds, continual post-training stops being a retraining problem and becomes a serving problem. That’s a much better problem to have. Congrats @zhenzhangzz and team.",
+      "zh": "大家都在讨论“256 个 token 就能媲美全参数 RL”。这很正常。但真正会改变我构建推理服务架构方式的，是这串帖子后面的一项结果。\n\n每个请求使用不同的适配器，吞吐量与原始模型的差距不超过 1.5%，达到 LoRA 的 2.40 倍，P95 首 token 延迟（TTFT）降低 56%。\n\n这组数字为什么值得关注？按请求定制一直做得到，但成本也一直很高。使用 LoRA 时需要切换权重，这意味着同一个批次里不再只有一个模型。你要么按适配器将请求分组，付出排队延迟的代价；要么在运行时融合，牺牲吞吐量。无论哪种方式，个性化都会成为调度约束，而调度约束正是推理服务效率的杀手。\n\n软提示没有这个问题，因为它根本不是权重，而是 token。同一批次中的所有请求，使用的模型在比特层面完全一致；用户专属的部分放在前缀里，而推理服务架构早已有相应机制：前缀缓存、连续批处理，都可以直接沿用。你不需要一套新系统，只需要让现有系统不再将定制视为特殊情况。\n\n这改变了成本逻辑。如今，按用户适配是一项需要限量提供的功能，通常只向企业级用户开放，因为推理服务成本确实存在。如果边际成本真的趋近于零，它就不再是某个套餐等级的专属功能，而会成为默认配置。每个用户都有自己的前缀，每个智能体也一样。\n\n在相信它能大规模应用之前，我还想看到两点：一是叠加更多专家时，前缀成本会如何变化。毕竟拼接四个提示就已经占用每个上下文窗口中的 1K token，在长上下文场景下，这并非没有代价。二是组合到十个专家时，效果是否仍能叠加，还是会开始相互干扰。从 50.4 到 67.7 的曲线，目前只有一条线上的四个点。我想看看它会在哪里出现拐点。\n\n但如果这个结果成立，持续后训练就会从重新训练问题，转变为推理服务问题。后者要好解决得多。祝贺 @zhenzhangzz 和团队。",
+      "promptVersion": "codex-v1"
+    },
+    "c385bb5039f273050a021ecfd0a4c12a5e484b46058a8855d7365524389f10d2": {
+      "source": "We launched the Context API yesterday and a feedback given to us by @tobi was to have decision models check for prompt injection and other forms of filtering. Basically a safe fetch for agents with scores based on custom criteria. We’ve shipped that today by integrating Perplexity Decider with our Context API.",
+      "zh": "我们昨天推出了 Context API，@tobi 给我们的一条反馈是，让决策模型检测提示词注入，并执行其他过滤。简单来说，就是为智能体提供安全的内容抓取，并按自定义标准评分。今天，我们已将 Perplexity Decider 集成到 Context API，上线了这项功能。",
+      "promptVersion": "codex-v1"
+    },
+    "031ba6c8ac09fa63ee3d7de185f3fe1c9477e2a6d9c98fe930546a60f70eaab7": {
+      "source": "We've added Decider to the Context API.\n\nAsk yes/no questions about the pages Context fetches, and Decider scores each one from 0 to 1.\n\nUse it to check pages for prompt injection before your agent reads them. https://t.co/OVYfX1dbYr",
+      "zh": "我们已将 Decider 加入 Context API。\n\n针对 Context 抓取的页面提出是非问题，Decider 就会为每个页面给出 0 到 1 的评分。\n\n可以用它在智能体读取页面前，检测其中是否存在提示词注入。https://t.co/OVYfX1dbYr",
+      "promptVersion": "codex-v1"
+    },
+    "2b119099cefcd7d963acfce11c69c8a52b018664c4318f3ba70beb10e5f26694": {
+      "source": "It's been nearly 6 months since I posted a 'watch me work' deep dive on my skills.\n\nSince then, they've become the most-starred skills repo in the world.\n\nSo, here's 70 minutes of me building a 21,000-line PR, especially focusing on:\n\n- DDD with /grill-with-docs\n- Improving your codebase with /retro\n- How to do human review effectively\n\nEnjoy!",
+      "zh": "距离我上次发布展示这些 skills 实际使用过程的深度视频，已经快 6 个月了。\n\n此后，它们所在的仓库已成为全球获星最多的 skills 仓库。\n\n这次带来一段 70 分钟的视频，展示我如何完成一个涉及 21,000 行代码的 PR，重点包括：\n\n- 使用 /grill-with-docs 进行 DDD\n- 使用 /retro 改进代码库\n- 如何高效开展人工审查\n\n祝观看愉快！",
+      "promptVersion": "codex-v1"
+    },
+    "456314c49017520cb091f222ac79bfe5720e9e834e44144c990122a3a3de68dd": {
+      "source": "@theo Try this in codex\n\n&gt; Add this to my custom instructions \"Talk to me ELI5 by default and go deeper if I ask.\"\n\nbut also, team is on it.",
+      "zh": "@theo 试试在 codex 中这样说：\n\n&gt; 将这句话加入我的自定义指令：“默认用给五岁孩子讲解的方式向我解释；如果我追问，再深入展开。”\n\n另外，团队也在着手改进。",
+      "promptVersion": "codex-v1"
+    },
+    "2cb11bcd66d317b8c273b16faa3e8bc79a21bea1cbbd3acabbb2c2811df5f703": {
+      "source": "Autonomous, uncut, 1x speed. This is GR00T 2 controlling real dexterous hands, end to end. https://t.co/0a6g27fnDq",
+      "zh": "自主操作、未经剪辑、原速播放。这是 GR00T 2 端到端控制真实灵巧手的演示。https://t.co/0a6g27fnDq",
+      "promptVersion": "codex-v1"
     }
   },
-  "updatedAt": "2026-11-18T23:23:14.820725+00:00"
+  "updatedAt": "2026-11-19T23:37:10.365478+00:00"
 }
